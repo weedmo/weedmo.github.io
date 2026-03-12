@@ -1,0 +1,10 @@
+Mission
+
+1. srvice 이름을 minimal_service --> motor_start 로 변경한다.
+2. 모터의 입력값은 a, b값을 
+motor_left, motor_right 로 표현하고 상태정보를 출력하는 프로그래밍을 작성
+3. py_srvcli 코드에서 수정되는 부분을 교육생분들이 선택,
+a =1, b=1일경우 start a=2, b=2일경우 stop
+
+4. 최종 코드는 첨부 폴더 참고
+

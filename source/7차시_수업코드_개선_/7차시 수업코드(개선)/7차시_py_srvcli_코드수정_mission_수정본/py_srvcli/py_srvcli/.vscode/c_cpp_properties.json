@@ -1,0 +1,23 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/opt/ros/humble/include/**",
+        "/home/rokey/ros2_ws/Ref/ros2-seminar-examples-main/tf2_rclcpp_example/include/**",
+        "/home/rokey/ros2_ws/Ref/ros2-seminar-examples-main/topic_service_action_rclcpp_example/include/**",
+        "/home/rokey/ros2_ws/src/ros_study_msgs/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}
