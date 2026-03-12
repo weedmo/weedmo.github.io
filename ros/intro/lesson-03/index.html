@@ -1,0 +1,6201 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ROS2 & AI Study Materials">
+      
+      
+      
+        <link rel="canonical" href="https://weedmo.github.io/ros/intro/lesson-03/">
+      
+      
+        <link rel="prev" href="../lesson-02/">
+      
+      
+        <link rel="next" href="../lesson-04/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>03. 노드와 토픽 - weedmo notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ros2-3-1" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../.." title="weedmo notes" class="md-header__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            weedmo notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              03. 노드와 토픽
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="다크 모드"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="라이트 모드"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ROS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ai/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="weedmo notes" class="md-nav__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    weedmo notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    입문 (Introduction)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    입문 (Introduction)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. ROS2 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 개발환경
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 노드와 토픽
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 노드와 토픽
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인터페이스프로그래밍(응용_1)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        토픽퍼블리셔/ 토픽서브스크라이버
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Argument 클래스설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QoS 설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ararithmetic_argument_publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ararithmetic_argument_publisher 선언
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create_timer-1publish_random_arithmetic_arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_timer 함수를이용하여1초마다publish_random_arithmetic_arguments 함수실행설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create_publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_publisher에서의설정들은퍼블리시를위한기본설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publish_random_arithmetic_arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실제토픽발행이이루어지는부분은publish_random_arithmetic_arguments 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publish_random_arithmetic_arguments_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        publish_random_arithmetic_arguments 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetic_argument_publisherpublishmsg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        arithmetic_argument_publisher.publish(msg) 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로그출력
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        토픽퍼블리셔
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        토픽서브스크라이버
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이번목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entry_points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        entry_points 설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        노드파일경로
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        argument 노드
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calculator 노드초기화
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multithreadedexecutor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MultiThreadedExecutor 설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        콜백함수의병렬처리설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        executor와노드실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종료처리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculator_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calculator 노드초기화
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        서비스서버설정코드
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        콜백함수역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_arithmetic_operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_arithmetic_operator 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        함수의역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        연산과정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculate_given_formula-ab-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calculate_given_formula 함수와같이인수a와b, 그리고연산자(operator)를가지고
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operator 클래스초기화
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetic_service_client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        arithmetic_service_client 설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wait_for_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wait_for_service 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        서비스클라이언트의목적: 서비스서버에게연산에필요한연산자를전달
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmeticoperatorrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        서비스요청설정: 서비스인터페이스ArithmeticOperator.Request() 클래스로
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_request 함수: 실질적인서비스클라이언트의실행코드로서비스요청값을서버에
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#call_asyncselfrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        call_async(self.request) 함수로서비스요청수행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#futures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        서비스상태및응답값을담은futures를반환
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operator_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        operator 노드(서비스클라이언트노드)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetic_action_server-rclpyaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        arithmetic_action_server : rclpy.action
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이러한설정들은액션서버를위한기본
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goal_handle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        goal_handle 매개변수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ## ## ##
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        •
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        피드백값은디버깅을위해
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션목표를달성했다는상태전환함수인
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#all_formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션결과값인all_formula에계산식전체
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculator_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션서버인calculator 노드는토픽서브
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        해당코드에대한설명은토픽프로그래밍
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checker 클래스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션클라이언트에서수행하는액션목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        여기서는예시를위해액션목표를main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rclpyactionactionclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rclpy.action모듈의ActionClient 클래스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send_goal_total_sum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_goal_total_sum 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션클라이언트가액션서버에연결
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#while" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        연결에문제가있을때에while문을
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션메시지설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        비동기액션전송및피드백설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션결과수신설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션피드백값콜백함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션상태값콜백함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        앞서지정한"액션결과값콜백함수"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status_succeeded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        상태값이STATUS_SUCCEEDED 일때
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checker_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션클라이언트노드인checker 노드는
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이와같이argument, operator,
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        main 함수실행코드:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argsgoal_total_sum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실행인자(args.goal_total_sum) 사용
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        콜백함수실행및유지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종료및자원해제
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        argument 노드에서파라미터를선언하고파라미터값이변경되는함수에대해
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument-ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Argument 클래스의생성자부분에서다음과같은코드가있다. ROS2에서파라
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1declare_parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1번의declare_parameter 함수는노드에서사용할파라미터의고유이름을지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2get_parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2번의get_parameter 함수는노드에서사용할파라미터의파라미터고유이름
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3add_on_set_parameters_callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3번의add_on_set_parameters_callback 함수는서비스형태로파라미터변경
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        파라미터선언및초기설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        파라미터변경요청처리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument-qos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        argument 노드에서는파라미터값으로QoS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#min_random_num-max_random_num" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        min_random_num 값과max_random_num
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        앞설명에서는CLI를이용하여파라미터를조회하고, 변경하고읽는실습을진행했다.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        여기서클라이언트를선언하고서비스를요청하는방식은기존의서비스클라이언트
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-launchpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        참고로새롭게지정된.yaml 파일및.launch.py 파일을
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        launch 파일에특정파라미터파일을추가하면, 노드를실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실행인자
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-run-ex_calculator-checker-g-100" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예시: $ ros2 run ex_calculator checker –g 100
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameterargument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        참고로파라미터(parameter)는매개변수로풀이하고아규먼트(argument)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python(인수무시할때)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python(인수사용할때)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실행인자구문
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2에서노드실행:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xml-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이강좌에서는기존XML 방식보다더활용도가높은Python 방식을다룸
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-launch-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 Launch System에대한더자세한설명은참고자료문서및코드를참고
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        새로운런치파일생성:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        launch 파일생성방법
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        launch 파일의기본구조:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmeticlaunchpy-launchconfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        'arithmetic.launch.py' 파일의LaunchConfiguration 설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remappings 기능(원본코드에는존재하지않음) :
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launchnamespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        launch의namespace 기능:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        namespace 설정방법
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate_launch_description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generate_launch_description 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이렇게구성하면예제와같이좀더
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        런치파일에서다른런치파일불러오기:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        다른패키지의런치파일불러오기:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        런치파일모듈화의장점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch 파일사용을위한설치필요성:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언어에따른Launch 파일설정방법:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rclpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rclpy 패키지계열
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2cli-ros2-launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        런치파일을실행하려면ROS2의CLI 명령어중'ros2 launch'를사용하며사용방법
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        위강좌에서설명한예제파일을실행시키려면다음과같이사용가능
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex_calculator-arithmeticlaunchpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        즉ex_calculator 패키지의arithmetic.launch.py 런치파일을실행시키라는의미
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이를실행시키면위에서설명한것처럼파라미터파일을공유하여사용하게되며
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jupyter-notebooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jupyter Notebooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Jupyter Notebooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#triangle_turtle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        triangle_turtle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#turtlesimtultle_move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        turtlesim/tultle_move/
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="turtlesim/tultle_move/">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#turtlesimtultle_movetultle_move__init__py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        turtlesim/tultle_move/tultle_move/__init__.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turtlesimtultle_movetultle_movedist_turtle_action_serverpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        turtlesim/tultle_move/tultle_move/dist_turtle_action_server.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turtlesimtultle_movetultle_movemulti_threadpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        turtlesim/tultle_move/tultle_move/multi_thread.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 서비스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 액션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. 런치파일
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. Pub/Sub & Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08. 로봇시스템
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09. 카메라 & API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 로봇과 리눅스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 네트워크와 통신
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 센서와 로봇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. ROS2 실습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Topic/Service/Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 (Practice)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    실습 (Practice)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-01-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 01-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-04-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 04-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-05-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 05-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 (Projects)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    프로젝트 (Projects)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/rviz2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RVIZ2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/gazebo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gazebo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시뮬레이션 협업
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/aruco-conveyor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ArUco 마커 & 컨베이어벨트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/autonomous-driving/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    자율주행 디지털트윈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/thread-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쓰레드와 데이터베이스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    코드 참고 (Code Reference)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    코드 참고 (Code Reference)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/turtlesim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turtlesim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/pubsub-qos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pub/Sub & QoS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/srvcli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service/Client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/robot-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera Pub/Sub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/hangman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hangman Game
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/urdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URDF & Xacro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/opencv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenCV (Hough)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/point-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Point Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/lane-detect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lane Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/qt-plugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qt Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/rqt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RQT Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/ros2env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 환경설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/python-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/pytorch-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch 입문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/neural-network-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    신경망 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    딥러닝 (분류/회귀)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/cnn-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CNN 아키텍처
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/object-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    객체 탐지
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/sequence-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시퀀스 모델 (RNN/LSTM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/vision-transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    응용 (Applied)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    응용 (Applied)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/computer-vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컴퓨터비전 (OpenCV)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/advanced-cv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    고급 CV (Tracking/Detection)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/generative-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    생성 모델 (GAN/NeRF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/explainable-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explainable AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/medical-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    의료 AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/reinforcement-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    강화학습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        인터페이스프로그래밍(응용_1)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        토픽퍼블리셔/ 토픽서브스크라이버
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Argument 클래스설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QoS 설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ararithmetic_argument_publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ararithmetic_argument_publisher 선언
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create_timer-1publish_random_arithmetic_arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_timer 함수를이용하여1초마다publish_random_arithmetic_arguments 함수실행설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create_publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_publisher에서의설정들은퍼블리시를위한기본설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publish_random_arithmetic_arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실제토픽발행이이루어지는부분은publish_random_arithmetic_arguments 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#publish_random_arithmetic_arguments_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        publish_random_arithmetic_arguments 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetic_argument_publisherpublishmsg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        arithmetic_argument_publisher.publish(msg) 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로그출력
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        토픽퍼블리셔
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        토픽서브스크라이버
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이번목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#entry_points" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        entry_points 설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        노드파일경로
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        argument 노드
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calculator 노드초기화
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multithreadedexecutor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MultiThreadedExecutor 설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        콜백함수의병렬처리설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#executor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        executor와노드실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종료처리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculator_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calculator 노드초기화
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        서비스서버설정코드
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        콜백함수역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get_arithmetic_operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_arithmetic_operator 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        함수의역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        연산과정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculate_given_formula-ab-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        calculate_given_formula 함수와같이인수a와b, 그리고연산자(operator)를가지고
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operator 클래스초기화
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetic_service_client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        arithmetic_service_client 설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wait_for_service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wait_for_service 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        서비스클라이언트의목적: 서비스서버에게연산에필요한연산자를전달
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmeticoperatorrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        서비스요청설정: 서비스인터페이스ArithmeticOperator.Request() 클래스로
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send_request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_request 함수: 실질적인서비스클라이언트의실행코드로서비스요청값을서버에
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#call_asyncselfrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        call_async(self.request) 함수로서비스요청수행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#futures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        서비스상태및응답값을담은futures를반환
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operator_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        operator 노드(서비스클라이언트노드)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetic_action_server-rclpyaction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        arithmetic_action_server : rclpy.action
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이러한설정들은액션서버를위한기본
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#goal_handle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        goal_handle 매개변수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ## ## ##
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        •
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        피드백값은디버깅을위해
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션목표를달성했다는상태전환함수인
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#all_formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션결과값인all_formula에계산식전체
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calculator_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션서버인calculator 노드는토픽서브
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        해당코드에대한설명은토픽프로그래밍
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checker 클래스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션클라이언트에서수행하는액션목표
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        여기서는예시를위해액션목표를main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rclpyactionactionclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rclpy.action모듈의ActionClient 클래스
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send_goal_total_sum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        send_goal_total_sum 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션클라이언트가액션서버에연결
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#while" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        연결에문제가있을때에while문을
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션메시지설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        비동기액션전송및피드백설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션결과수신설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션피드백값콜백함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션상태값콜백함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        앞서지정한"액션결과값콜백함수"
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status_succeeded" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        상태값이STATUS_SUCCEEDED 일때
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checker_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션클라이언트노드인checker 노드는
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument-operator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이와같이argument, operator,
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#main_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        main 함수실행코드:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argsgoal_total_sum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실행인자(args.goal_total_sum) 사용
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        콜백함수실행및유지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        종료및자원해제
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        argument 노드에서파라미터를선언하고파라미터값이변경되는함수에대해
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument-ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Argument 클래스의생성자부분에서다음과같은코드가있다. ROS2에서파라
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1declare_parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1번의declare_parameter 함수는노드에서사용할파라미터의고유이름을지
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2get_parameter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2번의get_parameter 함수는노드에서사용할파라미터의파라미터고유이름
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3add_on_set_parameters_callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3번의add_on_set_parameters_callback 함수는서비스형태로파라미터변경
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        파라미터선언및초기설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        파라미터변경요청처리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#argument-qos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        argument 노드에서는파라미터값으로QoS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#min_random_num-max_random_num" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        min_random_num 값과max_random_num
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        앞설명에서는CLI를이용하여파라미터를조회하고, 변경하고읽는실습을진행했다.
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        여기서클라이언트를선언하고서비스를요청하는방식은기존의서비스클라이언트
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yaml-launchpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        참고로새롭게지정된.yaml 파일및.launch.py 파일을
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        launch 파일에특정파라미터파일을추가하면, 노드를실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실행인자
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-run-ex_calculator-checker-g-100" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        예시: $ ros2 run ex_calculator checker –g 100
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#parameterargument" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        참고로파라미터(parameter)는매개변수로풀이하고아규먼트(argument)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python(인수무시할때)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python(인수사용할때)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        실행인자구문
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2에서노드실행:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xml-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이강좌에서는기존XML 방식보다더활용도가높은Python 방식을다룸
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-launch-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 Launch System에대한더자세한설명은참고자료문서및코드를참고
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        새로운런치파일생성:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        launch 파일생성방법
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        launch 파일의기본구조:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmeticlaunchpy-launchconfiguration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        'arithmetic.launch.py' 파일의LaunchConfiguration 설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remappings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        remappings 기능(원본코드에는존재하지않음) :
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launchnamespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        launch의namespace 기능:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        namespace 설정방법
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#generate_launch_description" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generate_launch_description 함수
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이렇게구성하면예제와같이좀더
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        런치파일에서다른런치파일불러오기:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        다른패키지의런치파일불러오기:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        런치파일모듈화의장점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Launch 파일사용을위한설치필요성:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#launch_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        언어에따른Launch 파일설정방법:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rclpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rclpy 패키지계열
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2cli-ros2-launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        런치파일을실행하려면ROS2의CLI 명령어중'ros2 launch'를사용하며사용방법
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        위강좌에서설명한예제파일을실행시키려면다음과같이사용가능
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ex_calculator-arithmeticlaunchpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        즉ex_calculator 패키지의arithmetic.launch.py 런치파일을실행시키라는의미
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이를실행시키면위에서설명한것처럼파라미터파일을공유하여사용하게되며
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jupyter-notebooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jupyter Notebooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Jupyter Notebooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#triangle_turtle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        triangle_turtle
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#turtlesimtultle_move" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        turtlesim/tultle_move/
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="turtlesim/tultle_move/">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#turtlesimtultle_movetultle_move__init__py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        turtlesim/tultle_move/tultle_move/__init__.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turtlesimtultle_movetultle_movedist_turtle_action_serverpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        turtlesim/tultle_move/tultle_move/dist_turtle_action_server.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#turtlesimtultle_movetultle_movemulti_threadpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        turtlesim/tultle_move/tultle_move/multi_thread.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="네비게이션" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    ROS
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../lesson-01/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    입문 (Introduction)
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ros2-3-1">ROS2 입문 3차시 - 인터페이스 프로그래밍 (1)<a class="headerlink" href="#ros2-3-1" title="Permanent link">&para;</a></h1>
+<h2 id="_1">인터페이스프로그래밍(응용_1)<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_2">토픽퍼블리셔/ 토픽서브스크라이버<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">소스코드 참조</p>
+<p>이 코드의 전체 내용은 <a href="../../code-ref/calculator/">Calculator 프로젝트 전체 소스코드</a> 페이지에서 확인할 수 있습니다.</p>
+</div>
+<h2 id="argument">Argument 클래스설정<a class="headerlink" href="#argument" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Node클래스를rclpy.node 모듈에서 상속</li>
+<li>생성자에'argument'라는 노드 이름으로 노드 초기화</li>
+</ul>
+<h2 id="qos">QoS 설정<a class="headerlink" href="#qos" title="Permanent link">&para;</a></h2>
+<ul>
+<li>rclpy.qos 모듈의QoSProfile 클래스를 이용하여 토픽퍼블리셔의QoS 설정 값 적용</li>
+<li>QoS 설정값: RELIABLE, KEEP_LAST, DEPTH 10, VOLATILE 토픽 프로그래밍 토픽퍼블리셔코드</li>
+<li>Node 클래스의create_publisher 함수를 사용하여 퍼블리셔 선언</li>
+<li>토픽 타입: ArithmeticArgument</li>
+<li>토픽 이름: 'arithmetic_argument</li>
+<li>'QoS 설정: 이전에 설정한QOS_RKL10V 사용</li>
+</ul>
+<h2 id="ararithmetic_argument_publisher">ararithmetic_argument_publisher 선언<a class="headerlink" href="#ararithmetic_argument_publisher" title="Permanent link">&para;</a></h2>
+<h2 id="create_timer-1publish_random_arithmetic_arguments">create_timer 함수를이용하여1초마다publish_random_arithmetic_arguments 함수실행설정<a class="headerlink" href="#create_timer-1publish_random_arithmetic_arguments" title="Permanent link">&para;</a></h2>
+<h2 id="create_publisher">create_publisher에서의설정들은퍼블리시를위한기본설정<a class="headerlink" href="#create_publisher" title="Permanent link">&para;</a></h2>
+<h2 id="publish_random_arithmetic_arguments">실제토픽발행이이루어지는부분은publish_random_arithmetic_arguments 함수<a class="headerlink" href="#publish_random_arithmetic_arguments" title="Permanent link">&para;</a></h2>
+<ul>
+<li>타이머 콜백 함수로1초마다 실행</li>
+<li>msg 변수를ArithmeticArgument() 클래스로 생성(지난‘토픽, 서 비스, 액션 인터페이스’ 강좌에서 작성한msg 인터페이스 활용)</li>
+<li>토픽 생성 시간을get_clock().now().to_msg()로 가져와 msg.stamp에기록</li>
+<li>랜덤 함수로0~9 사이의 숫자를float로 변환하여 msg.argument_a와msg.argument_b에저장</li>
+</ul>
+<h2 id="publish_random_arithmetic_arguments_1">publish_random_arithmetic_arguments 함수<a class="headerlink" href="#publish_random_arithmetic_arguments_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>실제로 토픽 발행이 이루어지는 함수로 우리가 발행 시간 및 변수a, b를 저장한msg 메시지를 퍼블리시한다는 의미</li>
+</ul>
+<h2 id="arithmetic_argument_publisherpublishmsg">arithmetic_argument_publisher.publish(msg) 함수<a class="headerlink" href="#arithmetic_argument_publisherpublishmsg" title="Permanent link">&para;</a></h2>
+<ul>
+<li>get_logger().info() 를사용하여디버깅목적으로변수a, b 값을 터미널에 표시</li>
+</ul>
+<h2 id="_3">로그출력<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>토픽 퍼블리셔 노 드와 마찬가지로Node 클래스 상속</li>
+<li>생성자에서'calculator'라는 이름으로 노드 초기화</li>
+<li>토픽서브스크라이버, 서비스 서버, 액션 서버를 포함하여 코드가 길기 때문에 전체 코드는 생략</li>
+<li>여기서는토픽서브스크라이버관련코드만설명</li>
+<li>Calculator 클래스 설정</li>
+<li>QoSProfile 클래스를이용하여토픽서브스크라이버의 QoS 설정 적용</li>
+<li>QoS 설정값: RELIABLE, KEEP_LAST, DEPTH 10, VOLATILE (토픽 퍼블리셔와 동일 설정)</li>
+<li>QoS에 대한 자세한 내용은'DDS의QoS(Quality of Service)' 강좌 참고</li>
+<li>제일 중요한 설정으로Node 클래스의create_subscription 함수를이용하여서브스크라이버로선언</li>
+<li>get_arithmetic_argument라는 콜백 함수를 지정하여 퍼블리셔로부터 메시지를 서브스크라이브 할 때마다 실행되는 함수를 지정</li>
+<li>ReentrantCallbackGroup으로callback_group을 지정하여 콜백 함수를 병렬로 실행할 수 있게해 주며 뒤에서 설정</li>
+<li>이후 설명할MultiThreadedExecutor와 함께 사용됨</li>
+<li>arithmetic_argument_subscriber 설정</li>
+<li>callback_group</li>
+<li>MutuallyExclusiveCallbackGroup이 기본 설정으로 사용됨</li>
+<li>MutuallyExclusiveCallbackGroup: 한 번에 하나의 콜백 함 수만 실행하도록 제한</li>
+<li>ReentrantCallbackGroup: 제한 없이 콜백 함수를 병렬로 실행 가능 토픽 프로그래밍 토픽서브스크라이버코드 토픽 프로그래밍 토픽서브스크라이버코드</li>
+<li>콜백 함수인 이 함수는'arithmetic_argument'이라는 토픽 이름에ArithmeticArgument 타입의 메시지를 서브스크라이브하게 되면 실행됨</li>
+<li>서브스크라이브한msg의argument_a와argument_b를 멤버 변수에 저장하고, get_logger().info() 함수를 이용하여 토픽으로 받은 시간, 변수a, b 값을 화면에 표시</li>
+<li>get_arithmetic_argument 토픽 프로그래밍 토픽퍼블리셔&amp; 서브스크라이버복습</li>
+</ul>
+<h2 id="_4">토픽퍼블리셔<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>(데이터를 송신하는 프로그램)
+- Node 설정
+- create_publisher 설정
+- 퍼블리시 함수 작성</p>
+<h2 id="_5">토픽서브스크라이버<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>(데이터를 수신하는 프로그램)
+- Node 설정
+- create_subscription 설정
+- 서브스크라이브 함수 작성</p>
+<h2 id="_6">이번목표<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>실행 노드를 어떻게 설정하여 사용 가능하게 만드는지 설명</li>
+<li>calculator: 이강좌에서다룬토픽서브스크라이버노드</li>
+<li>argument: 토픽퍼블리셔노드 토픽 프로그래밍 노드 실행 코드</li>
+</ul>
+<h2 id="entry_points">entry_points 설정<a class="headerlink" href="#entry_points" title="Permanent link">&para;</a></h2>
+<ul>
+<li>setup.py의entry_points는 실행 가능한 콘솔 스크립트 이름과 호출 함수를 지정</li>
+<li>'ros2 run' 명령어로 각 노드를 실행할 수 있도록4개의 노드entry_points 추가</li>
+</ul>
+<h2 id="_7">노드파일경로<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li>argument 노드: ex_calculator 패키지의arithmetic 폴더의argument.py main문에 실행 코드 포함</li>
+<li>operator 노드: ex_calculator 패키지의arithmetic 폴더의operator.py main문에 실행 코드 포함</li>
+<li>calculator 노드: ex_calculator 패키지의calculator 폴더의main.py main문에 실행 코드 포함</li>
+<li>checker 노드: ex_calculator 패키지의checker 폴더의main.py main문에 실행 코드 포함 토픽 프로그래밍 노드 실행 코드</li>
+</ul>
+<h2 id="argument_1">argument 노드<a class="headerlink" href="#argument_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>main 함수로rclpy.init를 이용하여 초기화</li>
+<li>Argument 클래스를argument라는 이름으로 생성</li>
+<li>rclpy.spin 함수를 이용하여 생성한 노드를spin 시켜 지정된 콜백 함수 실행</li>
+<li>종료(ctrl + c)와 같은 인터럽트 시그널 예외상 황에서는argument를 소멸시키고 rclpy.shutdown 함수로 노드를 종료 토픽 프로그래밍 노드 실행 코드</li>
+</ul>
+<p>노드 실행 코드</p>
+<h2 id="calculator">calculator 노드초기화<a class="headerlink" href="#calculator" title="Permanent link">&para;</a></h2>
+<ul>
+<li>rclpy.init를 이용하여ROS2 초기화</li>
+<li>Calculator 클래스를calculator라는 이름으로 생성</li>
+<li>MultiThreadedExecutor를 사용하여4개스 레드로 구성된executor 생성</li>
+</ul>
+<h2 id="multithreadedexecutor">MultiThreadedExecutor 설정<a class="headerlink" href="#multithreadedexecutor" title="Permanent link">&para;</a></h2>
+<ul>
+<li>스레드 풀(thread pool)을 사용하여 콜백을 병렬로 실행</li>
+<li>num_threads로스 레드 수를 지정 가능</li>
+<li>콜백을 병렬로 처리 가능하여ReentrantCallbackGroup과 함께 사용 시 병렬 실행 지원</li>
+</ul>
+<h2 id="_8">콜백함수의병렬처리설정<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>create_subscription(), create_service(), ActionServer(), create_timer() 등의 함수로 설정된 콜백 함수들의 병렬 처리 가능</li>
+</ul>
+<h2 id="executor">executor와노드실행<a class="headerlink" href="#executor" title="Permanent link">&para;</a></h2>
+<ul>
+<li>calculator 노드를MultiThreadedExecutor에추가</li>
+<li>executor.spin()으로노드를 실행하여 지정된 콜백 함수 실행 가능’</li>
+</ul>
+<h2 id="_9">종료처리<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ul>
+<li>인터럽트시그널(Ctrl + C) 발생시, executor, calculator의 액션 서버(별도 소멸 필요), calculator 노드를 소멸</li>
+<li>rclpy.shutdown으로노드를 종료</li>
+</ul>
+<p>서비스 클라이언트/서버</p>
+<ol>
+<li>
+<p>operator node
+arithmetic_operator 이라는 서비스 이름으로calculator 노드에게 연산자(+, -, *, /)를 서비스
+요청(Request) 값으로 보냄</p>
+</li>
+<li>
+<p>calculator node
+서브스크라이브하여 저장하고 있는 변수a, b와operator 노드로부터 요청 값으로 받은 연산자
+를 이용하여 계산(a 연산자b)하고operator 노드에게 연산의 결과 값을 서비스 응답(Response)
+값으로 보냄
+서비스 요청을 하는 서비스 클라이언트와 서비스 응답을 하는 서비스 서버를 작성해 볼 것이다.
+여기서 서비스 요청 값으로는 연산자(+, -, *, /)를 임의로 선택 후에 보낼 것이고 기존에 저장한
+변수a, b를 요청 값으로 받은 연산자로 계산하여 결과 값을 서비스 응답 값으로 보내는 프로 그
+램을 짜 볼 것이다. 강좌 진행에 앞서서 서비스에 대한 자세한 내용은‘ROS2 서비스(service)’
+강좌를 참고하도록하자</p>
+</li>
+</ol>
+<p>서비스 클라이언트/서버</p>
+<p><img alt="Image 27" src="../../../assets/images/ros/intro/lesson-03/img_017_027.webp" /></p>
+<p><img alt="Image 28" src="../../../assets/images/ros/intro/lesson-03/img_017_028.webp" /></p>
+<p>src/ex_calculator/ex_calculator/calculator/calculator.py</p>
+<p>src/ex_calculator/ex_calculator/calculator/calculator.py</p>
+<h2 id="calculator_1">calculator 노드초기화<a class="headerlink" href="#calculator_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>변수(a, b)와operator 노드로부터 요청 값으로 받은 연산자를 이용해 계산 수행</li>
+<li>연산 결과를operator 노드에 서비스 응답 값으로 전송</li>
+</ul>
+<h2 id="_10">서비스서버설정코드<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ul>
+<li>서비스 서버 선언: arithmetic_service_server를Node 클래스의create_service 함수로 선언</li>
+<li>서비스 타입: ArithmeticOperator</li>
+<li>서비스 이름: 'arithmetic_operator’</li>
+<li>콜백 함수: get_arithmetic_operator (서비스 요청 시 실행)</li>
+<li>callback_group 설정: 멀티 스레드 병렬 콜백 함수 실행 지원</li>
+<li>콜백을 병렬로 처리 가능하여ReentrantCallbackGroup과 함께 사용 시 병렬 실행 지원</li>
+</ul>
+<h2 id="_11">콜백함수역할<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ul>
+<li>콜백 함수인get_arithmetic_operator이 실제 서비스 요청에 해당되는 특정 수행 코드가 수행되는 부분</li>
+</ul>
+<p>src/ex_calculator/ex_calculator/calculator/calculator.py</p>
+<h2 id="get_arithmetic_operator">get_arithmetic_operator 함수<a class="headerlink" href="#get_arithmetic_operator" title="Permanent link">&para;</a></h2>
+<ul>
+<li>매개변수:</li>
+<li>request와response는ArithmeticOperator() 클래스로 생성된 인터 페이스</li>
+<li>request: 서비스 요청 데이터</li>
+<li>response: 서비스 응답 데이터</li>
+</ul>
+<h2 id="_12">함수의역할<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<ul>
+<li>서비스 요청 시 실행되는 콜백 함수</li>
+<li>request에서 받은 연산자와, 토픽서브스크라이버가전달받아 저장한 변수(a, b)를 사용해 연산 수행</li>
+<li>연산 결과를 서비스 응답 값(response)으로 반환</li>
+</ul>
+<h2 id="_13">연산과정<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<ul>
+<li>request.arithmetic_operator를calculate_given_formula 함수에 전달하여 연산 수행 연산 결과를response.arithmetic_result에 저장</li>
+<li>관련 수식을<strong>get_logger().info()</strong>를 통해 문자열로 출력하여 화면에 표시</li>
+</ul>
+<p>src/ex_calculator/ex_calculator/calculator/calculator.py</p>
+<h2 id="calculate_given_formula-ab-operator">calculate_given_formula 함수와같이인수a와b, 그리고연산자(operator)를가지고<a class="headerlink" href="#calculate_given_formula-ab-operator" title="Permanent link">&para;</a></h2>
+<p>사 칙 연산을 수행 후 결과 값을 반환</p>
+<p>서비스 서버 실행 코드
+src/ex_calculator/ex_calculator/calculator/main.py
+- 서비스 서버(calculator 노드) : 토픽서브스크라이버, 서비스 서버, 액션 서버를 역할을 하는 복합 기능의 노드
+- 실행 코드에 대한 설명은 이전 강좌인'토픽 프로그래밍(Python)' 참조</p>
+<p>src/ex_calculator/ex_calculator/arithmetic/operator.py</p>
+<p>src/ex_calculator/ex_calculator/arithmetic/operator.py</p>
+<h2 id="operator">Operator 클래스초기화<a class="headerlink" href="#operator" title="Permanent link">&para;</a></h2>
+<ul>
+<li>rclpy.node 모듈의Node 클래스 상속</li>
+<li>생성자에서 노 드 이름을'operator'로 초기화</li>
+</ul>
+<h2 id="arithmetic_service_client">arithmetic_service_client 설정<a class="headerlink" href="#arithmetic_service_client" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Node 클래스의create_client 함수를 이용하여 서비스 클라이언트로 선언</li>
+<li>서비스의 타입: ArithmeticOperator(서비스 서버와 동일)로 선언하였고</li>
+<li>서비스 이름: ‘arithmetic_operator’로 선언하였다</li>
+</ul>
+<h2 id="wait_for_service">wait_for_service 함수<a class="headerlink" href="#wait_for_service" title="Permanent link">&para;</a></h2>
+<ul>
+<li>서비스 요청 가능 여부를 위해0.1초간격으로 서비스 서버가 실행되어 있는지 확인</li>
+</ul>
+<p>src/ex_calculator/ex_calculator/arithmetic/operator.py</p>
+<h2 id="_14">서비스클라이언트의목적: 서비스서버에게연산에필요한연산자를전달<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h2 id="arithmeticoperatorrequest">서비스요청설정: 서비스인터페이스ArithmeticOperator.Request() 클래스로<a class="headerlink" href="#arithmeticoperatorrequest" title="Permanent link">&para;</a></h2>
+<p>service_request를 선언 후random.randint() 함수를 이용하여 특정 연산자를
+self.request의arithmetic_operator 변수에 저장</p>
+<h2 id="send_request">send_request 함수: 실질적인서비스클라이언트의실행코드로서비스요청값을서버에<a class="headerlink" href="#send_request" title="Permanent link">&para;</a></h2>
+<p>보내고 응답 값을 수신</p>
+<h2 id="call_asyncselfrequest">call_async(self.request) 함수로서비스요청수행<a class="headerlink" href="#call_asyncselfrequest" title="Permanent link">&para;</a></h2>
+<h2 id="futures">서비스상태및응답값을담은futures를반환<a class="headerlink" href="#futures" title="Permanent link">&para;</a></h2>
+<p>서비스 클라이언트 노드 실행 코드
+src/ex_calculator/setup.py</p>
+<h2 id="operator_1">operator 노드(서비스클라이언트노드)<a class="headerlink" href="#operator_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>'ex_calculator' 패키지의 일부로, 패키지 설정 파일의'entry_points'에 콘솔 스크립트의 이름과 호출 함수를 기입(ex_calcurator.arithmetic.operator:main)하여'ros2 run' 과 같은 노 드 실행 명령어를 통하여 각각의 노드를 실행</li>
+<li>ex_calculator 패키지의arithmetic 폴더에operator.py의main문에 실행 코드가 담겨져 있음</li>
+</ul>
+<p>서비스 클라이언트 노드 실행 코드
+src/ex_calculator/ex_calculator/arithmetic/operator.py
+- rclpy.init를 이용하여 초기화
+- Operator 클래스를operator라는 이름으로 생성한 후future = operator.send_request()로 서비스 요청을 전송 후 응답 값 수신
+- rclpy.spin_once 함수로 노드를 주기적으로spin시켜 지정된 콜백 함수가 실행
+- 각spin마다노드의 콜백 함수가 실행
+- 서비스 응답 값을 수신 시future의done 함수를 이용해 요청 값을 제대로 받았는지 확인
+- 결과 값을service_response = future.result()로저장
+- get_logger().info() 함수를 이용하여 화면에 서비스 응답 값에 해당되는 연산 결과 값을 표시
+- ‘ctrl + c'와 같은 인터럽트 시그널 예외 상황에서 operator를 소멸시키고rclpy.shutdown 함수로 노 드 를 종료</p>
+<p>서비스 클라이언트 노드 실행 코드
+src/ex_calculator/ex_calculator/arithmetic/operator.py
+- 서비스 클라이언트는 한 번 실행 후 종료되는 방식으로, 토픽과 같은 지속적인 수행은 없음
+- 다만, 예제에서는 원하는 시점에 서비스 요청을 다시 보낼 수 있도록user_trigger 변수와 input(＇xxxxx＇)을 사용해 반복 실행 가능하게 구성
+- 최초1회에 한해서 사용자 입력 없이 바로 임 의의 연산 자를 서비스 요청 값으로 송신
+- 그 이후 노드가 종료되기 전까지, 사용자의 입 력을 받을 때마다 임의의 연산 자를 랜덤으로 선택해 서비스 요청 값으로 송신
+- 즉. 최초 요청 후 서비스 재요청이 필요할 경우, 터미널 창에서 엔터 키를 눌러operator 실행
+- 연산자 선택은 사 칙 연산자(+, -, * , /) 중 하나가 랜덤으로 선택되어 송신됨</p>
+<p>액션 클라이언트/서버
+다음 그림과 같은 액션 목표(action goal)를 지정하는 액션 클라이언트와 액션 목표를 받아 특
+정 태스크를 수행하면서 중간 결과 값에 해당되는 액션 피드백(action feedback)과 최종 결과 값
+에 해당되는 액션 결과(action result)를 전송하는 액션 서버를 작성해 볼 것이다.</p>
+<p>src/ex_calculator/ex_calculator/calculator/calculator.py</p>
+<p>src/ex_calculator/ex_calculator/calculator/calculator.py</p>
+<h2 id="arithmetic_action_server-rclpyaction">arithmetic_action_server : rclpy.action<a class="headerlink" href="#arithmetic_action_server-rclpyaction" title="Permanent link">&para;</a></h2>
+<p>모듈의ActionServer 클래스를 이용하여
+액션 서버로 선언
+- 액션 타입: ArithmeticChecker
+- 액션 이름: 'arithmetic_checker’
+- 콜백 함수: execute_checker(액션 클라이언트로부터 액션 목표를 받으면 실행됨)
+- 멀티 스레드 병렬 콜백 함수 실행을 위한 callback_group 설정 적용</p>
+<h2 id="_15">이러한설정들은액션서버를위한기본<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<p>설정이고 실제 액션 목표를 받은 후에
+실행되는 콜백 함수는execute_checker
+함수임을 알아 두자</p>
+<p>src/ex_calculator/ex_calculator/calculator/calculator.py</p>
+<h2 id="goal_handle">goal_handle 매개변수<a class="headerlink" href="#goal_handle" title="Permanent link">&para;</a></h2>
+<ul>
+<li>rclpy.action 모듈의ServerGoalHandle 클래스로 생성된 액션 상태 처리용으로execute, succeed, abort, canceled 등 액션 상태에 따른 관련 함수 호출 가능</li>
+<li>publish_feedback을 통해 피드백 퍼블리시 가능 Get_logger().info() 함수를 이용해 터미널 창에 액션 서버 시작 표시 ArithmeticChecker.Feedback()을 통해 액션 피드백을 보낼feedback_msg 변수 선언 실제 피드백에 해당되는 feedback_msg.formula와 연산 합계 값을 담을 total_sum 변수 초기화 goal_handle를 이용하여 goal_handle.request.goal_sum에서 액션 목표 값을 불러옴</li>
+</ul>
+<h2 id="_16">## ## ## <img alt="Image 49" src="../../../assets/images/ros/intro/lesson-03/img_032_049.webp" /><a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<p>src/ex_calculator/ex_calculator/calculator/calculator.py</p>
+<h2 id="_17">•<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<p>total_sum: argument_result(매번 계산되는
+연산 결과 값)를 누적한 합계
+액션 목표 값(goal_sum)과total_sum이
+액션 목표 값(goal_sum)을 넘을 때까지
+연산식(argument_formula)을 액션 피드
+백(feedback_msg.formula)에저장</p>
+<h2 id="_18">피드백값은디버깅을위해<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>get_logger().info()을 통해 터미널 창에 출
+력후goal_handle.publish_feedback() 함
+수를 통해 액션 클라이언트로 전송</p>
+<p>src/ex_calculator/ex_calculator/calculator/calculator.py</p>
+<h2 id="_19">액션목표를달성했다는상태전환함수인<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<p>goal_handle.succeed()를 실행시켜 액션
+클라이언트에게 현재의 액션 상태를 알림</p>
+<h2 id="all_formula">액션결과값인all_formula에계산식전체<a class="headerlink" href="#all_formula" title="Permanent link">&para;</a></h2>
+<p>를 저장하고total_sum에 연산 합계를 저
+장하여 액션 결과 값인result은리턴</p>
+<p>액션 서버 실행 코드
+src/ex_calculator/ex_calculator/calculator/main.py</p>
+<h2 id="calculator_2">액션서버인calculator 노드는토픽서브<a class="headerlink" href="#calculator_2" title="Permanent link">&para;</a></h2>
+<p>스크라이버, 서비스 서버, 액션 서버를 역
+할을 하는 복합 기능의 노드</p>
+<h2 id="_20">해당코드에대한설명은토픽프로그래밍<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<p>(Python) 강좌 참조</p>
+<p>src/ex_calculator/ex_calculator/checker/checker.py</p>
+<p>src/ex_calculator/ex_calculator/checker/checker.py</p>
+<h2 id="checker">Checker 클래스<a class="headerlink" href="#checker" title="Permanent link">&para;</a></h2>
+<ul>
+<li>rclpy.node 모듈의Node 클래스를 상속</li>
+<li>생성자에서 노 드 이름을‘checker'로 초기화</li>
+</ul>
+<h2 id="_21">액션클라이언트에서수행하는액션목표<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p>는 토픽과 달리, 필요시에만 비정기적으로
+실행됨</p>
+<h2 id="main">여기서는예시를위해액션목표를main<a class="headerlink" href="#main" title="Permanent link">&para;</a></h2>
+<p>함수에서 한 번만 실행</p>
+<h2 id="rclpyactionactionclient">rclpy.action모듈의ActionClient 클래스<a class="headerlink" href="#rclpyactionactionclient" title="Permanent link">&para;</a></h2>
+<p>이용하여 액션 클라이언트 선언
+- 액션 타입: ArithmeticChecker
+- 액션 이름: 'arithmetic_checker’</p>
+<p>src/ex_calculator/ex_calculator/checker/checker.py</p>
+<h2 id="send_goal_total_sum">send_goal_total_sum 함수<a class="headerlink" href="#send_goal_total_sum" title="Permanent link">&para;</a></h2>
+<ul>
+<li>액션 목표를 액션 서버에게 전송하고, 액션 피드백 및 결과 값을 받기 위한 콜백 함수 지정</li>
+</ul>
+<h2 id="_22">액션클라이언트가액션서버에연결<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<p>시도를 함</p>
+<h2 id="while">연결에문제가있을때에while문을<a class="headerlink" href="#while" title="Permanent link">&para;</a></h2>
+<p>반복하게 되고 문제 없이 연결되었을
+때에는 다음 구문으로 넘어감</p>
+<p>src/ex_calculator/ex_calculator/checker/checker.py</p>
+<h2 id="_23">액션메시지설정<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ArithmeticChecker.Goal() 클래스로 액션 메시지(goal_msg) 선언</li>
+<li>goal_msg.goal_sum으로 액션 목 푯 값 설정</li>
+</ul>
+<h2 id="_24">비동기액션전송및피드백설정<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ActionClient 클래스의send_goal_async 함수를 이용해 설정해 둔 액션 메시지를 매개 변 수로 전달</li>
+<li>액션 피드백을 수신을 위한 콜백 함수로 get_arithmetic_action_feedback 지정</li>
+</ul>
+<h2 id="_25">액션결과수신설정<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>send_goal_async으로 선언된 비동기 작업 (future task)인send_goal_future의 add_done_callback 함수를 통해 액션 결과 값을 받을 때 사용할 콜백 함수로 get_arithmetic_action_goal를선언</p>
+</li>
+<li>
+<p>액션 클라이언트 선언: arithmetic_action_client</p>
+</li>
+<li>액션 목 푯 값 전달 함수 선언: send_goal_future</li>
+<li>액션 피드백 값 콜백 함수 선언: get_arithmetic_action_feedback</li>
+<li>액션 상태 값 콜백 함수 선언: get_arithmetic_action_goal</li>
+<li>액션 결과 값 콜백 함수 선언: get_arithmetic_action_result</li>
+</ul>
+<p>src/ex_calculator/ex_calculator/checker/checker.py</p>
+<h2 id="_26">액션피드백값콜백함수<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<ul>
+<li>액션 피드백을 액션 서버로부터 전달 받으면get_arithmetic_action_feedback 콜백 함수 실행</li>
+<li>피드백인feedback_msg.feedback.formula 값을 받아get_logger().info()으로 터미널 창에 출력</li>
+</ul>
+<h2 id="_27">액션상태값콜백함수<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<ul>
+<li>비동기 작업(future task)으로 생성된 send_goal_future에대해add_done_callback 함수를 사용해 콜백 함수 설정</li>
+<li>이 콜백 함수는 액션 서버가 액션 목 푯 값을 수신했을 때Goal State Machine의 상태가 accepted인지 확인하여 처리</li>
+<li>액션 목 푯 값을 문제없이 전달된 경우, 액션 결과를 받을 콜백 함수를 get_arithmetic_action_result로설정</li>
+</ul>
+<p>src/ex_calculator/ex_calculator/checker/checker.py</p>
+<h2 id="_28">앞서지정한"액션결과값콜백함수"<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h2>
+<p>는 비동기future task로 현재의 상태값
+(status)과 결과 값(result)을수신</p>
+<h2 id="status_succeeded">상태값이STATUS_SUCCEEDED 일때<a class="headerlink" href="#status_succeeded" title="Permanent link">&para;</a></h2>
+<p>액션 서버로부터 전달받은 액션 결과 값
+인 계산 식(action_result.all_formula)과
+연산 합계(action_result.total_sum)를
+터미널 창에 출력</p>
+<p>액션 클라이언트 노드 실행 코드
+src/ex_calculator/setup.py</p>
+<h2 id="checker_1">액션클라이언트노드인checker 노드는<a class="headerlink" href="#checker_1" title="Permanent link">&para;</a></h2>
+<p>'ex_calculator' 패키지의 일부로 패키지
+설정 파일 내부의'entry_points'에실행
+가능한 콘솔 스크립트의 이름과 호출함
+수로 기입(checker=
+ex_calculator.checker.main:main)</p>
+<h2 id="argument-operator">이와같이argument, operator,<a class="headerlink" href="#argument-operator" title="Permanent link">&para;</a></h2>
+<p>calculator 노드도 작성하여'ros2 run' 과
+같은 노드 실행 명령어를 통해 각각의노
+드 를 실행 가능하도록함</p>
+<p>액션 클라이언트 노드 실행 코드
+src/ex_calculator/ex_calculator/checker/main.py</p>
+<h2 id="main_1">main 함수실행코드:<a class="headerlink" href="#main_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>rclpy.init를통해ROS2 노드 초기화</li>
+<li>Checker 클래스를checker라는 이름으로 생성</li>
+<li>액션 목 푯 값을 전달하는send_goal_total_sum 함수 실행</li>
+</ul>
+<h2 id="argsgoal_total_sum">실행인자(args.goal_total_sum) 사용<a class="headerlink" href="#argsgoal_total_sum" title="Permanent link">&para;</a></h2>
+<ul>
+<li>프로그램의 실행 시 인자를 사용해 사용자가 노드를 실행시킬 때 액션 목 푯 값을 설정 가능.</li>
+<li>목표 값이 지정되지 않았을 경우 기본 값으로50이 입력됨</li>
+<li>실행 인자에 대한 자세한 설명은 추후 강좌에서 다룰 예정</li>
+</ul>
+<h2 id="_29">콜백함수실행및유지<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h2>
+<ul>
+<li>rclpy.spin 함수를 이용하여rclpy의 콜백 함수가 지속적으로 실행되도록 설정</li>
+</ul>
+<h2 id="_30">종료및자원해제<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h2>
+<ul>
+<li>종료시('Ctrl + c'와 같은 인터럽트 시그널) checker 객체 소멸 및rclpy.shutdown 함수로 노 드 종료</li>
+<li>추가적으로 토픽이나 서비스와는 달리 액션 클라이언트는 'checker.arithmetic_action_client.destroy()' 와 같이 별도로 소 멸시켜야함</li>
+</ul>
+<p>파라미터 프로그래밍
+파라미터
+우리는 이전 강좌에서 토픽, 서비스, 액션 관련 프로그래밍을 익히기 위하여argument, operator, calculator,
+checker 노드를 작성해 보았다. 이들 노드 중에서 다음 그림과 같이argument 노드와calculator 노드는 파
+라미터를 사용하고 있다. argument 노드는QoS 설정과 랜덤으로 생성되는 변수a, b의 랜덤 생성 범위를 파
+라미 터를 이용했었고calculator 노드는QoS 설정을 사용하였다. 우리는 여기서argument 노드에서 사용되
+는 파라미터에 대해 자세히 알아볼 것이다.</p>
+<p><img alt="Image 65" src="../../../assets/images/ros/intro/lesson-03/img_044_065.webp" /></p>
+<p>파라미터 프로그래밍
+파라미터 설정
+1.
+declare_parameter 함수
+2.
+get_parameter 함수
+3.
+add_on_set_parameters_callback 함수</p>
+<h2 id="argument_2">argument 노드에서파라미터를선언하고파라미터값이변경되는함수에대해<a class="headerlink" href="#argument_2" title="Permanent link">&para;</a></h2>
+<p>자세히 알아보자</p>
+<h2 id="argument-ros2">Argument 클래스의생성자부분에서다음과같은코드가있다. ROS2에서파라<a class="headerlink" href="#argument-ros2" title="Permanent link">&para;</a></h2>
+<p>미터를 사용하려면 하기와 같이 크게3가지의 요소가 필요</p>
+<h2 id="1declare_parameter">1번의declare_parameter 함수는노드에서사용할파라미터의고유이름을지<a class="headerlink" href="#1declare_parameter" title="Permanent link">&para;</a></h2>
+<p>정 하고 초 깃 값 설정(파라미터에 대한 설명이 들어가는descriptor은 생략함)</p>
+<h2 id="2get_parameter">2번의get_parameter 함수는노드에서사용할파라미터의파라미터고유이름<a class="headerlink" href="#2get_parameter" title="Permanent link">&para;</a></h2>
+<p>을 이용해 불러옴. 이는 주로launch 파일에서 선언된*.yaml 형태의 파라미터
+파일의 값을 불러오는 데 사용됨</p>
+<h2 id="3add_on_set_parameters_callback">3번의add_on_set_parameters_callback 함수는서비스형태로파라미터변경<a class="headerlink" href="#3add_on_set_parameters_callback" title="Permanent link">&para;</a></h2>
+<p>요청이 있을 때 사용되는 함수로 지정된 콜백 함수를 호출</p>
+<p>파라미터 프로그래밍
+파라미터 설정
+src/ex_calculator/ex_calculator/checker/main.py</p>
+<p>파라미터 프로그래밍
+파라미터 설정
+src/ex_calculator/ex_calculator/checker/main.py</p>
+<h2 id="_31">파라미터선언및초기설정<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h2>
+<ul>
+<li>declare_parameter 함수로'max_random_num'과 같은 파라미터 선언</li>
+<li>노드 실행 시get_parameter 함수가 지정된 파라 미터 파일에서 초 깃 값을 불러와 설정</li>
+</ul>
+<h2 id="_32">파라미터변경요청처리<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h2>
+<ul>
+<li>파라미터 변경 요청 발생 시 add_on_set_parameters_callback을 통해 지정된 콜백 함수인update_parameter 함수 실행</li>
+<li>update_parameter 콜백 함수에서는 변경하려는 파라미터의 이름과 타입이 동일한 경우 해당 파 라 미터 값 변경</li>
+</ul>
+<h2 id="argument-qos">argument 노드에서는파라미터값으로QoS<a class="headerlink" href="#argument-qos" title="Permanent link">&para;</a></h2>
+<p>설정과 랜덤으로 생성되는 변수a, b의랜덤
+생성 범위를 파라미터를 이용하여 설정.</p>
+<h2 id="min_random_num-max_random_num">min_random_num 값과max_random_num<a class="headerlink" href="#min_random_num-max_random_num" title="Permanent link">&para;</a></h2>
+<p>값을 이용하여 퍼블리시할 때 변수a, b의랜
+덤 생성 범위를 변경함</p>
+<p>파라미터 프로그래밍
+파라미터 설정 파라미터 사용 방법(CLI)</p>
+<p>파라미터 프로그래밍
+파라미터 사용 방법(서비스 클라이언트)</p>
+<h2 id="cli">앞설명에서는CLI를이용하여파라미터를조회하고, 변경하고읽는실습을진행했다.<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h2>
+<p>그러나 파라미터는CLI뿐만 아니라 다른 노드의 소스 코드에서도 읽고 변경할 수 있다.
+예를 들어SetParameters라는 인터페이스를 이용하면 서비스 클라이언트와 유사한
+방식으로 서비스 요청을 통해 파라미터를 변경할 수 있다.</p>
+<h2 id="_33">여기서클라이언트를선언하고서비스를요청하는방식은기존의서비스클라이언트<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h2>
+<p>와 완전히 동일하다. 다만, 서비스 요청 값에 파라미터의 이름, 형태, 값을 지정하는 게
+다르다. 이와 관련된 세부 내용은set_max_random_num_parameter 함수에서 확인
+가능하다. 해당 함수에서는Parameter 클래스를 사용해name, type, integer_value
+등을 매개 변수로 설정한다. 이를 통해A 노드에서B 노드의 파라미터를 변경할 수 있
+게된다.</p>
+<p>파라미터 프로그래밍
+기본 파라미터 설정 방법(launch 설정)</p>
+<h2 id="yaml-launchpy">참고로새롭게지정된<em>.yaml 파일및</em>.launch.py 파일을<a class="headerlink" href="#yaml-launchpy" title="Permanent link">&para;</a></h2>
+<p>ROS 파일 시스템에 맞추어 설치하게하려면 하기와 같이
+python 패키지 설정 파일'setup.py'에 옵션을 추가해야
+한다.</p>
+<h2 id="launch">launch 파일에특정파라미터파일을추가하면, 노드를실행<a class="headerlink" href="#launch" title="Permanent link">&para;</a></h2>
+<p>할 때 해당 파일의 파라미터 이름과 값을 참조하여 자동으로
+초기화 가능
+src/ex_calculator/launch/arithmetic.launch.py</p>
+<p>실행 인자 프로그래밍</p>
+<h2 id="_34">실행인자<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h2>
+<ul>
+<li>프로그램 실행 시 추가로 입력되는 인 수로, main 함수의 매개변수로 사용됨</li>
+<li>실행 명령어와 함께 전달되어 프로그램 동작에 영향을 줌</li>
+</ul>
+<h2 id="ros2-run-ex_calculator-checker-g-100">예시: $ ros2 run ex_calculator checker –g 100<a class="headerlink" href="#ros2-run-ex_calculator-checker-g-100" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ros2 run: ROS2 명령어</li>
+<li>ex_calculator: 패키지 이름</li>
+<li>checker: 실행할 노드</li>
+<li>-g 100: 실행 인자, 여기서는GOAL_TOTAL_SUM 값을100으로 설정</li>
+<li>Parameter 매개변수</li>
+<li>Argument 실행 인자</li>
+</ul>
+<h2 id="parameterargument">참고로파라미터(parameter)는매개변수로풀이하고아규먼트(argument)<a class="headerlink" href="#parameterargument" title="Permanent link">&para;</a></h2>
+<p>는 실행 인자라 풀이된다. C++ 언어에서는 이들의 분류를 더 확실히 하는
+편인데Parameter는 함수 선언 시 사용되고Argument는 함수 호출 시의
+인수라고 생각하면 된다</p>
+<p>실행 인자 프로그래밍
+ROS2 에서의 실행 인자 처리</p>
+<h2 id="c">C++<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
+<ul>
+<li>main 함수에서argc를 통해 인자 개수를 받고, argv로 인자를 배열 형태로 받는 형식으로 인자 처리</li>
+<li>argc와argv를rclcpp의init 함수에 인자로 전달</li>
+</ul>
+<h2 id="python">Python(인수무시할때)<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
+<ul>
+<li>두 번째 예제와 같이args를None으로 설정 후에rclpy 모듈의init 함수에 바로 넘김</li>
+</ul>
+<h2 id="python_1">Python(인수사용할때)<a class="headerlink" href="#python_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>argv의 첫 번째 인자(실행 명 및 실행 경로 정보)를 삭제한 후argv에저장.</li>
+<li>수정된argv를rclpy모듈의init 함수에 넘김</li>
+<li>이때C++과는 달리argparse 모듈을 이용해 실행 인자를 위한 구문 해석 프로그램 작성 필요 ※ 참고로argc, argv, args는 다음과 같은 의미로 사용됨</li>
+<li>argc argument count</li>
+<li>argv argument vector or value</li>
+<li>args arguments</li>
+</ul>
+<p>실행 인자 프로그래밍
+실행 인자의 구문 해석</p>
+<h2 id="_35">실행인자구문<a class="headerlink" href="#_35" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Checker 노드의main 함수에서 실행 인자 처리 코 드가 구현되어 있음</li>
+<li>해당 코드를 통해 실행 인자를 다루어 볼 것</li>
+<li>실행 인자의 구문 해석 프로그램은python의 argparse 모듈을 이용하여 파서를 선언 후 사용할 실행 인자 값을 지정하는 것이 주를 이룸</li>
+<li>이를 순서대로 나열하면 다음과 같음 1. 파서 만들기(parser = argparse.ArgumentParser) 2. 인자 추가하기(parser.add_argument) 3. 인자 파 싱하기(args = parser.parse_args()) 4. 인자 사용하기(args.xxx) src/ex_calculator/ex_calculator/checker/main.py</li>
+</ul>
+<p>실행 인자 프로그래밍
+실행 인자의 구문 해석</p>
+<ol>
+<li>파서 만들기</li>
+<li>argparse 모듈의ArgumentParser 객체를parser라는 이 름으로 선언</li>
+<li>
+<p>여기서formatter_class으로argparse 모듈의 가장 기본적인 형식을 사용하도록 설정 src/ex_calculator/ex_calculator/checker/main.py</p>
+</li>
+<li>
+<p>인자 추가하기</p>
+</li>
+<li>인자 파 싱하기</li>
+<li>
+<p>parse_args() 메서드를 통해 인 자를 파싱</p>
+</li>
+<li>
+<p>인자 사용하기</p>
+</li>
+<li>인자를 사용하려면args 변수를 통해 파 싱하여 대입</li>
+<li>예를 들어add_argument로 추가한'--goal_total_sum’ 인자 는'args.goal_total_sum’ 형태로 사용 가능</li>
+<li>add_argument() 메서드를 호출하고 인자의 내용을 채워 실행 인자 추가 가능.</li>
+<li>인자 이름: -g(줄인 이름), --goal_total_sum(풀네임)</li>
+<li>데이터 타입: int형</li>
+<li>기본값: 50</li>
+<li>설명: 지정 인자에 대한 설명 추가(프로그램을 실행 시'-h'와 같이 실행 인자에 대한 도움말을 실행하면 볼 수 있는 문구)</li>
+</ol>
+<p>런치 프로그래밍
+ROS2 Launch System</p>
+<h2 id="ros2">ROS2에서노드실행:<a class="headerlink" href="#ros2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ros2 run 명령어를 사용하여 특정 패키지의 하나의 노드를 실행 가능</li>
+<li>이 명령어로도 단일 노드 실행에는 문제가 없지만, 일반적으로ROS에서는 여러 노드를 동시에 실행하며 상호 작용하게 설정하는 경우가 많음</li>
+<li>기존 패키지의 노드를 사용하거나 다양한 옵션을 입력하여 실행하는 경우도 빈번함</li>
+<li>이를 위해 하나 이상의 정해진 노드를 실행시킬 수 있는'launch' 라는 개념이 존재</li>
+<li>더불어, 노드를 실행할 때 패키지의 매개 변수나 노드 이름 변경, 노드 네임 스페이스 설정, 환경 변수 변경 등의 옵션을 사용할 수 있음</li>
+<li>ROS1에서는roslaunch로*.launch XML 파일을 사용해 노드를 설정하며, 태그별 옵션을 제공</li>
+<li>반면ROS2에서는 더 다양한 환경과 기능을 추가하기 위하여 기존XML 방식 이외에Python 방식도 추가됨</li>
+</ul>
+<h2 id="xml-python">이강좌에서는기존XML 방식보다더활용도가높은Python 방식을다룸<a class="headerlink" href="#xml-python" title="Permanent link">&para;</a></h2>
+<h2 id="ros2-launch-system">ROS2 Launch System에대한더자세한설명은참고자료문서및코드를참고<a class="headerlink" href="#ros2-launch-system" title="Permanent link">&para;</a></h2>
+<p>▷https://design.ros2.org/articles/roslaunch.html
+▷https://design.ros2.org/articles/roslaunch_xml.html
+▷https://github.com/ros2/launch/tree/master/launch_yaml
+▷https://github.com/ros2/launch</p>
+<p>런치 프로그래밍
+ROS2 Launch System</p>
+<h2 id="_36">새로운런치파일생성:<a class="headerlink" href="#_36" title="Permanent link">&para;</a></h2>
+<ul>
+<li>'ex_calculator' 패키지에 새로운launch 파일을 생성</li>
+<li>launch 파일의 역할</li>
+<li>argument 노드와calculator 노드를 실행</li>
+<li>두노드에서 사용할 파라미터 파일을 설정</li>
+</ul>
+<h2 id="launch_1">launch 파일생성방법<a class="headerlink" href="#launch_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>원하는 패키지에launch 이라는 폴더가 있어야함</li>
+<li>해당 폴더에'*.launch.py' 형식의launch 파일 생성</li>
+<li>여기서는'arithmetic.launch.py' 이라는 파일 명을 사용</li>
+<li>'arithmetic.launch.py' 파일은 하기 위치에 위치해 있음 └ ex_calculator/launch/arithmetic.launch.py</li>
+</ul>
+<p>런치 프로그래밍
+launch 작성</p>
+<h2 id="launch_2">launch 파일의기본구조:<a class="headerlink" href="#launch_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>generate_launch_description 메소드를 정의하여 사용</li>
+<li>메소드 내용으로'LaunchConfiguration' 클래스를 이용하여 필요시 실행 관련 설정 선언</li>
+<li>메소드의 리턴 값으로는'LaunchDescription' 클래스로 반환</li>
+</ul>
+<h2 id="arithmeticlaunchpy-launchconfiguration">'arithmetic.launch.py' 파일의LaunchConfiguration 설정<a class="headerlink" href="#arithmeticlaunchpy-launchconfiguration" title="Permanent link">&para;</a></h2>
+<ul>
+<li>'LaunchConfiguration' 클래스의 생성자로'param_dir' 라는 파라미터 디렉토리를 설정하는 부분</li>
+<li>'ex_calculator' 패키지의'param'폴더에 위치한 'arithmetic_config.yaml' 파라미터 설정 파일을 의미</li>
+<li>해당 파일의 내용은 앞서 다룬'파라미터 프로그래밍 (Python)’ 참고</li>
+</ul>
+<p>런치 프로그래밍
+launch 작성</p>
+<h2 id="remappings">remappings 기능(원본코드에는존재하지않음) :<a class="headerlink" href="#remappings" title="Permanent link">&para;</a></h2>
+<ul>
+<li>특정 이름을 변경할 수 있는 기능</li>
+<li>다음 예제와 같이'/arithmetic_argument' 토픽 이름을'/argument' 이라는 토픽 이름으로 변경할 수 있음</li>
+<li>내부 코드 변경 없이 토픽, 서비스, 액션 등의 고유 이름을 변경할 수 있는 유용한 기능이므로 알아 두기 추천 런치 프로그래밍 launch 작성</li>
+</ul>
+<h2 id="launchnamespace">launch의namespace 기능:<a class="headerlink" href="#launchnamespace" title="Permanent link">&para;</a></h2>
+<ul>
+<li>노드, 토픽, 서비스, 액션, 파라미터 등의 고유 이름을 독립적으로 그룹 핑하여 네트워크를 구성할 수 있는 기능</li>
+<li>변경 방법</li>
+<li>방법1 : 각 노드를 실행시킬 때ROS 변수 중 하나인 ns(namespace)를 입력하여 변경</li>
+<li>방법2 : launch 파일로 실행시킬 때namespace 라는 항목을 변경</li>
+</ul>
+<h2 id="namespace">namespace 설정방법<a class="headerlink" href="#namespace" title="Permanent link">&para;</a></h2>
+<ul>
+<li>LaunchConfiguration와DeclareLaunchArgument을통해 namespace를지정</li>
+<li>예제에서는 환경 변수로 지정한'ROS_NAMESPACE' 변수를 읽어 오도록 설정</li>
+<li>'export ROS_NAMESPACE=robot_1' 과 같은 구문을 터미널에서 실행하거나＇~/.bashrc에 미리 등록</li>
+<li>Node 클래스에서namespace를 지정하면 실행 시 모든 노 드 이름과 해당 노드의 토픽, 서비스, 액션, 파라미터 등 고유 이름이 변경됨</li>
+<li>활용예: namespace는 복수의 로봇을 사용할 때 동일 프로 그램을 이용할 때 고유 이름을 사용함에 있어서 중복됨을 피할 수 있고 데이터를 구분 지어 사용할 수 있음</li>
+</ul>
+<p>런치 프로그래밍
+launch 작성</p>
+<h2 id="generate_launch_description">generate_launch_description 함수<a class="headerlink" href="#generate_launch_description" title="Permanent link">&para;</a></h2>
+<p>의return 값이 너무 많을 경우
+LaunchDescription의add_action
+함수를 이용하여 정리 가능</p>
+<h2 id="_37">이렇게구성하면예제와같이좀더<a class="headerlink" href="#_37" title="Permanent link">&para;</a></h2>
+<p>간결해짐</p>
+<p>런치 프로그래밍
+launch 작성</p>
+<h2 id="_38">런치파일에서다른런치파일불러오기:<a class="headerlink" href="#_38" title="Permanent link">&para;</a></h2>
+<ul>
+<li>현재 패키지의 런치 파일 불러오기:</li>
+<li>예를 들어, 현재 패키지가aaaaa라면, IncludeLaunchDescription을 사용하여 xxxxx.launch.py와yyyyy.launch.py를 불러올 수 있음</li>
+</ul>
+<h2 id="_39">다른패키지의런치파일불러오기:<a class="headerlink" href="#_39" title="Permanent link">&para;</a></h2>
+<ul>
+<li>예를 들어, bbbbb 패키지의zzzzz.launch.py 파일을 불러 올 때는IncludeLaunchDescription과함께 get_package_share_directory 함수를 사용</li>
+<li>get_package_share_directory 함수에 불러올 패키지 명을 입력하여 특정 패키지의 런치 파일을 가져옴</li>
+</ul>
+<h2 id="_40">런치파일모듈화의장점<a class="headerlink" href="#_40" title="Permanent link">&para;</a></h2>
+<ul>
+<li>하나의 런치 파일에서 동일 패키지의 노드 실행뿐 아니라, 다른 패키지의 런치 파일을 불러와 실행할 수 있음</li>
+<li>특히, 직접 작성하지 않은 패키지의 런치 파일을 수정 없이 불러와 사용할 수 있어 편리함</li>
+<li>널리 사용되는 유용한 기능이므로 참고할 것</li>
+</ul>
+<p>런치 프로그래밍
+패키지 빌드</p>
+<h2 id="launch_3">Launch 파일사용을위한설치필요성:<a class="headerlink" href="#launch_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Launch 파일은Python 파일이므로 빌드 자체는 필요하지 않음</li>
+<li>그러나ROS2 에코 시스템에서 사용하기 위해서는 패키지 빌드를 통해 정해진 위치에 설치해야함 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME}/ )</li>
+</ul>
+<h2 id="launch_4">언어에따른Launch 파일설정방법:<a class="headerlink" href="#launch_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>C++ (RCLCPP 패키지 계열) :</li>
+<li>C++을 사용하는 경우, CMakeLists.txt의install 구문에launch 폴더 명만 기재하여 설정 가능</li>
+<li>Python (rclpy 패키지 계열) :</li>
+<li>Python을 사용하는 경우에는 별도의 설정이 필요하며, 이후에 설명 예정</li>
+</ul>
+<p>런치 프로그래밍
+패키지 빌드</p>
+<h2 id="rclpy">rclpy 패키지계열<a class="headerlink" href="#rclpy" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Python 패키지 설정 파일(setup.py)의data_files 옵션에launch 폴더를 지정</li>
+<li>효과: 패키지 소스 코드 내launch 폴더에 있는*.launch.py 파일들이 설치 폴더에 복사되어 위치하게 됨</li>
+</ul>
+<p>런치 프로그래밍
+launch 작성</p>
+<h2 id="ros2cli-ros2-launch">런치파일을실행하려면ROS2의CLI 명령어중'ros2 launch'를사용하며사용방법<a class="headerlink" href="#ros2cli-ros2-launch" title="Permanent link">&para;</a></h2>
+<p>은 다음과 같음</p>
+<h2 id="_41">위강좌에서설명한예제파일을실행시키려면다음과같이사용가능<a class="headerlink" href="#_41" title="Permanent link">&para;</a></h2>
+<h2 id="ex_calculator-arithmeticlaunchpy">즉ex_calculator 패키지의arithmetic.launch.py 런치파일을실행시키라는의미<a class="headerlink" href="#ex_calculator-arithmeticlaunchpy" title="Permanent link">&para;</a></h2>
+<h2 id="_42">이를실행시키면위에서설명한것처럼파라미터파일을공유하여사용하게되며<a class="headerlink" href="#_42" title="Permanent link">&para;</a></h2>
+<p>argument 노드와calculator 노드를 한 번에 실행시키게 됨</p>
+<hr />
+<h2 id="jupyter-notebooks">Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permanent link">&para;</a></h2>
+<h3 id="triangle_turtle">triangle_turtle<a class="headerlink" href="#triangle_turtle" title="Permanent link">&para;</a></h3>
+<p><a href="https://colab.research.google.com/github/OWNER/study-site/blob/main/notebooks/ros/jupyter_ros/triangle_turtle.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">geometry_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Twist</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">rclpy</span><span class="o">.</span><span class="n">ok</span><span class="p">():</span>  <span class="c1"># 또는 hasattr(rclpy, &#39;_rclpy&#39;) 등으로 체크</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">rclpy</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">node</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span><span class="s1">&#39;triangle_turtle&#39;</span><span class="p">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">pub</span> <span class="o">=</span> <span class="n">node</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span><span class="n">Twist</span><span class="p">,</span> <span class="s1">&#39;/turtle1/cmd_vel&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">msg</span> <span class="o">=</span> <span class="n">Twist</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[WARN] [1745315101.346933587] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
+</code></pre></div>
+<p><code>python
+def main():
+    rclpy.init()
+
+    # 노드 생성
+    node = rclpy.create_node('triangle_drawer')
+    publisher = node.create_publisher(Twist, '/turtle1/cmd_vel', 10)
+
+    move_cmd = Twist()
+    turn_cmd = Twist()
+
+    move_cmd.linear.x = 2.0
+    turn_cmd.angular.z = 2.0
+
+    # 삼각형 그리기
+    for _ in range(3):
+        publisher.publish(move_cmd)
+        time.sleep(1.5)
+
+        publisher.publish(Twist())  # 정지
+        time.sleep(0.5)
+
+        publisher.publish(turn_cmd)
+        time.sleep(1.2)
+
+        publisher.publish(Twist())  # 정지
+        time.sleep(0.5)
+
+    print("삼각형 그리기 완료")
+
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()</code></p>
+<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------
+
+RuntimeError                              Traceback (most recent call last)
+
+Cell In[66], line 34
+     31     rclpy.shutdown()
+     33 if __name__ == &#39;__main__&#39;:
+---&gt; 34     main()
+
+
+Cell In[66], line 2, in main()
+      1 def main():
+----&gt; 2     rclpy.init()
+</code></pre></div>
+<p>4 # 노드 생성
+          5     node = rclpy.create_node('triangle_drawer')</p>
+<div class="highlight"><pre><span></span><code>File /opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py:88, in init(args, context, domain_id, signal_handler_options)
+     86     else:
+     87         signal_handler_options = SignalHandlerOptions.NO
+---&gt; 88 context.init(args, domain_id=domain_id)
+     89 # Install signal handlers after initializing the context because the rclpy signal
+     90 # handler only does something if there is at least one initialized context.
+     91 # It is desirable for sigint or sigterm to be able to terminate the process if rcl_init
+     92 # takes a long time, and the default signal handlers work well for that purpose.
+     93 install_signal_handlers(signal_handler_options)
+
+
+File /opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py:70, in Context.init(self, args, initialize_logging, domain_id)
+     65     raise RuntimeError(
+     66         &#39;Domain id ({}) should not be lower than zero.&#39;
+     67         .format(domain_id))
+     69 if self.__context is not None:
+---&gt; 70     raise RuntimeError(&#39;Context.init() must only be called once&#39;)
+     72 self.__context = _rclpy.Context(
+     73     args if args is not None else sys.argv,
+     74     domain_id if domain_id is not None else _rclpy.RCL_DEFAULT_DOMAIN_ID)
+     75 if initialize_logging and not self._logging_initialized:
+
+
+RuntimeError: Context.init() must only be called once
+</code></pre></div>
+<p><code>python
+node.create_timer(0.1, timer_callback)
+threading.Thread(target=rclpy.spin, args=(node,)).start()</code></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>
+</code></pre></div>
+<hr />
+<h2 id="code-examples">Code Examples<a class="headerlink" href="#code-examples" title="Permanent link">&para;</a></h2>
+<h3 id="turtlesimtultle_move"><code>turtlesim/tultle_move/</code><a class="headerlink" href="#turtlesimtultle_move" title="Permanent link">&para;</a></h3>
+<p><a class="md-button" href="https://github.com/OWNER/study-site/tree/main/source/turtlesim/tultle_move/">View full source on GitHub</a></p>
+<h4 id="turtlesimtultle_movetultle_move__init__py"><code>turtlesim/tultle_move/tultle_move/__init__.py</code><a class="headerlink" href="#turtlesimtultle_movetultle_move__init__py" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>
+</code></pre></div>
+<h4 id="turtlesimtultle_movetultle_movedist_turtle_action_serverpy"><code>turtlesim/tultle_move/tultle_move/dist_turtle_action_server.py</code><a class="headerlink" href="#turtlesimtultle_movetultle_movedist_turtle_action_serverpy" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rp</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.action</span><span class="w"> </span><span class="kn">import</span> <span class="n">ActionServer</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.executors</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultiThreadedExecutor</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">turtlesim.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pose</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">turtle_msgs.action</span><span class="w"> </span><span class="kn">import</span> <span class="n">DistTurtle</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">geometry_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Twist</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tultle_move.subscriber_t</span><span class="w"> </span><span class="kn">import</span> <span class="n">TurtlesimSubscriber</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="k">class</span><span class="w"> </span><span class="nc">TurtleSub_Action</span><span class="p">(</span><span class="n">TurtlesimSubscriber</span><span class="p">):</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ac_server</span><span class="p">):</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ac_server</span> <span class="o">=</span> <span class="n">ac_server</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">ac_server</span><span class="o">.</span><span class="n">current_pose</span> <span class="o">=</span> <span class="n">msg</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="k">class</span><span class="w"> </span><span class="nc">DistTurtleServer</span><span class="p">(</span><span class="n">Node</span><span class="p">):</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="s1">&#39;dist_turtle_action_server&#39;</span><span class="p">)</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">total_dist</span> <span class="o">=</span> <span class="mf">0.0</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">is_first_time</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">current_pose</span> <span class="o">=</span> <span class="n">Pose</span><span class="p">()</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">previous_pose</span> <span class="o">=</span> <span class="n">Pose</span><span class="p">()</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">publisher</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_publisher</span><span class="p">(</span>
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>            <span class="n">Twist</span><span class="p">,</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>            <span class="s1">&#39;/turtle1/cmd_vel&#39;</span><span class="p">,</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>            <span class="mi">10</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>        <span class="p">)</span>
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_action_server</span> <span class="o">=</span> <span class="n">ActionServer</span><span class="p">(</span>
+<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>            <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a>            <span class="n">DistTurtle</span><span class="p">,</span>
+<a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>            <span class="s1">&#39;dist_turtle&#39;</span><span class="p">,</span>
+<a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">execute_callback</span>
+<a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>        <span class="p">)</span>
+<a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>
+<a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calc_diff_pose</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_first_time</span><span class="p">:</span>
+<a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">previous_pose</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_pose</span><span class="o">.</span><span class="n">x</span>
+<a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">previous_pose</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_pose</span><span class="o">.</span><span class="n">y</span>
+<a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">is_first_time</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a>
+<a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a>        <span class="n">dx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_pose</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous_pose</span><span class="o">.</span><span class="n">x</span>
+<a id="__codelineno-6-49" name="__codelineno-6-49" href="#__codelineno-6-49"></a>        <span class="n">dy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_pose</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">previous_pose</span><span class="o">.</span><span class="n">y</span>
+<a id="__codelineno-6-50" name="__codelineno-6-50" href="#__codelineno-6-50"></a>        <span class="n">diff_dist</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-6-51" name="__codelineno-6-51" href="#__codelineno-6-51"></a><span class="c1"># ... (58 more lines)</span>
+</code></pre></div>
+<h4 id="turtlesimtultle_movetultle_movemulti_threadpy"><code>turtlesim/tultle_move/tultle_move/multi_thread.py</code><a class="headerlink" href="#turtlesimtultle_movetultle_movemulti_threadpy" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rclpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">rp</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.executors</span><span class="w"> </span><span class="kn">import</span> <span class="n">MultiThreadedExecutor</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.node</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tultle_move.publisher_t</span><span class="w"> </span><span class="kn">import</span> <span class="n">TurtlesimPublisher</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tultle_move.subscriber_t</span><span class="w"> </span><span class="kn">import</span> <span class="n">TurtlesimSubscriber</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="n">rp</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    <span class="n">sub</span> <span class="o">=</span> <span class="n">TurtlesimSubscriber</span><span class="p">()</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    <span class="n">pub</span> <span class="o">=</span> <span class="n">TurtlesimPublisher</span><span class="p">()</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    <span class="n">executor</span> <span class="o">=</span> <span class="n">MultiThreadedExecutor</span><span class="p">()</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    <span class="n">executor</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">sub</span><span class="p">)</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    <span class="n">executor</span><span class="o">.</span><span class="n">add_node</span><span class="p">(</span><span class="n">pub</span><span class="p">)</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>        <span class="n">executor</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>    <span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>        <span class="n">executor</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>        <span class="n">pub</span><span class="o">.</span><span class="n">destroy_node</span><span class="p">()</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>        <span class="n">rp</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.path", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

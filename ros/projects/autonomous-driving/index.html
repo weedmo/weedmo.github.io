@@ -1,0 +1,3027 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ROS2 & AI Study Materials">
+      
+      
+      
+        <link rel="canonical" href="https://weedmo.github.io/ros/projects/autonomous-driving/">
+      
+      
+        <link rel="prev" href="../aruco-conveyor/">
+      
+      
+        <link rel="next" href="../thread-database/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>자율주행 디지털트윈 - weedmo notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#-" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../.." title="weedmo notes" class="md-header__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            weedmo notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              자율주행 디지털트윈
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="다크 모드"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="라이트 모드"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ROS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ai/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="weedmo notes" class="md-nav__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    weedmo notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    입문 (Introduction)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    입문 (Introduction)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. ROS2 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 개발환경
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 노드와 토픽
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 서비스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 액션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. 런치파일
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. Pub/Sub & Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08. 로봇시스템
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09. 카메라 & API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 로봇과 리눅스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 네트워크와 통신
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 센서와 로봇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. ROS2 실습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Topic/Service/Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 (Practice)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    실습 (Practice)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-01-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 01-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-04-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 04-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-05-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 05-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 (Projects)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    프로젝트 (Projects)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rviz2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RVIZ2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gazebo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gazebo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시뮬레이션 협업
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aruco-conveyor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ArUco 마커 & 컨베이어벨트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    자율주행 디지털트윈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../thread-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쓰레드와 데이터베이스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    코드 참고 (Code Reference)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    코드 참고 (Code Reference)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/turtlesim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turtlesim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/pubsub-qos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pub/Sub & QoS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/srvcli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service/Client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/robot-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera Pub/Sub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/hangman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hangman Game
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/urdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URDF & Xacro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/opencv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenCV (Hough)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/point-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Point Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/lane-detect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lane Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/qt-plugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qt Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/rqt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RQT Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/ros2env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 환경설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/python-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/pytorch-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch 입문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/neural-network-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    신경망 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    딥러닝 (분류/회귀)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/cnn-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CNN 아키텍처
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/object-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    객체 탐지
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/sequence-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시퀀스 모델 (RNN/LSTM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/vision-transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    응용 (Applied)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    응용 (Applied)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/computer-vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컴퓨터비전 (OpenCV)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/advanced-cv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    고급 CV (Tracking/Detection)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/generative-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    생성 모델 (GAN/NeRF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/explainable-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explainable AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/medical-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    의료 AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/reinforcement-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    강화학습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="네비게이션" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    ROS
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../rviz2/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    프로젝트 (Projects)
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="-">로키 -  자율주행 디지털 트윈 프로젝트 교안<a class="headerlink" href="#-" title="Permanent link">&para;</a></h1>
+<p>Version
+V1.0
+최종 수정 일
+2025.03.19
+작성자
+김루진
+두산 프로젝트 교안</p>
+<p>자율 주행 디지털 트윈 구현
+자율 주행 수행
+학습 목표
+내용 검증 필요</p>
+<p><img alt="Image 4" src="../../../assets/images/ros/projects/autonomous-driving/img_002_004.webp" /></p>
+<p>디지털 트윈, 자율 주행
+참고
+디지털 트윈</p>
+<p>디지털 트윈, 자율 주행
+참고
+디지털 트윈 및 활용
+디지털 트윈(Digital Twin)은 물리적 객체나 시스템의 가상 복제 본을 의미하는 첨단 기술입니다.
+자율 주행 분야에서 이 기술은 매우 중요한 역할을 하고 있습니다.</p>
+<ol>
+<li>
+<p>차량 개발 및 시뮬레이션
+-실제 주행 환경을 완벽하게 재현하여 다양한 주행 시나리오 테스트
+-물리적 프로토타입 제작 전 가상 환경에서 성능과 안전성 검증
+-극한 기후 조건, 복잡한 교통 상황 등 다양한 환경 시뮬레이션</p>
+</li>
+<li>
+<p>실시간 성능 모니터링
+-차량의 실시간 상태, 부품 마모, 성능 추적
+-예측 유지 보수를 통한 잠재적 고장 사전 예방
+-센서 데이터와 가상 모델의 지속적인 동기화</p>
+</li>
+<li>
+<p>주행 알고리즘 최적화
+-인공 지능 및 머신 러닝 알고리즘의 지속적인 학습
+-다양한 주행 시나리오에 대한 의사 결정 최적화
+-차량 간 통신(V2V) 및 인프라 통신(V2I) 시스템 개선</p>
+</li>
+</ol>
+<p>디지털 트윈, 자율 주행
+참고
+ROS 2 노드와 데이터 동기화
+디지털 트윈을 구현하려면 Gazebo에서 생성된 데이터와 실제 센서 데이터를 동기화해야합니다.
+① Gazebo에서 센서 데이터 수집
+Gazebo에서 센서 데이터를 구독하여 실제 데이터와 비교합니다.
+② 실제 로봇 센서 데이터 수집
+실제 로봇에서도 동일한 명령을 실행하여 데이터를 비교합니다.
+③ TF(Transform) 동기화
+실제 로봇과 시뮬레이션 로봇의 TF를 맞춰야합니다.
+Nav2와 AMCL을 활용하여 실제 환경과 일치하는 위치 추정을 수행합니다.
+ros2 launch nav2_bringup localization_launch.py use_sim_time:=true
+Gazebo의 use_sim_time을 활성화하여 시뮬레이션 시간을 사용할 수 있습니다.
+ros2 param set /gazebo use_sim_time true</p>
+<p>디지털 트윈, 자율 주행
+참고
+실제 로봇과 가상 로봇 간의 데이터 연동
+① ROS 2 네임 스페이스 및 리매핑 활용
+다음과 같이 토픽을 리 매핑하여 실제 데이터와 가상 데이터를 매칭할 수 있습니다.
+<node pkg="ros2_bridge" exec="ros2_bridge_node">
+    <remap from="/real_scan" to="/sim_scan"/>
+    <remap from="/real_odom" to="/sim_odom"/>
+</node>
+② MQTT/ROS 2 Bridge 활용
+실제 센서 데이터를 MQTT로 송신하고, Gazebo에서 이를 구독할 수도 있습니다.
+ros2 run rosbridge_server rosbridge_websocket
+이후 Python을 이용하여 MQTT로 데이터를 송수신할 수 있습니다.
+디지털 트윈, 자율 주행
+참고
+실제 환경과 시뮬레이션 비교 및 보정
+① SLAM 및 Localization 검증
+Gazebo에서 생성된 맵과 실제 맵을 비교하여 차이를 보정합니다.
+ros2 run nav2_map_server map_saver_cli -f sim_map
+ros2 run nav2_map_server map_saver_cli -f real_map
+② 데이터 로그 및 분석
+ROS 2의 bag 파일을 활용하여 로그를 기록하고 분석할 수 있습니다.
+ros2 bag record -o sim_data /scan /odom
+ros2 bag record -o real_data /real_scan /real_odom
+이후 데이터를 비교하여 실제와 시뮬레이션의 차이를 확인할 수 있습니다.</p>
+<p>디지털 트윈, 자율 주행
+참고
+오토 레이스</p>
+<p>디지털 트윈, 자율 주행
+참고
+주요 사양
+-베이스 플랫폼:
+-TurtleBot3 AuroraRace는 기존 TurtleBot3 모델을 바탕으로 하며, 확장된 성능을 제공.
+-주행 성능:
+-고속 주행이 가능하며, 빠르고 민첩하게 움직일 수 있도록 설계.
+-경주용 로봇으로서 성능을 강화한 모델.
+-센서:
+-자율 주행을 위한 다양한 센서들이 장착되어 있습니다.
+-일반적으로 LiDAR(Light Detection and Ranging), 카메라, IMU(Inertial Measurement Unit) 등을 포함하여 환경을 실시간으로 인식하고 맵을 생성
+-제어 시스템:
+-ROS 2 및 ROS 1을 모두 지원하며, 다양한 로봇 제어 및 자율 주행 알고리즘을 실험하고 개발.
+-모터와 구동 시스템:
+-높은 토크와 성능을 제공하는 구동 시스템을 갖추고 있어, 레이싱 환경에서도 안정적인 성능을 발휘.</p>
+<p>디지털 트윈, 자율 주행
+참고
+참고
+https://github.com/ROBOTIS-GIT/turtlebot3_autorace_2020</p>
+<p>디지털 트윈, 자율 주행
+참고
+자율 주행 수행 설치
+https://emanual.robotis.com/docs/en/platform/turtlebot3/autonomous_driving/
+https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/
+사전 학습: 주행 시뮬레이션
+$ cd ~/turtlebot3_ws/src/
+$ git clone https://github.com/ROBOTIS-GIT/turtlebot3_autorace.git
+$ cd ~/turtlebot3_ws &amp;&amp; colcon build --symlink-install
+페키지 인스 톨(PC 설치)
+$ sudo apt install ros-humble-image-transport ros-humble-cv-bridge ros-humble-vision-opencv python3-
+opencv libopencv-dev ros-humble-image-pipeline</p>
+<p>디지털 트윈, 자율 주행
+참고
+자율 주행 수행 설치
+월드 플러그인 설정
+카메라 보정
+.bashrc에 내보내기 줄을 추가하고 작업 공간 이름을 {your_ws}에 넣으세요. 이 플러그인을 사용하면 세상에
+서 동적 환경을 애니메이션으로 표현할 수 있습니다.
+$ echo 'export
+GAZEBO_PLUGIN_PATH=<span class="arithmatex">\(HOME/{your_ws}/build/turtlebot3_gazebo:\)</span>GAZEBO_PLUGIN_PATH' &gt;&gt;
+~/.bashrc
+카메라 보정은 자율 주행에 필수적입니다. 카메라가 로봇 환경에 대한 정확한 데이터를 제공하도록 보장하기
+때문입니다. Gazebo 시뮬레이션은 일부 보정 단계를 간소화하지만, 보정 프로세스를 이해하는 것은 실제로
+봇으로 전환하는 데 중요합니다. 카메라 보정은 일반적으로 두 단계로 구성됩니다. 내부 카메라 속성을 처리
+하는 내재적 보정과 카메라 뷰를 로봇 좌표계에 맞추는 외재적 보정입니다. Gazebo에서는 시뮬레이션이 미리
+정의된 카메라 매개변수를 사용하기 때문에 이러한 단계가 필요하지 않지만, 이러한 지침은 실제 하드웨어 배
+포를 위한 전체 프로세스를 이해하는 데 도움이 됩니다.</p>
+<p>디지털 트윈, 자율 주행
+참고
+자율 주행 수행 설치
+Gazebo 시뮬레이션에서는 시뮬레이션된 카메라에 렌즈 왜곡이 없기 때문에 카메라 이미 징 보정이 필요 않음.
+시작하려면 다음 명령을 실행하여 원격 PC에서 Gazebo 시뮬레이션을 시작합니다.
+$ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
+렌즈 왜곡을 보정하고 초점 거리 및 광학 중심과 같은 카메라의 내부 속성을 결정하는 데 중점을 둡니다. 실
+제 로봇에서는 이 프로세스가 필수적이지만 Gazebo 시뮬레이션에서는 시뮬레이션된 카메라가 이미 왜곡이
+없고 이상적인 이미지를 제공하기 때문에 내재적 교정이 필요하지 않습니다. 그러나 이 단계는 사용자가 실
+제 하드웨어 배포 프로세스를 이해하는 데 도움이 되도록 포함되었습니다.
+실제 하드웨어에서 실행되는 것처럼 내재적 교정 프로세스를 실행하려면 다음을 실행합니다.
+$ ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py</p>
+<ol>
+<li>내재적 교정</li>
+</ol>
+<p>디지털 트윈, 자율 주행
+참고
+자율 주행 수행 설치
+이 단계에서는 이미지 출력이 수정되지 않지만 후속 처리에 올바른 topic(/camera/image_rect 또는
+/camera/image_rect_color/compressed)를 사용할 수 있도록 보장합니다.</p>
+<ol>
+<li>외부 교정
+외부 카메라 보정
+외부 보정은 카메라의 관점을 로봇의 좌표계와 일치시켜 카메라 뷰에서 감지된 객체가 로봇 환경에서 실제
+위치와 일치하도록합니다. 실제 로봇에서는 이 프로세스가 중요하지만, Gazebo 시뮬레이션에서는 일관성을
+위해 보정을 수행하고 사용자에게 실제 워크 플로에 익숙해지도록합니다.
+시뮬레이션이 실행되면 외부 보정 프로세스를 시작합니다.
+$ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py calibration_mode:=True</li>
+</ol>
+<p>디지털 트윈, 자율 주행
+참고
+자율 주행 수행 설치
+카메라-지면 투사 및 보상을 담당하는 노드가 활성화됩니다.
+시각화 및 매개변수 조정
+$ rqt
+Navigate to Plugins &gt; Visualization &gt; Image view 이동합니다. 두 개의 이미지 뷰 창을 만듭니다.
+한 창에서 /camera/image_extrinsic_calib 토픽을 선택하고 다른 창에서 /camera/image_projected를 선택합니다.
+첫 번째 토픽은 빨간색 사다리꼴 모양의 이미지를 보여 주고, 두 번째 토픽은 지상 투사 뷰(조감도)를 보여 줍니다.</p>
+<p>디지털 트윈, 자율 주행
+참고
+자율 주행 수행 설치</p>
+<p><img alt="Image 21" src="../../../assets/images/ros/projects/autonomous-driving/img_016_021.webp" /></p>
+<p>디지털 트윈, 자율 주행
+참고
+자율 주행 수행 설치
+Plugins &gt; Configuration &gt; Dynamic Reconfigure.으로 이동합니다.
+/camera/image_projection 및 /camera/image_compensation의 매개 변수를 조정하여 카메라의 보정을 조정합니다.
+/camera/image_projection 값을 변경하여 /camera/image_extrinsic_calib 주제를 조정합니다.
+내장 카메라 보정은 빨간색 사다리꼴의 이미지 관점을 수정합니다.
+/camera/image_compensation을 조정하여 /camera/image_projected 조감도를 미세 조정합니다.</p>
+<p>디지털 트윈, 자율 주행
+참고
+자율 주행 수행 설치</p>
+<p><img alt="Image 24" src="../../../assets/images/ros/projects/autonomous-driving/img_018_024.webp" /></p>
+<p>디지털 트윈, 자율 주행
+참고
+자율 주행 수행 설치
+교정 데이터 저장
+최상의 프로젝션 설정을 찾으면 매개변수가 세션 전체에 걸쳐 지속되도록 교정 데이터를 저장해야합니다. 외부
+교정 데이터를 저장하는 한 가지 방법은 YAML 구성 파일을 수동으로 편집하는 것입니다.
+$ cd ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_camera/calibration/extrinsic_calibration/
+$ gedit projection.yaml
+동적 재구성에서 얻은 값과 일치하도록 투영 매개 변수를 수정합니다.
+이 방법은 외부 교정 매개변수가 향후 실행을 위해 올바르게 저장되도록 보장합니다</p>
+<p>디지털 트윈, 자율 주행
+참고
+자율 주행 수행 설치</p>
+<p><img alt="Image 27" src="../../../assets/images/ros/projects/autonomous-driving/img_020_027.webp" /></p>
+<p><img alt="Image 28" src="../../../assets/images/ros/projects/autonomous-driving/img_020_028.webp" /></p>
+<p>디지털 트윈, 자율 주행
+참고
+자율 주행 수행 설치
+교정 결과 확인
+교정 프로세스를 완료한 후 원격 PC에서 아래 지침에 따라 교정 결과를 확인합니다.
+현재 외부 교정 프로세스를 중지합니다.
+외부 교정이 교정_모드:=True에서 시작된 경우 터미널을 닫거나 Ctrl + C를 눌러 프로세스를 중지합니다.
+교정 모드 없이 외부 교정 노드를 시작합니다.
+이렇게 하면 시스템이 저장된 교정 매개변수를 검증에 적용합니다.
+$ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
+rqt를 실행하고 Plugins &gt; Visualization &gt; Image view로 이동합니다.
+$ rqt</p>
+<p>디지털 트윈, 자율 주행
+참고
+자율 주행 수행 설치
+성공적인 보정 설정으로, /camera/image_projected 주제를 선택했을 때 조감도(bird-eye view) 이미지가 아
+래와 같이 나타나야합니다.
+디지털 트윈, 자율 주행
+참고
+차선(Lane) 감지</p>
+<p>디지털 트윈, 자율 주행
+참고
+차선 감지를 통해 TurtleBot3는 차선 표시를 인식하고 자율적으로 따라갈 수 있습니다. 이 시스템은 실제
+TurtleBot3 또는 Gazebo 시뮬레이션에서 카메라 이미지를 처리하고, 색상 필터링을 적용하고, 차선 경계를
+식별합니다.
+이 섹션에서는 차선 감지 시스템을 시작하고, 감지된 차선 표시를 시각화하고, 정확한 추적을 보장하기 위해
+매개 변수를 보정하는 방법을 설명합니다.
+시뮬레이션에서 차선 감지 시작
+시작하려면 미리 정의된 차선 추적 코스로 Gazebo 시뮬레이션을 시작합니다.
+$ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
+다음으로, 감지된 차선이 로봇의 관점에 정확하게 매핑되었는지 확인하는 카메라 보정 프로세스를 실행합니다.
+$ ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
+$ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py</p>
+<p>디지털 트윈, 자율 주행
+참고
+이러한 단계는 카메라 피드의 왜곡을 수정하기 위해 내재적 및 외재적 교정을 활성화합니다.
+마지막으로, 차선 감지 노드를 교정 모드로 실행하여 차선 감지를 시작합니다.
+$ ros2 launch turtlebot3_autorace_camera detect_lane.launch.py calibration_mode:=True
+차선 감지 출력 시각화
+감지된 차선을 검사하려면 원격 PC에서 rqt를 엽니다.
+그런 다음 Plugins &gt; Visualization &gt; Image View 이동하여 세 개의 이미지 뷰어를 열어 다양한 차선 감지
+결과를 표시합니다.</p>
+<p>디지털 트윈, 자율 주행
+참고
+차선 감지 매개변수 교정
+최적의 정확도를 위해 감지 매개변수를 조정하는 것이 필요합니다. 이러한 매개 변수를 조정하면 로봇이 다양한 조명
+환경 조건에서 차선을 올바르게 식별할 수 있습니다.
+turtlebot3_autorace_detect/param/lane/에 있는 lane.yaml 파일을 열고 수정된 값을 이 파일에 씁니다. 이렇게 하면
+메라가 향후 실행에 수정된 매개변수를 사용합니다.
+$ cd ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_detect/param/lane</p>
+<p>디지털 트윈, 자율 주행
+참고
+차선 추적 실행
+캘리브 레이 션이 완료되면 캘리브 레이 션 옵션 없이 차선 감지 노드를 다시 시작합니다.
+$ cd ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_detect/param/lane
+$ ros2 launch turtlebot3_autorace_detect detect_lane.launch.py</p>
+<p><img alt="Image 40" src="../../../assets/images/ros/projects/autonomous-driving/img_027_040.webp" /></p>
+<p>디지털 트윈, 자율 주행
+참고
+그런 다음, TurtleBot3가 감지된 차선을 자동으로 따라갈 수 있도록 차선 추적 제어 노드를 시작합니다.
+$ ros2 turtlebot3_autorace_driving control_lane.launch.py를 시작합니다.</p>
+<p>디지털 트윈, 자율 주행
+참고
+프로젝트 과제</p>
+<p>디지털 트윈, 자율 주행
+참고</p>
+<ol>
+<li>구현 가능한 디지털 트윈 시나리오를 작성한다.</li>
+<li>전체 설계 서와 상세 설계 서를 작성한다.</li>
+<li>전체 일정과 RnR을 정의 하고 시작한다.</li>
+<li>주어진 자율 주행 트랙에서 센서에 반응하는 컨베이어 벨트 아두이노 코들 작성한다.</li>
+<li>프로젝트에서 사용될 아로크 마커를 생성한다.</li>
+<li>자율 주행 트랙에 사용되는 신호등, 차단기를 하드웨어, 소프트웨어를 개발한다.</li>
+<li>자율 주행 트랙과 터 틀 봇3 메니퓰 레이 터와 신호등, 차단기 등이 구성된 디지털 트윈으로 구현한다.</li>
+<li>차선을 인식하고 주행하는 자율 주행 차를 개발한다.</li>
+<li>라이다, 레이다를 사용하여 실시간으로 장애물 회피 동작을 구현한다.</li>
+<li>박스가 도로에 있는 경우 메니퓰 레이 터로 들어서 마지막 지점 컨베어 벨트에 놓는다.</li>
+<li>기타 자율 주행에 필요한 기술 적용</li>
+</ol>
+<p>디지털 트윈, 자율 주행
+참고
+This repository contains a folder named world which contains the gazebo simulation environments.
+In order to makes it work you need to copy the environments inside the gazebo models directory.
+In order to do that do the following commands:
+roscd turtlebot3_autorace_simulation
+cp -r ./world/turtlebot3_autorace_track<em> $HOME/.gazebo/models
+cp -r ./world/</em>_logo $HOME/.gazebo/models
+cp -r ./world/chess_flag $HOME/.gazebo/models</p>
+<p>디지털 트윈, 자율 주행
+참고
+This repository use a custom model of turtlebot3. This model is the turtlebot3 burger pi.
+In order to have it inside the simulation environment it has to be added to the models description in the
+turtlebot3_descripion package. The 3D model and robot description is inside the urdf folder.
+In order to add it to the choosable models do the following steps:
+cp ./urdf/turtlebot3_burger_pi* $HOME/catkin_ws/src/turtlebot3/turtlebot3_description/urdf/.</p>
+<p>디지털 트윈, 자율 주행
+참고
+참고할 프로젝트
+https://github.com/falfab/turtlebot3_autorace_simulation
+Turtlebot 3 Autorace simulation is a ROS package which allows to run turtlebot3_autorace from ROBOTIS-GIT in simulation.
+It is fully parametrizable and customizable.
+Next will follow the instructions to getting started with standard examples and to customize trucks to test the package.
+Circuit race with logo detection
+In order to makes the turtlebot perform a race in a circuit with
+logo detection do the following steps:
+roslaunch turtlebot3_autorace_simulation circuit.launch
+roslaunch turtlebot3_autorace_simulation autorace.launch
+By default gazebo is launched with no gui, if you want to see
+robot visualization do this:
+roslaunch turtlebot3_autorace_simulation
+config_file:=circuit.rviz</p>
+<p><img alt="Image 47" src="../../../assets/images/ros/projects/autonomous-driving/img_033_047.webp" /></p>
+<p>디지털 트윈, 자율 주행
+참고</p>
+<p>디지털 트윈, 자율 주행
+참고</p>
+<p>디지털 트윈, 자율 주행
+참고</p>
+<p>디지털 트윈, 자율 주행
+참고</p>
+<p>디지털 트윈, 자율 주행
+참고
+추가 자료</p>
+<p>디지털 트윈, 자율 주행
+참고</p>
+<p>디지털 트윈, 자율 주행
+참고
+가제 보 물리 엔진
+ODE(Open Dynamics Engine)는 Gazebo에서 기본적으로 제공하는 물리 엔진 중 하나
+로봇의 충돌 감지 및 물리 시뮬레이션을 담당합니다.
+ODE를 사용할 경우:</p>
+<p>계산 속도가 빠름</p>
+<p>충돌 감지가 안정적</p>
+<p>다이나믹한 움직임을 시뮬레이션하기 용이</p>
+<p>복잡한 관절 시스템에서 정확도가 떨어질 수 있음</p>
+<p>만약 더 정밀한 물리 엔진이 필요하다면?
+-DART: 동역학 시뮬레이션 정밀도 향상
+-Bullet: 충돌 감지가 정밀하고 로봇 시뮬레이션에 적합
+-Simbody: 물리적으로 정확한 시뮬레이션 수행 가능</p>
+<p>참고</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.path", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

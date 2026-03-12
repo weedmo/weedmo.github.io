@@ -1,0 +1,4621 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ROS2 & AI Study Materials">
+      
+      
+      
+        <link rel="canonical" href="https://weedmo.github.io/ros/intro/lesson-01/">
+      
+      
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../lesson-02/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>01. ROS2 개요 - weedmo notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ros2-1-" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../.." title="weedmo notes" class="md-header__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            weedmo notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              01. ROS2 개요
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="다크 모드"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="라이트 모드"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ROS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ai/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="weedmo notes" class="md-nav__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    weedmo notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    입문 (Introduction)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    입문 (Introduction)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. ROS2 개요
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. ROS2 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 프로그래밍기초
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로봇SW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        코드스타일가이드
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본이름규칙
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본규칙
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        라인길이
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이름규칙(Naming)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주석(Comments)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        린터(Linters)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기타
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spaces-vs-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        공백문자(Spaces) vs. 탭(Tabs)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ Style
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본규칙
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        라인길이
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이름규칙(Naming)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spaces-vs-tabs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        공백문자(Spaces) vs. 탭(Tabs)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        괄호(Brace)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주석(Comments)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        린터(Linters)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기타
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#underlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Underlay
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlay
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setupbashlocal_setupbashsetup-script-underlayoverlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup.bash와local_setup.bash는설정스크립트(Setup script)라고하며, Underlay와Overlay
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#colcon_cd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        colcon_cd
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rosdep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rosdep
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros_localhost_only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS_LOCALHOST_ONLY
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ddsdata-distribution-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DDS(Data Distribution Service) 도메인
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        네트워크분리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        컨피규레이션의유연성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        값범위
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        환경변수설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 Namespace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용방법
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 관련패키지들삭제
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 repository 삭제
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packagexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        package.xml
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setupcfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setup.cfg
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setuppy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setup.py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2에서의역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmakeliststxtsetuppysetupcfg-packagexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CMakeLists.txt와setup.py/setup.cfg, package.xml간의비교
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        세파일의공통점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pip-install-python3-setuppy-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pip install .과python3 setup.py install의차이
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setuppy-setupcfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setup.py &amp; setup.cfg차이점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로그래매틱접근
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        직접실행가능
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용자정의명령지원
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        선언적접근
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        간소화된설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setuppy_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setup.py와의결합사용
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 개발환경
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 노드와 토픽
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 서비스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 액션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. 런치파일
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. Pub/Sub & Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08. 로봇시스템
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09. 카메라 & API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 로봇과 리눅스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 네트워크와 통신
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 센서와 로봇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. ROS2 실습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Topic/Service/Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 (Practice)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    실습 (Practice)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-01-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 01-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-04-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 04-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-05-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 05-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 (Projects)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    프로젝트 (Projects)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/rviz2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RVIZ2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/gazebo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gazebo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시뮬레이션 협업
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/aruco-conveyor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ArUco 마커 & 컨베이어벨트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/autonomous-driving/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    자율주행 디지털트윈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/thread-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쓰레드와 데이터베이스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    코드 참고 (Code Reference)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    코드 참고 (Code Reference)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/turtlesim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turtlesim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/pubsub-qos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pub/Sub & QoS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/srvcli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service/Client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/robot-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera Pub/Sub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/hangman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hangman Game
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/urdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URDF & Xacro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/opencv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenCV (Hough)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/point-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Point Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/lane-detect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lane Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/qt-plugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qt Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/rqt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RQT Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/ros2env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 환경설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/python-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/pytorch-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch 입문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/neural-network-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    신경망 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    딥러닝 (분류/회귀)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/cnn-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CNN 아키텍처
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/object-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    객체 탐지
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/sequence-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시퀀스 모델 (RNN/LSTM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/vision-transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    응용 (Applied)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    응용 (Applied)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/computer-vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컴퓨터비전 (OpenCV)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/advanced-cv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    고급 CV (Tracking/Detection)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/generative-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    생성 모델 (GAN/NeRF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/explainable-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explainable AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/medical-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    의료 AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/reinforcement-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    강화학습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 프로그래밍기초
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로봇SW
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conclusion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        코드스타일가이드
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본이름규칙
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본규칙
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        라인길이
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이름규칙(Naming)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주석(Comments)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        린터(Linters)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기타
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spaces-vs-tabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        공백문자(Spaces) vs. 탭(Tabs)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#c-style" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ Style
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기본규칙
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        라인길이
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        이름규칙(Naming)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spaces-vs-tabs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        공백문자(Spaces) vs. 탭(Tabs)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        괄호(Brace)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comments_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주석(Comments)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        린터(Linters)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        기타
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#underlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Underlay
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overlay
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setupbashlocal_setupbashsetup-script-underlayoverlay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup.bash와local_setup.bash는설정스크립트(Setup script)라고하며, Underlay와Overlay
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#colcon_cd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        colcon_cd
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rosdep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rosdep
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros_localhost_only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS_LOCALHOST_ONLY
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ddsdata-distribution-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DDS(Data Distribution Service) 도메인
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        네트워크분리
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        컨피규레이션의유연성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        값범위
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        환경변수설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-namespace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 Namespace
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용방법
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 관련패키지들삭제
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 repository 삭제
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packagexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        package.xml
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setupcfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setup.cfg
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setuppy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setup.py
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2에서의역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주요역할
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmakeliststxtsetuppysetupcfg-packagexml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CMakeLists.txt와setup.py/setup.cfg, package.xml간의비교
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        세파일의공통점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pip-install-python3-setuppy-install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pip install .과python3 setup.py install의차이
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setuppy-setupcfg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setup.py &amp; setup.cfg차이점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        프로그래매틱접근
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        직접실행가능
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        사용자정의명령지원
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        선언적접근
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        간소화된설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setuppy_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        setup.py와의결합사용
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="네비게이션" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    ROS
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    입문 (Introduction)
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ros2-1-">ROS2 입문 1차시 - 프로그래밍 기초<a class="headerlink" href="#ros2-1-" title="Permanent link">&para;</a></h1>
+<h2 id="ros2">ROS2 프로그래밍기초<a class="headerlink" href="#ros2" title="Permanent link">&para;</a></h2>
+<h2 id="sw">로봇SW<a class="headerlink" href="#sw" title="Permanent link">&para;</a></h2>
+<h2 id="message">Message<a class="headerlink" href="#message" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>비동기식 단방향 메시지 송수신 방식으로, msg 인터페이스 형태의 메시지를 주고받는Publisher와Subscriber 간의 통신 두 번째 키워드</p>
+</li>
+<li>
+<p>ROS2 메시지 통신에서 가장 많이 사용하며, 1:1 통신이 기본 이지만N:N 통신도 가능</p>
+</li>
+<li>
+<p>비동기성과 연속성을 가지기 때문에 센서값 전송이나 항시 정보를 주고받아야하는 부분에서 주로 사용</p>
+</li>
+</ul>
+<p><img alt="Image 5" src="../../../assets/images/ros/intro/lesson-01/img_006_005.webp" /></p>
+<h2 id="message_1">Message<a class="headerlink" href="#message_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>동기식 양방향 메시지 송수신 방식</li>
+<li>
+<p>서비스 요청(Request)을 보내는Service Client, 응답(Response) 을 보내는 쪽을Service Server로구분</p>
+</li>
+<li>
+<p>인터페이스는srv를사용</p>
+</li>
+<li>동일한 서비스 서버에 대해 복수의 클라이언트를 연결할 수 있지만, 서비스 응답은 서비스 요청이 있었던 서비스 클라이언트에 대해서만 응답함</li>
+</ul>
+<p><img alt="Image 6" src="../../../assets/images/ros/intro/lesson-01/img_007_006.webp" /></p>
+<h2 id="message_2">Message<a class="headerlink" href="#message_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>비동기식, 동기식 양방향 메시지 송수신 방식</li>
+<li>
+<p>목표(Goal)를 설정하는Action Client와 목표를 수행하는 Action Server 간의 통신</p>
+</li>
+<li>
+<p>Action Server는 목표 수행 중 중간 결과를 피드백 (Feedback)으로, 최종 결과를 결과(Result)로전송</p>
+</li>
+</ul>
+<p><img alt="Image 8" src="../../../assets/images/ros/intro/lesson-01/img_008_008.webp" /></p>
+<h2 id="message_3">Message<a class="headerlink" href="#message_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>ROS2에서의 액션은 목표 전달(send_goal), 목표 취소(cancel_goal), 결과 받기(get_result)를 위한 토픽과 서비스 통신을 혼합하여 사용</p>
+</li>
+<li>
+<p>비동기 방식에서 원하는 타이밍에 적절한 액션 수행을 위해 목표 상태(goal_state)에 도입하여, 목표 전달 후 상태 머신을 구동하여 액션 프로세스 추적</p>
+</li>
+<li>
+<p>즉, 액션 목표 전달 이후 액션 상태를 액션 클라이언트에 전달하여, 비동기 및 동기 방식이 혼재된 액션의 처리를 지원</p>
+</li>
+</ul>
+<p><img alt="Image 10" src="../../../assets/images/ros/intro/lesson-01/img_009_010.webp" /></p>
+<p>ROS1과ROS2비교</p>
+<p>ROS2 Programming</p>
+<h2 id="_1">주요역할<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>ROS2에서의 프로그래밍 역할</p>
+<ul>
+<li>ROS2에서"프로그래밍"의 역할은 로봇 시스템을 설계하고 제어하는 데 중요</li>
+<li>
+<p>ROS2는 로봇 애플리케이션을 개발하는 데 사용되는 오픈 소스 소프트웨어 프레임워크로, 복잡한 로봇 작업을 분리된 모듈로 나누어 관리할 수 있게해 주며, 이를 통해 다양한 로봇 하드웨어와 소 프트웨어 간의 상호 작용을 쉽게 할 수 있음</p>
+</li>
+<li>
+<p>노드 개발</p>
+</li>
+<li>
+<p>ROS2는 로봇 시스템을 여러 개의 독립적인 노드로 나누어 작업됨</p>
+</li>
+<li>
+<p>각 노드는 특정 작업을 수행하며, 프로그래밍을 통해 이러한 노드를 작성하고, 다른 노드와 데이터를 교환하거나 상호 작용하도록 만들 수 있음</p>
+</li>
+<li>
+<p>예를 들어, 센서 데이터를 처리하는 노드, 로봇의 모터를 제어하는 노드 등 개발 가능</p>
+</li>
+</ul>
+<p>ROS2 Programming</p>
+<h2 id="_2">주요역할<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>토픽(Topic)과메시지(Message) 관리</p>
+</li>
+<li>
+<p>ROS2에서는 노드 간의 통신이 토픽을 통해 이루어짐</p>
+</li>
+<li>각 노드는 특정 토픽을 구독하거나 발행하여 데이터 송수신</li>
+<li>
+<p>프로그래밍을 통해 토픽과 메시지 형식을 정의하고, 이를 통해 로봇 시스템의 다양한 부품들이 정보를 교환하도록함</p>
+</li>
+<li>
+<p>서비스(Service)와액션(Action)</p>
+</li>
+<li>
+<p>ROS2는 비동기 작업을 처리하는 서비스를 제공</p>
+</li>
+<li>
+<p>프로그래밍을 통해 특정 요청에 대해 서버와 클라이언트 간의 요청-응답 방식으로 통신 인터페이스 개발 가능</p>
+</li>
+<li>
+<p>또한, 액션을 통해 긴 시간이 걸리는 작업을 비동기적으로 처리 가능</p>
+</li>
+<li>예를 들어, 로봇이 경로를 따라가거나 특정 작업을 완료하는 데 시간이 걸릴 때, 이를 처리하기 위한 프로그래밍이 필요</li>
+</ol>
+<p>ROS2 Programming</p>
+<h2 id="_3">주요역할<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>로봇 하드웨어 제어</p>
+</li>
+<li>
+<p>ROS2는 로봇 하드웨어를 제어하는 다양한 라이브러리와 드라이버를 제공</p>
+</li>
+<li>프로그래밍을 통해 로봇의 센서, 카메라, 모터, 로봇 팔 등을 제어하는 코드를 작성 가능</li>
+<li>
+<p>예를 들어, 로봇 팔을 제어하기 위한 역 기구학(Inverse Kinematics) 알고리즘을 구현하거나, LiDAR 센서 데이터를 처리하는 프로그램을 작성</p>
+</li>
+<li>
+<p>로봇 동작의 논리 구현</p>
+</li>
+<li>
+<p>ROS2는 복잡한 로봇 동작을 관리할 수 있는 강력한 도구들을 제공</p>
+</li>
+<li>이를 통해 로봇의 동작을 제어하는 논리를 작성 가능</li>
+<li>예를 들어, 로봇이 장애물을 회피하면서 목적지로 가는 경로를 계획하는 알고리즘을 프로그래밍하여 개발</li>
+</ol>
+<p>ROS2 Programming</p>
+<h2 id="_4">주요역할<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>시뮬레이션(Simulation)</p>
+</li>
+<li>
+<p>ROS2는Gazebo와 같은 시뮬레이션 도구와 함께 사용되어 실제 하드웨어 없이 로봇을 테스트하고 개발</p>
+</li>
+<li>
+<p>프로그래밍을 통해 시뮬레이션 환경에서 로봇의 동작을 제어하고, 실제 환경에서의 동작을 예측하며, 로봇의 성능을 평가</p>
+</li>
+<li>
+<p>분산 시스템 구현</p>
+</li>
+<li>
+<p>ROS2는 분산 시스템을 기반으로 설계되어 있으며, 이를 통해 여러 컴퓨터가 네트워크를 통해 연결되어 작업을 분담</p>
+</li>
+<li>
+<p>프로그래밍을 통해 여러 장치에서 실행되는ROS2 노드 간의 통신을 설정하고, 분산 환경에서 로봇 시스템을 조정하는 작업 수행</p>
+</li>
+</ol>
+<p>ROS2 Programming</p>
+<h2 id="conclusion">Conclusion<a class="headerlink" href="#conclusion" title="Permanent link">&para;</a></h2>
+<p>효율적인 로봇 개발</p>
+<ul>
+<li>로봇 하드웨어와 소프트웨어를 연결하는 데 필요한 공통 인터페이스 제공</li>
+<li>
+<p>노드라는 모듈화된 구조를 가지며 각각의 노드는 독립적으로 개발, 테스트 및 배포할 수 있어 대규모 시스템에서도 협업이 용이</p>
+</li>
+<li>
+<p>ROS2는 전 세계적인 커뮤니티 지원과 방대한 오픈 소스 패키지를 제공</p>
+</li>
+<li>ROS2는 센서, 액추에이터, 카메라 등 다양한 로봇 하드웨어와 호환됨</li>
+<li>
+<p>Gazebo나rviz와 같은 시뮬레이터와 통합하여 실제 하드웨어 없이도 복잡한 알고리즘을 테스트 하고디버깅 가능</p>
+</li>
+<li>
+<p>Python, C++, MATLAB 등 다양한 언어를 지원하여 개발자가 선호하는 언어를 사용할 수 있음</p>
+</li>
+</ul>
+<p>프로그래밍 규칙
+Code Style</p>
+<h2 id="_5">코드스타일가이드<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>오픈 소스 커뮤니티에서 가장 많이 사용되고 있는 인기 있는 가이드 라인이 존재</li>
+<li>협업 시 코드가 독성 등을 위하여 코드 스타일 가이드라인을 따르는 것이 필요</li>
+</ul>
+<h2 id="_6">기본이름규칙<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>파일 이름: 모두 소문자로snake_case 규칙 따름</li>
+<li>ROS2 인터페이스 파일: CamelCases 규칙 따름</li>
+<li>특정 목적에 의해 만들어지는 파일: package.xml CMakeLists.txt README.md LICENSE CHANGELOG.rst .gitignore .travis.yml *.repos</li>
+</ul>
+<p><img alt="Image 12" src="../../../assets/images/ros/intro/lesson-01/img_016_012.webp" /></p>
+<p>프로그래밍 규칙
+Python Style</p>
+<h2 id="_7">기본규칙<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Python 3(Python 3.5 이상)</li>
+</ul>
+<h2 id="_8">라인길이<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>최대100 문자</li>
+</ul>
+<h2 id="naming">이름규칙(Naming)<a class="headerlink" href="#naming" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CamelCased, snake_case, ALL_CAPITALS 만사용 CamelCased: 타입, 클래스 snake_case: 파일, 패키지, 인터페이스, 모듈, 변수, 함수, 메소드 ALL_CAPITALS: 상수 Python Enhancement Proposals(PEPs)의PEP 8을준수 Wiki 참고: https://wiki.ros.org/PyStyleGuide</li>
+</ul>
+<p><img alt="Image 13" src="../../../assets/images/ros/intro/lesson-01/img_017_013.webp" /></p>
+<p>프로그래밍 규칙
+Python Style</p>
+<h2 id="comments">주석(Comments)<a class="headerlink" href="#comments" title="Permanent link">&para;</a></h2>
+<ul>
+<li>문서 주석:"""</li>
+<li>구현 주석: #</li>
+</ul>
+<h2 id="linters">린터(Linters)<a class="headerlink" href="#linters" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ament_flake8</li>
+</ul>
+<h2 id="_9">기타<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<ul>
+<li>모든 문자는 큰따옴표(")가 아닌 작은따옴표(')를사용</li>
+</ul>
+<h2 id="spaces-vs-tabs">공백문자(Spaces) vs. 탭(Tabs)<a class="headerlink" href="#spaces-vs-tabs" title="Permanent link">&para;</a></h2>
+<ul>
+<li>기본 들여 쓰기(indent): 공백 문자(space) 4개사용─ 탭(tab)문자 사용 금지</li>
+<li>괄호(Brace)</li>
+<li>자료형에 따라 적절한 괄호(대괄호[ ],중괄호{ },소괄호( )) 사용</li>
+<li>list=[ ]</li>
+<li>dictionary={'age': 30, 'name': '홍길동'}</li>
+<li>tuple=( ) K&amp;R BSD GNU</li>
+</ul>
+<p><img alt="Image 15" src="../../../assets/images/ros/intro/lesson-01/img_018_015.webp" /></p>
+<p><img alt="Image 16" src="../../../assets/images/ros/intro/lesson-01/img_018_016.webp" /></p>
+<p><img alt="Image 17" src="../../../assets/images/ros/intro/lesson-01/img_018_017.webp" /></p>
+<p>프로그래밍 규칙</p>
+<h2 id="c-style">C++ Style<a class="headerlink" href="#c-style" title="Permanent link">&para;</a></h2>
+<p>Google C++ Style Guide + ROS에 맞게 약간의 수정
+Wiki 참고: https://wiki.ros.org/PyStyleGuide</p>
+<h2 id="_10">기본규칙<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<ul>
+<li>C++14 Standard</li>
+</ul>
+<h2 id="_11">라인길이<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<ul>
+<li>최대100 문자</li>
+</ul>
+<h2 id="naming_1">이름규칙(Naming)<a class="headerlink" href="#naming_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CamelCased, snake_case, ALL_CAPITALS 만사용</li>
+<li>CamelCased: 타입, 클래스, 구조체, 열거형</li>
+<li>snakecase: 파일, 패키지, 인터페이스, 네임 스페이스, 변수, 함수, 메소드</li>
+<li>ALL_CAPITALS: 상수, 매크로</li>
+<li>소스 파일: ‘.cpp’ 확장자</li>
+<li>헤더 파일: ‘.hpp’ 확장자</li>
+<li>전역 변수(global variable): 되도록 사용X, 사용할 경우’g’접두어 붙이기</li>
+<li>클래스 멤버 변수(class member variable): 마지막에 밑줄(_) 붙이기</li>
+</ul>
+<p>프로그래밍 규칙</p>
+<h2 id="spaces-vs-tabs_1">공백문자(Spaces) vs. 탭(Tabs)<a class="headerlink" href="#spaces-vs-tabs_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>기본 들여 쓰기(indent): 공백 문자(space) 2개 └ 탭(tab)문자 사용 금지</li>
+<li>Class의‘public:’, ‘protected:’, ’private:’: 들여쓰기 사용X</li>
+</ul>
+<h2 id="brace">괄호(Brace)<a class="headerlink" href="#brace" title="Permanent link">&para;</a></h2>
+<ul>
+<li>모든if, else, do, while, for 구문: 괄호({}) 사용</li>
+</ul>
+<h2 id="comments_1">주석(Comments)<a class="headerlink" href="#comments_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>문서 주석: /<em> </em>/</li>
+<li>구현 주석: //</li>
+</ul>
+<h2 id="linters_1">린터(Linters)<a class="headerlink" href="#linters_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>C++ 코드 스타일의 자동 오류 검출: ament_cpplint, ament_uncrustify</li>
+<li>정적 코드 분석: ament_cppcheck</li>
+</ul>
+<h2 id="_12">기타<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Boost 라이브러리의 사용은 가능한 피하기</li>
+<li>
+<p>포인트 구문: char * c;처럼 사용하기 └ char<em> c; 이나char </em>c; 처럼 사용하지 않는다</p>
+</li>
+<li>
+<p>중첩 템플릿: set<list\<string>>처럼 사용하기 └ set &lt; list <string> &gt; 또는 set &lt; list <string> &gt;처럼 사용하지 않는다</p>
+</li>
+</ul>
+<p>프로그래밍 규칙
+파일 명 규칙</p>
+<ul>
+<li>패키지 명, 스크립트 파일 명은snake_case를사용</li>
+<li>패키지 생성 시 만들어지는 파일의 경우 규칙을 따르지 않음</li>
+</ul>
+<p><img alt="Image 20" src="../../../assets/images/ros/intro/lesson-01/img_021_020.webp" /></p>
+<p>ROS2 Setup Tips
+설정 스크립트</p>
+<ul>
+<li>
+<p>ROS2 설정 스크립트를 사용하지 않고 ROS2를 실행하여 오류가 발생하는 경우가 종종 있음</p>
+</li>
+<li>
+<p>이를 방지하기 위하여/.bashrc에미리 setup.bash를 선언하여 사용</p>
+</li>
+<li>
+<p>gedit ~/.bashrc 또는nano ~/.bashrc 실행</p>
+</li>
+<li>제일 하단에 아래 스크립트 추가 . . .</li>
+</ul>
+<p>ROS2 Setup Tips
+Setup.bash vs local_setup.bash
+ROS1에서는setup.bash만 사용하여 현재 워크 스페이스의 설정 스크립트를 실행하고, ROS2에서는setup.bash와local_setup.bash
+두 가지를 사용하는데, setup.bash와local_setup.bash의 차이를 이해하기 위해서는Underlay와Overlay에 대한 이해가 필요</p>
+<h2 id="underlay">Underlay<a class="headerlink" href="#underlay" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ROS 환경에서 사용 가능한 기본ROS 설치를 말함 (일반적으로ROS Release로 설치되는ROS 코어 및 표준 라이브러리와 도구를 포함)</li>
+<li>Underlay는 시스템에 설치되며, ‘opt/ros/<ROS_DISTRO>’ 디렉토리에 위치</li>
+<li>ROS Underlay는 기본 라이브러리, 도구, 메시지 및 서비스 정의+기본ROS 기능을 제공</li>
+</ul>
+<h2 id="overlay">Overlay<a class="headerlink" href="#overlay" title="Permanent link">&para;</a></h2>
+<ul>
+<li>User가설치하거나 개발 중인 패키지를 포함하는 사용자 지정ROS 작업 공간 (사용자는ROS 자체 패키지 및 노드를 추가, 확장)</li>
+<li>사용자 홈 디렉토리나 사용자가 지정한 다른 디렉토리에 위치할 수 있음</li>
+<li>ROS패키지 개별적 빌드 및 사용자 작업 공간에 설치 가능 (사용자 지정 노드 및 라이브러리를ROS 환경에 추가 가능)</li>
+<li>사용자 지정 패키지와 노드를 제공</li>
+<li>Overlay 개발 환경은 설치된ROS 패키지들에 의존하기에 Underlay 개발 환경에 종속적</li>
+<li>설정 스크립트(Setup script)라고 하는setup.bash의 호출 순서 및 사용 방법이 조금씩 달라짐</li>
+</ul>
+<p>ROS2 Setup Tips
+Setup.bash vs local_setup.bash</p>
+<h2 id="setupbashlocal_setupbashsetup-script-underlayoverlay">Setup.bash와local_setup.bash는설정스크립트(Setup script)라고하며, Underlay와Overlay<a class="headerlink" href="#setupbashlocal_setupbashsetup-script-underlayoverlay" title="Permanent link">&para;</a></h2>
+<p>구분 없이 모든 워크 스페이스에 존재하며 각 설정 스크립트마다 사용 목적은 조금씩 다름
+local_setup.bash
+- 현재 작업 중인ROS의 워크 스페이스의 환경 설정에 사용
+- 직접적으로 설치된 경로가 아니므로User가 직접 작성하거나 다운로드한ROS패키지와 노 드의 환경 변수를 설정하여 해당 워크 스페이스에 사용자 지정 패키지 및 노드를 실행하는데 필요
+- ‘install/local_setup.bash’는 사용자의 워크 스페이스 디렉토리 내에 위치해야하며, 해당 디렉토리에는build, install 디렉토리가 있어야함 setup.bash
+- ‘/opt/ros/humble’에 설치된ROS의 릴리스 환경을 설정하는데 사용
+- 현재 터미널 세션에ROS의 패키지, 라이브러리의 환경 변수를 추가하여 해당ROS 릴리스의 도구 및 패키지를 사용할 수 있게함 → 요약하자면/opt/ros/humble/setup.bash : ROS의기 본 설치 설정 install/local_setup.bash : 사용자가 직접 개발하거나 다운로드한 패키지 설정에 사용</p>
+<p>ROS2 Setup Tips</p>
+<h2 id="colcon_cd">colcon_cd<a class="headerlink" href="#colcon_cd" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>터미널 창에서‘colcon_cd’ 명령을 사용하면, 셸(shell)의 현재 워크 스페이스를 패키지 디렉터 리로 빠르게 변경 가능</p>
+</li>
+<li>
+<p>ROS1의ros_cd와 비슷한 기능</p>
+</li>
+<li>./bashrc에 아래와 같이 추가</li>
+</ul>
+<p>ROS2 Setup Tips</p>
+<h2 id="rosdep">rosdep<a class="headerlink" href="#rosdep" title="Permanent link">&para;</a></h2>
+<ul>
+<li>의존성 관리 툴인rosdep 명령어를 사용하면 손쉽게 패키지의 의존성 문제를 해결</li>
+<li>rosdep은 패키지 환경 설정 파일인package.xml의<depend> 옵션과 같은 의존성 정보를 확인하여 의존성 패키지들을 설치해 주기 때문에 의존성 패키지가 많은 패키지의 경우, 위 명령어를 사용하면 의존성 패키지 설치 및 관리에 있어서 매우 편하게 사용 가능</li>
+</ul>
+<p>ROS2 Setup Tips</p>
+<h2 id="ros_localhost_only">ROS_LOCALHOST_ONLY<a class="headerlink" href="#ros_localhost_only" title="Permanent link">&para;</a></h2>
+<ul>
+<li>DDS 기반RMW 구현의 기본 동작은 멀티 캐스트를 통해 도달 가능한 모든 노드를 검색하도록 되어 있음</li>
+<li>
+<p>이는 같은 네트워크를 사용할 때 의도치 않게 같은 네트워크 내의 다른 개발자와DDS로 연결됨에 따라 불편함 초래</p>
+</li>
+<li>
+<p>ROS_LOCALHOST_ONLY 환경 변수를True 설정하는 것으로 단일 컴퓨터 안에서만DDS 사용이 가능</p>
+</li>
+<li>원치 않는 컴퓨터 간의DDS 통신을 방지하려면 아래와 같은 설정 필요</li>
+<li>ROS2 Humble의 다음 버전인ROS2 Iron 부터는ROS_LOCALHOST_ONLY를 더 이상 사용하지 않음</li>
+<li>보다 세분화된 옵션을 사용할 수 있는ROS-AUTOMATIC-DISCOVERY-RANGE로변경 (참고 링크: https://docs.ros.org/en/iron/Tutorials/Advanced/Improved-Dynamic-Discovery.html)</li>
+<li>SUBNET, LOCALHOST, OFF, SYSTEM-DEFAULT, ROS-STATIC-PEERS 값으로 세부적 설정 가능</li>
+<li>해당 기능은 추후ROS2 Jazzy로의 버전이 전시 참고 export ROS_LOCALHOST_ONLY=1</li>
+</ul>
+<p>ROS2 Setup Tips
+ROS_DOMAIN_ID &amp; Namespace</p>
+<ul>
+<li>
+<p>ROS2에서 동일 네트워크를 여러 사용자와 공유하는 경우, 동일한ROS_DOMAIN_ID를 설정하여 토픽 정보를 공유할 수 있음</p>
+</li>
+<li>
+<p>독립적인 작업이 필요한 경우, 서로 다른ROS_DOMAIN_ID를 설정하여 정보 공유를 방지할 수 있음</p>
+</li>
+<li>또는ROS의Namespace 기능을 활용하여 노드의 고유 이름을 설정하여 정보 공유를 방지할 수 있음</li>
+</ul>
+<p>ROS2 Setup Tips
+ROS_DOMAIN_ID</p>
+<h2 id="ddsdata-distribution-service">DDS(Data Distribution Service) 도메인<a class="headerlink" href="#ddsdata-distribution-service" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ROS2는DDS라는 미들 웨어를 사용하여 노드 간의 메시지 전달과 통신을 처리</li>
+<li>ROS_DOMAIN_ID는DDS 도메인을 식별하는 데 사용되며, 이는 네트워크상의 노드들이 서로를 찾고 통신할 수 있도록함</li>
+</ul>
+<h2 id="_13">네트워크분리<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<ul>
+<li>서로 다른ROS_DOMAIN_ID 값을 가진 노드들은 서로 통신할 수 없음(여러 팀이나 프로젝트가 같은 네트 워 크 환경에서 독립적으로 작업할 수 있게해 줌)</li>
+<li>특정 응용 프로그램이나 실험에 필요한 노드들만 통 신하도록 제한할 수 있음</li>
+</ul>
+<h2 id="_14">컨피규레이션의유연성<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ROS_DOMAIN_ID 설정을 통해 동일한 물리적 네트워크에서 여러ROS2 시스템이 공존할 수 있음 (대규모 로봇 시스템, 다중 로봇 실험, 교육 환경 등에서 유용함)</li>
+</ul>
+<h2 id="_15">값범위<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ROS_DOMAIN_ID는0부터232까지의 값을 가질 수 있음 (이 범위 내에서 사용자는 적절한ID 값을 선택할 수 있음)</li>
+</ul>
+<h2 id="_16">환경변수설정<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
+<ul>
+<li>일반적으로ROS_DOMAIN_ID는 스크립트나 셸 환경에 서 설정됨</li>
+<li>예를 들어, os.environ["ROS_DOMAIN_ID"] = "10"과 같은 코드를 통해Python 스크립트 내에서 설정할 수 있으며, 셸에서 export ROS_DOMAIN_ID=10와 같이 설정할 수도 있음</li>
+</ul>
+<p>ROS2 Setup Tips
+ROS_DOMAIN_ID</p>
+<p>ROS2 Setup Tips
+Namespace</p>
+<h2 id="ros2-namespace">ROS2 Namespace<a class="headerlink" href="#ros2-namespace" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ROS2의노드는 각각 고유의 이름을 가짐</li>
+<li>각 노드에서 사용하는 토픽, 서비스, 액션, 파라미터 또한 고유의 이름으로 설정됨</li>
+<li>고유 이름에Namespace를 붙여 독립적으로 자신만의 네트워크를 그룹화 가능</li>
+</ul>
+<p>ROS2 Setup Tips
+Namespace</p>
+<h2 id="_17">사용방법<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ns 명령 사용 1. ROS의 변수 중 하나인ns(namespace)를입력 2. 복수의namespace 생성</li>
+</ul>
+<p><img alt="Image 35" src="../../../assets/images/ros/intro/lesson-01/img_032_035.webp" /></p>
+<p><img alt="Image 36" src="../../../assets/images/ros/intro/lesson-01/img_032_036.webp" /></p>
+<p>ROS2 Setup Tips
+Uninstall</p>
+<h2 id="ros2_1">ROS2 관련패키지들삭제<a class="headerlink" href="#ros2_1" title="Permanent link">&para;</a></h2>
+<h2 id="ros2-repository">ROS2 repository 삭제<a class="headerlink" href="#ros2-repository" title="Permanent link">&para;</a></h2>
+<p>패키지(Package)</p>
+<ul>
+<li>노드(Node): 실행 가능한 최소한의 프로세서 단위</li>
+<li>패키지(Package): 하나 이상의 노드가 기능적 단위로 묶인 것</li>
+</ul>
+<p><img alt="Image 43" src="../../../assets/images/ros/intro/lesson-01/img_034_043.webp" /></p>
+<p>패키지(Package) 구성 요소
+- 노드(Node) 특정 작업(로봇 제어, 센서 데이터 처리, 토픽 발 행/구독등)을 수행하는 실행 파일
+- 런치 파일(Launch file) 여러 노드를 실행하고, 그들의 매개 변수, 토픽 및 서비스를 구성하는Python 파일
+- 설정 파일(Configuration file) YAML 파일로 노드나 노 드 그룹의 매개 변수, 토픽, 서비스 등을 정의
+- 라이브러리(Library) C++ 또는Python 라이브러리로, 메시지 정의, 알 고리즘, 드라이버 등 재사용 가능한 기능을 제공
+- 자원(Resource) 이미지, 소리, 모델 등의 데이터 파일로 노드나 시 각화 도구에서 사용
+- 테스트(Test) 유닛 테스트, 통합 테스트, 시스템 테스트 등으로 패키지의 정확성과 견고성을 검증
+- 문서(Documentation) README 파일, 튜토 리얼, API 참조 등으로 사용자가 패키지를 이해하고 사용할 수 있도록 도움</p>
+<h2 id="packagexml">package.xml<a class="headerlink" href="#packagexml" title="Permanent link">&para;</a></h2>
+<ul>
+<li>패키지에 대한 메타 정보를 포함하는 파일(패키지의 신분증 역할)</li>
+<li>이 파일은 패키지 이름, 버전, 저작자, 라이센스 등의 정보를 정의하며, 패키지의 의존성 패키지와 메시지, 서비스, 액션 등의 정의된 인터페이스 정보도 포함</li>
+<li>사용 목적</li>
+<li>소스 코드를 실제 실행 가능한 프로그램이나 라이브러리로 변환하기 위해colcon build를 수행하면package.xml을 참조하여, 빌드할 패키지들 사이의 의존성 해석 및 적절한 빌드 순서 결정</li>
+<li>또한, 패키지 의존성 설치 시rosdep이 이 파일의 정보를 기반으로 함</li>
+</ul>
+<p>setup.py &amp; setup.cfg</p>
+<h2 id="setupcfg">setup.cfg<a class="headerlink" href="#setupcfg" title="Permanent link">&para;</a></h2>
+<ul>
+<li>패키지 빌드/설치/배포에 사용(버전/설명/패키지 의존성 관리 등)</li>
+<li>setuptools를 사용하여 패키지를 배포 준비 시 필요한 정보 제공</li>
+<li>Python 패키지에 대한 선언적인 구성 정보를 제공하며, setuptools의 빌드 및 설치 과정에서 활용</li>
+<li>주로 패키지 버전, 설명 등이 여기에 정의됨</li>
+</ul>
+<h2 id="setuppy">setup.py<a class="headerlink" href="#setuppy" title="Permanent link">&para;</a></h2>
+<ul>
+<li>setuptools를 사용하여 패키지를 배포할 준비를 할 때, 필요한 정보를 담고 있음</li>
+<li>Python 패키지에 대한 프로 그래 매 틱한 구성 정보를 제공하며, setuptools를 통한 빌드 및 설치 과정에서 사용됨</li>
+<li>Python 패키지의 설치 스크립트</li>
+<li>주로 패키지 버전, 설명, 의존성 등을 포함한 설치 스크립트 역할</li>
+<li>setuptools 라이브러리를 사용, 패키지를 빌드하고 설치하는 데 필요한 설정 포함</li>
+</ul>
+<h2 id="ros2_2">ROS2에서의역할<a class="headerlink" href="#ros2_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Python 기반의ROS2 패키지에 대해colcon 은setup.cfg(및setup.py)를 사용하여 패 키 지의 설치를 처리</li>
+<li>setup.cfg, setup.py는setuptools를 통해 패 키 지를 빌드하고 설치하는 방법에 대한 구 성 정보를 제공</li>
+<li>ament_python 패키지 빌드 타입을 사용하는 경우, 파일의 설정이 빌드 과정에 영향을 줄 수 있음</li>
+</ul>
+<p>CMakeLists.txt</p>
+<h2 id="_18">주요역할<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ROS2에서CMakeLists.txt 파일은 패키지의 빌드 규칙을 정의하는 역할</li>
+<li>
+<p>ROS2는CMake 빌드 시스템을 사용하여 패키지를 빌드 하며, CMakeLists.txt는CMake가 각 패키지를 어떻게 컴파일하고 링크할지 지시하는 지침을 포함</p>
+</li>
+<li>
+<p>패키지 내 코드를 빌드하는 방법을 기술하는 파일</p>
+</li>
+<li>
+<p>빌드에 필요한 컴파일러, 라이브러리, 소스 파일 등을 명시하고, 실행 파일, 라이브러리, 메시지, 서비스 등의 빌드 대상 및 의존성 관리를 설정</p>
+</li>
+<li>
+<p>이 파일은 빌드 프로세스를 자동화하기 위한CMake 빌드 시스템에 의해 사용</p>
+</li>
+</ul>
+<p>CMakeLists.txt</p>
+<h2 id="_19">주요역할<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<ul>
+<li>패키지에 필요한 최소CMake 버전을 지정</li>
+<li>프로젝트 이름과 버전을 설정</li>
+<li>빌드해야할 타겟(executables, libraries)을정의</li>
+<li>필요한 종속성 패키지를 찾고 링크</li>
+<li>특정 빌드 옵션을 설정하거나 사용자 정의 빌드 규칙 추가</li>
+</ul>
+<p>CMakeLists.txt</p>
+<h2 id="cmakeliststxtsetuppysetupcfg-packagexml">CMakeLists.txt와setup.py/setup.cfg, package.xml간의비교<a class="headerlink" href="#cmakeliststxtsetuppysetupcfg-packagexml" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CMakeLists.txt</li>
+<li>C/C++ 프로젝트에서 주로 사용됨</li>
+<li>코드 컴파일 및 링크 설정</li>
+<li>ROS2 메시지 및 서비스 생성 같은 더 광범위한 작업 지원</li>
+<li>빌드 시 필요한 지침을 담고 있으며, 주로 코드 컴파일과 관련이 깊음</li>
+<li>setup.py/setup.cfg</li>
+<li>Python 패키지의 빌드 및 설치 과정 설정에 사용됨</li>
+<li>주로Python 관련 설정에 집중</li>
+<li>Pacakge.xml</li>
+<li>패키지의 메타 데이터와 의존성을 관리하는 데 중점</li>
+<li>CMakeLists.txt와 함께 작동하여ROS2 패키지의 빌드와 배포를 가능하게함</li>
+</ul>
+<h2 id="_20">세파일의공통점<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<ul>
+<li>CMakeLists.txt, setup.py/setup.cfg, package.xml 모두 패키지의 빌드 및 설치 과정에서 의존성 관리와 설정 정의에 사용 Python을 이용한 패키지 생성 패키지(Package) 설정</li>
+</ul>
+<h2 id="pip-install-python3-setuppy-install">pip install .과python3 setup.py install의차이<a class="headerlink" href="#pip-install-python3-setuppy-install" title="Permanent link">&para;</a></h2>
+<ul>
+<li>pip install .</li>
+<li>의존성 해결: pip는setup.py(setup.cfg) 또는pyproject.toml에 명시된 패키지의 의존성을 자동으로 해결하고 설치.</li>
+<li>
+<p>가상 환경 친화적: pip는 현재 활성화된Python 가상 환경에 패키지를 설치하여 시스템 전체 Python 설치를 변경하지 않고 패키지를 안전하게 설치할 수 있게해 줌</p>
+</li>
+<li>
+<p>python3 setup.py install</p>
+</li>
+<li>의존성 해결 부족: 패키지 의존성을 자동으로 해결하지 못하므로 수동으로 미리 설치해야함</li>
+<li>가상 환경과의 호환성 낮음: 이 명령을 사용할 때도 가상 환경에 설치할 수 있지만, pip만큼 가상 환경과의 통합이 자연스럽지는 않음</li>
+</ul>
+<p>패키지(Package) 설정</p>
+<h2 id="setuppy-setupcfg">setup.py &amp; setup.cfg차이점<a class="headerlink" href="#setuppy-setupcfg" title="Permanent link">&para;</a></h2>
+<p>접근 방식
+프로그래밍 방식으로 패키지 설정을 제공
+선언적 방식으로 설정을 제공
+유연성
+동적 계산과 사용자 정의 명령어를 지원하는
+높은 유연성을 제공
+보다 간단하고 명확한 패키지 설정을 지향
+사용 추세
+setup.py의 경우 패키지 의존성을 해결해 주지 않
+으므로 가능한 한setup.py 파일은 최소화하거나
+제거
+현대의Python 패키징은
+setup.cfg를 통한 선언적 패키지 설정을 선호</p>
+<h2 id="_21">프로그래매틱접근<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>setup.py는Python 스크립트 파일로, 패키지의 메타 데이터와 설치 설정을 프로그래밍 방식으로 정의</p>
+</li>
+<li>
+<p>이는setuptools.setup() 함수를 통해 이루어짐(from setuptools import setup)</p>
+</li>
+<li>패키지 이름, 버전, 의존성 등을 동적으로 계산하거나 조건부로 직을 적용할 수 있는 높은 유연성 제공</li>
+</ul>
+<h2 id="_22">직접실행가능<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<ul>
+<li>python setup.py <command> 형식의 명령어로 직접 실행 가능</li>
+<li>ex) Python setup.py install</li>
+</ul>
+<h2 id="_23">사용자정의명령지원<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<ul>
+<li>사용자가 필요에 따라setuptools의 명령 확장 기능을 사용하여 새로운 명령어 정의 가능</li>
+</ul>
+<h2 id="_24">선언적접근<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h2>
+<ul>
+<li>setup.cfg는INI 포맷의 구성 파일로, 패키지의 설정을 선언적으로 정의</li>
+<li>패키지의 메타 데이터와 옵션을 보다 단순하고 명확한 형식으로 지정</li>
+<li>setup.py에 비해 정적인 설정에 더 적합하며, 조건부로 직이나 복잡한 계산을 불가함</li>
+</ul>
+<h2 id="_25">간소화된설정<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h2>
+<ul>
+<li>최근의Python 패키징 가이드라인은setup.cfg를 사용하여 패키지 설정을 간소화하는 추세</li>
+<li>setup.py 파일을 최소화하거나 완전히 제거할 수 있도록 권장</li>
+<li>이를 통해 패키지의 구성이 더 읽기 쉽고 관리하기 쉬워짐</li>
+</ul>
+<h2 id="setuppy_1">setup.py와의결합사용<a class="headerlink" href="#setuppy_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>setup.cfg를 사용하는 경우에도setup.py 파일이 여전히 필요할 수 있음</li>
+<li>예를 들어, setuptools 명령어를 실행 시 기본적인setup.py 파일이 사용</li>
+<li>하지만, setup.py 파일은 매우 간단하게 유지되며, 대부분의 설정은setup.cfg에서 관리됨</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.path", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

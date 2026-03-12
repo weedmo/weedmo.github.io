@@ -1,0 +1,3970 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ROS2 & AI Study Materials">
+      
+      
+      
+        <link rel="canonical" href="https://weedmo.github.io/ros/projects/aruco-conveyor/">
+      
+      
+        <link rel="prev" href="../simulation/">
+      
+      
+        <link rel="next" href="../autonomous-driving/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>ArUco 마커 & 컨베이어벨트 - weedmo notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#-_0412" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../.." title="weedmo notes" class="md-header__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            weedmo notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ArUco 마커 & 컨베이어벨트
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="다크 모드"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="라이트 모드"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ROS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ai/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="weedmo notes" class="md-nav__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    weedmo notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    입문 (Introduction)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    입문 (Introduction)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. ROS2 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 개발환경
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 노드와 토픽
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 서비스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 액션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. 런치파일
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. Pub/Sub & Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08. 로봇시스템
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09. 카메라 & API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 로봇과 리눅스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 네트워크와 통신
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 센서와 로봇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. ROS2 실습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Topic/Service/Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 (Practice)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    실습 (Practice)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-01-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 01-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-04-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 04-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-05-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 05-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 (Projects)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    프로젝트 (Projects)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rviz2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RVIZ2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gazebo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gazebo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시뮬레이션 협업
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ArUco 마커 & 컨베이어벨트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autonomous-driving/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    자율주행 디지털트윈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../thread-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쓰레드와 데이터베이스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    코드 참고 (Code Reference)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    코드 참고 (Code Reference)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/turtlesim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turtlesim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/pubsub-qos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pub/Sub & QoS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/srvcli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service/Client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/robot-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera Pub/Sub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/hangman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hangman Game
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/urdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URDF & Xacro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/opencv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenCV (Hough)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/point-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Point Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/lane-detect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lane Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/qt-plugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qt Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/rqt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RQT Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/ros2env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 환경설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/python-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/pytorch-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch 입문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/neural-network-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    신경망 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    딥러닝 (분류/회귀)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/cnn-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CNN 아키텍처
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/object-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    객체 탐지
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/sequence-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시퀀스 모델 (RNN/LSTM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/vision-transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    응용 (Applied)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    응용 (Applied)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/computer-vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컴퓨터비전 (OpenCV)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/advanced-cv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    고급 CV (Tracking/Detection)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/generative-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    생성 모델 (GAN/NeRF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/explainable-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explainable AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/medical-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    의료 AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/reinforcement-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    강화학습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="네비게이션" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    ROS
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../rviz2/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    프로젝트 (Projects)
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="-_0412">로키 -  아로크마커, 컨베어벨트 프로젝트 교안_0412<a class="headerlink" href="#-_0412" title="Permanent link">&para;</a></h1>
+<p>Version
+V1.0
+최종 수정 일
+2025.03.19
+작성자
+김루진
+두산 프로젝트 교안</p>
+<p>프로젝트 기초 환경 설정
+아로크마커, 컨베어 벨트 조작
+주행 및 매니퓰레이터 사용
+학습 목표
+내용 검증 필요
+구어체 변경</p>
+<p>터틀봇메내퓰레이터
+참고
+아두이노, 컨베이 벨트</p>
+<p>터틀봇메내퓰레이터
+참고
+프로젝트 개발 하드웨어
+아두이노 uno 1
+컨베이어 1
+컨베이어 모터 드라이버 1
+USB camera 1
+SMPS 1
+12V 아답터 1
+레이더 센서 1
+turtlebot-3 1
+OpenManipulator-X 1
+배터리 2
+배터리 충전기 2
+오 린 나노 1
+wifi 동글 1
+노트북 1
+라이다 센서</p>
+<p>터틀봇메내퓰레이터
+참고
+아두이노</p>
+<p>터틀봇메내퓰레이터
+참고
+아두이노</p>
+<p><img alt="Image 10" src="../../../assets/images/ros/projects/aruco-conveyor/img_006_010.webp" /></p>
+<p><img alt="Image 11" src="../../../assets/images/ros/projects/aruco-conveyor/img_006_011.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+아두이노</p>
+<p><img alt="Image 14" src="../../../assets/images/ros/projects/aruco-conveyor/img_007_014.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+아두이노</p>
+<p>터틀봇메내퓰레이터
+참고
+아두이노</p>
+<p><img alt="Image 19" src="../../../assets/images/ros/projects/aruco-conveyor/img_009_019.webp" /></p>
+<p><img alt="Image 20" src="../../../assets/images/ros/projects/aruco-conveyor/img_009_020.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+스테핑모터, 컨베이 벨트
+"43HD4027-02"는 스테핑 모터 모델명으로, 이 모터는 일반적으로 정밀한 위치 제어가 필요한 애플리케이션
+에서 사용됩니다. 스테핑 모터는 각 도별로 일정한 회전 각만큼 이동할 수 있어 정밀한 제어가 가능합니다.</p>
+<p><img alt="Image 22" src="../../../assets/images/ros/projects/aruco-conveyor/img_010_022.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+스테핑모터, 컨베이 벨트
+스테퍼 모터의 속도 제어
+회전 속도는 펄스 수의 밀도로 제어합니다. 1펄스로 1기준
+스텝 각이 회전하는 경우, 1초에 10펄스를 보내는 것이, 1초
+에 1펄스를 보내는 것보다 1초의 회전한 각도가 크다. 그래
+서 펄스의 주파수가 높으면 회전 속도가 빠릅니다.</p>
+<p><img alt="Image 26" src="../../../assets/images/ros/projects/aruco-conveyor/img_011_026.webp" /></p>
+<p><img alt="Image 28" src="../../../assets/images/ros/projects/aruco-conveyor/img_011_028.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+스테핑모터, 컨베이 벨트</p>
+<p>터틀봇메내퓰레이터
+참고
+스테핑모터, 컨베이 벨트</p>
+<h1 id="define-pin_ena-8">define PIN_ENA 8<a class="headerlink" href="#define-pin_ena-8" title="Permanent link">&para;</a></h1>
+<p>// Enable pin on the driver (optional if you need to control enable state)</p>
+<h1 id="define-pin_dir-9">define PIN_DIR 9<a class="headerlink" href="#define-pin_dir-9" title="Permanent link">&para;</a></h1>
+<p>// Direction pin (controls motor direction)</p>
+<h1 id="define-pin_pul-10-pulse-pin-sends-step-signals-to-the-driver">define PIN_PUL 10 // Pulse pin (sends step signals to the driver)<a class="headerlink" href="#define-pin_pul-10-pulse-pin-sends-step-signals-to-the-driver" title="Permanent link">&para;</a></h1>
+<p>int stepDelay = 1000; // Delay between steps in microseconds (adjust motor speed)
+void setup() {
+// Set the pins as outputs
+pinMode(PIN_ENA, OUTPUT);
+pinMode(PIN_DIR, OUTPUT);
+pinMode(PIN_PUL, OUTPUT);
+// Enable the driver (assuming active low for enable pin)
+digitalWrite(PIN_ENA, LOW); // LOW typically enables the driver (check your driver datasheet)
+// Set initial direction (optional)
+digitalWrite(PIN_DIR, HIGH); // HIGH for one direction, LOW for the opposite direction
+}
+void loop() {
+// Rotate the motor in one direction
+for (int i = 0; i &lt; 2000; i++) { // 2000 steps for one full rotation (adjust based on your motor's step count)
+digitalWrite(PIN_PUL, HIGH); // Create a pulse
+delayMicroseconds(stepDelay); // Wait for step duration
+digitalWrite(PIN_PUL, LOW);
+// End the pulse
+delayMicroseconds(stepDelay); // Wait for step duration
+}
+// Change direction after one rotation
+digitalWrite(PIN_DIR, !digitalRead(PIN_DIR)); // Reverse direction
+delay(1000); // Wait for a second before changing direction
+}</p>
+<p>터틀봇메내퓰레이터
+참고
+초음파 센서</p>
+<p><img alt="Image 34" src="../../../assets/images/ros/projects/aruco-conveyor/img_014_034.webp" /></p>
+<p><img alt="Image 35" src="../../../assets/images/ros/projects/aruco-conveyor/img_014_035.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+초음파 센서</p>
+<h1 id="define-trig-9-trig">define TRIG 9 //TRIG 핀 설정 (초음파 보내는 핀)<a class="headerlink" href="#define-trig-9-trig" title="Permanent link">&para;</a></h1>
+<h1 id="define-echo-8-echo">define ECHO 8 //ECHO 핀 설정 (초음파 받는 핀)<a class="headerlink" href="#define-echo-8-echo" title="Permanent link">&para;</a></h1>
+<p>void setup() {
+Serial.begin(9600); //PC모니터로 센서 값을 확인하기 위해서 시리얼 통신을 정의해 줍니다.</p>
+<p>pinMode(TRIG, OUTPUT);
+pinMode(ECHO, INPUT);
+}
+void loop()
+{
+long duration, distance;
+digitalWrite(TRIG, LOW);
+delayMicroseconds(2);
+digitalWrite(TRIG, HIGH);
+delayMicroseconds(10);
+digitalWrite(TRIG, LOW);
+duration = pulseIn (ECHO, HIGH); //물체에 반사되어 돌아온 초음파의 시간을 변수에 저장합니다.
+ //34000*초음파가 물체로부터 반사되어 돌아오는 시간 /1000000 / 2(왕복 값이 아니라 편도 값이기 때문에 나누기2를 해 줍니다.)
+//초음파 센서의 거리 값이 위 계산 값과 동일하게 Cm로 환산되는 계산 공식 입니다. 수식이 간단해지도록 적용했습니다.
+ distance = duration * 17 / 1000;
+ //PC모니터로 초음파 거리 값을 확인하는 코드 입니다.
+ Serial.println(duration ); //초음파가 반사되어 돌아오는 시간을 보여 줍니다.
+ Serial.print("\nDIstance : ");
+Serial.print(distance); //측정된 물체로부터 거리값(cm값)을 보여 줍니다.
+ Serial.println(" Cm");
+delay(1000); //1초마다 측정 값을 보여 줍니다.
+}</p>
+<p>터틀봇메내퓰레이터
+참고
+아루코마커</p>
+<p>터틀봇메내퓰레이터
+참고
+아루코마커(ArUco marker)
+로봇 비전 혹은 컴퓨터 비전에서 많이 사용하는 마커이다.
+QR 코드처럼 우리가 카메라로 아루코마커를 인식, 아루코마커가 가지고 있는 ID를 반환받아서 읽을 수 있다.
+인식한 아루코마커의 위치와 각도에 따라서 x, y, z축 방향으로의 위치와 회전 각도를 계산할 수 있다.
+aruco_pos_rot.py</p>
+<p><img alt="Image 39" src="../../../assets/images/ros/projects/aruco-conveyor/img_017_039.webp" /></p>
+<p><img alt="Image 40" src="../../../assets/images/ros/projects/aruco-conveyor/img_017_040.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+아루코마커가 50mm임을 기준으로 각 아루코마커가 카메라의 중심으로 얼마나 떨어져 있고 회전되어 있는지 확인
+할 수 있다. 물론 아주 정확하지는 않지만, 약간의 오차를 가지고 위치와 회전 각도를 받을 수 있다.
+aruco_dist_pos_rot.py
+코드 공유</p>
+<p><img alt="Image 42" src="../../../assets/images/ros/projects/aruco-conveyor/img_018_042.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+카메라 켈리 브레이 션
+위치에 따라 카메라 랜즈의 굴곡에 따른 왜곡 현상
+이 과정은 일반적으로 체스 보드 패턴을 사용하여 여러 각도에서 이미지를
+촬영하고, 이를 통해 카메라 매트릭스를 구하는 방식으로 진행됩니다.
+카메라 캘리브 레이 션을 위해서는 보통 OpenCV를 사용하여 카메라의 내부 파라미터(초점 거리, 왜곡 계수
+등)를 추정</p>
+<p><img alt="Image 44" src="../../../assets/images/ros/projects/aruco-conveyor/img_019_044.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+카메라 켈리 브레이 션
+카메라 파라미터
+1.카메라 렌즈 시스템의 내부 파라미터(Internal parameters): 초점 거리 (focal length), 광학 중심 (optical
+center), 렌즈의 방사 왜곡 계수 (radial distortion coefficients of the lens)
+2.외부 파라미터(External parameters): 시계 좌표계에 대한 카메라의 방향, 회전, 이동
+체커 보드
+우리는 카메라 캘리브 레이 션을 위해서 체커 보드(checkerboard pattern)를 사용할 것이다.
+해당 사이트에서 체커 보드 패턴을 만들고 간단히 출력할 수 있다.
+https://markhedleyjones.com/projects/calibration-checkerboard-collection</p>
+<p>터틀봇메내퓰레이터
+참고
+카메라 켈리 브레이 션
+-10x7 체커 보드 패턴(내부 코너는 9x6)에서 각 사각형이 20mm인 체커 보드를 사용합니다.
+-지정된 폴더에서 체커 보드 이미지를 로드합니다.
+-각 이미지에서 체커 보드 코너를 감지합니다.
+-감지된 코너를 사용하여 카메라 캘리브 레이 션을 수행합니다.
+-카메라 행렬(intrinsic parameters)과 왜곡 계수를 계산합니다.
+-캘리브 레이 션 결과를 파일로 저장합니다.
+-선택적으로 테스트 이미지의 왜곡을 보정합니다.
+Camera_calibration_captures.py
+Camera_calibration.py
+Camera_test.py
+Camera_test_calibrationed.py</p>
+<p>터틀봇메내퓰레이터
+참고
+카메라 켈리 브레이 션
+https://darkpgmr.tistory.com/32</p>
+<p><img alt="Image 48" src="../../../assets/images/ros/projects/aruco-conveyor/img_022_048.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+카메라 켈리 브레이 션</p>
+<p><img alt="Image 50" src="../../../assets/images/ros/projects/aruco-conveyor/img_023_050.webp" /></p>
+<p><img alt="Image 51" src="../../../assets/images/ros/projects/aruco-conveyor/img_023_051.webp" /></p>
+<p><img alt="Image 52" src="../../../assets/images/ros/projects/aruco-conveyor/img_023_052.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+켈리 브레이 션</p>
+<p>터틀봇메내퓰레이터
+참고
+아로크마커 생성
+aruco_generate.py
+Aruco marker generate 웹 사이트
+https://chev.me/arucogen/
+https://fodi.github.io/arucosheetgen/
+marker_id = 마커의 아이디
+marker_size = 마커 크기(픽셀 또는 m)
+dict_type = 마커 종류와 id 갯수 (4X4,5X5,6X6, 250,500,1000)</p>
+<p>터틀봇메내퓰레이터
+참고
+아로크마커 거리 추정
+마커 id ,pose, rotation 추출 후 거리(distance)를 추정
+정확한 거리를 위해서 카메라 calibration이 필요
+aruco_run.py 실행
+aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_1000)
+OpenCV의 ArUco 라이브러리를 사용하여 ArUco 마커를 생성하거나 인식하기 위한 코드입니다.
+1.cv2.aruco: OpenCV의 ArUco 모듈을 의미합니다. ArUco는 QR 코드와 유사한 방식으로 인식할 수 있는 작은 2D 마커입니다.
+2.주로 증강 현실(AR)이나 로봇 비전에서 사용됩니다.
+2.getPredefinedDictionary(): 이 함수는 OpenCV에서 미리 정의된 다양한 ArUco 마커 세트를 반환합니다.
+3.사용자는 여러 종류의 마커 세트 중 하나를 선택할 수 있습니다. 이 함수는 마커들을 생성하거나 인식할 때 유용합니다.
+3.cv2.aruco.DICT_6X6_1000: 이는 "6x6 크기의 1000개의 고유한 ArUco 마커" 세트를 의미합니다.
+4.여기서 6x6은 각 마커의 비트 크기를 나타내며, 1000은 세트 내에서 제공되는 마커의 수를 의미합니다.
+5.즉, 이 세트는 6x6 크기의 1000개의 서로 다른 ArUco 마커를 제공합니다.</p>
+<p>터틀봇메내퓰레이터
+참고
+아로크마커 거리 추정
+Marker ID: 8, Position: [ 0.30174336 -0.14219974  0.58847091], Rotation (Yaw, Pitch, Roll): (175.39, 4.25, -2.24), Distance: 0.68m
+Marker ID: 9, Position: [-0.3635388  -0.06435436  0.54939859], Rotation (Yaw, Pitch, Roll): (-173.50, -50.36, -11.39), Distance: 0.66m</p>
+<p>터틀봇메내퓰레이터
+참고
+아로크마커 거리 추정
+아로크마커 거리 추정 원리
+-실제 마커 크기: 마커의 실제 크기(가령, 정사각형의 한 변의 길이)가 알려져 있어야합니다.
+-마커의 화면상 크기:
+-카메라에서 본 마커의 크기는 실제 크기와 카메라의 초점 거리, 마커와 카메라 사이의 거리에 따라 다르게 나타납니다.
+-삼각법:
+-삼각형의 기하학적 원리를 사용하여, 마커의 화면상 크기와 실제 크기, 그리고 카메라의 초점 거리로부터 거리를 계산합니다.</p>
+<p>터틀봇메내퓰레이터
+참고
+아로크마커 거리 추정</p>
+<h1 id="usrbinenv-python3">!/usr/bin/env python3<a class="headerlink" href="#usrbinenv-python3" title="Permanent link">&para;</a></h1>
+<p>import cv2
+import numpy as np
+import os
+from ament_index_python.packages import get_package_share_directory
+import yaml
+import argparse
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import CompressedImage
+from std_msgs.msg import Float32, Int32
+from aruco_msgs.msg import Marker, MarkerArray
+from cv_bridge import CvBridge
+주요 라이브러리</p>
+<ul>
+<li>cv2, numpy: 이미지 처리와 수학 계산</li>
+<li>rclpy: ROS 2 파이썬 클라이언트 라이브러리</li>
+<li>sensor_msgs.msg.CompressedImage: 압축된 이미지 메시지</li>
+<li>aruco_msgs.msg.Marker, MarkerArray: ArUco 마커 정보 메시지</li>
+<li>
+<p>cv_bridge: ROS 이미지 OpenCV 이미지 변환</p>
+</li>
+<li>
+<p>yaml: 카메라 캘리브 레이 션 파일 로딩 aruco_marker_detector.py 터틀봇메내퓰레이터 참고 아로크마커 거리 추정 def detect_markers(image, camera_matrix, dist_coeffs, marker_size): aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_1000) parameters = cv2.aruco.DetectorParameters() detector = cv2.aruco.ArucoDetector(aruco_dict, parameters) corners, ids, _ = detector.detectMarkers(image) detect_data = [] if ids is not None: cv2.aruco.drawDetectedMarkers(image, corners, ids) rvecs, tvecs, _ = my_estimatePoseSingleMarkers(corners, marker_size, camera_matrix, dist_coeffs) if rvecs is not None and tvecs is not None: for rvec, tvec, marker_id in zip(rvecs, tvecs, ids): rot_mat, _ = cv2.Rodrigues(rvec) yaw, pitch, roll = rotationMatrixToEulerAngles(rot_mat) marker_pos = np.dot(-rot_mat.T, tvec).flatten() distance = np.linalg.norm(tvec) detect_data.append([marker_id, marker_pos, (yaw, pitch, roll), distance]) return image, detect_data detect_markers()</p>
+</li>
+<li>
+<p>카메라 영상에서 ArUco 마커 검출</p>
+</li>
+<li>마커 ID, 위치, 회전 각, 거리 등을 추출</li>
+<li>cv2.solvePnP()을 통해 자세 추정</li>
+<li>rotationMatrixToEulerAngles()로 Euler 각도 추출 aruco_marker_detector.py</li>
+</ul>
+<p>터틀봇메내퓰레이터
+참고
+아로크마커 거리 추정
+def my_estimatePoseSingleMarkers(corners, marker_size, mtx, distortion):
+marker_points = np.array([[-marker_size / 2, marker_size / 2, 0],
+[marker_size / 2, marker_size / 2, 0],
+[marker_size / 2, -marker_size / 2, 0],
+[-marker_size / 2, -marker_size / 2, 0]], dtype=np.float32)
+rvecs = []
+tvecs = []
+for c in corners:
+_, R, t = cv2.solvePnP(marker_points, c, mtx, distortion, False, cv2.SOLVEPNP_IPPE_SQUARE)
+rvecs.append(R)
+tvecs.append(t)
+return rvecs, tvecs, []
+my_estimatePoseSingleMarkers()</p>
+<ul>
+<li>마커의 각 코너 좌표와 실제 크기를 바탕으로 자세 추정 aruco_marker_detector.py</li>
+</ul>
+<p>터틀봇메내퓰레이터
+참고
+아로크마커 거리 추정
+def rotationMatrixToEulerAngles(R):
+sy = np.sqrt(R[0,0] * R[0,0] + R[1,0] * R[1,0])
+singular = sy &lt; 1e-6
+if not singular:
+x = np.arctan2(R[2,1], R[2,2])
+y = np.arctan2(-R[2,0], sy)
+z = np.arctan2(R[1,0], R[0,0])
+else:
+x = np.arctan2(-R[1,2], R[1,1])
+y = np.arctan2(-R[2,0], sy)
+z = 0
+return np.degrees(x), np.degrees(y), np.degrees(z)
+rotationMatrixToEulerAngles()</p>
+<ul>
+<li>회전 행렬을 Euler 각도(roll, pitch, yaw)로 변환 aruco_marker_detector.py</li>
+</ul>
+<p>터틀봇메내퓰레이터
+참고
+아로크마커 거리 추정
+def load_camera_parameters(yaml_file):
+package_share_directory = get_package_share_directory('aruco_marker_detect')
+calibration_file = os.path.join(package_share_directory, 'config', yaml_file)
+with open(calibration_file, 'r') as f:
+data = yaml.safe_load(f)
+camera_matrix = np.array(data["camera_matrix"]["data"], dtype=np.float32).reshape(3, 3)
+dist_coeffs = np.array(data["distortion_coefficients"]["data"], dtype=np.float32)
+return camera_matrix, dist_coeffs
+load_camera_parameters()</p>
+<ul>
+<li>ROS 패키지 내 YAML 파일에서 카메라 캘리브 레이 션 파라미터를 로드 aruco_marker_detector.py</li>
+</ul>
+<p>터틀봇메내퓰레이터
+참고
+아로크마커 거리 추정
+class ArucoMarkerDetector(Node):
+def <strong>init</strong>(self):
+super().<strong>init</strong>('aruco_marker_detector')
+self.subscription = self.create_subscription(
+CompressedImage,
+'image_raw/compressed',
+self.listener_callback,
+10)
+self.marker_publisher = self.create_publisher(MarkerArray, 'detected_markers', 10)
+self.bridge = CvBridge()
+self.marker_size = 0.04
+self.camera_matrix, self.dist_coeffs = load_camera_parameters('calibration_params.yaml')
+def listener_callback(self, msg):
+np_arr = np.frombuffer(msg.data, np.uint8)
+frame = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
+frame, detect_data = detect_markers(frame, self.camera_matrix, self.dist_coeffs, self.marker_size)
+if len(detect_data) == 0:
+self.get_logger().debug("No markers detected")
+else:
+closest_marker = min(detect_data, key=lambda x: x[3])
+self.get_logger().debug(f"Closest Marker ID: {closest_marker[0]}, Distance: {closest_marker[3]:.2f}m")
+marker_array_msg = MarkerArray()
+for marker in detect_data:
+marker_msg = Marker()
+marker_msg.id = int(marker[0])
+marker_msg.pose.pose.position.x = marker[1][0]
+marker_msg.pose.pose.position.y = marker[1][1]
+marker_msg.pose.pose.position.z = marker[1][2]
+marker_msg.pose.pose.orientation.x = marker[2][2]
+marker_msg.pose.pose.orientation.y = marker[2][1]
+marker_msg.pose.pose.orientation.z = marker[2][0]
+marker_array_msg.markers.append(marker_msg)
+self.marker_publisher.publish(marker_array_msg)
+cv2.imshow('Detected Markers', frame)
+cv2.waitKey(1)
+클래스 ArucoMarkerDetector(Node)
+주요 역할:</p>
+<ul>
+<li>/image_raw/compressed 주제를 구독하여 이미지를 받아 옴</li>
+<li>마커 검출 후 가장 가까운 마커 정보를 로그로 출력</li>
+<li>검출된 마커 정보를 MarkerArray로 detected_markers 주제에 퍼블리시 aruco_marker_detector.py</li>
+</ul>
+<p>터틀봇메내퓰레이터
+참고
+아로크마커 거리 추정
+def main(args=None):
+rclpy.init(args=args)
+aruco_marker_detector = ArucoMarkerDetector()
+rclpy.spin(aruco_marker_detector)
+aruco_marker_detector.destroy_node()
+rclpy.shutdown()
+if <strong>name</strong> == "<strong>main</strong>":
+parser = argparse.ArgumentParser(description='Detect ArUco markers.')
+parser.add_argument('--marker_size', type=float, default=0.04,
+help='Size of the ArUco markers in meters.')
+args = parser.parse_args()
+ArucoMarkerDetector.marker_size = args.marker_size
+main()
+실행 흐름 (main() 함수)
+1.ROS 2 초기화
+2.ArucoMarkerDetector 노드 실행
+3.노드 종료 시 종료 처리
+aruco_marker_detector.py</p>
+<p>터틀봇메내퓰레이터
+참고
+터틀봇메니퓰레이터</p>
+<p>터틀봇메내퓰레이터
+참고
+터틀봇와플메니퓰레이터시작, 종료
+1.
+Open CR을 먼저 키고
+2.
+jetson orin을 킨다
+1.
+robot에서 sudo shutdown now 를 실행하고
+2.
+jetson orin의 스위치를 반드시 끄고
+3.
+Open CR을 끈다</p>
+<p><img alt="Image 70" src="../../../assets/images/ros/projects/aruco-conveyor/img_037_070.webp" /></p>
+<p><img alt="Image 71" src="../../../assets/images/ros/projects/aruco-conveyor/img_037_071.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+SSH 로봇 접속
+ssh 연결하기
+ssh -X rokeyOO@<rokeyIPaddres>
+PASSWORD:rokey1234</p>
+<ol>
+<li>vscode 확장(ctrl+shift+X)탭을 누른다</li>
+<li>
+<p>마켓에서 ssh를 치고,Remote-SSH를 설치
+VSCode 로봇 접속</p>
+</li>
+<li>
+<p>원격 탐색기</p>
+</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+VSCode 로봇 접속</p>
+<ol>
+<li>새 원격을 누른다</li>
+<li>ssh -X rokeyO@<rokeyIP> 입력후 enter</li>
+<li>ssh 창에 새로 고침 한 이후에</li>
+<li>자신이 접속할 창의 폴더를 누른다</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+프로그램 수행 노드 목록
+I.
+ros2 launch turtlebot3_manipulation
+<em>bringup hardware.launch.py
+II.
+compressed_image_pub.py
+III.
+yolo_detect.py
+IV.
+aruco_marker_detect.py
+I.
+ros2 launch turtlebot3_manipulation</em>
+moveit_config moveit_core.launch.py
+II.
+turtlebot_arm_controller
+III.
+manager_node
+IV.
+qt_qui.py
+V.
+conveyor_node</p>
+<p><img alt="Image 81" src="../../../assets/images/ros/projects/aruco-conveyor/img_040_081.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+Aruco marker 거리 추정 후robot 주행
+터 틀 봇 수행
+1.
+ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
+2.
+ros2 launch aruco_yolo aruco_move.launch.py
+(compressed_image_pub :영상 데이터를 압축 전송
+aruco_detect_marker: 압축된 영상 데이터에서 aruco marker를 인식하여 pose와 rotation을 추출
+aruco_move: 받은 pose.z 만큼 주행)
+Node_graph 수행해 보기
+Node_graph(aruco_move.launch.py)
+Node_graph(aruco_yolo.launch.py)</p>
+<p>터틀봇메내퓰레이터
+참고
+Moveit 이해
+MoveIt의 역할: 로봇 암(Manipulator) 모션 플래닝 및 제어
+ROS2 기반에서 동작하는 모션 플래닝 프레임워크
+사용 목적: 경로 계획(Path Planning), 역 기구학(IK), 충돌 회피(Collision Avoidance), 센서 통합 등
+https://moveit.picknik.ai/main/index.html
+코드 분석 필요</p>
+<p>터틀봇메내퓰레이터
+참고
+Moveit 수행
+로봇에서
+ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
+pc에서
+ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py
+Moveit 키보드 설정</p>
+<ul>
+<li>turtlebot3_manipulation_xyz_limit.py ros2 topic list export 에러… w 전진 s 후진 a 좌회전 d 우회전 y joint1 + h joint1 - u joint2 + j joint2 - i joint3 + k joint3 - o joint4 + l joint4 -</li>
+<li>그리퍼 close = 그리퍼 open</li>
+</ul>
+<p>터틀봇메내퓰레이터
+참고
+Moveit 수행
+rviz 화면에 보이는 manipulator와 lidar 위치가 실제와 다르기 때문에 위치를 변경해야합니다
+터틀봇메내퓰레이터
+참고
+로봇 모델링 체크
+~/turtlebot3_ws/src/turtlebot3_manipulation/turtlebot3_manipulation_description/urdf
+~/turtlebot3_ws/src/turtlebot3_manipulation/turtlebot3_manipulation_description/urdf/turtlebot3_manipulation.urdf.xacro
+manipulation을 x축으로 0.092만큼 전진 시킵니다</p>
+<p>터틀봇메내퓰레이터
+참고
+Moveit 수행
+~/turtlebot3_ws/src/turtlebot3_manipulation/turtlebot3_manipulation_description/urdf/turtlebot3_waffle_pi.urdf.xacro
+scan을 x축으로 0.076만큼 후진 시킵니다
+터틀봇메내퓰레이터
+참고
+Moveit 수행
+manipulation과 scan 위치가 달라지는지 확인하세요</p>
+<p>터틀봇메내퓰레이터
+참고
+정밀도 향상을 위한 옵션 확인
+kinematics.yaml 내용
+turtlebot3_manipulation.srdf
+~/turtlebot3_ws/src/turtlebot3_manipulation/turtlebot3_manipulation_movit_config/config</p>
+<p>터틀봇메내퓰레이터
+참고
+Moveit 아키텍처
+Moveit control(pc)
+manager_node
+srv_call_test
+turtlebot_arm_
+controller.cpp
+Moveit
+cmd
+posename
+waypoint
+move_gruop_
+interface plan
+request 작성
+turtlebot_cosmo_interface</p>
+<p>터틀봇메내퓰레이터
+참고
+Moveit 아키텍처</p>
+<ol>
+<li>
+<p>turtlebot_cosmo_interface.zip
+~/turtlebot3_ws/src/안에 해당 패키지 압축 풀기 (pc)
+cd ~/turtlebot3_ws
+colcon build --packages-select turtlebot_cosmo_interface</p>
+</li>
+<li>
+<p>turtlebot_moveit.zip
+~/turtlebot3_ws/src (pc)
+cd ~/turtlebot3_ws/
+colcon build --packages-select turtlebot_moveit</p>
+</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+Moveit 아키텍처
+압축 풀기 turtlebot_cosmo_interface.zip
+패키지 turtlebot_cosmo_interface
+페키지 빌드 colcon build --packages-select turtlebot_cosmo_interface
+압축 풀기 turtlebot_moveit.zip
+페키지 빌드 colcon build --packages-select turtlebot_moveit
+인터페이스 페키지: MoveitController.srv
+암 컨트롤러: turtlebot_arm_controller.cpp
+코드 분석</p>
+<p>터틀봇메내퓰레이터
+참고
+Moveit이용메니퓰레이터조작
+준비
+Robot:
+Ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
+PC:</p>
+<ol>
+<li>ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py</li>
+<li>
+<p>ros2 run turtlebot_moveit
+turtlebot_arm_controller
+실행</p>
+</li>
+<li>
+<p>ros2 run turtlebot_moveit task.py
+cd turtlebot_moveit/scripts/
+python3 srv_call_test.py
+python3 task.py</p>
+</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+암 컨트롤러: turtlebot_arm_controller.cpp
+0: 메내퓰 레이 터를 파란색( 또는 빨간색) 상자를 먼저 인식하고 yolo 보는 방향으로 좌표 이동
+1: srdf에 저장된 arm의 joint 값이동
+2: srdf에 저장된 gripper의 joint 값이동
+3: 보라색 상자를 yolo 보는 방향으로 좌표 이동
+4: 좌표와 방향을 전부 주고 좌표 이동
+9: 해당 좌표 출력
+파이썬에서 암 컨트롤러 서비스 호출 예시(…yolo.py
+명령 코드
+실제 코드 분석</p>
+<p>터틀봇메내퓰레이터
+참고
+Moveit 아키텍처
+cmd 1을 주고 “box_up_02” 엑션
+cmd 1을 주고 “box_up_02” 엑션
+cmd 1을 주고 “box_up_02” 엑션
+cmd 9을 주고 좌표를 출력
+task.py 예제 - 1</p>
+<p>터틀봇메내퓰레이터
+참고
+Moveit 아키텍처</p>
+<ol>
+<li>waypoint를 줄 position과 orientation을 줍니다</li>
+<li>cmd 4를 주고 해당 waypoint로 이동을 지시합니다</li>
+<li>cmd 9를 주고 좌표를 출력합니다
+task.py 예제 - 2</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+전진 방향이 x +
+좌는 y +
+우는 y -
+z는 높이
+x +
+y +
+y -</p>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+robot_
+y
++ 0.08
+±0.01
+robot_
+y</p>
+<ul>
+<li>0.08 ±0.01 robot_x +0.15 ±0.01 robot_x +0.22 ±0.01 터틀봇메내퓰레이터 참고 Moveit 아키텍처 task.py 예제 - 3 left_down x + 방향으로 15cm 만큼 y + 방향으로 8cm 만큼 직접 좌표 이동하는 코드입니다</li>
+</ul>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+task.py 예제 - 4 left_up
+x + 방향으로 22cm 만큼
+y + 방향으로 8cm 만큼
+직접 좌표 이동하는 코드입니다
+터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+task.py 예제 - 5 right_down
+x + 방향으로 15cm 만큼
+y - 방향으로 8cm 만큼
+직접 좌표 이동하는 코드입니다</p>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+task.py 예제 - 6 right_up
+x + 방향으로 22cm 만큼
+y + 방향으로 8cm 만큼
+직접 좌표 이동하는 코드입니다</p>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+task7은 yolo 데이터가 필요합니다
+camera_home 위치에 간 다음
+ros2 launch aruco_yolo.launch.py(robot)
+ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py(pc)
+ros2 run turtlebot_moveit turtlebot_arm_controller
+python3 task_3.py</p>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+YOLO Task 설명</p>
+<ol>
+<li>srdf에 저장된 camera_home 위치로 갑니다</li>
+<li>그 위치에서 yolo로 찾은 좌표로 robot을 이동시킵니다</li>
+<li>gripper로 잡았으면 다시 수직으로 일어납니다</li>
+<li>srdf에 저장된 conveyor에 올리는 행동을 시킵니다</li>
+<li>작업이 완료되었는지 확인하고 다시 camera_home 위치로 돌
+아 갑니다.</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+YOLO 코드 설명
+pose_array에 들어가는 3가지 인자는 base link 원점 좌표에서 gripper의 좌표 x,y,z가 된다
+0.137496이란 수치는 m 단위이며 13.7496cm만큼 x축 +방향으로 가 있는 것
+z축은 높이이므로 yolo로 찾은 좌표에 12.2354cm 높이에 간 상태에서 8.7354cm 높이로 내려가는 것
+터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+yolo로 y축이 robot 기준
+으로는 x축으로 들어갑 니
+다
+yolo로 x축이 robot 기준
+으로는 y축이며 yolo의
++방향과 robot 축 기준
+방향이 달라서 yolo값에
+-를 곱해 줍니다
+yolo_
+x +
+yolo_
+x -
+yolo_
+y +
+yolo_
+y -
+터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+aruco_yolo.launch
+task_3~7
+turtlebot_arm_control
+ler
+moveit
+yolo/detect_info
+위치는
+camera_ho
+me</p>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+하지만 보라색 상자 잡는 건 좌표 축이 달라집니다</p>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+task.py 예제 - 8
+x + 방향으로 1cm 만
+큼
+y - 방향으로 29cm 만
+큼
+z + 방향으로 26.5cm
+만큼
+직접 좌표 이동하는 코
+드입니다
+터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+aruco_yolo.launch
+task_9
+turtlebot_arm_controll
+er
+moveit
+yolo/detect_info
+위치는
+box_home_
+터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+cmd 1을 주고 “box_home_01”행
+동을 합니다
+cmd 2를 주고 gripper에게
+“open”행동을 시킵니다
+cmd 3를 주고 pose_array를
+waypoint로 주어 해당 좌표로 이
+동시킵니다
+cmd 3를 주고 pose_array를
+waypoint로 주어 해당 좌표로 이
+동시킵니다
+cmd 2를 주고 gripper에게
+“close”행동을 시킵니다
+cmd 1을 주고 “box_up_01”행동
+을 합니다
+task.py 예제 - 9
+터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+실습
+Aruco marker로 이동하고
+Moveit으로 상자 이송 코드 작성
+simple_manager_node.py 다운로드</p>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+manager_node를 완성하기 전에 해야할 일</p>
+<ol>
+<li>task_7.py(빨간색 상자, 파란색 상자 잡기)가 정상적으로 작동하는 것을 완성</li>
+<li>task_9.py(보라색 상자)가 정상적으로 작동하는 것을 완성</li>
+<li>해당 logic을 manager_node yolo_arm_control, purple_arm_control에 적용</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+최종 실행 명령어 정리
+ros2 launch turtlebot_manipulation_bringup hardware.launch.py(robot)
+ros2 launch aruco_yolo aruco_yolo.launch.py(robot)
+ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py(pc)
+ros2 run turtlebot_moveit turtlebot_arm_controller(pc)
+python3 simple_manager_node.py(pc)</p>
+<ul>
+<li>(turtlebot_moveit/scripts/폴더 안에서 실행) qt_gui</li>
+</ul>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+Aruco 전진 거리 : 25cm(Aruco marker에서부터 camera까지)
+Aruco 후진 거리 : 117cm(Aruco marker에서부터 camera까지)
+yolo task 거리: 22.4cm(box 윗 면에서부터 camera 까지)</p>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+만약 qt_gui에서 이미지를 안 보겠다 면
+image 받는 부분을 주석 처리</p>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+ex) ros2 topic echo /joint_states &gt;&gt; a.txt
+1.ros2 topic echo /joint_states는 ROS 2 토픽 /joint_states를 구독하여 해당 토픽의 데이터를 출력합니다.
+2./joint_states는 일반적으로 로봇의 관절 상태(joint positions, velocities 등)에 대한 정보를 포함하는 메시지입니다.
+2.&gt;&gt; a.txt는 표준 출력의 내용을 a.txt 파일에 추가합니다. 파일이 이미 존재할 경우, 기존 내용을 유지하고 새로운 데이터를 파일 끝에 추가합니다.
+따라서 이 명령은 ROS 2에서 특정 토픽 데이터를 파일로 기록할 때 유용합니다. 이를 활용하면 기록된 데이터를 분석하거나,
+다른 프로세스에서 처리할 수 있습니다.</p>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+aruco_yolo에 자신의 pt파일을 적용시키고 싶으면</p>
+<ol>
+<li>aruco_yolo/models에 자신의 pt파일을 넣는다</li>
+<li>aruco_yolo의 setup.py로 간다</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구</p>
+<ol>
+<li>setup.py에서 자신의 pt파일 명을 적는다.</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구</p>
+<ol>
+<li>aruco_yolo패키지 폴더 안에 yolo_detector.py에 들어가서 model_path를 수정한다</li>
+<li>turtlebot3_ws 에서 colcon build --packages-select aruco_yolo 로 빌드</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+마찬가지로 aruco에 적용될 calibration 값을 변경하려면
+aruco_yolo에 config 파일에 들어가서 수치 변경 후 colcon build를
+한다</p>
+<p>터틀봇메내퓰레이터
+참고
+로봇에서 실행되어야하는 것들</p>
+<ol>
+<li>ros2 launch turtlebot3_manipulation_bringup hardware.launch.py</li>
+<li>ros2 launch aruco_yolo aruco_yolo.launch</li>
+<li>ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py(pc)</li>
+<li>ros2 run turtlebot_moveit turtlebot_arm_controller(pc)</li>
+<li>python3 simple_manager_node.py(pc) (turtlebot_moveit/scripts/폴더 안에서 실행)
+pc에서 실행되어야하는 것들</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구</p>
+<p>터틀봇메내퓰레이터
+참고
+피지컬 터 틀 봇 사용</p>
+<p>터틀봇메내퓰레이터
+참고
+로봇 연결 및 로봇 조작 순서</p>
+<ol>
+<li>
+<p>Turtlebot3_manipulation을 켤때
+1.Opencr을 먼저 켜세요
+2.Jetson orin switch를 켜세요</p>
+</li>
+<li>
+<p>jetson orin도 일종의 컴퓨터 입니다 Hdmi cable로 monitor와 연결하고 usb port에 usb hub와 연결한 다음 keyboard와 mouse를 연결하세요</p>
+</li>
+<li>Jetson orin에 ubuntu 계정 login passward는 : rokey1234</li>
+<li>
+<p>오른쪽 상단 wifi setting에 들어갑니다. 거기서 ‘Rokey-Ap-2’ wifi에 세팅합니다
+passward: rokey12345</p>
+</li>
+<li>
+<p>ctrl+alt+t를 눌러 terminal을 열고 ifconfig를 칩니다
+ifconfig
+그 다음 로봇의 ip를 확인합니다
+예) 172.30.1.XX -
+(XX는 할당된 IP마 다 다릅니다)
+terminal 창에서 jetson orin의 컴퓨터 명도 확인합니다
+예) roekyXX@생략 - XX는 로봇마다 다른 숫자입니다</p>
+</li>
+<li>
+<p>5번에 찾은 컴퓨터 명과 ip는 노트북에서 ssh 연결하기 위한 셋 업니다
+단 ssh는 서로 같은 wifi 공간에서 사용해야하는 본인 pc도 ‘Rokey-Ap-2’ wifi에 세팅합니다
+그 다음 노트북에 terminal을 연 다음 다음과 같이 입력하세요
+ssh -X rokeyOO@172.30.1.XX
+만약 연결이 안 되는 경우 실제 통신이 되는지 확인해 봅니다
+ping 172.30.1.XX (XX는 찾은 ip숫자)</p>
+</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+로봇 연결 및 로봇 조작 순서</p>
+<ol>
+<li>
+<p>ssh로 처음 연결하면 key를 받겠냐는 메세지가 나옵니다 거기서 yes를 입력하세요
+그 다음 접속하려는 계정의 passward를 물어 봅니다 연결한 로봇의 passward와 동일합니다
+passward: rokey1234</p>
+</li>
+<li>
+<p>로봇에서 실행하는 robot을 bringup 하는 명령어 입니다
+ros2 launch turtlebot3_manipulation_bringup hardware.launch.py</p>
+</li>
+<li>
+<p>다른 터미널 창을 열고 pc에서 로봇에 ssh 연결을 합니다
+ssh -X rokeyOO@172.30.1.XX
+password:rokey1234</p>
+</li>
+<li>
+<p>로봇에서 camera를 활성화하고 yolo와 aruco를 동시에 실행하는 launch 입니다
+ros2 launch aruco_yolo aruco_yolo.launch.py</p>
+</li>
+<li>
+<p>ssh로 실행한 ros도 확실하게 꺼 주셔야합니다
+ssh로 연결된 로봇 터미널에서 활성된 ros 창에서
+ctrl+c
+누르고 꺼지는 게 확인될 때까지 기다리세요</p>
+</li>
+<li>
+<p>ssh연결을 그냥 끊고 싶으면
+exit
+을 ssh로 연결한 로봇 터미널에 치세요
+ssh로 연결한 로봇을 종료시키고 싶으면
+sudo shutdown now
+을 ssh로 연결한 로봇 터미널에 치세요
+sudo로 실행한 명령어 이기에 로봇 password를 요구할 겁니다
+password:rokey1234</p>
+</li>
+<li>
+<p>Turtlebot3_manipulation을 끌때
+1.sudo shutdown now로 ubuntu를 제대로 종료한다
+2.jetson orin switch를 종료시킨다
+3.opencr을 종료시킨다</p>
+</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+리눅스 노트북 설치 가이드
+참고 사이트
+turtlebot3_manipulation emanual:
+https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation/#turtlebot3-with-openmanipulator
+turtlebot3_manipulation git 주소:
+https://github.com/ROBOTIS-GIT/turtlebot3_manipulation
+강의 참고용 드라이브:https://tinylink.net/JfziW
+이 과정이 완료되었을 때 turtlebot3_ws/src에 들어 있어야하는 패키지는 다음과 같습니다
+turtlebot3_manipulation turtlebot_cosmo_interface turtlebot_moveit</p>
+<ol>
+<li>
+<p>moveit과 관련된 ros2 package를 설치합니다
+sudo apt install ros-humble-dynamixel-sdk ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gripper-controllers
+ros-humble-moveit* ros-humble-aruco-msgs</p>
+</li>
+<li>
+<p>만약 pc에 turtlebot3_ws가 home 디렉토리에 없을 경우 workspace 폴더를 만드는 절차입니다
+home 디렉토리에 있다면 무시하세요
+mkdir -p turtlebot3_ws/src</p>
+</li>
+<li>
+<p>turtlebot3_manipulation 패키지를 turtlebot3_ws안에 빌드하기 위해서 해당 workspace의 src 폴더로 이동합니다
+cd ~/turtlebot3_ws/src/</p>
+</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+리눅스 노트북 설치 가이드</p>
+<ol>
+<li>
+<p>turtlebot3_manipulation 패키지를 다운 받습니다
+git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git</p>
+</li>
+<li>
+<p>turtlebot3_manipulation 패키지를 빌드합니다
+cd ~/turtlebot3_ws &amp;&amp; colcon build --symlink-install</p>
+</li>
+<li>
+<p>빌드된 패키지를 활성화 시킵니다
+source install/setup.bash</p>
+</li>
+<li>
+<p>실제 패키지가 제대로 빌드되었는지 확인합니다
+ros2 pkg list | grep turtlebot3_manipulation</p>
+</li>
+<li>
+<p>패키지가 빌드가 되었으면 moveit를 실행해 봅시다
+ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py</p>
+</li>
+<li>
+<p>두산 폴더에서 turtlebot_cosmo_interface.zip을 먼저 다운로드 합니다
+링크:https://tinylink.net/JfziW
+10.다운 받은 turtlebot_cosmo_interface.zip을 압축 해제하여 ~/turtlebot3_ws/src/안에 넣습니다
+해당 패키지는 moveit 제어에 필요한 srv 등록용 패키지입니다
+11.해당 패키지를 ~/turtlebot3_ws/src/안에 넣었으면 터미널에서 빌드를 해 줍니다
+cd ~/turtlebot3_ws &amp;&amp; colcon build --packages-select turtlebot_cosmo_interface</p>
+</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구</p>
+<ol>
+<li>
+<p>빌드된 패키지를 활성화 시킵니다
+source install/setup.bash</p>
+</li>
+<li>
+<p>turtlebot_cosmo_interface가 제대로 빌드되었는지 확인합니다
+ros2 interface show turtlebot_cosmo_interface/srv/MoveitControl</p>
+</li>
+<li>
+<p>두산 폴더에서 turtlebot_moveit.zip을 먼저 다운로드 합니다
+링크:https://tinylink.net/JfziW
+15.다운 받은 turtlebot_moveit.zip을 압축 해제하여 ~/turtlebot3_ws/src/안에 넣습니다
+해당 패키지는 서비스를 활성화해서 python clinet가 준 request를 moveit에 plan으로 변환하는 turtlebot_arm_controller.cpp가 있습니다
+16.해당 패키지를 ~/turtlebot3_ws/src/안에 넣었으면 터미널에서 빌드를 해 줍니다
+cd ~/turtlebot3_ws &amp;&amp; colcon build --packages-select turtlebot_moveit
+현재 launch 폴더가 없는 상태인데 빌드하면서 오류가 나는 것 같습니다
+turtlebot_moveit패키지의 CMakeLists.txt에서 맨 아래에 가 보시면 launch가 명시되었는데 삭제하시고 저장한 다음 빌드가 정상적으로 작동 될
+것입니다</p>
+</li>
+<li>
+<p>빌드된 패키지를 활성화 시킵니다
+source install/setup.bash</p>
+</li>
+<li>
+<p>turtlebot_cosmo_interface가 제대로 빌드되었는지 확인합니다
+ros2 pkg list | grep turtlebot_moveit</p>
+</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+Aruco_yolo 패키지 설명
+aruco_yolo(package)
+ㄴ aruco_yolo(src 폴더)
+ㄴ__pycache__
+ㄴ__init__.py
+ㄴaruco_detector.py (영상 데이터를 수신한 다음 aruco marker detect 한 이후 aruco
+marker data를 publish)
+ㄴaruco_move.py(detected_marker topic을 수신해서 조건에 맞게 cmd_vel publish)
+ㄴcompressed_image_pub.py(영상 데이터를 publish)
+ㄴyolo_detector.py (영상 데이터를 수신한 다음 yolo를 이용하여 클래스 및 x,y 데이터
+publish)
+ㄴconfig
+ㄴcalibration_params.yaml
+ㄴlaunch
+ㄴaruco_move.launch.py
+ㄴaruco_yolo.launch.py
+ㄴmodels
+ㄴyolov8s_trained.pt
+ㄴresource
+ㄴtest
+ㄴpackage.xml
+ㄴsetup.cfg
+ㄴsetup.py</p>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구
+turtlebot_moveit 패키지 설명
+turtlebot_moveit
+ㄴscripts
+ㄴ__pycache__
+ㄴ__init__.py
+ㄴsimple_manager_node.py(manager_node 예시 코드)
+ㄴsrv_call_test.py(moveit_control 서비스에 요청하는 client 코드)
+ㄴtask.py(task 요청하는 예시 코드)
+ㄴsrc
+ㄴget_eef_pose.cpp (더 미 코드)
+ㄴturtlebot_arm_controller.cpp (move_control 서비스를 만들고 python에서 요청한
+cmd,pose_name,waypoint를 수신하여 moveit에 plan을 execute하는 코드)
+ㄴturtlebot_moveit.cpp (더 미 코드)
+ㄴCMakeLists.txt
+ㄴpackage.xml
+turtlebot_cosmo_interface 패키지 설명
+turtlebot_cosmo_interface
+ㄴsrv
+ㄴMoveitControl.srv
+ㄴCMakeLists.txt
+ㄴpackage.xml</p>
+<p>터틀봇메내퓰레이터
+참고
+노트북 프로그램 설치
+manual
+https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation/#turtlebot3-with-openmanipulator
+git
+https://github.com/ROBOTIS-GIT/turtlebot3_manipulation
+1.
+sudo apt install ros-humble-dynamixel-sdk ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gripper-controll
+ers ros-humble-moveit* ros-humble-aruco-msgs
+2.
+mkdir -p turtlebot3_ws/src
+3.
+cd ~/turtlebot3_ws/src/
+4.
+git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git
+5.
+cd ~/turtlebot3_ws &amp;&amp; colcon build --symlink-install
+확인하기: cd ~/turtlebot3_ws/src/turtlebot3_manipulation
+ros2 pkg list | grep turtlebot3_manipulation</p>
+<p>참고</p>
+<p>터틀봇메내퓰레이터
+참고
+기타 개발 지원 도구</p>
+<p><img alt="Image 180" src="../../../assets/images/ros/projects/aruco-conveyor/img_096_180.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+task_7(red_blue).py
+＜주요 기능 요약＞</p>
+<ol>
+<li>YOLO 결과 수신： /yolo/detected_info 토픽에서 YOLO가 인식한 객체 좌표를 수신하여 파싱＊</li>
+<li>로봇 암 제어：YOLO 결과를 바탕으로 로봇 암이 해당 위치로 이동하여 집거나 내려놓는 작업 수행</li>
+<li>키보드 인터페이스：키 입력을 통해 로봇 제어 및 보정(offset) 값 조정</li>
+<li>Joint 상태 확인 및 출력</li>
+<li>
+<p>보정 값 파일 읽기/쓰기：offset_values.txt를 이용해 좌표 보정 값 유지
+＜전체 구조 개요＞</p>
+</li>
+<li>
+<p>solv2, solv_robot_arm2: 역 기구학 (Inverse Kinematics) 계산 함수</p>
+</li>
+<li>YoloDetect: ROS 노 드 클래스</li>
+<li>main: 키보드 입력 기반의 상호 작용 실행 루프 ＊‘파싱’이란, 이 메시지를 받아서 → 필요한 정보(예: 객체 이름, (x, y) 위치, 너비, 높이 등)를 → 프로그래밍적으로 추출해서 사용할 수 있도록 변환하는 과정</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+task_7(red_blue).py
+def solv2(r1, r2, r3):
+d1 = (r3<strong>2 - r2</strong>2 + r1<strong>2) / (2*r3)
+d2 = (r3</strong>2 + r2<strong>2 - r1</strong>2) / (2*r3)
+s1 = math.acos(d1 / r1)
+s2 = math.acos(d2 / r2)
+return s1, s2</p>
+<h1 id="x-y-z-relational-position-from-j0-joint-0">x, y, z : relational position from J0 (joint 0)<a class="headerlink" href="#x-y-z-relational-position-from-j0-joint-0" title="Permanent link">&para;</a></h1>
+<h1 id="r1-distance-j0-to-j1">r1 : distance J0 to J1<a class="headerlink" href="#r1-distance-j0-to-j1" title="Permanent link">&para;</a></h1>
+<h1 id="r2-distance-j1-to-j2">r2 : distance J1 to J2<a class="headerlink" href="#r2-distance-j1-to-j2" title="Permanent link">&para;</a></h1>
+<h1 id="r3-distance-j2-to-j3">r3 : distance J2 to J3<a class="headerlink" href="#r3-distance-j2-to-j3" title="Permanent link">&para;</a></h1>
+<h1 id="sr1-angle-between-z-axis-to-j0-j1">sr1 : angle between z-axis to J0-&gt;J1<a class="headerlink" href="#sr1-angle-between-z-axis-to-j0-j1" title="Permanent link">&para;</a></h1>
+<h1 id="sr2-angle-between-j0-j1-to-j1-j2">sr2 : angle between J0-&gt;J1 to J1-&gt;J2<a class="headerlink" href="#sr2-angle-between-j0-j1-to-j1-j2" title="Permanent link">&para;</a></h1>
+<h1 id="sr3-angle-between-j1-j2-to-j2-j3-maybe-always-parallel">sr3 : angle between J1-&gt;J2 to J2-&gt;J3 (maybe always parallel)<a class="headerlink" href="#sr3-angle-between-j1-j2-to-j2-j3-maybe-always-parallel" title="Permanent link">&para;</a></h1>
+<p>def solv_robot_arm2(x, y, z, r1, r2, r3):
+z = z + r3 - j1_z_offset
+Rt = math.sqrt(x<strong>2 + y</strong>2 + z<strong>2)
+Rxy = math.sqrt(x</strong>2 + y**2)
+St = math.asin(z / Rt)</p>
+<h1 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Sxy = math.acos(x / Rxy)
+Sxy = math.atan2(y, x)
+s1, s2 = solv2(r1, r2, Rt)
+sr1 = math.pi/2 - (s1 + St)
+sr2 = s1 + s2
+sr2_ = sr1 + sr2
+sr3 = math.pi - sr2_
+return Sxy, sr1, sr2, sr3, St, Rt
+- 역기 구 학 함수</p>
+<ol>
+<li>
+<p>solv2(r1, r2, r3)</p>
+</li>
+<li>
+<p>삼각형의 세 변을 알고 있을 때, 각도를 구함 (Cosine Law 활용)</p>
+</li>
+<li>
+<p>solv_robot_arm2(x, y, z, r1, r2, r3)</p>
+</li>
+<li>
+<p>로봇 팔의 링크 길이와 목표 위치(x, y, z)를 입력 받아 각 관절(joint)의 회전 각도를 계산</p>
+</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+task_7(red_blue).py
+Class YoloDetect(Node):
+- self.subscription # YOLO 인식 데이터 수신
+- self.joint_pub # 관절 제어 메시지 퍼블리셔
+- self.cmd_vel_publisher # 이동 속도 퍼블리셔 ＜주요 속성＞</p>
+<ol>
+<li>
+<p>listener_callback(self, msg)</p>
+</li>
+<li>
+<p>YOLO 인식 결과(문자열 형태의 리스트)를 파싱하여 self.yolo_x, self.yolo_y로 저장</p>
+</li>
+<li>
+<p>arm_controll(self)</p>
+</li>
+<li>
+<p>append_pose_init(x, y, z)</p>
+</li>
+<li>
+<p>PoseArray 메시지를 만들어서 MoveIt 서비스 요청 시 사용</p>
+</li>
+<li>
+<p>joint_states_callback</p>
+</li>
+<li>
+<p>현재 로봇 관절(joint)의 위치 상태 출력 ＜주요 동작＞ YOLO 객체 인식</p>
+</li>
+<li>
+<p>다시 camera 위치로 이동</p>
+</li>
+<li>Home 위치로 복귀</li>
+<li>그리퍼 Open</li>
+<li>객체 위치로 이동</li>
+<li>객체를 집음</li>
+</ol>
+<p>터틀봇메내퓰레이터
+참고
+task_7(red_blue).py
+키
+YOLO 인식 결과를 한 번 수신하여
+yolo_x, yolo_y 변수에 저장 및 콘솔 출력
+YOLO 위치 수신 &amp; 그리퍼 열기
+YOLO 위치 기준으로 보정 값 적용 및 이동
+물체 잡기 전 Z축 낮춤
+그리퍼 close
+그리퍼 open
+home2 위치 이동
+camera_home 위치 이동
+현재 저장된 오프셋 값들을 콘솔 출력
+현재 오프셋 값을 offset_values.txt 파일에 저장
+main() - 키보드 입력 기반 제어 루프</p>
+<ul>
+<li>
+<p>getkey.getkey() 로 키보드 입력을 받아 아래 작업 수행 offset_values.txt 파일</p>
+</li>
+<li>
+<p>YOLO가 인식한 좌표는 정확하지 않기 때문에, 위치 보정을 위한 offset</p>
+</li>
+<li>프로그램 시작 시 읽고, 키보드 조정 후 저장 가능 Right Low Right High Left Low Left High 전진 후진 닫기 열기 X+ X- Y+ Y- X+ X- Y+ Y- X+ X- Y+ Y- X+ X- Y+ Y- 키 기능 키 기능 A home2 이동 F box_up_01 이동 B conveyor_up 이동 G box_up_02 이동 C camera_home 이동 H box_up_03 이동 D test_conveyor 이동 I box_back_01 이동 E box_home_01 이동 J box_back_put 이동 현재 관절 상태 출력 프로그램 종료 [그리퍼] [로봇]</li>
+</ul>
+<p><img alt="Image 185" src="../../../assets/images/ros/projects/aruco-conveyor/img_100_185.webp" /></p>
+<p>터틀봇메내퓰레이터
+참고
+task_7(red_blue).py
+서비스 클라이언트: TurtlebotArmClient</p>
+<ul>
+<li>send_request 메서드를 통해 MoveIt으로 로봇 암 제어 명령을 보냄 타입 의미 send_request(0, "", pose_array) 특정 위치로 이동 send_request(1, "group_states") 지정된 홈 위치로 이동 send_request(2, "open") / close 그리퍼 열기/닫기 group_states home2 box_up_01 conveyor_up box_up_02 camera_home box_up_03 test_conveyor box_back_01 box_home_01 box_back_put Ex) send_rquest(1, “home2”)</li>
+</ul>
+<p>터틀봇메내퓰레이터
+참고
+task_7(red_blue).py
+키
+YOLO 인식 결과를 한 번 수신하여
+yolo_x, yolo_y 변수에 저장 및 콘솔 출력
+YOLO 위치 수신 &amp; 그리퍼 열기
+YOLO 위치 기준으로 보정 값 적용 및 이동
+물체 잡기 전 Z축 낮춤
+그리퍼 close
+키
+키
+A
+home2 이동
+F
+box_up_01 이동
+B
+conveyor_up 이동
+G
+box_up_02 이동
+C
+camera_home 이동
+H
+box_up_03 이동
+D
+test_conveyor 이동
+I
+box_back_01 이동
+E
+box_home_01 이동
+J
+box_back_put 이동</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.path", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

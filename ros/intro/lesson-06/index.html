@@ -1,0 +1,5504 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ROS2 & AI Study Materials">
+      
+      
+      
+        <link rel="canonical" href="https://weedmo.github.io/ros/intro/lesson-06/">
+      
+      
+        <link rel="prev" href="../lesson-05/">
+      
+      
+        <link rel="next" href="../lesson-07/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>06. 런치파일 - weedmo notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ros2-6-ros2" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../.." title="weedmo notes" class="md-header__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            weedmo notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              06. 런치파일
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="다크 모드"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="라이트 모드"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ROS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ai/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="weedmo notes" class="md-nav__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    weedmo notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    입문 (Introduction)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    입문 (Introduction)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. ROS2 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 개발환경
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 노드와 토픽
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 서비스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 액션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. 런치파일
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. 런치파일
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 응용
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일이란?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일레코딩
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일재생
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일정보표시
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-bagturtlesim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 BAG(Turtlesim)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        준비단계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turtlesim_node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        첫번째터미널에서turtlesim_node 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turtle_teleop_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        두번째터미널에서turtle_teleop_key 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turtle1cmd_vel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        세번째터미널에서다음명령어를이용하여/turtle1/cmd_vel 토픽기록
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        레코딩
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        세번째터미널에서실행되고있는record 종료
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        세번째터미널에서저장된BAG 파일확인
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 재생
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        세번째터미널에서다음명령어를이용하여저장되어있는BAG 파일재생
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-bag2d-3d-lidar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 BAG(2D, 3D, Lidar)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된3d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-3d_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된3d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-3d_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된3d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-3d_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된3d 카메라정보불러오기(특정시점)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vscode 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-run-turtlesim-turtlesim_node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        새로운터미널을열어ros2 run 명령으로turtlesim 패키지의turtlesim_node를실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscodejupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vscode에서jupyter notebook 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-shift-enter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        구독을위해필요한모듈import (코드실행: shift + enter)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topic-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        터미널에서아래명령어를이용하여topic list 조회
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rclpysub_test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rclpy의초기화및‘/sub_test’ 노드생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sub_test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        터미널에서‘/sub_test’ 노드가생성되었음을확인
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subscriptioncallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subscription에서실행할callback 함수작성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subscriber" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        토픽subscriber 만들기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test_node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        test_node 구독
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vscode 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-run-turtlesim-turtlesim_node_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ‘ros2 run’ 명령으로turtlesim 패키지의turtlesim_node를실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscodejupyter-notebook_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vscode에서jupyter notebook 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        필요모듈import 및노드초기화
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmd_vel-twist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cmd_vel 토픽의데이터타입인Twist 선언
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        x축선형속도를2.0으로설정한후, 해당값을발행할메시지로준비
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        토픽발행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        추가동작도가능
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timer를이용해토픽발행하기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timer를이용해토픽발행하기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        노드종료시키기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vscode 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-run-turtlesim-turtlesim_node_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ‘ros2 run’ 명령으로turtlesim 패키지의turtlesim_node를실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teleportabsolute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TeleportAbsolute :
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rclpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rclpy 초기화및노드생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turtle1teleport_absolute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ‘/turtle1/teleport_absolute’라는서비스에연결하는클라이언트를생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teleportabsolute-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TeleportAbsolute 서비스에대한request 객체를생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-x-10-y-10-theta314" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request 객체의x 좌표를1.0, y 좌표를1.0, theta(회전각)를3.14로설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reqx-30call_async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        설정req의x 성분만3.0으로바꾼후call_async를통해서비스를호출
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test_node_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        서비스가준비될때까지대기후비동기요청을호출하며test_node에서스핀을실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        노드종료시키기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vscode 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-run-turtlesim-turtlesim_node_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ‘ros2 run’ 명령으로turtlesim 패키지의turtlesim_node를실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#action_serveripynb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        action_server.ipynb파일생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execute_callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execute_callback() 메서드정의
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션서버초기화및인스턴스생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션서버실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션서버종료
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        필요한모듈import (Ros2와액션메시지)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turtlerotateclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TurtleRotateClient 클래스정의
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turtlerotateclient_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TurtleRotateClient 클래스의주요메서드들
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션클라이언트초기화및인스턴스생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션클라이언트실행후종료
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션클라이언트실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ros2env" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ros2env/
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ros2env/">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ros2envros2env__init__py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ros2env/ros2env/__init__.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2envros2envverb__init__py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ros2env/ros2env/verb/__init__.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2envros2envcommand__init__py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ros2env/ros2env/command/__init__.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. Pub/Sub & Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08. 로봇시스템
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09. 카메라 & API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 로봇과 리눅스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 네트워크와 통신
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 센서와 로봇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. ROS2 실습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Topic/Service/Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 (Practice)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    실습 (Practice)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-01-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 01-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-04-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 04-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-05-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 05-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 (Projects)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    프로젝트 (Projects)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/rviz2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RVIZ2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/gazebo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gazebo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시뮬레이션 협업
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/aruco-conveyor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ArUco 마커 & 컨베이어벨트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/autonomous-driving/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    자율주행 디지털트윈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/thread-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쓰레드와 데이터베이스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    코드 참고 (Code Reference)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    코드 참고 (Code Reference)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/turtlesim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turtlesim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/pubsub-qos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pub/Sub & QoS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/srvcli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service/Client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/robot-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera Pub/Sub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/hangman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hangman Game
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/urdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URDF & Xacro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/opencv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenCV (Hough)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/point-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Point Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/lane-detect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lane Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/qt-plugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qt Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/rqt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RQT Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/ros2env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 환경설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/python-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/pytorch-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch 입문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/neural-network-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    신경망 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    딥러닝 (분류/회귀)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/cnn-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CNN 아키텍처
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/object-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    객체 탐지
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/sequence-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시퀀스 모델 (RNN/LSTM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/vision-transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    응용 (Applied)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    응용 (Applied)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/computer-vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컴퓨터비전 (OpenCV)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/advanced-cv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    고급 CV (Tracking/Detection)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/generative-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    생성 모델 (GAN/NeRF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/explainable-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explainable AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/medical-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    의료 AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/reinforcement-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    강화학습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 응용
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일이란?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일레코딩
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일재생
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일정보표시
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-bagturtlesim" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 BAG(Turtlesim)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        준비단계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turtlesim_node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        첫번째터미널에서turtlesim_node 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turtle_teleop_key" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        두번째터미널에서turtle_teleop_key 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turtle1cmd_vel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        세번째터미널에서다음명령어를이용하여/turtle1/cmd_vel 토픽기록
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        레코딩
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        세번째터미널에서실행되고있는record 종료
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        세번째터미널에서저장된BAG 파일확인
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 재생
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        세번째터미널에서다음명령어를이용하여저장되어있는BAG 파일재생
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-bag2d-3d-lidar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ROS2 BAG(2D, 3D, Lidar)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-3d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된3d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-2d_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된2d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-3d_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된3d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-3d_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된3d 카메라정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-3d_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된3d 카메라정보불러오기(특정시점)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bag-lidar_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BAG 파일에기록된lidar 정보불러오기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-studio-code-extension_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Studio Code - extension
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vscode 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-run-turtlesim-turtlesim_node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        새로운터미널을열어ros2 run 명령으로turtlesim 패키지의turtlesim_node를실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscodejupyter-notebook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vscode에서jupyter notebook 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-shift-enter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        구독을위해필요한모듈import (코드실행: shift + enter)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#topic-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        터미널에서아래명령어를이용하여topic list 조회
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rclpysub_test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rclpy의초기화및‘/sub_test’ 노드생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sub_test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        터미널에서‘/sub_test’ 노드가생성되었음을확인
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subscriptioncallback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subscription에서실행할callback 함수작성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subscriber" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        토픽subscriber 만들기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test_node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        test_node 구독
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vscode 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-run-turtlesim-turtlesim_node_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ‘ros2 run’ 명령으로turtlesim 패키지의turtlesim_node를실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscodejupyter-notebook_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vscode에서jupyter notebook 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        필요모듈import 및노드초기화
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmd_vel-twist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cmd_vel 토픽의데이터타입인Twist 선언
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        x축선형속도를2.0으로설정한후, 해당값을발행할메시지로준비
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        토픽발행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        추가동작도가능
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timer를이용해토픽발행하기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timer_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Timer를이용해토픽발행하기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        노드종료시키기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vscode 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-run-turtlesim-turtlesim_node_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ‘ros2 run’ 명령으로turtlesim 패키지의turtlesim_node를실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teleportabsolute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TeleportAbsolute :
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rclpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rclpy 초기화및노드생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turtle1teleport_absolute" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ‘/turtle1/teleport_absolute’라는서비스에연결하는클라이언트를생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teleportabsolute-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TeleportAbsolute 서비스에대한request 객체를생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-x-10-y-10-theta314" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Request 객체의x 좌표를1.0, y 좌표를1.0, theta(회전각)를3.14로설정
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reqx-30call_async" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        설정req의x 성분만3.0으로바꾼후call_async를통해서비스를호출
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test_node_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        서비스가준비될때까지대기후비동기요청을호출하며test_node에서스핀을실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        노드종료시키기
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        vscode 실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ros2-run-turtlesim-turtlesim_node_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ‘ros2 run’ 명령으로turtlesim 패키지의turtlesim_node를실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#action_serveripynb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        action_server.ipynb파일생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execute_callback" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        execute_callback() 메서드정의
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션서버초기화및인스턴스생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션서버실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션서버종료
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-ros2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        필요한모듈import (Ros2와액션메시지)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turtlerotateclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TurtleRotateClient 클래스정의
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#turtlerotateclient_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        TurtleRotateClient 클래스의주요메서드들
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션클라이언트초기화및인스턴스생성
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션클라이언트실행후종료
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        액션클라이언트실행
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ros2env" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ros2env/
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ros2env/">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ros2envros2env__init__py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ros2env/ros2env/__init__.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2envros2envverb__init__py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ros2env/ros2env/verb/__init__.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2envros2envcommand__init__py" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ros2env/ros2env/command/__init__.py
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="네비게이션" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    ROS
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../lesson-01/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    입문 (Introduction)
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ros2-6-ros2">ROS2 입문 6차시 - ROS2 응용<a class="headerlink" href="#ros2-6-ros2" title="Permanent link">&para;</a></h1>
+<h2 id="ros2">ROS2 응용<a class="headerlink" href="#ros2" title="Permanent link">&para;</a></h2>
+<p>ROS2 bag 이해 및 사용법
+Bag 파일이란?</p>
+<h2 id="bag">BAG 파일이란?<a class="headerlink" href="#bag" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ROS2 BAG은 시스템의 토픽에 게시된 데이터를 기록하기 위한 플랫폼 기능</li>
+<li>각 토픽에서 수집된 데이터를 데이터베이스에 저장하며, 이를 재생하여 테스트 및 실험 결과를 재현할 수 있음</li>
+</ul>
+<p>ROS2 bag 이해 및 사용법
+명령어</p>
+<h2 id="bag_1">BAG 파일레코딩<a class="headerlink" href="#bag_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>다음 명령어는“topic_name”에서 수신되는 메시지를“my_bag.bag”라는 이름의BAG 파일에 레코딩함</li>
+</ul>
+<h2 id="bag_2">BAG 파일재생<a class="headerlink" href="#bag_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>다음 명령어는“my_bag.bag”라는 이름의BAG 파일을 재생함</li>
+</ul>
+<h2 id="bag_3">BAG 파일정보표시<a class="headerlink" href="#bag_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>다음 명령어는“my_bag.bag”라는 이름의BAG 파일의 정보를 표시함</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">소스코드 참조</p>
+<p>이 코드의 전체 내용은 <a href="../../code-ref/calculator/">Calculator 프로젝트 전체 소스코드</a> 페이지에서 확인할 수 있습니다.</p>
+</div>
+<h2 id="ros2-bagturtlesim">ROS2 BAG(Turtlesim)<a class="headerlink" href="#ros2-bagturtlesim" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Turtle의 움직임을BAG 파일에 기록하기</li>
+<li>기록된BAG 파일을 이용하여turtle 움직이기 실습</li>
+</ul>
+<p>BAG 파일 만들기</p>
+<h2 id="_1">준비단계<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>다음 실습은 여러 터미널을 사용하여 진행됩니다. 혼란을 방지하기 위해, 터미널 좌측 상단의 버튼을 눌러 미리3개의 터미널을 열어 두는 것을 권장합니다. 실습</li>
+</ul>
+<p>BAG 파일 만들기</p>
+<h2 id="turtlesim_node">첫번째터미널에서turtlesim_node 실행<a class="headerlink" href="#turtlesim_node" title="Permanent link">&para;</a></h2>
+<p>실습</p>
+<p><img alt="Image 6" src="../../../assets/images/ros/intro/lesson-06/img_007_006.webp" /></p>
+<p>BAG 파일 만들기</p>
+<h2 id="turtle_teleop_key">두번째터미널에서turtle_teleop_key 실행<a class="headerlink" href="#turtle_teleop_key" title="Permanent link">&para;</a></h2>
+<p>실습</p>
+<p>BAG 파일 만들기</p>
+<h2 id="turtle1cmd_vel">세번째터미널에서다음명령어를이용하여/turtle1/cmd_vel 토픽기록<a class="headerlink" href="#turtle1cmd_vel" title="Permanent link">&para;</a></h2>
+<ul>
+<li>/turtle1/cmd_vel이라는 이름을 가진 토픽을turtle_bag이라는 이름의BAG 파일에 기록</li>
+<li>주의 사항: 반드시“Subscribed to topic ‘/turtle1/cmd_vel’” 이 뜨는지 확인할 것 실습</li>
+</ul>
+<p>BAG 파일 만들기</p>
+<h2 id="_2">레코딩<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>두 번째 터미널로 이동하여 방향키를 사용해turtle을 임의로 이동시키기 실습</li>
+</ul>
+<p><img alt="Image 12" src="../../../assets/images/ros/intro/lesson-06/img_010_012.webp" /></p>
+<p>BAG 파일 만들기</p>
+<h2 id="record">세번째터미널에서실행되고있는record 종료<a class="headerlink" href="#record" title="Permanent link">&para;</a></h2>
+<ul>
+<li>종료는ctrl + c 사용 실습</li>
+</ul>
+<p>BAG 파일 만들기</p>
+<h2 id="bag_4">세번째터미널에서저장된BAG 파일확인<a class="headerlink" href="#bag_4" title="Permanent link">&para;</a></h2>
+<p>실습
+BAG 파일 만들기</p>
+<h2 id="bag_5">BAG 재생<a class="headerlink" href="#bag_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>첫 번째 터미널에서 실행 중인turtlesim을 종료 후 재실행 실습</li>
+</ul>
+<p>BAG 파일 만들기</p>
+<h2 id="bag_6">세번째터미널에서다음명령어를이용하여저장되어있는BAG 파일재생<a class="headerlink" href="#bag_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>간혹 인터럽트 등의 이유로turtle의 궤적이 기록 당시와 정확히 일치하지 않을 수 있음</li>
+<li>이 문제를 방지하려면turtle의 움직임을 기록할 때, 각 명령이 완전히 완료된 후 다음 명령을 실행해야함 실습</li>
+</ul>
+<h2 id="ros2-bag2d-3d-lidar">ROS2 BAG(2D, 3D, Lidar)<a class="headerlink" href="#ros2-bag2d-3d-lidar" title="Permanent link">&para;</a></h2>
+<ul>
+<li>2D 카메라, 3D 카메라, Lidar를 이용하여 기록된BAG 파일 실행하기 실습</li>
+</ul>
+<p>BAG 파일 실습</p>
+<h2 id="bag-2d">BAG 파일에기록된2d 카메라정보불러오기<a class="headerlink" href="#bag-2d" title="Permanent link">&para;</a></h2>
+<ul>
+<li>아래 제공된 링크에서rosbag2_video.tar.gz 파일을 다운로드 받은 후 압축 풀기 https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn</li>
+<li>다운로드된 압축 파일의 압축 풀기 실습</li>
+</ul>
+<p>BAG 파일 실습</p>
+<h2 id="bag-2d_1">BAG 파일에기록된2d 카메라정보불러오기<a class="headerlink" href="#bag-2d_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>압축 풀린bag 파일의 정보 확인</li>
+<li>Bag 파일 반복 재생 실습</li>
+</ul>
+<p>BAG 파일 실습</p>
+<h2 id="bag-2d_2">BAG 파일에기록된2d 카메라정보불러오기<a class="headerlink" href="#bag-2d_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>새로운 터미널에서rviz 실행 실습</li>
+</ul>
+<p><img alt="Image 24" src="../../../assets/images/ros/intro/lesson-06/img_018_024.webp" /></p>
+<p>BAG 파일 실습</p>
+<h2 id="bag-2d_3">BAG 파일에기록된2d 카메라정보불러오기<a class="headerlink" href="#bag-2d_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Rviz에서add버튼을 누른 후Image 선택후OK 버튼 누르기 실습</li>
+</ul>
+<p>BAG 파일 실습</p>
+<h2 id="bag-2d_4">BAG 파일에기록된2d 카메라정보불러오기<a class="headerlink" href="#bag-2d_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>사이드 바에서 이미지의topic name을“＼video_frames” 로 바꾸기</li>
+<li>하단의Image 창에 영상이 재생되는 것을 확인 영상 출처: https://www.youtube.com/watch?v=29iFysOZg3Q 실습</li>
+</ul>
+<p>BAG 파일 실습</p>
+<h2 id="bag-3d">BAG 파일에기록된3d 카메라정보불러오기<a class="headerlink" href="#bag-3d" title="Permanent link">&para;</a></h2>
+<ul>
+<li>아래 제공된 링크에서realsense.tar.gz 파일을 다운로드 받은 후 압축 풀기 https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn</li>
+<li>다운로드된 압축 파일의 압축 풀기 실습</li>
+</ul>
+<p>BAG 파일 실습</p>
+<h2 id="bag-2d_5">BAG 파일에기록된2d 카메라정보불러오기<a class="headerlink" href="#bag-2d_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>압축 풀린bag 파일의 정보 확인</li>
+<li>Bag 파일 반복 재생 실습</li>
+</ul>
+<p>BAG 파일 실습</p>
+<h2 id="bag-2d_6">BAG 파일에기록된2d 카메라정보불러오기<a class="headerlink" href="#bag-2d_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>새로운 터미널에서rviz 실행 실습 BAG 파일 실습</li>
+</ul>
+<h2 id="bag-2d_7">BAG 파일에기록된2d 카메라정보불러오기<a class="headerlink" href="#bag-2d_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Global Options의FixedFrame을‘camera_depth_optical_frame’으로 바꾸기 실습</li>
+</ul>
+<p>BAG 파일 실습</p>
+<h2 id="bag-3d_1">BAG 파일에기록된3d 카메라정보불러오기<a class="headerlink" href="#bag-3d_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ADD → By topic → camera → camera → depth → color → points → PointCloud2 선택후OK 버튼 클릭 실습</li>
+</ul>
+<p>BAG 파일 실습</p>
+<h2 id="bag-3d_2">BAG 파일에기록된3d 카메라정보불러오기<a class="headerlink" href="#bag-3d_2" title="Permanent link">&para;</a></h2>
+<p>실습</p>
+<p>BAG 파일 실습</p>
+<h2 id="bag-3d_3">BAG 파일에기록된3d 카메라정보불러오기(특정시점)<a class="headerlink" href="#bag-3d_3" title="Permanent link">&para;</a></h2>
+<p>실습</p>
+<p>BAG 파일 실습</p>
+<h2 id="bag-lidar">BAG 파일에기록된lidar 정보불러오기<a class="headerlink" href="#bag-lidar" title="Permanent link">&para;</a></h2>
+<ul>
+<li>아래 제공된 링크에서race_car.tar.gz 파일을 다운로드 받은 후 압축 풀기 https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn</li>
+<li>다운로드된 압축 파일의 압축 풀기 실습</li>
+</ul>
+<p>BAG 파일 실습</p>
+<h2 id="bag-lidar_1">BAG 파일에기록된lidar 정보불러오기<a class="headerlink" href="#bag-lidar_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>압축 풀린bag 파일의 정보 확인</li>
+<li>Bag 파일 반복 재생 실습</li>
+</ul>
+<p>BAG 파일 실습</p>
+<h2 id="bag-lidar_2">BAG 파일에기록된lidar 정보불러오기<a class="headerlink" href="#bag-lidar_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>새로운 터미널에서rviz 실행 실습</li>
+</ul>
+<p><img alt="Image 42" src="../../../assets/images/ros/intro/lesson-06/img_030_042.webp" /></p>
+<p>BAG 파일 실습</p>
+<h2 id="bag-lidar_3">BAG 파일에기록된lidar 정보불러오기<a class="headerlink" href="#bag-lidar_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Global Options의FixedFrame을‘luminar_front’로 바꾸기 실습</li>
+</ul>
+<p><img alt="Image 43" src="../../../assets/images/ros/intro/lesson-06/img_031_043.webp" /></p>
+<p>BAG 파일 실습</p>
+<h2 id="bag-lidar_4">BAG 파일에기록된lidar 정보불러오기<a class="headerlink" href="#bag-lidar_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>ADD → by topic → vehicle8 → luminar_front_points → PointCloud2 선택후OK 버튼 클릭 실습</li>
+</ul>
+<p><img alt="Image 44" src="../../../assets/images/ros/intro/lesson-06/img_032_044.webp" /></p>
+<p>BAG 파일 실습</p>
+<h2 id="bag-lidar_5">BAG 파일에기록된lidar 정보불러오기<a class="headerlink" href="#bag-lidar_5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>사이드 바의PointCloud2에서Size(m)을0.1로 변경 실습</li>
+</ul>
+<p><img alt="Image 45" src="../../../assets/images/ros/intro/lesson-06/img_033_045.webp" /></p>
+<p>BAG 파일 실습</p>
+<h2 id="bag-lidar_6">BAG 파일에기록된lidar 정보불러오기<a class="headerlink" href="#bag-lidar_6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>사이드 바의PointCloud2에서Size(m)을0.1로 변경 실습</li>
+</ul>
+<p><img alt="Image 46" src="../../../assets/images/ros/intro/lesson-06/img_034_046.webp" /></p>
+<p>BAG 파일 실습</p>
+<h2 id="bag-lidar_7">BAG 파일에기록된lidar 정보불러오기<a class="headerlink" href="#bag-lidar_7" title="Permanent link">&para;</a></h2>
+<ul>
+<li>실제RGB 영상과의 비교 실습</li>
+</ul>
+<p><img alt="Image 47" src="../../../assets/images/ros/intro/lesson-06/img_035_047.webp" /></p>
+<h2 id="visual-studio-code">Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용</p>
+<h2 id="visual-studio-code_1">Visual Studio Code<a class="headerlink" href="#visual-studio-code_1" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- 재부팅 후vscode를실행
+- VS Code에서 ‘extension’ 탭으로 이동한 후, 'Jupyter' 검색
+- 검색 결과에서 나타나는Jupyter를 선택하고 ‘Install' 버튼을 눌러 설치</p>
+<h2 id="visual-studio-code_2">Visual Studio Code<a class="headerlink" href="#visual-studio-code_2" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- Vscode의 좌 상단에서newfile을 클릭하여 새로운 파일을 만듦
+- 파일 명은HelloWorld.ipynb로설정</p>
+<h2 id="visual-studio-code_3">Visual Studio Code<a class="headerlink" href="#visual-studio-code_3" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- 아래와 같이 빈칸에print("Hello World")를 입력 후shift + enter를입력
+- Select Kernel창에서“Python Environments”를선택</p>
+<h2 id="visual-studio-code_4">Visual Studio Code<a class="headerlink" href="#visual-studio-code_4" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- 나열된Python 버전 중 하나를 선택(되도록Global Env를 선택하는 것을 추천)</p>
+<h2 id="visual-studio-code_5">Visual Studio Code<a class="headerlink" href="#visual-studio-code_5" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- 이후python 코드가 성공적으로 실행되는 것을 확인 가능</p>
+<h2 id="visual-studio-code-extension">Visual Studio Code - extension<a class="headerlink" href="#visual-studio-code-extension" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- Extension의 주요 역할 및 기능
+- 프로그래밍 언어 지원 추가: 추가 언어를 지원하거나 기존 언어의 기능을 확장 (예: Python, YAML등)
+- 생산성 향상 도구: 코딩, 탐색, 리팩토링, 반복 작업을 자동화해 생산성 향상 (예: XML Tools, Markdown All in One)
+- 특정 기술 또는 프레임워크 지원: 특정 프레임워크나 기술을 위한 추가 기능 제공 (예: ROS, URDF)
+- 자동화 및DevTools: 반복 작업을 자동화하거나 개발 환경을 확장(예: Colcon Tasks)</p>
+<h2 id="visual-studio-code-extension_1">Visual Studio Code - extension<a class="headerlink" href="#visual-studio-code-extension_1" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- ROS2의 간편한 이용을 위한extension설치
+- Python : 디버깅, 코드 서식 지정, 리팩토링, 단위 테스트 등
+- ROS : ROS 개발 지원
+- URDF : URDF/xacro 지원
+- Colcon Tasks: setup scripts를 자동으로 환경에 맞게run 함
+- XML Tools: XML 포맷팅, XML tree view를제공
+- YAML: YAML 지원
+- Markdown All in One : Markdown지원</p>
+<h2 id="visual-studio-code-extension_2">Visual Studio Code - extension<a class="headerlink" href="#visual-studio-code-extension_2" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- Python Extension 설치(Python)
+- Vscode의extention 탭에서 코드 명(ms-python.python)을 검색 후install을 눌러 설치</p>
+<h2 id="visual-studio-code-extension_3">Visual Studio Code - extension<a class="headerlink" href="#visual-studio-code-extension_3" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- Python Extension 설치(ROS)
+- Vscode의extention 탭에서 코드 명(ms-iot.vscode-ros)을 검색 후install을 눌러 설치</p>
+<h2 id="visual-studio-code-extension_4">Visual Studio Code - extension<a class="headerlink" href="#visual-studio-code-extension_4" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- Python Extension 설치(URDF)
+- Vscode의extention 탭에서 코드 명(smilerobotics.urdf)을 검색 후install을 눌러 설치</p>
+<h2 id="visual-studio-code-extension_5">Visual Studio Code - extension<a class="headerlink" href="#visual-studio-code-extension_5" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- Python Extension 설치(Colcon Tasks)
+- Vscode의extention 탭에서 코드 명(deitry.colcon-helper)을 검색 후install을 눌러 설치</p>
+<h2 id="visual-studio-code-extension_6">Visual Studio Code - extension<a class="headerlink" href="#visual-studio-code-extension_6" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- Python Extension 설치(XML Tools)
+- Vscode의extention 탭에서 코드 명(dotjoshjohnson.xml)을 검색 후install을 눌러 설치</p>
+<h2 id="visual-studio-code-extension_7">Visual Studio Code - extension<a class="headerlink" href="#visual-studio-code-extension_7" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- Python Extension 설치(YAML)
+- Vscode의extention 탭에서 코드 명(redhat.vscode-yaml)을 검색 후install을 눌러 설치</p>
+<h2 id="visual-studio-code-extension_8">Visual Studio Code - extension<a class="headerlink" href="#visual-studio-code-extension_8" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- Python Extension 설치(Markdown)
+- Vscode의extention 탭에서 코드 명(yzhang.markdown-all-in-one)을 검색 후install을 눌러 설치</p>
+<h2 id="visual-studio-code-extension_9">Visual Studio Code - extension<a class="headerlink" href="#visual-studio-code-extension_9" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- User settings 설정
+- Vscode에서ctrl + shift + p를 누른 후‘open user settings’을선택
+- 엔터를 눌러settings.json파일을 열기</p>
+<h2 id="visual-studio-code-extension_10">Visual Studio Code - extension<a class="headerlink" href="#visual-studio-code-extension_10" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+VSCode에서Jupyter 사용
+- User settings 설정
+- settings.json 파일을 아래와 같이 수정
+- 다만, 이미 동일한 내용이 있는 경우 추가할 필요 없음
+- 저장후vscode를 재시작</p>
+<h2 id="vscode">Vscode 실행<a class="headerlink" href="#vscode" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 구독하기</p>
+<h2 id="ros2-run-turtlesim-turtlesim_node">새로운터미널을열어ros2 run 명령으로turtlesim 패키지의turtlesim_node를실행<a class="headerlink" href="#ros2-run-turtlesim-turtlesim_node" title="Permanent link">&para;</a></h2>
+<p>준비</p>
+<p><img alt="Image 82" src="../../../assets/images/ros/intro/lesson-06/img_053_082.webp" /></p>
+<h2 id="vscodejupyter-notebook">Vscode에서jupyter notebook 실행<a class="headerlink" href="#vscodejupyter-notebook" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 구독하기
+준비</p>
+<h2 id="import-shift-enter">구독을위해필요한모듈import (코드실행: shift + enter)<a class="headerlink" href="#import-shift-enter" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 구독하기
+토픽 구독하기</p>
+<h2 id="topic-list">터미널에서아래명령어를이용하여topic list 조회<a class="headerlink" href="#topic-list" title="Permanent link">&para;</a></h2>
+<h2 id="rclpysub_test">rclpy의초기화및‘/sub_test’ 노드생성<a class="headerlink" href="#rclpysub_test" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 구독하기
+토픽 구독하기</p>
+<h2 id="sub_test">터미널에서‘/sub_test’ 노드가생성되었음을확인<a class="headerlink" href="#sub_test" title="Permanent link">&para;</a></h2>
+<h2 id="subscriptioncallback">Subscription에서실행할callback 함수작성<a class="headerlink" href="#subscriptioncallback" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 구독하기
+토픽 구독하기
+‘data’의 구성 요소는x, y, theta, linear, angular velocity로 구성되어 있으므로x, y, theta를
+확인하고 싶을 때에는data.x, data.y, data.theta로 조회 가능</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 구독하기
+토픽 구독하기
+Pose : 데이터 타입
+turtle1/pose : 토픽 이름
+callback : 토픽이 들어오면 실행할 함수
+10 : QoS History
+(메시지를 얼마나 저장할지 결정하는 인자)</p>
+<h2 id="subscriber">토픽subscriber 만들기<a class="headerlink" href="#subscriber" title="Permanent link">&para;</a></h2>
+<h2 id="test_node">test_node 구독<a class="headerlink" href="#test_node" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 발행하기</p>
+<h2 id="vscode_1">Vscode 실행<a class="headerlink" href="#vscode_1" title="Permanent link">&para;</a></h2>
+<h2 id="ros2-run-turtlesim-turtlesim_node_1">‘ros2 run’ 명령으로turtlesim 패키지의turtlesim_node를실행<a class="headerlink" href="#ros2-run-turtlesim-turtlesim_node_1" title="Permanent link">&para;</a></h2>
+<p><img alt="Image 101" src="../../../assets/images/ros/intro/lesson-06/img_059_101.webp" /></p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 발행하기</p>
+<h2 id="vscodejupyter-notebook_1">Vscode에서jupyter notebook 실행<a class="headerlink" href="#vscodejupyter-notebook_1" title="Permanent link">&para;</a></h2>
+<p>준비</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 발행하기</p>
+<h2 id="import">필요모듈import 및노드초기화<a class="headerlink" href="#import" title="Permanent link">&para;</a></h2>
+<p>토픽 발행하기</p>
+<h2 id="cmd_vel-twist">cmd_vel 토픽의데이터타입인Twist 선언<a class="headerlink" href="#cmd_vel-twist" title="Permanent link">&para;</a></h2>
+<p>cmd_vel: 로봇의 속도를 제어하기 위해 사용되는ROS 토픽</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 발행하기</p>
+<h2 id="x20">x축선형속도를2.0으로설정한후, 해당값을발행할메시지로준비<a class="headerlink" href="#x20" title="Permanent link">&para;</a></h2>
+<p>토픽 발행하기</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 발행하기</p>
+<h2 id="_3">토픽발행<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>토픽 발행하기</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 발행하기</p>
+<h2 id="_4">추가동작도가능<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>토픽 발행하기</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 발행하기
+토픽 발행하기</p>
+<h2 id="timer">Timer를이용해토픽발행하기<a class="headerlink" href="#timer" title="Permanent link">&para;</a></h2>
+<p>timer_callback 함수가5번 이상 호출되지 않도록cnt를 이용한 조건 문을 넣어 줌</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 발행하기
+토픽 발행하기</p>
+<h2 id="timer_1">Timer를이용해토픽발행하기<a class="headerlink" href="#timer_1" title="Permanent link">&para;</a></h2>
+<p>create_timer를 이용해2초마다timer_callback 함수 실행
+rp.spin: ‘rp.spin_once’와는 달리
+토픽을 지속적으로 수신하므로,
+중간에 직접 멈추거나 멈춤 조건
+을 설정해 주어야함</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 토픽 발행하기
+토픽 발행하기</p>
+<h2 id="_5">노드종료시키기<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Jupyter notebook의 경우 노트북을 종료시키기 직전에node를 종료시켜야함</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 서비스 클라이언트 다루기
+준비</p>
+<h2 id="vscode_2">vscode 실행<a class="headerlink" href="#vscode_2" title="Permanent link">&para;</a></h2>
+<h2 id="ros2-run-turtlesim-turtlesim_node_2">‘ros2 run’ 명령으로turtlesim 패키지의turtlesim_node를실행<a class="headerlink" href="#ros2-run-turtlesim-turtlesim_node_2" title="Permanent link">&para;</a></h2>
+<p><img alt="Image 121" src="../../../assets/images/ros/intro/lesson-06/img_068_121.webp" /></p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 서비스 클라이언트 다루기
+서비스 클라이언트 생성</p>
+<h2 id="teleportabsolute">TeleportAbsolute :<a class="headerlink" href="#teleportabsolute" title="Permanent link">&para;</a></h2>
+<h2 id="rclpy">rclpy 초기화및노드생성<a class="headerlink" href="#rclpy" title="Permanent link">&para;</a></h2>
+<p>‘/turtle1/teleport_absolute’ 서비스를 사용하기 위한 모듈import</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 서비스 클라이언트 다루기
+서비스 클라이언트 생성</p>
+<h2 id="turtle1teleport_absolute">‘/turtle1/teleport_absolute’라는서비스에연결하는클라이언트를생성<a class="headerlink" href="#turtle1teleport_absolute" title="Permanent link">&para;</a></h2>
+<h2 id="teleportabsolute-request">TeleportAbsolute 서비스에대한request 객체를생성<a class="headerlink" href="#teleportabsolute-request" title="Permanent link">&para;</a></h2>
+<p>TeleportAbsolute : Turtle을 특정 좌표(x, y)와방향(θ)으로 즉시 텔레 포트시키는 서비스 타입</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 서비스 클라이언트 다루기
+서비스 클라이언트 생성</p>
+<h2 id="request-x-10-y-10-theta314">Request 객체의x 좌표를1.0, y 좌표를1.0, theta(회전각)를3.14로설정<a class="headerlink" href="#request-x-10-y-10-theta314" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 서비스 클라이언트 다루기
+서비스 클라이언트 생성</p>
+<h2 id="reqx-30call_async">설정req의x 성분만3.0으로바꾼후call_async를통해서비스를호출<a class="headerlink" href="#reqx-30call_async" title="Permanent link">&para;</a></h2>
+<p><img alt="Image 133" src="../../../assets/images/ros/intro/lesson-06/img_072_133.webp" /></p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 서비스 클라이언트 다루기
+서비스 클라이언트 생성</p>
+<h2 id="test_node_1">서비스가준비될때까지대기후비동기요청을호출하며test_node에서스핀을실행<a class="headerlink" href="#test_node_1" title="Permanent link">&para;</a></h2>
+<p>wait_for_service: 지정한 서비스가 사용 가능할 때까지 대기하는 함수</p>
+<p><img alt="Image 135" src="../../../assets/images/ros/intro/lesson-06/img_073_135.webp" /></p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 서비스 클라이언트 다루기
+서비스 클라이언트 생성</p>
+<h2 id="_6">노드종료시키기<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 액션 서버 다루기</p>
+<h2 id="vscode_3">vscode 실행<a class="headerlink" href="#vscode_3" title="Permanent link">&para;</a></h2>
+<p>준비</p>
+<h2 id="ros2-run-turtlesim-turtlesim_node_3">‘ros2 run’ 명령으로turtlesim 패키지의turtlesim_node를실행<a class="headerlink" href="#ros2-run-turtlesim-turtlesim_node_3" title="Permanent link">&para;</a></h2>
+<p><img alt="Image 139" src="../../../assets/images/ros/intro/lesson-06/img_075_139.webp" /></p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 액션 서버 다루기</p>
+<h2 id="action_serveripynb">action_server.ipynb파일생성<a class="headerlink" href="#action_serveripynb" title="Permanent link">&para;</a></h2>
+<p>액션 서버 생성
+action_server를 구현하기 위한 모듈import
+- TurtleRotateServer 클래스 정의 /turtle1/rotate_absolute에 대해 회전 명령을 처리하는 액션 서버 goal_callback, cancel_callback 메서드로 goal과cancel 상태 반환f정</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 액션 서버 다루기</p>
+<h2 id="execute_callback">execute_callback() 메서드정의<a class="headerlink" href="#execute_callback" title="Permanent link">&para;</a></h2>
+<p>액션 서버 생성
+명령을 실행하고, 10초 동안 남은 진행 상태를 피드백으로 클라이언트에 전달
+실행 도중 취소 요청이 들어오면 작업을 취소하고, 성공적으로 완료되면 결과를 반환</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 액션 서버 다루기</p>
+<h2 id="_7">액션서버초기화및인스턴스생성<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>액션 서버 생성
+로그 메시지: 액션 서버가 성공적으로 시작되었음</p>
+<h2 id="_8">액션서버실행<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>독립된 스레드에서 클라이언트의 요청 대기
+로그 메시지: 클라이언트에서 요청을 수신했으며, 작업이 성공적으로 완료되었음</p>
+<h2 id="_9">액션서버종료<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>터미널에서ctrl+c를 누르는 것과 같음</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 액션 클라이언트 다루기</p>
+<h2 id="import-ros2">필요한모듈import (Ros2와액션메시지)<a class="headerlink" href="#import-ros2" title="Permanent link">&para;</a></h2>
+<p>액션 클라이언트 생성</p>
+<h2 id="turtlerotateclient">TurtleRotateClient 클래스정의<a class="headerlink" href="#turtlerotateclient" title="Permanent link">&para;</a></h2>
+<p>액션 클라이언트를 초기화
+/turtle1/rotate_absolute 액션 서버와 통신 설정
+send_goal : 목표 각도를 설정하고 서버로 전송</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 액션 클라이언트 다루기</p>
+<h2 id="turtlerotateclient_1">TurtleRotateClient 클래스의주요메서드들<a class="headerlink" href="#turtlerotateclient_1" title="Permanent link">&para;</a></h2>
+<p>액션 클라이언트 생성
+goal_response_callback : 서버에서 각 도 정보를 수신했는지 확인
+feedback_callback : 액션 실행 중 발생하는 피드백 로그를 기록
+result_callback : 액션 완료 후 결과를 처리하고ROS 노드를 종료</p>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 액션 클라이언트 다루기</p>
+<h2 id="_10">액션클라이언트초기화및인스턴스생성<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>액션 클라이언트 생성
+로그 메시지: 액션 클라이언트가 성공적으로 시작되었음</p>
+<h2 id="_11">액션클라이언트실행후종료<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>Jupyter를 이용한 프로그래밍
+Python으로 액션 클라이언트 다루기</p>
+<h2 id="_12">액션클라이언트실행<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>액션 클라이언트 생성
+액션 서버 피드백
+회전하는 도중에 지속적으로 중간 실행 결과를
+피드백 받을 수 있음
+(실행전)
+(실행후)</p>
+<p><img alt="Image 151" src="../../../assets/images/ros/intro/lesson-06/img_082_151.webp" /></p>
+<p><img alt="Image 152" src="../../../assets/images/ros/intro/lesson-06/img_082_152.webp" /></p>
+<hr />
+<h2 id="code-examples">Code Examples<a class="headerlink" href="#code-examples" title="Permanent link">&para;</a></h2>
+<h3 id="ros2env"><code>ros2env/</code><a class="headerlink" href="#ros2env" title="Permanent link">&para;</a></h3>
+<p><a class="md-button" href="https://github.com/OWNER/study-site/tree/main/source/ros2env/">View full source on GitHub</a></p>
+<h4 id="ros2envros2env__init__py"><code>ros2env/ros2env/__init__.py</code><a class="headerlink" href="#ros2envros2env__init__py" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>
+</code></pre></div>
+<h4 id="ros2envros2envverb__init__py"><code>ros2env/ros2env/verb/__init__.py</code><a class="headerlink" href="#ros2envros2envverb__init__py" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ros2cli.plugin_system</span><span class="w"> </span><span class="kn">import</span> <span class="n">PLUGIN_SYSTEM_VERSION</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ros2cli.plugin_system</span><span class="w"> </span><span class="kn">import</span> <span class="n">satisfies_version</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">VerbExtension</span><span class="p">:</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="sd">    The extension point for &#39;env&#39; verb extensions.</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="sd">    The following properties must be defined:</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="sd">    * `NAME` (will be set to the entry point name)</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="sd">    The following methods must be defined:</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="sd">    * `main`</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="sd">    The following methods can be defined:</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="sd">    * `add_arguments`</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="sd">    &quot;&quot;&quot;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    <span class="n">NAME</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    <span class="n">EXTENSION_POINT_VERSION</span> <span class="o">=</span> <span class="s2">&quot;0.1&quot;</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>        <span class="nb">super</span><span class="p">(</span><span class="n">VerbExtension</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>        <span class="n">satisfies_version</span><span class="p">(</span><span class="n">PLUGIN_SYSTEM_VERSION</span><span class="p">,</span> <span class="s2">&quot;^0.1&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">add_arguments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parser</span><span class="p">,</span> <span class="n">cli_name</span><span class="p">):</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>        <span class="k">pass</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span>
+</code></pre></div>
+<h4 id="ros2envros2envcommand__init__py"><code>ros2env/ros2env/command/__init__.py</code><a class="headerlink" href="#ros2envros2envcommand__init__py" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.path", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

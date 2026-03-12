@@ -1,0 +1,3640 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ROS2 & AI Study Materials">
+      
+      
+      
+        <link rel="canonical" href="https://weedmo.github.io/ros/basics/lesson-05/">
+      
+      
+        <link rel="prev" href="../lesson-04/">
+      
+      
+        <link rel="next" href="../../practice/practice-01-04/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>05. Topic/Service/Action - weedmo notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ros2-5-topic-service-action" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../.." title="weedmo notes" class="md-header__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            weedmo notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              05. Topic/Service/Action
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="다크 모드"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="라이트 모드"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ROS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ai/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="weedmo notes" class="md-nav__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    weedmo notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    입문 (Introduction)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    입문 (Introduction)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. ROS2 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 개발환경
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 노드와 토픽
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 서비스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 액션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. 런치파일
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. Pub/Sub & Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08. 로봇시스템
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09. 카메라 & API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 로봇과 리눅스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 네트워크와 통신
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 센서와 로봇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. ROS2 실습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Topic/Service/Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 (Practice)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    실습 (Practice)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-01-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 01-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-04-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 04-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-05-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 05-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 (Projects)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    프로젝트 (Projects)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/rviz2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RVIZ2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/gazebo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gazebo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시뮬레이션 협업
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/aruco-conveyor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ArUco 마커 & 컨베이어벨트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/autonomous-driving/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    자율주행 디지털트윈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/thread-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쓰레드와 데이터베이스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    코드 참고 (Code Reference)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    코드 참고 (Code Reference)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/turtlesim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turtlesim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/pubsub-qos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pub/Sub & QoS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/srvcli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service/Client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/robot-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera Pub/Sub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/hangman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hangman Game
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/urdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URDF & Xacro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/opencv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenCV (Hough)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/point-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Point Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/lane-detect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lane Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/qt-plugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qt Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/rqt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RQT Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/ros2env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 환경설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/python-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/pytorch-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch 입문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/neural-network-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    신경망 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    딥러닝 (분류/회귀)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/cnn-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CNN 아키텍처
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/object-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    객체 탐지
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/sequence-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시퀀스 모델 (RNN/LSTM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/vision-transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    응용 (Applied)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    응용 (Applied)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/computer-vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컴퓨터비전 (OpenCV)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/advanced-cv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    고급 CV (Tracking/Detection)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/generative-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    생성 모델 (GAN/NeRF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/explainable-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explainable AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/medical-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    의료 AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/reinforcement-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    강화학습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="네비게이션" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    ROS
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../lesson-01/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    기초 (Fundamentals)
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="ros2-5-topic-service-action">ROS2 기초 5차시 - Topic, Service, Action<a class="headerlink" href="#ros2-5-topic-service-action" title="Permanent link">&para;</a></h1>
+<p>ROS2 패키지 설명</p>
+<p>ROS2 패키지 설명</p>
+<p><img alt="Image 7" src="../../../assets/images/ros/basics/lesson-05/img_004_007.webp" /></p>
+<p>ROS2 패키지 설명</p>
+<p>ROS2 패키지 설명</p>
+<p>ROS2 실습
+Terminal
+Turtlesim
+1단계
+1개
+(Default Namespace)
+1개
+(Default Namespace)
+2단계
+1개
+(Namespace 지정)
+1개
+(Namespace 지정)
+3단계
+1개
+2개
+4단계
+2개
+1개씩
+5단계
+2개
+2개씩</p>
+<p>ROS2 실습- turtlesim 1단계
+Turtlesim 실행후node 확인</p>
+<p>ROS2 실습
+ROKEY
+GO!</p>
+<p>ROS2 실습- turtlesim
+Turtlesim 실행후node 확인</p>
+<p><img alt="Image 22" src="../../../assets/images/ros/basics/lesson-05/img_010_022.webp" /></p>
+<p>ROS2 실습
+Turtlesim 실행후node 확인
+Namespace 설정</p>
+<p><img alt="Image 28" src="../../../assets/images/ros/basics/lesson-05/img_011_028.webp" /></p>
+<p><img alt="Image 29" src="../../../assets/images/ros/basics/lesson-05/img_011_029.webp" /></p>
+<p>ROS2 실습
+Turtlesim 실행후node 확인
+Namespace + Node 이름 설정</p>
+<p><img alt="Image 36" src="../../../assets/images/ros/basics/lesson-05/img_012_036.webp" /></p>
+<p>ROS2 실습
+Turtlesim 실행후node 확인
+Namespace + Node 이름 설정</p>
+<p><img alt="Image 42" src="../../../assets/images/ros/basics/lesson-05/img_013_042.webp" /></p>
+<p><img alt="Image 43" src="../../../assets/images/ros/basics/lesson-05/img_013_043.webp" /></p>
+<p>ROS2 실습</p>
+<p><img alt="Image 47" src="../../../assets/images/ros/basics/lesson-05/img_014_047.webp" /></p>
+<p><img alt="Image 51" src="../../../assets/images/ros/basics/lesson-05/img_014_051.webp" /></p>
+<p><img alt="Image 52" src="../../../assets/images/ros/basics/lesson-05/img_014_052.webp" /></p>
+<p>ROS2 실습</p>
+<p><img alt="Image 55" src="../../../assets/images/ros/basics/lesson-05/img_015_055.webp" /></p>
+<p><img alt="Image 57" src="../../../assets/images/ros/basics/lesson-05/img_015_057.webp" /></p>
+<p>ROS2 실습
+Namespace와Name 설정</p>
+<p><img alt="Image 61" src="../../../assets/images/ros/basics/lesson-05/img_016_061.webp" /></p>
+<p><img alt="Image 64" src="../../../assets/images/ros/basics/lesson-05/img_016_064.webp" /></p>
+<p><img alt="Image 65" src="../../../assets/images/ros/basics/lesson-05/img_016_065.webp" /></p>
+<p><img alt="Image 66" src="../../../assets/images/ros/basics/lesson-05/img_016_066.webp" /></p>
+<p>ROS2 실습</p>
+<p><img alt="Image 69" src="../../../assets/images/ros/basics/lesson-05/img_017_069.webp" /></p>
+<p>ROS2 실습</p>
+<p><img alt="Image 75" src="../../../assets/images/ros/basics/lesson-05/img_018_075.webp" /></p>
+<p><img alt="Image 76" src="../../../assets/images/ros/basics/lesson-05/img_018_076.webp" /></p>
+<p><img alt="Image 77" src="../../../assets/images/ros/basics/lesson-05/img_018_077.webp" /></p>
+<p>ROS2 실습
+1st Namespace와Name각각 설정</p>
+<p><img alt="Image 86" src="../../../assets/images/ros/basics/lesson-05/img_019_086.webp" /></p>
+<p><img alt="Image 87" src="../../../assets/images/ros/basics/lesson-05/img_019_087.webp" /></p>
+<p>ROS2 실습
+2nd Namespace와Name 각각 설정</p>
+<p><img alt="Image 93" src="../../../assets/images/ros/basics/lesson-05/img_020_093.webp" /></p>
+<p><img alt="Image 94" src="../../../assets/images/ros/basics/lesson-05/img_020_094.webp" /></p>
+<p><img alt="Image 95" src="../../../assets/images/ros/basics/lesson-05/img_020_095.webp" /></p>
+<p><img alt="Image 96" src="../../../assets/images/ros/basics/lesson-05/img_020_096.webp" /></p>
+<p>ROS2 실습</p>
+<p><img alt="Image 99" src="../../../assets/images/ros/basics/lesson-05/img_021_099.webp" /></p>
+<p>ROS2 실습– 노드와 메시지 통신(10장)
+노드(node)</p>
+<ul>
+<li>아래 그림처럼Node A, Node B, Node C 각각의 노드들은 서로 유기적으로Message로연결</li>
+<li>수행하고자하는 태스크가 많아질수록 메시지로 연결되는 노드가 늘어나며 시스템이 확장</li>
+</ul>
+<p><img alt="Image 104" src="../../../assets/images/ros/basics/lesson-05/img_022_104.webp" /></p>
+<p>ROS2 실습– 노드와 메시지 통신(10장)
+토픽(topic)</p>
+<ul>
+<li>아래 그림의<code>Node A – Node B</code>, <code>Node A – Node C</code>처럼 비동기식 단방향 메시지 송수신 방식</li>
+<li>msg 메시지 형태의 메시지를 발간하는Publisher</li>
+<li>메시지를 구독하는Subscriber 간의 통신</li>
+<li>이는1:N, N:1, N:N 통신도 가능</li>
+<li>ROS 메시지 통신에서 가장 널리 사용되는 통신 방법이다.</li>
+</ul>
+<p><img alt="Image 105" src="../../../assets/images/ros/basics/lesson-05/img_023_105.webp" /></p>
+<p>ROS2 실습– 노드와 메시지 통신(10장)
+서비스(Service)</p>
+<ul>
+<li>아래 그림의<code>Node B - Node C</code>처럼 동기식 양방향 메시지 송수신 방식</li>
+<li>서비스의 요청(Request)을 하는 쪽은Service client</li>
+<li>서비스의 응답(Response)을 하는 쪽을Service server</li>
+<li>특정 요청을 하는 클라이언트 단과 요청받은 일 수행 후 결과 값을 전달하는 서버 단과의 통신</li>
+<li>서비스 요청 및 응답(Request/Response) 또한 위에서 언급한msg 메시지의 변형으로srv 메시지라고 함.</li>
+</ul>
+<p>ROS2 실습– 노드와 메시지 통신(10장)
+액션(Action)</p>
+<ul>
+<li>토픽(topic)과 서비스(service)의혼합</li>
+<li>액션 목표 및 액션 결과를 전달하는 방식은 서비스와 같고,</li>
+<li>액션 피드백은 토픽과 같은 메시지 전송 방식</li>
+<li>액션 목표/피드백/결과(Goal/Feedback/Result) 메시지 또한 위에서 언급한msg 메시지의 변형으로action 메시지라고 함.</li>
+</ul>
+<p><img alt="Image 107" src="../../../assets/images/ros/basics/lesson-05/img_025_107.webp" /></p>
+<p>ROS2 실습– 노드와 메시지 통신(10장)
+파라미터(Parameter)</p>
+<ul>
+<li>각 노드에 파라미터 관련Parameter server를 실행시켜 외부의Parameter client 간의 통신으로 파라미터를 변경하는 것으로 서비스와 동일</li>
+<li>노드 내 매개 변수 또는 글로벌 매개변수를 서비스 메시지 통신 방법을 사용하여 노드 내부 또는 외부에서 쉽게 지정(Set) 하거나 변경할 수 있고, 쉽게 가져(Get)와서 사용할 수 있게하는 점에서 목적이 다름</li>
+</ul>
+<p><img alt="Image 108" src="../../../assets/images/ros/basics/lesson-05/img_026_108.webp" /></p>
+<p>ROS2 실습– 노드와 메시지 통신(10장)
+$ ros2 node list
+/turtlesim
+/teleop_turtle
+$ ros2 topic list
+/parameter_events
+/rosout
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose
+$ ros2 action list
+/turtle1/rotate_absolute
+$ ros2 node info /turtlesim
+/turtlesim
+   Subscribers:
+……
+$ ros2 node info /teleop_turtle
+/turtlesim
+Subscribers:
+…
+$ ros2 service list
+/clear
+/kill
+/reset
+/spawn
+/teleop_turtle/describe_parameters
+/teleop_turtle/get_parameter_types
+/teleop_turtle/get_parameters
+/teleop_turtle/list_parameters
+/teleop_turtle/set_parameters
+/teleop_turtle/set_parameters_atomically
+/turtle1/set_pen
+/turtle1/teleport_absolute
+/turtle1/teleport_relative
+/turtlesim/describe_parameters
+/turtlesim/get_parameter_types
+/turtlesim/get_parameters
+/turtlesim/list_parameters
+/turtlesim/set_parameters
+/turtlesim/set_parameters_atomically</p>
+<p>ROS2 실습- ROS2 Topic(11장)</p>
+<ul>
+<li><code>Node A</code>처럼 하나의 이상의 토픽을 발행</li>
+<li><code>Publisher</code> 기능과 동시에 토픽(예: Topic D)을 구독하는<code>Subscriber</code> 역할도 동시에 수행</li>
+<li>자신이 발행한 토픽을 셀프 구독할 수 있게 구성할 수도 있음</li>
+<li>토픽 기능은 목적에 따라 다양한 방법으로 사용할 수 있으며 이런 유연성으로 다양한 곳에 사용 중</li>
+<li>ROS 프로그래밍 시에70% 이상이 토픽으로 사용됨</li>
+<li>통신 방식 중에 가장 기본이 되며 가장 널리 쓰이는 방법</li>
+<li>비동기성과 연속성을 가지기에 센서값 전송 및 항시 정보를 주고받아야하는 부분에 주로 사용</li>
+</ul>
+<p><img alt="Image 109" src="../../../assets/images/ros/basics/lesson-05/img_028_109.webp" /></p>
+<p><img alt="Image 110" src="../../../assets/images/ros/basics/lesson-05/img_028_110.webp" /></p>
+<p>ROS2 실습- Topic
+$ ros2 topic list -t
+/parameter_events [rcl_interfaces/msg/ParameterEvent]
+/rosout [rcl_interfaces/msg/Log]
+/turtle1/cmd_vel [geometry_msgs/msg/Twist]
+/turtle1/color_sensor [turtlesim/msg/Color]
+/turtle1/pose [turtlesim/msg/Pose]</p>
+<p>ROS2 실습- Topic
+$ ros2 topic info /turtle1/cmd_vel
+Type: geometry_msgs/msg/Twist
+Publisher count: 1
+Subscriber count: 1
+$ ros2 topic echo /turtle1/cmd_vel
+linear:
+x: 1.0
+y: 0.0
+z: 0.0
+angular:
+x: 0.0
+y: 0.0
+z: 0.0</p>
+<p>ROS2 실습– Topic
+$ ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"</p>
+<p><img alt="Image 111" src="../../../assets/images/ros/basics/lesson-05/img_031_111.webp" /></p>
+<p>ROS2 실습- Topic
+$ ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 2.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 1.8}}"</p>
+<p><img alt="Image 112" src="../../../assets/images/ros/basics/lesson-05/img_032_112.webp" /></p>
+<p><img alt="Image 113" src="../../../assets/images/ros/basics/lesson-05/img_032_113.webp" /></p>
+<p>ROS2 실습- Topic
+Turtlesim 실행후topic 발행해 보기</p>
+<p><img alt="Image 115" src="../../../assets/images/ros/basics/lesson-05/img_033_115.webp" /></p>
+<p>ROS2 실습– Topic with RQT
+Plugins → Visualization → Plot
+RQT 실행후pose/x, pose/y 확인</p>
+<p><img alt="Image 116" src="../../../assets/images/ros/basics/lesson-05/img_034_116.webp" /></p>
+<p>ROS2 실습– Topic Message with RQT
+Plugins → Topics → Message Publisher</p>
+<p><img alt="Image 117" src="../../../assets/images/ros/basics/lesson-05/img_035_117.webp" /></p>
+<p><img alt="Image 118" src="../../../assets/images/ros/basics/lesson-05/img_035_118.webp" /></p>
+<p>ROS2 실습– ros bag</p>
+<p><img alt="Image 119" src="../../../assets/images/ros/basics/lesson-05/img_036_119.webp" /></p>
+<p><img alt="Image 120" src="../../../assets/images/ros/basics/lesson-05/img_036_120.webp" /></p>
+<p><img alt="Image 121" src="../../../assets/images/ros/basics/lesson-05/img_036_121.webp" /></p>
+<p>ROS2 실습– ros2 bag and ros2 play</p>
+<p>ROS2 실습– ros2 bag and ros2 play</p>
+<p><img alt="Image 125" src="../../../assets/images/ros/basics/lesson-05/img_038_125.webp" /></p>
+<p>ROS2 실습- Service</p>
+<ul>
+<li>서비스는 다음 그림과 같이 동일 서비스에 대해 복수의 클라이언트를 가질 수 있도록 설계되었다.</li>
+<li>단, 서비스 응답은 서비스 요청이 있었던 서비스 클라이언트에 대해서만 응답을 하는 형태</li>
+<li>Node C의Service Client가Node B의Service Server에게 서비스 요청을 하였다면Node B의 Service Server는 요청 받은 서비스를 수행한 후Node C의Service Client에게만 서비스 응답</li>
+</ul>
+<p><img alt="Image 126" src="../../../assets/images/ros/basics/lesson-05/img_039_126.webp" /></p>
+<p><img alt="Image 127" src="../../../assets/images/ros/basics/lesson-05/img_039_127.webp" /></p>
+<p>ROS2 실습- Service
+$ ros2 service list
+/clear
+/kill
+/reset
+/spawn
+/turtle1/set_pen
+/turtle1/teleport_absolute
+/turtle1/teleport_relative
+/turtlesim/describe_parameters
+/turtlesim/get_parameter_types
+/turtlesim/get_parameters
+/turtlesim/list_parameters
+/turtlesim/set_parameters
+/turtlesim/set_parameters_atomically
+$ ros2 run turtlesim turtlesim_node</p>
+<p>ROS2 실습- Service
+$ ros2 service list -t
+/clear [std_srvs/srv/Empty]
+/kill [turtlesim/srv/Kill]
+/reset [std_srvs/srv/Empty]
+/spawn [turtlesim/srv/Spawn]
+/turtle1/set_pen [turtlesim/srv/SetPen]
+/turtle1/teleport_absolute [turtlesim/srv/TeleportAbsolute]
+/turtle1/teleport_relative [turtlesim/srv/TeleportRelative]
+(생략)
+$ ros2 service type /clear
+std_srvs/srv/Empty
+$ ros2 service type /kill
+turtlesim/srv/Kill
+$ ros2 service type /spawn
+turtlesim/srv/Spawn
+$ ros2 service find std_srvs/srv/Empty
+/clear
+/reset
+$ ros2 service find turtlesim/srv/Kill
+/kill</p>
+<p>ROS2 실습- Service
+$ ros2 service call /clear std_srvs/srv/Empty
+requester: making request: std_srvs.srv.Empty_Request()
+response:
+std_srvs.srv.Empty_Response()
+$ ros2 run turtlesim turtle_teleop_key</p>
+<p><img alt="Image 128" src="../../../assets/images/ros/basics/lesson-05/img_042_128.webp" /></p>
+<p>ROS2 실습- Service
+$ ros2 service call /reset std_srvs/srv/Empty
+requester: making request: std_srvs.srv.Empty_Request()
+response:
+std_srvs.srv.Empty_Response()
+$ ros2 service call /kill turtlesim/srv/Kill "name: 'turtle1'"
+requester: making request:
+turtlesim.srv.Kill_Request(name='turtle1')
+response:
+turtlesim.srv.Kill_Response()</p>
+<p><img alt="Image 130" src="../../../assets/images/ros/basics/lesson-05/img_043_130.webp" /></p>
+<p><img alt="Image 131" src="../../../assets/images/ros/basics/lesson-05/img_043_131.webp" /></p>
+<p>ROS2 실습- Service
+$ ros2 service call /turtle1/set_pen turtlesim/srv/SetPen "{r: 255, g: 255, b: 255, width: 10}"
+requester: making request: turtlesim.srv.SetPen_Request(r=255, g=255, b=255, width=10, off=0)
+response:
+turtlesim.srv.SetPen_Response()</p>
+<p><img alt="Image 132" src="../../../assets/images/ros/basics/lesson-05/img_044_132.webp" /></p>
+<p>ROS2 실습- Service
+Turtle 친구4명 생성해 보기
+교재 : p148</p>
+<p>ROS2 실습– Service with RQT</p>
+<p><img alt="Image 135" src="../../../assets/images/ros/basics/lesson-05/img_046_135.webp" /></p>
+<p>ROS2 실습- Action
+액션(Action)</p>
+<ul>
+<li>토픽(topic)과 서비스(service)의혼합</li>
+<li>액션 목표 및 액션 결과를 전달하는 방식은 서비스와 같고,</li>
+<li>액션 피드백은 토픽과 같은 메시지 전송 방식</li>
+<li>액션 목표/피드백/결과(Goal/Feedback/Result) 메시지 또한 위에서 언급한msg 메시지의 변형으로action 메시지라고 함.</li>
+</ul>
+<p><img alt="Image 137" src="../../../assets/images/ros/basics/lesson-05/img_047_137.webp" /></p>
+<p>ROS2 실습- Action
+액션의 구현 방식을 더 자세히 살펴보면 다음 그림과 같이 토픽과 서비스의 혼합이라고 볼 수 있는데ROS 1이 토픽만을
+사용하였다면ROS 2에서는 액션 목표, 액션 결과, 액션 피드백은 토픽과 서비스가 혼합되어 있다.
+즉, 다음 그림과 같이Action Client는Service Client 3개와Topic Subscriber 2개로 구성되어 있으며, Action Server는
+Service Server 3개와Topic Publisher 2개로 구성된다. 액션 목표/피드백/결과(goal/feedback/result) 데이터는msg 및
+srv 인터페이스의 변형으로action 인터페이스라고 한다.</p>
+<p><img alt="Image 138" src="../../../assets/images/ros/basics/lesson-05/img_048_138.webp" /></p>
+<p>ROS2 실습- Action
+ROS 1에서의 액션은 목표, 피드백, 결과 값을 토픽으로만 주고받았는데ROS 2에서는 토픽과 서비스 방식을 혼합하여 사용하였다.
+그 이유로 토픽으로만 액션을 구성하였을 때 토픽의 특징인 비동기식 방식을 사용하게 되어ROS 2 액션에서 새롭게 선보이는 목표
+전달(send_goal), 목표 취소(cancel_goal), 결과 받기(get_result)를 동기식 인 서비스를 사용하기 위해서이다. 이런 비동기 방식을
+이용하다 보면 원하는 타이밍에 적절한 액션을 수행하기 어려운데 이를 원활히 구현하기 위하여 목표 상태(goal_state)라 는 것이
+ROS 2에서 새롭게 선보였다. 목표 상태는 목표 값을 전달한 후의 상태 머신을 구동하여 액션의 프 로스 세를 쫒는 것이다. 여기서
+말하는 상태 머신은Goal State Machine으로 다음 그림과 같이 액션 목표 전달 이후의 액션의 상태 값을 액션 클라이언트에게
+전달할 수 있어서 비동기, 동기 방식이 혼재된 액션의 처리를 원활하게할 수 있게 되어 있다.</p>
+<p><img alt="Image 139" src="../../../assets/images/ros/basics/lesson-05/img_049_139.webp" /></p>
+<p>ROS2 실습- Action
+교재p153</p>
+<p><img alt="Image 140" src="../../../assets/images/ros/basics/lesson-05/img_050_140.webp" /></p>
+<p>ROS2 실습- Action
+60◦
+r
+Degree vs Radian
+57◦
+r &lt;
+r =
+180◦ =     = 3.14
+360◦ = 2   = 6.28
+1 rad ≒ 180◦/ 3.14 ≒ 57◦
+Ros2에서 사용하는 단위</p>
+<ul>
+<li>Kg</li>
+<li>Sec</li>
+<li>Meter</li>
+<li>Radian r ROS2 실습- Action</li>
+</ul>
+<p>ROS2 실습- Action</p>
+<p><img alt="Image 154" src="../../../assets/images/ros/basics/lesson-05/img_053_154.webp" /></p>
+<p><img alt="Image 155" src="../../../assets/images/ros/basics/lesson-05/img_053_155.webp" /></p>
+<p>ROS2 실습- Action</p>
+<p><img alt="Image 158" src="../../../assets/images/ros/basics/lesson-05/img_054_158.webp" /></p>
+<p>ROS2 실습- Interface
+ROS의노드 간에 데이터를 주고받을 때에는 토픽, 서비스, 액션이 사용되는데 이 때 사용되는 데이터의 형태를ROS 인터페이스(interface)
+이라고 한다. ROS 인터페이스에는ROS 2에 새롭게 추가된IDL(interface definition language)과ROS 1부터ROS 2까지 널리 사용 중인msg,
+srv, action 이 있다. 토픽, 서비스, 액션은 각각msg, srv, action interface를 사용하고 있으며 정수, 부동소수점, 불리 언과 같은 단순 자료형을
+기본으로 하여 메시지 안에 메시지를 품고 있는 간단한 데이터 구조 및 메시지들이 나열된 배열과 같은 구조도 사용할 수 있다.
+[단순 자료형]</p>
+<ul>
+<li>예) 정수(integer), 부동소수점(floating point), 불(boolean)</li>
+<li>
+<p>https://github.com/ros2/common_interfaces/tree/humble/std_msgs [메시지 안에 메시지를 품고 있는 간단한 데이터 구조]</p>
+</li>
+<li>
+<p>예) geometry_msgs/msgs/Twist의<code>Vector3 linear</code></p>
+</li>
+<li>
+<p>https://github.com/ros2/common_interfaces/blob/humble/geometry_msgs/msg/Twist.msg [메시지들이 나열된 배열과 같은 구조]</p>
+</li>
+<li>
+<p>예) sensor_msgs/msgs/LaserScan 의<code>float32[] ranges</code></p>
+</li>
+<li>https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/LaserScan.msg</li>
+</ul>
+<p><img alt="Image 159" src="../../../assets/images/ros/basics/lesson-05/img_055_159.webp" /></p>
+<p>ROS2 실습- Interface
+토픽은 고유의 인터페이스를 가지고 있는데 이를 메시지 인터페이스라 부르며, 파일로는msg 파일을 가르킨다.
+예를 들어, 위 예제에서/turtle1/cmd_vel 토픽은geometry_msgs/msgs/Twist 형태이다. 이름이 좀 긴 데 풀어서 설명하면 기하학 관련 메시지를 모아 둔
+geometry_msgs 패키지의msgs 분류의Twist 데이터 형태라는 것이다.
+토픽은 고유의 인터페이스를 가지고 있는데 이를 메시지 인터페이스라 부르며,
+파일로는msg 파일을 가르킨다.
+예를 들어, 위 예제에서/turtle1/cmd_vel 토픽은geometry_msgs/msgs/Twist
+형태이다. 이름이 좀 긴 데 풀어서 설명하면 기하학 관련 메시지를 모아 둔
+geometry_msgs 패키지의msgs 분류의Twist 데이터 형태라는 것이다.
+Twist 데이터 형태를 자세히 보면Vector3 linear과Vector3 angular 이라고 되어
+있다. 이는 메시지 안에 메시지를 품고 있는 것으로Vector3 형태에linear
+이라는 이름의 메시지와Vector3 형태에angular 이라는 이름의 메시지, 즉
+2개의 메시지가 있다는 것이며Vector3는다시float64 형태에x, y, z 값이
+존재한다.
+다시 말해geometry_msgs/msgs/Twist 메시지 형태는float64 자료형의
+linear.x, linear.y, linear.z, angular.x, angular.y, angular.z 라는 이름의 메시지인
+것이다. 이를 통해 병진 속도3개, 회전 속도3개를 표현할 수 있게 된다.</p>
+<p>ROS2 실습- Interface
+직접 코드로 보는 방법과$ros2 interface show 명령으로 보는 방법
+교재p161</p>
+<p>ROS2 실습- Interface
+교재p161
+Message interface, msg</p>
+<p><img alt="Image 168" src="../../../assets/images/ros/basics/lesson-05/img_058_168.webp" /></p>
+<p>ROS2 실습- Interface
+Interface</p>
+<ul>
+<li>list → 현재 개발 환경의 모든msg, srv, action 메시지 보여 줌</li>
+<li>package → msg, srv, action 인터페이스를 담고 있는 패키지 목록</li>
+<li>package → 옵션에package명을 입력하면 지정한 패키지에 포함된interface보여줌</li>
+<li>proto → 특정 인터페이스 형태를 입력하면 그 인터페이스의 기본 형태를 보여 줌 Message interface, msg</li>
+</ul>
+<p><img alt="Image 171" src="../../../assets/images/ros/basics/lesson-05/img_059_171.webp" /></p>
+<p>ROS2 실습- Interface
+ 요청(Request)
+ 응답(Response)
+ 구분
+Service interface, srv</p>
+<p><img alt="Image 176" src="../../../assets/images/ros/basics/lesson-05/img_060_176.webp" /></p>
+<p>ROS2 실습- Interface
+Action interface, action
+ Action 목표
+ Action 결과
+ Action 피드백
+ 구분
+ 구분</p>
+<p>ROS2 실습- Interface
+Node 정보 확인
+Action list</p>
+<p>ROS2 실습- Parameter
+파라미터 관련 기능은RCL(ROS Client Libraries)의 기본 기능으로 다음 그림과 같이 모든 노드가 자신만의Parameter server를
+가지고 있고, 그림과 같이 각 노드는Parameter client도 포함시킬 수 있어서 자기 자신의 파라미터 및 다른 노드의 파라미터를
+읽고 쓸 수 있게 된다. 이를 활용하면 각 노드의 다양한 매개 변수를 글로벌 매개 변수처럼 사용할 수 있게 되어 추가 프로그래밍이나
+컴파일 없이 능동적으로 변화 가능한 프로세스를 만들 수 있게 된다. 그리고 각 파라미터는yaml 파일 형태의 파라미터 설정
+파일을 만들어 초기 파라미터 값 설정 및 노드 실행 시에 파라미터 설정 파일을 불러와서 사용할 수 있기에ROS 2 프로그래밍에
+매우 유용하게 사용할 수 있다.`
+YAML(YAML Ain't Markup Language 또는Yet Another Markup
+Language)은 사람이 읽기 쉬운 데이터 직렬화 형식입니다. 주로 구성 파일,
+데이터 전송, 설정 파일 등을 저장하는 데 사용됩니다. YAML은JSON과
+유사하지만, 더 간결하고 가독성이 뛰어난 문법을 제공합니다</p>
+<p><img alt="Image 181" src="../../../assets/images/ros/basics/lesson-05/img_063_181.webp" /></p>
+<p><img alt="Image 182" src="../../../assets/images/ros/basics/lesson-05/img_063_182.webp" /></p>
+<p>ROS2 실습– Parameter get &amp; set</p>
+<p>ROS2 실습– Parameter get &amp; set</p>
+<p>ROS2 실습– Parameter get &amp; set</p>
+<p>ROS2 실습– Parameter get &amp; set
+Turtlesim parameter 변경후yaml 로딩해 보기</p>
+<p>ROS2 실습– Parameter get &amp; set
+Turtlesim parameter 변경후yaml 로딩해 보기</p>
+<p>ROS2 실습– RQt(Node Graph)</p>
+<p>ROS2 실습– RQt(Topic Monitor)
+turtlesim_node 실행
+teleop_key 실행
+rqt 실행
+/turtle1/pose와/turtle1/cmd_vel 체크
+키보드로 움직이면서value 바뀌는 지 확인</p>
+<p><img alt="Image 195" src="../../../assets/images/ros/basics/lesson-05/img_070_195.webp" /></p>
+<p>ROS2 실습– RQt(Message Publisher)</p>
+<p><img alt="Image 196" src="../../../assets/images/ros/basics/lesson-05/img_071_196.webp" /></p>
+<p>ROS2 실습– RQt(Service Caller)</p>
+<p>ROS2 실습– RQt(Parameter Reconfigure)</p>
+<p><img alt="Image 207" src="../../../assets/images/ros/basics/lesson-05/img_073_207.webp" /></p>
+<p>ROS2 실습– RQt(Plot)</p>
+<p><img alt="Image 209" src="../../../assets/images/ros/basics/lesson-05/img_074_209.webp" /></p>
+<p>ROS2 실습– RQt(image &amp; console)</p>
+<p><img alt="Image 212" src="../../../assets/images/ros/basics/lesson-05/img_075_212.webp" /></p>
+<p>ROS2 실습– RQt(Image)
+영상: cam2image.webm</p>
+<p><img alt="Image 213" src="../../../assets/images/ros/basics/lesson-05/img_076_213.webp" /></p>
+<p>ROS2 실습– RQt(Console)
+Turtlesim과teleop_key 실행
+cam2image 실행
+rqt →Logging →Console에서 확인</p>
+<p><img alt="Image 217" src="../../../assets/images/ros/basics/lesson-05/img_077_217.webp" /></p>
+<p>ROS2 실습</p>
+<p><img alt="Image 219" src="../../../assets/images/ros/basics/lesson-05/img_078_219.webp" /></p>
+<p>ROS2 실습- Build
+:~$ mkdir –p ~/ros2_ws/src</p>
+<p>ROS2 실습
+:~$ git clone https://github.com/ros/ros_tutorials-git -b humble</p>
+<p>ROS2 실습
+$colcon build를 하고 나면build install log 등3개의 디렉토리가 생긴다
+colcon : Concept of Libraries for Compilers Installation</p>
+<p>ROS2 실습</p>
+<p>ROS2 실습
+import rclpy
+from rclpy.node import Node
+from geometry_msgs.msg import Twist
+import sys
+import termios
+import tty</p>
+<h1 id="_1">키보드입력을처리하는클래스<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>class TurtleTeleopKey(Node):
+def <strong>init</strong>(self):
+super().<strong>init</strong>('turtle_teleop_key')
+self.publisher = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
+self.msg = Twist()
+self.print_instructions()
+def print_instructions(self):
+print("Control Your Turtle!")
+print("Use arrow keys to move: ")
+print("↑: Forward, ↓: Backward, →: Turn Right, ←: Turn Left")
+print("Press 'q' to quit.")
+def get_key(self):
+fd = sys.stdin.fileno()
+old_settings = termios.tcgetattr(fd)
+try:
+tty.setraw(sys.stdin.fileno())
+key = sys.stdin.read(1)
+finally:
+termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+return key
+def run(self):
+while True:
+key = self.get_key()
+if key == 'q': # 종료
+break
+elif key == '\x1b[A':  # ↑
+self.msg.linear.x = 2.0
+self.msg.angular.z = 0.0
+elif key == '\x1b[B':  # ↓
+self.msg.linear.x = -2.0
+self.msg.angular.z = 0.0
+elif key == '\x1b[C':  # →
+self.msg.linear.x = 0.0
+self.msg.angular.z = -2.0
+elif key == '\x1b[D':  # ←
+self.msg.linear.x = 0.0
+self.msg.angular.z = 2.0
+else:
+self.msg.linear.x = 0.0
+self.msg.angular.z = 0.0
+self.publisher.publish(self.msg)
+print("Exiting...")
+def main():
+rclpy.init()
+node = TurtleTeleopKey()
+node.run()
+node.destroy_node()
+rclpy.shutdown()
+if <strong>name</strong> == '<strong>main</strong>':
+main()
+Turtle_teleop_key.py(for test only)</p>
+<p>ROS2 실습
+Turtle_teleop_key.cpp</p>
+<p><img alt="Image 229" src="../../../assets/images/ros/basics/lesson-05/img_084_229.webp" /></p>
+<p>ROS2 실습– package build - my_first_package
+※ Package 생성 시 디렉토리→ ros2_ws/src
+※ Build 하는 경우working 디렉토리→ ros2_ws</p>
+<p><img alt="Image 231" src="../../../assets/images/ros/basics/lesson-05/img_085_231.webp" /></p>
+<p>ROS2 실습
+1) 전체 패키지를 빌드 할 때
+$ cd ~/robot_ws &amp;&amp; colcon build --symlink-install
+$ cd ~/robot_ws &amp;&amp; colcon build --symlink-install --packages-select [패키지 이름]</p>
+<ul>
+<li>vcstool (버전 컨트롤 시스템 툴) $ wget https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos $ vcs import src &lt; ros2.repos $ sudo rosdep init $ rosdep update $ rosdep install --from-paths src -y --ignore-src $ bloom-release --ros-distro humble --track humble awesome_pkg 2) 해당 패키지만 빌드 할 때</li>
+<li>rosdep (의존성 관리 툴)</li>
+<li>bloom (바이너리 패키지 관리 툴)</li>
+</ul>
+<p>ROS2 실습
+패키지 파일 사용 방법ROS 2 프로그래밍 전에 알아 둬야할 필수 사전 정보
+●
+패키지 설정 파일
+package.xml(ROS pkg의 필수 구성 요소)
+●
+빌드 설정 파일
+CMakeLists.txt(순수Python pkg는CMakeLists.txt 파일 없음)
+●
+파이썬 패키지 설정 파일
+setup.py(순수한ROS2 Python pkg에만 사용하는 배포를 위한 설정 파일)
+●
+파이썬 패키지 환경 설정 파일
+setup.cfg(순수한ROS2 Python pkg에만 사용하는 배포를 위한 구성 파일)
+●
+RQt 플러그인 설정 파일
+plugin.xml(RQT plugin으로pkg를 작성할 때의 필수 구성 요소)
+●
+패키지 변경 로그 파일
+CHANGELOG.rst(pkg업데이트 내역 기술, 개발 이력 추적)
+●
+라이선스 파일
+LICENSE(pkg코드에 사용된 라이센스 기술)
+●
+패키지 설명 파일
+README.md(markdown 파일)</p>
+<p>ROS2 실습– 패키지 설정 파일(package.xml)
+패키지 설정 파일은ROS 패키지의 필수 구성 요소로서 패키지의 정보를 기술하는 파일
+기술하는 내용으로는 패키지 이름, 저작자, 라이선스, 의존성 패키지 등이 있으며,
+XML 형식으로 기술하고 파일 명은<code>package.xml</code>을사용
+사용되는 빌드 툴, 의존성 패키지들이 모두 기술되기에 빌드 및 패키지 설치, 사용에 있어서 매우 중요한 파일
+모든ROS 패키지의 필수 파일로 각 패키지당 무조건1개의 패키지 설정 파일(package.xml)을포함</p>
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+schematypens="http://www.w3.org/2001/XMLSchema"?>
+<p><package format="3">
+<name>my_first_ros_rclcpp_pkg</name>
+<version>0.0.0</version>
+<description>TODO: Package description</description>
+<maintainer email="pyo@robotis.com">pyo</maintainer>
+<license>TODO: License declaration</license>
+<buildtool_depend>ament_cmake</buildtool_depend>
+<depend>rclcpp</depend>
+<depend>std_msgs</depend>
+<test_depend>ament_lint_auto</test_depend>
+<test_depend>ament_lint_common</test_depend>
+<export>
+<build_type>ament_cmake</build_type>
+</export>
+</package></p>
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+schematypens="http://www.w3.org/2001/XMLSchema"?>
+<p><package format="3">
+<name>my_first_ros_rclpy_pkg</name>
+<version>0.0.0</version>
+<description>TODO: Package description</description>
+<maintainer email="pyo@robotis.com">pyo</maintainer>
+<license>TODO: License declaration</license>
+<depend>rclpy</depend>
+<depend>std_msgs</depend>
+<test_depend>ament_copyright</test_depend>
+<test_depend>ament_flake8</test_depend>
+<test_depend>ament_pep257</test_depend>
+<test_depend>python3-pytest</test_depend>
+<export>
+<build_type>ament_python</build_type>
+</export>
+</package></p>
+<p>ROS2 실습– 패키지 설정 파일(package.xml)
+항목
+내용</p>
+<?xml>
+문서 문법을 정의하는 문구로 아래의 내용은xml 버전1.0을 따르고 있다는 것을 알린다.
+<package>
+이 구문부터 맨 끝의</package>까지가ROS 패키지 설정 부분이다. 세부 사항으로format="3" 이라고 패키지 설정 파일의 버전을 기재한다. ROS 2는3를
+사용하면 된다.
+<name>
+패키지의 이름이다. 패키지를 생성할 때 입력한 패키지 이름이 사용된다. 다른 옵션도 마찬가지지만 이는 사용자가 원할 때 언제든지 변경할 수 있다.
+<version>
+패키지의 버전이다. 자유롭게 지정할 수 있는데 나중에 패키지를 바이너리 패키지로 공개한다면 버전 관리에 사용되므로 신중할 필요가 있다.
+<description>
+패키지의 간단한 설명이다. 보통2~3 문장으로 기술한다.
+<maintainer>
+패키지 관리자의 이름과 이메일 주소를 기재한다.
+<license>
+라이선스를 기재한다. Apache 2.0, BSD, MIT, Boost Software License, GPLv2, GPLv3, LGPLv2.1, LGPLv3, Proprietary 등을 기재하면 된다.
+<url>
+패키지를 설명하는 웹 페이지 또는 버그 관리, 소스 코드 저장소 등의 주소를 기재한다. 이 종류에 따라type에website, bugtracker, repository를 대입하면 된다.
+<author>
+패키지 개발에 참여한 개발자의 이름과 이메일 주소를 적는다. 복수의 개발자가 참여한 경우에는 바로 다음 줄에<author> 태그를 이용하여 추가로 넣음
+<buildtool_depend> 빌드툴의의존성을기술한다.
+<build_depend>
+패키지를 빌드할 때 필요한 의존 패키지 이름을 적는다.
+<exec_depend>
+패키지를 실행할 때 필요한 의존 패키지 이름을 적는다.
+<test_depend>
+패키지를 테스트할 때 필요한 의존 패키지 이름을 적는다.
+<export>
+위에서 명시하지 않은 확장 태그 명을 사용할 때 쓰인다. 빌드 타입을 적는<build_type>, RViz 플러그인에 사용되는<rviz>, RQt 플러그인에 사용되는<rqt_gui>,
+deprecated되는 패키지일 경우 유저에게 알릴 수 있는<deprecated> 태그 등이 있다.
+
+
+ROS2 실습– 빌드 설정 파일(CMakeList.txt)
+ROS 2의빌드 시스템인ament에서는C++ 프로그래밍 언어를 사용한 패키지나
+RQt Plugin의경우CMake(Cross Platform Make)를 이용하고 있고 패키지 폴더의
+`CMakeLists.txt`라는 파일에 빌드 환경을 기술하여 사용하고 있다.
+이 빌드 설정 파일에 실행 파일 생성, 의존성 패키지 우선 빌드, 링크 생성 등을
+설정하게 되어 있다. ROS에서CMake를 이용하는 이유는ROS 패키지를 멀티
+플랫폼에서 빌드할 수 있게하기 위함이다. Make가 유닉스 계열만 지원하는 것과
+달리, CMake는 유닉스 계열인 리눅스, BSD, OS X뿐만 아니라 윈도우즈 계열도
+지원하기 때문이다.
+또한CMakeLists.txt은Visual Studio, Eclipse, Qt Creator 등 다양한IDE에서
+기본으로 지원하여 쉽게 사용할 수 있다.
+cmake_minimum_required(VERSION 3.5)
+project(my_first_ros_rclcpp_pkg)
+# Default to C99
+if(NOT CMAKE_C_STANDARD)
+set(CMAKE_C_STANDARD 99)
+endif()
+# Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+set(CMAKE_CXX_STANDARD 14)
+endif()
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+# find dependencies
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+if(BUILD_TESTING)
+find_package(ament_lint_auto REQUIRED)
+# the following line skips the linter which checks for copyrights
+# uncomment the line when a copyright and license is not present in all source files
+#set(ament_cmake_copyright_FOUND TRUE)
+# the following line skips cpplint (only works in a git repo)
+# uncomment the line when this package is not in a git repo
+#set(ament_cmake_cpplint_FOUND TRUE)
+ament_lint_auto_find_test_dependencies()
+endif()
+ament_package()
+
+
+ROS2 실습– 패키지 설정 파일(package.xml)
+항목
+내용
+name
+패키지의 이름
+Version
+패키지의 버전
+Packages
+의존하는 패키지, 하나씩 나열해도 되지만`find_packages()`를 기입해 주면 자동으로 의존하는 패키지를 찾아 준다.
+data_files
+이 패키지에서 사용되는 파일들을 기입하여 함께 배포한다.
+`ROS`에서는 주로`resource` 폴더 내에 있는`ament_index`를 위한 패키지의 이름의 빈 파일이나`package.xml`, `*.launch.py`, `*.yaml` 등을 기입한다.
+install_requires
+의존하는 패키지, 이 패키지를`pip`을 통해 설치할 때 이 곳에 기술된 패키지들을 함께 설치하게 된다.
+`ROS`에서는`pip`로 설치하지 않기에`setuptools`, `launch`만을 기입해 준다.
+tests_require
+테스트에 필요한 패키지, `ROS`에서는`pytest`를 사용한다.
+zip_safe
+설치시zip 파일로 아카이브할지 여부를 설정한다.
+author
+author_email
+maintainer
+maintainer_email
+저작자, 관리자의 이름과 이메일을 기입한다.
+Keywords
+이 패키지의 키워드, Python Package Index (PyPI) 배포 시 검색하여 이 패키지를 찾을 수 있도록한다.
+Classifiers
+PyPI에 등록될 메타 데이터 설정으로`PyPI` 페이지의 좌측Meta란에서 확인 가능하다.
+Description
+패키지 설명을 기입한다.
+License
+라이선스 종류를 기입한다.
+entry_points
+플랫폼별로 콘솔 스크립트를 설치하도록 콘솔 스크립트 이름과 호출 함수를 기입한다.
+name
+패키지의 이름
+
+
+ROS2 실습– 파이썬 패키지 설정 파일(Setup.py)
+from setuptools import setup
+package_name = 'my_first_ros_rclpy_pkg'
+setup(
+name=package_name,
+version='0.0.0',
+packages=[package_name],
+data_files=[
+('share/ament_index/resource_index/packages',
+['resource/' + package_name]),
+('share/' + package_name, ['package.xml']),
+],
+install_requires=['setuptools'],
+zip_safe=True,
+maintainer='pyo',
+maintainer_email=‘victor@datacore.kr,
+description='TODO: Package description',
+license='TODO: License declaration',
+tests_require=['pytest'],
+entry_points={
+'console_scripts': [
+],
+},
+)
+
+
+ROS2 실습– Publisher & Subscriber(my_first_package)
+※ Package 생성 시 디렉토리→ ~ros2_ws/src
+※ Build 하는 경우work Space 디렉토리→ ~/ros2_ws
+
+
+![Image 234](../../assets/images/ros/basics/lesson-05/img_093_234.webp)
+
+
+ROS2 실습– Publisher & Subscriber(my_first_package)
+
+
+ROS2 실습– Publisher & Subscriber(my_first_package)
+
+
+![Image 242](../../assets/images/ros/basics/lesson-05/img_095_242.webp)
+
+
+ROS2 실습– Publisher & Subscriber(my_first_package)
+※ source 하지 않고 실행해 보기
+
+
+![Image 244](../../assets/images/ros/basics/lesson-05/img_096_244.webp)
+
+
+![Image 247](../../assets/images/ros/basics/lesson-05/img_096_247.webp)
+
+
+ROS2 실습– Publisher & Subscriber(my_first_package)
+※ .bashrc example
+
+
+ROS2 실습– Publisher & Subscriber(my_first_package)
+
+
+![Image 251](../../assets/images/ros/basics/lesson-05/img_098_251.webp)
+
+
+ROS2 실습– Publisher & Subscriber(my_first_package)
+command 창에서 실행할node name
+my_first_node
+my_subscriber
+→
+
+
+ROS2 실습– Publisher & Subscriber(my_first_package)
+
+
+ROS2 실습– Publisher & Subscriber(my_first_package)
+
+
+![Image 255](../../assets/images/ros/basics/lesson-05/img_101_255.webp)
+
+
+ROS2 실습– Publisher & Subscriber(my_first_package)
+
+
+ROS2 실습– Publisher & Subscriber(my_first_package)
+
+
+ROS2 실습– Publisher & Subscriber(my_first_package)
+
+
+![Image 259](../../assets/images/ros/basics/lesson-05/img_104_259.webp)
+
+
+![Image 260](../../assets/images/ros/basics/lesson-05/img_104_260.webp)
+
+
+![Image 261](../../assets/images/ros/basics/lesson-05/img_104_261.webp)
+
+
+ROS2 실습
+ROS의 중요한 개발 도구들
+- ROS는GUI기반이 아닌, 터미널에서command line 방식으로 동작을 시킬 수 있음
+- 여기에 더해서ROS 사용의 효율을 높이기 위해서 다양한 개발 도구를 제공함 rViz gazebo rqt
+
+
+![Image 262](../../assets/images/ros/basics/lesson-05/img_105_262.webp)
+
+
+![Image 263](../../assets/images/ros/basics/lesson-05/img_105_263.webp)
+
+
+![Image 264](../../assets/images/ros/basics/lesson-05/img_105_264.webp)
+
+
+ROS2 실습
+rViz (ROS Visualization Tool)
+- rViz는ROS에서 얻어지는 데이터를 시각화(visualization)하는 도구임
+- IMU 데이터의 시각화
+- URDF 파일을 이용한 로봇 암 동작의 시각화
+- 라이다 센서 데이터 시각화를 통한SLAM 적용 https://velog.io/@y2k4388/rViz%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%84%BC%EC%84%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8B%9C%EA%B0%81%ED%99%94
+
+
+![Image 265](../../assets/images/ros/basics/lesson-05/img_106_265.webp)
+
+
+![Image 266](../../assets/images/ros/basics/lesson-05/img_106_266.webp)
+
+
+ROS2 실습
+Robot URDF 파일을 통한 로봇 암 시각화
+- rViz의 기능 중URDF 파일을 읽어서 로봇 암의 동작을 시각화하는 기능이 있음
+- URDF(Universal Robot description Format)이란?
+- URDF는 xml기반의 텍스트 파일로, 로봇의 형태와 동작을 정의한 파일임
+- ROS 초보자가URDF 파일을 작성하기는 어렵지만, 어떤 로봇에URDF 파일이 존재하면,
+- 이 로봇을rViz를 통해서 가상으로 동작시켜 볼 수 있음
+- URDF 파일로 할 수 있는 것
+- 로봇의 구조를 정의
+- 로봇 동작의 시각화
+- 로봇의 충돌 모델 정의
+
+
+ROS2 실습
+Robot URDF 파일의 구성
+- URDF 파일은 다음과 같은 요소로 구성되어 있음
+- Link, joint
+- Link
+- 로봇을 구성하는 구성 요소 중 하나, 3가지 속성이 있음
+- <inertial> 링크의 관성 정보. Link의관성 중심, 질량, 관성 계수 등을 기록함
+- <visual> rViz 같은 시각화 도구에서 로봇을 시가화할 때 사용되는 속성들을 정의함
+- <collision> 물리적인 충돌 속성 정의, 충돌 모델 정의
+- Joint
+- Link 와link를 연결하는 로봇 구성 요소. URDF는6가지joint 타입이 있음
+- <origin> 부모 link에서 자식 링크에 변환 정보
+- <parent> 부모 link 이름
+- <child> 자식link 이름 https://wiki.ros.org/urdf/Examples https://medium.com/newworld-kim/ros-urdf-b6979bfa31aa
+
+
+ROS2 실습
+Robot URDF 파일의 예– pan-tilt 로봇
+<?xml version=“1.0”?>
+<p><robot name=“pan_tilt”></p>
+<p><link name=“base_link”></p>
+<p></link></p>
+<p><joint name=“pan_joint” type=“revolute”>
+         </joint></p>
+<p><link name=“pan_link”></p>
+<p></link></p>
+<p><joint name=“tilt_joint” type=“revolute”>
+         </joint></p>
+<p><link name=“tilt_link”></p>
+<p></link>
+</robot></p>
+<p>ROS2 실습
+URDF 파일pan-tilt 로봇– link - joint 예
+<link name="base_link">
+    <visual>
+ 중간 생략</p>
+<p></visual>
+    <collision>
+중간 생략
+    </collision>
+중간 생략
+ </link>
+ <joint name="pan_joint" type="revolute">
+     <parent link="base_link"/>
+     <child link="pan_link"/>
+중간 생략
+</joint>
+<link name="pan_link">
+중간 생략
+</link></p>
+<p>ROS2 실습
+URDF 파일pan-tilt 로봇– link 상세
+<link name="base_link">
+    <visual>
+      <geometry></p>
+<p><cylinder length="0.01" radius="0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="yellow">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry></p>
+<p><cylinder length="0.03" radius="0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial></p>
+<p><mass value="1"/></p>
+<p><inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link></p>
+<p>ROS2 실습
+URDF 파일pan-tilt 로봇– joint 상세
+<joint name="pan_joint" type="revolute">
+    <parent link="base_link"/>
+    <child link="pan_link"/>
+    <origin xyz="0 0 0.1"/>
+    <axis xyz="0 0 1" />
+    <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    <dynamics damping="50" friction="1"/>
+  </joint></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.path", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

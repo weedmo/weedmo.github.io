@@ -1,0 +1,4972 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ROS2 & AI Study Materials">
+      
+      
+      
+        <link rel="canonical" href="https://weedmo.github.io/ros/projects/simulation/">
+      
+      
+        <link rel="prev" href="../gazebo/">
+      
+      
+        <link rel="next" href="../aruco-conveyor/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>시뮬레이션 협업 - weedmo notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#-__0303" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../.." title="weedmo notes" class="md-header__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            weedmo notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              시뮬레이션 협업
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="다크 모드"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="라이트 모드"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ROS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ai/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="weedmo notes" class="md-nav__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    weedmo notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    입문 (Introduction)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    입문 (Introduction)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. ROS2 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 개발환경
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 노드와 토픽
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 서비스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 액션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. 런치파일
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. Pub/Sub & Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08. 로봇시스템
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09. 카메라 & API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 로봇과 리눅스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 네트워크와 통신
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 센서와 로봇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. ROS2 실습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Topic/Service/Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 (Practice)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    실습 (Practice)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-01-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 01-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-04-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 04-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-05-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 05-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 (Projects)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    프로젝트 (Projects)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rviz2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RVIZ2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gazebo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gazebo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시뮬레이션 협업
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시뮬레이션 협업
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        절대적인 세계 좌표계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로봇이 작동하는 전체 환경의 기준점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        시간이 지나도 변하지 않는 고정된 좌표계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로봇이 처음 시작한 위치를 기준으로 하는 좌표계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주로 휠 엔코더나 IMU 등의 센서로부터 계산
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        시간이 지날수록 오차가 누적되는 특징
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aruco-conveyor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ArUco 마커 & 컨베이어벨트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autonomous-driving/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    자율주행 디지털트윈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../thread-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쓰레드와 데이터베이스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    코드 참고 (Code Reference)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    코드 참고 (Code Reference)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/turtlesim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turtlesim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/pubsub-qos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pub/Sub & QoS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/srvcli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service/Client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/robot-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera Pub/Sub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/hangman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hangman Game
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/urdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URDF & Xacro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/opencv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenCV (Hough)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/point-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Point Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/lane-detect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lane Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/qt-plugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qt Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/rqt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RQT Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/ros2env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 환경설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/python-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/pytorch-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch 입문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/neural-network-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    신경망 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    딥러닝 (분류/회귀)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/cnn-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CNN 아키텍처
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/object-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    객체 탐지
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/sequence-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시퀀스 모델 (RNN/LSTM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/vision-transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    응용 (Applied)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    응용 (Applied)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/computer-vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컴퓨터비전 (OpenCV)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/advanced-cv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    고급 CV (Tracking/Detection)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/generative-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    생성 모델 (GAN/NeRF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/explainable-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explainable AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/medical-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    의료 AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/reinforcement-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    강화학습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      목차
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        절대적인 세계 좌표계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로봇이 작동하는 전체 환경의 기준점
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        시간이 지나도 변하지 않는 고정된 좌표계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        로봇이 처음 시작한 위치를 기준으로 하는 좌표계
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        주로 휠 엔코더나 IMU 등의 센서로부터 계산
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        시간이 지날수록 오차가 누적되는 특징
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="네비게이션" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    ROS
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../rviz2/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    프로젝트 (Projects)
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="-__0303">로키 - 시뮬레이션 - 협업_김루진_0303<a class="headerlink" href="#-__0303" title="Permanent link">&para;</a></h1>
+<p>Version
+V2.0
+최종 수정 일
+2025.03.03
+작성자
+김 루 진 강사
+협동 로봇 프로젝트 수행</p>
+<p>Rokey
+로봇 패키지
+참고
+차동 이동 로봇URDF - 1</p>
+<p>Rokey
+로봇 패키지
+학습 목표
+URDF (Unified Robot Description Format) 학습 목표
+-URDF의 기본 구조와 문법 이해
+-링크(link)와 조인트(joint) 정의 방법 습득
+-시각적 요소(visual)와 충돌(collision) 속성 설정
+-관성(inertial) 속성 정의 방법
+-URDF 파일 검증 및 디버깅 방법</p>
+<p>Rokey
+로봇 패키지
+로봇 모델링 , URDF 실습</p>
+<ol>
+<li>URDF Package 생성하기</li>
+<li>연관 폴더 만들기</li>
+<li>src/urdf_tutorial 폴더 아래 다음 두 폴더를 추가</li>
+<li>urdf: URDF 파일을 저장할 폴더</li>
+<li>launch: ROS2 실행launch 스크립트를 저장할 폴더 $ mkdir -p ~/urdf_ws/src $ cd ~/urdf_ws/src $ ros2 pkg create --build-type ament_python urdf_tutorial $ cd urdf_tutorial $ mkdir urdf $ mkdir launch 차 동 구동 로봇(Differential Drive Robot) -XML 형식의 로봇 모델 정의 -Xacro 매크로를 사용하여 파라미터화 및 코드 재사용성 향상</li>
+</ol>
+<p>Rokey
+로봇 패키지</p>
+<ol>
+<li>setup.py
+두 폴더가 컴파일에 포함될 수 있도록'src/urdf_tutorial/setup.py'를 아래와 같이 편집
+import os
+from glob import glob
+from setuptools import setup
+package_name = 'urdf_tutorial'
+setup(
+name=package_name,
+version='0.0.0',
+packages=[package_name],
+data_files=[
+('share/ament_index/resource_index/packages',
+['resource/' + package_name]),
+('share/' + package_name, ['package.xml']),
+(os.path.join('share', package_name, 'launch'), glob('launch/<em>.launch.py')),
+(os.path.join('share', package_name, 'urdf'), glob('urdf/</em>.xacro’)),
+(os.path.join('share', package_name, 'urdf'), glob('urdf/<em>.urdf’)),
+],
+install_requires=['setuptools'],
+zip_safe=True,
+maintainer='daeho',
+maintainer_email='daeho@todo.todo',
+description='TODO: Package description',
+license='TODO: License declaration',
+tests_require=['pytest'],
+entry_points={
+'console_scripts': [
+],
+},
+)
+로봇 패키지 만들기 실습
+</em>.urdf 도 추가하세요.</li>
+</ol>
+<p>Rokey
+로봇 패키지
+‘src/urdf_tutorial/urdf/robot_1.xacro’ 파일을 만들고 아래와 같이 편집</p>
+<ul>
+<li>base_link: 자동차 중심 링크</li>
+<li>body: 가로, 세로, 높이 각각1m인상자</li>
+<li>
+<p>body_joint: base_link와body를 연결하는joint</p>
+</li>
+<li>
+<p>로봇 모델 만들기</p>
+</li>
+</ul>
+<?xml version="1.0"?>
+<p><robot xmlns:xacro="http://ros.org/wiki/xacro" name="urdf_test"></p>
+<!-- BASE -->
+<p><link name="base_link">
+</link></p>
+<!-- BODY LINK -->
+<p><joint name="body_joint" type="fixed"></p>
+<!-- 'joink'를'joint'로수정-->
+<p><parent link="base_link"/>
+<child link="body"/>
+</joint>
+<link name="body">
+<visual>
+<geometry>
+<box size="1 1 1"/>
+</geometry>
+</visual>
+</link>
+</robot>
+로봇 패키지 만들기 실습</p>
+<ul>
+<li>Base Link: 로봇의 메인 본체 (직육면체)</li>
+<li>Wheels: 왼쪽과 오른쪽 바퀴 (원통형)</li>
+<li>Joints: 바퀴와 베이스를 연결하는 조인트 -차 동 구동 메커니즘: 두 바퀴가 독립적으로 제어 가능 -Gazebo 호환 플러그인 내장 -물리적 특성(질량, 관성) 정의 -ROS 호환 설계</li>
+</ul>
+<p>Rokey
+로봇 패키지
+‘src/urdf_tutorial/launch/robot_1.launch.py’ 파일을 만들고 아래와 같이 편집, 2가지 방법</p>
+<ol>
+<li>런치 파일 만들기
+import os
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch.substitutions import LaunchConfiguration
+from launch.actions import DeclareLaunchArgument
+from launch_ros.actions import Node
+import xacro
+def generate_launch_description():
+use_sim_time = LaunchConfiguration('use_sim_time')
+pkg_path = os.path.join(get_package_share_directory('urdf_tutorial'))
+xacro_file = os.path.join(pkg_path,'urdf','robot_1.xacro')
+robot_description = xacro.process_file(xacro_file)
+params = {'robot_description': robot_description.toxml(), 'use_sim_time': use_sim_time}
+return LaunchDescription([
+DeclareLaunchArgument(
+'use_sim_time',
+default_value='false',
+description='Use sim time'),
+Node(
+package='robot_state_publisher',
+executable='robot_state_publisher',
+output='screen',
+parameters=[params])
+])
+로봇 패키지 만들기 실습
+로봇 시스템의 노드, 파라미터, 액션 등을 설정하는 데 사용</li>
+</ol>
+<p>Rokey
+로봇 패키지</p>
+<ol>
+<li>
+<p>빌드 및 소싱
+첫 번째 터미널에서 아래 명령을 실행해서 컴파일 및‘robot_1.launch.py’ 파일을 실행</p>
+</li>
+<li>
+<p>두 번째 터미널에서 아래 명령을 실행해서Rviz를실행
+$ cd ~/urdf_ws
+$ colcon build --symlink-install
+$ source install/setup.bash
+$ ros2 launch urdf_tutorial robot_1.launch.py
+$ cd ~/urdf_ws
+$ source install/setup.bash
+$ rviz2
+로봇 패키지 만들기 실습
+Rokey
+로봇 패키지</p>
+</li>
+<li>
+<p>rviz2 설정
+Display &gt; Global Option &gt; ‘Fixed Frame’을‘base_link’로변경
+왼쪽 하단의‘Add’ &gt; ‘TF’ &gt; ‘Ok’
+로봇 패키지 만들기 실습</p>
+</li>
+</ol>
+<p>Rokey
+로봇 패키지</p>
+<ol>
+<li>TF 보기
+TF의 하위 항목 중‘Show Names’를선택
+중앙에‘base_link’와‘body’가 겹쳐진 상태로 보이는 것 확인
+왼쪽 하단의‘Add’ &gt; ‘RobotModel’ &gt; ‘Ok’
+로봇 패키지 만들기 실습</li>
+</ol>
+<p>Rokey
+로봇 패키지</p>
+<ol>
+<li>로봇 모델 보기
+RobotModel의 하위 항목 중‘Description Topic’을‘/robot_description’으로 변경
+'File' 메뉴에서'Save Config As'를선택
+로봇 패키지 만들기 실습</li>
+</ol>
+<p><img alt="Image 22" src="../../../assets/images/ros/projects/simulation/img_011_022.webp" /></p>
+<p><img alt="Image 23" src="../../../assets/images/ros/projects/simulation/img_011_023.webp" /></p>
+<p>Rokey
+로봇 패키지</p>
+<ol>
+<li>
+<p>노드 및 토픽 확인
+세 번째 터미널에서 아래 명령을 실행해서rqt_graph를실행</p>
+</li>
+<li>
+<p>/robot_state_publisher: ‘robot.launch.py’를 이용해서 실행한Node</p>
+</li>
+<li>
+<p>/transform_listner_Impl: rviz2에서 실행한Node</p>
+</li>
+<li>
+<p>‘/robot_state_publisher’ Node는 ‘/transform_listner_Impl’ Node에게 ‘/tf’, ‘/tf_static’ 두개의topic을전달 $ rqt_graph 로봇 패키지 만들기 실습</p>
+</li>
+</ol>
+<p><img alt="Image 26" src="../../../assets/images/ros/projects/simulation/img_012_026.webp" /></p>
+<p>Rokey
+로봇 패키지</p>
+<ol>
+<li>
+<p>정육면체의 색 변경
+‘src/urdf_tutorial/urdf/robot_1.xacro’ 파일을 아래와 같이 수정</p>
+</li>
+<li>
+<p>material white: 위쪽에 흰색을 표현하는white material을 선언 색상은rgba 모두1로지정: (색상의 범위: 0 ~ 1 )</p>
+</li>
+<li>
+<p>body link material: body link에 위에서 지정한white material을 지정 변경된 값을 반영하기 위해 첫 번째 터미널에서 ‘CTRL+C’ 키를 입력해서ROS2를 종료한 후 명령을 수행 <?xml version="1.0"?> <robot xmlns:xacro="http://ros.org/wiki/xacro" name="urdf_test"> <!-- COLOR--> <material name="white"> <color rgba="1 1 1 1"/> </material> <!-- BASE --> <link name="base_link"> </link> <!-- BODY LINK --> <joint name="body_joint" type="fixed"> <parent link="base_link"/> <child link="body"/> </joint> <link name="body"> <visual> <geometry> <box size="1 1 1"/> </geometry> <material name="white"/> </visual> </link> </robot> $ cd ~/urdf_ws $ colcon build --symlink-install $ source install/setup.bash $ ros2 launch urdf_tutorial robot_1.launch.py 로봇 패키지 만들기 실습</p>
+</li>
+</ol>
+<p>Rokey
+로봇 패키지
+참고</p>
+<ol>
+<li>바디를 원통형(cylinder)로 변경
+‘src/urdf_tutorial/urdf/robot_1.xacro’ 파일을 아래와 같이 수정
+로봇 패키지 만들기 실습
+geometry 태그는 로봇의 각 링크(link)의 모양과 충돌 모델을 정의
+Box (상자)
+Sphere (구체)
+Cylinder (원기둥)
+Mesh (메쉬)
+왜 완전한 원
+이 아닐까?</li>
+</ol>
+<p><img alt="Image 34" src="../../../assets/images/ros/projects/simulation/img_014_034.webp" /></p>
+<p>Rokey
+로봇 패키지
+참고</p>
+<ol>
+<li>
+<p>시각적 표현과 충돌 모델의 분리
+로봇 패키지 만들기 실습
+URDF에서 visual 태그와 collision 태그 안에 별도로 geometry를 정의
+예를 들어, 시각적으로는 메쉬를 사용하지만, 충돌 모델은 간단한 Box로 정의 가능.
+STL 파일 준비:</p>
+</li>
+<li>
+<p>mesh를 사용할 때는 .stl 또는 .dae 파일이 필요</p>
+</li>
+<li>Blender, SolidWorks, FreeCAD 등에서 3D 모델을 생성.</li>
+</ol>
+<p>Rokey
+로봇 패키지
+참고
+TF2(Transfor Framework)2</p>
+<p>Rokey
+로봇 패키지
+참고
+TF2가 필요한 이유
+1.로봇 시스템의 좌표계 관리
+-로봇은 여러 센서(라이다, 카메라, IMU 등)와 부품(바퀴, 관절 등)이 있으며, 각각은 서로 다른 위치에 장착
+-각 부품과 센서의 위치 관계를 수학적으로 표현하고 관리
+-TF2는 이러한 좌표계 변환을 자동으로 처리해 주는 프레임워크
+2.시간 동기화
+-센서 데이터는 각각 다른 시간에 수집됩니다
+-TF2는 시간에 따른 좌표계 변환을 자동으로 보 간 처리
+https://with-rl.tistory.com/entry/ROS2-Transformation-System-TF2
+Rokey
+로봇 패키지
+참고
+SLAM에서 TF2의 필요성
+1.센서 데이터 통합
+-SLAM은 여러 센서의 데이터를 통합하여 지도를 생성하고 로봇의 위치를 추정.
+-서로 다른 센서의 데이터를 하나의 좌표계로 변환해야 정확한 매핑이 가능.
+2.로봇의 이동 추적
+-base_link(로봇 중심)와 odom(주행 기준) 간의 변환
+-map과 odom 사이의 변환
+-이러한 변환들은 SLAM의 핵심 요소입니다
+3.센서 캘리브 레이 션
+-라이다나 카메라의 실제 장착 위치를 정확히 반영해야합니다
+-TF2를 통해 센서의 위치 관계를 정의하고 관리할 수 있습니다
+- SLAM을 구현하는데 TF2는 필수적
+- 정확한 좌표계 변환 없이는 센서 데이터를 올바르게 통합할 수 없고, 결과적으로 정확한 지도 생성과 위치 추정이 불가능</p>
+<p>Rokey
+로봇 패키지
+참고
+TF2, Map과 Odom 변환
+"로봇이 생각하는 자신의 위치"와 "로봇의 실제 위치" 사이의 차이를 계산하고 보정하는 과정
+1.각 프레임의 의미
+-map 프레임:</p>
+<h3 id="_1">절대적인 세계 좌표계<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<h3 id="_2">로봇이 작동하는 전체 환경의 기준점<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_3">시간이 지나도 변하지 않는 고정된 좌표계<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>-odom 프레임</p>
+<h3 id="_4">로봇이 처음 시작한 위치를 기준으로 하는 좌표계<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="imu">주로 휠 엔코더나 IMU 등의 센서로부터 계산<a class="headerlink" href="#imu" title="Permanent link">&para;</a></h3>
+<h3 id="_5">시간이 지날수록 오차가 누적되는 특징<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>2.변환이 필요한 이유
+-로봇이 출발점에서 1m 전진했다고 가정해 보겠습니다
+-odom 프레임에서는 정확히 1m 이동했다고 측정
+-하지만 실제 map 프레임에서는 바닥이 미끄러워서 0.9m만 이동 시
+=&gt; 이러한 차이를 보정하기 위해 map과 odom 사이의 변환이 필요
+3.SLAM에서의 역할
+-SLAM은 지속적으로 map과 odom 사이의 변환을 계산
+-이를 통해 오도메트리의 누적 오차를 보정
+-결과적으로 로봇의 실제 위치(map 프레임)를 정확하게 추정</p>
+<p>Rokey
+로봇 패키지
+참고
+차동 이동 로봇URDF - 2</p>
+<p>Rokey
+로봇 패키지
+참고
+로봇 패키지 만들기 실습</p>
+<ol>
+<li>ROS 로봇 좌표계
+위치에 대한 표현은 x, y, z 3개의 좌표로 표현
+a) base_link 프레임
+-로봇의 기준 좌표계
+-로봇의 중심점을 원점으로 설정
+-모든 로봇 부품의 상대적 위치 정의
+b) odom 프레임
+-전역 고정 좌표계
+-로봇의 초기 위치를 원점으로 설정
+-누적 이동 거리 추적
+c) map 프레임
+-환경의 전체 지도 좌표계
+-SLAM에서 중요한 좌표계
+-절대 좌표 제공</li>
+</ol>
+<p><img alt="Image 43" src="../../../assets/images/ros/projects/simulation/img_021_043.webp" /></p>
+<p>Rokey
+로봇 패키지
+참고
+로봇 패키지 만들기 실습</p>
+<ol>
+<li>src/urdf_tutorial/urdf/robot_2.xacro</li>
+</ol>
+<p>Rokey
+로봇 패키지
+참고
+로봇 패키지 만들기 실습</p>
+<ol>
+<li>
+<p>src/urdf_tutorial/launch/robot_2.launch.py
+$ cd ~/urdf_ws
+$ colcon build --symlink-install
+$ source install/setup.bash
+$ ros2 launch urdf_tutorial robot_2.launch.py
+Rokey
+로봇 패키지
+참고
+로봇 패키지 만들기 실습</p>
+</li>
+<li>
+<p>Rviz 메뉴에서 'File' &gt;&gt; 'Open Config' 선택 후 이전 과정에서 저장한 config 파일</p>
+</li>
+</ol>
+<p><img alt="Image 52" src="../../../assets/images/ros/projects/simulation/img_024_052.webp" /></p>
+<p>Rokey
+로봇 패키지
+참고
+로봇 패키지 만들기 실습</p>
+<ol>
+<li>Wheel 추가</li>
+</ol>
+<p><img alt="Image 55" src="../../../assets/images/ros/projects/simulation/img_025_055.webp" /></p>
+<p>Rokey
+로봇 패키지
+참고
+로봇 패키지 만들기 실습</p>
+<ol>
+<li>
+<p>URDF에서 <joint type> 은 로봇의 링크 간 연결 방식
+1.continuous (연속)
+-무제한 회전 가능
+-각도 제한 없음
+-주로 바퀴나 회전 관절에 사용
+2.revolute (회전)
+-고정된 각도 범위 내에서 회전
+-최소/최대 각도 제한 있음
+-로봇 관절, 팔 관절 등에 사용
+3.prismatic (병진)
+-직선 방향으로만 움직임
+-슬라이딩 관절
+-리니어 액추에이터, 그리퍼, 피스톤 등
+4.fixed (고정)
+-링크 간 움직임 없음
+-강체로 연결
+-구조적 연결, 센서 장착 등
+Rokey
+로봇 패키지
+참고
+로봇 패키지 만들기 실습</p>
+</li>
+<li>
+<p>joint_state_publisher_gui
+rqt_graph
+‘joint_state_publisher_gui’에서 ‘left_wheel_joint’ 값을 변경
+left_wheel이 회전하는 것 확인</p>
+</li>
+</ol>
+<p><img alt="Image 59" src="../../../assets/images/ros/projects/simulation/img_027_059.webp" /></p>
+<p><img alt="Image 60" src="../../../assets/images/ros/projects/simulation/img_027_060.webp" /></p>
+<p><img alt="Image 61" src="../../../assets/images/ros/projects/simulation/img_027_061.webp" /></p>
+<p>Rokey
+로봇 패키지
+참고
+로봇 패키지 만들기 실습</p>
+<ol>
+<li>
+<p>right_wheel_joint
+base_link에 'continuous' 형식 부착</p>
+</li>
+<li>
+<p>Caster Wheel 추가하기</p>
+</li>
+</ol>
+<p><img alt="Image 63" src="../../../assets/images/ros/projects/simulation/img_028_063.webp" /></p>
+<p><img alt="Image 64" src="../../../assets/images/ros/projects/simulation/img_028_064.webp" /></p>
+<p>Rokey
+로봇 패키지
+참고
+로봇 패키지 만들기 실습</p>
+<ol>
+<li>Collision 추가</li>
+</ol>
+<p><img alt="Image 66" src="../../../assets/images/ros/projects/simulation/img_029_066.webp" /></p>
+<p><img alt="Image 67" src="../../../assets/images/ros/projects/simulation/img_029_067.webp" /></p>
+<p><img alt="Image 68" src="../../../assets/images/ros/projects/simulation/img_029_068.webp" /></p>
+<p>Rokey
+로봇 패키지
+참고
+로봇 패키지 만들기 실습</p>
+<ol>
+<li>관성 모 멘트 추가
+-로봇의 링크(link)의 질량 분포와 관성 정보
+-관성 모 멘트의 계산 식은https://en.wikipedia.org/wiki/List_of_moments_of_inertia에서 확인
+-회전 운동에 대한 저항을 나타냅니다
+-물체가 얼마나 회전하기 어려운지를 결정합니다
+-로봇 제어 시 동적 특성에 큰 영향을 미칩니다</li>
+</ol>
+<p><img alt="Image 71" src="../../../assets/images/ros/projects/simulation/img_030_071.webp" /></p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+차 동 구동 로봇 센서들</p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+패키지 생성 및 실행</p>
+<ol>
+<li>
+<p>워크 스페이스 및 패키지 생성
+$ mkdir –p ~/car_ws/src
+$ cd ~/car_ws/src/
+$ ros2 pkg create --build-type ament_python car_tutorial
+$ cd ~/car_ws/src/car_tutorial
+$ mkdir urdf launch config photo
+$ pip install numpy
+$ pip install opencv-python
+$ sudo apt install ros-humble-tf-transformations</p>
+</li>
+<li>
+<p>필요 라이브러리, 패키지 설치</p>
+</li>
+</ol>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+적당한 크기의(400 x 300) 이미지를
+" src/car_tutorial/photo/photo.png"에저장</p>
+<ol>
+<li>
+<p>이미지 저장
+패키지 생성 및 실행
+$ wget -O photo/photo.png [이미지url]
+tf publisher
+로봇을 만들었다면 로봇이 가만히 있을 리는 당연히 없다. 이러한 robot의 위치를 변화시켜 주려면, robot의 base가
+되는 link와 map의 transform을 publish해주는 node를 작성하면 된다.
+Rokey
+차 동 구동 로봇 패키지
+참고</p>
+</li>
+<li>
+<p>driver 노드 작성
+src/car_tutorial/car_tutorial/driver.py
+패키지 생성 및 실행
+import cv2
+import rclpy
+from rclpy.node import Node
+from rclpy.executors import MultiThreadedExecutor
+from cv_bridge import CvBridge
+from geometry_msgs.msg import Twist
+from sensor_msgs.msg import JointState
+from sensor_msgs.msg import Image
+class Driver(Node):
+    def <strong>init</strong>(self):
+        super().<strong>init</strong>("drive")</p>
+<div class="highlight"><pre><span></span><code># Parameters
+self.wheel_separation = 0.1
+self.wheel_diameter = 0.03
+self.timer_frequently = 0.1
+# init variable
+self.joint_states = JointState()
+self.joint_states.header.frame_id = &quot;joint_states&quot;
+self.joint_states.name = [&quot;left_wheel_joint&quot;, &quot;right_wheel_joint&quot;]
+self.joint_states.position = [0.0, 0.0]
+
+self.linear = 0.0
+self.angular = 0.0
+
+self.wheel_speed = [0.0, 0.0]
+self.wheel_rotate = [0.0, 0.0]
+self.msg = Twist()
+self.raw_vel = Twist()
+
+self.bridge = CvBridge()
+self.image = cv2.imread(&quot;src/car_tutorial/photo/photo.png&quot;, cv2.IMREAD_COLOR)
+self.img_msg = self.bridge.cv2_to_imgmsg(self.image, encoding=&quot;bgr8&quot;)
+
+# subscriber
+self.sub_cmd_vel = self.create_subscription(Twist, &quot;cmd_vel&quot;, self.cmd_vel_callback, 10)
+# publisher
+self.pub_vel_raw = self.create_publisher(Twist, &quot;raw_vel&quot;, 10)
+self.pub_joint_states = self.create_publisher(JointState, &quot;joint_states&quot;, 10)
+self.pub_img = self.create_publisher(Image, &quot;image&quot;,5)
+# timer
+self.timer_1 = self.create_timer(self.timer_frequently, self.publish_jointstate)
+self.timer_2 = self.create_timer(self.timer_frequently, self.publish_raw_vel)
+self.timer_3 = self.create_timer(5.0, self.publish_image)
+</code></pre></div>
+<p>def cmd_vel_callback(self, msg):
+    self.get_logger().info(f"recv cmd_vel message {msg}")
+    self.msg = msg
+    self.linear = msg.linear.x
+    self.angular = msg.angular.z</p>
+<p>def publish_raw_vel(self):
+    self.raw_vel= self.msg
+    self.pub_vel_raw.publish(self.raw_vel)</p>
+<p>def publish_jointstate(self):
+    # wheel speed
+    self.wheel_speed[0] = self.linear - self.angular * self.wheel_separation / 2.0
+    self.wheel_speed[1] = self.linear + self.angular * self.wheel_separation / 2.0</p>
+<div class="highlight"><pre><span></span><code># wheel rotate speed
+self.wheel_rotate[0] = self.wheel_speed[0] / (self.wheel_diameter / 2.0)
+self.wheel_rotate[1] = self.wheel_speed[1] / (self.wheel_diameter / 2.0)
+
+self.joint_states.header.stamp = self.get_clock().now().to_msg()
+self.joint_states.position[0] += self.wheel_rotate[0] *self.timer_frequently
+self.joint_states.position[1] += self.wheel_rotate[1] *self.timer_frequently
+</code></pre></div>
+</li>
+</ol>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+패키지 생성 및 실행</p>
+<h1 id="publish">publish<a class="headerlink" href="#publish" title="Permanent link">&para;</a></h1>
+<p>self.pub_joint_states.publish(self.joint_states)</p>
+<div class="highlight"><pre><span></span><code>def publish_image(self):
+    try:
+        self.pub_img.publish(self.img_msg)
+    except:
+        return
+</code></pre></div>
+<p>def main(args=None):
+    rclpy.init(args=args)
+    driver = Driver()
+    executor = MultiThreadedExecutor()
+    rclpy.spin(driver, executor=executor)
+    driver.destroy_node()
+    rclpy.shutdown()</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    main()</p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고</p>
+<ol>
+<li>xacro 작성
+src/car_tutorial/urdf/car.xacro
+패키지 생성 및 실행</li>
+</ol>
+<?xml version="1.0"?>
+<p><robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="urdf_tutorial"></p>
+<!-- COLOR -->
+<p><material name="white">
+<color rgba="1 1 1 1" />
+</material>
+<material name="blue">
+<color rgba="0 0 1 1"/>
+</material>
+<material name="black">
+<color rgba="0 0 0 1"/>
+</material>
+<material name="red">
+<color rgba="1 0 0 1"/>
+</material></p>
+<!-- BASE LINK -->
+<p><link name="base_link">
+</link></p>
+<!-- BODY LINK -->
+<p><joint name="body_joint" type="fixed">
+<parent link="base_link"/>
+<child link="body"/>
+<origin xyz="-0.12 0 0"/>
+</joint>
+<link name="body">
+<visual>
+<origin xyz="0.1 0 0.03"/>
+<geometry>
+<box size="0.2 0.1 0.06"/>
+</geometry>
+<material name="white"/>
+</visual>
+<collision>
+<origin xyz="0.1 0 0.03"/>
+<geometry>
+<box size="0.2 0.1 0.06"/>
+</geometry>
+</collision>
+</link></p>
+<!-- LEFT WHEEL LINK -->
+<p><joint name="left_wheel_joint" type="continuous">
+<parent link="base_link"/>
+<child link="left_wheel"/>
+<origin xyz="0 0.065 0" rpy="-${pi/2} 0 0" />
+<axis xyz="0 0 1"/>
+</joint>
+<link name="left_wheel">
+<visual>
+<geometry>
+<cylinder radius="0.03" length="0.03"/>
+</geometry>
+<material name="black"/>
+</visual>
+<collision>
+<geometry>
+<cylinder radius="0.03" length="0.03"/>
+</geometry>
+</collision>
+</link></p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+패키지 생성 및 실행
+<collision>
+<geometry>
+<cylinder radius="0.03" length="0.03"/>
+</geometry>
+</collision>
+</link></p>
+<!-- CASTER WHEEL LINK -->
+<p><joint name="caster_wheel_joint" type="fixed">
+<parent link="body"/>
+<child link="caster_wheel"/>
+<origin xyz="0.03 0 0"/>
+</joint>
+<link name="caster_wheel">
+<visual>
+<geometry>
+<sphere radius="0.03"/>
+</geometry>
+<material name="black"/>
+</visual>
+<collision>
+<geometry>
+<sphere radius="0.03"/>
+</geometry>
+</collision>
+</link></p>
+<!-- CAMERA -->
+<p><joint name="camera_joint" type="fixed">
+<parent link="body"/>
+<child link="camera_link"/>
+<origin xyz="0.20 0 0.03" rpy="0 0 0"/>
+</joint></p>
+<!-- RIGHT WHEEL LINK -->
+<p><joint name="right_wheel_joint" type="continuous">
+<parent link="base_link"/>
+<child link="right_wheel"/>
+<origin xyz="0 -0.065 0" rpy="${pi/2} 0 0" />
+<axis xyz="0 0 -1"/>
+</joint>
+<link name="right_wheel">
+<visual>
+<geometry>
+<cylinder radius="0.03" length="0.03"/>
+</geometry>
+<material name="black"/>
+</visual>
+<collision>
+<geometry>
+<cylinder radius="0.03" length="0.03"/>
+</geometry>
+</collision>
+</link></p>
+<!-- CASTER WHEEL LINK -->
+<p><joint name="caster_wheel_joint" type="fixed">
+<parent link="body"/>
+<child link="caster_wheel"/>
+<origin xyz="0.03 0 0"/>
+</joint>
+<link name="caster_wheel">
+<visual>
+<geometry>
+<sphere radius="0.03"/>
+</geometry>
+<material name="black"/>
+</visual></p>
+<p>Rokey
+차 동 구동 로봇 패키지
+패키지 생성 및 실행
+<link name="camera_link">
+<visual>
+<geometry>
+<box size="0.01 0.03 0.03"/>
+</geometry>
+<material name="red"/>
+</visual>
+<collision>
+<geometry>
+<box size="0.01 0.03 0.03"/>
+</geometry>
+</collision>
+</link>
+<joint name="camera_optical_joint" type="fixed">
+<parent link="camera_link"/>
+<child link="camera_link_optical"/>
+<origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+</joint>
+<link name="camera_link_optical">
+</link>
+</robot></p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고</p>
+<ol>
+<li>launch 작성
+src/car_tutorial/launch/car_tutorial.launch.py
+import os
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch_ros.actions import Node
+import xacro
+def generate_launch_description():
+package_name = "car_tutorial"</li>
+</ol>
+<h1 id="robot_state_publisher">robot_state_publisher<a class="headerlink" href="#robot_state_publisher" title="Permanent link">&para;</a></h1>
+<p>pkg_path = os.path.join(get_package_share_directory(package_name))
+xacro_file = os.path.join(pkg_path, "urdf", "car.xacro")
+robot_description = xacro.process_file(xacro_file)
+params = {"robot_description": robot_description.toxml(), "use_sim_time": False}
+rsp = Node(
+package="robot_state_publisher",
+executable="robot_state_publisher",
+output="screen",
+parameters=[params],
+)</p>
+<h1 id="rviz2">rviz2<a class="headerlink" href="#rviz2" title="Permanent link">&para;</a></h1>
+<p>rviz = Node(
+package="rviz2",
+executable="rviz2",
+name="rviz2",
+output="screen",
+arguments=["-d", "src/car_tutorial/config/car.rviz"],
+)
+driver = Node(
+package="car_tutorial",
+executable="driver",
+output="screen",
+)
+return LaunchDescription(
+[
+rsp,
+rviz,
+driver,
+])</p>
+<h1 id="_6">모델정의파일지정<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
+<h1 id="_7">노드정의<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
+<h1 id="_8">노드실행<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
+<p>패키지 생성 및 실행</p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+런치 파일– 추가 기능
+파라미터 설정
+조건부 실행
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
+DeclareLaunchArgument('use_sim_time', default_value='false'),
+Node(</p>
+<h1 id="_9">...<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h1>
+<p>parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}]
+)
+from launch.conditions import IfCondition
+Node(</p>
+<h1 id="_10">...<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h1>
+<p>condition=IfCondition(LaunchConfiguration('condition_var'))
+)
+다른launch 파일 포함
+기타: 이벤트 헨들러, 그룹화
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+IncludeLaunchDescription(
+PythonLaunchDescriptionSource(['/path/to/other/launch/file.launch.py'])
+)</p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고</p>
+<ol>
+<li>
+<p>setup.py 작성
+src/car_tutorial/setup.py
+import os
+from glob import glob
+from setuptools import find_packages, setup
+package_name = "car_tutorial"
+setup(
+name=package_name,
+version="0.0.0",
+packages=find_packages(exclude=["test"]),
+data_files=[
+("share/ament_index/resource_index/packages",
+["resource/" + package_name]),
+("share/" + package_name, ["package.xml"]),
+(os.path.join("share", package_name, "launch"), glob("launch/<em>.launch.py")),
+(os.path.join("share", package_name, "config"), glob("config/</em>")),
+(os.path.join("share", package_name, "urdf"), glob("urdf/<em>.xacro")),
+(os.path.join("share", package_name, "photo"), glob("photo/</em>.png"))
+],
+install_requires=["setuptools"],
+zip_safe=True,
+maintainer="daeho",
+maintainer_email="daeho@todo.todo",
+description="TODO: Package description",
+license="TODO: License declaration",
+tests_require=["pytest"],
+entry_points={
+"console_scripts": [
+"driver = car_tutorial.driver:main",
+],
+},
+)</p>
+</li>
+<li>
+<p>패키지 정보 정의 이름, 버전, 설명 등의 메타 데이터를 지정</p>
+</li>
+<li>
+<p>종속성 선언 패키지가 필요로 하는 다른ROS 2 패키지나 Python 라이브러리를 명시</p>
+</li>
+<li>
+<p>설치 대상 지정 실행 파일, Python 모듈, 데이터 파일 등 패키지에 포함될 항목들을 정의</p>
+</li>
+<li>
+<p>빌드 설정 컴파일이 필요한 경우 빌드 프로세스를 구성</p>
+</li>
+<li>
+<p>colcon 빌드 시스템에 의해 사용되어 패키지 빌드 및 설치</p>
+</li>
+<li>package.xml과 함께 패키지 구성의 핵심 요소 패키지 생성 및 실행</li>
+</ol>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+$ cd ~/car_ws
+$ colcon build –symlink-install
+$ source install/setup.bash
+$ ros2 launch car_tutorial car_tutorial.launch</p>
+<ol>
+<li>빌드 및 실행</li>
+<li>rviz 설정
+Add -&gt; TF
+Add -&gt; RobotModel
+Add -&gt; Image
+Global Options &gt; Fixed Frame : base_link
+RobotModel &gt; Description Topic : /robot_description
+Image &gt; Topic : /image
+File -&gt; Save Config
+패키지 생성 및 실행</li>
+</ol>
+<p><img alt="Image 86" src="../../../assets/images/ros/projects/simulation/img_042_086.webp" /></p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+$ ros2 run teleop_twist_keyboard teleop_twist_keyboard</p>
+<ol>
+<li>두 번째 터미널에서 실행
+u, I, o, j, k, l, m, ,, . 키로 조작
+패키지 생성 및 실행
+https://with-rl.tistory.com/entry/URDF%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EA%B0%84%EB%8B%A8%ED%95%9C-
+%EB%A1%9C%EB%B4%87-%EB%A7%8C%EB%93%A4%EA%B8%B0-3
+Rokey
+차 동 구동 로봇 패키지
+참고
+Odom(odometry)</li>
+</ol>
+<p>Odom
+Odom</p>
+<ol>
+<li>
+<p>Odometry
+-로봇의 위치와 방향을 추정하는 기술
+-센서 데이터를 기반으로 로봇의 이동 경로 계산
+-주요 정보: 위치, 속도, 방향</p>
+</li>
+<li>
+<p>ROS2 Odometry 메시지 구조</p>
+</li>
+</ol>
+<p>Odeom
+Odom</p>
+<ol>
+<li>Odometry 노드</li>
+</ol>
+<p>Odom
+Odom</p>
+<ol>
+<li>FakeDriver 개념
+-Keyboard Controller: 자동차의 방향/속도를 제어하는 명령을 Topic 전송
+Real Driver: 자동차에 방향/속도를 제어하는 명령을 보내고 실제 자동차의 방향/속도의 측정 값 및 카메라 화면 정보를 수
+신해서 Topic으로 전송
+Odometry: 자동차의 방향/속도의 측정 값을 이용해서 실제 자동차의 위치를 계산</li>
+</ol>
+<p><img alt="Image 94" src="../../../assets/images/ros/projects/simulation/img_047_094.webp" /></p>
+<p><img alt="Image 95" src="../../../assets/images/ros/projects/simulation/img_047_095.webp" /></p>
+<p>Odom
+Odom</p>
+<ol>
+<li>car_odom 코드
+Driver에서 속도/방향에 대한 측정 값을 보내면 이 값을 기준으로 회전 변환 행렬을 이용해서 자동차의 실제 위치 계산</li>
+</ol>
+<p><img alt="Image 96" src="../../../assets/images/ros/projects/simulation/img_048_096.webp" /></p>
+<p><img alt="Image 97" src="../../../assets/images/ros/projects/simulation/img_048_097.webp" /></p>
+<p>Odom
+odom
+회전 변환 행렬</p>
+<ol>
+<li>Odometry 회전 행렬 변환 식
+-3차원 공간에서 물체의 위치와 자세를 표현(x,y,z,θx,θy,θz)(x,y,z,θx,θy,θz) 6개의 값
+◦xx: x 축 방향으로 이동 거리입니다.
+◦yy: y 축 방향으로 이동 거리입니다.
+◦zz: z 축 방향으로 이동 거리입니다.
+◦θxθx: x 축을 기준으로 반 시계 방향으로 회전한 각도
+◦θyθy: y 축을 기준으로 반 시계 방향으로 회전한 각도
+◦θzθz: z 축을 기준으로 반 시계 방향으로 회전한 각도
+-2차원 공간에서(x,y,θ)(x,y,θ) 3개의 값으로 표현
+◦xx: x축 방향으로 이동 거리
+◦yy: y축 방향으로 이동 거리
+◦θθ: 반 시계 방향으로 회전한 각도</li>
+</ol>
+<p><img alt="Image 98" src="../../../assets/images/ros/projects/simulation/img_049_098.webp" /></p>
+<p><img alt="Image 99" src="../../../assets/images/ros/projects/simulation/img_049_099.webp" /></p>
+<p>Odom
+odom</p>
+<ol>
+<li>
+<p>Odometry 자동차의 위치 변화
+Odom
+odom</p>
+</li>
+<li>
+<p>static_transform_publisher를 이용한 TF2 기능
+$ ros2 run tf2_ros static_transform_publisher 2 1 0 0.785 0 0 world robot_1
+◦2 1 0: x, y, z 좌표로 x=2, y=1, z=0이라는 의미입니다.
+◦0.785 0 0: 은 yaw, pitch, roll 값으로 반 시계 방향으로 45° π/4π/4 만큼 회전하라는 의미입니다.</p>
+</li>
+</ol>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+Controller Driver, Plugin</p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고</p>
+<ol>
+<li>
+<p>odom 노드 작성
+src/car_tutorial/car_tutorial/odom.py
+패키지 생성 및 실행
+import numpy as np
+import rclpy
+from rclpy.node import Node
+from tf2_ros import TransformBroadcaster
+from geometry_msgs.msg import Twist
+from geometry_msgs.msg import TransformStamped
+from nav_msgs.msg import Odometry
+from tf_transformations import quaternion_from_euler
+class Odom(Node):
+    def <strong>init</strong>(self):
+        super().<strong>init</strong>("odom")</p>
+<div class="highlight"><pre><span></span><code># Parameters
+self.timer_frequently = 0.1
+
+# init variable
+self.linear = 0.0
+self.angular = 0.0
+
+self.vel_x = 0.0
+self.vel_y = 0.0
+self.vel_z = 0.0
+self.delta_x = 0.0
+self.delta_y = 0.0
+self.delta_z = 0.0
+
+self.pos_x = 0.0
+self.pos_y = 0.0
+self.pos_z = 0.0
+
+self.tf_broadcaster = TransformBroadcaster(self)
+# subscriber
+self.sub_cmd_vel = self.create_subscription(Twist, &quot;raw_vel&quot;, self.raw_vel_callback, 10)
+# publisher
+self.pub_odometry = self.create_publisher(Odometry, &quot;odom&quot;, 10)
+# timer
+self.timer = self.create_timer(self.timer_frequently, self.publish_odometry)
+</code></pre></div>
+<p>def raw_vel_callback(self, msg):
+    self.get_logger().info(f"recv cmd_vel message {msg}")
+    self.linear = msg.linear.x
+    self.angular = msg.angular.z</p>
+<p>def publish_odometry(self):
+    self.delta_x = self.linear * np.cos(self.pos_z) * self.timer_frequently
+    self.delta_y = self.linear * np.sin(self.pos_z) * self.timer_frequently
+    self.delta_z = self.angular * self.timer_frequently</p>
+<div class="highlight"><pre><span></span><code>self.pos_x += self.delta_x
+self.pos_y += self.delta_y
+self.pos_z += self.delta_z
+
+q = quaternion_from_euler(0.0, 0.0, self.pos_z)
+
+# Odometry
+odom = Odometry()
+odom.header.stamp = self.get_clock().now().to_msg()
+odom.header.frame_id = &quot;odom&quot;
+odom.child_frame_id = &quot;base_link&quot;
+</code></pre></div>
+</li>
+</ol>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+패키지 생성 및 실행
+        odom.pose.pose.position.x = self.pos_x
+        odom.pose.pose.position.y = self.pos_y
+        odom.pose.pose.position.z = 0.0
+        odom.pose.pose.orientation.x = q[0]
+        odom.pose.pose.orientation.y = q[1]
+        odom.pose.pose.orientation.z = q[2]
+        odom.pose.pose.orientation.w = q[3]</p>
+<div class="highlight"><pre><span></span><code>    odom.twist.twist.linear.x = self.vel_x
+    odom.twist.twist.linear.y = 0.0
+    odom.twist.twist.linear.z = 0.0
+    odom.twist.twist.angular.x = 0.0
+    odom.twist.twist.angular.y = 0.0
+    odom.twist.twist.angular.z = self.vel_z
+
+    # TF
+    t = TransformStamped()
+    t.header.stamp = self.get_clock().now().to_msg()
+    t.header.frame_id = &quot;odom&quot;
+    t.child_frame_id = &quot;base_link&quot;
+
+    t.transform.translation.x = self.pos_x
+    t.transform.translation.y = self.pos_y
+    t.transform.translation.z = 0.0
+
+    t.transform.rotation.x = q[0]
+    t.transform.rotation.y = q[1]
+    t.transform.rotation.z = q[2]
+    t.transform.rotation.w = q[3]
+    self.tf_broadcaster.sendTransform(t)
+
+    self.pub_odometry.publish(odom)
+</code></pre></div>
+<p>def main(args=None):
+    rclpy.init(args=args)
+    odom = Odom()
+    rclpy.spin(odom)
+    odom.destroy_node()
+    rclpy.shutdown()</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    main()
+import numpy as np
+import rclpy
+from rclpy.node import Node
+from tf2_ros import TransformBroadcaster
+from geometry_msgs.msg import Twist
+from geometry_msgs.msg import TransformStamped
+from nav_msgs.msg import Odometry
+from tf_transformations import quaternion_from_euler
+class Odom(Node):
+    def <strong>init</strong>(self):
+        super().<strong>init</strong>("odom")</p>
+<div class="highlight"><pre><span></span><code>    # Parameters
+    self.timer_frequently = 0.1
+
+    # init variable
+    self.linear = 0.0
+    self.angular = 0.0
+
+    self.vel_x = 0.0
+    self.vel_y = 0.0
+    self.vel_z = 0.0
+
+    self.delta_x = 0.0
+    self.delta_y = 0.0
+    self.delta_z = 0.0
+
+    self.pos_x = 0.0
+    self.pos_y = 0.0
+    self.pos_z = 0.0
+
+    self.tf_broadcaster = TransformBroadcaster(self)
+    # subscriber
+    self.sub_cmd_vel = self.create_subscription(Twist, &quot;raw_vel&quot;, self.raw_vel_callback, 10)
+    # publisher
+    self.pub_odometry = self.create_publisher(Odometry, &quot;odom&quot;, 10)
+    # timer
+    self.timer = self.create_timer(self.timer_frequently, self.publish_odometry)
+
+def raw_vel_callback(self, msg):
+    self.get_logger().info(f&quot;recv cmd_vel message {msg}&quot;)
+    self.linear = msg.linear.x
+    self.angular = msg.angular.z
+
+def publish_odometry(self):
+    self.delta_x = self.linear * np.cos(self.pos_z) * self.timer_frequently
+    self.delta_y = self.linear * np.sin(self.pos_z) * self.timer_frequently
+    self.delta_z = self.angular * self.timer_frequently
+
+    self.pos_x += self.delta_x
+    self.pos_y += self.delta_y
+    self.pos_z += self.delta_z
+
+    q = quaternion_from_euler(0.0, 0.0, self.pos_z)
+
+    # Odometry
+    odom = Odometry()
+    odom.header.stamp = self.get_clock().now().to_msg()
+    odom.header.frame_id = &quot;odom&quot;
+    odom.child_frame_id = &quot;base_link&quot;
+
+    odom.pose.pose.position.x = self.pos_x
+    odom.pose.pose.position.y = self.pos_y
+    odom.pose.pose.position.z = 0.0
+    odom.pose.pose.orientation.x = q[0]
+    odom.pose.pose.orientation.y = q[1]
+    odom.pose.pose.orientation.z = q[2]
+    odom.pose.pose.orientation.w = q[3]
+
+    odom.twist.twist.linear.x = self.vel_x
+    odom.twist.twist.linear.y = 0.0
+    odom.twist.twist.linear.z = 0.0
+    odom.twist.twist.angular.x = 0.0
+    odom.twist.twist.angular.y = 0.0
+    odom.twist.twist.angular.z = self.vel_z
+
+    # TF
+    t = TransformStamped()
+    t.header.stamp = self.get_clock().now().to_msg()
+    t.header.frame_id = &quot;odom&quot;
+    t.child_frame_id = &quot;base_link&quot;
+
+    t.transform.translation.x = self.pos_x
+    t.transform.translation.y = self.pos_y
+    t.transform.translation.z = 0.0
+
+    t.transform.rotation.x = q[0]
+    t.transform.rotation.y = q[1]
+    t.transform.rotation.z = q[2]
+    t.transform.rotation.w = q[3]
+    self.tf_broadcaster.sendTransform(t)
+
+    self.pub_odometry.publish(odom)
+</code></pre></div>
+<p>def main(args=None):
+    rclpy.init(args=args)
+    odom = Odom()
+    rclpy.spin(odom)
+    odom.destroy_node()
+    rclpy.shutdown()</p>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    main()</p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고</p>
+<ol>
+<li>
+<p>launch 수정
+src/car_tutorial/launch/car_tutorial.launch.py
+패키지 생성 및 실행
+Rokey
+차 동 구동 로봇 패키지
+참고</p>
+</li>
+<li>
+<p>setup.py 수정
+src/car_tutorial/setup.py
+패키지 생성 및 실행
+Rokey
+차 동 구동 로봇 패키지
+참고
+$ cd ~/car_ws
+$ colcon build –symlink-install
+$ source install/setup.bash
+$ ros2 launch car_tutorial car_tutorial.launch</p>
+</li>
+<li>
+<p>빌드 및 실행</p>
+</li>
+<li>rviz 설정
+Add -&gt; TF
+Add -&gt; RobotModel
+Add -&gt; Image
+Global Options &gt; Fixed Frame : base_link
+RobotModel &gt; Description Topic : /robot_description
+Image &gt; Topic : /image
+File -&gt; Save Config
+패키지 생성 및 실행</li>
+</ol>
+<p><img alt="Image 113" src="../../../assets/images/ros/projects/simulation/img_057_113.webp" /></p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+$ ros2 run teleop_twist_keyboard teleop_twist_keyboard</p>
+<ol>
+<li>
+<p>두 번째 터미널에서 실행
+u, I, o, j, k, l, m, ,, . 키로 조작
+패키지 생성 및 실행
+Rokey
+차 동 구동 로봇 패키지
+참고</p>
+</li>
+<li>
+<p>rqt_graph 실행
+$ rqt_graph
+패키지 생성 및 실행</p>
+</li>
+</ol>
+<p><img alt="Image 117" src="../../../assets/images/ros/projects/simulation/img_059_117.webp" /></p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+가제 보 시뮬레이션</p>
+<p>시뮬레이션
+gazebo</p>
+<ol>
+<li>
+<p>car_tutorial package 생성 및 설정
+$ cd ~/sim_ws
+$ ros2 pkg create --build-type ament_python car_simulation
+$ cd car_tutorial
+$ mkdir urdf launch
+$ cp ~/car_sw/src/car_tutorial/urdf/car.xacro ~/sim_sw/src/car_simulation/urdf/car.xacro</p>
+</li>
+<li>
+<p>xacro 파일 복사</p>
+</li>
+</ol>
+<p>시뮬레이션
+gazebo</p>
+<ol>
+<li>macros 파일 작성
+src/sim_tutorial/urdf/macros.xacro</li>
+</ol>
+<?xml version="1.0"?>
+<p><robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+    <!-- Specify some standard inertial calculations https://en.wikipedia.org/wiki/List_of_moments_of_inertia -->
+    <!-- These make use of xacro's mathematical functionality -->
+    <xacro:macro name="inertial_sphere" params="mass radius *origin">
+        <inertial>
+            <xacro:insert_block name="origin"/>
+            <mass value="<span class="arithmatex">\({mass}" /&gt;
+            &lt;inertia ixx="\)</span>{(2/5) * mass * (radius*radius)}" ixy="0.0" ixz="0.0"
+                    iyy="<span class="arithmatex">\({(2/5) * mass * (radius*radius)}" iyz="0.0"
+                    izz="\)</span>{(2/5) * mass * (radius*radius)}" />
+        </inertial>
+    </xacro:macro>
+    <xacro:macro name="inertial_box" params="mass x y z *origin">
+        <inertial>
+            <xacro:insert_block name="origin"/>
+            <mass value="<span class="arithmatex">\({mass}" /&gt;
+            &lt;inertia ixx="\)</span>{(1/12) * mass * (y*y+z*z)}" ixy="0.0" ixz="0.0"
+                    iyy="<span class="arithmatex">\({(1/12) * mass * (x*x+z*z)}" iyz="0.0"
+                    izz="\)</span>{(1/12) * mass * (x*x+y*y)}" />
+        </inertial>
+    </xacro:macro>
+    <xacro:macro name="inertial_cylinder" params="mass length radius *origin">
+        <inertial>
+            <xacro:insert_block name="origin"/>
+            <mass value="<span class="arithmatex">\({mass}" /&gt;
+            &lt;inertia ixx="\)</span>{(1/12) * mass * (3*radius*radius + length*length)}" ixy="0.0" ixz="0.0"
+                    iyy="<span class="arithmatex">\({(1/12) * mass * (3*radius*radius + length*length)}" iyz="0.0"
+                    izz="\)</span>{(1/2) * mass * (radius*radius)}" />
+        </inertial>
+    </xacro:macro>
+</robot>
+시뮬레이션에 필요한 물리적 특성을
+기록한 파일</p>
+<p>시뮬레이션
+gazebo</p>
+<ol>
+<li>xacro 파일 수정
+src/sim_tutorial/urdf/car.xacro
+macros 부분 추가</li>
+</ol>
+<p>Rokey
+참고</p>
+<ol>
+<li>setup.py 작성
+src/sim_tutorial/setup.py
+패키지 생성 및 실행
+시뮬레이션</li>
+</ol>
+<p>시뮬레이션
+패키지 생성 및 실행</p>
+<ol>
+<li>launch 파일 작성
+import os
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch.substitutions import LaunchConfiguration
+from launch.actions import DeclareLaunchArgument
+from launch_ros.actions import Node
+import xacro
+def generate_launch_description():
+    use_sim_time = LaunchConfiguration("use_sim_time")
+    pkg_path = os.path.join(get_package_share_directory("car_simulation"))
+    xacro_file = os.path.join(pkg_path, "urdf", "car.xacro")
+    robot_description = xacro.process_file(xacro_file)
+    params = {"robot_description": robot_description.toxml(), "use_sim_time":
+use_sim_time}
+    return LaunchDescription(
+        [
+            DeclareLaunchArgument(
+                "use_sim_time", default_value="true", description="use sim time"
+            ),
+            Node(
+                package="robot_state_publisher",
+                executable="robot_state_publisher",
+                output="screen",
+                parameters=[params],
+            ),
+        ]
+    )
+src/sim_tutorial/launch/car_simulation.launch.py</li>
+</ol>
+<p>시뮬레이션
+$ cd ~/sim_ws
+$ colcon build –symlink-install
+$ source install/setup.bash
+$ ros2 launch sim_tutorial car_simulation.launch</p>
+<ol>
+<li>빌드 및 실행
+$ ros2 launch gazebo_ros gazebo.launch.py
+$ ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity with_robot
+패키지 생성 및 실행</li>
+</ol>
+<p>시뮬레이션
+가제보(gazebo)
+Gazebo는 로봇을 3D 환경에서 시뮬레이션할 수 있는 강력한 물리 엔진 기반 시뮬레이터.
+-로봇 시뮬레이션
+-URDF 또는 SDF 형식의 로봇 모델을 불러와서 3D 환경에서 테스트 가능.
+-예: TurtleBot3를 Gazebo에서 로딩하여 이동, 탐색 등을 실험 가능.
+-물리 엔진 제공
+-ODE, Bullet, DART, Simbody 등의 물리 엔진을 사용하여 실제 물리와 유사한 환경을 구현.
+-중력, 충돌, 마찰, 센서 노이즈 등을 포함한 시뮬레이션 가능.
+-센서 시뮬레이션
+-LiDAR, 카메라, IMU, GPS, Force-Torque 센서 등을 가상 환경에서 사용할 수 있음.
+-예: /scan 토픽을 이용해 가상 LiDAR 데이터를 ROS 2에서 받아 올 수 있음.</p>
+<p><img alt="Image 122" src="../../../assets/images/ros/projects/simulation/img_067_122.webp" /></p>
+<p>시뮬레이션
+gazebo
+Launch 파일로 한 번에 실행
+import os
+import xacro
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription, ExecuteProcess, TimerAction
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch_ros.actions import Node
+from launch.substitutions import LaunchConfiguration
+from launch.actions import RegisterEventHandler, EmitEvent
+from launch.event_handlers import OnProcessExit
+from launch.events import Shutdown
+def generate_launch_description():
+    pkg_share = get_package_share_directory('car_simulation')</p>
+<div class="highlight"><pre><span></span><code>xacro_file = os.path.join(pkg_share, &#39;urdf&#39;, &#39;car.xacro&#39;)
+robot_description_config = xacro.process_file(xacro_file)
+robot_desc = robot_description_config.toxml()
+
+gazebo = IncludeLaunchDescription(
+    PythonLaunchDescriptionSource(
+        os.path.join(get_package_share_directory(&#39;gazebo_ros&#39;), &#39;launch&#39;, &#39;gazebo.launch.py&#39;),
+    ),
+)
+robot_state_publisher = Node(
+    package=&#39;robot_state_publisher&#39;,
+    executable=&#39;robot_state_publisher&#39;,
+    name=&#39;robot_state_publisher&#39;,
+    output=&#39;screen&#39;,
+    parameters=[{&#39;use_sim_time&#39;: True,
+                &#39;robot_description&#39;: robot_desc}]
+)
+
+spawn_entity = Node(
+    package=&#39;gazebo_ros&#39;,
+    executable=&#39;spawn_entity.py&#39;,
+    arguments=[&#39;-topic&#39;, &#39;robot_description&#39;,
+              &#39;-entity&#39;, &#39;with_robot&#39;],
+    output=&#39;screen&#39;
+)
+
+delayed_spawn = TimerAction(
+    period=5.0,
+    actions=[spawn_entity]
+)
+
+return LaunchDescription([
+    gazebo,
+    robot_state_publisher,
+    delayed_spawn
+])
+</code></pre></div>
+<p>src/sim_tutorial/launch/car_simulation_once.launch.py</p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+차 동 로봇 시뮬레이션</p>
+<p>운전하기
+가제 보 시뮬레이션</p>
+<?xml version="1.0"?>
+<p><robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <gazebo>
+        <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
+            <!-- Wheel Information -->
+            <left_joint>left_wheel_joint</left_joint>
+            <right_joint>right_wheel_joint</right_joint>
+            <wheel_separation>0.35</wheel_separation>
+            <wheel_diameter>0.1</wheel_diameter>
+            <!-- Limits -->
+            <max_wheel_torque>200</max_wheel_torque>
+            <max_wheel_acceleration>10.0</max_wheel_acceleration>
+            <!-- Output -->
+            <odometry_frame>odom</odometry_frame>
+            <robot_base_frame>base_link</robot_base_frame>
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf>
+        </plugin>
+    </gazebo>
+</robot>
+gazebo.xacro 파일 작성
+src/car_simulation/urdf/gazebo.xacro</p>
+<p>운전하기
+가제 보 시뮬레이션
+xacro 파일 수정
+src/sim_turoail/urdf/car.xacro
+macros 부분 추가</p>
+<p>운전하기
+$ cd ~/car_ws
+$ colcon build –symlink-install
+$ source install/setup.bash
+$ ros2 launch sim_tutorial car_simulation_once.launch</p>
+<ol>
+<li>빌드 및 실행
+$ ros2 run teleop_twist_keyboard teleop_twist_keyboard
+$ rviz2
+가제 보 시뮬레이션</li>
+</ol>
+<p>운전하기
+Add -&gt; TF
+Add -&gt; RobotModel
+Description Topic: /robot_description
+Global Options &gt; Fixed Frame : odom
+Rviz2 Odom 설정
+ODOM 프레임(Odometry Frame)은 로봇의 이동 경로를 추적하는 데 사용되는 중요한 좌표계
+1.기본 특징:
+-로봇이 시작한 위치를 기준으로 하는 좌표계
+-로봇의 상대적인 움직임을 표현
+-시간이 지나도 원점이 변하지 않음
+-일반적으로 "odom" 이라는 이름의 프레임으로 표현
+2.주요 역할:
+-로봇의 현재 위치와 방향을 시작점 대비 상대적으로 추적
+-단기적인 로봇의 움직임을 정확하게 표현
+-지역적 네비게이션에 사용
+-센서 퓨전의 기준 프레임으로 활용</p>
+<p><img alt="Image 125" src="../../../assets/images/ros/projects/simulation/img_073_125.webp" /></p>
+<p>운전하기
+추측 항법(推測航法, dead reckoning, dead reckoning navigation)
+Rviz2 Odom 설정
+TF 트리에서의 위치
+world/map -&gt; odom -&gt; base_link -&gt; 기타 센서 프레임
+4.다른 프레임과의 관계:
+-map 프레임: 전역 좌표계, 절대 위치 표현
+-base_link: 로봇 본체의 좌표계
+-odom은 이 둘 사이의 중간 역할을 수행
+5.사용 예시:
+-로봇의 dead reckoning 구현
+-로컬 장애물 회피
+-단거리 자율 주행
+-센서 데이터 통합
+주의할 점:
+-시간이 지날수록 오차가 누적될 수 있음
+-전역 위치 보정이 필요할 수 있음
+-map 프레임과의 관계를 주기적으로 업데이트해야함</p>
+<p>운전하기
+teleop 을 이용한 조작
+가제 보 시뮬레이션
+ros2 run teleop_twist_keyboard teleop_twist_keyboard</p>
+<p><img alt="Image 127" src="../../../assets/images/ros/projects/simulation/img_075_127.webp" /></p>
+<p>운전하기
+rqt_graph 실행
+$ rqt_graph
+가제 보 시뮬레이션</p>
+<p><img alt="Image 128" src="../../../assets/images/ros/projects/simulation/img_076_128.webp" /></p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+라이다 시뮬레이션</p>
+<p>라이다
+라이다 시뮬레이션
+lidar.xacro 파일 작성
+src/sim_tutorial/urdf/lidar.xacro
+라이더 기능 추가</p>
+<?xml version="1.0"?>
+<p><robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <gazebo reference="laser_frame">
+        <material>Gazebo/Red</material>
+        <sensor name="laser" type="ray">
+            <pose>0 0 0 0 0 0</pose>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <ray>
+                <scan>
+                    <horizontal>
+                        <samples>360</samples>
+                        <min_angle>-3.14</min_angle>
+                        <max_angle>3.14</max_angle>
+                    </horizontal>
+                </scan>
+                <range>
+                    <min>0.3</min>
+                    <max>12</max>
+                </range>
+            </ray>
+            <plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
+                <ros>
+                    <argument>~/out:=scan</argument>
+                </ros>
+                <output_type>sensor_msgs/LaserScan</output_type>
+                <frame_name>laser_frame</frame_name>
+            </plugin>
+        </sensor>
+    </gazebo>
+</robot>
+◦update_rate : 초당 10회 정보를 제공합니다.
+◦samples: 검색 구간 내에서 360개의 광선을 발사합니다.
+(이 부분을 조절하면서 간단한 테스트를 진행하겠 습 니
+다.)
+◦min_angle, max_angle: 2D LiDAR가 스캔할 구간입니다.
+−π부터+π까지2π 전체를 스캔합니다.
+◦range min/max: 2D LiDAR가 스캔 가능한 거리의 최소, 최대 값입니다.
+◦argument: ros에 전달할 topic 이름입니다.
+◦output_type: 출력 형식입니다.
+◦frame_name: 2D LiDAR가 부착된 센서 이름입니다.</p>
+<p>라이다
+라이다 시뮬레이션</p>
+<ol>
+<li>xacro 파일 수정
+src/sim_tutorial/urdf/car.xacro
+라이더 링크 및 기능 파일 추가</li>
+</ol>
+<p>라이다
+$ cd ~/car_ws
+$ colcon build –symlink-install
+$ source install/setup.bash
+$ ros2 launch sim_tutorial lidar.launch.py
+빌드 및 실행
+라이다 시뮬레이션
+$ ros2 run teleop_twist_keyboard teleop_twist_keyboard
+동작 시키기</p>
+<p><img alt="Image 131" src="../../../assets/images/ros/projects/simulation/img_080_131.webp" /></p>
+<p>라이다
+모델 추가
+라이다 시뮬레이션
+insert
+http://model  ~~
+모델 추가</p>
+<p><img alt="Image 132" src="../../../assets/images/ros/projects/simulation/img_081_132.webp" /></p>
+<p><img alt="Image 133" src="../../../assets/images/ros/projects/simulation/img_081_133.webp" /></p>
+<p><img alt="Image 134" src="../../../assets/images/ros/projects/simulation/img_081_134.webp" /></p>
+<p>라이다
+world 저장
+라이다 시뮬레이션
+File &gt; Save World As
+~/car_ws/src/car_simulation/my_world.world</p>
+<p><img alt="Image 135" src="../../../assets/images/ros/projects/simulation/img_082_135.webp" /></p>
+<p><img alt="Image 136" src="../../../assets/images/ros/projects/simulation/img_082_136.webp" /></p>
+<p>라이다
+Rviz 실행 및 설정
+라이다 시뮬레이션
+$ rviz2
+Add -&gt; TF
+Add -&gt; RobotModel
+Add -&gt; LaserScan
+Global Options &gt; Fixed Frame : odom
+RobotModel &gt; Description Topic : /robot_description
+LaserScan &gt; Topic : /scan</p>
+<blockquote>
+<p>style : Points</p>
+</blockquote>
+<p><img alt="Image 137" src="../../../assets/images/ros/projects/simulation/img_083_137.webp" /></p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+카메라 시뮬레이션</p>
+<p>카메라
+카메라 시뮬레이션
+camera.xacro 파일 작성
+src/sim_tutorial/urdf/camera.xacro
+카메라 기능 추가
+◦update_rate: 초당 10회 정보를 제공합니다.
+◦horizontal_fov: 가로 방향의 FOV (Field of View)는 1.089로 설정했 습 니
+다. Gazebo에서는 세로 방향의 FOV는 이미지 사이즈에 따라서 자동으로
+계산되는 것으로 보입니다.
+◦image format: R8G 8B8로 빨강, 초록, 파랑 모두 8비트로 인코딩 됩니다.
+◦image widht/height: 이미지의 크기는 가로 640 픽셀, 세로 480 픽셀로
+지정했습니다.
+◦frame_name: Camera가 부착된 센서 이름입니다.</p>
+<?xml version="1.0"?>
+<p><robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <gazebo reference="camera_link">
+        <material>Gazebo/Red</material>
+        <sensor name="camera" type="camera">
+            <pose>0 0 0 0 0 0</pose>
+            <visualize>true</visualize>
+            <update_rate>10</update_rate>
+            <camera>
+                <horizontal_fov>1.089</horizontal_fov>
+                <image>
+                    <format>B8G8R8</format>
+                    <width>640</width>
+                    <height>480</height>
+                </image>
+                <clip>
+                    <near>0.05</near>
+                    <far>8.0</far>
+                </clip>
+            </camera>
+            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+                <frame_name>camera_link_optical</frame_name>
+                <min_depth>0.1</min_depth>
+                <max_depth>100.0</max_depth>
+            </plugin>
+        </sensor>
+    </gazebo>
+</robot></p>
+<p>카메라
+카메라 시뮬레이션</p>
+<ol>
+<li>xacro 파일 수정
+src/sim_tutorial/urdf/car.xacro
+카메라 링크 및 기능 파일 추가</li>
+</ol>
+<p>카메라
+$ cd ~/car_ws
+$ colcon build –symlink-install
+$ source install/setup.bash
+$ ros2 launch sim_tutorial camera.launch.py
+빌드 및 실행
+카메라 시뮬레이션
+$ ros2 run teleop_twist_keyboard teleop_twist_keyboard
+동작 시키기</p>
+<p><img alt="Image 140" src="../../../assets/images/ros/projects/simulation/img_087_140.webp" /></p>
+<p>카메라
+Add -&gt; TF
+Add -&gt; RobotModel
+Add -&gt; LaserScan
+Add -&gt; Image
+Global Options &gt; Fixed Frame : odom
+RobotModel &gt; Description Topic : /robot_description
+LaserScan &gt; Topic : /scan</p>
+<blockquote>
+<p>style : Points
+Image &gt; Topic : /camera/image_raw
+Rviz 실행 및 설정
+$ rviz2
+카메라 시뮬레이션</p>
+</blockquote>
+<p><img alt="Image 141" src="../../../assets/images/ros/projects/simulation/img_088_141.webp" /></p>
+<p>Rokey
+참고
+openManipulatorX , moveit2</p>
+<p><img alt="Image 143" src="../../../assets/images/ros/projects/simulation/img_089_143.webp" /></p>
+<p>OpenManipulatorX
+가제보에서 물체를 붙여서 메니퓨 레이 터 이동시키기
+메니퓰레이터
+https://emanual.robotis.com/docs/en/platform/openmanipulator_x/quick_start_guide_basic_operation/
+OpenManipulatorX 특징:
+1.구조</p>
+<ol>
+<li>5개의 다이나믹 셀 서 보 모터 사용 (XM430-W350-T)</li>
+<li>4 자유도 매니퓰레이터 + 그리퍼</li>
+<li>최대가 반 하중: 0.5kg</li>
+<li>
+<p>작업 반경: 약 380mm
+1.하드웨어 구성</p>
+</li>
+<li>
+<p>다이나믹 셀 모터: 관절 제어</p>
+</li>
+<li>U2D2: 다이나믹 셀 통신용 컨버터</li>
+<li>프레임: 3D 프린팅 가능한 부품들</li>
+</ol>
+<p>객체(object)와 함께 로봇 팔 다루기
+설치 과정
+메니퓰레이터
+sudo apt-get install ros-<span ROS_DISTRO="ROS_DISTRO" class="arithmatex">\({ROS_DISTRO}-dynamixel-sdk
+sudo apt-get install ros-\)</span>-dynamixel-workbench
+sudo apt-get install ros-${ROS_DISTRO}-robotis-manipulator</p>
+<h1 id="_11">작업 공간 생성<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h1>
+<p>mkdir -p ~/robotis_ws/src
+cd ~/robotis_ws/src</p>
+<h1 id="_12">소스 코드 다운로드<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h1>
+<p>git clone https://github.com/ROBOTIS-GIT/open_manipulator.git
+git clone https://github.com/ROBOTIS-GIT/open_manipulator_msgs.git
+git clone https://github.com/ROBOTIS-GIT/open_manipulator_dependencies.git</p>
+<h1 id="_13">빌드<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h1>
+<p>cd ~/robotis_ws
+catkin_make</p>
+<p>객체(object)와 함께 로봇 팔 다루기</p>
+<h1 id="bashrc">~/.bashrc에 추가<a class="headerlink" href="#bashrc" title="Permanent link">&para;</a></h1>
+<p>echo 'source ~/robotis_ws/devel/setup.bash' &gt;&gt; ~/.bashrc
+source ~/.bashrc
+메니퓰레이터</p>
+<h1 id="gazebo">Gazebo 시뮬레이션<a class="headerlink" href="#gazebo" title="Permanent link">&para;</a></h1>
+<p>roslaunch open_manipulator_gazebo open_manipulator_gazebo.launch</p>
+<h1 id="rviz">RViz 시각화<a class="headerlink" href="#rviz" title="Permanent link">&para;</a></h1>
+<p>roslaunch open_manipulator_description open_manipulator_rviz.launch</p>
+<h1 id="_14">컨트롤러<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h1>
+<p>ros2 launch open_manipulator_x_moveit_config moveit_core.launch.py</p>
+<h1 id="gui">GUI 컨트롤<a class="headerlink" href="#gui" title="Permanent link">&para;</a></h1>
+<p>ros2 launch open_manipulator_x_gui open_manipulator_x_gui.launch.py</p>
+<p>Open manipulatorX
+class ManipulatorXMoveIt(Node):
+    def <strong>init</strong>(self):
+        super().<strong>init</strong>('manipulatorx_moveit2')
+        # Initialize MoveIt2 MoveGroupCommander
+        self.group_name = "manipulator"  # Replace with the correct group name from your MoveIt2
+configuration
+        self.move_group = MoveGroupCommander(self.group_name)
+        # Set up logger
+        self.get_logger().info("Manipulator-X MoveIt2 Node Initialized")
+    def move_to_xyz(self, x, y, z):
+        # Create a Pose object for the target position
+        target_pose = Pose()
+        target_pose.position.x = x
+        target_pose.position.y = y
+        target_pose.position.z = z</p>
+<div class="highlight"><pre><span></span><code>    # Orientation (w=1 indicates no rotation, adjust if needed)
+    target_pose.orientation.x = 0.0
+    target_pose.orientation.y = 0.0
+    target_pose.orientation.z = 0.0
+    target_pose.orientation.w = 1.0
+    # Set the target pose for the move group
+    self.move_group.set_pose_target(target_pose)
+    # Plan and execute the motion
+    success = self.move_group.go(wait=True)
+    self.move_group.stop()  # Ensure no residual movement
+    self.move_group.clear_pose_targets()
+    if success:
+        self.get_logger().info(f&quot;Successfully moved to position: x={x}, y={y}, z={z}&quot;)
+    else:
+        self.get_logger().error(&quot;Failed to move to the target position&quot;)
+</code></pre></div>
+<p>def main():
+    rclpy.init()</p>
+<div class="highlight"><pre><span></span><code>node = ManipulatorXMoveIt()
+# Example target position (replace with your desired
+</code></pre></div>
+<p>coordinates)
+    target_x = 0.2
+    target_y = 0.0
+    target_z = 0.2
+    # Move to the target position
+    node.move_to_xyz(target_x, target_y, target_z)
+    rclpy.shutdown()
+if <strong>name</strong> == "<strong>main</strong>":
+    main()
+import rclpy
+from rclpy.node import Node
+from moveit_commander import
+MoveGroupCommander
+from geometry_msgs.msg import Pose
+메니퓰레이터</p>
+<p>Open manipulatorX
+import os
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import
+PythonLaunchDescriptionSource
+from launch_ros.actions import Node
+def generate_launch_description():
+    # Define package paths
+    moveit_config_path =
+get_package_share_directory('turtlebot3_manipulation_moveit_config')
+    bringup_path =
+get_package_share_directory('turtlebot3_manipulation_bringup')
+    # Include MoveIt2 move_group.launch.py
+    move_group_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(moveit_config_path, 'launch', 'move_group.launch.py')
+        )
+    )
+    # Include robot hardware launch file
+    hardware_launch = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(bringup_path, 'launch', 'hardware.launch.py')
+        )
+    )
+메니퓰레이터
+    # RViz node to visualize planning
+    rviz_config_file = os.path.join(moveit_config_path, 'launch', 'moveit.rviz')
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        arguments=['-d', rviz_config_file],
+        name='rviz2',
+        output='screen'
+    )
+    return LaunchDescription([
+        hardware_launch,
+        move_group_launch,
+        rviz_node
+    ])</p>
+<p>Open manipulatorX
+import rclpy
+from rclpy.node import Node
+from moveit_commander import MoveGroupCommander
+class GripperControl(Node):
+    def <strong>init</strong>(self):
+        super().<strong>init</strong>('gripper_control')
+        self.gripper_group_name = "gripper"  # Replace with the correct group name for
+the gripper
+        self.gripper_group = MoveGroupCommander(self.gripper_group_name)
+        self.get_logger().info("Gripper Control Node Initialized")
+    def open_gripper(self):
+        joint_goal = [0.02]  # Adjust value as per the gripper's joint limits (fully open)
+        self.gripper_group.go(joint_goal, wait=True)
+        self.gripper_group.stop()
+        self.get_logger().info("Gripper opened.")
+    def close_gripper(self):
+        joint_goal = [0.0]  # Adjust value as per the gripper's joint limits (fully closed)
+        self.gripper_group.go(joint_goal, wait=True)
+        self.gripper_group.stop()
+        self.get_logger().info("Gripper closed.")
+def main():
+    rclpy.init()
+    node = GripperControl()
+    # Example: Open and then close the gripper
+    node.open_gripper()
+    rclpy.sleep(2)  # Wait for a while
+    node.close_gripper()
+    rclpy.shutdown()
+if <strong>name</strong> == '<strong>main</strong>':
+    main()
+메니퓰레이터</p>
+<p>Open manipulatorX , moveit2를 이용 타겟으로 이동시키기</p>
+<h1 id="usrbinenv-python3">!/usr/bin/env python3<a class="headerlink" href="#usrbinenv-python3" title="Permanent link">&para;</a></h1>
+<p>import rclpy
+from rclpy.node import Node
+from moveit2 import (
+    MoveGroupInterface,
+    PlanningSceneInterface,
+    RobotState
+)
+from geometry_msgs.msg import Pose, Point, Quaternion
+from tf2_ros import TransformException
+from tf2_ros.buffer import Buffer
+from tf2_ros.transform_listener import TransformListener
+class ArmTrajectoryPlanner(Node):
+    def <strong>init</strong>(self):
+        super().<strong>init</strong>('arm_trajectory_planner')</p>
+<div class="highlight"><pre><span></span><code>    # Initialize MoveIt2 interfaces
+    self.move_group = MoveGroupInterface(
+        node=self,
+        name=&quot;arm&quot;,  # Your planning group name
+        robot_description=&quot;robot_description&quot;,
+        robot_description_semantic=&quot;robot_description_semantic&quot;
+    )
+
+    self.planning_scene = PlanningSceneInterface(
+        node=self
+    )
+</code></pre></div>
+<h1 id="set-planning-parameters">Set planning parameters<a class="headerlink" href="#set-planning-parameters" title="Permanent link">&para;</a></h1>
+<div class="highlight"><pre><span></span><code>    self.move_group.set_planning_time(5.0)
+    self.move_group.set_num_planning_attempts(10)
+    self.move_group.set_max_velocity_scaling_factor(0.1)
+    self.move_group.set_max_acceleration_scaling_factor(0.1)
+def plan_cartesian_path(self, waypoints):
+    &quot;&quot;&quot;Plan a Cartesian path through given waypoints.&quot;&quot;&quot;
+
+    (plan, fraction) = self.move_group.compute_cartesian_path(
+        waypoints,    # waypoints to follow
+        0.01,         # eef_step
+        0.0,          # jump_threshold
+        True         # avoid_collisions
+    )
+
+    return plan, fraction
+def execute_trajectory(self, plan):
+    &quot;&quot;&quot;Execute a planned trajectory.&quot;&quot;&quot;
+
+    success = self.move_group.execute(plan, wait=True)
+    return success
+def move_to_pose(self, target_pose):
+    &quot;&quot;&quot;Plan and execute movement to a target pose.&quot;&quot;&quot;
+
+    self.move_group.set_pose_target(target_pose)
+    success = self.move_group.go(wait=True)
+    self.move_group.clear_pose_targets()
+    return success
+</code></pre></div>
+<p>메니퓰레이터</p>
+<p>Open manipulatorX
+def main():
+    rclpy.init()</p>
+<div class="highlight"><pre><span></span><code>planner = ArmTrajectoryPlanner()
+
+# Example target pose
+target_pose = Pose()
+target_pose.position = Point(x=0.4, y=0.0, z=0.4)
+target_pose.orientation = Quaternion(x=0.0, y=0.0, z=0.0, w=1.0)
+
+# Move to single target pose
+success = planner.move_to_pose(target_pose)
+planner.get_logger().info(f&quot;Move to pose success: {success}&quot;)
+
+# Example Cartesian path
+waypoints = []
+
+# Start with current pose
+start_pose = planner.move_group.get_current_pose().pose
+waypoints.append(start_pose)
+
+# Add waypoints relative to current pose
+wpose = Pose()
+wpose.position = Point(x=start_pose.position.x + 0.1,
+                     y=start_pose.position.y,
+                     z=start_pose.position.z)
+wpose.orientation = start_pose.orientation
+waypoints.append(wpose)
+</code></pre></div>
+<p>wpose = Pose()
+    wpose.position = Point(x=start_pose.position.x + 0.1,
+                         y=start_pose.position.y + 0.1,
+                         z=start_pose.position.z)
+    wpose.orientation = start_pose.orientation
+    waypoints.append(wpose)</p>
+<div class="highlight"><pre><span></span><code># Plan and execute Cartesian path
+plan, fraction = planner.plan_cartesian_path(waypoints)
+planner.get_logger().info(f&quot;Planned {fraction * 100}% of Cartesian path&quot;)
+
+if fraction &gt; 0.9:  # Execute only if we can achieve at least 90% of the path
+    success = planner.execute_trajectory(plan)
+    planner.get_logger().info(f&quot;Cartesian path execution success: {success}&quot;)
+
+rclpy.shutdown()
+</code></pre></div>
+<p>if <strong>name</strong> == '<strong>main</strong>':
+    main()
+메니퓰레이터</p>
+<p>객체(object)와 함께 로봇 팔 다루기
+https://github.com/minwoominwoominwoo7/op_moveit_client
+가제보에서 물체를 붙여서 메니퓨 레이 터 이동시키기
+메니퓰레이터</p>
+<p>static_transform_publisher
+launch 파일 안에 추가
+$ ros2 run tf2_ros static_transform_publisher 1 -1 0 0 0 0.707 base_link arm_base_link
+static_transform_publisher x y z yaw pitch roll frame_id child_frame_id period_in_ms
+-로봇의 센서 위치 정의
+-고정된 좌표계 관계 설정
+-로봇 모델의 기본 구조 정의
+-시뮬레이션 환경 설정
+메니퓰레이터</p>
+<p><img alt="Image 144" src="../../../assets/images/ros/projects/simulation/img_099_144.webp" /></p>
+<p><img alt="Image 145" src="../../../assets/images/ros/projects/simulation/img_099_145.webp" /></p>
+<p>Rokey
+참고
+Make a world</p>
+<p>시뮬레이션 월드 만들기
+Edit 메뉴에서 building editor 를 클릭한다.
+그러면 다음과 같은 building editor화면이 나타난다.
+Make a world</p>
+<p><img alt="Image 147" src="../../../assets/images/ros/projects/simulation/img_101_147.webp" /></p>
+<p>시뮬레이션 월드 만들기
+화면에서 왼쪽에는 벽, 문, 계단 등을 만들 수 있는 항목들이 있고, 모눈종이처럼 생긴 구역에서 위에서
+내려다보는 평면도 관점의 맵을 볼 수 있다. 이 모눈종이 구역에서 벽, 계단 등을 생성, 배치할 수 있다 아래 쪽
+구역은 실제 gazebo 공간상에 생성된 3차원 맵을 보여 준다.
+Make a world
+Model 이름으로 저장한다.</p>
+<p><img alt="Image 148" src="../../../assets/images/ros/projects/simulation/img_102_148.webp" /></p>
+<p>시뮬레이션 월드 만들기
+계단 만들기
+Make a world</p>
+<p><img alt="Image 150" src="../../../assets/images/ros/projects/simulation/img_103_150.webp" /></p>
+<p><img alt="Image 151" src="../../../assets/images/ros/projects/simulation/img_103_151.webp" /></p>
+<p>시뮬레이션 월드 만들기
+표면 이미지 추가 및 World 저장하기
+Make a world
+Add Texture
+Save as xxx.world
+https://www.youtube.com/watch?v=7McYSJFAqlU</p>
+<p><img alt="Image 152" src="../../../assets/images/ros/projects/simulation/img_104_152.webp" /></p>
+<p><img alt="Image 153" src="../../../assets/images/ros/projects/simulation/img_104_153.webp" /></p>
+<p><img alt="Image 154" src="../../../assets/images/ros/projects/simulation/img_104_154.webp" /></p>
+<p>Rokey
+차 동 구동 로봇 패키지
+참고
+예시 프로젝트</p>
+<p>Turtlebot3 Manipulation
+https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation/</p>
+<p><img alt="Image 156" src="../../../assets/images/ros/projects/simulation/img_106_156.webp" /></p>
+<p>Turtlebot3 Manipulation
+TurtleBot3 SBC
+$ export OPENCR_PORT=/dev/ttyACM0
+$ export OPENCR_MODEL=turtlebot3_manipulation
+$ rm -rf ./opencr_update.tar.bz2
+$ wget https://github.com/ROBOTIS-GIT/OpenCR-Binaries/raw/master/turtlebot3/ROS2/latest/opencr_update.tar.bz2
+$ tar -xvf opencr_update.tar.bz2
+$ cd ./opencr_update
+$ ./update.sh $OPENCR_PORT $OPENCR_MODEL.opencr
+Simulation
+ros2 launch turtlebot3_manipulation_bringup gazebo.launch.py
+ros2 launch turtlebot3_manipulation_bringup
+gazebo.launch.py start_rviz:=true
+또는
+가상 환경</p>
+<p><img alt="Image 158" src="../../../assets/images/ros/projects/simulation/img_107_158.webp" /></p>
+<p>Turtlebot3 Manipulation
+ros2 launch turtlebot3_manipulation_moveit_config moveit_gazebo.launch.py
+ros2 launch turtlebot3_manipulation_bringup gazebo.launch.py
+ros2 run nav2_map_server map_saver_cli -f ~/map
+ros2 launch turtlebot3_manipulation_cartographer cartographer.launch.py
+가상 환경</p>
+<p><img alt="Image 159" src="../../../assets/images/ros/projects/simulation/img_108_159.webp" /></p>
+<p><img alt="Image 160" src="../../../assets/images/ros/projects/simulation/img_108_160.webp" /></p>
+<p>Turtlebot3 Manipulation
+가상 환경</p>
+<p><img alt="Image 161" src="../../../assets/images/ros/projects/simulation/img_109_161.webp" /></p>
+<p>gazebo에서 3D맵 만들기
+가상 환경
+Edit 메뉴에서 building editor 를 클릭한다.
+화면에서 왼쪽에는 벽, 문, 계단 등을 만들 수 있는 항목들이 있고, 모눈종이처럼 생긴 구역에서 위에서 내려다보
+는 평면도 관점의 맵을 볼 수 있다. 이 모눈종이 구역에서 벽, 계단 등을 생성, 배치할 수 있다 아래 쪽 구역은 실제
+gazebo 공간상에 생성된 3차원 맵을 보여 준다.</p>
+<p><img alt="Image 162" src="../../../assets/images/ros/projects/simulation/img_110_162.webp" /></p>
+<p>gazebo에서 3D맵 만들기
+가상 환경
+Add texture 기능으로 물체의 표면 질감?을 바꿔 줄 수 있다.
+building editor 에서 맵을 다 만들었다면 왼쪽 상단의 File 탭에서 Save as..를 클릭하고
+이름을 바꿔 준 뒤, 저장한다.
+저장한 뒤 File -&gt; exit building editor 를 눌러 buildig editor 화면에서 나간다.</p>
+<p><img alt="Image 163" src="../../../assets/images/ros/projects/simulation/img_111_163.webp" /></p>
+<p>gazebo에서 3D맵 만들기
+가상 환경
+Gazebo에서 생성한 world를 SDF 파일로부터 불러와 실행하는 방법을 설명해 드리겠습니다.
+1.터미널에서 직접 실행하는 방법:
+gazebo <world_file_path>.sdf</p>
+<ol>
+<li>launch 파일을 통해 실행하는 방법:
+<launch>
+ <!-- Gazebo 서버와 클라이언트 실행 --></li>
+</ol>
+<p><include file="<span class="arithmatex">\((find gazebo_ros)/launch/empty_world.launch"&gt;
+    &lt;arg name="world_name" value="\)</span>(find
+your_package)/worlds/your_world.sdf"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+</launch></p>
+<p>복수의 정찰 로봇 관제 시스템
+가상 환경</p>
+<p><img alt="Image 164" src="../../../assets/images/ros/projects/simulation/img_113_164.webp" /></p>
+<p><img alt="Image 166" src="../../../assets/images/ros/projects/simulation/img_113_166.webp" /></p>
+<p>로봇 암을 이용한 자동 주차 시스템
+최대 높이 : 125m
+6-DoF로 설계
+MoveIT2 구동
+가상 환경</p>
+<p><img alt="Image 168" src="../../../assets/images/ros/projects/simulation/img_114_168.webp" /></p>
+<p><img alt="Image 169" src="../../../assets/images/ros/projects/simulation/img_114_169.webp" /></p>
+<p><img alt="Image 170" src="../../../assets/images/ros/projects/simulation/img_114_170.webp" /></p>
+<p><img alt="Image 171" src="../../../assets/images/ros/projects/simulation/img_114_171.webp" /></p>
+<p>드론 모델을 적용한 정찰
+Drone</p>
+<ul>
+<li>sjtu_drone 모델을 가져와서 사용</li>
+<li>자세 제어가 들어가 있는 점이 장점 https://github.com/NovoG93/sjtu_drone 가상 환경</li>
+</ul>
+<p><img alt="Image 174" src="../../../assets/images/ros/projects/simulation/img_115_174.webp" /></p>
+<p>Rokey
+참고</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.path", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

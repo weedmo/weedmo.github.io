@@ -1,0 +1,3954 @@
+
+<!doctype html>
+<html lang="ko" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ROS2 & AI Study Materials">
+      
+      
+      
+        <link rel="canonical" href="https://weedmo.github.io/ros/projects/gazebo/">
+      
+      
+        <link rel="prev" href="../rviz2/">
+      
+      
+        <link rel="next" href="../simulation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+    
+    
+      
+        <title>Gazebo - weedmo notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans KR";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#02_-gazebo_0305" class="md-skip">
+          콘텐츠로 이동
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="상단/헤더">
+    <a href="../../.." title="weedmo notes" class="md-header__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            weedmo notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Gazebo
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="다크 모드"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="다크 모드" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="grey"  aria-label="라이트 모드"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="라이트 모드" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="검색" placeholder="검색" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="검색">
+        
+        <button type="reset" class="md-search__icon md-icon" title="지우기" aria-label="지우기" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            검색 초기화
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="탭" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  ROS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../ai/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  AI
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="네비게이션" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="weedmo notes" class="md-nav__button md-logo" aria-label="weedmo notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    weedmo notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ROS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    입문 (Introduction)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    입문 (Introduction)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. ROS2 개요
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 개발환경
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 노드와 토픽
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. 서비스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. 액션
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    06. 런치파일
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    07. Pub/Sub & Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    08. 로봇시스템
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../intro/lesson-09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    09. 카메라 & API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    01. 로봇과 리눅스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    02. 네트워크와 통신
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    03. 센서와 로봇
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    04. ROS2 실습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basics/lesson-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    05. Topic/Service/Action
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 (Practice)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    실습 (Practice)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-01-04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 01-04
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-04-05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 04-05
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../practice/practice-05-07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    실습 05-07
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    프로젝트 (Projects)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    프로젝트 (Projects)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rviz2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RVIZ2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gazebo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시뮬레이션 협업
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aruco-conveyor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ArUco 마커 & 컨베이어벨트
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../autonomous-driving/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    자율주행 디지털트윈
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../thread-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    쓰레드와 데이터베이스
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    코드 참고 (Code Reference)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    코드 참고 (Code Reference)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/turtlesim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turtlesim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/pubsub-qos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pub/Sub & QoS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/srvcli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Service/Client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/calculator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/robot-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Robot System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/camera/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Camera Pub/Sub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/hangman/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hangman Game
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/urdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    URDF & Xacro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/opencv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenCV (Hough)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/point-cloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Point Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/lane-detect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lane Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/qt-plugin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Qt Plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/rqt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RQT Example
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code-ref/ros2env/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ROS2 환경설정
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../ai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    기초 (Fundamentals)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    기초 (Fundamentals)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/python-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/eda/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EDA
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/pytorch-intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PyTorch 입문
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/neural-network-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    신경망 기초
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/deep-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    딥러닝 (분류/회귀)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/cnn-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CNN 아키텍처
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/object-detection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    객체 탐지
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/sequence-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    시퀀스 모델 (RNN/LSTM)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/vision-transformers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vision Transformer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    응용 (Applied)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    응용 (Applied)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/computer-vision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    컴퓨터비전 (OpenCV)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/advanced-cv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    고급 CV (Tracking/Detection)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/generative-models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    생성 모델 (GAN/NeRF)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/explainable-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Explainable AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/medical-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    의료 AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ai/reinforcement-learning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    강화학습
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="목차">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="네비게이션" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    ROS
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../rviz2/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    프로젝트 (Projects)
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="02_-gazebo_0305">02_로키 - 두산 프로젝트 교안(GAZEBO)_0305<a class="headerlink" href="#02_-gazebo_0305" title="Permanent link">&para;</a></h1>
+<p>Version
+V1.0
+최종 수정 일
+2025.02.18
+작성자
+김루진
+시뮬레이션
+프로젝트 교안</p>
+<p>가제보(gazebo)가상 환경 구축</p>
+<ul>
+<li>ROS 시뮤 레이 션 툴인가 제보를 이용하여 테스트 환경 구축하기</li>
+<li>터틀봇3를 사용하여 실제 시뮬레이션 구축 및 실제 환경 테스트</li>
+<li>가상의 공장에서Pick and Place를 구현하는 시뮬레이션 구축하기가 제보</li>
+</ul>
+<p>주제2.1 기초
+가제보이해</p>
+<p>가제보이해
+가제 보신 버전 정보
+로봇 시뮬레이션은 모든 로봇 공학자의 도구 상자에서 필수적인 도구.
+잘 설계된 시뮬레이터를 사용하면 현실적인 시나리오를 사용하여 알고리즘을 신속하게
+테스트하고, 로봇을 설계하고, 회귀 테스트를 수행하고, AI 시스템을 훈련.
+Gazebo Classic과Ignition Gazebo (현재는Gazebo로통합)라는 두 가지 주요 버전
+신규 버전(Ignition Gazebo)
+모듈화된 아키텍처.
+여러 독립된 모듈(Ignition Physics, Ignition Rendering, Ignition Transport 등)로 구성, 특정 기능만 교체, 확장
+물리 엔진
+-구버전(Gazebo Classic):
+-기본 물리 엔진은ODE (Open Dynamics Engine)를사용
+-다른 엔진을 지원하기 위해 플러그인을 사용할 수 있었습니다. Bullet, Simbody, DART 등과도 통합
+-신규 버전(Ignition Gazebo):
+-다양한 물리 엔진과의 더 나은 통합을 제공하며, TPE (Trivial Physics Engine)와 같은 새로운 엔진 도입 성능과 유연성 향상
+가제보이해
+가제보이해</p>
+<ul>
+<li>설치하기 싸이트</li>
+<li>Classic버전 설치</li>
+<li>
+<p>Gazebo : Tutorial : Ubuntu (gazebosim.org)</p>
+</li>
+<li>
+<p>셋업</p>
+</li>
+<li>최소 설치 사양</li>
+</ul>
+<h1 id="install-gazebo-classic-11">Install Gazebo Classic 11<a class="headerlink" href="#install-gazebo-classic-11" title="Permanent link">&para;</a></h1>
+<p>sudo apt install gazebo11 -y</p>
+<h1 id="install-ros2-gazebo-integration-packages">Install ROS2-Gazebo integration packages<a class="headerlink" href="#install-ros2-gazebo-integration-packages" title="Permanent link">&para;</a></h1>
+<p>sudo apt install ros-humble-gazebo-ros-pkgs -y</p>
+<h1 id="source-ros2-setup-script">Source ROS2 setup script<a class="headerlink" href="#source-ros2-setup-script" title="Permanent link">&para;</a></h1>
+<p>echo "source /opt/ros/humble/setup.bash" &gt;&gt; ~/.bashrc
+source ~/.bashrc</p>
+<h1 id="install-additional-tools-optional-but-recommended">Install additional tools (optional but recommended)<a class="headerlink" href="#install-additional-tools-optional-but-recommended" title="Permanent link">&para;</a></h1>
+<p>sudo apt install python3-colcon-common-extensions -y</p>
+<ol>
+<li>설치하기
+가제보이해
+신버전 가 제보
+Ubuntu 22.04와ROS2 Humble에맞는Gazebo 설치 방법
+ROS2 Humble은Gazebo 11과 호환되며, 이는'gz'로 시작하는 새로운Gazebo 버전
+$sudo apt update
+$sudo apt install -y ros-humble-gazebo-ros-pkgs
+gz sim -v 4 /path/to/your/world/file.sdf
+특정 월드로Gazebo 실행</li>
+</ol>
+<p>가제보이해
+SDF(Simulation Description Format)
+URDF는RViz, Moveit! 그리고Gazebo에서 모두 사용</p>
+<p>주제2.2.3 시뮬레이터상Machine Tending동작 실습
+가제보이해</p>
+<ol>
+<li>가제보 다양한 기능
+가제보이해
+가제 보 프로젝트 디렉토리 구조
+-launch 폴더는 시뮬레이션을 시작하는 데 사용되는launch 파일 저장
+-worlds 폴더에는 가제 보 환경을 정의하는.world 파일 저장
+-models 폴더에는 로봇이나 객체와 같은 개별 모델 파일 저장
+-meshes 폴더는3D 모델의 시각적 및 물리적 표현을 위한 파일 저장
+-config 폴더에는 컨트롤러나 기타 설정 파일 저장
+-scripts 폴더는 로봇 제어나 시뮬레이션 관련 스크립트 파일 저장
+-plugins 폴더에는 가제 보의 기능을 확장하는 사용자 정의 플러그인
+가제 보 로봇 모델을spawn하고ROS를 통해 제어하기 위해 필요한 폴더 및 파일 구조
+가제 보 모델 데이터베이스 폴더 구조에 따른 포맷의 규칙을 따라야한다.</li>
+</ol>
+<p><img alt="Image 17" src="../../../assets/images/ros/projects/gazebo/img_009_017.webp" /></p>
+<p>가제보이해
+가제 보 프로젝트 디렉토리 구조
+mkdir -p ~/.gazebo/models/my_robot
+gedit ~/.gazebo/models/my_robot/model.config
+gedit ~/.gazebo/models/my_robot/model.sdf
+가제보GUI 인터페이스의Insert Model을 통해 당신의 모델을 불러올 수 있다</p>
+<p>가제보이해
+가제보툴이해</p>
+<ol>
+<li>툴바(toolbars)
+Upper Toolbar
+Bottom Toolbar</li>
+</ol>
+<p>가제보이해
+가제 보 화면 용어</p>
+<ol>
+<li>씬(scene)</li>
+<li>판넬(panel)</li>
+</ol>
+<p><img alt="Image 26" src="../../../assets/images/ros/projects/gazebo/img_012_026.webp" /></p>
+<p><img alt="Image 27" src="../../../assets/images/ros/projects/gazebo/img_012_027.webp" /></p>
+<p>가제보이해
+가상 환경 만들기</p>
+<ol>
+<li>샤시(Chassis)</li>
+<li>샤시 크기 조정</li>
+<li>싸이즈 줄이기(파란색으로 납작하게)</li>
+</ol>
+<p><img alt="Image 31" src="../../../assets/images/ros/projects/gazebo/img_013_031.webp" /></p>
+<p>가제보이해
+가상 환경 만들기</p>
+<ol>
+<li>Body 사시 만들기</li>
+<li>Front Wheels</li>
+</ol>
+<p><img alt="Image 34" src="../../../assets/images/ros/projects/gazebo/img_014_034.webp" /></p>
+<p><img alt="Image 35" src="../../../assets/images/ros/projects/gazebo/img_014_035.webp" /></p>
+<p>가제보이해
+가상 환경 만들기</p>
+<ol>
+<li>싸이즈 조절 및 복사</li>
+</ol>
+<p><img alt="Image 37" src="../../../assets/images/ros/projects/gazebo/img_015_037.webp" /></p>
+<p><img alt="Image 38" src="../../../assets/images/ros/projects/gazebo/img_015_038.webp" /></p>
+<p><img alt="Image 39" src="../../../assets/images/ros/projects/gazebo/img_015_039.webp" /></p>
+<p>가제보이해
+가상 환경 만들기</p>
+<ol>
+<li>관절(Joint) 추가
+상단 도구 모음에서 조인트 아이콘을 클릭하여 조인트 생성 대화 상자를 표시</li>
+</ol>
+<p><img alt="Image 41" src="../../../assets/images/ros/projects/gazebo/img_016_041.webp" /></p>
+<p><img alt="Image 42" src="../../../assets/images/ros/projects/gazebo/img_016_042.webp" /></p>
+<p>가제보이해
+가상 환경 만들기</p>
+<ol>
+<li>휠 축 맞추기
+조인트 축 섹션을 변경하고 축을Z(0, 0, 1)로 변경합니다.</li>
+</ol>
+<p><img alt="Image 44" src="../../../assets/images/ros/projects/gazebo/img_017_044.webp" /></p>
+<p>가제보이해
+가상 환경 만들기</p>
+<ol>
+<li>휠을 샤 시와 어 라인하기 그리고 왼쪽 바퀴도 만들기</li>
+</ol>
+<p><img alt="Image 46" src="../../../assets/images/ros/projects/gazebo/img_018_046.webp" /></p>
+<p><img alt="Image 47" src="../../../assets/images/ros/projects/gazebo/img_018_047.webp" /></p>
+<p><img alt="Image 48" src="../../../assets/images/ros/projects/gazebo/img_018_048.webp" /></p>
+<p><img alt="Image 49" src="../../../assets/images/ros/projects/gazebo/img_018_049.webp" /></p>
+<p>가제보이해
+가상 환경 만들기</p>
+<ol>
+<li>케스트볼 만들기
+기하학 섹션으로 스크롤하여 반경을0.2m로 변경합니다.</li>
+</ol>
+<p><img alt="Image 51" src="../../../assets/images/ros/projects/gazebo/img_019_051.webp" /></p>
+<p><img alt="Image 52" src="../../../assets/images/ros/projects/gazebo/img_019_052.webp" /></p>
+<p>가제보이해
+가상 환경 만들기</p>
+<ol>
+<li>휠을샤시와어라인하기
+Y Align Center option to center the two links in the Y axis, and select the X Align Min option
+조인트 유형 섹션에서 볼 조인트 옵션을 선택하세요.</li>
+</ol>
+<p><img alt="Image 54" src="../../../assets/images/ros/projects/gazebo/img_020_054.webp" /></p>
+<p><img alt="Image 55" src="../../../assets/images/ros/projects/gazebo/img_020_055.webp" /></p>
+<p>가제보이해
+가상 환경 만들기
+3D 맵 만들기
+Edit 메뉴에서building editor 를 클릭, 다음과 같은building editor화면이 나타난다.
+화면에서 왼쪽에는 벽, 문, 계단 등을 만들 수 있는 항목들이 있고, 모눈종이처럼 생긴 구역에서 위에서 내려다보는 평면도
+관점의 맵을 볼 수 있다. 이 모눈종이 구역에서 벽, 계단 등을 생성, 배치할 수 있다 아래 쪽 구역은 실제gazebo 공간상에
+생성된3차원 맵을 보여 준다.</p>
+<p><img alt="Image 57" src="../../../assets/images/ros/projects/gazebo/img_021_057.webp" /></p>
+<p><img alt="Image 58" src="../../../assets/images/ros/projects/gazebo/img_021_058.webp" /></p>
+<p>가제보이해
+가상 환경 만들기
+왼쪽의Create Walls의Wall을 클릭하고 모눈종이 영역에서 직선을 그려 주면, 벽이 생성된다. 직선의 길이, 위치
+등을 변경하면 벽의 길이, 위치를 변경할 수 있다.
+왼쪽에서Stairs 를 클릭하고, 모눈종이 영역을 클릭해 주면 계단이 생성된다.</p>
+<p><img alt="Image 60" src="../../../assets/images/ros/projects/gazebo/img_022_060.webp" /></p>
+<p><img alt="Image 61" src="../../../assets/images/ros/projects/gazebo/img_022_061.webp" /></p>
+<p>가제보이해
+가상 환경 만들기
+Add texture 기능으로 물체의 표면 질감을 바꿔 줄 수 있다.
+building editor 에서 맵을 다 만들었다면 왼쪽 상단의File 탭에서Save as..를 클릭, 이름을 바꿔 준 뒤, 저장한다.
+저장한 뒤File -&gt; exit building editor 를눌러buildig editor 화면에서 나간다.
+저장한 뒤building editor에서 나가면, 가제 보 공간에, 우리가 만든 구조물들이
+나타나 있다.
+위 사진은building editor에서 간단한 계단, 벽 등으로 만든 구조물이다.
+이제이3D 맵을*.world 파일로 저장하자.
+왼쪽 상단의File -&gt; save world as 를 클릭한다.
+참고: https://www.youtube.com/watch?v=7McYSJFAqlU</p>
+<p><img alt="Image 63" src="../../../assets/images/ros/projects/gazebo/img_023_063.webp" /></p>
+<p>가제보이해
+자동차 모델 만들기</p>
+<ol>
+<li>
+<p>저장 및 리 로 드
+ROS2 환경에서가 제보 모델 다음의 경로에 저장
+1.
+시스템 전체에서 접근 가능한 공용 가제 보 모델 저장소
+ <code>~/.gazebo/models/</code>: 사용자의 홈 디렉토리 내<code>.gazebo/models/</code> 폴더</p>
+</li>
+<li>
+<p>특정ROS2 패키지 내에 속한 모델들을 저장하는 공간
+ <code>&lt;ros2_workspace&gt;/src/&lt;package_name&gt;/models/</code>: ROS2 워크스페이스의 패키지 내<code>models/</code> 폴더</p>
+</li>
+<li>
+<p>저장된 모델을 로드</p>
+</li>
+<li>ros2 run gazebo_ros spawn_entity.py -entity robot_name -file /path/to/your/robot.urdf -x 0 -y 0 -z 1</li>
+</ol>
+<p>가제보이해
+자동차 모델 만들기
+from gazebo_ros.node import GazeboRosPaths</p>
+<h1 id="1">1.번경로의모델로드<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
+<p>gazebo.spawn_sdf_model('my_model', model_xml, '', initial_pose, 'world')</p>
+<h1 id="2">2.번경로의모델로드<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
+<p>pkg_path = GazeboRosPaths.get_model_path('my_package', 'my_model')
+gazebo.spawn_urdf_model('my_model', pkg_path, '', initial_pose, 'world')</p>
+<ol>
+<li>저장된 모델을 로드</li>
+<li>launch 파일, <code>gazebo.spawn_sdf_model()</code> 또는<code>gazebo.spawn_urdf_model()</code> 함수 사용</li>
+</ol>
+<p>메니퓨 레이 션 시뮬레이션</p>
+<p>메니퓨 레이 션 시뮬레이션
+로봇 모델 패키지 만들기</p>
+<ol>
+<li>워크 스페이스 폴더를 만들고 그 안으로 이동
+$ cd ~
+$ mkdir -p .gazebo/models/gongjang
+$ cd .gazebo/models/gongjang/</li>
+</ol>
+<?xml version="1.0"?>
+<p><model>
+   <name>ganzang</name>
+   <version>1.0</version>
+   <sdf version='1.4'>model.sdf</sdf>
+   <author>
+     <name>sj kim</name>
+     <email>*@gmail.com</email>
+   </author>
+   <description>project ganzang</description>
+</model></p>
+<ol>
+<li>로봇 모델의 설정 파일을 만들고 편집
+Model.config
+sudo apt-get install ros-humble-gazebo-ros
+참고: 가제 보 설치</li>
+</ol>
+<p>메니퓨 레이 션 시뮬레이션
+모델 설계하기</p>
+<ol>
+<li>로봇 모델의 실제 내용이 될 파일을 만들고 설계
+<link name="link1">
+<pose>0 0.1 0.125 0 0 0</pose>
+<collision name="collision">
+<geometry>
+<box>
+<size>.05 .3 .05</size>
+</box>
+</geometry>
+</collision>
+<visual name="visual">
+<geometry>
+<box>
+<size>.05 .3 .05</size>
+</box>
+</geometry>
+</visual>
+</link>
+<joint type="revolute" name="joint0">
+<pose>0 0 0 0 0 0</pose>
+<child>link0</child>
+<parent>world</parent>
+<axis>
+<xyz>0 0 0</xyz>
+</axis>
+</joint>
+<joint type="revolute" name="joint1">
+<pose>0 -0.1 0 0 0 0</pose>
+<child>link1</child>
+<parent>link0</parent>
+<axis>
+<limit>
+<lower>-1</lower>
+<upper>1</upper>
+</limit>
+<xyz>0 0 10</xyz>
+</axis>
+</joint>
+</model></li>
+</ol>
+<?xml version='1.0'?>
+<p><sdf version='1.4'>
+<model name="ganzang">
+<static>false</static>
+<link name='link0'>
+<pose>0 0 0.05 0 0 0</pose>
+  <collision name='collision'>
+<geometry>
+  <box>
+<size>.1 .1 .1</size>
+  </box>
+</geometry>
+</collision>
+<visual name='visual'>
+<geometry>
+<box>
+<size>.1 .1 .1</size>
+</box>
+</geometry>
+</visual>
+</link></p>
+<p>메니퓨 레이 션 시뮬레이션
+모델 불러오기</p>
+<ol>
+<li>가제 보의 왼쪽 페 널에서gongjang 모델을 마우스로 끌어 온다.
+여러 가지 기능을 메뉴를 선택해서 학습하시기 바랍니다.</li>
+</ol>
+<p><img alt="Image 71" src="../../../assets/images/ros/projects/gazebo/img_029_071.webp" /></p>
+<p>메니퓨 레이 션 시뮬레이션
+모델 설계하기</p>
+<ol>
+<li>컨트롤러 사용</li>
+</ol>
+<?xml version="1.0"?>
+<p><robot name="simple_example">
+<link name="base_link">
+<inertial>
+<mass value="10" />
+<inertia ixx="0.4" ixy="0.0" ixz="0.0" iyy="0.4" iyz="0.0" izz="0.2"/>
+</inertial>
+<collision>
+<geometry>
+<cylinder radius="0.05" length="0.24" />
+</geometry>
+</collision>
+<visual>
+<geometry>
+<cylinder radius="0.05" length="0.24" />
+</geometry>
+</visual>
+</link>
+<joint name="base_to_second_joint" type="continuous">
+<parent link="base_link"/>
+<child link="second_link"/>
+<axis xyz="1 0 0"/>
+<origin xyz="0.0 0.0 0.2" rpy="0.0 0.0 0.0"/>
+</joint></p>
+<!--
+GAZEBO RELATED PART                             -->
+<!-- ROS Control plugin for Gazebo -->
+<p><gazebo>
+<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+<robotNamespace>/simple_model</robotNamespace>
+</plugin>
+</gazebo></p>
+<!-- transmission -->
+<p><transmission name="base_to_second_trans">
+<type>transmission_interface/SimpleTransmission</type>
+<actuator name="motor1">
+<mechanicalReduction>1</mechanicalReduction>
+</actuator>
+<joint name="base_to_second_joint">
+<hardwareInterface>EffortJointInterface</hardwareInterface>
+</joint>
+</transmission>
+</robot>
+<link name="second_link">
+<inertial>
+<mass value="0.18" />
+<inertia ixx="0.0002835" ixy="0.0" ixz="0.0" iyy="0.0002835" iyz="0.0" izz="0.000324" />
+</inertial>
+<origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0" />
+<collision>
+<geometry>
+<box size="0.05 0.05 0.15" />
+</geometry>
+</collision>
+<visual>
+<geometry>
+<box size="0.05 0.05 0.15" />
+</geometry>
+</visual>
+</link></p>
+<p>메니퓨 레이 션 시뮬레이션
+힘으로 동작시켜 보기
+모델을 선택 후&gt; Apply Force and Torgue 선택
+힘(Force)와토크(Torque) 설정후Play 버튼</p>
+<p><img alt="Image 74" src="../../../assets/images/ros/projects/gazebo/img_031_074.webp" /></p>
+<p>World</p>
+<p>.world 파일
+..
+-Gazebo 시뮬레이션 환경을 정의하는 파일입니다.
+-여러 개의 모델(로봇, 지형, 센서 등)을 포함할 수 있습니다.
+-.sdf 파일을 불러오는 역할을 합니다.</p>
+<?xml version="1.0" ?>
+<p><sdf version="1.6">
+<world name="my_simulation_world"></p>
+<!-- 기본지면추가-->
+<p><include>
+<uri>model://ground_plane</uri>
+</include></p>
+<!-- 조명추가-->
+<p><include>
+<uri>model://sun</uri>
+</include></p>
+<!-- 로봇모델추가(외부SDF 파일포함) -->
+<p><include>
+<uri>model://my_robot</uri>
+</include>
+</world>
+</sdf>
+Gazebo의환경(월드, 조명, 지면, 로봇, 센서 등) 을정의
+<include> 태그를사용하여외부모델(.sdf) 을불러옴</p>
+<p>.sdf 파일
+..
+단일 개체(로봇, 센서, 지형 등)를 정의하는 파일입니다.
+로봇의 링크, 조인트, 센서, 물리적 특성 등을 포함합니다.
+.world 파일 내에서 불러올 수도 있고, 개별적으로 실행할 수도 있습니다.</p>
+<?xml version="1.0" ?>
+<p><sdf version="1.6">
+<model name="my_robot">
+<static>false</static>
+<link name="base_link">
+<visual name="visual">
+<geometry>
+<box>
+<size>0.5 0.5 0.5</size>
+</box>
+</geometry>
+</visual>
+<collision name="collision">
+<geometry>
+<box>
+<size>0.5 0.5 0.5</size>
+</box>
+</geometry>
+</collision>
+</link>
+</model>
+</sdf></p>
+<p>가제 보 모델
+..
+Gazebo는 기본적으로~/.gazebo/models/ 디렉터 리를 모델 경로로 인식
+mkdir -p ~/.gazebo/models/my_custom_model
+모델 폴더 구조</p>
+<p>.world vs .sdf 핵심 차이점
+.world 파일을 실행하려면ROS2의gazebo_ros 패키지를 사용합니다.
+..
+ros2 launch gazebo_ros gzserver.launch.py world:=/absolute/path/to/my_world.world</p>
+<p>..
+Gazebo의.world 파일에서 특정 모델을 직접 지정하는 방법
+특정 모델을.world 파일에서 지정하는 방법
+예를 들어, TurtleBot3를 포함한 커스 텀 월드를 생성하려면 다음과 같은.world 파일을 작성합니다.</p>
+<?xml version="1.0" ?>
+<p><sdf version="1.6">
+<world name="custom_world"></p>
+<!-- 바닥평면-->
+<p><include>
+<uri>model:ground_plane</uri>
+</include></p>
+<!-- 태양조명-->
+<p><include>
+<uri>model:sun</uri>
+</include></p>
+<!-- TurtleBot3 로봇추가-->
+<p><include>
+<uri>model:turtlebot3_burger</uri>
+<pose>0 0 0.1 0 0 0</pose>
+</include>
+</world>
+</sdf></p>
+<p>…
+Gazebo의.world 파일에서 특정 모델을 직접 지정하는 방법
+특정.world 파일을 포함하는 방법
+다른.world 파일을 현재 월드에 포함하려면<include> 태그 안에filename 속성을 사용합니다.
+예를 들어, 기존default.world를custom.world에서 포함하려면:</p>
+<?xml version="1.0" ?>
+<p><sdf version="1.6">
+<world name="custom_world"></p>
+<!-- 기존default.world 포함-->
+<p><include>
+<uri>file://path/to/default.world</uri>
+</include>
+</world>
+</sdf></p>
+<p>…
+Gazebo의.world 파일에서 특정 모델을 직접 지정하는 방법
+모델 파일의 위치 확인 및 추가
+Gazebo는 기본적으로/usr/share/gazebo-11/models/ 디렉터 리에서 모델을 찾습니다.
+사용자 지정 모델을 사용하려면GAZEBO_MODEL_PATH를 설정해야합니다.
+<include>
+<uri>model:my_custom_robot</uri>
+</include>
+직접.world 파일을 실행하는 방법
+저장한.world 파일을 실행하려면
+ros2 launch gazebo_ros gzserver.launch.py world:=/absolute/path/to/my_custom_world.world</p>
+<p>SDF(Scenario Description Format)</p>
+<p>가제보이해
+SDF(Scenario Description Format, Simulation Description Format)
+SDF: Gazebo에서 로봇, 센서, 환경 등을 정의하는XML 기반의 파일 형식입니다.
+SDF는URDF보다 더 정밀한 시뮬레이션을 지원하며, Gazebo의 물리 엔진과 긴밀하게 연결됩니다.
+ROS2와 함께 사용하면 로봇의 구조, 물리적 특성, 센서 모델 등을 정의하고 시뮬레이션 환경을 설정할 수 있습니다.
+SDF 주요 요소
+1) <world> - 월드 정의
+월드는Gazebo에서 시뮬레이션할 전체 환경을 정의하는 요소입니다.
+<model> - 로봇및오브젝트정의
+-로봇이나 오브젝트를 정의하는 요소로, <link>, <joint> 등을 포함할 수 있습니다.
+-static이true이면 해당 오브젝트는 고정된 상태가 됩니다.
+<link> - 모델의물리적요소
+-로봇의 구성 요소(바퀴, 몸체 등) 또는 오브젝트의 물리적 특성을 정의합니다.
+-<collision>과<visual>을 포함할 수 있습니다.</p>
+<p>가제보이해
+SDF
+SDF 주요 요소
+<joint> - 링크간연결
+-링크들 사이의 구동 방식(회전, 이동)을 정의하는 요소입니다.
+-type="revolute"는 회전 조인트, type="prismatic"는 선형 조인트입니다.
+<sensor> - 센서모델정의
+-카메라, LIDAR, IMU 등의 센서를 정의할 수 있습니다.
+<include> - 외부모델추가
+-Gazebo의 기본 모델을 불러오거나 외부SDF 파일을 로드할 때 사용됩니다.
+ros2 launch gazebo_ros gazebo.launch.py world:=/path/to/my_world.sdf</p>
+<p>SDF
+Sdf 만들기 실습
+로봇 모델 만들기 준비
+폴더를 만들고 시작
+ cd ~
+mkdir –p .gazebo/models/myrobot
+cd .gazebo/models/myrobot
+vi model.config</p>
+<?xml version="1.0"?>
+<p><model>
+   <name>myrobot</name>
+   <version>1.0</version>
+   <sdf version='1.4'>model.sdf</sdf>
+   <author>
+     <name>kim rujin</name>
+     <email>rujinkim32@gmail.com</email>
+   </author>
+   <description>project rokey</description>
+</model>
+model.config</p>
+<p>SDF
+Sdf 파일 모델 파일</p>
+<?xml version='1.0'?>
+<p><sdf version='1.4'>
+<model name=“myrobot">
+<static>false</static>
+<link name='link0'>
+<pose>0 0 0.05 0 0 0</pose>
+<collision name='collision'>
+<geometry>
+<box>
+<size>.1 .1 .1</size>
+</box>
+</geometry>
+</collision>
+<visual name='visual'>
+<geometry>
+<box>
+<size>.1 .1 .1</size>
+</box>
+</geometry>
+</visual>
+</link>
+<link name="link1">
+<pose>0 0.1 0.125 0 0 0</pose>
+<collision name="collision">
+<geometry>
+<box>
+<size>.05 .3 .05</size>
+</box>
+</geometry>
+</collision>
+<visual name="visual">
+<geometry>
+<box>
+<size>.05 .3 .05</size>
+</box>
+</geometry>
+</visual>
+</link>
+<joint type="revolute" name="joint0">
+<pose>0 0 0 0 0 0</pose>
+<child>link0</child>
+<parent>world</parent>
+<axis>
+<xyz>0 0 0</xyz>
+</axis>
+</joint>
+<joint type="revolute" name="joint1">
+<pose>0 -0.1 0 0 0 0</pose>
+<child>link1</child>
+<parent>link0</parent>
+<axis>
+<limit>
+<lower>-1</lower>
+<upper>1</upper>
+</limit>
+<xyz>0 0 10</xyz>
+</axis>
+</joint>
+</model>
+</sdf>
+Model.sdf
+static은 이 모델이 움직이는 것인지 아닌지를 표시, 앞으로 움직일'로봇'인지 바닥 위에 놓여질'장애물'인지를 설정.
+True이 면이 후에 플러그인이나 파라 메 터를 전달해도 움직이 않음.
+로봇 모델일 경우엔false로입력</p>
+<p>SDF
+Sdf 만들기 실습
+world, static, dynamic 객체</p>
+<p><img alt="Image 93" src="../../../assets/images/ros/projects/gazebo/img_045_093.webp" /></p>
+<p>SDF
+Inertial
+<inertial>
+<mass value="2.275"/>
+<origin rpy="0 0 0" xyz="0.0 0.0 0.25"/>
+<inertia ixx="0.049443313556" ixy="0.0" ixz="0.0" iyy="0.049443313556" iyz="0.0" izz="0.004095"/>
+</inertial>
+Gazebo는 로봇 부품(즉, 링크)의 무게와 관성을 알아야하는데, 이는 이 무게가 어떻게 분포되는지를 측정
+effort로봇에 적용할 수 있는 최대 힘(또는 토크)을 결정하는데, 이는 주로 모터의 힘에
+따라 달라집니다.
+태그<origin>는 각각 링크의 질량 중심 또는 중력 중심을 정의합니다.
+이는 질량에 따라 가중치가 부여된 시스템의 모든 부분의 평균 위치입니다. 가속도를
+계산할 때 유용한 속성입니다.
+실습 과제2 –라이다 시뮬레이션</p>
+<p>라이다 시뮬레이션
+라이다 정보 시각화
+라이다(LIDAR/LiDAR, light detection and ranging” 또는“laser imaging, detection, and ranging”의약자))는 레이저
+펄스를 쏘고 반사되어 돌아오는 시간을 측정하여 반사 체의 위치 좌표를 측정하는 레이다 시스템
+2D LiDAR는 관찰 지점으로부터2차원상의 평면 정보를 제공합니다.
+즉 센서와 평행한 평면을 기준으로 물체와의 거리가 얼마나 떨어져 있는지 확인</p>
+<p><img alt="Image 100" src="../../../assets/images/ros/projects/gazebo/img_048_100.webp" /></p>
+<p>라이다 시뮬레이션
+패키지 만들기, 기본 모델 만들기
+라이다 기능을 모델에 추가하고gazebo에서 실행하고 그 정보를Rviz2에서 시각화 확인할 수 있다.
+$ cd ~/sim_ws
+$ cp src/urdf_tutorial/urdf/robot_3.xacro src/urdf_tutorial/urdf/robot_4.xacro
+import os
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch.substitutions import LaunchConfiguration
+from launch.actions import DeclareLaunchArgument
+from launch_ros.actions import Node
+import xacro
+def generate_launch_description():
+use_sim_time = LaunchConfiguration("use_sim_time")
+pkg_path = os.path.join(get_package_share_directory("urdf_tutorial"))
+xacro_file = os.path.join(pkg_path, "urdf", "robot_4.xacro")
+robot_description = xacro.process_file(xacro_file)
+params = {"robot_description": robot_description.toxml(), "use_sim_time": use_sim_time}
+return LaunchDescription(
+[
+DeclareLaunchArgument(
+"use_sim_time", default_value="false", description="use sim time"
+),
+Node(
+package="robot_state_publisher",
+executable="robot_state_publisher",
+output="screen",
+parameters=[params],
+),
+]
+)
+Robot_state_publisher는robot_description을 토픽으로</p>
+<p>라이다 시뮬레이션
+런치 파일 만들기
+import os
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch_ros.actions import Node
+def generate_launch_description():
+package_name = "urdf_tutorial"
+rsp = IncludeLaunchDescription(
+PythonLaunchDescriptionSource(
+[os.path.join(get_package_share_directory(package_name), "launch", "robot_4.launch.py")]
+),
+launch_arguments={"use_sim_time": "true"}.items(),
+)</p>
+<h1 id="include-the-gazebo-launch-file-provided-by-the-gazebo_ros-package">Include the Gazebo launch file, provided by the gazebo_ros package<a class="headerlink" href="#include-the-gazebo-launch-file-provided-by-the-gazebo_ros-package" title="Permanent link">&para;</a></h1>
+<p>gazebo = IncludeLaunchDescription(
+PythonLaunchDescriptionSource(
+[os.path.join(get_package_share_directory("gazebo_ros"), "launch", "gazebo.launch.py")]
+),
+)</p>
+<h1 id="run-the-spawner-node-from-the-gazebo_ros-package">Run the spawner node from the gazebo_ros package.<a class="headerlink" href="#run-the-spawner-node-from-the-gazebo_ros-package" title="Permanent link">&para;</a></h1>
+<p>spawn_entity = Node(
+package="gazebo_ros",
+executable="spawn_entity.py",
+arguments=["-topic", "robot_description", "-entity", "with_robot"],
+output="screen",
+)</p>
+<h1 id="launch-them-all">Launch them all!<a class="headerlink" href="#launch-them-all" title="Permanent link">&para;</a></h1>
+<p>return LaunchDescription(
+[
+rsp,
+gazebo,
+spawn_entity,
+]
+)</p>
+<p>라이다 시뮬레이션
+패키지 빌드 후가 제보 실행
+<material name="red">
+<color rgba="1 0 0 1"/>
+</material></p>
+<!-- LiDAR -->
+<p><joint name="laser_joint" type="fixed">
+<parent link="body"/>
+<child link="laser_frame"/>
+<origin xyz="0.1 0 0.075" rpy="0 0 0"/>
+</joint>
+<link name="laser_frame">
+<visual>
+<geometry>
+<cylinder radius="0.03" length="0.03"/>
+</geometry>
+<material name="red"/>
+</visual>
+<collision>
+<geometry>
+<cylinder radius="0.03" length="0.03"/>
+</geometry>
+</collision>
+</link>
+$ cd ~/sim_ws/
+$ colcon build --symlink-install
+$ source install/setup.bash
+$ ros2 launch urdf_tutorial lidar.launch.py</p>
+<p><img alt="Image 104" src="../../../assets/images/ros/projects/gazebo/img_051_104.webp" /></p>
+<p>라이다 시뮬레이션
+라이다 정보 모델 만들기
+‘src/urdf_tutorial/urdf/lidar.xacro’ 파일
+◦update_rate: 초당10회 정보를 제공합니다.
+◦samples: 검색 구간 내에서4개의 광선을 발사합니다.
+◦min_angle, max_angle: 2D LiDAR가 스캔할 구간입니다.
+◦range min/max: 2D LiDAR가 스캔 가능한 거리의 최소, 최대 값입니다.
+◦argument: ros에 전달할topic 이름입니다.
+◦output_type: 출력 형식입니다.
+◦frame_name: 2D LiDAR가부착된 센서 이름입니다.</p>
+<?xml version="1.0"?>
+<p><robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<gazebo reference="laser_frame">
+<material>Gazebo/Red</material>
+<sensor name="laser" type="ray">
+<pose>0 0 0 0 0 0</pose>
+<visualize>true</visualize>
+<update_rate>10</update_rate>
+<ray>
+<scan>
+<horizontal>
+<samples>4</samples>
+<min_angle>-3.14</min_angle>
+<max_angle>3.14</max_angle>
+</horizontal>
+</scan>
+<range>
+<min>0.3</min>
+<max>12</max>
+</range>
+</ray>
+<plugin name="laser_controller" filename="libgazebo_ros_ray_sensor.so">
+<ros>
+<argument>~/out:=scan</argument>
+</ros>
+<output_type>sensor_msgs/LaserScan</output_type>
+<frame_name>laser_frame</frame_name>
+</plugin>
+</sensor>
+</gazebo>
+</robot>
+<xacro:include filename="lidar.xacro"/>
+로봇 모델에 라이다 모델 추가</p>
+<p>라이다 시뮬레이션
+가제보이해
+-Gazebo에서‘Insert’ 탭을 누르고‘Insert model …’을 누른 상태로5분 정도 기다리면 설치 가능한 모델 목록이 나타납니다.
+시뮬레이션을 위한 월드 만들기, 로봇 제거 후 월드 저장</p>
+<p><img alt="Image 107" src="../../../assets/images/ros/projects/gazebo/img_053_107.webp" /></p>
+<p>라이다 시뮬레이션
+가제보이해
+-목록에서‘with-bot’을 선택 후 마우스 메뉴 버튼을 누른 후 팝업 메뉴에서‘Delete’를 눌러서with-bot을제거
+-'src/urdf_tutorial/config' 폴더에‘with_robot.world’라는 파일 명으로 저장합니다.</p>
+<p><img alt="Image 109" src="../../../assets/images/ros/projects/gazebo/img_054_109.webp" /></p>
+<p>라이다 시뮬레이션
+RVIZ2 실행하기
+$ ros2 launch urdf_tutorial lidar.launch.py world:=src/urdf_tutorial/config/with_robot.world</p>
+<p><img alt="Image 111" src="../../../assets/images/ros/projects/gazebo/img_055_111.webp" /></p>
+<p><img alt="Image 112" src="../../../assets/images/ros/projects/gazebo/img_055_112.webp" /></p>
+<p>카메라 시뮬레이션
+/scan 토픽 확인
+-2D LiDAR의samples 수를4에서360으로 늘려 보고 수신되는 정보를 기반으로 키보드로 주행을 해 보는 과정
+-우선 모든 터미널에서‘CTRL+C’를 눌러서 실행 중인 모든 프로그램을 종료.
+-‘src/urdf_tutorial/urdf/lidar.xacro’ 파일에서‘laser_frame’의samples를360으로 변경.
+$ cd ~/Workspace/ros_ws/ $ ros2 topic echo /scan</p>
+<p>카메라 시뮬레이션
+시뮬레이 선 수행하기
+-2D LiDAR의samples 수를4에서360으로 늘려 보고 수신되는 정보를 기반으로 키보드로 주행을 해 보는 과정
+-우선 모든 터미널에서‘CTRL+C’를 눌러서 실행 중인 모든 프로그램을 종료합니다.
+-‘src/urdf_tutorial/urdf/lidar.xacro’ 파일에서‘laser_frame’의samples를360으로 변경합니다.
+$ colcon build --symlink-install $ ros2 launch urdf_tutorial
+lidar.launch.py world:=src/urdf_tutorial/config/with_robot.world
+$ ros2 run teleop_twist_keyboard
+teleop_twist_keyboard</p>
+<p><img alt="Image 116" src="../../../assets/images/ros/projects/gazebo/img_057_116.webp" /></p>
+<p>실습 과제3- Moveit2</p>
+<p>Moveit2 실습
+Moveit2 실습
+https://kolkemboi.medium.com/simulate-6-dof-robot-arm-in-ros2-gazebo-and-moveit2-a171c7e9b0ad
+시뮬레이션 및 시각화를 위한Gazebo, 모션 계획을 위한MoveIt2, 프로그래밍을 위한Python을 통합하여 로봇
+개발을 위한 포괄적인 환경을 제공
+아래 링크는 내GitHub에 있는 파일의 공개 저장소
+필수 구성 요소
+Ubuntu 22.04
+ROS2 Humble
+Gazebo
+Moveit2</p>
+<p>Moveit2 실습
+Moveit2 실습
+시스템 아키텍처
+6개DoF 로봇은 관절을 위한6개 관절을 특징으로 하는 로봇 팔 구성을 사용합니다.
+ROS 2 아키텍처 내에서 여러 노드를 사용하여 관절 컨트롤러, 센서 인터페이스, 모션 계획 모듈을 포함한
+시스템의 다양한 측면을 제어합니다.
+Gazebo는 시뮬레이션 환경 역할을 하며 현실적인 물리 및 센서 피드백을 제공합니다.
+Autodesk Fusion을 사용하여Gazebo에서 시뮬레이션
+로봇 모델을 개발하고ROS2용URDF 내보내기 기능을 사용하여URDF로 내보냈습니다.</p>
+<p>Moveit2 실습
+Moveit2 실습
+시뮬레이션을 위해Gazebo로 가져왔습니다. 월드 링크를 추가하여 월드의 땅에 고정
+로봇은 시뮬레이션된 세계에서 제어가 부족하므로ros2_control을 사용하여 제어를 추가
+조인트, 명령 및 상태 인터페이스를 정의하고gazebo.launch.py에 컨트롤러 런 처를 추가하여 모델을 생성하고 로봇의 컨트롤러를 시작</p>
+<p><img alt="Image 123" src="../../../assets/images/ros/projects/gazebo/img_061_123.webp" /></p>
+<p>Moveit2 실습
+Moveit2 실습</p>
+<p>Moveit2 실습
+Moveit2 실습
+MoveIt2를 사용한 모션 플래닝
+MoveIt2는 모션 플래닝 및 조작 작업을 위한 강력한 프레임워크를 제공
+로봇의 운동 학 모델은MoveIt2와 인터페이스되어 구성 공간에서 경로 플래닝이 가능
+Rapidly-exploring Random Trees(RRT)를 포함한 다양한 모션 플래닝 알고리즘이 구현되어 충돌 없는 궤적을 생성
+Moveit2 실습
+Moveit2 실습
+시스템이 어떤 링크가 충돌하는지에 대한 계산을 줄이기
+위해 충돌 행렬을 생성합니다.
+Moveit2 실습
+Moveit2 실습
+RRT와KDLkinematic 솔버를 사용하여 계획 그룹을 생성합니다.
+이 단계에서는Moveit에서 제어할 링크를 선택합니다.</p>
+<p><img alt="Image 132" src="../../../assets/images/ros/projects/gazebo/img_065_132.webp" /></p>
+<p>Moveit2 실습
+Moveit2 실습
+로봇에 휴식 포즈와 시작 포즈의 두 가지 포즈를 제공합니다.</p>
+<p><img alt="Image 135" src="../../../assets/images/ros/projects/gazebo/img_066_135.webp" /></p>
+<p>Moveit2 실습
+Moveit2 실습
+moveit config 폴더에ros2_control 인터페이스 추가</p>
+<p>가제보이해
+SRDF (Semantic Robot Description Format)
+- URDF와 같은 로봇의 의미론적 정보(semantic information)를 정의하는XML 파일 포맷
+- 주로MoveIt!과 같은 로봇 모션 계획 소프트웨어에서 사용
+- SRDF는 로봇의 움직임에 대한 의미론적 정보</p>
+<ul>
+<li>어떤 조인트를 그룹으로 묶을지, 플래닝 그룹, 엔드 이펙터 정의 등 • 플래닝 그룹 - 로봇의 특정 조인트들을 그룹화하여 모션 플래닝을 위해 사용하는데, 이를SRDF에 서정의. • 자유도 제약 및 제한 - 특정 조인트에 대한 운동 범위 제한 및 제약 조건을 정의. • MoveIt!와통합 - 주로MoveIt!에서 모션 플래닝을 위해 사용.</li>
+<li>SRDF</li>
+<li>SRDF 특징</li>
+</ul>
+<p>가제보이해
+SDF (Simulation Description Format)</p>
+<ul>
+<li>
+<p>복잡한 시뮬레이션 환경 지원: 로봇뿐만 아니라 전체 시뮬레이션 환경(장애물, 지형 등) 정의</p>
+</li>
+<li>
+<p>다양한 물리적 특성: URDF보다 더 복잡한 물리 엔진 지원 및 모델 정의 가능 (예: 다양한 마찰력, 관성 모 멘트 등을 정교하게 설정)</p>
+</li>
+<li>
+<p>Gazebo에서 주로 사용: Gazebo 시뮬레이터와 통합 고급 물리 시뮬레이션을 위해 설계</p>
+</li>
+<li>
+<p>SDF <sdf version="1.6"> <model name="example_robot"> <link name="base_link"> <visual> <geometry> <box size="1 1 1"/> </geometry> </visual> <collision> <geometry> <box size="1 1 1"/> </geometry> </collision> </link> <joint name="joint1" type="revolute"> <parent>base_link</parent> <child>link1</child> <axis> <xyz>0 0 1</xyz> </axis> </joint> </model> </sdf></p>
+</li>
+</ul>
+<p>Moveit2 실습
+Moveit2 실습
+생성된Moveit 파일을RVIZ에서 시각화하고 로봇과 상호 작용하며 다양한 위치에서 포즈
+Python 스크립트는ROS 2 환경 내에서 로봇의 동작을 제어하는데 활용
+궤적 생성, 역운동 학 계산 및 피드백 제어를 위한 함수는Python으로 구현
+이를 통해 프로그래밍의 유연성과ROS 2 노드와의 쉬운 통합이 가능
+스크립트는 각 관절의 관절 위치에 대한6개인 수와 지속 시간에 대한2개 인수를 포함하여8개의 인수를 필요
+Python으로 프로그래밍하기
+Moveit2</p>
+<p>GAZEBO
+Moveit 시스템 구조
+MoveIt은 모션 플래닝을 위해 다양한 알고리즘과 플러그인 기반 구조를 사용하며, 로봇의 경로 계획, 제어, 시각화
+등의 작업을 통합하여 수행
+-로봇 모델 및 환경(URDF, SRDF)
+로봇의 구조와 환경을 정의하는 파일들을 바탕으로MoveIt이 로봇과 환경을 이해하고 작업.
+-Planning Scene
+로봇과 환경의 상태를 유지하고, 충돌 감지 및 환경 변화를 실시간 반영.
+-Motion Planning Pipeline
+경로를 계획하고 최적화하며, 키네마틱솔버와충돌감지시스템을통해안전한경로를계산.
+-Controller Manager
+경로를 실제 로봇에 적용하여 움직임을 제어.
+-Rviz 및 사용자 상호 작용
+사용자에게 로봇의 상태를 시각적으로 보여 주고, 목표를 설정하거나 경로를 모니터링
+-Perception과Grasping
+환경 인식을 통해 동적으로 경로를 수정하고, 물체 조작.
+MoveIt은 로봇의 모션 플래닝, 제어, 시뮬레이션, 충돌 감지 등을 지원하는 강력한 로봇 소프트웨어 플랫폼으로,
+ROS(로봇 운영 체제) 기반에서 동작</p>
+<p><img alt="Image 144" src="../../../assets/images/ros/projects/gazebo/img_072_144.webp" /></p>
+<p>GAZEBO
+Moveit 기능</p>
+<ol>
+<li>
+<p>Robot Model (로봇 모델)
+-MoveIt은 로봇의 모델을 기반으로 작업을 수행.
+-URDF(Unified Robot Description Format) 또는SRDF(Semantic Robot Description Format) 정의.
+-URDF는 로봇의 물리적 구조(링크, 조인트 등)를정의, SRDF는 로봇의 키 네 마 틱 체인, 그룹화된 링크,
+제약 사항 등을 설명.
+-모션 플래닝, 경로 생성, 충돌 감지 등 다양한 작업에 사용.</p>
+</li>
+<li>
+<p>Motion Planning (모션 플래닝)
+-OMPL (Open Motion Planning Library)를 사용하여 다양한 알고리즘 기반으로 경로를 계획.
+-로봇의 목표 위치에 도달하는 최적 경로를 계산
+-이 과정에서 충돌을 피하고, 로봇의 운동 학적 제약을 고려.
+-사용 가능한 플래닝 알고리즘에는RRT, RRT*, PRM, CHOMP, STOMP, TrajOpt 등</p>
+</li>
+</ol>
+<p>GAZEBO
+Moveit 기능</p>
+<ol>
+<li>
+<p>Kinematics Solver (키네마틱솔버)
+-MoveIt은정 방향키 네 마 틱 스(Forward Kinematics)와역방향키네마틱스(Inverse Kinematics, IK) 솔버를
+사용 로봇의 위치와 자세 계산.
+-정 방향키 네 마 틱 스는 로봇의 조인트 값을 기반으로 각 링크의 위치를 계산, 역방향 키 네 마 틱 스는 목표
+위치에 도달하기 위해 각 조인트의 값 계산.
+-MoveIt은IKFast, KDL 등 다양한IK 솔버를 지원.</p>
+</li>
+<li>
+<p>MoveIt Setup Assistant
+-MoveIt을 설정하고URDF 파일을 기반으로 시스템 구성을 쉽게 할 수 있도록 돕는GUI 도구.
+-로봇 모델을 설정하고, 키네마틱 체인 및 그룹 설정, 플래닝 그룹 설정, 충돌 감지 설정.
+-시뮬레이션 및 실제 로봇에서 사용할 수 있도록MoveIt의 주요 구성 요소들을 자동으로 생성.</p>
+</li>
+</ol>
+<p>GAZEBO
+Moveit 기능</p>
+<ol>
+<li>
+<p>Motion Planning Pipeline (모션 플래닝 파이프라인)
+-모션 플래닝은 파이프라인 구조로 처리.
+-로봇의 현재 상태와 목표 상태를 입력받아, 플래닝 요청 시 다양한 플래닝 알고리즘을 통해 경로 계산.
+-이 파이프라인에는 경로 필터링, 경로 수정, 키네마틱 계산, 충돌 감지 등의 단계가 포함.
+-최종적으로 안전한 경로를 만들어 로봇이 실행할 수 있도록 명령 전달.</p>
+</li>
+<li>
+<p>Controller Manager (컨트롤러 매니저)
+-MoveIt은 플래닝된 경로를 로봇이 실제로 따를 수 있도록 로봇 컨트롤러와 통신.
+-ROS 2의controller_manager를 통해 제어 명령을 로봇의 하드웨어로 전송, 로봇이 경로 따라
+동작시킴.
+-로봇의 조인트 트 레저(Joint Trajectory Controller)와 같은 컨트롤러를 사용하여 경로 제어.</p>
+</li>
+</ol>
+<p>Moveit 기능</p>
+<ol>
+<li>
+<p>Planning Scene (플래닝 씬)
+-로봇과 환경을 정의하는 데이터 구조.
+-로봇 모델, 환경의 장애물, 그리고 이들이 상호 작용하는 방식 등을 정의.
+-로봇의 현재 상태(포즈, 링크의 위치 등)와 환경의 상태를 포함하여 실시간으로 로봇의 상태를 추적하며,
+충돌 감지 및 모션 플래닝에 사용.</p>
+</li>
+<li>
+<p>Collision Detection (충돌 감지)
+-로봇이 경로를 계획할 때 주변 환경 및 로봇 자신의 다른 링크와 충돌하지 않도록 확인하는 중요한 기능
+-MoveIt은FCL(Flexible Collision Library)와Bullet 같은 충돌 감지 라이브러리를 사용.
+-경로 계획 중에 실시간으로 충돌 여부를 감지하고, 충돌을 피하는 경로 생성.
+GAZEBO</p>
+</li>
+</ol>
+<p>GAZEBO
+Moveit 기능</p>
+<ol>
+<li>
+<p>Perception (인식)
+-카메라 또는LIDAR 등의 센서 데이터를 이용해 주변 환경을 인식하고, 이를 모션 플래닝 반영
+-Octomap과 같은 맵핑 라이브러리를 통해3D 환경에서 장애물을 감지하고, 로봇의 경로 계획에
+반영.</p>
+</li>
+<li>
+<p>Rviz와의 통합
+-사용자는Rviz의 인터페이스를 통해 경로 계획과 시각화를 직관적으로 수행.
+-move_group은Rviz와 상호 작용하여 실시간 경로 계획 및 상태 업데이트를 처리.</p>
+</li>
+</ol>
+<p>TF 이해
+ROS에서 기본적으로 제공해 주는 메세지 타입 중, 공간과 관련된 메세지 타입</p>
+<h1 id="usrbinpython">!/usr/bin/python<a class="headerlink" href="#usrbinpython" title="Permanent link">&para;</a></h1>
+<p>import rospy
+import random
+import math
+from tf.transformations import quaternion_from_euler
+from geometry_msgs.msg import PoseStamped
+if <strong>name</strong> == '<strong>main</strong>':
+rospy.init_node("tf_test")
+pub = rospy.Publisher("pose", PoseStamped, queue_size=1)
+r = rospy.Rate(1)
+while not rospy.is_shutdown():
+msg = PoseStamped()
+msg.header.stamp = rospy.Time.now()
+msg.header.frame_id = "frame1"
+msg.pose.position.x = random.randint(0, 5)
+msg.pose.position.y = random.randint(0, 5)
+msg.pose.position.z = 0
+quat = quaternion_from_euler(
+0., 0., math.radians(random.randint(0, 180)))
+msg.pose.orientation.x = quat[0]
+msg.pose.orientation.y = quat[1]
+msg.pose.orientation.z = quat[2]
+msg.pose.orientation.w = quat[3]
+pub.publish(msg)
+r.sleep()
+GAZEBO</p>
+<p><img alt="Image 152" src="../../../assets/images/ros/projects/gazebo/img_078_152.webp" /></p>
+<p>GAZEBO
+TF 이해
+tf_broadcaster =
+tf.TransformBroadcaster()
+r = rospy.Rate(1)
+while not rospy.is_shutdown():
+tf_broadcaster.sendTransform(
+translation=[10, 10, 0],
+rotation=[0., 0., 0., 1],
+time=rospy.Time.now(),
+child="home",
+parent="world"
+)
+robot.publishPose()
+r.sleep()
+import rospy
+import tf
+from geometry_msgs.msg import PoseStamped
+class Robot(object):
+def <strong>init</strong>(self):
+position = PoseStamped()
+position.header.frame_id = "home"
+position.pose.position.x = -5
+position.pose.position.y = 10
+position.pose.orientation.w = 1
+self.position = position
+self.pub = rospy.Publisher("robot_pose", PoseStamped, queue_size=1)
+def publishPose(self):
+self.position.header.stamp = rospy.Time.now()
+self.pub.publish(self.position)
+if <strong>name</strong> == '<strong>main</strong>':
+rospy.init_node("tf_pub")
+robot = Robot()
+r = rospy.Rate(1)
+while not rospy.is_shutdown():
+robot.publishPose()
+r.sleep()</p>
+<p><img alt="Image 154" src="../../../assets/images/ros/projects/gazebo/img_079_154.webp" /></p>
+<p><img alt="Image 155" src="../../../assets/images/ros/projects/gazebo/img_079_155.webp" /></p>
+<p>GAZEBO
+터틀봇3 자기 위치 찾기</p>
+<h1 id="include">include <ros/ros.h><a class="headerlink" href="#include" title="Permanent link">&para;</a></h1>
+<h1 id="include_1">include <geometry_msgs/PoseWithCovarianceStamped.h><a class="headerlink" href="#include_1" title="Permanent link">&para;</a></h1>
+<h1 id="include_2">include <nav_msgs/Odometry.h><a class="headerlink" href="#include_2" title="Permanent link">&para;</a></h1>
+<h1 id="include_3">include <tf/transform_listener.h><a class="headerlink" href="#include_3" title="Permanent link">&para;</a></h1>
+<p>class TurtlebotLocationTracker {
+private:
+ros::NodeHandle nh;
+ros::Subscriber amcl_pose_sub;
+ros::Subscriber odom_sub;
+tf::TransformListener tf_listener;
+void amclPoseCallback(const
+geometry_msgs::PoseWithCovarianceStamped::ConstPtr&amp; msg) {
+ROS_INFO("AMCL Position:");
+ROS_INFO("  Position: (x: %.2f, y: %.2f)",
+msg-&gt;pose.pose.position.x,
+msg-&gt;pose.pose.position.y);
+// 쿼터 니 언을RPY로변환
+tf::Quaternion q(
+msg-&gt;pose.pose.orientation.x,
+msg-&gt;pose.pose.orientation.y,
+msg-&gt;pose.pose.orientation.z,
+msg-&gt;pose.pose.orientation.w
+);
+tf::Matrix3x3 m(q);
+double roll, pitch, yaw;
+m.getRPY(roll, pitch, yaw);
+ROS_INFO("  Orientation (yaw): %.2f degrees", yaw * 180.0 / M_PI);
+}
+void getTFTransform() {
+try {
+tf::StampedTransform transform;
+tf_listener.lookupTransform("/map", "/base_footprint",
+ros::Time(0), transform);
+ROS_INFO("TF Transform:");
+ROS_INFO("  Position: (x: %.2f, y: %.2f, z: %.2f)",
+transform.getOrigin().x(),
+transform.getOrigin().y(),
+transform.getOrigin().z());
+// 쿼터 니 언을RPY로변환
+tf::Quaternion q = transform.getRotation();
+tf::Matrix3x3 m(q);
+double roll, pitch, yaw;
+m.getRPY(roll, pitch, yaw);
+ROS_INFO("  Orientation:");
+ROS_INFO("    Roll: %.2f degrees", roll * 180.0 / M_PI);
+ROS_INFO("    Pitch: %.2f degrees", pitch * 180.0 / M_PI);
+ROS_INFO("    Yaw: %.2f degrees", yaw * 180.0 / M_PI);
+} catch (tf::TransformException &amp;ex) {
+ROS_ERROR("TF Transform error: %s", ex.what());
+}
+}
+void odometryCallback(const
+nav_msgs::Odometry::ConstPtr&amp; msg) {
+ROS_INFO("Odometry Position:");
+ROS_INFO("  Position: (x: %.2f, y: %.2f, z: %.2f)",
+msg-&gt;pose.pose.position.x,
+msg-&gt;pose.pose.position.y,
+msg-&gt;pose.pose.position.z);
+// 쿼터 니 언을RPY로변환
+tf::Quaternion q(
+msg-&gt;pose.pose.orientation.x,
+msg-&gt;pose.pose.orientation.y,
+msg-&gt;pose.pose.orientation.z,
+msg-&gt;pose.pose.orientation.w
+);
+tf::Matrix3x3 m(q);
+double roll, pitch, yaw;
+m.getRPY(roll, pitch, yaw);
+ROS_INFO("  Orientation:");
+ROS_INFO("    Roll: %.2f degrees", roll * 180.0 / M_PI);
+ROS_INFO("    Pitch: %.2f degrees", pitch * 180.0 / M_PI);
+ROS_INFO("    Yaw: %.2f degrees", yaw * 180.0 / M_PI);
+}</p>
+<p>GAZEBO
+터틀봇3 자기 위치 찾기
+public:
+TurtlebotLocationTracker() {
+// AMCL 포즈 구독
+amcl_pose_sub = nh.subscribe("/amcl_pose", 10,
+&amp;TurtlebotLocationTracker::amclPoseCallback, this);
+// 오도메트리 구독
+odom_sub = nh.subscribe("/odom", 10,
+&amp;TurtlebotLocationTracker::odometryCallback, this);
+}
+void run() {
+ros::Rate rate(1.0); // 1Hz로 위치 업데이트
+while (ros::ok()) {
+ros::spinOnce();
+// TF 변환 확인
+getTFTransform();
+rate.sleep();
+}
+}
+};
+int main(int argc, char** argv) {
+ros::init(argc, argv, "turtlebot3_location_tracker");
+TurtlebotLocationTracker tracker;
+tracker.run();
+return 0;
+}</p>
+<p>GAZEBO
+FT로서로위치추종
+두 개의 터 틀 봇이 서로를 따라가도록한다.</p>
+<h1 id="include_4">include <ros/ros.h><a class="headerlink" href="#include_4" title="Permanent link">&para;</a></h1>
+<h1 id="include_5">include <geometry_msgs/Twist.h><a class="headerlink" href="#include_5" title="Permanent link">&para;</a></h1>
+<h1 id="include_6">include <turtlesim/Pose.h><a class="headerlink" href="#include_6" title="Permanent link">&para;</a></h1>
+<h1 id="include_7">include <tf/transform_broadcaster.h><a class="headerlink" href="#include_7" title="Permanent link">&para;</a></h1>
+<h1 id="include_8">include <tf/transform_listener.h><a class="headerlink" href="#include_8" title="Permanent link">&para;</a></h1>
+<h1 id="include_9">include <cmath><a class="headerlink" href="#include_9" title="Permanent link">&para;</a></h1>
+<p>class TurtleFollower {
+private:
+ros::NodeHandle nh;
+ros::Publisher turtle1_vel_pub;
+ros::Publisher turtle2_vel_pub;
+ros::Subscriber turtle1_pose_sub;
+ros::Subscriber turtle2_pose_sub;
+tf::TransformBroadcaster br;
+tf::TransformListener listener;
+turtlesim::Pose turtle1_pose;
+turtlesim::Pose turtle2_pose;
+void turtle1PoseCallback(const turtlesim::Pose::ConstPtr&amp; msg) {
+turtle1_pose = <em>msg;
+// Broadcast turtle1's transform
+tf::Transform transform;
+transform.setOrigin(tf::Vector3(msg-&gt;x, msg-&gt;y, 0.0));
+tf::Quaternion q;
+q.setRPY(0, 0, msg-&gt;theta);
+transform.setRotation(q);
+br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "turtle1"));
+}
+void turtle2PoseCallback(const turtlesim::Pose::ConstPtr&amp; msg) {
+turtle2_pose = </em>msg;
+// Broadcast turtle2's transform
+tf::Transform transform;
+transform.setOrigin(tf::Vector3(msg-&gt;x, msg-&gt;y, 0.0));
+tf::Quaternion q;
+q.setRPY(0, 0, msg-&gt;theta);
+transform.setRotation(q);
+br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "world", "turtle2"));
+}
+double getDistance(double x1, double y1, double x2, double y2) {
+return std::sqrt(std::pow(x1 - x2, 2) + std::pow(y1 - y2, 2));
+}
+double getAngleBetweenPoses(const turtlesim::Pose&amp; pose1, const turtlesim::Pose&amp; pose2) {
+return std::atan2(pose2.y - pose1.y, pose2.x - pose1.x);
+}
+public:
+TurtleFollower() {
+// Subscribers for pose
+turtle1_pose_sub = nh.subscribe("/turtle1/pose", 10, &amp;TurtleFollower::turtle1PoseCallback, this);
+turtle2_pose_sub = nh.subscribe("/turtle2/pose", 10, &amp;TurtleFollower::turtle2PoseCallback, this);
+// Publishers for velocity
+turtle1_vel_pub = nh.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 10);
+turtle2_vel_pub = nh.advertise<geometry_msgs::Twist>("/turtle2/cmd_vel", 10);
+}</p>
+<p>GAZEBO
+FT로서로위치추종
+int main(int argc, char** argv) {
+ros::init(argc, argv, "turtle_follower");
+TurtleFollower follower;
+ros::Rate rate(10);
+while (ros::ok()) {
+ros::spinOnce();
+follower.update();
+rate.sleep();
+}
+return 0;
+}
+void update() {
+// Turtle2 follows Turtle1
+if (turtle1_pose.x != 0 &amp;&amp; turtle2_pose.x != 0) {
+double distance = getDistance(turtle1_pose.x, turtle1_pose.y,
+turtle2_pose.x, turtle2_pose.y);
+double target_angle = getAngleBetweenPoses(turtle2_pose, turtle1_pose);
+geometry_msgs::Twist cmd_vel;
+// Linear velocity proportional to distance
+cmd_vel.linear.x = distance * 0.5;
+// Angular velocity to align with target
+double angle_diff = target_angle - turtle2_pose.theta;
+// Normalize angle
+while (angle_diff &gt; M_PI) angle_diff -= 2 * M_PI;
+while (angle_diff &lt; -M_PI) angle_diff += 2 * M_PI;
+cmd_vel.angular.z = angle_diff * 1.0;
+// Limit velocities
+cmd_vel.linear.x = std::min(cmd_vel.linear.x, 1.0);
+cmd_vel.angular.z = std::min(std::max(cmd_vel.angular.z, -1.5), 1.5);
+turtle2_vel_pub.publish(cmd_vel);
+}
+}
+};</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  맨위로
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.path", "navigation.sections", "navigation.top", "search.suggest", "search.highlight", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\ud074\ub9bd\ubcf4\ub4dc\uc5d0 \ubcf5\uc0ac\ub428", "clipboard.copy": "\ud074\ub9bd\ubcf4\ub4dc\ub85c \ubcf5\uc0ac", "search.result.more.one": "\uc774 \ubb38\uc11c\uc5d0\uc11c 1\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.more.other": "\uc774 \ubb38\uc11c\uc5d0\uc11c #\uac1c\uc758 \uac80\uc0c9 \uacb0\uacfc \ub354 \ubcf4\uae30", "search.result.none": "\uac80\uc0c9\uc5b4\uc640 \uc77c\uce58\ud558\ub294 \ubb38\uc11c\uac00 \uc5c6\uc2b5\ub2c8\ub2e4", "search.result.one": "1\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.other": "#\uac1c\uc758 \uc77c\uce58\ud558\ub294 \ubb38\uc11c", "search.result.placeholder": "\uac80\uc0c9\uc5b4\ub97c \uc785\ub825\ud558\uc138\uc694", "search.result.term.missing": "\ud3ec\ud568\ub418\uc9c0 \uc54a\uc740 \uac80\uc0c9\uc5b4", "select.version": "\ubc84\uc804 \uc120\ud0dd"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
