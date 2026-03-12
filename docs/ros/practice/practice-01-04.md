@@ -279,10 +279,10 @@ ROS2 CLI실습
 ROS2 CLI
 ROS2 CLI실습
 
-- /turtle1/cmd_vel 토픽의 인터페이스 형태, 토픽의 퍼 블 리 시 및 서브스크라이브 정보를 확인
+- /turtle1/cmd_vel 토픽의 인터페이스 형태, 토픽의 퍼블리시 및 서브스크라이브 정보를 확인
 - 현재 개발 환경에서 동작 중인 모든 노드들의 토픽 이름을 확인
 - 현재 개발 환경에서 동작 중인 모든 노드들의 인터페이스 형태와 함께 토픽 이름을 확인
-- /turtle1/cmd_vel 토픽을 퍼 블 리시한다. 테스트용으로 주로 사용
+- /turtle1/cmd_vel 토픽을 퍼블리시한다. 테스트용으로 주로 사용
 - /turtle1/cmd_vel 토픽의 인터페이스 형태를 확인 예제가 정상적으로 동작하기 위해서는turtlesim_node와turtle_teleop_key노드가 실행되어 있어야함
 
 
@@ -1460,7 +1460,7 @@ Liveliness는 다음과 같은 상황에서 중요하게 사용됩니다.
 
 - Liveliness 1초설정, 실행2초후퍼블리셔노드종료, 수동으로 확인
 - 실행 결과
-- AUTOMATIC 때와 비슷하나, 노드를 죽이지 않고 퍼 블 리 시만 되지 않도록 설정했을 때의 결과가 위와 같음
+- AUTOMATIC 때와 비슷하나, 노드를 죽이지 않고 퍼블리시만 되지 않도록 설정했을 때의 결과가 위와 같음
 
 
 QoS Programming
@@ -1821,7 +1821,7 @@ RQt 메인 소스 코드
 - Line : 54 ~ 60
 - 해당 코드는 특정 콜백 함수를 정기적으로 실행할timer류에 대한 선언
 - send_velocity : w, a, s, d, x, space bar 키 또는 버튼 클릭에 의해 변경된 속도값publishing 함수(100ms마다 호출)
-- publish_timer는send_velocity 함수를 콜백 함수로 설정함으로써 주기적으로 퍼 블 리시함
+- publish_timer는send_velocity 함수를 콜백 함수로 설정함으로써 주기적으로 퍼블리시함
 - update_indicators : Subscribing한 속도 값을 처리하는 함수
 - update_timer는update_indicators 함수를 콜백 함수로 설정, 30ms마다GUI 갱신
 

@@ -108,7 +108,7 @@ Hang-man - 실습
 
 ## hangman_game
 - hangman_game/hangman_game/letter_publisher.py 모듈별 설명
-- publish_letter 함수: 현재 알파벳 문자를letter_topic 토픽에 퍼 블 리시하는 함수
+- publish_letter 함수: 현재 알파벳 문자를letter_topic 토픽에 퍼블리시하는 함수
 
 
 Hang-man - 실습
@@ -154,7 +154,7 @@ Hang-man - 실습
 
 ## hangman_game
 - hangman_game/hangman_game/word _service.py 모듈별 설명
-- check_letter_callback 함수: 서비스 요청을 처리하며, 수신한 문자가 현재 단어에 포함되어 있는지 확인하고 게임 상태를 업데이트. 업데이트된 상태는Progress 메시지를 통해 퍼 블 리 시
+- check_letter_callback 함수: 서비스 요청을 처리하며, 수신한 문자가 현재 단어에 포함되어 있는지 확인하고 게임 상태를 업데이트. 업데이트된 상태는Progress 메시지를 통해 퍼블리시
 
 
 Hang-man - 실습

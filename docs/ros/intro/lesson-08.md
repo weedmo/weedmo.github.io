@@ -24,7 +24,7 @@
 - 랜덤 함수로0~9 사이의 숫자를float로 변환하여 msg.argument_a와msg.argument_b에저장
 
 ## publish_random_arithmetic_arguments 함수
-- 실제로 토픽 발행이 이루어지는 함수로 우리가 발행 시간 및 변수a, b를 저장한msg 메시지를 퍼 블 리시한다는 의미
+- 실제로 토픽 발행이 이루어지는 함수로 우리가 발행 시간 및 변수a, b를 저장한msg 메시지를 퍼블리시한다는 의미
 
 ## arithmetic_argument_publisher.publish(msg) 함수
 - get_logger().info() 를사용하여디버깅목적으로변수a, b 값을 터미널에 표시
@@ -40,7 +40,7 @@
 - QoS 설정값: RELIABLE, KEEP_LAST, DEPTH 10, VOLATILE (토픽 퍼블리셔와 동일 설정)
 - QoS에 대한 자세한 내용은'DDS의QoS(Quality of Service)' 강좌 참고
 - 제일 중요한 설정으로Node 클래스의create_subscription 함수를이용하여서브스크라이버로선언
-- get_arithmetic_argument라는 콜백 함수를 지정하여 퍼 블 리셔로부터 메시지를 서브스크라이브 할 때마다 실행되는 함수를 지정
+- get_arithmetic_argument라는 콜백 함수를 지정하여 퍼블리셔로부터 메시지를 서브스크라이브 할 때마다 실행되는 함수를 지정
 - ReentrantCallbackGroup으로callback_group을 지정하여 콜백 함수를 병렬로 실행할 수 있게해 주며 뒤에서 설정
 - 이후 설명할MultiThreadedExecutor와 함께 사용됨
 - arithmetic_argument_subscriber 설정
@@ -211,7 +211,7 @@ src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## goal_handle 매개변수
 - rclpy.action 모듈의ServerGoalHandle 클래스로 생성된 액션 상태 처리용으로execute, succeed, abort, canceled 등 액션 상태에 따른 관련 함수 호출 가능
-- publish_feedback을 통해 피드백 퍼 블 리 시 가능 Get_logger().info() 함수를 이용해 터미널 창에 액션 서버 시작 표시 ArithmeticChecker.Feedback()을 통해 액션 피 드 백을 보낼feedback_msg 변수 선언 실제 피드백에 해당되는 feedback_msg.formula와 연산 합계 값을 담을 total_sum 변수 초기화 goal_handle를 이용하여 goal_handle.request.goal_sum에서 액션 목표 값을 불러옴
+- publish_feedback을 통해 피드백 퍼블리시 가능 Get_logger().info() 함수를 이용해 터미널 창에 액션 서버 시작 표시 ArithmeticChecker.Feedback()을 통해 액션 피드백을 보낼feedback_msg 변수 선언 실제 피드백에 해당되는 feedback_msg.formula와 연산 합계 값을 담을 total_sum 변수 초기화 goal_handle를 이용하여 goal_handle.request.goal_sum에서 액션 목표 값을 불러옴
 
 ## ## ## ## ![Image 30](../../assets/images/ros/intro/lesson-08/img_021_030.webp)
 
@@ -401,7 +401,7 @@ src/ex_calculator/ex_calculator/checker/main.py
 생성 범위를 파라미터를 이용하여 설정.
 
 ## min_random_num 값과max_random_num
-값을 이용하여 퍼 블 리 시할 때 변수a, b의랜
+값을 이용하여 퍼블리시할 때 변수a, b의랜
 덤 생성 범위를 변경함
 
 

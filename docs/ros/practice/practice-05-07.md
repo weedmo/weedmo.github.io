@@ -469,7 +469,7 @@ OpenCV와ROS2
 - CvBridge를 초기화
 - OpenCV 이미지 → ROS2 sensor_msgs/Image 변환
 - Image type 메시지를 original_image Topic으로 publishing, 10=버퍼 크기
-- self.setup_timer로 퍼 블 리 시 주기(0.1초)를 설정
+- self.setup_timer로 퍼블리시 주기(0.1초)를 설정
 - Import
 - Image : sensor_msg 패키지에서 제공하는 이미지 데이터 타입
 - cvBridge : ROS2의 이미지 데이터를 Python에서 사용 가능하게 변환해 주는 클래스
