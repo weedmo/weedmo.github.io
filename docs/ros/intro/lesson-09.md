@@ -1,15 +1,7 @@
-# 강의_3기_ROS2입문_9차시
-
-
-ROS2 프로그래밍 입문(9차시)
-
-9. ROS2 복습_3
+# ROS2 입문 9차시 - ROS2 복습 (3)
 
 
 ## ROS2 복습_3
-1. 인터페이스 프로그래밍(hangman)
-2. rclpy 복습
-3. ROS2 응용 복습
 Hang-man - 실습
 
 ## Hang-man 구조도
@@ -40,10 +32,6 @@ Hang-man - 실습
 - game_over : 목숨이 다 소진되었는지
 - won : 게임에서 이겼는지(목숨 소진 이전에 정답을 맞추었는지)
 
-![Image 10](../../assets/images/ros/intro/lesson-09/img_004_010.webp)
-
-![Image 12](../../assets/images/ros/intro/lesson-09/img_004_012.webp)
-
 
 Hang-man - 실습
 
@@ -53,8 +41,6 @@ Hang-man - 실습
 - is_correct : 현재user input으로 들어온 글자가 선택된 단어 내에 존재하는지에 대한 bool 타입 자료형
 - message : 맞았으면“Correct”를 띄우고 틀리면“WRONG”을띄움
 
-![Image 14](../../assets/images/ros/intro/lesson-09/img_005_014.webp)
-
 
 Hang-man - 실습
 
@@ -63,8 +49,6 @@ Hang-man - 실습
 - game_over : 목숨이 다 소진되었는지
 - won : 게임에서 이겼는지(목숨 소진 이전에 정답을 맞추었는지)
 
-![Image 16](../../assets/images/ros/intro/lesson-09/img_006_016.webp)
-
 
 Hang-man - 실습
 
@@ -72,25 +56,16 @@ Hang-man - 실습
 - hangman_game/hangman_game/letter _publisher.py의 전체 코드
 
 
-![Image 17](../../assets/images/ros/intro/lesson-09/img_007_017.webp)
-
-
 Hang-man - 실습
 
 ## hangman_game
 - hangman_game/hangman_game/word _service.py의 전체 코드
 
 
-![Image 18](../../assets/images/ros/intro/lesson-09/img_008_018.webp)
-
-
 Hang-man - 실습
 
 ## hangman_game
 - hangman_game/hangman_game/word _service.py의 전체 코드
-
-
-![Image 19](../../assets/images/ros/intro/lesson-09/img_009_019.webp)
 
 
 Hang-man - 실습
@@ -117,15 +92,11 @@ Hang-man - 실습
 ## hangman_game
 - hangman_game/hangman_game/ progress_action_server.py 전체 코드
 
-![Image 29](../../assets/images/ros/intro/lesson-09/img_015_029.webp)
-
 
 Hang-man - 실습
 
 ## hangman_game
 - hangman_game/hangman_game/ progress_action_server.py 전체 코드
-
-![Image 31](../../assets/images/ros/intro/lesson-09/img_016_031.webp)
 
 
 Hang-man - 실습
@@ -134,17 +105,11 @@ Hang-man - 실습
 - hangman_game/setup.py
 - entry_points를 다음과 같이 변경
 
-![Image 33](../../assets/images/ros/intro/lesson-09/img_017_033.webp)
-
 
 Hang-man - 실습
 
 ## hangman_game
 - hangman_interfaces/CMakeLists.txt
-
-![Image 35](../../assets/images/ros/intro/lesson-09/img_018_035.webp)
-
-![Image 37](../../assets/images/ros/intro/lesson-09/img_018_037.webp)
 
 
 Hang-man - 실습
@@ -152,16 +117,10 @@ Hang-man - 실습
 ## hangman_game
 - hangman_interfaces/package.xml
 
-![Image 39](../../assets/images/ros/intro/lesson-09/img_019_039.webp)
-
 
 Executor
-ROS2계층 구조
 
 ## ROS2 계층구조
-1. User code : 사용자가 작성한 코드
-2. rcl : 클라이언트 라이브러리로, 사용자 코드와 미들 웨어를 연결
-3. rmw : 미들 웨어와 클라이언트 간의 인터페이스 역할. 미들 웨어와의
 상호 작용을 추상화
 
 4. rmw adapter : RMW와 미들 웨어를 연결하는 중간 계층 역할. 이를
@@ -179,8 +138,6 @@ Executor
 Executor 동작 과정
 
 ## 동작과정
-1. wait : 미들 웨어에 메시지가 도착할 때까지 대기
-2. take : 새로운 메시지 도착 시, 해당 메시지를 가져옴. 이 과
 정에서 미들 웨어에 저장된 메시지가 클라이언트로 전달됨
 
 3. execute : 메시지 처리를 위한 콜백 함수(onGoal, nextCmd,
@@ -206,9 +163,6 @@ Executor의종류
 ![Image 42](../../assets/images/ros/intro/lesson-09/img_022_042.webp)
 
 
-![Image 43](../../assets/images/ros/intro/lesson-09/img_022_043.webp)
-
-
 Executor
 Multi Thread Executor
 
@@ -216,28 +170,19 @@ Multi Thread Executor
 - 여러 스레드가 동시에 실행되기 때문에 복잡한 작업이나 멀티태스킹 환경에서 유리
 - 그러나 다중 스레드 간의 자원 경쟁이나 동기화 문제가 발생할 수 있으므로, 적절한 동기화 처리(locking) 필요
 
-![Image 45](../../assets/images/ros/intro/lesson-09/img_023_045.webp)
-
 
 Executor
 Executor 기본 동작
 
 ## Executor 동작순서
-1. 이벤트 감지: 노드에서 수신된 토픽, 서비스 요청, 타이머 이벤트 등을 감지
-2. 콜백 큐 생성: 이벤트가 발생할 때마다 대응하는 콜백을 큐(queue)에수집
-3. 콜백 실행: 큐에 있는 콜백을 적절한 순서대로 실행. SingleThreadedExecutor는 하나씩
 처리하고, MultiThreadedExecutor는 병렬로 처리
 
 
 Executor
 
 ## Executor 사용예
-- SingleThreadedExecutor를 사용하는 간단한 퍼 블 리 셔 노 드
+- SingleThreadedExecutor를 사용하는 간단한 퍼블리셔 노 드
 - 이벤트는1초마다 발생하여 메시지를 퍼블리싱
-
-![Image 47](../../assets/images/ros/intro/lesson-09/img_025_047.webp)
-
-![Image 49](../../assets/images/ros/intro/lesson-09/img_025_049.webp)
 
 
 Executor
@@ -266,9 +211,6 @@ Executor가동작할 수 있는 환경을 유지하는 루프이며,
 명시적으로 종료하거나 프로그램이 종료될 때까지 계속 실행
 
 
-![Image 50](../../assets/images/ros/intro/lesson-09/img_026_050.webp)
-
-
 Executor
 Executor 와spin 의관계
 
@@ -294,15 +236,6 @@ ROS2 bag 이해 및 사용법
 - 다음 명령어는“my_bag.bag”라는 이름의BAG 파일의 정보를 표시함
 
 
-![Image 51](../../assets/images/ros/intro/lesson-09/img_028_051.webp)
-
-
-![Image 52](../../assets/images/ros/intro/lesson-09/img_028_052.webp)
-
-
-![Image 53](../../assets/images/ros/intro/lesson-09/img_028_053.webp)
-
-
 BAG 파일 만들기
 
 ## 세번째터미널에서다음명령어를이용하여저장되어있는BAG 파일재생
@@ -320,23 +253,11 @@ BAG 파일 실습
 - 다운로드된 압축 파일의 압축 풀기 실습
 
 
-![Image 55](../../assets/images/ros/intro/lesson-09/img_030_055.webp)
-
-
 BAG 파일 실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
 - 압축 풀린bag 파일의 정보 확인
 - Bag 파일 반복 재생 실습
-
-
-![Image 56](../../assets/images/ros/intro/lesson-09/img_031_056.webp)
-
-
-![Image 57](../../assets/images/ros/intro/lesson-09/img_031_057.webp)
-
-
-![Image 58](../../assets/images/ros/intro/lesson-09/img_031_058.webp)
 
 
 BAG 파일 실습
@@ -403,9 +324,6 @@ get_result_async 후future에
 쓰임새
 빠른 계산 요청(예: IK)
 장기 제어 작업(예: 궤적 추종)
-
-
-![Image 63](../../assets/images/ros/intro/lesson-09/img_036_063.webp)
 
 
 ---

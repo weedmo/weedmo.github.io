@@ -1,25 +1,13 @@
-# 강의_3기_ROS2입문_5차시
-
-
-ROS2 프로그래밍 입문(5차시)
-
-5. rclpy 이해
+# ROS2 입문 5차시 - rclpy 이해
 
 
 ## rclpy 이해
-1.  rclpy
-2.  Multi Thread
-3.  Executor
-rclpy
-rclpy 란?
 
 ## rclpy 정의
 - ROS2의Python 클라이언트 라이브러리로, 노드를 만들고 통신할 수 있도록 돕는 핵심 요소
-- C++로 작성된ROS2의코어 라이브러리(rcl)를Python 환경에서 활용할 수 있도록 래 핑 (wrapping)한 것이 특징
+- C++로 작성된ROS2의코어 라이브러리(rcl)를Python 환경에서 활용할 수 있도록 래핑 (wrapping)한 것이 특징
 - 사용자들은Python의 간결한 문법과 다양한 라이브러리를ROS2 기반 시스템에 쉽게 통합
 
-
-rclpy
 
 ## rclpy 구성요소
 - 노드(Node) ROS2 시스템의 기본 실행 단위. 노드는 각각 고유의 이름을 가지며, pub/sub, service/client 등을 통한 통신을 담당
@@ -29,7 +17,6 @@ rclpy
 - 파라미터 서버(Parameter Server) ROS2 시스템에서 전역적 혹은 로컬 파라미터를 설정하고 가져올 수 있는 시스템
 
 
-rclpy
 노드의 구현 및 실행 흐름
 Multi Thread
 Multi Thread 지원
@@ -37,9 +24,12 @@ Multi Thread 지원
 ## 고급사용법
 - 멀티 스레드 지원
 - rclpy는 멀티 스레드 실행 지원 가능
-- 예를 들어, 서비스와 퍼 블 리 셔가 동일한 노드 내에서 동시에 작동하는 경우, MultiThreadedExecutor를 사용 가능
+- 예를 들어, 서비스와 퍼블리셔가 동일한 노드 내에서 동시에 작동하는 경우, MultiThreadedExecutor를 사용 가능
 
-![Image 5](../../assets/images/ros/intro/lesson-05/img_006_005.webp)
+
+!!! tip "소스코드 참조"
+    이 코드의 전체 내용은 [Calculator 프로젝트 전체 소스코드](../code-ref/calculator.md) 페이지에서 확인할 수 있습니다.
+
 
 
 Multi Thread
@@ -59,7 +49,7 @@ Multi Thread 지원
 ## Best practice
 - 노드 이름 관리
 - 노드 이름은 고유해야하므로, 노드를 생성할 때는 시스템 내 다른 노드들과 충돌하지 않도록 이름을 신중히 설정
-- 예를 들어, 서비스와 퍼 블 리 셔가 동일한 노드 내에서 동시에 작동하는 경우, MultiThreadedExecutor를 사용 가능
+- 예를 들어, 서비스와 퍼블리셔가 동일한 노드 내에서 동시에 작동하는 경우, MultiThreadedExecutor를 사용 가능
 - 타이머 주기 관리
 - 타이머 콜백(Callback) 주기는 너무 짧게 설정하지 않도록 주의
 - 지나치게 빠른 주기는CPU부하의 과도한 증가의 원인
@@ -92,12 +82,8 @@ Executor 란?
 
 
 Executor
-ROS2계층 구조
 
 ## ROS2 계층구조
-1. User code : 사용자가 작성한 코드
-2. rcl : 클라이언트 라이브러리로, 사용자 코드와 미들 웨어를 연결
-3. rmw : 미들 웨어와 클라이언트 간의 인터페이스 역할. 미들 웨어와의
 상호 작용을 추상화
 
 4. rmw adapter : RMW와 미들 웨어를 연결하는 중간 계층 역할. 이를
@@ -115,8 +101,6 @@ Executor
 Executor 동작 과정
 
 ## 동작과정
-1. wait : 미들 웨어에 메시지가 도착할 때까지 대기
-2. take : 새로운 메시지 도착 시, 해당 메시지를 가져옴. 이 과
 정에서 미들 웨어에 저장된 메시지가 클라이언트로 전달됨
 
 3. execute : 메시지 처리를 위한 콜백 함수(onGoal, nextCmd,
@@ -142,9 +126,6 @@ Executor의종류
 ![Image 11](../../assets/images/ros/intro/lesson-05/img_013_011.webp)
 
 
-![Image 12](../../assets/images/ros/intro/lesson-05/img_013_012.webp)
-
-
 Executor
 Multi Thread Executor
 
@@ -152,28 +133,19 @@ Multi Thread Executor
 - 여러 스레드가 동시에 실행되기 때문에 복잡한 작업이나 멀티태스킹 환경에서 유리
 - 그러나 다중 스레드 간의 자원 경쟁이나 동기화 문제가 발생할 수 있으므로, 적절한 동기화 처리(locking) 필요
 
-![Image 14](../../assets/images/ros/intro/lesson-05/img_014_014.webp)
-
 
 Executor
 Executor 기본 동작
 
 ## Executor 동작순서
-1. 이벤트 감지: 노드에서 수신된 토픽, 서비스 요청, 타이머 이벤트 등을 감지
-2. 콜백 큐 생성: 이벤트가 발생할 때마다 대응하는 콜백을 큐(queue)에수집
-3. 콜백 실행: 큐에 있는 콜백을 적절한 순서대로 실행. SingleThreadedExecutor는 하나씩
 처리하고, MultiThreadedExecutor는 병렬로 처리
 
 
 Executor
 
 ## Executor 사용예
-- SingleThreadedExecutor를 사용하는 간단한 퍼 블 리 셔 노 드
+- SingleThreadedExecutor를 사용하는 간단한 퍼블리셔 노 드
 - 이벤트는1초마다 발생하여 메시지를 퍼블리싱
-
-![Image 16](../../assets/images/ros/intro/lesson-05/img_016_016.webp)
-
-![Image 18](../../assets/images/ros/intro/lesson-05/img_016_018.webp)
 
 
 Executor
@@ -202,16 +174,12 @@ Executor가동작할 수 있는 환경을 유지하는 루프이며,
 명시적으로 종료하거나 프로그램이 종료될 때까지 계속 실행
 
 
-![Image 19](../../assets/images/ros/intro/lesson-05/img_017_019.webp)
-
-
 Executor
 
 ## Executor 와spin 차이점
 - 여기서executor는노드에서 발생하는 콜백을 관리하고 실행하는 역할 수행
 - Executor.spin()은 노 드의 이벤트루프를 돌려서 콜백이 발생할 때 처리되도록함
 
-![Image 21](../../assets/images/ros/intro/lesson-05/img_018_021.webp)
 
 Executor
 Executor 와spin 의관계

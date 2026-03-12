@@ -1,4 +1,4 @@
-# 강의_3기_ROS2_실습_1_4차시
+# ROS2 실습 1~4차시
 
 
 ROS-2 프로그래밍 실습
@@ -41,11 +41,6 @@ ROS2 프로그래밍 실습 목차
 ![Image 17](../../assets/images/ros/practice/practice-01-04/img_002_017.webp)
 
 
-![Image 18](../../assets/images/ros/practice/practice-01-04/img_002_018.webp)
-
-![Image 20](../../assets/images/ros/practice/practice-01-04/img_002_020.webp)
-
-
 ![Image 21](../../assets/images/ros/practice/practice-01-04/img_002_021.webp)
 
 
@@ -70,8 +65,6 @@ Security
 ROS2 CLI
 (Command Line Interface)
 
-![Image 36](../../assets/images/ros/practice/practice-01-04/img_005_036.webp)
-
 
 ROS2 CLI 사용법
 
@@ -81,13 +74,9 @@ ROS2 CLI 사용법
 - options: 명령어의 실행 방식을 설정하는 추가 파라미터. –h, --node-name, --qos 등이 올 수 있음
 - arguments: 실행할 때 필요한 인수를 지정함. 특정 노드의 이름이나 토픽의 이름, 서비스 이름 등이 올 수 있음 ROS2 CLI ROS2 CLI사용법
 
-![Image 39](../../assets/images/ros/practice/practice-01-04/img_006_039.webp)
-
 
 - ROS2 CLI 명령어
 - -h 옵션을 이용하면verbs, sub-verbs, option등에 대하여 더 자세히 알 수 있음 ROS2 CLI ROS2 CLI사용법
-
-![Image 42](../../assets/images/ros/practice/practice-01-04/img_007_042.webp)
 
 
 ROS2 CLI 실행 명령어
@@ -96,25 +85,16 @@ ROS2 CLI실행 명령어
 
 - ROS2 CLI + arguments ros2cli + [verbs] [arguments] 기능 ros2 run <package> <executable> 특정 패키지의 특정 노드 실행 (1개의 노드) * executable에 따라 복수 노 드도 실행 가능 ros2 launch <package> <launch-file> 특정 패키지의 특정 런치 파일 실행 (0개~ 복수 개의 노드)
 
-![Image 45](../../assets/images/ros/practice/practice-01-04/img_008_045.webp)
-
 
 - ROS2 CLI + arguments 예시
 - ROS2에서turtlesim 시뮬레이터를 실행하는 기본 명령어
 - ROS2의demo_nodes_cpp 패키지에서talker_listener.launch.py 파일을 실행 ROS2 CLI ROS2 CLI실행 명령어
-
-![Image 48](../../assets/images/ros/practice/practice-01-04/img_009_048.webp)
-
-
-![Image 49](../../assets/images/ros/practice/practice-01-04/img_009_049.webp)
 
 
 ROS2 CLI
 ROS2 CLI정보 명령어
 
 - ROS2 CLI + sub-verbs ros2cli + [verbs] [sub-verbs] 기능 ros2 pkg create 새로운ROS2 패키지 생성 executables 지정 패키지의 실행 파일 목록 출력 list 사용 가능한 패키지 목록 출력 prefix 지정 패키지의 저장 위치 출력 xml 지정 패키지의 패키지 정보 파일(xml) 출력 ros2 node info 실행 중인 노드 중 지정한 노드의 정보 출력 list 실행 중인 모든 노드의 목록 출력 ros2 topic bw 지정 토픽의 대역 폭 측정 delay 지정 토픽의 지연 시간 측정 echo 지정 토픽의 데이터 출력 find 지정 타입을 사용하는 토픽 이름 출력 hz 지정 토픽의 주기 측정 info 지정 토픽의 정보 출력 list 사용 가능한 토픽 목록 출력 pub 지정 토픽의 토픽 발행 type 지정 토픽의 토픽 타입 출력 ROS2 CLI 정보 명령어
-
-![Image 52](../../assets/images/ros/practice/practice-01-04/img_010_052.webp)
 
 
 ROS2 CLI
@@ -152,24 +132,11 @@ show
 
 - ROS2 CLI + sub-verbs
 
-![Image 55](../../assets/images/ros/practice/practice-01-04/img_011_055.webp)
-
 
 ROS2 CLI
 ROS2 CLI정보 명령어
 
 - ROS2 CLI 실습
-
-![Image 58](../../assets/images/ros/practice/practice-01-04/img_012_058.webp)
-
-
-![Image 59](../../assets/images/ros/practice/practice-01-04/img_012_059.webp)
-
-
-![Image 60](../../assets/images/ros/practice/practice-01-04/img_012_060.webp)
-
-
-![Image 61](../../assets/images/ros/practice/practice-01-04/img_012_061.webp)
 
 
 ROS2 CLI
@@ -200,8 +167,6 @@ rosbag 재생
 
 - ROS2 CLI + sub-verbs
 
-![Image 64](../../assets/images/ros/practice/practice-01-04/img_013_064.webp)
-
 
 ROS2 CLI 정보 명령어
 ROS2 CLI
@@ -210,11 +175,6 @@ ROS2 CLI정보 명령어
 - ROS2 CLI + sub-verbs 예시
 - turtlesim 패키지에서 실행 가능한 모든 노드 및 실행 파일들을 나열
 - /turtlesim 노드에 대한 정보를 표시함. 노드의 이름, 관련된 토픽, 서비스 및 파라미터 정보 확인 가능 (turtlesim 시뮬레이터가 실행 중이어야함)
-
-![Image 67](../../assets/images/ros/practice/practice-01-04/img_014_067.webp)
-
-
-![Image 68](../../assets/images/ros/practice/practice-01-04/img_014_068.webp)
 
 
 ROS2 CLI 기능 보조 명령어
@@ -285,30 +245,15 @@ ROS2 CLI실습
 - ROS2에서demo_nodes_cpp 패키지에 포함된talker_listener.launch.py 파일을 실행하여 두 개의 노드를 동시에 시작 ros2 launch
 
 
-![Image 89](../../assets/images/ros/practice/practice-01-04/img_020_089.webp)
-
-
 ROS2 CLI
 ROS2 CLI실습
 
 - pkg는 지정 패키지의 정보를 얻거나 패키지를 생성하는 데 사용되는 명령어
-- ament python 빌 드 형태의rclpy, std_msgs 패키지에 의존성을 가진my_ros_pkg 패키지를 생성
+- ament python 빌드 형태의rclpy, std_msgs 패키지에 의존성을 가진my_ros_pkg 패키지를 생성
 - turtlesim 패키지에 포함된 실행 파일 목록을 확인
 - 설치된 패키지 및 본인이 직접 작성한 패키지 중 사용 가능한 모든 패키지의 목록을 확인
 - turtlesim 패키지의 저장 위치를 확인
 - turtlesim 패키지의 패키지 정보 파일(package.xml)을확인 ros2 pkg
-
-
-![Image 93](../../assets/images/ros/practice/practice-01-04/img_021_093.webp)
-
-
-![Image 94](../../assets/images/ros/practice/practice-01-04/img_021_094.webp)
-
-
-![Image 95](../../assets/images/ros/practice/practice-01-04/img_021_095.webp)
-
-
-![Image 96](../../assets/images/ros/practice/practice-01-04/img_021_096.webp)
 
 
 ROS2 CLI
@@ -317,11 +262,6 @@ ROS2 CLI실습
 - node는 노 드의 정보를 얻는 데 사용하는 명령어
 - 실행 중인 모든 노드의 목록을 확인
 - /turtlesim 노드의 정보를 확인 ros2 node
-
-![Image 99](../../assets/images/ros/practice/practice-01-04/img_022_099.webp)
-
-
-![Image 100](../../assets/images/ros/practice/practice-01-04/img_022_100.webp)
 
 
 ROS2 CLI
@@ -335,36 +275,15 @@ ROS2 CLI실습
 - 예 제가 정상적으로 동작하기 위해서는turtlesim_node와turtle_teleop_key노드가 실행되어 있어야함
 - 만일 아무것도 뜨지 않을 경우turtle_teleop_key를 이용해turtle을이동
 
-![Image 103](../../assets/images/ros/practice/practice-01-04/img_023_103.webp)
-
-
-![Image 104](../../assets/images/ros/practice/practice-01-04/img_023_104.webp)
-
-
-![Image 105](../../assets/images/ros/practice/practice-01-04/img_023_105.webp)
-
-
-![Image 106](../../assets/images/ros/practice/practice-01-04/img_023_106.webp)
-
 
 ROS2 CLI
 ROS2 CLI실습
 
-- /turtle1/cmd_vel 토픽의 인터페이스 형태, 토픽의 퍼 블 리 시 및 서브 스 크 라이브 정보를 확인
+- /turtle1/cmd_vel 토픽의 인터페이스 형태, 토픽의 퍼 블 리 시 및 서브스크라이브 정보를 확인
 - 현재 개발 환경에서 동작 중인 모든 노드들의 토픽 이름을 확인
 - 현재 개발 환경에서 동작 중인 모든 노드들의 인터페이스 형태와 함께 토픽 이름을 확인
 - /turtle1/cmd_vel 토픽을 퍼 블 리시한다. 테스트용으로 주로 사용
 - /turtle1/cmd_vel 토픽의 인터페이스 형태를 확인 예제가 정상적으로 동작하기 위해서는turtlesim_node와turtle_teleop_key노드가 실행되어 있어야함
-
-![Image 109](../../assets/images/ros/practice/practice-01-04/img_024_109.webp)
-
-![Image 111](../../assets/images/ros/practice/practice-01-04/img_024_111.webp)
-
-
-![Image 112](../../assets/images/ros/practice/practice-01-04/img_024_112.webp)
-
-
-![Image 113](../../assets/images/ros/practice/practice-01-04/img_024_113.webp)
 
 
 ROS2 CLI
@@ -377,20 +296,6 @@ ROS2 CLI실습
 - 현재 개발 환경에서 동작 중인 모든 노드들의 인터페이스 형태와 함께 서비스 이름을 확인
 - /clear 서비스의 인터페이스 형태를 확인 ros2 service
 
-![Image 116](../../assets/images/ros/practice/practice-01-04/img_025_116.webp)
-
-
-![Image 117](../../assets/images/ros/practice/practice-01-04/img_025_117.webp)
-
-
-![Image 118](../../assets/images/ros/practice/practice-01-04/img_025_118.webp)
-
-
-![Image 119](../../assets/images/ros/practice/practice-01-04/img_025_119.webp)
-
-
-![Image 120](../../assets/images/ros/practice/practice-01-04/img_025_120.webp)
-
 
 ROS2 CLI
 ROS2 CLI실습
@@ -400,20 +305,6 @@ ROS2 CLI실습
 - 현재 개발 환경에서 동작 중인 모든 노드들의 액션 이름을 확인
 - 현재 개발 환경에서 동작 중인 모든 노드들의 인터페이스 형태와 액션 이름을 확인
 - turtlesim/action/RotateAbsolute 인터페이스 형태를 사용하는/turtle1/rotate_absolute 액션에 특정 값으로 액션 목표를 전달 ros2 action
-
-![Image 123](../../assets/images/ros/practice/practice-01-04/img_026_123.webp)
-
-
-![Image 124](../../assets/images/ros/practice/practice-01-04/img_026_124.webp)
-
-
-![Image 125](../../assets/images/ros/practice/practice-01-04/img_026_125.webp)
-
-
-![Image 126](../../assets/images/ros/practice/practice-01-04/img_026_126.webp)
-
-
-![Image 127](../../assets/images/ros/practice/practice-01-04/img_026_127.webp)
 
 
 ROS2 CLI
@@ -426,20 +317,6 @@ ROS2 CLI실습
 - 지정한geometry_msgs/msg/Twist 인터페이스의 기본 형태를 확인
 - 지정한 각 메시지의 인터페이스 및 메시지 이름을 확인 ros2 interface
 
-![Image 130](../../assets/images/ros/practice/practice-01-04/img_027_130.webp)
-
-
-![Image 131](../../assets/images/ros/practice/practice-01-04/img_027_131.webp)
-
-
-![Image 132](../../assets/images/ros/practice/practice-01-04/img_027_132.webp)
-
-
-![Image 133](../../assets/images/ros/practice/practice-01-04/img_027_133.webp)
-
-
-![Image 134](../../assets/images/ros/practice/practice-01-04/img_027_134.webp)
-
 
 ROS2 CLI
 ROS2 CLI실습
@@ -449,14 +326,6 @@ ROS2 CLI실습
 - /turtlesim 노드의background_r 파라미터의 값을 읽어 옴
 - /turtlesim 노드의background_r 파라미터를250이라는 값으로 설정 ros2 param
 
-![Image 137](../../assets/images/ros/practice/practice-01-04/img_028_137.webp)
-
-
-![Image 138](../../assets/images/ros/practice/practice-01-04/img_028_138.webp)
-
-
-![Image 139](../../assets/images/ros/practice/practice-01-04/img_028_139.webp)
-
 
 ROS2 CLI
 ROS2 CLI실습
@@ -464,14 +333,6 @@ ROS2 CLI실습
 - 파라미터가 어떤 형태, 목적, 인터페이스 형태, 최소/최 댓 값을 갖는지 확인
 - /turtlesim 노드의PARAMETER 1이라는 이름을 갖는 파라미터를 삭제(현재는 삭제 가능한 파라미터가 없음)
 - 현재 폴더에/turtlesim노드의 파라미터들을yaml 형태로 저장. 특정 이름을 지정하지 않으면 지정한 노드 이름으로 파일이 생성됨 ros2 param
-
-![Image 142](../../assets/images/ros/practice/practice-01-04/img_029_142.webp)
-
-
-![Image 143](../../assets/images/ros/practice/practice-01-04/img_029_143.webp)
-
-
-![Image 144](../../assets/images/ros/practice/practice-01-04/img_029_144.webp)
 
 
 ROS2 CLI
@@ -483,20 +344,6 @@ ROS2 CLI실습
 - ‘my_turtle’이라는rosbag 파일의 정보를 확인
 - 지정한rosbag 파일을 재생 ros2 bag
 
-![Image 147](../../assets/images/ros/practice/practice-01-04/img_030_147.webp)
-
-
-![Image 148](../../assets/images/ros/practice/practice-01-04/img_030_148.webp)
-
-
-![Image 149](../../assets/images/ros/practice/practice-01-04/img_030_149.webp)
-
-
-![Image 150](../../assets/images/ros/practice/practice-01-04/img_030_150.webp)
-
-
-![Image 151](../../assets/images/ros/practice/practice-01-04/img_030_151.webp)
-
 
 ROS2 CLI
 ROS2 CLI실습
@@ -505,19 +352,12 @@ ROS2 CLI실습
 - 현재 설치된extension의 간단한 목록을 표시
 - 로드에 실패했거나 호환되지 않는extension도표시 ros2 extensions ※ CLI 후반부에 실습
 
-![Image 154](../../assets/images/ros/practice/practice-01-04/img_031_154.webp)
-
-
-![Image 155](../../assets/images/ros/practice/practice-01-04/img_031_155.webp)
-
 
 ROS2 CLI
 ROS2 CLI실습
 
 - extension_points 명령어는ros2cli 개발용으로 사용되는 명령어로, extension points(확장 가능한 지점) 목록을 보여 주는 역할
 - 현재 사용 가능한extension points 목록을 표시 ros2 extension_points
-
-![Image 158](../../assets/images/ros/practice/practice-01-04/img_032_158.webp)
 
 
 ROS2 CLI
@@ -532,17 +372,6 @@ ROS2 CLI실습
 - 이를 통해 새로운 노드나 도구가 실행될 때, 데몬이 기존의 노드 정보를 제공하여 탐색 시간을 단축시키고 시스템의 전반적인 응답성을 향상시킴
 - 통신, 관리, 서비스 제공 등의 역할
 
-![Image 161](../../assets/images/ros/practice/practice-01-04/img_033_161.webp)
-
-
-![Image 162](../../assets/images/ros/practice/practice-01-04/img_033_162.webp)
-
-
-![Image 163](../../assets/images/ros/practice/practice-01-04/img_033_163.webp)
-
-
-![Image 164](../../assets/images/ros/practice/practice-01-04/img_033_164.webp)
-
 
 ROS2 CLI
 ROS2 CLI실습
@@ -550,11 +379,6 @@ ROS2 CLI실습
 - multicast는ROS2 DDS 테스트용으로 나온 명령어로Multicast 송/수신 테스트에 사용되는 명령어
 - 단일UDP 멀티캐스트 패킷 수신(송신된 패킷을 받기 전까지 대기함)
 - 단일UDP 멀티캐스트 패킷 송신(새로운 터미널을 열어 송신 시 기존 터미널에서 수신 대기 중인 터미널이 패킷을 수신함) ros2 multicast
-
-![Image 167](../../assets/images/ros/practice/practice-01-04/img_034_167.webp)
-
-
-![Image 168](../../assets/images/ros/practice/practice-01-04/img_034_168.webp)
 
 
 ROS2 CLI
@@ -566,17 +390,6 @@ ROS2 CLI실습
 - -rf 옵션은report-fail을 의미하며 체크할 때 실패한 아이템을 확인함
 - -iw 옵션은include-warnings를 의미하며 경고성 아이템을 확인함 ros2 doctor
 
-![Image 171](../../assets/images/ros/practice/practice-01-04/img_035_171.webp)
-
-
-![Image 172](../../assets/images/ros/practice/practice-01-04/img_035_172.webp)
-
-
-![Image 173](../../assets/images/ros/practice/practice-01-04/img_035_173.webp)
-
-
-![Image 174](../../assets/images/ros/practice/practice-01-04/img_035_174.webp)
-
 
 ROS2 CLI
 ROS2 CLI실습
@@ -587,17 +400,6 @@ ROS2 CLI실습
 - -r 옵션은report를 의미하며 체크한 모든 아이템을 확인함
 - -rf 옵션은report-fail을 의미하며 체크할 때 실패한 아이템을 확인함
 - -iw 옵션은include-warnings를 의미하며 경고성 아이템을 확인함 ros2 wtf
-
-![Image 177](../../assets/images/ros/practice/practice-01-04/img_036_177.webp)
-
-
-![Image 178](../../assets/images/ros/practice/practice-01-04/img_036_178.webp)
-
-
-![Image 179](../../assets/images/ros/practice/practice-01-04/img_036_179.webp)
-
-
-![Image 180](../../assets/images/ros/practice/practice-01-04/img_036_180.webp)
 
 
 ROS2 CLI
@@ -617,17 +419,6 @@ ROS2 CLI실습
 - finalized : 노드가 종료되고 리 소스 정리된 상태
 - errorprocessing : 에러 발생 후 에러 복구 중인 상태
 
-![Image 183](../../assets/images/ros/practice/practice-01-04/img_037_183.webp)
-
-
-![Image 184](../../assets/images/ros/practice/practice-01-04/img_037_184.webp)
-
-
-![Image 185](../../assets/images/ros/practice/practice-01-04/img_037_185.webp)
-
-
-![Image 186](../../assets/images/ros/practice/practice-01-04/img_037_186.webp)
-
 
 ROS2 CLI
 ROS2 CLI실습
@@ -642,20 +433,6 @@ ROS2 CLI실습
 - 컴포넌트 노드는 여러 노드를 하나의 프로세스 내에서 실행할 수 있도록 설계된ROS2의기능
 - 이를 통해 노드 간의 통신 오버 헤드를 줄이고, 시스템의 자원 활용을 최적화할 수 있음
 - 이러한 방식을**컴 포지션(Composition)**이라고 함 ※ CLI 후반부에 실습
-
-![Image 189](../../assets/images/ros/practice/practice-01-04/img_038_189.webp)
-
-
-![Image 190](../../assets/images/ros/practice/practice-01-04/img_038_190.webp)
-
-
-![Image 191](../../assets/images/ros/practice/practice-01-04/img_038_191.webp)
-
-
-![Image 192](../../assets/images/ros/practice/practice-01-04/img_038_192.webp)
-
-
-![Image 193](../../assets/images/ros/practice/practice-01-04/img_038_193.webp)
 
 
 ROS2 CLI
@@ -676,22 +453,12 @@ ROS2 CLI실습
 - ~/.bashrc 파일에 아래 명령어를 추가 alias ※ 터미널 창2개 이상 띄우고 source ~/.bashrc 해보기
 
 
-![Image 199](../../assets/images/ros/practice/practice-01-04/img_040_199.webp)
-
-
 ROS2 CLI의 빠른 실행
 ROS2 CLI의 빠른 실행
 
 - 홈폴더(~/)의.bashrc 파일에 자주 사용하는ROS2 CLI 명령어를 단축 명령어로 지정해 두면 특정ROS2 CLI를 빠르게 실행 가능
 - ~/.bashrc 파일을 저장한 다음 현재 셀 세션에 설정을 적용
 - 앞서 지정한 단축 키를 이용하여 명령어를 빠르게 사용 가능 alias
-
-
-![Image 203](../../assets/images/ros/practice/practice-01-04/img_041_203.webp)
-
-![Image 205](../../assets/images/ros/practice/practice-01-04/img_041_205.webp)
-
-![Image 207](../../assets/images/ros/practice/practice-01-04/img_041_207.webp)
 
 
 CLI에서arguments 사용하기
@@ -705,8 +472,6 @@ CLI에서arguments 사용하기
 - -p 파라미터 이름:=변경할 파라미터 값
 - --params-file 파라미터 파일 ROS arguments
 
-![Image 210](../../assets/images/ros/practice/practice-01-04/img_042_210.webp)
-
 
 CLI에서arguments 사용하기
 CLI에서arguments 사용하기
@@ -716,8 +481,6 @@ CLI에서arguments 사용하기
 - 변경할 노드 이름: my_turtle
 - turtle1/cmd_vel을cmd_vel로퍼블리시 되도록 수정
 - background_b 파라미터를0으로 변경 ROS arguments 예제
-
-![Image 213](../../assets/images/ros/practice/practice-01-04/img_043_213.webp)
 
 
 CLI에서arguments 사용하기
@@ -734,16 +497,9 @@ CLI에서arguments 사용하기
 - 아래와 같은yaml파일 생성
 - yaml파일의 설정을 이용하여turtlesim 실행 ROS arguments 예제
 
-![Image 219](../../assets/images/ros/practice/practice-01-04/img_045_219.webp)
-
-
-![Image 220](../../assets/images/ros/practice/practice-01-04/img_045_220.webp)
-
 
 CLI에서arguments 사용하기
 CLI에서arguments 사용하기
-
-![Image 223](../../assets/images/ros/practice/practice-01-04/img_046_223.webp)
 
 
 ![Image 224](../../assets/images/ros/practice/practice-01-04/img_046_224.webp)
@@ -756,8 +512,6 @@ CLI에서arguments 사용하기
 - 지금부터는 새로운ROS2 CLI 명령어를 생성하는 방법을 탐구하고자함 소개
 - ros2 env라는 기존에 없던ROS2 CLI를 만들기 신규ROS2 cli 작성법 ※ 필요한 파일: ros2env.zip
 
-![Page 49](../../assets/images/ros/practice/practice-01-04/page_049.webp)
-
 
 ✓실행 예제
 
@@ -767,37 +521,17 @@ CLI에서arguments 사용하기
 VS Code
 
 
-![Image 235](../../assets/images/ros/practice/practice-01-04/img_050_235.webp)
-
-
-![Image 236](../../assets/images/ros/practice/practice-01-04/img_050_236.webp)
-
-
-![Image 237](../../assets/images/ros/practice/practice-01-04/img_050_237.webp)
-
-
-![Image 238](../../assets/images/ros/practice/practice-01-04/img_050_238.webp)
-
-
 ![Image 239](../../assets/images/ros/practice/practice-01-04/img_050_239.webp)
 
 
 Build 하고 실행해 보기
 DOMAIN_ID 바꿔서 실행해 보기
 
-![Image 242](../../assets/images/ros/practice/practice-01-04/img_051_242.webp)
-
-
-![Image 243](../../assets/images/ros/practice/practice-01-04/img_051_243.webp)
-
 
 ✓실행 예제– env.py
 
 1. env.py: 인터페이스(CLI)에서 확장 기능을 추가하는EnvCommand 클래스를 정의
 CLI의“env” 메인 명령을 정의( $ros2 env list or $ros2 env set)
-
-
-![Image 247](../../assets/images/ros/practice/practice-01-04/img_052_247.webp)
 
 
 ✓실행 예제– env.py
@@ -809,11 +543,6 @@ Build 하고 실행해 보기
 - ros2env.verb.set
 
 ![Image 249](../../assets/images/ros/practice/practice-01-04/img_053_249.webp)
-
-![Image 251](../../assets/images/ros/practice/practice-01-04/img_053_251.webp)
-
-
-![Image 252](../../assets/images/ros/practice/practice-01-04/img_053_252.webp)
 
 
 ✓실행 예제– env.py
@@ -829,9 +558,6 @@ Build 하고 실행해 보기
 - required: 서브 명령어가 필수인지 여부를 결정. False로 설정할 경우 서브 명령어가 없을 때 기본적으로 도움말이 출력됨 ros2env.verb로부터 필요한 시점에서command를 가져옴
 
 
-![Image 256](../../assets/images/ros/practice/practice-01-04/img_054_256.webp)
-
-
 ✓실행 예제– env.py
 
 4. main 메서드
@@ -839,15 +565,9 @@ Build 하고 실행해 보기
 - 서브 명령어가 주어지지 않은 경우 도움 말을 출력하고, 주어진 경우 해당 서브 명령어의main 메서드를 호출하여 실행 ros2 env list나ros2 env set에서list와set args._verb에 사용자가 입력한 하위 명령어(verb)가 들어옴. 서브 커맨드 입력 여부 검사 만약 사용자가 서브 커맨드를 입력하지 않았다면help 출력
 
 
-![Image 260](../../assets/images/ros/practice/practice-01-04/img_055_260.webp)
-
-
 ✓실행 예제– list.py
 
 1. verb폴더 생성 후 안에list.py파일 생성
-
-
-![Image 264](../../assets/images/ros/practice/practice-01-04/img_056_264.webp)
 
 
 ✓실행 예제– list.py
@@ -858,12 +578,6 @@ Build 하고 실행해 보기
 ros2 env –a
 
 
-![Image 268](../../assets/images/ros/practice/practice-01-04/img_057_268.webp)
-
-
-![Image 269](../../assets/images/ros/practice/practice-01-04/img_057_269.webp)
-
-
 ✓실행 예제– list.py
 
 3. code import
@@ -872,17 +586,11 @@ Build 하고 실행해 보기
 - VerbExtension: ROS2 CLI 명령어 확장 기능을 제공하는 기본 클래스 * DDS: 네트워크에 연결된 여러 장치들이 데이터를 주고받을 수 있게해 주는 통신 기술 ※ 왜ros2env.api 모듈로 별도 분리해서 사용하는지 확인해 보자!!!
 
 
-![Image 273](../../assets/images/ros/practice/practice-01-04/img_058_273.webp)
-
-
 ✓실행 예제– list.py
 
 4. ListVerb 클래스
 
 - ros2env와 관련된 명령어로 환경 변수를 리스트로 출력할 수 있는 기능을 제공
-
-
-![Image 277](../../assets/images/ros/practice/practice-01-04/img_059_277.webp)
 
 
 ✓실행 예제– list.py
@@ -895,9 +603,6 @@ Build 하고 실행해 보기
 - -d, --dds-env: DDS 관련 환경 변수만 출력하도록 설정하는 플래그
 - 각 옵션은action="store_true"로 설정되어, 명령어에 옵션을 포함할 경우 True 값을 가지며, 그렇지 않을 경우False 값을 가짐
 - help 매개변수는 각 옵션의 설명을 제공하여ros2 list --help로 명령어에 대한 도움말을 볼 때 사용됨
-
-
-![Image 281](../../assets/images/ros/practice/practice-01-04/img_060_281.webp)
 
 
 ✓실행 예제– list.py
@@ -917,26 +622,14 @@ Build 하고 실행해 보기
 - 두 옵션 모두False일경우(즉, --all 옵션이거나 아무 옵션도 사용하지 않은 경우), get_all_env_list()를 호출하여 모든 환경 변수를 가져옴
 
 
-![Image 285](../../assets/images/ros/practice/practice-01-04/img_061_285.webp)
-
-
 ✓실행 예제– api/__init__.py
 
 1. api 폴더 생성 후__init__.py 파일 생성
 
 
-![Image 289](../../assets/images/ros/practice/practice-01-04/img_062_289.webp)
-
-
 ✓실행 예제– api/__init__.py
 1.
 __init__.py: ROS2와 관련된 환경 변수를 읽고 설정
-
-
-![Image 293](../../assets/images/ros/practice/practice-01-04/img_063_293.webp)
-
-
-![Image 294](../../assets/images/ros/practice/practice-01-04/img_063_294.webp)
 
 
 ✓실행 예제– api/__init__.py
@@ -948,9 +641,6 @@ __init__.py: ROS2와 관련된 환경 변수를 읽고 설정
 - 세 환경 변수를 문자열로 포맷 팅하여 반환
 
 
-![Image 298](../../assets/images/ros/practice/practice-01-04/img_064_298.webp)
-
-
 ✓실행 예제– api/__init__.py
 3.
 get_dds_env_list 함수
@@ -960,18 +650,12 @@ get_dds_env_list 함수
 - 환경 변수 값이 없을 경우'None'을 반환하도록하여, 존재 여부를 확인 * RMW_IMPLEMENTATION: ROS2가데이터를 주고받을 때 어떤 방식을 사용할지 정하는 환경 변수
 
 
-![Image 302](../../assets/images/ros/practice/practice-01-04/img_065_302.webp)
-
-
 ✓실행 예제– api/__init__.py
 4.
 get_all_env_list 함수
 
 - 이 함수는 앞서 설명한get_ros_env_list()와get_dds_env_list()를 호출하여, 모든ROS 및DDS 관련 환경 변수를 가져옴
 - 두 함수의 반환 값을 결합하여 모든 환경 변수를 하나의 문자열로 반환
-
-
-![Image 306](../../assets/images/ros/practice/practice-01-04/img_066_306.webp)
 
 
 ✓실행 예제– api/__init__.py
@@ -983,23 +667,14 @@ get_all_env_list 함수
 - 환경 변수 설정 후 반환 값을 통해 변수 명과 설정된 값을 문자열 형태로 확인 가능
 
 
-![Image 310](../../assets/images/ros/practice/practice-01-04/img_067_310.webp)
-
-
 ✓실행 예제– set.py
 
 1. 이전에 만들어 두었던verb 폴더 안에set.py 파일 생성
 
 
-![Image 314](../../assets/images/ros/practice/practice-01-04/img_068_314.webp)
-
-
 ✓실행 예제– set.py
 2.
 set.py: ros2env 패키지를 사용하여ROS2 Humble에서 환경 변수를 설정하고 출력하는 기능을 제공
-
-
-![Image 318](../../assets/images/ros/practice/practice-01-04/img_069_318.webp)
 
 
 ✓실행 예제– set.py
@@ -1011,17 +686,11 @@ code import
 - VerbExtension: ROS2 CLI 확장 명령어를 구현하기 위한 기본 클래스. 이 클래스는ros2 <verb>와 같은 형식으로 명령어를 확장할 수 있도록 지원하며, ROS2 Humble에서SetVerb 명령어를 추가하는 데 사용됨
 
 
-![Image 322](../../assets/images/ros/practice/practice-01-04/img_070_322.webp)
-
-
 ✓실행 예제– set.py
 4.
 SetVerb 클래스
 
 - ROS 환경 변수를 설정하는 데 사용되는 클래스로, VerbExtension을 상속받아ROS2 명령어 확장을 구현함
-
-
-![Image 326](../../assets/images/ros/practice/practice-01-04/img_071_326.webp)
 
 
 ✓실행 예제– set.py
@@ -1031,9 +700,6 @@ add_arguments 함수
 - ROS2 명령어에 필요한 옵션과 인수를 정의
 - parser.add_argument() 함수를 통해 두 개의 필수 인자를 추가 ✓ env_name: 설정할 환경 변수의 이름을 입력. ROS_VERSION, ROS_DISTRO 등의 변수 명이 해당됨 ✓ value: 환경 변수에 설정할 값. 사용자가ros2 set <env_name> <value> 형식으로 입력한 값이 여기에 전달됨
 - help 매개변수는 각 인자의 설명을 제공. ros2 set --help 명령어로 실행됨
-
-
-![Image 330](../../assets/images/ros/practice/practice-01-04/img_072_330.webp)
 
 
 ✓실행 예제– set.py
@@ -1054,18 +720,12 @@ __init__.py: ROS2 Humble에서env 명령어에 대한 확장 포인트를 정의
 확장을 위한 기본 템플릿으로 사용됨
 
 
-![Image 342](../../assets/images/ros/practice/practice-01-04/img_075_342.webp)
-
-
 ✓실행 예제– verb/__init__.py
 3.
 code import
 
 - PLUGIN_SYSTEM_VERSION: 현재 사용 중인ROS2 CLI 플러그인 시스템의 버전을 나타냄
 - satisfies_version: 플러그인 시스템의 버전과 확장의 버전이 호환되는지 검사하는 함수. 특정 버전 규칙을 따르는지 확인하여, 버전 불일치로 인한 오류를 방지
-
-
-![Image 346](../../assets/images/ros/practice/practice-01-04/img_076_346.webp)
 
 
 ✓실행 예제– verb/__init__.py
@@ -1075,11 +735,6 @@ VerbExtension 클래스
 - ROS2 CLI 확장 시스템에서 명령어 확장을 위한 기본 클래스로 사용됨
 - NAME : 확장의 이름을 설정할 때 사용되는 속성
 - EXTENSION_POINT_VERSION : 이 확장이 구현하는 확장 포인트의 버전
-
-
-![Image 350](../../assets/images/ros/practice/practice-01-04/img_077_350.webp)
-
-![Image 352](../../assets/images/ros/practice/practice-01-04/img_077_352.webp)
 
 
 ✓실행 예제– verb/__init__.py
@@ -1093,21 +748,12 @@ __init__ 함수
 - ROS2 명령어에 필요한 인자들을 정의하기 위한 메서드. 기본 클래스에서는 비어 있으며, 구체적인 확장에서 필요에 따라 이 메서드를 오버 라 이드하여 구현함
 
 
-![Image 356](../../assets/images/ros/practice/practice-01-04/img_078_356.webp)
-
-
-![Image 357](../../assets/images/ros/practice/practice-01-04/img_078_357.webp)
-
-
 ✓실행 예제– verb/__init__.py
 7.
 main 함수
 
 - 각 명령어 확장에서 반드시 구현해야하는 메서드로, 명령어의 주요 로직을 수행하는 함수
 - 기본 클래스에서는NotImplementedError를 발생시켜 이 메서드가 반드시 하위 클래스에서 오버 라 이드되어야함을 알림
-
-
-![Image 361](../../assets/images/ros/practice/practice-01-04/img_079_361.webp)
 
 
 ✓복습Override(Object Oriented Programming)
@@ -1120,15 +766,6 @@ Override란?
 - 코드 재상용성을 높이고, 다형성(Polymorphism)도구 현 다형성? 하나의 인터페이스(메서드 이름)가 여러 형태로 동작하는 것
 
 
-![Image 365](../../assets/images/ros/practice/practice-01-04/img_080_365.webp)
-
-
-![Image 366](../../assets/images/ros/practice/practice-01-04/img_080_366.webp)
-
-
-![Image 367](../../assets/images/ros/practice/practice-01-04/img_080_367.webp)
-
-
 ✓복습Override vs Overload
 ※ C++, Java에서는Overload지원하나Python에서는 엄밀하게 보면 지원하지 않으나source code내에서 분기하는 형태로 구현 가능
 
@@ -1139,9 +776,6 @@ Override란?
 ![Image 372](../../assets/images/ros/practice/practice-01-04/img_081_372.webp)
 
 
-![Image 373](../../assets/images/ros/practice/practice-01-04/img_081_373.webp)
-
-
 ✓복습interface와 추상 클래스
 Interface란?
 
@@ -1150,12 +784,6 @@ Interface란?
 - 여러 개발자가 같은 시스템 안에서 다양한 기능을 추가
 - 개발자 각자의 방식으로 메서드 이름, 동작 방식 정한다면?
 - 코드 재사용, 일정 규모 이상 프로젝트 협업 필수!!! 구현체 구현체 ※ Python에서는interface keyword가없으며 대신 추상 클래스를 사용 ※ Interface는규칙(틀)만 제공하나 추상 클래스는 틀+ 기본 기능 제공
-
-
-![Image 377](../../assets/images/ros/practice/practice-01-04/img_082_377.webp)
-
-
-![Image 378](../../assets/images/ros/practice/practice-01-04/img_082_378.webp)
 
 
 ![Image 379](../../assets/images/ros/practice/practice-01-04/img_082_379.webp)
@@ -1172,22 +800,10 @@ Interface란?
 서브 명령어(verb)를 등록하는 부분. ros2env/verb/list.py와ros2env/verb/list.py 2개 클래스. ros2 env list와ros2 env set 입력 가능
 
 
-![Image 384](../../assets/images/ros/practice/practice-01-04/img_083_384.webp)
-
-
-![Image 385](../../assets/images/ros/practice/practice-01-04/img_083_385.webp)
-
-
 ✓실행 예제– setup.py
 
-2. 터미널을 열어 패키지를 빌 드하고, 새로 빌 드된 패키지를 사용
-3. 아래 명령어들을 실행하여 제대로 빌 드가 되었음을 확인
-
-
-![Image 389](../../assets/images/ros/practice/practice-01-04/img_084_389.webp)
-
-
-![Image 390](../../assets/images/ros/practice/practice-01-04/img_084_390.webp)
+2. 터미널을 열어 패키지를 빌드하고, 새로 빌드된 패키지를 사용
+3. 아래 명령어들을 실행하여 제대로 빌드가 되었음을 확인
 
 
 Intra-Process Communication
@@ -1202,14 +818,6 @@ Intra-Process Communication
 - 예, 모바일 로봇: 라이다 데이터 노드, 모터제어노드, 로봇위치추종노드, 경로 생성 노드 등...... Intra-process communication Intra-process communication
 
 - ROS에서 서로 다른 프로세스의 아이디를 확인해 보면 명확히 다른 것을 확인 가능 Intra-process communication
-
-![Image 395](../../assets/images/ros/practice/practice-01-04/img_087_395.webp)
-
-
-![Image 396](../../assets/images/ros/practice/practice-01-04/img_087_396.webp)
-
-
-![Image 397](../../assets/images/ros/practice/practice-01-04/img_087_397.webp)
 
 
 Intra-process communication
@@ -1275,32 +883,15 @@ publishing
 subscribing
 메시지address 1개
 
-![Image 408](../../assets/images/ros/practice/practice-01-04/img_092_408.webp)
-
 
 - 다음 명령어를 이용하여 이미지 파이프라인을 실행 Image pipeline demo Intra-process communication 이 예제는 총3개노드로 구성되어 있음
 - camera_node : OpenCV 라이브러리를 이용하여 카메라 입력 값을 받아 sensor_msg::msg::Image 메시지 타입으로publishing해 주는 역할
 - watermark_node : camera_node에서publishing하는 이미지를 subscribing하고 이미지에text추가하여publishing
 - Image_view_node : camera_node에서publishing하는 이미지를 subscribing하여cv::imshow를 통해 보여 줌 camera_node watermark_node image_view_node camera_node watermark_node image_view_node
 
-![Image 411](../../assets/images/ros/practice/practice-01-04/img_093_411.webp)
-
-
-![Image 412](../../assets/images/ros/practice/practice-01-04/img_093_412.webp)
-
-
-![Image 413](../../assets/images/ros/practice/practice-01-04/img_093_413.webp)
-
-
-![Image 414](../../assets/images/ros/practice/practice-01-04/img_093_414.webp)
-
 
 - 첫 번째 터미널은 모두 같은pid와 동일한 주소 값 Intra-process communication Image pipeline demo pid는process id의 약자로 컴퓨터에서 실행 중인 각 프로세스를 구별하기 위해 부여된 고유한 번호
 - 두 번째 터미널은camera_node와watermark_node는 같은 프로세스에서zero-copy로 이미지 송수신하지만, image_view_node는 다른 프로세스에서 실행되며 참조하는 메모리 주소도 다름 camera_node watermark_node image_view_node
-
-![Image 417](../../assets/images/ros/practice/practice-01-04/img_094_417.webp)
-
-![Image 420](../../assets/images/ros/practice/practice-01-04/img_094_420.webp)
 
 
 QoS
@@ -1334,24 +925,12 @@ DDS의 서비스 품질(QoS, Quality of Service)
 - depth: 메시지 큐 사이즈(KEEP_LAST 설정일 경우에만 유효) KEEL_ALL 모든 데이터 보관(최대 사이즈는DDS 벤더마다 다름)
 
 
-![Image 429](../../assets/images/ros/practice/practice-01-04/img_098_429.webp)
-
-
-![Image 430](../../assets/images/ros/practice/practice-01-04/img_098_430.webp)
-
-
 Reliability
 DDS의QoS
 ROS2에서 사용하는QoS 옵션
 
 - Values
 - 예시 Reliability 신뢰성 또는 속도 우선 설정 BEST_EFFORT 데이터 송신에 집중. 전송 속도를 중시하며 네트워크에 따라 유실 발생 가능성 RELIABLE 데이터 수신에 집중. 신뢰성 중시하며 유실 발생 시 재전송을 통해 수신 보장
-
-
-![Image 434](../../assets/images/ros/practice/practice-01-04/img_099_434.webp)
-
-
-![Image 435](../../assets/images/ros/practice/practice-01-04/img_099_435.webp)
 
 
 Durability
@@ -1362,12 +941,6 @@ ROS2에서 사용하는QoS 옵션
 - 예시 Durability 데이터수신하는서브스크라이버가생성되기전, 데이터의 사용 유무를 설정 TRANSIENT_LOCAL Subscription이 생성되기 전 데이터도 보관(Publisher에만 적용 가능) VOLATILE Subscription이 생성되기 전 데이터는 무효
 
 
-![Image 439](../../assets/images/ros/practice/practice-01-04/img_100_439.webp)
-
-
-![Image 440](../../assets/images/ros/practice/practice-01-04/img_100_440.webp)
-
-
 Deadline
 DDS의QoS
 ROS2에서 사용하는QoS 옵션
@@ -1375,7 +948,6 @@ ROS2에서 사용하는QoS 옵션
 - Values
 - 예시 Deadline 정해진 주기 내 데이터의 발신 및 수신이 없는 경우 이벤트 함수 실행 deadline_duration Deadline을 확인하는 주기
 
-![Image 443](../../assets/images/ros/practice/practice-01-04/img_101_443.webp)
 
 Lifespan
 DDS의QoS
@@ -1384,7 +956,6 @@ ROS2에서 사용하는QoS 옵션
 - Values
 - 예시 Lifespan 정해진 주기 내 수신되는 데이터에만 유효 판정, 이외 데이터는 삭제 lifespan_duration Lifespan을 확인하는 주기
 
-![Image 447](../../assets/images/ros/practice/practice-01-04/img_102_447.webp)
 
 Liveliness
 DDS의QoS
@@ -1392,11 +963,6 @@ ROS2에서 사용하는QoS 옵션
 
 - Values
 - 예시 Liveliness 정해진 주기 내 노드 또는 토픽의 생사를 확인 liveliness 자동 또는 매뉴얼로 확인할지 지정하는 옵션(3가지 중 선택) (AUTOMATIC, MANUAL_BY_NODE, MANUAL_BY_TOPIC) lease_duration Liveliness를 확인하는 주기
-
-![Image 451](../../assets/images/ros/practice/practice-01-04/img_103_451.webp)
-
-
-![Image 452](../../assets/images/ros/practice/practice-01-04/img_103_452.webp)
 
 
 rmw_qos_profile
@@ -1481,16 +1047,10 @@ QoS
 ![Image 468](../../assets/images/ros/practice/practice-01-04/img_106_468.webp)
 
 
-![Image 469](../../assets/images/ros/practice/practice-01-04/img_106_469.webp)
-
-
 ![Image 470](../../assets/images/ros/practice/practice-01-04/img_106_470.webp)
 
 
 ![Image 471](../../assets/images/ros/practice/practice-01-04/img_106_471.webp)
-
-
-![Image 472](../../assets/images/ros/practice/practice-01-04/img_106_472.webp)
 
 
 rmw_qos_profile
@@ -1499,16 +1059,12 @@ rmw_qos_profile 사용과 유저QoS 프로파일 사용
 
 - 예를 들어, 센서와 같이 지속성이 높으며 순간적으로 데이터를 빠르게 전달해야하는 경우 아래와 같이 설정
 
-![Image 475](../../assets/images/ros/practice/practice-01-04/img_107_475.webp)
-
 
 rmw_qos_profile
 DDS의QoS
 rmw_qos_profile 사용과 유저QoS 프로파일 사용
 
 - 실제 파이썬 코드에서 사용은 다음과 같이'qos_profile_sensor_data' 모듈을import하여 사용함
-
-![Image 478](../../assets/images/ros/practice/practice-01-04/img_108_478.webp)
 
 
 유저QoS 프로파일
@@ -1519,11 +1075,6 @@ rmw_qos_profile 사용과 유저QoS 프로파일 사용
 - 아래와 같은QoS 모듈을import
 - 코드에서'QoSProfile'을 선언하여 원하는 옵션을 커스 텀하게 설정
 
-![Image 481](../../assets/images/ros/practice/practice-01-04/img_109_481.webp)
-
-
-![Image 482](../../assets/images/ros/practice/practice-01-04/img_109_482.webp)
-
 
 유저QoS 프로파일
 DDS의QoS
@@ -1531,8 +1082,6 @@ rmw_qos_profile 사용과 유저QoS 프로파일 사용
 
 - 다음'create_publisher'와 같은 함수를 사용할 때'rmw_qos_profile' 대신 유저 가정의 한 커스 텀 QoS 프로파일을 매개변수로 사용
 - 유저QoS 프로파일을 사용하는 것이 커스 터 마이 징에 용이하기 때문에, 실제 개발 시 더 많이 사용됨
-
-![Image 485](../../assets/images/ros/practice/practice-01-04/img_110_485.webp)
 
 
 QoS programming
@@ -1543,8 +1092,6 @@ QoS programming
 - 배포한 패키지ex_calculator의 예시를 보면 다음과 같음
 - ex_calculator/ex_calculator/arithmetic/argument.py
 
-![Image 493](../../assets/images/ros/practice/practice-01-04/img_112_493.webp)
-
 
 Service
 QoS Programming
@@ -1553,8 +1100,6 @@ Topic, Service, Action의QoS 설정
 - ROS2 Service의 경우, 특별한 케이스 외에는 기본QoS 사용
 - /opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py →line 1436~1444
 
-![Image 496](../../assets/images/ros/practice/practice-01-04/img_113_496.webp)
-
 
 Service
 QoS Programming
@@ -1562,8 +1107,6 @@ Topic, Service, Action의QoS 설정
 
 - qos_profile_services_default는RMW의qos_profiles과types.h 헤더 파일에서 확인할 수 있음
 - /opt/ros/humble/include/rmw/rmw/qos_profiles.h →line 64
-
-![Image 499](../../assets/images/ros/practice/practice-01-04/img_114_499.webp)
 
 
 QoS Programming
@@ -1579,8 +1122,6 @@ Topic, Service, Action의QoS 설정
 - qos_profile_services_default는RMW의qos_profiles과types.h 헤더 파일에서 확인할 수 있음
 - /opt/ros/humble/include/rmw/rmw/types.h
 
-![Image 505](../../assets/images/ros/practice/practice-01-04/img_116_505.webp)
-
 
 Action
 QoS Programming
@@ -1588,13 +1129,11 @@ Topic, Service, Action의QoS 설정
 
 - 액션은 토픽과 서비스를 모두 사용하는 복합 형태
 - 액션 토픽의 경우qos_profile_services_default를 기본 설정
-- 피드백 퍼 블 리 셔의 경우QoSProfile (depth = 10) 혹은rmw_qos_profile_default를 초기 값으로 사용
-- 액션 상태 퍼 블 리 셔의 경우, 전용 프로파일인qos_profile_action_status_default를 기본 값으로 사용
+- 피드백 퍼블리셔의 경우QoSProfile (depth = 10) 혹은rmw_qos_profile_default를 초기 값으로 사용
+- 액션 상태 퍼블리셔의 경우, 전용 프로파일인qos_profile_action_status_default를 기본 값으로 사용
 - 파이썬의 경우, goal_service_qos_profile, result_service_qos_profile, cancel_service_qos_profile, feedback_pub_qos_profile, status_pub_qos_profile에 대한 기본 설정을 사용
 - /opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/action/server.py Action QoS Programming Topic, Service, Action의QoS 설정
 - /opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/action/server.py
-
-![Image 510](../../assets/images/ros/practice/practice-01-04/img_118_510.webp)
 
 
 실습
@@ -1613,20 +1152,11 @@ QoS 실습
 - 제공된 코드 파일의 압축 풀기
 
 
-![Image 518](../../assets/images/ros/practice/practice-01-04/img_121_518.webp)
-
-
-![Image 519](../../assets/images/ros/practice/practice-01-04/img_121_519.webp)
-
-
 ✓py_pubsub/src/publisher_member_function.py 설정
 
 - QoS profile 변경
 - Publisher에는QoS(Quality of Service) 프로파일의 기본 값으로rmw_qos_profile_default로사용
 - 'create_publisher'의3번째 인자에10을 넣어 주면, depth가10인 기본 프로파일'QoSProfile(depth=10)'이 입력되는 구조
-
-
-![Image 523](../../assets/images/ros/practice/practice-01-04/img_122_523.webp)
 
 
 ✓py_pubsub/src/publisher_member_function.py 설정
@@ -1635,10 +1165,6 @@ QoS 실습
 - History의값을KEEP_LAST로 변경하고 싶다면, 다음과 같이 작성
 - KEEP_ALL로 변경하고 싶다면 ros_tutorials
 
-![Image 526](../../assets/images/ros/practice/practice-01-04/img_123_526.webp)
-
-
-![Image 527](../../assets/images/ros/practice/practice-01-04/img_123_527.webp)
 
 ✓py_pubsub/src/publisher_member_function.py 설정
 
@@ -1658,7 +1184,6 @@ QoS 실습
 - KEEP_ALL : 모든 데이터 보관
 - VOLATILE: Subscription이 생성되기 전 데이터도 보관
 
-![Image 534](../../assets/images/ros/practice/practice-01-04/img_125_534.webp)
 
 ✓py_pubsub/src/subscriber_member_function.py 설정
 
@@ -1668,7 +1193,6 @@ QoS 실습
 - 로봇이 경로 명령(move to waypoint)를 보내고 있는 경우 하나라도 메시지를 놓치면 문제 발생→이때KEEP_ALL로 모든 데이터(waypoint) 보관
 - 배터리 잔량, 온도 센서 모니터링 등→과거 이력 데이터보다는 지금 실시간 현재 상태만 모니터링하고 싶은 경우→가장 최신 메시지1개만 받음
 
-![Image 538](../../assets/images/ros/practice/practice-01-04/img_126_538.webp)
 
 ✓빌드후py_pubsub 실행
 
@@ -1676,23 +1200,12 @@ QoS 실습
 - Talker 실행
 - Listener 실행(Talker의Publish 메시지가10개 이상 발행된 뒤 실행)
 
-![Image 542](../../assets/images/ros/practice/practice-01-04/img_127_542.webp)
-
-
-![Image 543](../../assets/images/ros/practice/practice-01-04/img_127_543.webp)
-
-
-![Image 544](../../assets/images/ros/practice/practice-01-04/img_127_544.webp)
 
 ✓History 결과 확인
 
 - Talker
 - Listener ※ QosHistoryPolicy를KEEP_ALL과KEEP_LAST로 옵션을 변경해서build 후 실행해서 비교해 보기 QoSHistoryPolicy 설정 Depth 적용 여부 메시지 저장 방식 KEEP_ALL X (무시됨) 모든 메시지를 저장 (RMW에 따라 차이는 있지만 시스템 메모리에 의해 제한) KEEP_LAST O (필수 설정) 최근depth 개수만 유지
 
-![Image 548](../../assets/images/ros/practice/practice-01-04/img_128_548.webp)
-
-
-![Image 549](../../assets/images/ros/practice/practice-01-04/img_128_549.webp)
 
 Reliability
 QoS Programming
@@ -1710,25 +1223,10 @@ QoS 실습
 - Talker 실행
 
 
-![Image 556](../../assets/images/ros/practice/practice-01-04/img_130_556.webp)
-
-
-![Image 557](../../assets/images/ros/practice/practice-01-04/img_130_557.webp)
-
-
-![Image 558](../../assets/images/ros/practice/practice-01-04/img_130_558.webp)
-
-
 ✓Reliable 결과 확인
 
 - Talker
 - Listener
-
-
-![Image 562](../../assets/images/ros/practice/practice-01-04/img_131_562.webp)
-
-
-![Image 563](../../assets/images/ros/practice/practice-01-04/img_131_563.webp)
 
 
 ✓Reliable 결과 확인
@@ -1742,21 +1240,12 @@ QoS 실습
 - 명령어의add 부분을delete로 변경하여 복원
 
 
-![Image 567](../../assets/images/ros/practice/practice-01-04/img_132_567.webp)
-
-
 ✓Reliable 결과 확인
 
 - 데이터 손실 명령 복원 확인
 - Listener와Talker를 다시 실행하여 데이터 손실 명령어가 제대로 복원되었는지 확인하기
 - Listener
 - Talker
-
-
-![Image 571](../../assets/images/ros/practice/practice-01-04/img_133_571.webp)
-
-
-![Image 572](../../assets/images/ros/practice/practice-01-04/img_133_572.webp)
 
 
 Durability
@@ -1777,9 +1266,6 @@ QoS 실습
 - VOLATILE : Subscriber가 생성되기 전 데이터는 사용하지 않음
 
 
-![Image 578](../../assets/images/ros/practice/practice-01-04/img_135_578.webp)
-
-
 ✓빌드후py_pubsub 실행
 
 - 빌드
@@ -1787,25 +1273,10 @@ QoS 실습
 - Listener 실행(Talker의Publish 메시지가10개 이상 발행된 뒤 실행)
 
 
-![Image 582](../../assets/images/ros/practice/practice-01-04/img_136_582.webp)
-
-
-![Image 583](../../assets/images/ros/practice/practice-01-04/img_136_583.webp)
-
-
-![Image 584](../../assets/images/ros/practice/practice-01-04/img_136_584.webp)
-
-
 ✓Durability 테스트 결과 확인
 
 - Talker
 - Listener Durability Depth 적용 여부 메시지 저장 방식 VOLATILE X (무시됨) 메시지는 발행될 때만 존재, 새로운 구독자는 이전 메시지 받을 수 없음 TRANSIENT_LOCAL O 최근depth 개수만 유지
-
-
-![Image 588](../../assets/images/ros/practice/practice-01-04/img_137_588.webp)
-
-
-![Image 589](../../assets/images/ros/practice/practice-01-04/img_137_589.webp)
 
 
 History와Durability의관계
@@ -1836,9 +1307,6 @@ Durability
 - 환자의Vital Sign 데이터를 주기적으로 받아야하는 모니터링 시스템→데이터가 일정 주기 이상 끊어지면 즉시 경고 발생 ✓deadline.py – main 함수
 
 
-![Image 597](../../assets/images/ros/practice/practice-01-04/img_140_597.webp)
-
-
 ![Image 598](../../assets/images/ros/practice/practice-01-04/img_140_598.webp)
 
 
@@ -1855,23 +1323,11 @@ Durability
 - deadline 인자에, 'Duration' 객체로 선언된 변수'deadline' 할당
 
 
-![Image 603](../../assets/images/ros/practice/practice-01-04/img_141_603.webp)
-
-
-![Image 604](../../assets/images/ros/practice/practice-01-04/img_141_604.webp)
-
-
 ✓deadline.py 분석
 
 - Callback 함수 선언 및Talker, Listener 선언
 - Timer로Publishing/Pause 반복 설정
 - Talker가publish_for_seconds 동안 메시지를 보낸 다음pause_for_seconds 동안 발행을 멈춤→의도적으로deadline 위반 상황 발생시킴
-
-
-![Image 608](../../assets/images/ros/practice/practice-01-04/img_142_608.webp)
-
-
-![Image 609](../../assets/images/ros/practice/practice-01-04/img_142_609.webp)
 
 
 ✓터미널에서Deadline 데모 실행
@@ -1885,20 +1341,11 @@ Durability
 - 3초 동안 데이터가 발신되고0초 동안 일시 정지이기 때문에, 결국 쉴 틈 없이 데이터를 발신
 
 
-![Image 613](../../assets/images/ros/practice/practice-01-04/img_143_613.webp)
-
-
 ✓터미널에서Deadline 데모 실행
 
 - Deadline 0.7초, 데이터 발행 기간3초, 일시 정지0초로 설정해 보자
 - 실행 결과
 - 데이터가 쉴 틈 없이 발신 및 수신되기 때문에 이벤트 함수 호출이 되지 않음
-
-
-![Image 617](../../assets/images/ros/practice/practice-01-04/img_144_617.webp)
-
-
-![Image 618](../../assets/images/ros/practice/practice-01-04/img_144_618.webp)
 
 
 ✓터미널에서Deadline 데모 실행
@@ -1908,19 +1355,10 @@ Durability
 - 즉, 3초 동안 발행하다1초 동안 쉬게 된다면 어떤 결과가 나오는지 확인
 
 
-![Image 622](../../assets/images/ros/practice/practice-01-04/img_145_622.webp)
-
-
 ✓터미널에서Deadline 데모 실행
 
 - Deadline 0.7초, 데이터 발행 기간3초, 일시 정지1초로 설정해 보자
 - 실행 결과 [ 활용] Deadline QoS 설정을 사용하면, 토픽을 정해진 시간 안에Publishing 못 하거나Subscribing하지 못할 때, 이벤트 콜백 함수 호출하여 특정 루틴을 수행하게할 수 있다.
-
-
-![Image 626](../../assets/images/ros/practice/practice-01-04/img_146_626.webp)
-
-
-![Image 627](../../assets/images/ros/practice/practice-01-04/img_146_627.webp)
 
 
 Lifespan
@@ -1936,9 +1374,6 @@ QoS 실습
 - 로봇 팔을 움직이는 명령은1초가 지난 명령인 경우 무시 메시지의 유효 기간(수명)을 지정하는 옵션. Publisher가데이터 발행한 순간부터lifespan이 지나면 그 데이터는 무효 ✓lifespan.py – main 함수
 
 
-![Image 633](../../assets/images/ros/practice/practice-01-04/img_148_633.webp)
-
-
 ✓lifespan.py 분석
 
 - 주기 설정
@@ -1948,12 +1383,6 @@ QoS 실습
 - QoS 프로파일 설정
 - lifespan 인자에, 'Duration' 객체로 선언된 변수'lifespan' 할당
 - reliability는RELIABLE(반드시 전달), durability는TRANSIENT_LOCAL(New Subscriber에게 데이터 전달)로설정
-
-
-![Image 637](../../assets/images/ros/practice/practice-01-04/img_149_637.webp)
-
-
-![Image 638](../../assets/images/ros/practice/practice-01-04/img_149_638.webp)
 
 
 ✓터미널에서Lifespan 데모 실행
@@ -1968,22 +1397,13 @@ QoS 실습
 - Lifespan을2000으로 변경해서 테스트해 보기
 
 
-![Image 642](../../assets/images/ros/practice/practice-01-04/img_150_642.webp)
-
-
 ✓터미널에서Lifespan 데모 실행
 
 - Lifespan 실행 결과
 - Listener는‘5’가발행된 이후에도Talker의‘4, 5’를 성공적으로 수신 받았음을 확인
 
 
-![Image 646](../../assets/images/ros/practice/practice-01-04/img_151_646.webp)
-
-
 ✓터미널에서Lifespan 데모 실행
-
-
-![Image 650](../../assets/images/ros/practice/practice-01-04/img_152_650.webp)
 
 
 Liveliness
@@ -2016,9 +1436,6 @@ Liveliness는 다음과 같은 상황에서 중요하게 사용됩니다.
 - 특정 시간 내에 발행자가 데이터를 보내지 않으면 구독자는 이를 감지하고 대체 데이터 소스를 사용할 수도 있음.
 
 
-![Image 657](../../assets/images/ros/practice/practice-01-04/img_154_657.webp)
-
-
 ✓liveliness.py 분석
 
 - 주기 설정
@@ -2030,12 +1447,6 @@ Liveliness는 다음과 같은 상황에서 중요하게 사용됩니다.
 - depth=10, Liveliness는 명령어로 실행 시 설정할 수 있도록함
 
 
-![Image 661](../../assets/images/ros/practice/practice-01-04/img_155_661.webp)
-
-
-![Image 662](../../assets/images/ros/practice/practice-01-04/img_155_662.webp)
-
-
 ✓터미널에서Liveliness 데모 실행
 
 - Liveliness 1초설정, 실행2초후퍼블리셔노드종료, 자동으로 확인
@@ -2045,23 +1456,11 @@ Liveliness는 다음과 같은 상황에서 중요하게 사용됩니다.
 - 이때Listener는liveliness로 설정한1초주기 동안 노 드가 죽었다는 것을 자동으로 확인
 
 
-![Image 666](../../assets/images/ros/practice/practice-01-04/img_156_666.webp)
-
-
-![Image 667](../../assets/images/ros/practice/practice-01-04/img_156_667.webp)
-
-
 ✓터미널에서Liveliness 데모 실행
 
 - Liveliness 1초설정, 실행2초후퍼블리셔노드종료, 수동으로 확인
 - 실행 결과
 - AUTOMATIC 때와 비슷하나, 노드를 죽이지 않고 퍼 블 리 시만 되지 않도록 설정했을 때의 결과가 위와 같음
-
-
-![Image 671](../../assets/images/ros/practice/practice-01-04/img_157_671.webp)
-
-
-![Image 672](../../assets/images/ros/practice/practice-01-04/img_157_672.webp)
 
 
 QoS Programming
@@ -2074,20 +1473,6 @@ Duration은ROS2에서 시간 간격(time span)을 표현하는 전용 타입
 4. 일관성: QoS설정은 모두Duration 사용
 5. 성능 최적화: RMW는nano초기 반 시간 계산을 빠르게 수행
 [ Duration 객체]
-
-![Image 674](../../assets/images/ros/practice/practice-01-04/img_158_674.webp)
-
-
-![Image 675](../../assets/images/ros/practice/practice-01-04/img_158_675.webp)
-
-
-![Image 676](../../assets/images/ros/practice/practice-01-04/img_158_676.webp)
-
-
-![Image 677](../../assets/images/ros/practice/practice-01-04/img_158_677.webp)
-
-
-![Image 678](../../assets/images/ros/practice/practice-01-04/img_158_678.webp)
 
 
 QoS
@@ -2120,20 +1505,6 @@ ROS2 CLI실습
 - 노드 수가 많아서 프로세스 수를 줄이고 싶을 때, 통신 성능이 매우 중요한 경우
 - p39 참조
 
-![Image 682](../../assets/images/ros/practice/practice-01-04/img_160_682.webp)
-
-
-![Image 683](../../assets/images/ros/practice/practice-01-04/img_160_683.webp)
-
-
-![Image 684](../../assets/images/ros/practice/practice-01-04/img_160_684.webp)
-
-
-![Image 685](../../assets/images/ros/practice/practice-01-04/img_160_685.webp)
-
-
-![Image 686](../../assets/images/ros/practice/practice-01-04/img_160_686.webp)
-
 
 ROS2 CLI
 ROS2 CLI실습
@@ -2142,8 +1513,6 @@ ros2 component
 컴포넌트 확인
 교재: ROS2로 시작하는 로봇 프로그래밍(p533)
 
-![Image 689](../../assets/images/ros/practice/practice-01-04/img_161_689.webp)
-
 
 ROS2 CLI
 ROS2 CLI실습
@@ -2151,16 +1520,12 @@ ROS2 CLI실습
 - Talker 컴포넌트를 컨테이너에 적재
 - 적재가 완료되면 컨테이너를 실행시켰던 터미널 창에Publishing 됨
 
-![Image 692](../../assets/images/ros/practice/practice-01-04/img_162_692.webp)
-
 
 ROS2 CLI
 ROS2 CLI실습
 
 - Listener 컴포넌트도 컨테이너에 적재
 - 적재가 완료되면 컨테이너를 실행시켰던 터미널 창에 로그 확인
-
-![Image 695](../../assets/images/ros/practice/practice-01-04/img_163_695.webp)
 
 
 ROS2 CLI
@@ -2172,32 +1537,21 @@ ROS2 CLI실습
 - 해당 메모리에 접근할 수 있고(Zero-copy)
 - 네임 스페이스 옵션만 변경하여 실행시킴
 
-![Image 698](../../assets/images/ros/practice/practice-01-04/img_164_698.webp)
+
+ROS2 CLI
+ROS2 CLI실습
 
 
 ROS2 CLI
 ROS2 CLI실습
 
-![Image 701](../../assets/images/ros/practice/practice-01-04/img_165_701.webp)
-
 
 ROS2 CLI
 ROS2 CLI실습
-
-![Image 704](../../assets/images/ros/practice/practice-01-04/img_166_704.webp)
-
-
-ROS2 CLI
-ROS2 CLI실습
-
-![Image 707](../../assets/images/ros/practice/practice-01-04/img_167_707.webp)
 
 
 RQt
 ※ 필요한 파일: rqt_example.zip
-
-
-![Image 708](../../assets/images/ros/practice/practice-01-04/img_168_708.webp)
 
 
 ![Image 709](../../assets/images/ros/practice/practice-01-04/img_168_709.webp)
@@ -2231,11 +1585,6 @@ RQt 플러그인 스타일의 장점
 - 디버깅시rqt_consol로 에러 메시지 모니터링
 - 파라미터 튜닝할 때rqt_reconfigure로 실시간 수정 ros2_ws/rqt_example/package.xml
 
-![Image 715](../../assets/images/ros/practice/practice-01-04/img_170_715.webp)
-
-
-![Image 716](../../assets/images/ros/practice/practice-01-04/img_170_716.webp)
-
 
 RQt 패키지
 RQt 플러그인
@@ -2261,8 +1610,6 @@ RQt 플러그인(RQt Plugin)
 - `ros-humble-desktop`을 설치하였다면, RQt 개발 환경은 설치되어 있음
 - 만약 설치가 되어 있지 않다면, 다음 명령어를 통해 설치
 
-![Image 723](../../assets/images/ros/practice/practice-01-04/img_173_723.webp)
-
 
 RQt 플러그인 작성 순서
 RQt 플러그인 작성 순서
@@ -2274,7 +1621,7 @@ RQt 플러그인 패키지 생성
 3.
 일반적인 패키지 생성과 다르지 않지만, RQt 플러그인의 기본 기능 관련 및GUI 관련 패키지는 의존성 패키지로 포함
 4.
-특히, Python 언어로 작성하지만, RQt 플러그인의 일부로 작성하기 때문에, 빌 드 형태는`ament_cmake`로설정
+특히, Python 언어로 작성하지만, RQt 플러그인의 일부로 작성하기 때문에, 빌드 형태는`ament_cmake`로설정
 2.
 패키지 설정 파일 수정
 해당 섹션에서는 플러그인 작성 순서를 소개하고 있다. 제공된 코드를 받은 후 파일의 존재 유무만 확인해 보자.
@@ -2287,7 +1634,7 @@ Python Style
 3.
 플러그인 파일 생성
 4.
-빌 드 설정 파일 수정
+빌드 설정 파일 수정
 5.
 스크립트 폴더 및 파일 생성
 6.
@@ -2315,8 +1662,6 @@ rqt_example 실행 화면
 RQt 예제 구성
 RQt example
 
-![Image 733](../../assets/images/ros/practice/practice-01-04/img_177_733.webp)
-
 
 ![Image 734](../../assets/images/ros/practice/practice-01-04/img_177_734.webp)
 
@@ -2330,7 +1675,7 @@ RQt example
 
 - RQt 기본GUI 위젯 사용
 - Push button, Radio button, Slider, Dial, LCD 숫자, Label
-- ROS2 기반 빌 드
+- ROS2 기반 빌드
 - ROS2의토픽Publisher와Subscriber, 서비스 서버와 클라이언트를 함께 사용
 
 ![Image 738](../../assets/images/ros/practice/practice-01-04/img_178_738.webp)
@@ -2344,31 +1689,14 @@ RQt example
 ![Image 741](../../assets/images/ros/practice/practice-01-04/img_179_741.webp)
 
 
-![Image 742](../../assets/images/ros/practice/practice-01-04/img_179_742.webp)
-
-
-![Image 743](../../assets/images/ros/practice/practice-01-04/img_179_743.webp)
-
-
 RQt 예제 구성
 RQt 예제UI살펴보기
 
 - 또는 직접Ubuntu 파일 탐색기에서 더블 클릭하여 실행
 - 설치된 모든 플러그인을 강제로 다시 검색 ros2_ws
 
-![Image 746](../../assets/images/ros/practice/practice-01-04/img_180_746.webp)
-
 
 ![Image 747](../../assets/images/ros/practice/practice-01-04/img_180_747.webp)
-
-
-![Image 748](../../assets/images/ros/practice/practice-01-04/img_180_748.webp)
-
-
-![Image 749](../../assets/images/ros/practice/practice-01-04/img_180_749.webp)
-
-
-![Image 750](../../assets/images/ros/practice/practice-01-04/img_180_750.webp)
 
 
 RQt 예제 구성
@@ -2376,14 +1704,6 @@ RQt 예제 설정 파일 살펴보기
 패키지 설정 파일 수정
 RQt에이 패키지에서 제공하려는 플러그인을 추가하는 기능
 ros2_ws
-
-![Image 753](../../assets/images/ros/practice/practice-01-04/img_181_753.webp)
-
-
-![Image 754](../../assets/images/ros/practice/practice-01-04/img_181_754.webp)
-
-
-![Image 755](../../assets/images/ros/practice/practice-01-04/img_181_755.webp)
 
 
 RQt 예제 구성
@@ -2401,29 +1721,13 @@ RQt 예제 설정 파일 살펴보기
 
 - Group 태그가 메뉴의 세부 항목이 되며<label>, <icon>, <statustip>이해당RQt 플러그인의 속성이 됨 RQt 플러그인 파일 생성 ros2_ws
 
-![Image 761](../../assets/images/ros/practice/practice-01-04/img_183_761.webp)
-
-
-![Image 762](../../assets/images/ros/practice/practice-01-04/img_183_762.webp)
-
-
-![Image 763](../../assets/images/ros/practice/practice-01-04/img_183_763.webp)
-
 
 RQt 예제 구성
 RQt 예제 설정 파일 살펴보기
 
-- 빌 드 설정 파일CMakeLists.txt 도 일반적인ROS 패키지와 유사
+- 빌드 설정 파일CMakeLists.txt 도 일반적인ROS 패키지와 유사
 - plugin.xml, resource, launch 폴더 및 하위 파일들을share 폴더에 설치
-- Scripts 폴더의rqt_example 파일을lib 폴더에 설치 빌 드 설정 파일 수정 ros2_ws
-
-![Image 766](../../assets/images/ros/practice/practice-01-04/img_184_766.webp)
-
-
-![Image 767](../../assets/images/ros/practice/practice-01-04/img_184_767.webp)
-
-
-![Image 768](../../assets/images/ros/practice/practice-01-04/img_184_768.webp)
+- Scripts 폴더의rqt_example 파일을lib 폴더에 설치 빌드 설정 파일 수정 ros2_ws
 
 
 스크립트 폴더 및 파일 생성
@@ -2432,27 +1736,11 @@ RQt 예제 설정 파일 살펴보기
 - RQt의 진입 코드라고 볼 수 있으며, rqt_gui 중main module의Main 클래스를 이용하여RQt 플러그인 기능 사용
 - 메인 코드인examples 모듈의Examples 클래스 호출 RQt 예제 구성 RQt 예제 설정 파일 살펴보기 ros2_ws
 
-![Image 771](../../assets/images/ros/practice/practice-01-04/img_185_771.webp)
-
-
-![Image 772](../../assets/images/ros/practice/practice-01-04/img_185_772.webp)
-
-
-![Image 773](../../assets/images/ros/practice/practice-01-04/img_185_773.webp)
-
 
 리소스 폴더 및UI 파일 생성
 
 - Qt의ui 파일은XML 태그를 이용
 - 수작업으로 작업하지는 않고qtcreator에서 손쉽게 구성할 수 있다. RQt 예제 구성 RQt 예제 설정 파일 살펴보기 ros2_ws
-
-![Image 776](../../assets/images/ros/practice/practice-01-04/img_186_776.webp)
-
-
-![Image 777](../../assets/images/ros/practice/practice-01-04/img_186_777.webp)
-
-
-![Image 778](../../assets/images/ros/practice/practice-01-04/img_186_778.webp)
 
 
 소스 폴더 및 파일 생성
@@ -2460,52 +1748,23 @@ RQt 예제 설정 파일 살펴보기
 - rqt_example의 메인 소스 코드에 해당하는 파일들
 - 다음 섹션에서 상세한 설명 RQt 예제 구성 RQt 예제 설정 파일 살펴보기 ros2_ws ros2_ws ros2_ws
 
-![Image 781](../../assets/images/ros/practice/practice-01-04/img_187_781.webp)
-
-
-![Image 782](../../assets/images/ros/practice/practice-01-04/img_187_782.webp)
-
-
-![Image 783](../../assets/images/ros/practice/practice-01-04/img_187_783.webp)
-
 
 런치 폴더 및 런치 파일 생성
 
 - 런치 파일은turtlesim 패키지의turtlesim_node 노드와 함께 연동하여 테스트 가능하도록 구성
 - turtlesim_node 노드의 토픽과 맞추기 위해namespace를`turtle1`으로 설정 RQt 예제 구성 RQt 예제 설정 파일 살펴보기 ros2_ws
 
-![Image 786](../../assets/images/ros/practice/practice-01-04/img_188_786.webp)
-
-
-![Image 787](../../assets/images/ros/practice/practice-01-04/img_188_787.webp)
-
-
-![Image 788](../../assets/images/ros/practice/practice-01-04/img_188_788.webp)
-
-
-![Image 789](../../assets/images/ros/practice/practice-01-04/img_188_789.webp)
-
 
 RQt 메인 소스 코드
 RQt 예 제 소스 코드 분석
 RQt 메인 소스 코드
 ros2_ws
 ros2_ws
-
-![Image 792](../../assets/images/ros/practice/practice-01-04/img_189_792.webp)
-
-
-![Image 793](../../assets/images/ros/practice/practice-01-04/img_189_793.webp)
 
 
 examples.py
 RQt 예 제 소스 코드 분석
 RQt 메인 소스 코드
-
-![Image 796](../../assets/images/ros/practice/practice-01-04/img_190_796.webp)
-
-
-![Image 797](../../assets/images/ros/practice/practice-01-04/img_190_797.webp)
 
 
 examples.py
@@ -2542,11 +1801,6 @@ RQt 메인 소스 코드
 - ament_index_python.resources 모듈의get_resource 함수를 이용하여, `rqt_example` 패키지의`rqt_example.ui` 파일을loadUi 함수로 불러옴(패키지 경로를 가져옴)
 - 이를 통해qtcreator로 미리 만들어 둔UI를 화면에 띄울 수 있는 것(.ui파일을 로드해서Widget에적용)
 
-![Image 806](../../assets/images/ros/practice/practice-01-04/img_194_806.webp)
-
-
-![Image 807](../../assets/images/ros/practice/practice-01-04/img_194_807.webp)
-
 
 examples_widget.py
 RQt 예 제 소스 코드 분석
@@ -2558,11 +1812,6 @@ RQt 메인 소스 코드
 - Subscriber는 이 속도 값을 수신 받아slider와dial과 같은 인디 케이 터로 표현하거나LCD 숫자 형태로 값을 표시
 - 서비스의 경우, radio button 두 개가 있는데, 이들 중 하나를 선택하면 해당 값을 서비스request 값으로 보냄
 - 서비스response값으로 가상의LED가 켜지고 꺼짐을 나타낼 수 있는True, False를반한
-
-![Image 810](../../assets/images/ros/practice/practice-01-04/img_195_810.webp)
-
-
-![Image 811](../../assets/images/ros/practice/practice-01-04/img_195_811.webp)
 
 
 examples_widget.py
@@ -2576,11 +1825,6 @@ RQt 메인 소스 코드
 - update_indicators : Subscribing한 속도 값을 처리하는 함수
 - update_timer는update_indicators 함수를 콜백 함수로 설정, 30ms마다GUI 갱신
 
-![Image 814](../../assets/images/ros/practice/practice-01-04/img_196_814.webp)
-
-
-![Image 815](../../assets/images/ros/practice/practice-01-04/img_196_815.webp)
-
 
 examples_widget.py
 RQt 예 제 소스 코드 분석
@@ -2591,11 +1835,6 @@ RQt 메인 소스 코드
 - 지정된 병진 속도와 회전 속도를 각각linear.x 와angular.z로 지정하여Publishing하는 역할
 - 토픽Publishing 주기는100ms(0.1sec)
 
-![Image 818](../../assets/images/ros/practice/practice-01-04/img_197_818.webp)
-
-
-![Image 819](../../assets/images/ros/practice/practice-01-04/img_197_819.webp)
-
 
 examples_widget.py
 RQt 예 제 소스 코드 분석
@@ -2603,13 +1842,8 @@ RQt 메인 소스 코드
 
 - Line : 156 ~ 161
 - update_indicators 함수는 이와 같이slider 형태, dial 형태, LCD number 형태의 위젯으로 구성
-- 각 위젯의 값으로는 서브 스 크 라이브 한 병진(linear) 속도와 회전(angular) 속도를 사용
+- 각 위젯의 값으로는 서브스크라이브 한 병진(linear) 속도와 회전(angular) 속도를 사용
 - 해당 함수의 토픽 값을GUI 형태로 볼 수 있게 됨
-
-![Image 822](../../assets/images/ros/practice/practice-01-04/img_198_822.webp)
-
-
-![Image 823](../../assets/images/ros/practice/practice-01-04/img_198_823.webp)
 
 
 examples_widget.py
@@ -2618,12 +1852,7 @@ RQt 메인 소스 코드
 
 - Line : 85 ~ 86
 - update_indicators 함수에서 사용된 병진 속도 및 회전 속도는 이와 같이get_velocity 함수가 토픽을 수신할 때마다 업데이트
-- 이 함수에서 사용된 인터페이스는 토픽 퍼 블 리 셔와 마찬가지로Twist 인터페이스
-
-![Image 826](../../assets/images/ros/practice/practice-01-04/img_199_826.webp)
-
-
-![Image 827](../../assets/images/ros/practice/practice-01-04/img_199_827.webp)
+- 이 함수에서 사용된 인터페이스는 토픽 퍼블리셔와 마찬가지로Twist 인터페이스
 
 
 examples_widget.py
@@ -2634,11 +1863,6 @@ RQt 메인 소스 코드
 - push_button으로 지정된w, a, s, d, x 버튼을 마우스를 눌렀을 때 호출되는 함수들을 지정
 - 또한, 해당하는 키보드 자판을 눌렀을 때 동일 효과를 주기 위한short cut 설정
 
-![Image 830](../../assets/images/ros/practice/practice-01-04/img_200_830.webp)
-
-
-![Image 831](../../assets/images/ros/practice/practice-01-04/img_200_831.webp)
-
 
 examples_widget.py
 RQt 예 제 소스 코드 분석
@@ -2647,11 +1871,6 @@ RQt 메인 소스 코드
 - Line : 103 ~ 117
 - 각push_button을 눌렀을 때 실행되는 함수는 이와 같으며, 현재의 병진 속도와 회전 속도를 변화시킴
 - 단위는SI 단위로, 병진 속도에m/sec, 회전 속도에는rad/sec
-
-![Image 834](../../assets/images/ros/practice/practice-01-04/img_201_834.webp)
-
-
-![Image 835](../../assets/images/ros/practice/practice-01-04/img_201_835.webp)
 
 
 examples_widget.py
@@ -2662,11 +1881,6 @@ RQt 메인 소스 코드
 - LED ON, LED OFF 버튼을 눌렀을 때call_led_service라는 서비스 클라이언트의 요청 함수를 지정한 구문
 - push_button과 비슷하게LED ON은 키보드의`o` 자판, OFF는`f` 자판을 숏 컷으로 설정
 
-![Image 838](../../assets/images/ros/practice/practice-01-04/img_202_838.webp)
-
-
-![Image 839](../../assets/images/ros/practice/practice-01-04/img_202_839.webp)
-
 
 examples_widget.py
 RQt 예 제 소스 코드 분석
@@ -2674,11 +1888,6 @@ RQt 메인 소스 코드
 
 - Line : 119 ~ 144
 - call_led_service 함수는radio button의 클릭 상태를 보고request 값으로True 또는False를 지정하여 요청
-
-![Image 842](../../assets/images/ros/practice/practice-01-04/img_203_842.webp)
-
-
-![Image 843](../../assets/images/ros/practice/practice-01-04/img_203_843.webp)
 
 
 examples_widget.py
@@ -2690,11 +1899,6 @@ RQt 메인 소스 코드
 - 버튼 상태와 색상 변경이 성공적으로 완료되면, 그 결과를`success`와`message` 변수에 담아 서비스 클라이언트에 반환
 - Line : 88 ~ 101
 
-![Image 846](../../assets/images/ros/practice/practice-01-04/img_204_846.webp)
-
-
-![Image 847](../../assets/images/ros/practice/practice-01-04/img_204_847.webp)
-
 
 examples_widget.py
 RQt 예 제 소스 코드 분석
@@ -2704,26 +1908,18 @@ RQt 메인 소스 코드
 - examples.py의shutdown_plugin 함수가 호출하는 함수
 - rqt_example 노드를 실행한 터미널 창에서ctrl + c (SIGINT) 신호 또는UI화면에서의 창 닫기 버튼을 눌러 종료할 때 호출됨
 
-![Image 850](../../assets/images/ros/practice/practice-01-04/img_205_850.webp)
 
-
-![Image 851](../../assets/images/ros/practice/practice-01-04/img_205_851.webp)
-
-
-패키지 빌 드
+패키지 빌드
 RQt 플러그인 예제 실행
 Turtlesim Node 연동 예제
 
 - cd ~/rqt_example
 - colcon build
-- source install/setup.bash 패키지 빌 드 RQt 플러그인 예제 실행 Turtlesim Node 연동 예제
+- source install/setup.bash 패키지 빌드 RQt 플러그인 예제 실행 Turtlesim Node 연동 예제
 - 아래 명령어를 통해 기본적인rqt_example이 실행되는지 확인
 - 만약`qt_gui_main() found no plugin matching~`과 같은 에러 발생 시 →$ `rqt --force-discover` 명령어 실행 또는 →`rm ~/.config/ros.org/rqt_gui.ini` 명령어로 설정 파일 삭제
 
 ![Image 856](../../assets/images/ros/practice/practice-01-04/img_207_856.webp)
-
-
-![Image 857](../../assets/images/ros/practice/practice-01-04/img_207_857.webp)
 
 
 런치 파일 실행
@@ -2732,31 +1928,19 @@ Turtlesim Node 연동 예제
 
 - ros2 launch rqt_example turtlesim.launch.py
 
-![Image 860](../../assets/images/ros/practice/practice-01-04/img_208_860.webp)
-
 
 ![Image 861](../../assets/images/ros/practice/practice-01-04/img_208_861.webp)
-
-
-![Image 862](../../assets/images/ros/practice/practice-01-04/img_208_862.webp)
 
 
 런치 파일 실행
 RQt 플러그인 예제 실행
 Turtlesim Node 연동 예제
 
-![Image 865](../../assets/images/ros/practice/practice-01-04/img_209_865.webp)
-
-
-![Image 866](../../assets/images/ros/practice/practice-01-04/img_209_866.webp)
-
 
 RQt 플러그인 예제 실행
 Turtlesim Node 연동 예제
 
 - 키보드 조작 후 값이 변경되는 지 확인 런치 파일 실행
-
-![Image 869](../../assets/images/ros/practice/practice-01-04/img_210_869.webp)
 
 
 ![Image 870](../../assets/images/ros/practice/practice-01-04/img_210_870.webp)
@@ -2769,16 +1953,8 @@ Turtlesim Node 연동 예제
 - 새로운 터미널을 열고, source install/setup.bash 후,
 - ros2 topic echo /turtle1/cmd_vel 을 통해, 토픽에 발행되는 값 확인
 
-![Image 873](../../assets/images/ros/practice/practice-01-04/img_211_873.webp)
-
 
 ![Image 874](../../assets/images/ros/practice/practice-01-04/img_211_874.webp)
-
-
-![Image 875](../../assets/images/ros/practice/practice-01-04/img_211_875.webp)
-
-
-![Image 876](../../assets/images/ros/practice/practice-01-04/img_211_876.webp)
 
 
 RQt 플러그인 예제 실행
@@ -2786,21 +1962,8 @@ Turtlesim Node 연동 실습
 
 - 키보드, 병진 속도, 회전 속도 증가/감소 단위 값 수정해서Build 해 보기 코드 수정해서Build 후 실행해 보기 https://github.com/ros-visualization https://github.com/ros-visualization
 
-![Image 879](../../assets/images/ros/practice/practice-01-04/img_212_879.webp)
-
 
 ![Image 880](../../assets/images/ros/practice/practice-01-04/img_212_880.webp)
-
-
-![Image 881](../../assets/images/ros/practice/practice-01-04/img_212_881.webp)
-
-
-![Image 882](../../assets/images/ros/practice/practice-01-04/img_212_882.webp)
-
-![Image 884](../../assets/images/ros/practice/practice-01-04/img_212_884.webp)
-
-
-![Image 885](../../assets/images/ros/practice/practice-01-04/img_212_885.webp)
 
 
 Lifecycle
@@ -2855,18 +2018,8 @@ Lifecycle
 - 전환
 - 다음 명령어로 노드들을 실행(각기 다른 터미널에서 실행) Lifecycle Lifecycle
 
-![Image 900](../../assets/images/ros/practice/practice-01-04/img_221_900.webp)
-
-
-![Image 901](../../assets/images/ros/practice/practice-01-04/img_221_901.webp)
-
-
-![Image 902](../../assets/images/ros/practice/practice-01-04/img_221_902.webp)
-
 
 - lc_client를 실행시킬 시lc_talker의 상태가configure →Inactive →Activate →Inactive Active →Inactivate →Finalized의 순서로 전환되는 것을 확인 가능 Lifecycle Lifecycle
-
-![Image 905](../../assets/images/ros/practice/practice-01-04/img_222_905.webp)
 
 
 ROS2 CLI
@@ -2876,14 +2029,6 @@ ROS2 CLI실습
 - 보안 키 저장소 생성
 - 보안 키 생성
 - 환경 변수 구성 ros2 security ~/sros2_demo/demo_keystore/enclaves디렉토리 확인해 보기 Terminator 2개 실행해서 진행: menu →broadastall
-
-![Image 908](../../assets/images/ros/practice/practice-01-04/img_223_908.webp)
-
-
-![Image 909](../../assets/images/ros/practice/practice-01-04/img_223_909.webp)
-
-
-![Image 910](../../assets/images/ros/practice/practice-01-04/img_223_910.webp)
 
 
 ROS2 CLI
@@ -2895,16 +2040,8 @@ ROS2 CLI실습
 - 새로운 터미널에서listener node 실행
 - 이 노드들은 인증 및 암호화를 사용하여 통신함 (해당 노드들은 적절한 키와 인증서를 생성하였으므로 통신이 가능)
 
-![Image 915](../../assets/images/ros/practice/practice-01-04/img_225_915.webp)
-
-
-![Image 916](../../assets/images/ros/practice/practice-01-04/img_225_916.webp)
-
 
 ![Page 226](../../assets/images/ros/practice/practice-01-04/page_226.webp)
-
-
-![Page 227](../../assets/images/ros/practice/practice-01-04/page_227.webp)
 
 
 ROS2 CLI
@@ -2919,11 +2056,8 @@ ROS2 CLI실습
 
 ![Image 922](../../assets/images/ros/practice/practice-01-04/img_228_922.webp)
 
-![Image 924](../../assets/images/ros/practice/practice-01-04/img_228_924.webp)
-
 
 수고하셨습니다.
 
 ![Image 927](../../assets/images/ros/practice/practice-01-04/img_229_927.webp)
-
 

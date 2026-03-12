@@ -1,14 +1,7 @@
-# 강의_3기_ROS2입문_6차시
-
-
-ROS2 프로그래밍 입문(6차시)
-
-6. ROS2 응용
+# ROS2 입문 6차시 - ROS2 응용
 
 
 ## ROS2 응용
-1. ROS2 bag 이해 및 사용법
-2. Jupyter를 이용한 프로그래밍
 ROS2 bag 이해 및 사용법
 Bag 파일이란?
 
@@ -30,9 +23,8 @@ ROS2 bag 이해 및 사용법
 - 다음 명령어는“my_bag.bag”라는 이름의BAG 파일의 정보를 표시함
 
 
-![Image 2](../../assets/images/ros/intro/lesson-06/img_004_002.webp)
-
-![Image 4](../../assets/images/ros/intro/lesson-06/img_004_004.webp)
+!!! tip "소스코드 참조"
+    이 코드의 전체 내용은 [Calculator 프로젝트 전체 소스코드](../code-ref/calculator.md) 페이지에서 확인할 수 있습니다.
 
 
 신규ROS2 cli 작성법
@@ -46,9 +38,6 @@ BAG 파일 만들기
 
 ## 준비단계
 - 다음 실습은 여러 터미널을 사용하여 진행됩니다. 혼란을 방지하기 위해, 터미널 좌측 상단의 버튼을 눌러 미리3개의 터미널을 열어 두는 것을 권장합니다. 실습
-
-
-![Image 5](../../assets/images/ros/intro/lesson-06/img_006_005.webp)
 
 
 BAG 파일 만들기
@@ -65,16 +54,12 @@ BAG 파일 만들기
 ## 두번째터미널에서turtle_teleop_key 실행
 실습
 
-![Image 8](../../assets/images/ros/intro/lesson-06/img_008_008.webp)
-
 
 BAG 파일 만들기
 
 ## 세번째터미널에서다음명령어를이용하여/turtle1/cmd_vel 토픽기록
 - /turtle1/cmd_vel이라는 이름을 가진 토픽을turtle_bag이라는 이름의BAG 파일에 기록
 - 주의 사항: 반드시“Subscribed to topic ‘/turtle1/cmd_vel’” 이 뜨는지 확인할 것 실습
-
-![Image 10](../../assets/images/ros/intro/lesson-06/img_009_010.webp)
 
 
 BAG 파일 만들기
@@ -89,8 +74,6 @@ BAG 파일 만들기
 
 ## 세번째터미널에서실행되고있는record 종료
 - 종료는ctrl + c 사용 실습
-
-![Image 14](../../assets/images/ros/intro/lesson-06/img_011_014.webp)
 
 
 BAG 파일 만들기
@@ -121,20 +104,12 @@ BAG 파일 실습
 - 다운로드된 압축 파일의 압축 풀기 실습
 
 
-![Image 19](../../assets/images/ros/intro/lesson-06/img_016_019.webp)
-
-
 BAG 파일 실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
 - 압축 풀린bag 파일의 정보 확인
 - Bag 파일 반복 재생 실습
 
-
-![Image 20](../../assets/images/ros/intro/lesson-06/img_017_020.webp)
-
-
-![Image 21](../../assets/images/ros/intro/lesson-06/img_017_021.webp)
 
 BAG 파일 실습
 
@@ -162,20 +137,12 @@ BAG 파일 실습
 - 다운로드된 압축 파일의 압축 풀기 실습
 
 
-![Image 27](../../assets/images/ros/intro/lesson-06/img_021_027.webp)
-
-
 BAG 파일 실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
 - 압축 풀린bag 파일의 정보 확인
 - Bag 파일 반복 재생 실습
 
-
-![Image 28](../../assets/images/ros/intro/lesson-06/img_022_028.webp)
-
-
-![Image 29](../../assets/images/ros/intro/lesson-06/img_022_029.webp)
 
 BAG 파일 실습
 
@@ -201,9 +168,6 @@ BAG 파일 실습
 실습
 
 
-![Image 36](../../assets/images/ros/intro/lesson-06/img_027_036.webp)
-
-
 BAG 파일 실습
 
 ## BAG 파일에기록된lidar 정보불러오기
@@ -211,23 +175,11 @@ BAG 파일 실습
 - 다운로드된 압축 파일의 압축 풀기 실습
 
 
-![Image 37](../../assets/images/ros/intro/lesson-06/img_028_037.webp)
-
-
 BAG 파일 실습
 
 ## BAG 파일에기록된lidar 정보불러오기
 - 압축 풀린bag 파일의 정보 확인
 - Bag 파일 반복 재생 실습
-
-
-![Image 38](../../assets/images/ros/intro/lesson-06/img_029_038.webp)
-
-
-![Image 39](../../assets/images/ros/intro/lesson-06/img_029_039.webp)
-
-
-![Image 40](../../assets/images/ros/intro/lesson-06/img_029_040.webp)
 
 
 BAG 파일 실습
@@ -284,18 +236,9 @@ BAG 파일 실습
 
 
 ## Visual Studio Code
-1. 터미널에서 아래 명령을 이용해pip을설치
-2. 터미널에서 아래 명령을 이용해pip을 최신 버전으로 유지
-3. 터미널에서 아래 명령을 이용해jupyter 설치
-4. 설치가 완료되면 재부팅
 Jupyter를 이용한 프로그래밍
 VSCode에서Jupyter 사용
 
-
-![Image 48](../../assets/images/ros/intro/lesson-06/img_036_048.webp)
-
-
-![Image 49](../../assets/images/ros/intro/lesson-06/img_036_049.webp)
 
 ## Visual Studio Code
 Jupyter를 이용한 프로그래밍
@@ -304,11 +247,6 @@ VSCode에서Jupyter 사용
 - VS Code에서 ‘extension’ 탭으로 이동한 후, 'Jupyter' 검색
 - 검색 결과에서 나타나는Jupyter를 선택하고 ‘Install' 버튼을 눌러 설치
 
-![Image 52](../../assets/images/ros/intro/lesson-06/img_037_052.webp)
-
-
-![Image 53](../../assets/images/ros/intro/lesson-06/img_037_053.webp)
-
 
 ## Visual Studio Code
 Jupyter를 이용한 프로그래밍
@@ -316,7 +254,7 @@ VSCode에서Jupyter 사용
 - Vscode의 좌 상단에서newfile을 클릭하여 새로운 파일을 만듦
 - 파일 명은HelloWorld.ipynb로설정
 
-![Image 55](../../assets/images/ros/intro/lesson-06/img_038_055.webp)
+
 
 
 ## Visual Studio Code
@@ -325,15 +263,11 @@ VSCode에서Jupyter 사용
 - 아래와 같이 빈칸에print("Hello World")를 입력 후shift + enter를입력
 - Select Kernel창에서“Python Environments”를선택
 
-![Image 57](../../assets/images/ros/intro/lesson-06/img_039_057.webp)
-
 
 ## Visual Studio Code
 Jupyter를 이용한 프로그래밍
 VSCode에서Jupyter 사용
 - 나열된Python 버전 중 하나를 선택(되도록Global Env를 선택하는 것을 추천)
-
-![Image 59](../../assets/images/ros/intro/lesson-06/img_040_059.webp)
 
 
 ## Visual Studio Code
@@ -370,16 +304,12 @@ VSCode에서Jupyter 사용
 - Python Extension 설치(Python)
 - Vscode의extention 탭에서 코드 명(ms-python.python)을 검색 후install을 눌러 설치
 
-![Image 63](../../assets/images/ros/intro/lesson-06/img_044_063.webp)
-
 
 ## Visual Studio Code - extension
 Jupyter를 이용한 프로그래밍
 VSCode에서Jupyter 사용
 - Python Extension 설치(ROS)
 - Vscode의extention 탭에서 코드 명(ms-iot.vscode-ros)을 검색 후install을 눌러 설치
-
-![Image 65](../../assets/images/ros/intro/lesson-06/img_045_065.webp)
 
 
 ## Visual Studio Code - extension
@@ -388,16 +318,12 @@ VSCode에서Jupyter 사용
 - Python Extension 설치(URDF)
 - Vscode의extention 탭에서 코드 명(smilerobotics.urdf)을 검색 후install을 눌러 설치
 
-![Image 67](../../assets/images/ros/intro/lesson-06/img_046_067.webp)
-
 
 ## Visual Studio Code - extension
 Jupyter를 이용한 프로그래밍
 VSCode에서Jupyter 사용
 - Python Extension 설치(Colcon Tasks)
 - Vscode의extention 탭에서 코드 명(deitry.colcon-helper)을 검색 후install을 눌러 설치
-
-![Image 69](../../assets/images/ros/intro/lesson-06/img_047_069.webp)
 
 
 ## Visual Studio Code - extension
@@ -412,16 +338,12 @@ VSCode에서Jupyter 사용
 - Python Extension 설치(YAML)
 - Vscode의extention 탭에서 코드 명(redhat.vscode-yaml)을 검색 후install을 눌러 설치
 
-![Image 73](../../assets/images/ros/intro/lesson-06/img_049_073.webp)
-
 
 ## Visual Studio Code - extension
 Jupyter를 이용한 프로그래밍
 VSCode에서Jupyter 사용
 - Python Extension 설치(Markdown)
 - Vscode의extention 탭에서 코드 명(yzhang.markdown-all-in-one)을 검색 후install을 눌러 설치
-
-![Image 75](../../assets/images/ros/intro/lesson-06/img_050_075.webp)
 
 
 ## Visual Studio Code - extension
@@ -430,8 +352,6 @@ VSCode에서Jupyter 사용
 - User settings 설정
 - Vscode에서ctrl + shift + p를 누른 후‘open user settings’을선택
 - 엔터를 눌러settings.json파일을 열기
-
-![Image 77](../../assets/images/ros/intro/lesson-06/img_051_077.webp)
 
 
 ## Visual Studio Code - extension
@@ -442,8 +362,6 @@ VSCode에서Jupyter 사용
 - 다만, 이미 동일한 내용이 있는 경우 추가할 필요 없음
 - 저장후vscode를 재시작
 
-![Image 79](../../assets/images/ros/intro/lesson-06/img_052_079.webp)
-
 
 ## Vscode 실행
 Jupyter를 이용한 프로그래밍
@@ -451,8 +369,6 @@ Python으로 토픽 구독하기
 
 ## 새로운터미널을열어ros2 run 명령으로turtlesim 패키지의turtlesim_node를실행
 준비
-
-![Image 81](../../assets/images/ros/intro/lesson-06/img_053_081.webp)
 
 
 ![Image 82](../../assets/images/ros/intro/lesson-06/img_053_082.webp)
@@ -463,8 +379,6 @@ Jupyter를 이용한 프로그래밍
 Python으로 토픽 구독하기
 준비
 
-![Image 84](../../assets/images/ros/intro/lesson-06/img_054_084.webp)
-
 
 ## 구독을위해필요한모듈import (코드실행: shift + enter)
 Jupyter를 이용한 프로그래밍
@@ -472,12 +386,6 @@ Python으로 토픽 구독하기
 토픽 구독하기
 
 ## 터미널에서아래명령어를이용하여topic list 조회
-
-
-![Image 85](../../assets/images/ros/intro/lesson-06/img_055_085.webp)
-
-
-![Image 86](../../assets/images/ros/intro/lesson-06/img_055_086.webp)
 
 
 ## rclpy의초기화및‘/sub_test’ 노드생성
@@ -488,20 +396,12 @@ Python으로 토픽 구독하기
 ## 터미널에서‘/sub_test’ 노드가생성되었음을확인
 
 
-![Image 87](../../assets/images/ros/intro/lesson-06/img_056_087.webp)
-
-
-![Image 88](../../assets/images/ros/intro/lesson-06/img_056_088.webp)
-
-
 ## Subscription에서실행할callback 함수작성
 Jupyter를 이용한 프로그래밍
 Python으로 토픽 구독하기
 토픽 구독하기
 ‘data’의 구성 요소는x, y, theta, linear, angular velocity로 구성되어 있으므로x, y, theta를
 확인하고 싶을 때에는data.x, data.y, data.theta로 조회 가능
-
-![Image 90](../../assets/images/ros/intro/lesson-06/img_057_090.webp)
 
 
 Jupyter를 이용한 프로그래밍
@@ -516,9 +416,6 @@ Python으로 토픽 구독하기
 ## 토픽subscriber 만들기
 ## test_node 구독
 
-![Image 92](../../assets/images/ros/intro/lesson-06/img_058_092.webp)
-
-![Image 94](../../assets/images/ros/intro/lesson-06/img_058_094.webp)
 
 Jupyter를 이용한 프로그래밍
 Python으로 토픽 발행하기
@@ -535,8 +432,6 @@ Python으로 토픽 발행하기
 ## Vscode에서jupyter notebook 실행
 준비
 
-![Image 103](../../assets/images/ros/intro/lesson-06/img_060_103.webp)
-
 
 Jupyter를 이용한 프로그래밍
 Python으로 토픽 발행하기
@@ -548,19 +443,11 @@ Python으로 토픽 발행하기
 cmd_vel: 로봇의 속도를 제어하기 위해 사용되는ROS 토픽
 
 
-![Image 104](../../assets/images/ros/intro/lesson-06/img_061_104.webp)
-
-
-![Image 105](../../assets/images/ros/intro/lesson-06/img_061_105.webp)
-
-
 Jupyter를 이용한 프로그래밍
 Python으로 토픽 발행하기
 
 ## x축선형속도를2.0으로설정한후, 해당값을발행할메시지로준비
 토픽 발행하기
-
-![Image 107](../../assets/images/ros/intro/lesson-06/img_062_107.webp)
 
 
 Jupyter를 이용한 프로그래밍
@@ -569,16 +456,12 @@ Python으로 토픽 발행하기
 ## 토픽발행
 토픽 발행하기
 
-![Image 109](../../assets/images/ros/intro/lesson-06/img_063_109.webp)
-
 
 Jupyter를 이용한 프로그래밍
 Python으로 토픽 발행하기
 
 ## 추가동작도가능
 토픽 발행하기
-
-![Image 111](../../assets/images/ros/intro/lesson-06/img_064_111.webp)
 
 
 Jupyter를 이용한 프로그래밍
@@ -587,8 +470,6 @@ Python으로 토픽 발행하기
 
 ## Timer를이용해토픽발행하기
 timer_callback 함수가5번 이상 호출되지 않도록cnt를 이용한 조건 문을 넣어 줌
-
-![Image 113](../../assets/images/ros/intro/lesson-06/img_065_113.webp)
 
 
 Jupyter를 이용한 프로그래밍
@@ -602,7 +483,6 @@ create_timer를 이용해2초마다timer_callback 함수 실행
 중간에 직접 멈추거나 멈춤 조건
 을 설정해 주어야함
 
-![Image 115](../../assets/images/ros/intro/lesson-06/img_066_115.webp)
 
 Jupyter를 이용한 프로그래밍
 Python으로 토픽 발행하기
@@ -610,8 +490,6 @@ Python으로 토픽 발행하기
 
 ## 노드종료시키기
 Jupyter notebook의 경우 노트북을 종료시키기 직전에node를 종료시켜야함
-
-![Image 119](../../assets/images/ros/intro/lesson-06/img_067_119.webp)
 
 
 Jupyter를 이용한 프로그래밍
@@ -633,9 +511,6 @@ Python으로 서비스 클라이언트 다루기
 ‘/turtle1/teleport_absolute’ 서비스를 사용하기 위한 모듈import
 
 
-![Image 125](../../assets/images/ros/intro/lesson-06/img_069_125.webp)
-
-
 Jupyter를 이용한 프로그래밍
 Python으로 서비스 클라이언트 다루기
 서비스 클라이언트 생성
@@ -644,18 +519,12 @@ Python으로 서비스 클라이언트 다루기
 ## TeleportAbsolute 서비스에대한request 객체를생성
 TeleportAbsolute : Turtle을 특정 좌표(x, y)와방향(θ)으로 즉시 텔레 포트시키는 서비스 타입
 
-![Image 127](../../assets/images/ros/intro/lesson-06/img_070_127.webp)
-
-![Image 129](../../assets/images/ros/intro/lesson-06/img_070_129.webp)
-
 
 Jupyter를 이용한 프로그래밍
 Python으로 서비스 클라이언트 다루기
 서비스 클라이언트 생성
 
 ## Request 객체의x 좌표를1.0, y 좌표를1.0, theta(회전각)를3.14로설정
-
-![Image 131](../../assets/images/ros/intro/lesson-06/img_071_131.webp)
 
 
 Jupyter를 이용한 프로그래밍
@@ -683,8 +552,6 @@ Python으로 서비스 클라이언트 다루기
 
 ## 노드종료시키기
 
-![Image 137](../../assets/images/ros/intro/lesson-06/img_074_137.webp)
-
 
 Jupyter를 이용한 프로그래밍
 Python으로 액션 서버 다루기
@@ -706,12 +573,6 @@ action_server를 구현하기 위한 모듈import
 - TurtleRotateServer 클래스 정의 /turtle1/rotate_absolute에 대해 회전 명령을 처리하는 액션 서버 goal_callback, cancel_callback 메서드로 goal과cancel 상태 반환f정
 
 
-![Image 140](../../assets/images/ros/intro/lesson-06/img_076_140.webp)
-
-
-![Image 141](../../assets/images/ros/intro/lesson-06/img_076_141.webp)
-
-
 Jupyter를 이용한 프로그래밍
 Python으로 액션 서버 다루기
 
@@ -719,9 +580,6 @@ Python으로 액션 서버 다루기
 액션 서버 생성
 명령을 실행하고, 10초 동안 남은 진행 상태를 피드백으로 클라이언트에 전달
 실행 도중 취소 요청이 들어오면 작업을 취소하고, 성공적으로 완료되면 결과를 반환
-
-
-![Image 142](../../assets/images/ros/intro/lesson-06/img_077_142.webp)
 
 
 Jupyter를 이용한 프로그래밍
@@ -739,15 +597,6 @@ Python으로 액션 서버 다루기
 터미널에서ctrl+c를 누르는 것과 같음
 
 
-![Image 143](../../assets/images/ros/intro/lesson-06/img_078_143.webp)
-
-
-![Image 144](../../assets/images/ros/intro/lesson-06/img_078_144.webp)
-
-
-![Image 145](../../assets/images/ros/intro/lesson-06/img_078_145.webp)
-
-
 Jupyter를 이용한 프로그래밍
 Python으로 액션 클라이언트 다루기
 
@@ -760,12 +609,6 @@ Python으로 액션 클라이언트 다루기
 send_goal : 목표 각도를 설정하고 서버로 전송
 
 
-![Image 146](../../assets/images/ros/intro/lesson-06/img_079_146.webp)
-
-
-![Image 147](../../assets/images/ros/intro/lesson-06/img_079_147.webp)
-
-
 Jupyter를 이용한 프로그래밍
 Python으로 액션 클라이언트 다루기
 
@@ -776,9 +619,6 @@ feedback_callback : 액션 실행 중 발생하는 피드백 로그를 기록
 result_callback : 액션 완료 후 결과를 처리하고ROS 노드를 종료
 
 
-![Image 148](../../assets/images/ros/intro/lesson-06/img_080_148.webp)
-
-
 Jupyter를 이용한 프로그래밍
 Python으로 액션 클라이언트 다루기
 
@@ -787,12 +627,6 @@ Python으로 액션 클라이언트 다루기
 로그 메시지: 액션 클라이언트가 성공적으로 시작되었음
 
 ## 액션클라이언트실행후종료
-
-
-![Image 149](../../assets/images/ros/intro/lesson-06/img_081_149.webp)
-
-
-![Image 150](../../assets/images/ros/intro/lesson-06/img_081_150.webp)
 
 
 Jupyter를 이용한 프로그래밍
@@ -811,12 +645,6 @@ Python으로 액션 클라이언트 다루기
 
 
 ![Image 152](../../assets/images/ros/intro/lesson-06/img_082_152.webp)
-
-
-![Image 153](../../assets/images/ros/intro/lesson-06/img_082_153.webp)
-
-
-![Image 154](../../assets/images/ros/intro/lesson-06/img_082_154.webp)
 
 
 ---

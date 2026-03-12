@@ -9,8 +9,6 @@ Thread와Sqlite3
 쓰 레드를 사용하는 주된 이유는 프로그램의 성능과 응답성을 향상시키기 위해서입니다.
 특히ROS2와PyQt GUI를 함께 사용할 때 더욱 중요합니다.
 
-![Image 4](../../assets/images/ros/projects/thread-database/img_002_004.webp)
-
 
 프로세스와 쓰 레드
 프로그램이 하나의 일을 처리할 때,
@@ -63,15 +61,12 @@ Thread 인스턴스를 생성할 때target 매개 변수에 함수를 지정하�
 
 ![Image 17](../../assets/images/ros/projects/thread-database/img_009_017.webp)
 
-![Image 19](../../assets/images/ros/projects/thread-database/img_009_019.webp)
-
 
 실행(Running) 단계
 
 대기(Waiting) 단계
 종료(Terminated) 단계
 
-![Image 22](../../assets/images/ros/projects/thread-database/img_010_022.webp)
 
 Publisher.py
 Subscriber.py
@@ -108,12 +103,6 @@ Topic
 Subscriber
 
 
-![Image 29](../../assets/images/ros/projects/thread-database/img_015_029.webp)
-
-
-![Image 30](../../assets/images/ros/projects/thread-database/img_015_030.webp)
-
-
 ![Image 31](../../assets/images/ros/projects/thread-database/img_015_031.webp)
 
 
@@ -127,9 +116,6 @@ Python 코드에서 이XML 파일을Import한 후 위젯들에
 GUI프로그램이 완성
 직접XML형식의ui파일을 수정하여 레이아웃을 수정할
 수도 있습니다.
-
-
-![Image 32](../../assets/images/ros/projects/thread-database/img_016_032.webp)
 
 
 ![Image 33](../../assets/images/ros/projects/thread-database/img_016_033.webp)
@@ -166,11 +152,6 @@ https://wikidocs.net/35481
 DDL(Data Definition Language)
 DML(Data Manipulation Language)
 
-
-![Image 39](../../assets/images/ros/projects/thread-database/img_020_039.webp)
-
-
-![Image 40](../../assets/images/ros/projects/thread-database/img_020_040.webp)
 
 One-to-One (1:1)
 CREATE TABLE user (
@@ -295,9 +276,6 @@ FOREIGN KEY (order_id) REFERENCES order_list(order_id)
 현재'my_database.db'라는 데이터 베이스 파일이 없기 때문에, 새롭게 생성된 것을 확인할 수 있다.
 
 
-![Image 51](../../assets/images/ros/projects/thread-database/img_030_051.webp)
-
-
 ![Image 52](../../assets/images/ros/projects/thread-database/img_030_052.webp)
 
 
@@ -318,9 +296,6 @@ print(cursor.fetchall())
 con.close()
 
 
-![Image 53](../../assets/images/ros/projects/thread-database/img_031_053.webp)
-
-
 SQL = "INSERT INTO Course VALUES(1, 'Algorithm', '2021-03-01');"
 cursor.execute(SQL)
 SQL = "INSERT INTO Course VALUES(2, 'Data Structure', '2021-03-02');"
@@ -332,9 +307,6 @@ SQL = "SELECT * FROM Course;"
 cursor.execute(SQL)
 print(cursor.fetchall())
 con.close()
-
-
-![Image 54](../../assets/images/ros/projects/thread-database/img_032_054.webp)
 
 
 데이터 삭제는DELETE 구문을 사용하면 된다. 예를 들어Course 테이블에 있는 모든 데이터(row)를
@@ -351,9 +323,6 @@ print(cursor.fetchall())
 con.close()
 
 
-![Image 55](../../assets/images/ros/projects/thread-database/img_033_055.webp)
-
-
 def insert_course(course_id, course_name, course_date):
 con = sqlite3.connect(database_name)
 cursor = con.cursor()
@@ -362,9 +331,6 @@ cursor.execute(SQL, (course_id, course_name,
 course_date))
 con.commit()
 con.close()
-
-
-![Image 56](../../assets/images/ros/projects/thread-database/img_034_056.webp)
 
 
 def insert_course_list(course_list):
@@ -383,9 +349,6 @@ cursor.execute(SQL, (course_name, ))
 return cursor.fetchall()
 
 
-![Image 58](../../assets/images/ros/projects/thread-database/img_036_058.webp)
-
-
 def update_course_by_id(course_id, course_name, course_date):
 con = sqlite3.connect(database_name)
 cursor = con.cursor()
@@ -395,9 +358,6 @@ con.commit()
 con.close()
 
 
-![Image 59](../../assets/images/ros/projects/thread-database/img_037_059.webp)
-
-
 def delete_course_by_id(course_id):
 con = sqlite3.connect(database_name)
 cursor = con.cursor()
@@ -405,9 +365,6 @@ SQL = "DELETE FROM Course WHERE course_id = ?;"
 cursor.execute(SQL, (course_id, ))
 con.commit()
 con.close()
-
-
-![Image 60](../../assets/images/ros/projects/thread-database/img_038_060.webp)
 
 
 ![Page 39](../../assets/images/ros/projects/thread-database/page_039.webp)

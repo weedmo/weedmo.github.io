@@ -1,14 +1,7 @@
-# 강의_3기_ROS2입문_7차시
-
-
-ROS2 프로그래밍 입문(7차시)
-
-7. ROS2 복습_1
+# ROS2 입문 7차시 - ROS2 복습 (1)
 
 
 ## ROS2 복습_1
-1. ROS2 소개 및 기본 사용법
-2. ROS2 인터페이스(Topic, Server, Action)
 ROS2 소개 및 기본 사용법
 Topic
 
@@ -49,8 +42,6 @@ ROS2 Setup Tips
 - 의존성 관리 툴인rosdep 명령어를 사용하면 손쉽게 패키지의 의존성 문제를 해결
 - rosdep은 패키지 환경 설정 파일인package.xml의<depend> 옵션과 같은 의존성 정보를 확인하여 의존성 패키지들을 설치해 주기 때문에 의존성 패키지가 많은 패키지의 경우, 위 명령어를 사용하면 의존성 패키지 설치 및 관리에 있어서 매우 편하게 사용 가능
 
-![Image 10](../../assets/images/ros/intro/lesson-07/img_008_010.webp)
-
 
 ROS2 Setup Tips
 Namespace
@@ -59,26 +50,17 @@ Namespace
 - ns 명령 사용 1. ROS의 변수 중 하나인ns(namespace)를입력 2. 복수의namespace 생성
 
 
-Python을 이용한 패키지 생성 실습
-
 ## Package 생성
-1. ros2_ws/src 디렉토리 생성
-2. py_pubsub package를생성
-3. 생성된Package 확인
-4. Tree를 이용한 내부 구조 확인
 
-
-Python을 이용한 패키지 생성
 
 ## package.xml
 - 패키지에 대한 메타 정보를 포함하는 파일(패키지의 신분증 역할)
 - 이 파일은 패키지 이름, 버전, 저작자, 라이센스 등의 정보를 정의하며, 패키지의 의존성 패키지와 메시지, 서비스, 액션 등의 정의된 인터페이스 정보도 포함
 - 사용 목적
-- 소스 코드를 실제 실행 가능한 프로그램이나 라이브러리로 변환하기 위해colcon build를 수행하면package.xml을 참조하여, 빌 드할 패키지들 사이의 의존성 해석 및 적절한 빌 드 순서 결정
+- 소스 코드를 실제 실행 가능한 프로그램이나 라이브러리로 변환하기 위해colcon build를 수행하면package.xml을 참조하여, 빌드할 패키지들 사이의 의존성 해석 및 적절한 빌드 순서 결정
 - 또한, 패키지 의존성 설치 시rosdep이 이 파일의 정보를 기반으로 함
 
 
-Python을 이용한 패키지 생성 실습
 - description, maintainer, license 채우기
 - 위 코드 바로 아래 의존성 코드 복사해서 붙여 넣기
 - <exec_depend> 태그는 해당ROS 패키지가 실행되기 위해 필요한 의존성을 지정하는데 사용
@@ -86,52 +68,49 @@ Python을 이용한 패키지 생성 실습
 - 해당 패키지가 실행될 때rclpy 라이브러리에 의존한다는 것을 나타냄(즉, python을 사용한ROS2 노드를 실행하는 데 필요한 라이브러리)
 - std_msgs: ROS에서 기본적으로 제공하는 메시지 타입들의 모음ex) String, Int32, Float64 등
 - 해당 패키지가 실행될 때std_msgs 메시지 라이브러리에 의존한다는 것을 나타냄
-- 이러한 의존성은 패키지를 빌 드하거나 실행할 때 필요한 외부 패키지나 라이브러리를ROS 빌 드 도구에게 알려 주는 역할 따라서ROS 빌 드 도구는 이 정보를 사용하여 필요한 의존성을 먼저 설치하거나 빌 드할 수 있음
+- 이러한 의존성은 패키지를 빌드하거나 실행할 때 필요한 외부 패키지나 라이브러리를ROS 빌드 도구에게 알려 주는 역할 따라서ROS 빌드 도구는 이 정보를 사용하여 필요한 의존성을 먼저 설치하거나 빌드할 수 있음
 
 ## Package.xml  설정
 
-![Image 21](../../assets/images/ros/intro/lesson-07/img_012_021.webp)
 
-Python을 이용한 패키지 생성
 setup.py & setup.cfg
 
 ## setup.cfg
-- 패키지 빌 드/설치/배포에 사용(버전/설명/패키지 의존성 관리 등)
+- 패키지 빌드/설치/배포에 사용(버전/설명/패키지 의존성 관리 등)
 - setuptools를 사용하여 패키지를 배포 준비 시 필요한 정보 제공
-- Python 패키지에 대한 선언적인 구성 정보를 제공하며, setuptools의 빌 드 및 설치 과정에서 활용
+- Python 패키지에 대한 선언적인 구성 정보를 제공하며, setuptools의 빌드 및 설치 과정에서 활용
 - 주로 패키지 버전, 설명 등이 여기에 정의됨
 
 ## setup.py
 - setuptools를 사용하여 패키지를 배포할 준비를 할 때, 필요한 정보를 담고 있음
-- Python 패키지에 대한 프로 그래 매 틱한 구성 정보를 제공하며, setuptools를 통한 빌 드 및 설치 과정에서 사용됨
+- Python 패키지에 대한 프로 그래 매 틱한 구성 정보를 제공하며, setuptools를 통한 빌드 및 설치 과정에서 사용됨
 - Python 패키지의 설치 스크립트
 - 주로 패키지 버전, 설명, 의존성 등을 포함한 설치 스크립트 역할
-- setuptools 라이브러리를 사용, 패키지를 빌 드하고 설치하는 데 필요한 설정 포함
+- setuptools 라이브러리를 사용, 패키지를 빌드하고 설치하는 데 필요한 설정 포함
 
 ## ROS2에서의역할
 - Python 기반의ROS2 패키지에 대해colcon 은setup.cfg(및setup.py)를 사용하여 패 키 지의 설치를 처리
-- setup.cfg, setup.py는setuptools를 통해 패 키 지를 빌 드하고 설치하는 방법에 대한 구 성 정보를 제공
-- ament_python 패키지 빌 드 타입을 사용하는 경우, 파일의 설정이 빌 드 과정에 영향을 줄 수 있음
+- setup.cfg, setup.py는setuptools를 통해 패 키 지를 빌드하고 설치하는 방법에 대한 구 성 정보를 제공
+- ament_python 패키지 빌드 타입을 사용하는 경우, 파일의 설정이 빌드 과정에 영향을 줄 수 있음
 
 
-Python을 이용한 패키지 생성
 CMakeLists.txt
 
 ## CMakeLists.txt와setup.py/setup.cfg, package.xml간의비교
 - CMakeLists.txt
 - C/C++ 프로젝트에서 주로 사용됨
-- 코드 컴 파일 및 링크 설정
+- 코드 컴파일 및 링크 설정
 - ROS2 메시지 및 서비스 생성 같은 더 광범위한 작업 지원
-- 빌 드 시 필요한 지침을 담고 있으며, 주로 코드 컴 파일과 관련이 깊음
+- 빌드 시 필요한 지침을 담고 있으며, 주로 코드 컴파일과 관련이 깊음
 - setup.py/setup.cfg
-- Python 패키지의 빌 드 및 설치 과정 설정에 사용됨
+- Python 패키지의 빌드 및 설치 과정 설정에 사용됨
 - 주로Python 관련 설정에 집중
 - Pacakge.xml
 - 패키지의 메타 데이터와 의존성을 관리하는 데 중점
-- CMakeLists.txt와 함께 작동하여ROS2 패키지의 빌 드와 배포를 가능하게함
+- CMakeLists.txt와 함께 작동하여ROS2 패키지의 빌드와 배포를 가능하게함
 
 ## 세파일의공통점
-- CMakeLists.txt, setup.py/setup.cfg, package.xml 모두 패키지의 빌 드 및 설치 과정에서 의존성 관리와 설정 정의에 사용 Python을 이용한 패키지 생성 실습
+- CMakeLists.txt, setup.py/setup.cfg, package.xml 모두 패키지의 빌드 및 설치 과정에서 의존성 관리와 설정 정의에 사용 Python을 이용한 패키지 생성 실습
 
 ## 패키지소스분석
 - timer_callback 함수 1. 이 콜백 함수는 타이머에 의해 주기적으로 호출 2. 'Hello World: [count]' 형식의 메시지를 생성하고 해당 메시지를 발행 3. 또한 해당 메시지를로 깅하여 화면에 출력
@@ -142,31 +121,14 @@ CMakeLists.txt
 - 스크립트가 직접 실행되면main() 함수를 호출하여 위의 모든 로직을 시작
 
 
-![Image 24](../../assets/images/ros/intro/lesson-07/img_015_024.webp)
-
-
-Python을 이용한 패키지 생성 실습
-
 ## 의존성추가
 - ​setup.py 설정
 
-![Image 26](../../assets/images/ros/intro/lesson-07/img_016_026.webp)
-
-
-Python을 이용한 패키지 생성 실습
 
 ## setup.py 설정
 - ​setup.py 파일 열고 수정하기(package.xml 파일과 동일하게 작성)
 - entry_points 필드 부분에talker 추가하기(추가 후 저장하기)
 
-
-![Image 27](../../assets/images/ros/intro/lesson-07/img_017_027.webp)
-
-
-![Image 28](../../assets/images/ros/intro/lesson-07/img_017_028.webp)
-
-
-Python을 이용한 패키지 생성 실습
 
 ## setup.py 설정
 - entry_points
@@ -181,8 +143,6 @@ Python을 이용한 패키지 생성 실습
 - ROS2에서python 노드를 쉽게 실행할 수 있도록하는 데 특히 유용함
 - 이러한 방식을 통해ROS2는Python 스크립트를 바로 실행할 수 있는 실행 가능한 커맨드를 제공
 
-
-Python을 이용한 패키지 생성 실습
 
 ## Subscriber code 분석
 - Imports
@@ -201,8 +161,6 @@ Python을 이용한 패키지 생성 실습
 1. 토픽에 게시된 메시지를 수신할 때 호출되는 콜백 함수
 2. 수신된 메시지의 내용을 로그에 출력
 
-
-Python을 이용한 패키지 생성 실습
 
 ## Subscriber code 분석
 - main 함수
@@ -234,17 +192,13 @@ Python을 이용한 패키지 생성 실습
 - ament_cmake에 는 메시지를include하거나import할 수 있게하는 기능이 있지만, ament_python에는 없음
 
 
-![Image 29](../../assets/images/ros/intro/lesson-07/img_022_029.webp)
-
 토픽, 서비스, 액션 인터페이스
 인터페이스 패키지 생성
 - 아래3개의 폴더 및 파일을 생성
-- 파일 명은 반드시 카멜 케이스(CamelCase)만 사용, 만약 첫 문자가 소문자일 경우 빌 드 시 오류 발생
+- 파일 명은 반드시 카멜 케이스(CamelCase)만 사용, 만약 첫 문자가 소문자일 경우 빌드 시 오류 발생
 - msg/MyMsg.msg
 - srv/MySrv.srv
 - action/MyAction.action
-
-![Image 33](../../assets/images/ros/intro/lesson-07/img_023_033.webp)
 
 
 토픽, 서비스, 액션 인터페이스
@@ -255,15 +209,6 @@ Python을 이용한 패키지 생성 실습
 - action/MyAction.action
 
 
-![Image 34](../../assets/images/ros/intro/lesson-07/img_024_034.webp)
-
-
-![Image 35](../../assets/images/ros/intro/lesson-07/img_024_035.webp)
-
-
-![Image 36](../../assets/images/ros/intro/lesson-07/img_024_036.webp)
-
-
 토픽, 서비스, 액션 인터페이스
 패키지 설계
 
@@ -272,21 +217,6 @@ CMakeList.txt
 ArithmeticChecker.action
 ArithmeticArgument.msg
 ArithmeticOperator.srv
-
-
-![Image 37](../../assets/images/ros/intro/lesson-07/img_025_037.webp)
-
-
-![Image 38](../../assets/images/ros/intro/lesson-07/img_025_038.webp)
-
-
-![Image 39](../../assets/images/ros/intro/lesson-07/img_025_039.webp)
-
-
-![Image 40](../../assets/images/ros/intro/lesson-07/img_025_040.webp)
-
-
-![Image 41](../../assets/images/ros/intro/lesson-07/img_025_041.webp)
 
 
 토픽, 서비스, 액션 인터페이스
@@ -304,8 +234,6 @@ ArithmeticOperator.srv
 
 ## Package.xml 파일수정
 
-![Image 45](../../assets/images/ros/intro/lesson-07/img_027_045.webp)
-
 
 토픽, 서비스, 액션 인터페이스
 인터페이스 패키지 생성
@@ -315,10 +243,6 @@ ArithmeticOperator.srv
 
 ![Image 46](../../assets/images/ros/intro/lesson-07/img_028_046.webp)
 
-![Image 48](../../assets/images/ros/intro/lesson-07/img_028_048.webp)
-
-
-Python을 이용한 패키지 생성 실습
 
 ## Visual Studio Code 를이용한패키지생성연습
 - py_pubsub 패키지 개선하기

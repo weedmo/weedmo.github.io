@@ -303,8 +303,6 @@ OpenCV의 ArUco 라이브러리를 사용하여 ArUco 마커를 생성하거나 
 Marker ID: 8, Position: [ 0.30174336 -0.14219974  0.58847091], Rotation (Yaw, Pitch, Roll): (175.39, 4.25, -2.24), Distance: 0.68m
 Marker ID: 9, Position: [-0.3635388  -0.06435436  0.54939859], Rotation (Yaw, Pitch, Roll): (-173.50, -50.36, -11.39), Distance: 0.66m
 
-![Image 57](../../assets/images/ros/projects/aruco-conveyor/img_027_057.webp)
-
 
 터틀봇메내퓰레이터
 참고
@@ -315,8 +313,6 @@ Marker ID: 9, Position: [-0.3635388  -0.06435436  0.54939859], Rotation (Yaw, Pi
 -카메라에서 본 마커의 크기는 실제 크기와 카메라의 초점 거리, 마커와 카메라 사이의 거리에 따라 다르게 나타납니다.
 -삼각법:
 -삼각형의 기하학적 원리를 사용하여, 마커의 화면상 크기와 실제 크기, 그리고 카메라의 초점 거리로부터 거리를 계산합니다.
-
-![Image 59](../../assets/images/ros/projects/aruco-conveyor/img_028_059.webp)
 
 
 터틀봇메내퓰레이터
@@ -507,11 +503,6 @@ VSCode 로봇 접속
 
 3. 원격 탐색기
 
-![Image 73](../../assets/images/ros/projects/aruco-conveyor/img_038_073.webp)
-
-
-![Image 74](../../assets/images/ros/projects/aruco-conveyor/img_038_074.webp)
-
 
 터틀봇메내퓰레이터
 참고
@@ -521,13 +512,6 @@ VSCode 로봇 접속
 5. ssh -X rokeyO@<rokeyIP> 입력후 enter
 6. ssh 창에 새로 고침 한 이후에
 7. 자신이 접속할 창의 폴더를 누른다
-
-![Image 76](../../assets/images/ros/projects/aruco-conveyor/img_039_076.webp)
-
-
-![Image 77](../../assets/images/ros/projects/aruco-conveyor/img_039_077.webp)
-
-![Image 79](../../assets/images/ros/projects/aruco-conveyor/img_039_079.webp)
 
 
 터틀봇메내퓰레이터
@@ -603,8 +587,6 @@ rviz 화면에 보이는 manipulator와 lidar 위치가 실제와 다르기 때�
 ~/turtlebot3_ws/src/turtlebot3_manipulation/turtlebot3_manipulation_description/urdf/turtlebot3_manipulation.urdf.xacro
 manipulation을 x축으로 0.092만큼 전진 시킵니다
 
-![Image 95](../../assets/images/ros/projects/aruco-conveyor/img_045_095.webp)
-
 
 터틀봇메내퓰레이터
 참고
@@ -616,11 +598,6 @@ scan을 x축으로 0.076만큼 후진 시킵니다
 Moveit 수행
 manipulation과 scan 위치가 달라지는지 확인하세요
 
-![Image 99](../../assets/images/ros/projects/aruco-conveyor/img_047_099.webp)
-
-
-![Image 100](../../assets/images/ros/projects/aruco-conveyor/img_047_100.webp)
-
 
 터틀봇메내퓰레이터
 참고
@@ -628,14 +605,6 @@ manipulation과 scan 위치가 달라지는지 확인하세요
 kinematics.yaml 내용
 turtlebot3_manipulation.srdf
 ~/turtlebot3_ws/src/turtlebot3_manipulation/turtlebot3_manipulation_movit_config/config
-
-![Image 102](../../assets/images/ros/projects/aruco-conveyor/img_048_102.webp)
-
-
-![Image 103](../../assets/images/ros/projects/aruco-conveyor/img_048_103.webp)
-
-
-![Image 104](../../assets/images/ros/projects/aruco-conveyor/img_048_104.webp)
 
 
 터틀봇메내퓰레이터
@@ -669,17 +638,15 @@ colcon build --packages-select turtlebot_cosmo_interface
 cd ~/turtlebot3_ws/
 colcon build --packages-select turtlebot_moveit
 
-![Image 107](../../assets/images/ros/projects/aruco-conveyor/img_050_107.webp)
-
 
 터틀봇메내퓰레이터
 참고
 Moveit 아키텍처
 압축 풀기 turtlebot_cosmo_interface.zip
 패키지 turtlebot_cosmo_interface
-페키지 빌 드 colcon build --packages-select turtlebot_cosmo_interface
+페키지 빌드 colcon build --packages-select turtlebot_cosmo_interface
 압축 풀기 turtlebot_moveit.zip
-페키지 빌 드 colcon build --packages-select turtlebot_moveit
+페키지 빌드 colcon build --packages-select turtlebot_moveit
 인터페이스 페키지: MoveitController.srv
 암 컨트롤러: turtlebot_arm_controller.cpp
 코드 분석
@@ -724,8 +691,6 @@ cmd 1을 주고 “box_up_02” 엑션
 cmd 9을 주고 좌표를 출력
 task.py 예제 - 1
 
-![Image 112](../../assets/images/ros/projects/aruco-conveyor/img_054_112.webp)
-
 
 터틀봇메내퓰레이터
 참고
@@ -735,8 +700,6 @@ Moveit 아키텍처
 1. cmd 4를 주고 해당 waypoint로 이동을 지시합니다
 1. cmd 9를 주고 좌표를 출력합니다
 task.py 예제 - 2
-
-![Image 114](../../assets/images/ros/projects/aruco-conveyor/img_055_114.webp)
 
 
 터틀봇메내퓰레이터
@@ -750,8 +713,6 @@ x +
 y +
 y -
 
-![Image 116](../../assets/images/ros/projects/aruco-conveyor/img_056_116.webp)
-
 
 터틀봇메내퓰레이터
 참고
@@ -764,8 +725,6 @@ robot_
 y
 
 - 0.08 ±0.01 robot_x +0.15 ±0.01 robot_x +0.22 ±0.01 터틀봇메내퓰레이터 참고 Moveit 아키텍처 task.py 예제 - 3 left_down x + 방향으로 15cm 만큼 y + 방향으로 8cm 만큼 직접 좌표 이동하는 코드입니다
-
-![Image 120](../../assets/images/ros/projects/aruco-conveyor/img_058_120.webp)
 
 
 터틀봇메내퓰레이터
@@ -789,8 +748,6 @@ x + 방향으로 15cm 만큼
 y - 방향으로 8cm 만큼
 직접 좌표 이동하는 코드입니다
 
-![Image 128](../../assets/images/ros/projects/aruco-conveyor/img_062_128.webp)
-
 
 터틀봇메내퓰레이터
 참고
@@ -802,8 +759,6 @@ task.py 예제 - 6 right_up
 x + 방향으로 22cm 만큼
 y + 방향으로 8cm 만큼
 직접 좌표 이동하는 코드입니다
-
-![Image 132](../../assets/images/ros/projects/aruco-conveyor/img_064_132.webp)
 
 
 터틀봇메내퓰레이터
@@ -955,8 +910,6 @@ yolo task 거리: 22.4cm(box 윗 면에서부터 camera 까지)
 만약 qt_gui에서 이미지를 안 보겠다 면
 image 받는 부분을 주석 처리
 
-![Image 152](../../assets/images/ros/projects/aruco-conveyor/img_078_152.webp)
-
 
 터틀봇메내퓰레이터
 참고
@@ -976,18 +929,12 @@ aruco_yolo에 자신의 pt파일을 적용시키고 싶으면
 1. aruco_yolo/models에 자신의 pt파일을 넣는다
 2. aruco_yolo의 setup.py로 간다
 
-![Image 155](../../assets/images/ros/projects/aruco-conveyor/img_080_155.webp)
 
 터틀봇메내퓰레이터
 참고
 기타 개발 지원 도구
 
 3. setup.py에서 자신의 pt파일 명을 적는다.
-
-![Image 158](../../assets/images/ros/projects/aruco-conveyor/img_081_158.webp)
-
-
-![Image 159](../../assets/images/ros/projects/aruco-conveyor/img_081_159.webp)
 
 
 터틀봇메내퓰레이터
@@ -997,11 +944,6 @@ aruco_yolo에 자신의 pt파일을 적용시키고 싶으면
 4. aruco_yolo패키지 폴더 안에 yolo_detector.py에 들어가서 model_path를 수정한다
 5. turtlebot3_ws 에서 colcon build --packages-select aruco_yolo 로 빌드
 
-![Image 161](../../assets/images/ros/projects/aruco-conveyor/img_082_161.webp)
-
-
-![Image 162](../../assets/images/ros/projects/aruco-conveyor/img_082_162.webp)
-
 
 터틀봇메내퓰레이터
 참고
@@ -1009,14 +951,6 @@ aruco_yolo에 자신의 pt파일을 적용시키고 싶으면
 마찬가지로 aruco에 적용될 calibration 값을 변경하려면
 aruco_yolo에 config 파일에 들어가서 수치 변경 후 colcon build를
 한다
-
-![Image 164](../../assets/images/ros/projects/aruco-conveyor/img_083_164.webp)
-
-
-![Image 165](../../assets/images/ros/projects/aruco-conveyor/img_083_165.webp)
-
-
-![Image 166](../../assets/images/ros/projects/aruco-conveyor/img_083_166.webp)
 
 
 터틀봇메내퓰레이터
@@ -1123,7 +1057,7 @@ ros-humble-moveit* ros-humble-aruco-msgs
 home 디렉토리에 있다면 무시하세요
 mkdir -p turtlebot3_ws/src
 
-3. turtlebot3_manipulation 패키지를 turtlebot3_ws안에 빌 드하기 위해서 해당 workspace의 src 폴더로 이동합니다
+3. turtlebot3_manipulation 패키지를 turtlebot3_ws안에 빌드하기 위해서 해당 workspace의 src 폴더로 이동합니다
 cd ~/turtlebot3_ws/src/
 
 터틀봇메내퓰레이터
@@ -1133,49 +1067,49 @@ cd ~/turtlebot3_ws/src/
 4. turtlebot3_manipulation 패키지를 다운 받습니다
 git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git
 
-5. turtlebot3_manipulation 패키지를 빌 드합니다
+5. turtlebot3_manipulation 패키지를 빌드합니다
 cd ~/turtlebot3_ws && colcon build --symlink-install
 
-6. 빌 드된 패키지를 활성화 시킵니다
+6. 빌드된 패키지를 활성화 시킵니다
 source install/setup.bash
 
-7. 실제 패키지가 제대로 빌 드되었는지 확인합니다
+7. 실제 패키지가 제대로 빌드되었는지 확인합니다
 ros2 pkg list | grep turtlebot3_manipulation
 
-8. 패키지가 빌 드가 되었으면 moveit를 실행해 봅시다
+8. 패키지가 빌드가 되었으면 moveit를 실행해 봅시다
 ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py
 
 9. 두산 폴더에서 turtlebot_cosmo_interface.zip을 먼저 다운로드 합니다
 링크:https://tinylink.net/JfziW
 10.다운 받은 turtlebot_cosmo_interface.zip을 압축 해제하여 ~/turtlebot3_ws/src/안에 넣습니다
 해당 패키지는 moveit 제어에 필요한 srv 등록용 패키지입니다
-11.해당 패키지를 ~/turtlebot3_ws/src/안에 넣었으면 터미널에서 빌 드를 해 줍니다
+11.해당 패키지를 ~/turtlebot3_ws/src/안에 넣었으면 터미널에서 빌드를 해 줍니다
 cd ~/turtlebot3_ws && colcon build --packages-select turtlebot_cosmo_interface
 
 터틀봇메내퓰레이터
 참고
 기타 개발 지원 도구
 
-12. 빌 드된 패키지를 활성화 시킵니다
+12. 빌드된 패키지를 활성화 시킵니다
 source install/setup.bash
 
-13. turtlebot_cosmo_interface가 제대로 빌 드되었는지 확인합니다
+13. turtlebot_cosmo_interface가 제대로 빌드되었는지 확인합니다
 ros2 interface show turtlebot_cosmo_interface/srv/MoveitControl
 
 14. 두산 폴더에서 turtlebot_moveit.zip을 먼저 다운로드 합니다
 링크:https://tinylink.net/JfziW
 15.다운 받은 turtlebot_moveit.zip을 압축 해제하여 ~/turtlebot3_ws/src/안에 넣습니다
 해당 패키지는 서비스를 활성화해서 python clinet가 준 request를 moveit에 plan으로 변환하는 turtlebot_arm_controller.cpp가 있습니다
-16.해당 패키지를 ~/turtlebot3_ws/src/안에 넣었으면 터미널에서 빌 드를 해 줍니다
+16.해당 패키지를 ~/turtlebot3_ws/src/안에 넣었으면 터미널에서 빌드를 해 줍니다
 cd ~/turtlebot3_ws && colcon build --packages-select turtlebot_moveit
-현재 launch 폴더가 없는 상태인데 빌 드하면서 오류가 나는 것 같습니다
-turtlebot_moveit패키지의 CMakeLists.txt에서 맨 아래에 가 보시면 launch가 명시되었는데 삭제하시고 저장한 다음 빌 드가 정상적으로 작동 될
+현재 launch 폴더가 없는 상태인데 빌드하면서 오류가 나는 것 같습니다
+turtlebot_moveit패키지의 CMakeLists.txt에서 맨 아래에 가 보시면 launch가 명시되었는데 삭제하시고 저장한 다음 빌드가 정상적으로 작동 될
 것입니다
 
-17. 빌 드된 패키지를 활성화 시킵니다
+17. 빌드된 패키지를 활성화 시킵니다
 source install/setup.bash
 
-18. turtlebot_cosmo_interface가 제대로 빌 드되었는지 확인합니다
+18. turtlebot_cosmo_interface가 제대로 빌드되었는지 확인합니다
 ros2 pkg list | grep turtlebot_moveit
 
 터틀봇메내퓰레이터
@@ -1351,7 +1285,7 @@ task_7(red_blue).py
 기능
 YOLO 인식 결과를 한 번 수신하여
 yolo_x, yolo_y 변수에 저장 및 콘솔 출력
-YOLO 위치 수신 & 그리 퍼 열기
+YOLO 위치 수신 & 그리퍼 열기
 YOLO 위치 기준으로 보정 값 적용 및 이동
 물체 잡기 전 Z축 낮춤
 그리퍼 close
@@ -1375,7 +1309,7 @@ main() - 키보드 입력 기반 제어 루프
 task_7(red_blue).py
 서비스 클라이언트: TurtlebotArmClient
 
-- send_request 메서드를 통해 MoveIt으로 로봇 암 제어 명령을 보냄 타입 의미 send_request(0, "", pose_array) 특정 위치로 이동 send_request(1, "group_states") 지정된 홈 위치로 이동 send_request(2, "open") / close 그리 퍼 열기/닫기 group_states home2 box_up_01 conveyor_up box_up_02 camera_home box_up_03 test_conveyor box_back_01 box_home_01 box_back_put Ex) send_rquest(1, “home2”)
+- send_request 메서드를 통해 MoveIt으로 로봇 암 제어 명령을 보냄 타입 의미 send_request(0, "", pose_array) 특정 위치로 이동 send_request(1, "group_states") 지정된 홈 위치로 이동 send_request(2, "open") / close 그리퍼 열기/닫기 group_states home2 box_up_01 conveyor_up box_up_02 camera_home box_up_03 test_conveyor box_back_01 box_home_01 box_back_put Ex) send_rquest(1, “home2”)
 
 터틀봇메내퓰레이터
 참고
@@ -1384,7 +1318,7 @@ task_7(red_blue).py
 기능
 YOLO 인식 결과를 한 번 수신하여
 yolo_x, yolo_y 변수에 저장 및 콘솔 출력
-YOLO 위치 수신 & 그리 퍼 열기
+YOLO 위치 수신 & 그리퍼 열기
 YOLO 위치 기준으로 보정 값 적용 및 이동
 물체 잡기 전 Z축 낮춤
 그리퍼 close
@@ -1413,4 +1347,3 @@ box_home_01 이동
 J
 box_back_put 이동
 
-![Image 188](../../assets/images/ros/projects/aruco-conveyor/img_102_188.webp)

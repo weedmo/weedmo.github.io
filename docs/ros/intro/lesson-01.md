@@ -1,49 +1,21 @@
-# 강의_3기_ROS2입문_1차시
+# ROS2 입문 1차시 - 프로그래밍 기초
 
-
-ROS2 프로그래밍 입문
-
-
-전체 목차(9차시)
-
-## 프로그래밍기초
-## 인터페이스패키지
-## 인터페이스프로그래밍(응용_1)
-## 인터페이스프로그래밍(응용_2)
-## rclpy 이해
-## ROS2 응용
-## ROS2 복습(1, 2, 3)
-ROS2 프로그래밍 입문(1차시)
-
-1. ROS2 프로그래밍 기초
 
 ## ROS2 프로그래밍기초
-1. ROS2 프로그래밍이란?
-2. 프로그래밍 규칙
-3. ROS2 Setup Tips
-4. Python을 이용한 패키지 생성
-
 ## 로봇SW
-ROS2 프로그래밍이란?
 
 ## Message
-ROS2 프로그래밍이란?
-Message ㅡTopic
-[Topic]
 
 - 비동기식 단방향 메시지 송수신 방식으로, msg 인터페이스 형태의 메시지를 주고받는Publisher와Subscriber 간의 통신 두 번째 키워드
 
 - ROS2 메시지 통신에서 가장 많이 사용하며, 1:1 통신이 기본 이지만N:N 통신도 가능
 
-- 비동기성과 연속성을 가지기 때문에 센서 값 전송이나 항시 정보를 주고받아야하는 부분에서 주로 사용
+- 비동기성과 연속성을 가지기 때문에 센서값 전송이나 항시 정보를 주고받아야하는 부분에서 주로 사용
 
 ![Image 5](../../assets/images/ros/intro/lesson-01/img_006_005.webp)
 
 
 ## Message
-ROS2 프로그래밍이란?
-Message ㅡService
-[Service]
 
 - 동기식 양방향 메시지 송수신 방식
 - 서비스 요청(Request)을 보내는Service Client, 응답(Response) 을 보내는 쪽을Service Server로구분
@@ -55,9 +27,6 @@ Message ㅡService
 ![Image 6](../../assets/images/ros/intro/lesson-01/img_007_006.webp)
 
 ## Message
-ROS2 프로그래밍이란?
-Message ㅡAction
-[Action]
 
 - 비동기식, 동기식 양방향 메시지 송수신 방식
 - 목표(Goal)를 설정하는Action Client와 목표를 수행하는 Action Server 간의 통신
@@ -68,8 +37,6 @@ Message ㅡAction
 ![Image 8](../../assets/images/ros/intro/lesson-01/img_008_008.webp)
 
 ## Message
-ROS2 프로그래밍이란?
-Message ㅡAction
 
 - ROS2에서의 액션은 목표 전달(send_goal), 목표 취소(cancel_goal), 결과 받기(get_result)를 위한 토픽과 서비스 통신을 혼합하여 사용
 
@@ -81,10 +48,8 @@ Message ㅡAction
 ![Image 10](../../assets/images/ros/intro/lesson-01/img_009_010.webp)
 
 
-ROS2 프로그래밍이란?
 ROS1과ROS2비교
 
-ROS2 프로그래밍이란?
 ROS2 Programming
 
 ## 주요역할
@@ -101,7 +66,6 @@ ROS2에서의 프로그래밍 역할
 - 예를 들어, 센서 데이터를 처리하는 노드, 로봇의 모터를 제어하는 노드 등 개발 가능
 
 
-ROS2 프로그래밍이란?
 ROS2 Programming
 
 ## 주요역할
@@ -120,7 +84,6 @@ ROS2 Programming
 - 예를 들어, 로봇이 경로를 따라가거나 특정 작업을 완료하는 데 시간이 걸릴 때, 이를 처리하기 위한 프로그래밍이 필요
 
 
-ROS2 프로그래밍이란?
 ROS2 Programming
 
 ## 주요역할
@@ -137,7 +100,6 @@ ROS2 Programming
 - 예를 들어, 로봇이 장애물을 회피하면서 목적지로 가는 경로를 계획하는 알고리즘을 프로그래밍하여 개발
 
 
-ROS2 프로그래밍이란?
 ROS2 Programming
 
 ## 주요역할
@@ -154,7 +116,6 @@ ROS2 Programming
 - 프로그래밍을 통해 여러 장치에서 실행되는ROS2 노드 간의 통신을 설정하고, 분산 환경에서 로봇 시스템을 조정하는 작업 수행
 
 
-ROS2 프로그래밍이란?
 ROS2 Programming
 
 ## Conclusion
@@ -298,13 +259,6 @@ ROS2 Setup Tips
 - 제일 하단에 아래 스크립트 추가 . . .
 
 
-![Image 21](../../assets/images/ros/intro/lesson-01/img_022_021.webp)
-
-![Image 23](../../assets/images/ros/intro/lesson-01/img_022_023.webp)
-
-![Image 25](../../assets/images/ros/intro/lesson-01/img_022_025.webp)
-
-
 ROS2 Setup Tips
 Setup.bash vs local_setup.bash
 ROS1에서는setup.bash만 사용하여 현재 워크 스페이스의 설정 스크립트를 실행하고, ROS2에서는setup.bash와local_setup.bash
@@ -318,7 +272,7 @@ ROS1에서는setup.bash만 사용하여 현재 워크 스페이스의 설정 스
 ## Overlay
 - User가설치하거나 개발 중인 패키지를 포함하는 사용자 지정ROS 작업 공간 (사용자는ROS 자체 패키지 및 노드를 추가, 확장)
 - 사용자 홈 디렉토리나 사용자가 지정한 다른 디렉토리에 위치할 수 있음
-- ROS패키지 개별적 빌 드 및 사용자 작업 공간에 설치 가능 (사용자 지정 노드 및 라이브러리를ROS 환경에 추가 가능)
+- ROS패키지 개별적 빌드 및 사용자 작업 공간에 설치 가능 (사용자 지정 노드 및 라이브러리를ROS 환경에 추가 가능)
 - 사용자 지정 패키지와 노드를 제공
 - Overlay 개발 환경은 설치된ROS 패키지들에 의존하기에 Underlay 개발 환경에 종속적
 - 설정 스크립트(Setup script)라고 하는setup.bash의 호출 순서 및 사용 방법이 조금씩 달라짐
@@ -345,16 +299,12 @@ ROS2 Setup Tips
 - ROS1의ros_cd와 비슷한 기능
 - ./bashrc에 아래와 같이 추가
 
-![Image 27](../../assets/images/ros/intro/lesson-01/img_025_027.webp)
-
 
 ROS2 Setup Tips
 
 ## rosdep
 - 의존성 관리 툴인rosdep 명령어를 사용하면 손쉽게 패키지의 의존성 문제를 해결
 - rosdep은 패키지 환경 설정 파일인package.xml의<depend> 옵션과 같은 의존성 정보를 확인하여 의존성 패키지들을 설치해 주기 때문에 의존성 패키지가 많은 패키지의 경우, 위 명령어를 사용하면 의존성 패키지 설치 및 관리에 있어서 매우 편하게 사용 가능
-
-![Image 29](../../assets/images/ros/intro/lesson-01/img_026_029.webp)
 
 
 ROS2 Setup Tips
@@ -406,9 +356,6 @@ ROS2 Setup Tips
 ROS_DOMAIN_ID
 
 
-![Image 30](../../assets/images/ros/intro/lesson-01/img_030_030.webp)
-
-
 ROS2 Setup Tips
 Namespace
 
@@ -424,10 +371,6 @@ Namespace
 ## 사용방법
 - ns 명령 사용 1. ROS의 변수 중 하나인ns(namespace)를입력 2. 복수의namespace 생성
 
-![Image 32](../../assets/images/ros/intro/lesson-01/img_032_032.webp)
-
-![Image 34](../../assets/images/ros/intro/lesson-01/img_032_034.webp)
-
 
 ![Image 35](../../assets/images/ros/intro/lesson-01/img_032_035.webp)
 
@@ -441,24 +384,16 @@ Uninstall
 ## ROS2 관련패키지들삭제
 ## ROS2 repository 삭제
 
-![Image 38](../../assets/images/ros/intro/lesson-01/img_033_038.webp)
 
-![Image 40](../../assets/images/ros/intro/lesson-01/img_033_040.webp)
-
-
-Python을 이용한 패키지 생성
 패키지(Package)
 
 - 노드(Node): 실행 가능한 최소한의 프로세서 단위
 - 패키지(Package): 하나 이상의 노드가 기능적 단위로 묶인 것
 
-![Image 42](../../assets/images/ros/intro/lesson-01/img_034_042.webp)
-
 
 ![Image 43](../../assets/images/ros/intro/lesson-01/img_034_043.webp)
 
 
-Python을 이용한 패키지 생성
 패키지(Package) 구성 요소
 - 노드(Node) 특정 작업(로봇 제어, 센서 데이터 처리, 토픽 발 행/구독등)을 수행하는 실행 파일
 - 런치 파일(Launch file) 여러 노드를 실행하고, 그들의 매개 변수, 토픽 및 서비스를 구성하는Python 파일
@@ -469,80 +404,74 @@ Python을 이용한 패키지 생성
 - 문서(Documentation) README 파일, 튜토 리얼, API 참조 등으로 사용자가 패키지를 이해하고 사용할 수 있도록 도움
 
 
-Python을 이용한 패키지 생성
-
 ## package.xml
 - 패키지에 대한 메타 정보를 포함하는 파일(패키지의 신분증 역할)
 - 이 파일은 패키지 이름, 버전, 저작자, 라이센스 등의 정보를 정의하며, 패키지의 의존성 패키지와 메시지, 서비스, 액션 등의 정의된 인터페이스 정보도 포함
 - 사용 목적
-- 소스 코드를 실제 실행 가능한 프로그램이나 라이브러리로 변환하기 위해colcon build를 수행하면package.xml을 참조하여, 빌 드할 패키지들 사이의 의존성 해석 및 적절한 빌 드 순서 결정
+- 소스 코드를 실제 실행 가능한 프로그램이나 라이브러리로 변환하기 위해colcon build를 수행하면package.xml을 참조하여, 빌드할 패키지들 사이의 의존성 해석 및 적절한 빌드 순서 결정
 - 또한, 패키지 의존성 설치 시rosdep이 이 파일의 정보를 기반으로 함
 
 
-Python을 이용한 패키지 생성
 setup.py & setup.cfg
 
 ## setup.cfg
-- 패키지 빌 드/설치/배포에 사용(버전/설명/패키지 의존성 관리 등)
+- 패키지 빌드/설치/배포에 사용(버전/설명/패키지 의존성 관리 등)
 - setuptools를 사용하여 패키지를 배포 준비 시 필요한 정보 제공
-- Python 패키지에 대한 선언적인 구성 정보를 제공하며, setuptools의 빌 드 및 설치 과정에서 활용
+- Python 패키지에 대한 선언적인 구성 정보를 제공하며, setuptools의 빌드 및 설치 과정에서 활용
 - 주로 패키지 버전, 설명 등이 여기에 정의됨
 
 ## setup.py
 - setuptools를 사용하여 패키지를 배포할 준비를 할 때, 필요한 정보를 담고 있음
-- Python 패키지에 대한 프로 그래 매 틱한 구성 정보를 제공하며, setuptools를 통한 빌 드 및 설치 과정에서 사용됨
+- Python 패키지에 대한 프로 그래 매 틱한 구성 정보를 제공하며, setuptools를 통한 빌드 및 설치 과정에서 사용됨
 - Python 패키지의 설치 스크립트
 - 주로 패키지 버전, 설명, 의존성 등을 포함한 설치 스크립트 역할
-- setuptools 라이브러리를 사용, 패키지를 빌 드하고 설치하는 데 필요한 설정 포함
+- setuptools 라이브러리를 사용, 패키지를 빌드하고 설치하는 데 필요한 설정 포함
 
 ## ROS2에서의역할
 - Python 기반의ROS2 패키지에 대해colcon 은setup.cfg(및setup.py)를 사용하여 패 키 지의 설치를 처리
-- setup.cfg, setup.py는setuptools를 통해 패 키 지를 빌 드하고 설치하는 방법에 대한 구 성 정보를 제공
-- ament_python 패키지 빌 드 타입을 사용하는 경우, 파일의 설정이 빌 드 과정에 영향을 줄 수 있음
+- setup.cfg, setup.py는setuptools를 통해 패 키 지를 빌드하고 설치하는 방법에 대한 구 성 정보를 제공
+- ament_python 패키지 빌드 타입을 사용하는 경우, 파일의 설정이 빌드 과정에 영향을 줄 수 있음
 
 
-Python을 이용한 패키지 생성
 CMakeLists.txt
 
 ## 주요역할
-- ROS2에서CMakeLists.txt 파일은 패키지의 빌 드 규칙을 정의하는 역할
-- ROS2는CMake 빌 드 시스템을 사용하여 패키지를 빌 드 하며, CMakeLists.txt는CMake가 각 패키지를 어떻게 컴 파일하고 링크할지 지시하는 지침을 포함
+- ROS2에서CMakeLists.txt 파일은 패키지의 빌드 규칙을 정의하는 역할
+- ROS2는CMake 빌드 시스템을 사용하여 패키지를 빌드 하며, CMakeLists.txt는CMake가 각 패키지를 어떻게 컴파일하고 링크할지 지시하는 지침을 포함
 
-- 패키지 내 코드를 빌 드하는 방법을 기술하는 파일
-- 빌 드에 필요한 컴파일러, 라이브러리, 소스 파일 등을 명시하고, 실행 파일, 라이브러리, 메시지, 서비스 등의 빌 드 대상 및 의존성 관리를 설정
+- 패키지 내 코드를 빌드하는 방법을 기술하는 파일
+- 빌드에 필요한 컴파일러, 라이브러리, 소스 파일 등을 명시하고, 실행 파일, 라이브러리, 메시지, 서비스 등의 빌드 대상 및 의존성 관리를 설정
 
-- 이 파일은 빌 드 프로세스를 자동화하기 위한CMake 빌 드 시스템에 의해 사용
+- 이 파일은 빌드 프로세스를 자동화하기 위한CMake 빌드 시스템에 의해 사용
 
 
-Python을 이용한 패키지 생성
 CMakeLists.txt
 
 ## 주요역할
 - 패키지에 필요한 최소CMake 버전을 지정
 - 프로젝트 이름과 버전을 설정
-- 빌 드해야할 타겟(executables, libraries)을정의
+- 빌드해야할 타겟(executables, libraries)을정의
 - 필요한 종속성 패키지를 찾고 링크
-- 특정 빌 드 옵션을 설정하거나 사용자 정의 빌 드 규칙 추가
+- 특정 빌드 옵션을 설정하거나 사용자 정의 빌드 규칙 추가
 
 
-Python을 이용한 패키지 생성
 CMakeLists.txt
 
 ## CMakeLists.txt와setup.py/setup.cfg, package.xml간의비교
 - CMakeLists.txt
 - C/C++ 프로젝트에서 주로 사용됨
-- 코드 컴 파일 및 링크 설정
+- 코드 컴파일 및 링크 설정
 - ROS2 메시지 및 서비스 생성 같은 더 광범위한 작업 지원
-- 빌 드 시 필요한 지침을 담고 있으며, 주로 코드 컴 파일과 관련이 깊음
+- 빌드 시 필요한 지침을 담고 있으며, 주로 코드 컴파일과 관련이 깊음
 - setup.py/setup.cfg
-- Python 패키지의 빌 드 및 설치 과정 설정에 사용됨
+- Python 패키지의 빌드 및 설치 과정 설정에 사용됨
 - 주로Python 관련 설정에 집중
 - Pacakge.xml
 - 패키지의 메타 데이터와 의존성을 관리하는 데 중점
-- CMakeLists.txt와 함께 작동하여ROS2 패키지의 빌 드와 배포를 가능하게함
+- CMakeLists.txt와 함께 작동하여ROS2 패키지의 빌드와 배포를 가능하게함
 
 ## 세파일의공통점
-- CMakeLists.txt, setup.py/setup.cfg, package.xml 모두 패키지의 빌 드 및 설치 과정에서 의존성 관리와 설정 정의에 사용 Python을 이용한 패키지 생성 패키지(Package) 설정
+- CMakeLists.txt, setup.py/setup.cfg, package.xml 모두 패키지의 빌드 및 설치 과정에서 의존성 관리와 설정 정의에 사용 Python을 이용한 패키지 생성 패키지(Package) 설정
 
 ## pip install .과python3 setup.py install의차이
 - pip install .
@@ -554,7 +483,6 @@ CMakeLists.txt
 - 가상 환경과의 호환성 낮음: 이 명령을 사용할 때도 가상 환경에 설치할 수 있지만, pip만큼 가상 환경과의 통합이 자연스럽지는 않음
 
 
-Python을 이용한 패키지 생성
 패키지(Package) 설정
 
 ## setup.py & setup.cfg차이점
@@ -573,11 +501,6 @@ setup.py의 경우 패키지 의존성을 해결해 주지 않
 setup.cfg를 통한 선언적 패키지 설정을 선호
 
 
-![Image 44](../../assets/images/ros/intro/lesson-01/img_042_044.webp)
-
-
-Python을 이용한 패키지 생성
-
 ## 프로그래매틱접근
 - setup.py는Python 스크립트 파일로, 패키지의 메타 데이터와 설치 설정을 프로그래밍 방식으로 정의
 
@@ -591,8 +514,6 @@ Python을 이용한 패키지 생성
 ## 사용자정의명령지원
 - 사용자가 필요에 따라setuptools의 명령 확장 기능을 사용하여 새로운 명령어 정의 가능
 
-
-Python을 이용한 패키지 생성
 
 ## 선언적접근
 - setup.cfg는INI 포맷의 구성 파일로, 패키지의 설정을 선언적으로 정의

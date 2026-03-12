@@ -32,13 +32,13 @@ Rokey
 2. 연관 폴더 만들기
 - src/urdf_tutorial 폴더 아래 다음 두 폴더를 추가
 - urdf: URDF 파일을 저장할 폴더
-- launch: ROS2 실행launch 스크립트를 저장할 폴더 $ mkdir -p ~/urdf_ws/src $ cd ~/urdf_ws/src $ ros2 pkg create --build-type ament_python urdf_tutorial $ cd urdf_tutorial $ mkdir urdf $ mkdir launch 차 동 구동 로봇(Differential Drive Robot) -XML 형식의 로봇 모델 정의 -Xacro 매크로를 사용하여 파라메터화 및 코드 재사용성 향상
+- launch: ROS2 실행launch 스크립트를 저장할 폴더 $ mkdir -p ~/urdf_ws/src $ cd ~/urdf_ws/src $ ros2 pkg create --build-type ament_python urdf_tutorial $ cd urdf_tutorial $ mkdir urdf $ mkdir launch 차 동 구동 로봇(Differential Drive Robot) -XML 형식의 로봇 모델 정의 -Xacro 매크로를 사용하여 파라미터화 및 코드 재사용성 향상
 
 Rokey
 로봇 패키지
 
 3. setup.py
-두 폴더가 컴 파일에 포함될 수 있도록'src/urdf_tutorial/setup.py'를 아래와 같이 편집
+두 폴더가 컴파일에 포함될 수 있도록'src/urdf_tutorial/setup.py'를 아래와 같이 편집
 import os
 from glob import glob
 from setuptools import setup
@@ -140,8 +140,8 @@ parameters=[params])
 Rokey
 로봇 패키지
 
-6. 빌 드 및 소싱
-첫 번째 터미널에서 아래 명령을 실행해서 컴 파일 및‘robot_1.launch.py’ 파일을 실행
+6. 빌드 및 소싱
+첫 번째 터미널에서 아래 명령을 실행해서 컴파일 및‘robot_1.launch.py’ 파일을 실행
 
 7. 두 번째 터미널에서 아래 명령을 실행해서Rviz를실행
 $ cd ~/urdf_ws
@@ -222,13 +222,6 @@ Mesh (메쉬)
 왜 완전한 원
 이 아닐까?
 
-![Image 29](../../assets/images/ros/projects/simulation/img_014_029.webp)
-
-
-![Image 30](../../assets/images/ros/projects/simulation/img_014_030.webp)
-
-
-![Image 31](../../assets/images/ros/projects/simulation/img_014_031.webp)
 
 ![Image 34](../../assets/images/ros/projects/simulation/img_014_034.webp)
 
@@ -330,9 +323,6 @@ c) map 프레임
 -절대 좌표 제공
 
 ![Image 43](../../assets/images/ros/projects/simulation/img_021_043.webp)
-
-
-![Image 44](../../assets/images/ros/projects/simulation/img_021_044.webp)
 
 
 Rokey
@@ -444,9 +434,6 @@ Rokey
 
 
 ![Image 68](../../assets/images/ros/projects/simulation/img_029_068.webp)
-
-
-![Image 69](../../assets/images/ros/projects/simulation/img_029_069.webp)
 
 
 Rokey
@@ -874,9 +861,9 @@ entry_points={
 
 - 설치 대상 지정 실행 파일, Python 모듈, 데이터 파일 등 패키지에 포함될 항목들을 정의
 
-- 빌 드 설정 컴 파일이 필요한 경우 빌 드 프로세스를 구성
+- 빌드 설정 컴파일이 필요한 경우 빌드 프로세스를 구성
 
-- colcon 빌 드 시스템에 의해 사용되어 패키지 빌 드 및 설치
+- colcon 빌드 시스템에 의해 사용되어 패키지 빌드 및 설치
 - package.xml과 함께 패키지 구성의 핵심 요소 패키지 생성 및 실행
 
 Rokey
@@ -887,7 +874,7 @@ $ colcon build –symlink-install
 $ source install/setup.bash
 $ ros2 launch car_tutorial car_tutorial.launch
 
-8. 빌 드 및 실행
+8. 빌드 및 실행
 9. rviz 설정
 Add -> TF
 Add -> RobotModel
@@ -926,19 +913,10 @@ Odom
 2. ROS2 Odometry 메시지 구조
 
 
-![Image 91](../../assets/images/ros/projects/simulation/img_045_091.webp)
-
-
 Odeom
 Odom
 
 3. Odometry 노드
-
-
-![Image 92](../../assets/images/ros/projects/simulation/img_046_092.webp)
-
-
-![Image 93](../../assets/images/ros/projects/simulation/img_046_093.webp)
 
 
 Odom
@@ -1249,7 +1227,7 @@ $ colcon build –symlink-install
 $ source install/setup.bash
 $ ros2 launch car_tutorial car_tutorial.launch
 
-4. 빌 드 및 실행
+4. 빌드 및 실행
 5. rviz 설정
 Add -> TF
 Add -> RobotModel
@@ -1349,9 +1327,6 @@ src/sim_tutorial/urdf/car.xacro
 macros 부분 추가
 
 
-![Image 119](../../assets/images/ros/projects/simulation/img_063_119.webp)
-
-
 Rokey
 참고
 
@@ -1359,8 +1334,6 @@ Rokey
 src/sim_tutorial/setup.py
 패키지 생성 및 실행
 시뮬레이션
-
-![Image 121](../../assets/images/ros/projects/simulation/img_064_121.webp)
 
 
 시뮬레이션
@@ -1403,7 +1376,7 @@ $ colcon build –symlink-install
 $ source install/setup.bash
 $ ros2 launch sim_tutorial car_simulation.launch
 
-7. 빌 드 및 실행
+7. 빌드 및 실행
 $ ros2 launch gazebo_ros gazebo.launch.py
 $ ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity with_robot
 패키지 생성 및 실행
@@ -1521,16 +1494,13 @@ src/sim_turoail/urdf/car.xacro
 macros 부분 추가
 
 
-![Image 124](../../assets/images/ros/projects/simulation/img_071_124.webp)
-
-
 운전하기
 $ cd ~/car_ws
 $ colcon build –symlink-install
 $ source install/setup.bash
 $ ros2 launch sim_tutorial car_simulation_once.launch
 
-8. 빌 드 및 실행
+8. 빌드 및 실행
 $ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 $ rviz2
 가제 보 시뮬레이션
@@ -1582,9 +1552,6 @@ world/map -> odom -> base_link -> 기타 센서 프레임
 teleop 을 이용한 조작
 가제 보 시뮬레이션
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
-
-
-![Image 126](../../assets/images/ros/projects/simulation/img_075_126.webp)
 
 
 ![Image 127](../../assets/images/ros/projects/simulation/img_075_127.webp)
@@ -1660,15 +1627,12 @@ src/sim_tutorial/urdf/car.xacro
 라이더 링크 및 기능 파일 추가
 
 
-![Image 130](../../assets/images/ros/projects/simulation/img_079_130.webp)
-
-
 라이다
 $ cd ~/car_ws
 $ colcon build –symlink-install
 $ source install/setup.bash
 $ ros2 launch sim_tutorial lidar.launch.py
-빌 드 및 실행
+빌드 및 실행
 라이다 시뮬레이션
 $ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 동작 시키기
@@ -1779,15 +1743,12 @@ src/sim_tutorial/urdf/car.xacro
 카메라 링크 및 기능 파일 추가
 
 
-![Image 139](../../assets/images/ros/projects/simulation/img_086_139.webp)
-
-
 카메라
 $ cd ~/car_ws
 $ colcon build –symlink-install
 $ source install/setup.bash
 $ ros2 launch sim_tutorial camera.launch.py
-빌 드 및 실행
+빌드 및 실행
 카메라 시뮬레이션
 $ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 동작 시키기
@@ -2161,9 +2122,6 @@ Model 이름으로 저장한다.
 ![Image 148](../../assets/images/ros/projects/simulation/img_102_148.webp)
 
 
-![Image 149](../../assets/images/ros/projects/simulation/img_102_149.webp)
-
-
 시뮬레이션 월드 만들기
 계단 만들기
 Make a world
@@ -2202,9 +2160,6 @@ https://emanual.robotis.com/docs/en/platform/turtlebot3/manipulation/
 
 
 ![Image 156](../../assets/images/ros/projects/simulation/img_106_156.webp)
-
-
-![Image 157](../../assets/images/ros/projects/simulation/img_106_157.webp)
 
 
 Turtlebot3 Manipulation
@@ -2298,9 +2253,6 @@ your_package)/worlds/your_world.sdf"/>
 ![Image 164](../../assets/images/ros/projects/simulation/img_113_164.webp)
 
 
-![Image 165](../../assets/images/ros/projects/simulation/img_113_165.webp)
-
-
 ![Image 166](../../assets/images/ros/projects/simulation/img_113_166.webp)
 
 
@@ -2309,9 +2261,6 @@ your_package)/worlds/your_world.sdf"/>
 6-DoF로 설계
 MoveIT2 구동
 가상 환경
-
-
-![Image 167](../../assets/images/ros/projects/simulation/img_114_167.webp)
 
 
 ![Image 168](../../assets/images/ros/projects/simulation/img_114_168.webp)
@@ -2333,17 +2282,10 @@ Drone
 - 자세 제어가 들어가 있는 점이 장점 https://github.com/NovoG93/sjtu_drone 가상 환경
 
 
-![Image 172](../../assets/images/ros/projects/simulation/img_115_172.webp)
-
-
-![Image 173](../../assets/images/ros/projects/simulation/img_115_173.webp)
-
-
 ![Image 174](../../assets/images/ros/projects/simulation/img_115_174.webp)
 
 
 Rokey
 참고
 감사합니다.
-
 

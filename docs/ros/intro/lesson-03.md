@@ -1,23 +1,15 @@
-# 강의_3기_ROS2입문_3차시
-
-
-ROS2 프로그래밍 입문(3차시)
-
-3. 인터페이스 프로그래밍(응용_1)
+# ROS2 입문 3차시 - 인터페이스 프로그래밍 (1)
 
 
 ## 인터페이스프로그래밍(응용_1)
-1. 인터페이스 프로그래밍(ex_- calculator)
-2. Launch 프로그래밍
-인터페이스 프로그래밍
-토픽 프로그래밍
 
 ## 토픽퍼블리셔/ 토픽서브스크라이버
 
-토픽 프로그래밍
-토픽퍼블리셔코드
 
-![Image 4](../../assets/images/ros/intro/lesson-03/img_004_004.webp)
+
+!!! tip "소스코드 참조"
+    이 코드의 전체 내용은 [Calculator 프로젝트 전체 소스코드](../code-ref/calculator.md) 페이지에서 확인할 수 있습니다.
+
 
 
 ## Argument 클래스설정
@@ -27,7 +19,7 @@ ROS2 프로그래밍 입문(3차시)
 ## QoS 설정
 - rclpy.qos 모듈의QoSProfile 클래스를 이용하여 토픽퍼블리셔의QoS 설정 값 적용
 - QoS 설정값: RELIABLE, KEEP_LAST, DEPTH 10, VOLATILE 토픽 프로그래밍 토픽퍼블리셔코드
-- Node 클래스의create_publisher 함수를 사용하여 퍼 블 리 셔 선언
+- Node 클래스의create_publisher 함수를 사용하여 퍼블리셔 선언
 - 토픽 타입: ArithmeticArgument
 - 토픽 이름: 'arithmetic_argument
 - 'QoS 설정: 이전에 설정한QOS_RKL10V 사용
@@ -36,8 +28,6 @@ ROS2 프로그래밍 입문(3차시)
 ## create_timer 함수를이용하여1초마다publish_random_arithmetic_arguments 함수실행설정
 ## create_publisher에서의설정들은퍼블리시를위한기본설정
 ## 실제토픽발행이이루어지는부분은publish_random_arithmetic_arguments 함수
-토픽 프로그래밍
-토픽퍼블리셔코드
 
 
 - 타이머 콜백 함수로1초마다 실행
@@ -52,20 +42,16 @@ ROS2 프로그래밍 입문(3차시)
 - get_logger().info() 를사용하여디버깅목적으로변수a, b 값을 터미널에 표시
 
 ## 로그출력
-토픽 프로그래밍
-토픽퍼블리셔코드
-토픽 프로그래밍
-토픽퍼블리셔코드
-- 토픽 퍼 블 리 셔 노 드와 마찬가지로Node 클래스 상속
+- 토픽 퍼블리셔 노 드와 마찬가지로Node 클래스 상속
 - 생성자에서'calculator'라는 이름으로 노드 초기화
 - 토픽서브스크라이버, 서비스 서버, 액션 서버를 포함하여 코드가 길기 때문에 전체 코드는 생략
 - 여기서는토픽서브스크라이버관련코드만설명
 - Calculator 클래스 설정
 - QoSProfile 클래스를이용하여토픽서브스크라이버의 QoS 설정 적용
-- QoS 설정값: RELIABLE, KEEP_LAST, DEPTH 10, VOLATILE (토픽 퍼 블 리 셔와 동일 설정)
+- QoS 설정값: RELIABLE, KEEP_LAST, DEPTH 10, VOLATILE (토픽 퍼블리셔와 동일 설정)
 - QoS에 대한 자세한 내용은'DDS의QoS(Quality of Service)' 강좌 참고
 - 제일 중요한 설정으로Node 클래스의create_subscription 함수를이용하여서브스크라이버로선언
-- get_arithmetic_argument라는 콜백 함수를 지정하여 퍼 블 리셔로부터 메시지를 서브 스 크 라이브 할 때마다 실행되는 함수를 지정
+- get_arithmetic_argument라는 콜백 함수를 지정하여 퍼 블 리셔로부터 메시지를 서브스크라이브 할 때마다 실행되는 함수를 지정
 - ReentrantCallbackGroup으로callback_group을 지정하여 콜백 함수를 병렬로 실행할 수 있게해 주며 뒤에서 설정
 - 이후 설명할MultiThreadedExecutor와 함께 사용됨
 - arithmetic_argument_subscriber 설정
@@ -73,8 +59,8 @@ ROS2 프로그래밍 입문(3차시)
 - MutuallyExclusiveCallbackGroup이 기본 설정으로 사용됨
 - MutuallyExclusiveCallbackGroup: 한 번에 하나의 콜백 함 수만 실행하도록 제한
 - ReentrantCallbackGroup: 제한 없이 콜백 함수를 병렬로 실행 가능 토픽 프로그래밍 토픽서브스크라이버코드 토픽 프로그래밍 토픽서브스크라이버코드
-- 콜백 함수인 이 함수는'arithmetic_argument'이라는 토픽 이름에ArithmeticArgument 타입의 메시지를 서브 스 크라 이브하게 되면 실행됨
-- 서브스크 라이브한msg의argument_a와argument_b를 멤버 변수에 저장하고, get_logger().info() 함수를 이용하여 토픽으로 받은 시간, 변수a, b 값을 화면에 표시
+- 콜백 함수인 이 함수는'arithmetic_argument'이라는 토픽 이름에ArithmeticArgument 타입의 메시지를 서브스크라이브하게 되면 실행됨
+- 서브스크라이브한msg의argument_a와argument_b를 멤버 변수에 저장하고, get_logger().info() 함수를 이용하여 토픽으로 받은 시간, 변수a, b 값을 화면에 표시
 - get_arithmetic_argument 토픽 프로그래밍 토픽퍼블리셔& 서브스크라이버복습
 
 ## 토픽퍼블리셔
@@ -87,7 +73,7 @@ ROS2 프로그래밍 입문(3차시)
 (데이터를 수신하는 프로그램)
 - Node 설정
 - create_subscription 설정
-- 서브스크 라이브 함수 작성
+- 서브스크라이브 함수 작성
 
 
 ## 이번목표
@@ -95,9 +81,6 @@ ROS2 프로그래밍 입문(3차시)
 - calculator: 이강좌에서다룬토픽서브스크라이버노드
 - argument: 토픽퍼블리셔노드 토픽 프로그래밍 노드 실행 코드
 
-![Image 19](../../assets/images/ros/intro/lesson-03/img_012_019.webp)
-
-![Image 21](../../assets/images/ros/intro/lesson-03/img_012_021.webp)
 
 
 ## entry_points 설정
@@ -111,19 +94,13 @@ ROS2 프로그래밍 입문(3차시)
 - checker 노드: ex_calculator 패키지의checker 폴더의main.py main문에 실행 코드 포함 토픽 프로그래밍 노드 실행 코드
 
 
-![Image 22](../../assets/images/ros/intro/lesson-03/img_013_022.webp)
-
-
 ## argument 노드
 - main 함수로rclpy.init를 이용하여 초기화
 - Argument 클래스를argument라는 이름으로 생성
 - rclpy.spin 함수를 이용하여 생성한 노드를spin 시켜 지정된 콜백 함수 실행
 - 종료(ctrl + c)와 같은 인터럽트 시그널 예외상 황에서는argument를 소멸시키고 rclpy.shutdown 함수로 노드를 종료 토픽 프로그래밍 노드 실행 코드
 
-![Image 24](../../assets/images/ros/intro/lesson-03/img_014_024.webp)
 
-
-토픽 프로그래밍
 노드 실행 코드
 
 ## calculator 노드초기화
@@ -147,10 +124,7 @@ ROS2 프로그래밍 입문(3차시)
 - 인터럽트시그널(Ctrl + C) 발생시, executor, calculator의 액션 서버(별도 소멸 필요), calculator 노드를 소멸
 - rclpy.shutdown으로노드를 종료
 
-![Image 26](../../assets/images/ros/intro/lesson-03/img_015_026.webp)
 
-
-서비스 프로그래밍
 서비스 클라이언트/서버
 
 1.    operator node
@@ -158,7 +132,7 @@ arithmetic_operator 이라는 서비스 이름으로calculator 노드에게 연�
 요청(Request) 값으로 보냄
 
 2.    calculator node
-서브스크 라이브하여 저장하고 있는 변수a, b와operator 노드로부터 요청 값으로 받은 연산자
+서브스크라이브하여 저장하고 있는 변수a, b와operator 노드로부터 요청 값으로 받은 연산자
 를 이용하여 계산(a 연산자b)하고operator 노드에게 연산의 결과 값을 서비스 응답(Response)
 값으로 보냄
 서비스 요청을 하는 서비스 클라이언트와 서비스 응답을 하는 서비스 서버를 작성해 볼 것이다.
@@ -168,7 +142,6 @@ arithmetic_operator 이라는 서비스 이름으로calculator 노드에게 연�
 강좌를 참고하도록하자
 
 
-서비스 프로그래밍
 서비스 클라이언트/서버
 
 
@@ -178,19 +151,9 @@ arithmetic_operator 이라는 서비스 이름으로calculator 노드에게 연�
 ![Image 28](../../assets/images/ros/intro/lesson-03/img_017_028.webp)
 
 
-서비스 프로그래밍
-서비스 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 
-![Image 29](../../assets/images/ros/intro/lesson-03/img_018_029.webp)
-
-
-![Image 30](../../assets/images/ros/intro/lesson-03/img_018_030.webp)
-
-
-서비스 프로그래밍
-서비스 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## calculator 노드초기화
@@ -209,11 +172,6 @@ src/ex_calculator/ex_calculator/calculator/calculator.py
 - 콜백 함수인get_arithmetic_operator이 실제 서비스 요청에 해당되는 특정 수행 코드가 수행되는 부분
 
 
-![Image 31](../../assets/images/ros/intro/lesson-03/img_019_031.webp)
-
-
-서비스 프로그래밍
-서비스 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## get_arithmetic_operator 함수
@@ -232,42 +190,21 @@ src/ex_calculator/ex_calculator/calculator/calculator.py
 - 관련 수식을**get_logger().info()**를 통해 문자열로 출력하여 화면에 표시
 
 
-![Image 32](../../assets/images/ros/intro/lesson-03/img_020_032.webp)
-
-
-서비스 프로그래밍
-서비스 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## calculate_given_formula 함수와같이인수a와b, 그리고연산자(operator)를가지고
 사 칙 연산을 수행 후 결과 값을 반환
 
 
-![Image 33](../../assets/images/ros/intro/lesson-03/img_021_033.webp)
-
-
-서비스 프로그래밍
 서비스 서버 실행 코드
 src/ex_calculator/ex_calculator/calculator/main.py
-- 서비스 서버(calculator 노드) : 토픽서브스 크라이버, 서비스 서버, 액션 서버를 역할을 하는 복합 기능의 노드
+- 서비스 서버(calculator 노드) : 토픽서브스크라이버, 서비스 서버, 액션 서버를 역할을 하는 복합 기능의 노드
 - 실행 코드에 대한 설명은 이전 강좌인'토픽 프로그래밍(Python)' 참조
 
-![Image 35](../../assets/images/ros/intro/lesson-03/img_022_035.webp)
 
-
-서비스 프로그래밍
-서비스 클라이언트 코드
 src/ex_calculator/ex_calculator/arithmetic/operator.py
 
 
-![Image 36](../../assets/images/ros/intro/lesson-03/img_023_036.webp)
-
-
-![Image 37](../../assets/images/ros/intro/lesson-03/img_023_037.webp)
-
-
-서비스 프로그래밍
-서비스 클라이언트 코드
 src/ex_calculator/ex_calculator/arithmetic/operator.py
 
 ## Operator 클래스초기화
@@ -283,11 +220,6 @@ src/ex_calculator/ex_calculator/arithmetic/operator.py
 - 서비스 요청 가능 여부를 위해0.1초간격으로 서비스 서버가 실행되어 있는지 확인
 
 
-![Image 38](../../assets/images/ros/intro/lesson-03/img_024_038.webp)
-
-
-서비스 프로그래밍
-서비스 클라이언트 코드
 src/ex_calculator/ex_calculator/arithmetic/operator.py
 
 ## 서비스클라이언트의목적: 서비스서버에게연산에필요한연산자를전달
@@ -302,10 +234,6 @@ self.request의arithmetic_operator 변수에 저장
 ## 서비스상태및응답값을담은futures를반환
 
 
-![Image 39](../../assets/images/ros/intro/lesson-03/img_025_039.webp)
-
-
-서비스 프로그래밍
 서비스 클라이언트 노드 실행 코드
 src/ex_calculator/setup.py
 
@@ -313,10 +241,7 @@ src/ex_calculator/setup.py
 - 'ex_calculator' 패키지의 일부로, 패키지 설정 파일의'entry_points'에 콘솔 스크립트의 이름과 호출 함수를 기입(ex_calcurator.arithmetic.operator:main)하여'ros2 run' 과 같은 노 드 실행 명령어를 통하여 각각의 노드를 실행
 - ex_calculator 패키지의arithmetic 폴더에operator.py의main문에 실행 코드가 담겨져 있음
 
-![Image 41](../../assets/images/ros/intro/lesson-03/img_026_041.webp)
 
-
-서비스 프로그래밍
 서비스 클라이언트 노드 실행 코드
 src/ex_calculator/ex_calculator/arithmetic/operator.py
 - rclpy.init를 이용하여 초기화
@@ -329,10 +254,6 @@ src/ex_calculator/ex_calculator/arithmetic/operator.py
 - ‘ctrl + c'와 같은 인터럽트 시그널 예외 상황에서 operator를 소멸시키고rclpy.shutdown 함수로 노 드 를 종료
 
 
-![Image 42](../../assets/images/ros/intro/lesson-03/img_027_042.webp)
-
-
-서비스 프로그래밍
 서비스 클라이언트 노드 실행 코드
 src/ex_calculator/ex_calculator/arithmetic/operator.py
 - 서비스 클라이언트는 한 번 실행 후 종료되는 방식으로, 토픽과 같은 지속적인 수행은 없음
@@ -342,24 +263,15 @@ src/ex_calculator/ex_calculator/arithmetic/operator.py
 - 즉. 최초 요청 후 서비스 재요청이 필요할 경우, 터미널 창에서 엔터 키를 눌러operator 실행
 - 연산자 선택은 사 칙 연산자(+, -, * , /) 중 하나가 랜덤으로 선택되어 송신됨
 
-액션 프로그래밍
 액션 클라이언트/서버
 다음 그림과 같은 액션 목표(action goal)를 지정하는 액션 클라이언트와 액션 목표를 받아 특
 정 태스크를 수행하면서 중간 결과 값에 해당되는 액션 피드백(action feedback)과 최종 결과 값
 에 해당되는 액션 결과(action result)를 전송하는 액션 서버를 작성해 볼 것이다.
 
 
-![Image 44](../../assets/images/ros/intro/lesson-03/img_029_044.webp)
-
-액션 프로그래밍
-액션 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 
-![Image 46](../../assets/images/ros/intro/lesson-03/img_030_046.webp)
-
-액션 프로그래밍
-액션 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## arithmetic_action_server : rclpy.action
@@ -376,11 +288,6 @@ src/ex_calculator/ex_calculator/calculator/calculator.py
 함수임을 알아 두자
 
 
-![Image 48](../../assets/images/ros/intro/lesson-03/img_031_048.webp)
-
-
-액션 프로그래밍
-액션 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## goal_handle 매개변수
@@ -390,8 +297,6 @@ src/ex_calculator/ex_calculator/calculator/calculator.py
 ## ## ## ## ![Image 49](../../assets/images/ros/intro/lesson-03/img_032_049.webp)
 
 
-액션 프로그래밍
-액션 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## •
@@ -408,11 +313,6 @@ get_logger().info()을 통해 터미널 창에 출
 수를 통해 액션 클라이언트로 전송
 
 
-![Image 50](../../assets/images/ros/intro/lesson-03/img_033_050.webp)
-
-
-액션 프로그래밍
-액션 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## 액션목표를달성했다는상태전환함수인
@@ -424,10 +324,6 @@ goal_handle.succeed()를 실행시켜 액션
 장하여 액션 결과 값인result은리턴
 
 
-![Image 51](../../assets/images/ros/intro/lesson-03/img_034_051.webp)
-
-
-액션 프로그래밍
 액션 서버 실행 코드
 src/ex_calculator/ex_calculator/calculator/main.py
 
@@ -439,22 +335,9 @@ src/ex_calculator/ex_calculator/calculator/main.py
 (Python) 강좌 참조
 
 
-![Image 52](../../assets/images/ros/intro/lesson-03/img_035_052.webp)
-
-
-액션 프로그래밍
-액션 클라이언트 코드
 src/ex_calculator/ex_calculator/checker/checker.py
 
 
-![Image 53](../../assets/images/ros/intro/lesson-03/img_036_053.webp)
-
-
-![Image 54](../../assets/images/ros/intro/lesson-03/img_036_054.webp)
-
-
-액션 프로그래밍
-액션 클라이언트 코드
 src/ex_calculator/ex_calculator/checker/checker.py
 
 ## Checker 클래스
@@ -474,11 +357,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 - 액션 이름: 'arithmetic_checker’
 
 
-![Image 55](../../assets/images/ros/intro/lesson-03/img_037_055.webp)
-
-
-액션 프로그래밍
-액션 클라이언트 코드
 src/ex_calculator/ex_calculator/checker/checker.py
 
 ## send_goal_total_sum 함수
@@ -492,10 +370,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 때에는 다음 구문으로 넘어감
 
 
-![Image 56](../../assets/images/ros/intro/lesson-03/img_038_056.webp)
-
-액션 프로그래밍
-액션 클라이언트 코드
 src/ex_calculator/ex_calculator/checker/checker.py
 
 ## 액션메시지설정
@@ -516,11 +390,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 5. 액션 결과 값 콜백 함수 선언: get_arithmetic_action_result
 
 
-![Image 58](../../assets/images/ros/intro/lesson-03/img_039_058.webp)
-
-
-액션 프로그래밍
-액션 클라이언트 코드
 src/ex_calculator/ex_calculator/checker/checker.py
 
 ## 액션피드백값콜백함수
@@ -533,11 +402,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 - 액션 목 푯 값을 문제없이 전달된 경우, 액션 결과를 받을 콜백 함수를 get_arithmetic_action_result로설정
 
 
-![Image 59](../../assets/images/ros/intro/lesson-03/img_040_059.webp)
-
-
-액션 프로그래밍
-액션 클라이언트 코드
 src/ex_calculator/ex_calculator/checker/checker.py
 
 ## 앞서지정한"액션결과값콜백함수"
@@ -550,7 +414,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 연산 합계(action_result.total_sum)를
 터미널 창에 출력
 
-액션 프로그래밍
 액션 클라이언트 노드 실행 코드
 src/ex_calculator/setup.py
 
@@ -566,10 +429,7 @@ calculator 노드도 작성하여'ros2 run' 과
 같은 노드 실행 명령어를 통해 각각의노
 드 를 실행 가능하도록함
 
-![Image 62](../../assets/images/ros/intro/lesson-03/img_042_062.webp)
 
-
-액션 프로그래밍
 액션 클라이언트 노드 실행 코드
 src/ex_calculator/ex_calculator/checker/main.py
 
@@ -591,9 +451,6 @@ src/ex_calculator/ex_calculator/checker/main.py
 - 추가적으로 토픽이나 서비스와는 달리 액션 클라이언트는 'checker.arithmetic_action_client.destroy()' 와 같이 별도로 소 멸시켜야함
 
 
-![Image 63](../../assets/images/ros/intro/lesson-03/img_043_063.webp)
-
-
 파라미터 프로그래밍
 파라미터
 우리는 이전 강좌에서 토픽, 서비스, 액션 관련 프로그래밍을 익히기 위하여argument, operator, calculator,
@@ -601,9 +458,6 @@ checker 노드를 작성해 보았다. 이들 노드 중에서 다음 그림과 
 라미터를 사용하고 있다. argument 노드는QoS 설정과 랜덤으로 생성되는 변수a, b의 랜덤 생성 범위를 파
 라미 터를 이용했었고calculator 노드는QoS 설정을 사용하였다. 우리는 여기서argument 노드에서 사용되
 는 파라미터에 대해 자세히 알아볼 것이다.
-
-
-![Image 64](../../assets/images/ros/intro/lesson-03/img_044_064.webp)
 
 
 ![Image 65](../../assets/images/ros/intro/lesson-03/img_044_065.webp)
@@ -660,16 +514,8 @@ src/ex_calculator/ex_calculator/checker/main.py
 덤 생성 범위를 변경함
 
 
-![Image 67](../../assets/images/ros/intro/lesson-03/img_047_067.webp)
-
 파라미터 프로그래밍
 파라미터 설정 파라미터 사용 방법(CLI)
-
-![Image 72](../../assets/images/ros/intro/lesson-03/img_048_072.webp)
-
-![Image 74](../../assets/images/ros/intro/lesson-03/img_048_074.webp)
-
-![Image 76](../../assets/images/ros/intro/lesson-03/img_048_076.webp)
 
 
 파라미터 프로그래밍
@@ -700,11 +546,6 @@ python 패키지 설정 파일'setup.py'에 옵션을 추가해야
 할 때 해당 파일의 파라미터 이름과 값을 참조하여 자동으로
 초기화 가능
 src/ex_calculator/launch/arithmetic.launch.py
-
-![Image 78](../../assets/images/ros/intro/lesson-03/img_050_078.webp)
-
-
-![Image 79](../../assets/images/ros/intro/lesson-03/img_050_079.webp)
 
 
 실행 인자 프로그래밍
@@ -746,15 +587,6 @@ ROS2 에서의 실행 인자 처리
 - args arguments
 
 
-![Image 80](../../assets/images/ros/intro/lesson-03/img_052_080.webp)
-
-
-![Image 81](../../assets/images/ros/intro/lesson-03/img_052_081.webp)
-
-
-![Image 82](../../assets/images/ros/intro/lesson-03/img_052_082.webp)
-
-
 실행 인자 프로그래밍
 실행 인자의 구문 해석
 
@@ -763,9 +595,6 @@ ROS2 에서의 실행 인자 처리
 - 해당 코드를 통해 실행 인자를 다루어 볼 것
 - 실행 인자의 구문 해석 프로그램은python의 argparse 모듈을 이용하여 파서를 선언 후 사용할 실행 인자 값을 지정하는 것이 주를 이룸
 - 이를 순서대로 나열하면 다음과 같음 1. 파서 만들기(parser = argparse.ArgumentParser) 2. 인자 추가하기(parser.add_argument) 3. 인자 파 싱하기(args = parser.parse_args()) 4. 인자 사용하기(args.xxx) src/ex_calculator/ex_calculator/checker/main.py
-
-
-![Image 83](../../assets/images/ros/intro/lesson-03/img_053_083.webp)
 
 
 실행 인자 프로그래밍
@@ -788,8 +617,6 @@ ROS2 에서의 실행 인자 처리
 - 기본값: 50
 - 설명: 지정 인자에 대한 설명 추가(프로그램을 실행 시'-h'와 같이 실행 인자에 대한 도움말을 실행하면 볼 수 있는 문구)
 
-
-![Image 84](../../assets/images/ros/intro/lesson-03/img_054_084.webp)
 
 런치 프로그래밍
 ROS2 Launch System
@@ -826,8 +653,6 @@ ROS2 Launch System
 - 여기서는'arithmetic.launch.py' 이라는 파일 명을 사용
 - 'arithmetic.launch.py' 파일은 하기 위치에 위치해 있음 └ ex_calculator/launch/arithmetic.launch.py
 
-![Image 90](../../assets/images/ros/intro/lesson-03/img_056_090.webp)
-
 
 런치 프로그래밍
 launch 작성
@@ -842,10 +667,6 @@ launch 작성
 - 'ex_calculator' 패키지의'param'폴더에 위치한 'arithmetic_config.yaml' 파라미터 설정 파일을 의미
 - 해당 파일의 내용은 앞서 다룬'파라미터 프로그래밍 (Python)’ 참고
 
-![Image 92](../../assets/images/ros/intro/lesson-03/img_057_092.webp)
-
-![Image 94](../../assets/images/ros/intro/lesson-03/img_057_094.webp)
-
 
 런치 프로그래밍
 launch 작성
@@ -853,7 +674,7 @@ launch 작성
 ## remappings 기능(원본코드에는존재하지않음) :
 - 특정 이름을 변경할 수 있는 기능
 - 다음 예제와 같이'/arithmetic_argument' 토픽 이름을'/argument' 이라는 토픽 이름으로 변경할 수 있음
-- 내부 코드 변경 없이 토픽, 서비스, 액션 등의 고유 이름을 변경할 수 있는 유용한 기능이 므로 알아 두기 추천 런치 프로그래밍 launch 작성
+- 내부 코드 변경 없이 토픽, 서비스, 액션 등의 고유 이름을 변경할 수 있는 유용한 기능이므로 알아 두기 추천 런치 프로그래밍 launch 작성
 
 ## launch의namespace 기능:
 - 노드, 토픽, 서비스, 액션, 파라미터 등의 고유 이름을 독립적으로 그룹 핑하여 네트워크를 구성할 수 있는 기능
@@ -869,9 +690,6 @@ launch 작성
 - 활용예: namespace는 복수의 로봇을 사용할 때 동일 프로 그램을 이용할 때 고유 이름을 사용함에 있어서 중복됨을 피할 수 있고 데이터를 구분 지어 사용할 수 있음
 
 
-![Image 96](../../assets/images/ros/intro/lesson-03/img_059_096.webp)
-
-
 런치 프로그래밍
 launch 작성
 
@@ -882,9 +700,6 @@ LaunchDescription의add_action
 
 ## 이렇게구성하면예제와같이좀더
 간결해짐
-
-
-![Image 97](../../assets/images/ros/intro/lesson-03/img_060_097.webp)
 
 
 런치 프로그래밍
@@ -903,15 +718,13 @@ launch 작성
 - 특히, 직접 작성하지 않은 패키지의 런치 파일을 수정 없이 불러와 사용할 수 있어 편리함
 - 널리 사용되는 유용한 기능이므로 참고할 것
 
-![Image 99](../../assets/images/ros/intro/lesson-03/img_061_099.webp)
-
 
 런치 프로그래밍
-패키지 빌 드
+패키지 빌드
 
 ## Launch 파일사용을위한설치필요성:
-- Launch 파일은Python 파일이므로 빌 드 자체는 필요하지 않음
-- 그러나ROS2 에코 시스템에서 사용하기 위해서는 패키지 빌 드를 통해 정해진 위치에 설치해야함 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME}/ )
+- Launch 파일은Python 파일이므로 빌드 자체는 필요하지 않음
+- 그러나ROS2 에코 시스템에서 사용하기 위해서는 패키지 빌드를 통해 정해진 위치에 설치해야함 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME}/ )
 
 ## 언어에따른Launch 파일설정방법:
 - C++ (RCLCPP 패키지 계열) :
@@ -921,13 +734,11 @@ launch 작성
 
 
 런치 프로그래밍
-패키지 빌 드
+패키지 빌드
 
 ## rclpy 패키지계열
 - Python 패키지 설정 파일(setup.py)의data_files 옵션에launch 폴더를 지정
 - 효과: 패키지 소스 코드 내launch 폴더에 있는*.launch.py 파일들이 설치 폴더에 복사되어 위치하게 됨
-
-![Image 101](../../assets/images/ros/intro/lesson-03/img_063_101.webp)
 
 
 런치 프로그래밍
@@ -940,10 +751,6 @@ launch 작성
 ## 즉ex_calculator 패키지의arithmetic.launch.py 런치파일을실행시키라는의미
 ## 이를실행시키면위에서설명한것처럼파라미터파일을공유하여사용하게되며
 argument 노드와calculator 노드를 한 번에 실행시키게 됨
-
-![Image 103](../../assets/images/ros/intro/lesson-03/img_064_103.webp)
-
-![Image 105](../../assets/images/ros/intro/lesson-03/img_064_105.webp)
 
 
 ---

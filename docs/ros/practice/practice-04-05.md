@@ -1,4 +1,4 @@
-# 강의_3기_ROS2_실습_4_5차시
+# ROS2 실습 4~5차시 - TF2와 URDF
 
 
 ROS-2 프로그래밍 실습 강의 자료
@@ -15,13 +15,12 @@ Robot Simulation
 (Gazebo, Lidar, SLAM, NAV2)
 충돌 및 관성 속성 추가
 
-![Image 5](../../assets/images/ros/practice/practice-04-05/img_002_005.webp)
 
 Transformations(좌표 변환)
 tf2 소개
 
 - tf2: ROS2에서 여러 좌표 프레임 간의 변환과 관계를 추적하고 관리하는 라이브러리 tf2
-- 로봇 시스템은 일반적으로 세계 프레임, 기본 프레임, 그리 퍼 프레임, 헤드 프레임 등과 같이 시간에 따라 변경되는 많은 3D 좌표 프레임을 가짐
+- 로봇 시스템은 일반적으로 세계 프레임, 기본 프레임, 그리퍼 프레임, 헤드 프레임 등과 같이 시간에 따라 변경되는 많은 3D 좌표 프레임을 가짐
 - tf2는 시간에 따른 이러한 모든 프레임을 추적하고 다음과 같은 질문을 할 수 있도록함 Q1. 5초 전 world frame 대비 head frame은 어디에 있는가? Q2. Gripper에 있는 물체의 포즈는 내 base에 비해 어떤가? Q3. Map frame에서 base frame의 현재 포즈는 어떤가?
 - 로봇 위치 추적 (Localization) : map → odom → base_link 변환을 통해 로봇 위치 확인
 - 센서 데이터 정렬 (Sensor Fusion) : LiDAR, 카메라, IMU 데이터를 로봇 본체 좌표계로 변환
@@ -54,7 +53,6 @@ World Frame
 
 Transformations(좌표 변환)
 tf2 소개
-tf2
 
 - Frame : 좌표계(예, map, odom, base_link, camera_link)
 - Transform :한 프레임에서 다른 프레임으로의 변환 관계(회전 + 이동)
@@ -63,12 +61,12 @@ tf2
 - map → odom 변환: SLAM이나 Localization에서 로봇의 위치 제공
 - odom →base_link : 변환 : 로봇의 본체 중심 좌표
 - base_link →camera_link, lidar_link 변환 : 센서 위치
-- TF 브로드 캐스터: 프레임 간의 변환을 주기적으로 브로드 캐스트
+- TF 브로드캐스터: 프레임 간의 변환을 주기적으로 브로드캐스트
 - TF 리스너: 다른 노드에서 TF정보를 구독하여 변환을 확인
 - TF 변환 적용 : 특정 프레임 간 좌표 변환 수행
 - tf 핵심 기능
 - RViz2에서 TF를 시각화하여 디버깅 가능
-- 센서 데이터 정렬, 로봇 네 이게 이 션, 로봇 암 조작 등에 필수적
+- 센서 데이터 정렬, 로봇 네이게이션, 로봇 암 조작 등에 필수적
 - Broadcaster와 Listener를 사용하여 변환 데이터를 송수신
 
 ![Image 18](../../assets/images/ros/practice/practice-04-05/img_005_018.webp)
@@ -81,14 +79,11 @@ tf2
 
 1. 데모 패키지와 종속 파일들 설치
 
-![Image 24](../../assets/images/ros/practice/practice-04-05/img_007_024.webp)
-
 
 ✓Turtlesim 예제
 
 2. 터미널에서 다음 명령어 실행
 
-![Image 26](../../assets/images/ros/practice/practice-04-05/img_008_026.webp)
 
 ![Image 29](../../assets/images/ros/practice/practice-04-05/img_008_029.webp)
 
@@ -99,25 +94,21 @@ tf2
 이를 움직이면 거북이가 따라오는 것을 관찰 가능
 
 
-![Image 30](../../assets/images/ros/practice/practice-04-05/img_009_030.webp)
-
 ![Image 33](../../assets/images/ros/practice/practice-04-05/img_009_033.webp)
 
 
 ✓Turtlesim 예제
 
 1. tf2 라이브러리를 사용하여 세 개의 좌표 프레임(world frame, turtle1 frame, turtle2 frame)을 생성
-2. tf2 브로드 캐스터를 통해 거북이 좌표 프레임을 게시하고, tf2 리스너를 이용해 거북이 프레임 간의 차이를 계산한 뒤, 한
+2. tf2 브로드캐스터를 통해 거북이 좌표 프레임을 게시하고, tf2 리스너를 이용해 거북이 프레임 간의 차이를 계산한 뒤, 한
 거북이가 다른 거북이를 따라가도록 설정
 
 3. 지금부터 3가지 방법(view_frame, tf2_echo, rviz)을 통해 이 데모를 만드는 데 tf2가 어떻게 사용되었는지 확인해 보자
 
 ✓Turtlesim 예제 – view_frames
 
-1. view_frames는 ROS를 통해 tf2가 브로드 캐스트 하는 프레임의 다이어그램을 생성
-2. 다음 명령어를 이용하여 tf2가 브로드 캐스트 하는 프레임의 다이어그램을 생성
-
-![Image 36](../../assets/images/ros/practice/practice-04-05/img_011_036.webp)
+1. view_frames는 ROS를 통해 tf2가 브로드캐스트 하는 프레임의 다이어그램을 생성
+2. 다음 명령어를 이용하여 tf2가 브로드캐스트 하는 프레임의 다이어그램을 생성
 
 
 ✓Turtlesim 예제– view_frames
@@ -133,7 +124,7 @@ tf2
 
 ✓Turtlesim 예제– view_frames
 
-4. 해당 파일을 통해 tf2에서 브로드 캐스트하는 세 개의 프레임을 확인 가능
+4. 해당 파일을 통해 tf2에서 브로드캐스트하는 세 개의 프레임을 확인 가능
 
 - World frame: turtle1과 turtle2 frame의 부모frame
 - view_frames는 가장 오래되고 가장 최근의 프레임 변환이 수신된 시기와 디버깅 목적으로 tf2 프레임이 tf2에 게시되는 속도에 대한 진단 정보를 보고함
@@ -143,10 +134,8 @@ tf2
 
 ✓Turtlesim 예제– tf2_echo
 
-1. tf2_echo는 ROS를 통해 브로드 캐스트된 두 프레임 간의 변환을 보고함
+1. tf2_echo는 ROS를 통해 브로드캐스트된 두 프레임 간의 변환을 보고함
 2. 다음 명령어를 이용하여 tf2_echo 실행(turtle2 기준으로 turtle1의 위치 좌표를 보여 줌)
-
-![Image 44](../../assets/images/ros/practice/practice-04-05/img_014_044.webp)
 
 
 ✓Turtlesim 예제– tf2_echo
@@ -158,13 +147,9 @@ tf2
 - Turtle2 좌표계 기준으로 turtle1위치(m 단위)
 - Turtle2 기준으로 turtle1이 어떤 방향으로 회전되어 있는지 (x, y, z) 좌표 Quaternion 좌표(x, y, z, w) RPY : Roll(x축 중심), Pitch(y축 중심), Yaw(z축 중심) Yaw(z축 중심)의 경우 평면에서는 방향 틀기
 
-![Image 46](../../assets/images/ros/practice/practice-04-05/img_015_046.webp)
-
 
 ![Image 47](../../assets/images/ros/practice/practice-04-05/img_015_047.webp)
 
-
-![Image 48](../../assets/images/ros/practice/practice-04-05/img_015_048.webp)
 
 ✓Turtlesim 예제– rviz
 
@@ -173,8 +158,6 @@ tf2
 - -d 옵션을 사용하여 구성 파일로 시작하여 rviz2를 사용하여 거북이 프레임을 관찰 가능
 
 2. 앞의 상태를 계속 유지한 상태에서 다른 터미널 창에서 다음 명령어를 통해 rviz2 실행
-
-![Image 54](../../assets/images/ros/practice/practice-04-05/img_016_054.webp)
 
 
 ✓Turtlesim 예제– rviz
@@ -192,9 +175,6 @@ tf2
 ![Image 56](../../assets/images/ros/practice/practice-04-05/img_017_056.webp)
 
 
-![Image 57](../../assets/images/ros/practice/practice-04-05/img_017_057.webp)
-
-
 ✓Turtlesim 예제– rviz
 [ 실습해 보기 ]
 
@@ -205,16 +185,12 @@ tf2
 ![Image 58](../../assets/images/ros/practice/practice-04-05/img_018_058.webp)
 
 
-URDF
-URDF
-URDF
-
 - URDF(Universal Robot Description Format)는 ROS에서 로봇의 형상과 구성을 지정하기 위한 파일 형식
 - 로봇의 링크(link), 조인트(joint), 센서, 액추에이터 등의 물리적 요소들을 정의하여 로봇의 3D 모델을 시뮬레이션하거나 실제 로봇 제어 시스템에서 사용할 수 있게 도와줌
 - 주요 구성 요소는 다음과 같음
 - 링크(link) : 로봇의 물리적인 부분을 나타내며, 고체 물체로 이해할 수 있음. 각 링크는 모양, 관성, 마찰 특성 등과 같은 속성들을 가짐.
 - 조인트(joint) : 두 링크를 연결하여 로봇이 움직일 수 있게하는 연결 점. 회전 운동이나 직선 운동을 정의할 수 있음
-- 재질 및 텍스처 : 로봇의 각 링크에 적용할 재질이나 텍스처를 정의하여 외형을 시뮬레 이 션에서 표현할 수 있음
+- 재질 및 텍스처 : 로봇의 각 링크에 적용할 재질이나 텍스처를 정의하여 외형을 시뮬레이션에서 표현할 수 있음
 - 센서 및 액추에이터 : URDF 파일을 확장하여 센서나 액추에이터와 같은 로봇의 기능적 요소들을 정의할 수 있음
 
 ![Image 60](../../assets/images/ros/practice/practice-04-05/img_019_060.webp)
@@ -232,27 +208,17 @@ URDF
 ![Image 64](../../assets/images/ros/practice/practice-04-05/img_019_064.webp)
 
 
-![Image 65](../../assets/images/ros/practice/practice-04-05/img_019_065.webp)
-
-
 - rviz를 통해 확인 가능한 로봇의 시각적 모델 만들기 로봇의 시각적 모델 만들기
 
 
 ✓로봇의 시각적 모델 만들기
 - 본 섹션에서는 아래와 같이 생긴 로봇을 URDF를 이용하여 만들 예정
 
-![Image 70](../../assets/images/ros/practice/practice-04-05/img_021_070.webp)
-
 
 ✓로봇의 시각적 모델 만들기 1
 
 1. 다음 명령어를 이용하여 urdf-tutorial 설치
 2. 다음 명령어를 이용하여 urdf 파일 실행
-
-![Image 72](../../assets/images/ros/practice/practice-04-05/img_022_072.webp)
-
-
-![Image 73](../../assets/images/ros/practice/practice-04-05/img_022_073.webp)
 
 
 ✓로봇의 시각적 모델 만들기 1
@@ -265,11 +231,6 @@ URDF
 ✓로봇의 시각적 모델 만들기 1 – 코드
 - 다음 명령어를 이용하여 urdf 파일의 코드 확인(아래 링크를 통해서도 확인 가능) https://github.com/ros/urdf_tutorial/blob/ros2/urdf/01-myfirst.urdf https://github.com/ros/urdf_tutorial/blob/ros2/urdf/01-myfirst.urdf GitHub
 
-![Image 77](../../assets/images/ros/practice/practice-04-05/img_024_077.webp)
-
-
-![Image 78](../../assets/images/ros/practice/practice-04-05/img_024_078.webp)
-
 
 ![Image 79](../../assets/images/ros/practice/practice-04-05/img_024_079.webp)
 
@@ -277,22 +238,12 @@ URDF
 ✓로봇의 시각적 모델 만들기 1 – 코드
 - XML 버전 선언
 - Robot 태그: URDF 파일을 사용할 때 로봇을 구별할 수 있는 이름 선언
-- 링크 선언: 링크의 이름 선언 후 geometry 태그 안에서 cylinder 태그를 사용해 길이 0.6m, 반지 름 0.2m의 원기둥을 선언
-
-![Image 81](../../assets/images/ros/practice/practice-04-05/img_025_081.webp)
-
-
-![Image 82](../../assets/images/ros/practice/practice-04-05/img_025_082.webp)
-
-
-![Image 83](../../assets/images/ros/practice/practice-04-05/img_025_083.webp)
+- 링크 선언: 링크의 이름 선언 후 geometry 태그 안에서 cylinder 태그를 사용해 길이 0.6m, 반지름 0.2m의 원기둥을 선언
 
 
 ✓로봇의 시각적 모델 만들기 2
 
 - 다음 명령어를 이용하여 두 번째 urdf 파일 실행
-
-![Image 85](../../assets/images/ros/practice/practice-04-05/img_026_085.webp)
 
 
 ✓로봇의 시각적 모델 만들기 2
@@ -306,26 +257,13 @@ URDF
 
 - 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능) 크기 정보(X=0.6, Y=0.1, Z=0.2) Joint 정의 https://github.com/ros/urdf_tutorial/tree/ros2/urdf https://github.com/ros/urdf_tutorial/tree/ros2/urdf GitHub
 
-![Image 89](../../assets/images/ros/practice/practice-04-05/img_028_089.webp)
-
-
-![Image 90](../../assets/images/ros/practice/practice-04-05/img_028_090.webp)
-
 
 ![Image 91](../../assets/images/ros/practice/practice-04-05/img_028_091.webp)
-
-
-![Image 92](../../assets/images/ros/practice/practice-04-05/img_028_092.webp)
 
 
 ✓로봇의 시각적 모델 만들기 2 – 코드
 
 - right_leg 링크 : 링크의 이름 선언 후 geometry 태그 안에서 box 태그를 사용해 x, y, z의 크기가 각각 0.6, 0.1, 0.2인 박스 선언 X Y Z
-
-![Image 94](../../assets/images/ros/practice/practice-04-05/img_029_094.webp)
-
-
-![Image 95](../../assets/images/ros/practice/practice-04-05/img_029_095.webp)
 
 
 ✓로봇의 시각적 모델 만들기 2 – 코드
@@ -333,14 +271,10 @@ URDF
 - base와 right_leg를 연결하는 조인트: 조인트 이름 선언 후 type=“fixed”를 통해 고정 조인트임을 선언
 - Parent link와 child link를 통해 어느 링크가 부모이고 어느 링크가 자식임을 선언 • Parent link(부모 링크) : 특정 joint를 기준으로 상위에 위치하는 링크로, Joint가 연결되는 주체 링크이며, joint의 움직임에 따라 child link를 제어하거나 지원 • Child link(자식 링크) : 특정 joint를 기준으로 하위에 위치하는 링크로, Parent link로부터 동역학적 영향을 전달받음
 
-![Image 97](../../assets/images/ros/practice/practice-04-05/img_030_097.webp)
-
 
 ✓로봇의 시각적 모델 만들기3
 
 1. 다음 명령어를 이용하여 세 번째 urdf 파일 실행: 다리의 위치를 알맞게 조정해 준 파일
-
-![Image 99](../../assets/images/ros/practice/practice-04-05/img_031_099.webp)
 
 
 ✓로봇의 시각적 모델 만들기 3
@@ -353,11 +287,6 @@ URDF
 ✓로봇의 시각적 모델 만들기 3 – 코드
 
 - 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
-
-![Image 103](../../assets/images/ros/practice/practice-04-05/img_033_103.webp)
-
-
-![Image 104](../../assets/images/ros/practice/practice-04-05/img_033_104.webp)
 
 
 ![Image 105](../../assets/images/ros/practice/practice-04-05/img_033_105.webp)
@@ -372,14 +301,10 @@ URDF
 - 링크의 좌표계는 부모 링크의 좌표계에서 조인트를 통해 정의됨 2. joint에서의 origin :
 - 자식 링크(child link)의 좌표계가 부모 링크의 좌표계에서 어떻게 배치되는지 정의 Y축으로 90도(1.57rad) 회전, Z방향으로 -0.3만큼 이동 Base좌표계 기준으로 Y방향으로 -0.22(왼쪽), Z방향으로 0.25 만큼 이동
 
-![Image 107](../../assets/images/ros/practice/practice-04-05/img_034_107.webp)
-
 
 ✓로봇의 시각적 모델 만들기 4
 
 1. 다음 명령어를 이용하여 네 번째 urdf 파일 실행: 로봇에 색 정보와 오른쪽 다리를 추가한 파일
-
-![Image 109](../../assets/images/ros/practice/practice-04-05/img_035_109.webp)
 
 
 ![Image 110](../../assets/images/ros/practice/practice-04-05/img_035_110.webp)
@@ -395,19 +320,9 @@ URDF
 ✓로봇의 시각적 모델 만들기4
 - 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
 
-![Image 114](../../assets/images/ros/practice/practice-04-05/img_037_114.webp)
-
-
-![Image 115](../../assets/images/ros/practice/practice-04-05/img_037_115.webp)
-
-
-![Image 116](../../assets/images/ros/practice/practice-04-05/img_037_116.webp)
-
 
 ✓로봇의 시각적 모델 만들기 4 – 코드
-- 재질(material) 정의 : 파란색 재질과 빨간색 재질 선언. 값은 rgba로 빨강, 초록, 파랑, 투명 도 순으로 나열되어 있음 0 : 투명, 1 : 불투명
-
-![Image 118](../../assets/images/ros/practice/practice-04-05/img_038_118.webp)
+- 재질(material) 정의 : 파란색 재질과 빨간색 재질 선언. 값은 rgba로 빨강, 초록, 파랑, 투명도 순으로 나열되어 있음 0 : 투명, 1 : 불투명
 
 
 ✓로봇의 시각적 모델 만들기 4 – 코드
@@ -417,26 +332,13 @@ URDF
 - Right_leg는 오른쪽(-0.22, 0.25), left_leg는 왼쪽(0.22, 0.25)에 위치
 - 두 다리는 Y축 기준 90도(1.57rad) 회전하여 긴 면이 Z축을 바라보게 됨
 
-![Image 120](../../assets/images/ros/practice/practice-04-05/img_039_120.webp)
-
-
-![Image 121](../../assets/images/ros/practice/practice-04-05/img_039_121.webp)
-
 
 ✓로봇의 시각적 모델 만들기 5
 
 1. 다음 명령어를 이용하여 다섯 번째 urdf 파일 실행: 로봇에 여러 부속품들 추가
 
-![Image 123](../../assets/images/ros/practice/practice-04-05/img_040_123.webp)
-
 
 ![Image 124](../../assets/images/ros/practice/practice-04-05/img_040_124.webp)
-
-
-![Image 125](../../assets/images/ros/practice/practice-04-05/img_040_125.webp)
-
-
-![Image 126](../../assets/images/ros/practice/practice-04-05/img_040_126.webp)
 
 
 ✓로봇의 시각적 모델 만들기 5
@@ -449,17 +351,12 @@ URDF
 ✓로봇의 시각적 모델 만들기 5 – 코드
 - 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
 
-![Image 130](../../assets/images/ros/practice/practice-04-05/img_042_130.webp)
-
-
-![Image 131](../../assets/images/ros/practice/practice-04-05/img_042_131.webp)
-
 
 ![Image 132](../../assets/images/ros/practice/practice-04-05/img_042_132.webp)
 
 
 ✓로봇의 시각적 모델 만들기 5 – 코드
-- 다음과 같이 그리 퍼, 머리 등 여러 부속이 추가되어 있음 DAE파일(COLLADA)
+- 다음과 같이 그리퍼, 머리 등 여러 부속이 추가되어 있음 DAE파일(COLLADA)
 
 - Digital Asset Exchange. 3D 모델 파일
 - XML형식으로 저장되어 3D소프트웨어 간 데이터 교환을 쉽게해 줌
@@ -470,8 +367,6 @@ URDF
 - 재질, 색상, 애니매이션 정보는 없고 오직 기하학적 정보만 있음
 - 3D프린팅에서 가장 많이 사용되고 COLLADA파일보다 단순함
 - Gazebo에서 사용
-
-![Image 134](../../assets/images/ros/practice/practice-04-05/img_043_134.webp)
 
 
 ✓로봇의 시각적 모델 만들기 – CAD
@@ -519,8 +414,6 @@ FreeCAD
 
 1. 다음 명령어를 이용하여 urdf 파일 실행
 
-![Image 142](../../assets/images/ros/practice/practice-04-05/img_047_142.webp)
-
 
 ✓움직일 수 있는 로봇 모델 만들기
 
@@ -532,45 +425,26 @@ FreeCAD
 ✓움직일 수 있는 로봇 모델 만들기 - 코드
 - 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
 
-![Image 146](../../assets/images/ros/practice/practice-04-05/img_049_146.webp)
-
-
-![Image 147](../../assets/images/ros/practice/practice-04-05/img_049_147.webp)
-
 
 ✓움직일 수 있는 로봇 모델 만들기– 코드
 - joint type: 다음과 같이 joint의 type을 지정해 주어야함
-
-![Image 149](../../assets/images/ros/practice/practice-04-05/img_050_149.webp)
 
 
 ✓움직일 수 있는 로봇 모델 만들기– 코드
 
 - 머리 • 머리의 경우 연속 조인트(continuous joint)로 모델링 됨 • 연속 조인트의 경우 모든 각도를 취할 수 있으므로 상세한 제한은 기록하지 않음 continuous joint
 
-![Image 152](../../assets/images/ros/practice/practice-04-05/img_051_152.webp)
-
 
 ✓움직일 수 있는 로봇 모델 만들기– 코드
 - 그리퍼
-- 그리 퍼의 경우 회전 조인트(revolute joint)로 모델링 됨(limit가 있음)
+- 그리퍼의 경우 회전 조인트(revolute joint)로 모델링 됨(limit가 있음)
 - 조인트의 토크(effort), 하한(lower), 상한(upper) 그리고 최대 속도(velocity) 등을 정의함 revolute joint
-
-![Image 154](../../assets/images/ros/practice/practice-04-05/img_052_154.webp)
-
-
-![Image 155](../../assets/images/ros/practice/practice-04-05/img_052_155.webp)
 
 
 ✓움직일 수 있는 로봇 모델 만들기– 코드
-- 그리 퍼 암
-- 그리 퍼 암의 경우 축을 따라 직선 운동을 하는 프리스메틱 조인트(prismatic joint)로 모델링 됨
+- 그리퍼 암
+- 그리퍼 암의 경우 축을 따라 직선 운동을 하는 프리스메틱 조인트(prismatic joint)로 모델링 됨
 - limit에 사용되는 단위로 revolute joint와 달리 미터 사용 prismatic joint 0.38m 안쪽(마이너스 방향)으로 들어가도록 설계
-
-![Image 157](../../assets/images/ros/practice/practice-04-05/img_053_157.webp)
-
-
-![Image 158](../../assets/images/ros/practice/practice-04-05/img_053_158.webp)
 
 
 ✓움직일 수 있는 로봇 모델 만들기
@@ -600,7 +474,7 @@ Tf2_msgs/msg/TFMessage
 구독하는 토픽
 /joint_states
 Robot_description
-robot_description 파라메터(joint 이름, 타입, 제한)를
+robot_description 파라미터(joint 이름, 타입, 제한)를
 읽어서(URDF) 슬라이더(gui) 생성
 /joint_states를 받고 UDRF읽고 Link-Joint 구조(Tree)를 Parsing
 TF 계산 후 /tf Publishing
@@ -644,18 +518,11 @@ topic
 ✓충돌 및 관성 속성 추가 - 코드
 - 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
 
-![Image 168](../../assets/images/ros/practice/practice-04-05/img_058_168.webp)
-
-
-![Image 169](../../assets/images/ros/practice/practice-04-05/img_058_169.webp)
-
 
 ✓충돌 및 관성 속성 추가 - 코드
 
 - geometry: 링크의 충돌 영역의 기하학적 형태를 정의 • cylender: 원기둥 형태 사용
 - inertia: 관성 텐서를 정의 • mass: 질량(kg) • ixx, iyy, izz : 각각 x, y, z축을 중심으로 하는 회전 저항 • ixy, ixz, iyz : 관성 곱(product of inertia)으로, 링크가 주축 이외의 축에 대해 어떻게 회전하는지를 나타냄(대칭 물체는 모두 0) • 관성 텐서는 링크의 회전 운동 방정식을 결정하는 데 사용됨. • 정확한 관성 값을 제공함으로써 시뮬레이션에서 링크의 회전 움직임이 현실적으로 표현할 수 있음
-
-![Image 171](../../assets/images/ros/practice/practice-04-05/img_059_171.webp)
 
 
 - Xacro를 사용하여 URDF 코드를 단순화하기 Using Xacro
@@ -671,15 +538,12 @@ topic
 - 본 섹션에서는 Xacro를 이용하여 코드를 단순화하는 방법을 진행할 예정
 - Xacro는 다음과 같은 장점을 가짐 • 재사용성 향상 : 공통된 요소를 매크로로 정의하여 여러 곳에서 재사용 가능 • 가독성 향상 : 파일의 구조를 더 명확하게 만들어 이해하기 쉬움 • 유지 보수 용이 : 변경 사항을 한 곳에서 수정하면 전체에 반영되므로 관리가 편리 • Xacro는 다음 명령어로 설치 가능(대부분의 경우 이미 설치되어 있을 가능성이 높음)
 
-![Image 176](../../assets/images/ros/practice/practice-04-05/img_061_176.webp)
-
 
 ✓Using Xacro
 1.
 Xacro는 XML용 매크로 언어
 2.
 일반적으로 *.xacro 파일을 작성 후 다음의 명령어를 이용하여 urdf로 변환 후 사용
-URDF
 SRDF
 XACRO
 Universal Robot Description Format
@@ -690,7 +554,6 @@ XML Macro
 URDF의 확장 버전(코드 재사용성 증가)
 링크, 조인트, 관성, 충돌 모델 등
 운동학 그룹, 충돌 회피 설정, 엔드 이펙터 설정
-URDF
 Gazebo, Rviz, Moveit!
 Moveit!
 Gazebo, Rviz, Moveit!
@@ -698,7 +561,6 @@ Gazebo, Rviz, Moveit!
 URDF를 기반으로 Moveit!을 위한
 의미론적 설정을 추가하는 파일
 URDF를 생성하는 도구
-URDF
 URDF를 SRDF로 변환 불가능. 수작업
 Xacro파일을 URDF로 변환해야
 Gazebo, Rviz, Movtit!등에서 사용 가능
@@ -715,21 +577,11 @@ Xacro는 URDF를 생성하는 도구
 - 이전 R2D2 예제에서는 다음과 같이 중복이 일어남(ex: cylinder의 길이와 반지름을 두 번 지정함). 이러한 경우 하나의 값을 변경하려면 다른 하나도 같이 변경해 주어야함
 - 따라서 왼쪽의 코드를 변경하여 상수 역할을 하는 속성을 지정한 오른쪽 코드와 같이 변경하는 것이 좋음
 
-![Image 179](../../assets/images/ros/practice/practice-04-05/img_063_179.webp)
-
-
-![Image 180](../../assets/images/ros/practice/practice-04-05/img_063_180.webp)
-
 
 ✓Using Xacro - Constants
 
 - 상수의 경우 처음 두 줄에 지정되며, 이 값은 거의 모든 곳에서 어떤 수준에서든 사용 전이나 후에 정의 가능
 - 상수는 “${}”의중 괄호 안에 상수를 집어넣는 방식으로 사용 가능
-
-![Image 182](../../assets/images/ros/practice/practice-04-05/img_064_182.webp)
-
-
-![Image 183](../../assets/images/ros/practice/practice-04-05/img_064_183.webp)
 
 
 ✓Using Xacro - Constants
@@ -739,8 +591,6 @@ Xacro는 URDF를 생성하는 도구
 - 반지름 = 실린더의 직경 / 2
 - xyz중 x값은 reflect * (width + 0.02)
 
-![Image 185](../../assets/images/ros/practice/practice-04-05/img_065_185.webp)
-
 
 ✓Using Xacro - Macros
 
@@ -749,17 +599,10 @@ Xacro는 URDF를 생성하는 도구
 - 즉 매크로는 python의 함수와 비슷한 역할을 한다고 볼 수 있음
 - 단순한 매크로의 예시: 1. 다음 제공된 것은 단순한 Xacro 매크로로, default_origin이라는 이름을 가진 매크로를 정의한 것. 2. ‘<xacro:default_origin />’를 호출 시 ‘<origin xyz="0 0 0" rpy="0 0 0"/>’가 해당 위치에 삽입 됨
 
-![Image 187](../../assets/images/ros/practice/practice-04-05/img_066_187.webp)
-
 
 ✓Using Xacro - Macros
 
 - 더 나아가 매크로에 파라미터를 넣고자할 경우 다음과 같은 방법 사용 가능 1. 파라미터를 사용하고자할 때 매크로 이름 뒤에 ‘params’를 추가 가능 2. 이 경우<xacro:default_inertial mass="10"/>를 호출 시 해당 위치에 오른쪽 코드가 삽입됨
-
-![Image 189](../../assets/images/ros/practice/practice-04-05/img_067_189.webp)
-
-
-![Image 190](../../assets/images/ros/practice/practice-04-05/img_067_190.webp)
 
 
 - URDF에서 모델링된 보행 로봇을 시뮬레이션하고 Rviz에서 확인하기
@@ -777,8 +620,6 @@ Xacro는 URDF를 생성하는 도구
 - 본 섹션에서는 걷는 로봇을 모델링하고, 상태를 tf2 메시지로 게시하고, Rviz에서 시뮬레이션을 관찰할 예정
 - 진행 과정은 다음과 같음 1. 로봇 어셈블리를 설명하는 URDF 모델 생성 2. 동작을 시뮬레이션하고 JointState와 변환을 게시하는 노드 작성 3. robot_state_publisher를 사용하여 전체 로봇 상태를 /tf2에 게시 • robot_state_publisher: URDF 파일을 사용하여 로봇의 상태(특히 조인트 상태)를 퍼블리시하는 노드로, 로봇의 각 조인트 상태와 링크 간의 변환을 계산한하여TF 프레임으로 퍼블리시함 urdf_revolution.zip을 우측과 같이 디렉토리에 압축 풀고 복사 → ※ 필요한 파일 : urdf_revolution.zip
 
-![Image 195](../../assets/images/ros/practice/practice-04-05/img_069_195.webp)
-
 
 ✓Using URDF with robot_state_publisher
 1.
@@ -788,11 +629,6 @@ URDF 파일 생성(wget 뒤의 링크가 너무 길어 입력하기 어려우면
 ※ urdf_revolution.zip을 ros2_ws/src아래 폴더에 압축을 풀었다면 이 과정은 생략하고 colcon build만 진행하면 됨
 revolution
 revolution
-
-![Image 197](../../assets/images/ros/practice/practice-04-05/img_070_197.webp)
-
-
-![Image 198](../../assets/images/ros/practice/practice-04-05/img_070_198.webp)
 
 
 ✓Using URDF with robot_state_publisher
@@ -808,27 +644,15 @@ yaw(회전각) 값을 쿼터 니 언으로 변환 →
 [ 실습 ]
 ※ tilt, height, swivel, angle 각각 주석 처리 후 build해서 동작 확인해 보기
 
-![Image 200](../../assets/images/ros/practice/practice-04-05/img_071_200.webp)
-
-
-![Image 201](../../assets/images/ros/practice/practice-04-05/img_071_201.webp)
-
-
-![Image 202](../../assets/images/ros/practice/practice-04-05/img_071_202.webp)
-
 
 ✓Using URDF with robot_state_publisher
 3.
 src/urdf_revolution/urdf_revolution/state_publisher.py 파일에 다음 코드 작성
 
-![Image 204](../../assets/images/ros/practice/practice-04-05/img_072_204.webp)
-
 
 ✓Using URDF with robot_state_publisher
 4.
 src/urdf_revolution/launch/demo.launch.py 파일에 다음 코드 작성
-
-![Image 206](../../assets/images/ros/practice/practice-04-05/img_073_206.webp)
 
 
 ✓Using URDF with robot_state_publisher
@@ -838,14 +662,6 @@ src/urdf_revolution/launch/demo.launch.py 파일에 다음 코드 작성
 7. console_scripts에 다음 코드 추가
 revolution.state_publisher:main’
 
-![Image 208](../../assets/images/ros/practice/practice-04-05/img_074_208.webp)
-
-
-![Image 209](../../assets/images/ros/practice/practice-04-05/img_074_209.webp)
-
-
-![Image 210](../../assets/images/ros/practice/practice-04-05/img_074_210.webp)
-
 
 ✓Using URDF with robot_state_publisher
 
@@ -854,18 +670,11 @@ revolution.state_publisher:main’
 revolution
 ros2 topic echo /tf | grep -A 10 "child_frame_id: body"
 
-![Image 212](../../assets/images/ros/practice/practice-04-05/img_075_212.webp)
-
-
-![Image 213](../../assets/images/ros/practice/practice-04-05/img_075_213.webp)
-
 
 ✓Using URDF with robot_state_publisher
 
 10. launch파일 실행
 11. 새로운 터미널을 열어 rviz 실행 (뒤에 나오는 파일 경로는 사용자마다 다를 수 있습니다)
-
-![Image 215](../../assets/images/ros/practice/practice-04-05/img_076_215.webp)
 
 
 ✓Using URDF with robot_state_publisher
@@ -887,20 +696,11 @@ ros2 topic echo /tf | grep -A 10 "child_frame_id: body"
 2. Robot_1.xacro 복사하기
 3. setup.py 수정하기
 
-![Image 222](../../assets/images/ros/practice/practice-04-05/img_079_222.webp)
-
-
-![Image 223](../../assets/images/ros/practice/practice-04-05/img_079_223.webp)
-
 
 ✓URDF 패키지 수정하기
 
-![Image 225](../../assets/images/ros/practice/practice-04-05/img_080_225.webp)
-
 
 ✓Build 후 실행해 보기
-
-![Image 227](../../assets/images/ros/practice/practice-04-05/img_081_227.webp)
 
 
 ✓RViz에서 설정하기
@@ -915,15 +715,8 @@ ros2 topic echo /tf | grep -A 10 "child_frame_id: body"
 
 ✓robot_1.launch.py로 실행하기
 
-![Image 233](../../assets/images/ros/practice/practice-04-05/img_084_233.webp)
-
-
-![Image 234](../../assets/images/ros/practice/practice-04-05/img_084_234.webp)
-
 
 ✓robot_1.launch.py로 실행하기
-
-![Image 236](../../assets/images/ros/practice/practice-04-05/img_085_236.webp)
 
 
 ROS2 시뮬레이션
@@ -934,15 +727,11 @@ Gazebo
 - ROS2 Humble과 함께 사용하는 Gazebo 버전은 Gazebo-Ignition
 - Gazebo 설치 sudo apt install ros-humble- gazebo*
 
-![Image 238](../../assets/images/ros/practice/practice-04-05/img_086_238.webp)
-
 
 - ROS2와 통합하면 실제 로봇 하드웨어 없이도 다양한 로봇 시스템을 개발, 테스트, 디버깅 할 수 있는 강력할 시뮬레이션 환경을 제공
 - Gazebo의 주요 기능 1. 물리 엔진 제공(ODE, Bullet, DART) 2. 센서 시뮬레이션 3. 3D환경 4. 로봇 모델 시뮬레이션
 - ROS2와 Gazebo 통합 패키지
 - Gazebo_ros_pkgs ROS2 시뮬레이션 Gazebo Gazebo
-
-![Image 240](../../assets/images/ros/practice/practice-04-05/img_087_240.webp)
 
 
 ![Image 241](../../assets/images/ros/practice/practice-04-05/img_087_241.webp)
@@ -982,20 +771,6 @@ ROS2 시뮬레이션
 Gazebo
 
 - ROS2와 Gazebo 연동 테스트 [ Gazebo –verbose 옵션 ] 더 많은 로그와 내부 상태 정보를 터미널에 출력해 주는 옵션이며 기본 실행(gazebo)과 비교해서 백 엔드에서 어떤 일이 일어나고 있는지를 알 수 있도록 도와 주는 옵션. 1차 디버깅 도구
-
-![Image 253](../../assets/images/ros/practice/practice-04-05/img_089_253.webp)
-
-
-![Image 254](../../assets/images/ros/practice/practice-04-05/img_089_254.webp)
-
-
-![Image 255](../../assets/images/ros/practice/practice-04-05/img_089_255.webp)
-
-
-![Image 256](../../assets/images/ros/practice/practice-04-05/img_089_256.webp)
-
-
-![Image 257](../../assets/images/ros/practice/practice-04-05/img_089_257.webp)
 
 
 1. 가제 보를 시작하면 접지 면만 있는 세상
@@ -1083,12 +858,8 @@ ROS2와 로봇 시뮬레이션
 - 개발 효율 : 여러 대의 로봇을 테스트하거나 개발하여 효율 증가
 - 유연성 : 날씨, 지형, 장애물 등 다양한 시나리오 실험 로봇 시뮬레이션
 
-![Image 283](../../assets/images/ros/practice/practice-04-05/img_097_283.webp)
-
 
 - Gazebo 시뮬레이션의 구성 요소 World 시뮬레이션 환경을 정의하는 파일 환경의 지형, 조명, 물리 엔진 설정 등이 포함됨 로봇 모델을 정의하는 파일 urdf나 sdf 확장자로 표현됨 링크, 조인트, 센서 등을 구성할 수 있음 플러그인 Gazebo에서 제공하는 로봇 제어API를 이용할 수 있음 (World Plugin, Model Plugin, Sensor Plugin, System Plugin) Gazebo를 포함한 여러 구성 요소를 한꺼번에 실행하기 위해 주로 launch파일을 통해 프로젝트를 설정하고 실행함 launch.py ROS2와 로봇 시뮬레이션 로봇 모델
-
-![Image 285](../../assets/images/ros/practice/practice-04-05/img_098_285.webp)
 
 
 ![Image 286](../../assets/images/ros/practice/practice-04-05/img_098_286.webp)
@@ -1196,9 +967,6 @@ Gazebo Simulation과 SLAM
 ![Image 306](../../assets/images/ros/practice/practice-04-05/img_104_306.webp)
 
 
-![Image 307](../../assets/images/ros/practice/practice-04-05/img_104_307.webp)
-
-
 Gazebo Simulation과 SLAM
 SLAM & NAV
 SLAM
@@ -1239,7 +1007,6 @@ Gazebo Simulation과 SLAM : 기초 이론
 - 장점: 어두운 환경에서 정확한 거리를 측정
 - 한계: 비용이 높고 외부 노이즈에 민감함 SLAM for efficient Lidar Labeling | Sama SLAM : LiDAR 항목 2D Lidar 3D Lidar 스캔 방식 단일 평면(수평 또는 수직) 수직 및 수평 방향 모두에서 거리 측정 동작 방식 한 개의 레이저가 일정한 각도로 2D 평면을 스캔 여러 개의 레이저가 다양한 각도에서 공간을 스캔하여 3D데이터 생성 출력 데이터 거리 및 각 도 정보를 포함한 2D포인트(2D 맵) 거리, 각도 고도 정도를 포함한 3D 포인트 클라우드(3D맵) 메시지 타입, 토픽 sensor_msgs/LaserScan, /scan sensor_msgs/PointCloud2, /points or /velodyne_points 스캔 범위 수m ~ 수십m(보통 360° 수평 스캔) 수m ~ 수백m(30°~120°수직+ 360°수평) 적용 분야 실내 자율 주행, SLAM, 충돌 방지 실외 자율 주행 차량 드론 등에서 정밀 공간 인식 적용 사례 실내, 저비용 로봇, 간단한 SLAM, 단순한 장애물 회피 복잡한 공간 인식 필요, 정밀한 3D맵, 구조물 인식 참고 영상 Light Detection and Ranging : 레이저 빛을 쏴서 물체에 반사되어 돌아오는 시간(Time of Flight)을 측정해서 거리(depth)를 계산하는 센서
 
-![Image 313](../../assets/images/ros/practice/practice-04-05/img_107_313.webp)
 
 Gazebo Simulation과 SLAM : 기초 이론
 
@@ -1257,8 +1024,6 @@ Gazebo Simulation과 SLAM : 기초 이론
 
 2. Correction(업데이트 단계) : 실제 센서로 측정된 값을 바탕으로 예측 값 보정
 (GPS값과는 약간 다르니 중간쯤으로 값을 조정)
-
-![Image 317](../../assets/images/ros/practice/practice-04-05/img_108_317.webp)
 
 
 ![Image 318](../../assets/images/ros/practice/practice-04-05/img_108_318.webp)
@@ -1313,8 +1078,6 @@ Step4. 지도 업데이트
 - 라이다 센서로distance 정보 수집
 - 2D, 3D 포인트 클라우드 형태로 들어옴.
 - Topic으로 퍼블리시되며 SLAM Node가 구독함
-
-![Image 331](../../assets/images/ros/practice/practice-04-05/img_110_331.webp)
 
 
 ![Image 332](../../assets/images/ros/practice/practice-04-05/img_110_332.webp)
@@ -1380,8 +1143,6 @@ Gazebo Simulation과 SLAM : 기초 이론
 3. Feature Fusion(특징 결합)
 4. 위치 추정 / 지도 작성(SLAM)
 
-![Image 350](../../assets/images/ros/practice/practice-04-05/img_114_350.webp)
-
 
 ![Image 351](../../assets/images/ros/practice/practice-04-05/img_114_351.webp)
 
@@ -1420,15 +1181,11 @@ Nav2는ROS2기반의 자율 네비게이션 모듈
 - Navigation Servers • Recovery server : 경로 재설정이나 비상 상황에서 로봇을 복구함 • Planner server : 지도 정보를 기반으로 경로를 생성 • Controller server : 로봇이 경로를 따라 주행하도록 실시간 제어 • Smoother server : 경로의 급격한 변화에 대해 로봇의 움직임을 최적화
 - 기타 노드 • amcl : Adaptive Monte Carlo Localization • waypoint_follower : 여러 지점을 따라가는 방식의 경로 지원
 
-![Image 360](../../assets/images/ros/practice/practice-04-05/img_115_360.webp)
-
 
 Gazebo Simulation과 SLAM : 기초 이론
 
 - Behavior Tree는 어떤 대상의 상태를 제어하는 알고리즘으로 주로 게임에서 NPC를 자율적으로 제어하기 위해 사용 아래 링크에서Nav2에서default로 불러오는BT(behavior tree) 파일 다운(xml 형식) https://github.com/ros-navigation/navigation2/blob/main/nav2_bt_navigator/behavior_trees/navigate_to_pose_w_replanning_and_recovery.xml 아래 링크에서nav2의behavior tree의 속성을 정의해 주는 xml파일 다운 https://github.com/ros-navigation/navigation2/blob/main/nav2_behavior_tree/nav2_tree_nodes.xml Navigation - Nav2의 Behavior Tree를 시각화하기
 - Step1 : Behavior Tree 관련 파일 다운 받기 https://www.behaviortree.dev/ https://www.behaviortree.dev/ https://py-trees.readthedocs.io/en/devel/index.html https://py-trees.readthedocs.io/en/devel/index.html https://github.com/behaviortree/behaviortree.CPP https://github.com/splintered-reality https://github.com/splintered-reality
-
-![Image 362](../../assets/images/ros/practice/practice-04-05/img_116_362.webp)
 
 
 ![Image 363](../../assets/images/ros/practice/practice-04-05/img_116_363.webp)
@@ -1447,40 +1204,20 @@ Navigation - Nav2의 Behavior Tree를 시각화하기
 
 - Step2 : Groot 다운 받기
 
-![Image 367](../../assets/images/ros/practice/practice-04-05/img_117_367.webp)
-
-
-![Image 368](../../assets/images/ros/practice/practice-04-05/img_117_368.webp)
-
-
-![Image 369](../../assets/images/ros/practice/practice-04-05/img_117_369.webp)
-
 
 Gazebo Simulation과 SLAM : 기초 이론
 Navigation - Nav2의 Behavior Tree를 시각화하기
 맨 마지막 줄 make 입력 후 엔터 키 누르면 아래와 같이 진행되는 화면이 나옴
-
-![Image 371](../../assets/images/ros/practice/practice-04-05/img_118_371.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
 Navigation - Nav2의 Behavior Tree를 시각화하기
 cmake 입력 후 엔터 키 눌렀는데 아래와 같이 에러가 표시되면 우측 화면 설치 후 다시 cmake 진행하면 됨
 
-![Image 373](../../assets/images/ros/practice/practice-04-05/img_119_373.webp)
-
-
-![Image 374](../../assets/images/ros/practice/practice-04-05/img_119_374.webp)
-
-
-![Image 375](../../assets/images/ros/practice/practice-04-05/img_119_375.webp)
-
 
 Gazebo Simulation과 SLAM : 기초 이론
 Navigation - Nav2의 Behavior Tree를 시각화하기
 다시 cmake 와 make 입력 후 엔터 키 누르면 아래와 같이 build가 진행됨
-
-![Image 377](../../assets/images/ros/practice/practice-04-05/img_120_377.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
@@ -1488,11 +1225,6 @@ Navigation - Nav2의 Behavior Tree를 시각화하기
 Groot 실행(editor mode 선택)
 
 - Step3 : Groot 실행
-
-![Image 379](../../assets/images/ros/practice/practice-04-05/img_121_379.webp)
-
-
-![Image 380](../../assets/images/ros/practice/practice-04-05/img_121_380.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
@@ -1514,9 +1246,6 @@ Navigation - Nav2의 Behavior Tree를 시각화하기
 ![Image 384](../../assets/images/ros/practice/practice-04-05/img_123_384.webp)
 
 
-![Image 385](../../assets/images/ros/practice/practice-04-05/img_123_385.webp)
-
-
 Gazebo Simulation과 SLAM : 기초 이론
 Nav2의BT는크게2개의 서브 트리로 나눌 수 있음
 Navigation - Nav2의 Behavior Tree를 시각화하기
@@ -1524,11 +1253,6 @@ Navigation - Nav2의 Behavior Tree를 시각화하기
 왼쪽(액션 트리: 로봇의 동작을 수행)
 
 - Step4 : Groot로 BT 분석
-
-![Image 387](../../assets/images/ros/practice/practice-04-05/img_124_387.webp)
-
-
-![Image 388](../../assets/images/ros/practice/practice-04-05/img_124_388.webp)
 
 
 BT의Node 종류는 다음과 같다.
@@ -1539,11 +1263,6 @@ Control node - 하위 노드의flow를제어
 - Action Node - 동작을 실행하고true(동작 완료), false(동작 실패), running(동작 수행 중)등을 반환
 - Condition Node - 동작을 실행하지는 않고 상태를check하여true(조건 만족), false(조건 만족하지 않음)을반환(장애물/배터리가 있는가?) Gazebo Simulation과 SLAM : 기초 이론 Navigation - Nav2의 Behavior Tree를 시각화하기
 - Step4 : Groot로 BT 분석
-
-![Image 390](../../assets/images/ros/practice/practice-04-05/img_125_390.webp)
-
-
-![Image 391](../../assets/images/ros/practice/practice-04-05/img_125_391.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
@@ -1628,12 +1347,6 @@ OpenCV 및 PCL(Point Cloud Library) 기반으로 구현된 그래프 기반 SLAM
 ![Image 404](../../assets/images/ros/practice/practice-04-05/img_130_404.webp)
 
 
-![Image 405](../../assets/images/ros/practice/practice-04-05/img_130_405.webp)
-
-
-![Image 406](../../assets/images/ros/practice/practice-04-05/img_130_406.webp)
-
-
 ![Image 407](../../assets/images/ros/practice/practice-04-05/img_130_407.webp)
 
 
@@ -1645,9 +1358,6 @@ Gazebo Simulation과 SLAM
 - Sky blue Line : 이동 경로 ✓3D Camera & SLAM 참고 영상 RTAB iPhone 영상(iPhone으로 맵 그리기)
 
 ![Image 410](../../assets/images/ros/practice/practice-04-05/img_131_410.webp)
-
-
-![Image 411](../../assets/images/ros/practice/practice-04-05/img_131_411.webp)
 
 
 Gazebo Simulation과 SLAM
@@ -1663,36 +1373,9 @@ Navigation2 패키지 설치
 - -r : 오류가 발생해도 계속 진행(retry)
 - -y : 설치할 건지 물어 보지 않고 자동으로 yes 다운 받은 realsense_warehouse_ws.zip 압축 풀기 및 build Downloads 폴더에 있는 압축 파일을 home 디렉토리에 그대로 압축 풀기 /home/victor/realsense_warehouse_ws realsense_warehouse_ws$ 위치에서 아래 명령어 실행!!!
 
-![Image 414](../../assets/images/ros/practice/practice-04-05/img_132_414.webp)
-
-
-![Image 415](../../assets/images/ros/practice/practice-04-05/img_132_415.webp)
-
-
-![Image 416](../../assets/images/ros/practice/practice-04-05/img_132_416.webp)
-
-
-![Image 417](../../assets/images/ros/practice/practice-04-05/img_132_417.webp)
-
-
-![Image 418](../../assets/images/ros/practice/practice-04-05/img_132_418.webp)
-
-![Image 420](../../assets/images/ros/practice/practice-04-05/img_132_420.webp)
-
-
-![Image 421](../../assets/images/ros/practice/practice-04-05/img_132_421.webp)
-
 
 Gazebo Simulation과 SLAM
 ✓실습 환경 구축
-
-![Image 424](../../assets/images/ros/practice/practice-04-05/img_133_424.webp)
-
-
-![Image 425](../../assets/images/ros/practice/practice-04-05/img_133_425.webp)
-
-
-![Image 426](../../assets/images/ros/practice/practice-04-05/img_133_426.webp)
 
 
 Gazebo Simulation과 SLAM
@@ -1706,20 +1389,13 @@ realsense_warehouse_ws.zip을 풀면 이와 같은 파일을 확인할 수 있�
 - Urdf : 로봇 모델의 링크와 조인트 정보 등이 저장된 파일
 - Worlds : 맵을 구성하는 파일
 
-![Image 429](../../assets/images/ros/practice/practice-04-05/img_134_429.webp)
-
 
 Gazebo Simulation과 SLAM
 ✓런치 파일 실행
 Gazebo World와 Turtlebot Waffle을 불러옴
 
-![Image 432](../../assets/images/ros/practice/practice-04-05/img_135_432.webp)
-
 
 ![Image 433](../../assets/images/ros/practice/practice-04-05/img_135_433.webp)
-
-
-![Image 434](../../assets/images/ros/practice/practice-04-05/img_135_434.webp)
 
 
 Gazebo Simulation과 SLAM
@@ -1729,31 +1405,15 @@ Gazebo world를 구성할 때 필요한model들의 경로를 설정하는 코드
 만약 위 코드가 정상적으로 작동하지 않는다면 해당 명령어로 직접 모델 파일을 추가해야함
 모델을 불러올 수 없다는 오류 발생 시
 
-![Image 437](../../assets/images/ros/practice/practice-04-05/img_136_437.webp)
-
-
-![Image 438](../../assets/images/ros/practice/practice-04-05/img_136_438.webp)
-
 
 Gazebo Simulation과 SLAM
 ✓런치 파일 실행
 Error Control
 
-![Image 441](../../assets/images/ros/practice/practice-04-05/img_137_441.webp)
-
-
-![Image 442](../../assets/images/ros/practice/practice-04-05/img_137_442.webp)
-
-![Image 444](../../assets/images/ros/practice/practice-04-05/img_137_444.webp)
-
-![Image 446](../../assets/images/ros/practice/practice-04-05/img_137_446.webp)
-
 
 Gazebo Simulation과 SLAM
 ✓Cartographer실행
 SLAM 라이브러리 중 하나
-
-![Image 449](../../assets/images/ros/practice/practice-04-05/img_138_449.webp)
 
 
 ![Image 450](../../assets/images/ros/practice/practice-04-05/img_138_450.webp)
@@ -1763,11 +1423,6 @@ Gazebo Simulation과 SLAM
 ✓Keyboard Controller실행
 키보드로 로봇을 조종해서 지도를 탐색할 수 있음
 
-![Image 453](../../assets/images/ros/practice/practice-04-05/img_139_453.webp)
-
-
-![Image 454](../../assets/images/ros/practice/practice-04-05/img_139_454.webp)
-
 
 Gazebo Simulation과 SLAM
 ✓Keyboard Controller실행
@@ -1776,12 +1431,6 @@ Gazebo Simulation과 SLAM
 2. 로봇이 탐색한 영역에 대해 지도 생성
 
 ![Image 457](../../assets/images/ros/practice/practice-04-05/img_140_457.webp)
-
-
-![Image 458](../../assets/images/ros/practice/practice-04-05/img_140_458.webp)
-
-
-![Image 459](../../assets/images/ros/practice/practice-04-05/img_140_459.webp)
 
 
 Gazebo Simulation과 SLAM
@@ -1800,8 +1449,6 @@ Trinary(세 가지 상태)
 - 맵 이미지(.pgm)를 편집하거나, 직접 지도를 만들거나 수정하는 보조 도구
 - 그 후 .pgm과 .yaml파일을 함께 ROS에서 사용
 
-![Image 462](../../assets/images/ros/practice/practice-04-05/img_141_462.webp)
-
 
 ![Image 463](../../assets/images/ros/practice/practice-04-05/img_141_463.webp)
 
@@ -1809,8 +1456,6 @@ Trinary(세 가지 상태)
 Gazebo Simulation과 SLAM
 ✓NAV2 실행
 생성된 Map을 바탕으로 Nav2 실행
-
-![Image 466](../../assets/images/ros/practice/practice-04-05/img_142_466.webp)
 
 
 ![Image 467](../../assets/images/ros/practice/practice-04-05/img_142_467.webp)
@@ -1826,8 +1471,6 @@ Result에 표시된 화면은Costmap으로
 붉은색 영역: 로봇이 가지 않으려는 경향을 보이는 영역(무조건 가지 않는 것은 아님)
 이 영역들은 로봇의 회전 반경과 같은 물리적 속성에 의해 결정됨
 2D Pose Estimate를 이용하여 로봇의 초기 위치와 방향 설정
-
-![Image 470](../../assets/images/ros/practice/practice-04-05/img_143_470.webp)
 
 
 ![Image 471](../../assets/images/ros/practice/practice-04-05/img_143_471.webp)
@@ -1853,8 +1496,6 @@ Gazebo Simulation과 SLAM : 기초 이론
 SLAM : Visual
 
 - Visual SLAM의 종류 특징 ORB (Oriented FAST and Rotated BRIEF) RTAB (RealTime Appearance-Based Mapping) 사용 카메라 주로 단안(모노) 카메라 또는 Stereo Camera RGB-D카메라 혹은 양안(스테레오) 카메라 깊이 감지 깊이 감지 범위가 짧음 깊이 정보를 더 잘 감지함 병렬 처리 작업을 병렬적으로 처리 단계별 수행으로 상대적으로 처리 시간이 오래 걸림 맵 생성과 최적화 중요한 위치(키 프레임)를 선택, 맵을 만들고 수정 더 밀도 있는 3D 매핑을 수행하여 정확도를 높임 정확도 야외 환경에서 정확도 감소 야외 환경에서도 강건함 기타 정밀한 위치 추정과 맵핑이 필요한 경우 실시간 처리와 대규모 환경에서의 확장성이 중요한 경우 활용 사례 연구 개발, 정밀 네비게이션 실시간 로봇 내비게이션, 3D맵핑 ROS통합 가능하지만 복잡할 수 있음 매우 용이(ROS2 package제공)하고 주로 많이 사용함 이번 실습에서는 RTAB-MAP을 사용할 예정 RGB-D Camera란? : 깊이(Depth)와 컬러(RGB) 데이터를 모두 실시간으로 받아들이는 카메라
-
-![Image 481](../../assets/images/ros/practice/practice-04-05/img_146_481.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
@@ -1980,13 +1621,6 @@ Step3. 특징 점 매칭
 Step4. 카메라 포즈 추정
 Step5. 지도 업데이트
 
-![Image 509](../../assets/images/ros/practice/practice-04-05/img_152_509.webp)
-
-
-![Image 510](../../assets/images/ros/practice/practice-04-05/img_152_510.webp)
-
-
-![Image 511](../../assets/images/ros/practice/practice-04-05/img_152_511.webp)
 
 Gazebo Simulation과 SLAM : 기초 이론
 두 개의 이미지에 나타난 동일한 특징 점의 삼차원 위치를 추정
@@ -2082,31 +1716,14 @@ Gazebo Simulation과 SLAM
 - RTAB_MAP 설치 vslam_ws.zip의 압축을 풀고 해당 폴더로 이동한 뒤 다음 명령어 실행 ※ PC의 사양에 따라 작동 안 되는 경우가 있음 git clone --branch humble-devel https://github.com/introlab/rtabmap_ros.git src/rtabmap_ros
 
 
-![Image 537](../../assets/images/ros/practice/practice-04-05/img_157_537.webp)
-
-
-![Image 538](../../assets/images/ros/practice/practice-04-05/img_157_538.webp)
-
-
-![Image 539](../../assets/images/ros/practice/practice-04-05/img_157_539.webp)
-
-
-![Image 540](../../assets/images/ros/practice/practice-04-05/img_157_540.webp)
-
-
 Gazebo Simulation과 SLAM
 실습
 ✓실습 환경 구축
-패키지 빌 드하기
+패키지 빌드하기
 시간이 오래 걸릴 수 있음
-빌 드 에러 발생 시
+빌드 에러 발생 시
 기타 파일들을 지우고 다시 실행
 
-
-![Image 544](../../assets/images/ros/practice/practice-04-05/img_158_544.webp)
-
-
-![Image 545](../../assets/images/ros/practice/practice-04-05/img_158_545.webp)
 
 Gazebo Simulation과 SLAM
 실습
@@ -2114,11 +1731,6 @@ Gazebo Simulation과 SLAM
 실행 에러 발생 시
 Gazebo관련 프로세스 종료 후 재시도
 런치 파일 실행
-
-![Image 553](../../assets/images/ros/practice/practice-04-05/img_159_553.webp)
-
-
-![Image 554](../../assets/images/ros/practice/practice-04-05/img_159_554.webp)
 
 
 Gazebo Simulation과 SLAM
@@ -2135,9 +1747,6 @@ Gazebo Simulation과 SLAM
 ✓실습 환경 구축
 RQt로 토픽 데이터 확인하기
 Plugins →visualization →ImageView선택 →camera/depth/image_raw 선택
-
-
-![Image 562](../../assets/images/ros/practice/practice-04-05/img_161_562.webp)
 
 
 ![Image 563](../../assets/images/ros/practice/practice-04-05/img_161_563.webp)
@@ -2185,17 +1794,11 @@ Loop Closure를 위해 터 틀 봇을 이동시키며
 ![Image 579](../../assets/images/ros/practice/practice-04-05/img_164_579.webp)
 
 
-![Image 580](../../assets/images/ros/practice/practice-04-05/img_164_580.webp)
-
-
 Gazebo Simulation과 SLAM
 실습
 ✓실습 환경 구축
 View 옵션을 조정
 터미널을 종료하면 자동으로 데이터가 저장되며 다음의 명령어로 확인할 수 있음
-
-
-![Image 584](../../assets/images/ros/practice/practice-04-05/img_165_584.webp)
 
 
 ![Image 585](../../assets/images/ros/practice/practice-04-05/img_165_585.webp)
@@ -2225,5 +1828,4 @@ loop closure로 판단
 수고하셨습니다.
 
 ![Image 600](../../assets/images/ros/practice/practice-04-05/img_167_600.webp)
-
 

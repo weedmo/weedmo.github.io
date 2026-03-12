@@ -1,38 +1,4 @@
-# 강의_3기_ROS2_기초_5차시
-
-
-ROS2 기초-5차시
-훈련 일정
-오전
-오후
-1차시
-
-- 로봇의 역사
-- 컴퓨터 구조(Booting, CPU 작동 원리, POST)
-- 리눅스와 운영 체계
-- 리눅스CLI 실습(디렉토리, 계정, 기본 명령어 등), Terminator, 커널, 쉘, gedit, bash
-- Application 작동 원리(마이크로프로세서, 메모리, 저장 장치)
-- 리눅스 CLI 실습 2차시
-- 리눅스 CLI 실습
-- 네트워크와 통신(IPV4, IPV6, 소켓, 노드, Hub, TCP, UDP)
-- API, Library, Framework, 프로세스와Thread
-- 인터프리터, 컴파일러(소스 코드→ Build → 실행 파일)
-- 소켓 프로그래밍 실습
-- OSI7 Layer, 프로토콜(RS-232C, RS-485, Ethernet, TCP/UDP, IP) 3차시
-- 센서 기초, IoT와Embedded
-- 로봇 기초, 좌표계
-- 로봇 센서 활용 및 로봇의 구성(기계 기구, 전기 전자, 소프트웨어)
-- ROS2 소개 및 활용
-- ROS2 설치(ros.org) 및demo_node 4차시
-- ROS2 소개 및 활용
-- ROS2 실습(Talker, Listener)
-- ROS2 패키지 설명
-- ROS2 실습(Turtlesim, teleop_key) 5차시
-- ROS2 실습(Turtlesim, Teleop_key 여러 개 만들기)
-- Topic, Service, Action, Parameter, RQT, RQT_Graph 이론 및 실습
-- ROS2 실습(Turtlesim, Namespace 여러 개 만들기)
-- Ros bag and play 실습, my first package build 실습
-- Turtlesim subscribing 실습, ROS의 중요한 개발 도구(Rviz, GAZEBO 소개)
+# ROS2 기초 5차시 - Topic, Service, Action
 
 
 ROS2 패키지 설명
@@ -75,13 +41,9 @@ ROS2 실습- turtlesim 1단계
 Turtlesim 실행후node 확인
 
 
-![Image 10](../../assets/images/ros/basics/lesson-05/img_008_010.webp)
-
 ROS2 실습
 ROKEY
 GO!
-
-![Image 17](../../assets/images/ros/basics/lesson-05/img_009_017.webp)
 
 
 ROS2 실습- turtlesim
@@ -121,8 +83,6 @@ Namespace + Node 이름 설정
 
 ROS2 실습
 
-![Image 46](../../assets/images/ros/basics/lesson-05/img_014_046.webp)
-
 
 ![Image 47](../../assets/images/ros/basics/lesson-05/img_014_047.webp)
 
@@ -143,8 +103,6 @@ ROS2 실습
 ROS2 실습
 Namespace와Name 설정
 
-![Image 60](../../assets/images/ros/basics/lesson-05/img_016_060.webp)
-
 
 ![Image 61](../../assets/images/ros/basics/lesson-05/img_016_061.webp)
 
@@ -163,7 +121,6 @@ ROS2 실습
 
 ROS2 실습
 
-![Image 72](../../assets/images/ros/basics/lesson-05/img_018_072.webp)
 
 ![Image 75](../../assets/images/ros/basics/lesson-05/img_018_075.webp)
 
@@ -177,20 +134,16 @@ ROS2 실습
 ROS2 실습
 1st Namespace와Name각각 설정
 
-![Image 81](../../assets/images/ros/basics/lesson-05/img_019_081.webp)
 
 ![Image 86](../../assets/images/ros/basics/lesson-05/img_019_086.webp)
 
 
 ![Image 87](../../assets/images/ros/basics/lesson-05/img_019_087.webp)
 
-![Image 89](../../assets/images/ros/basics/lesson-05/img_019_089.webp)
-
 
 ROS2 실습
 2nd Namespace와Name 각각 설정
 
-![Image 90](../../assets/images/ros/basics/lesson-05/img_020_090.webp)
 
 ![Image 93](../../assets/images/ros/basics/lesson-05/img_020_093.webp)
 
@@ -204,18 +157,9 @@ ROS2 실습
 ![Image 96](../../assets/images/ros/basics/lesson-05/img_020_096.webp)
 
 
-![Image 97](../../assets/images/ros/basics/lesson-05/img_020_097.webp)
-
-
-![Image 98](../../assets/images/ros/basics/lesson-05/img_020_098.webp)
-
-
 ROS2 실습
 
 ![Image 99](../../assets/images/ros/basics/lesson-05/img_021_099.webp)
-
-
-![Image 103](../../assets/images/ros/basics/lesson-05/img_021_103.webp)
 
 
 ROS2 실습– 노드와 메시지 통신(10장)
@@ -322,7 +266,7 @@ ROS2 실습- ROS2 Topic(11장)
 - 토픽 기능은 목적에 따라 다양한 방법으로 사용할 수 있으며 이런 유연성으로 다양한 곳에 사용 중
 - ROS 프로그래밍 시에70% 이상이 토픽으로 사용됨
 - 통신 방식 중에 가장 기본이 되며 가장 널리 쓰이는 방법
-- 비동기성과 연속성을 가지기에 센서 값 전송 및 항시 정보를 주고받아야하는 부분에 주로 사용
+- 비동기성과 연속성을 가지기에 센서값 전송 및 항시 정보를 주고받아야하는 부분에 주로 사용
 
 
 ![Image 109](../../assets/images/ros/basics/lesson-05/img_028_109.webp)
@@ -377,9 +321,6 @@ ROS2 실습- Topic
 Turtlesim 실행후topic 발행해 보기
 
 
-![Image 114](../../assets/images/ros/basics/lesson-05/img_033_114.webp)
-
-
 ![Image 115](../../assets/images/ros/basics/lesson-05/img_033_115.webp)
 
 
@@ -416,16 +357,10 @@ ROS2 실습– ros bag
 ROS2 실습– ros2 bag and ros2 play
 
 
-![Image 122](../../assets/images/ros/basics/lesson-05/img_037_122.webp)
-
-
 ![Image 123](../../assets/images/ros/basics/lesson-05/img_037_123.webp)
 
 
 ROS2 실습– ros2 bag and ros2 play
-
-
-![Image 124](../../assets/images/ros/basics/lesson-05/img_038_124.webp)
 
 
 ![Image 125](../../assets/images/ros/basics/lesson-05/img_038_125.webp)
@@ -528,12 +463,6 @@ Turtle 친구4명 생성해 보기
 교재 : p148
 
 
-![Image 133](../../assets/images/ros/basics/lesson-05/img_045_133.webp)
-
-
-![Image 134](../../assets/images/ros/basics/lesson-05/img_045_134.webp)
-
-
 ROS2 실습– Service with RQT
 
 
@@ -586,29 +515,6 @@ ROS2 실습- Action
 ![Image 140](../../assets/images/ros/basics/lesson-05/img_050_140.webp)
 
 
-![Image 141](../../assets/images/ros/basics/lesson-05/img_050_141.webp)
-
-
-![Image 142](../../assets/images/ros/basics/lesson-05/img_050_142.webp)
-
-
-![Image 143](../../assets/images/ros/basics/lesson-05/img_050_143.webp)
-
-
-![Image 144](../../assets/images/ros/basics/lesson-05/img_050_144.webp)
-
-
-![Image 145](../../assets/images/ros/basics/lesson-05/img_050_145.webp)
-
-
-![Image 146](../../assets/images/ros/basics/lesson-05/img_050_146.webp)
-
-
-![Image 147](../../assets/images/ros/basics/lesson-05/img_050_147.webp)
-
-![Image 149](../../assets/images/ros/basics/lesson-05/img_050_149.webp)
-
-
 ROS2 실습- Action
 60◦
 r
@@ -627,13 +533,7 @@ Ros2에서 사용하는 단위
 - Radian r ROS2 실습- Action
 
 
-![Image 152](../../assets/images/ros/basics/lesson-05/img_052_152.webp)
-
-
 ROS2 실습- Action
-
-
-![Image 153](../../assets/images/ros/basics/lesson-05/img_053_153.webp)
 
 
 ![Image 154](../../assets/images/ros/basics/lesson-05/img_053_154.webp)
@@ -643,12 +543,6 @@ ROS2 실습- Action
 
 
 ROS2 실습- Action
-
-
-![Image 156](../../assets/images/ros/basics/lesson-05/img_054_156.webp)
-
-
-![Image 157](../../assets/images/ros/basics/lesson-05/img_054_157.webp)
 
 
 ![Image 158](../../assets/images/ros/basics/lesson-05/img_054_158.webp)
@@ -674,14 +568,6 @@ srv, action 이 있다. 토픽, 서비스, 액션은 각각msg, srv, action inte
 ![Image 159](../../assets/images/ros/basics/lesson-05/img_055_159.webp)
 
 
-![Image 160](../../assets/images/ros/basics/lesson-05/img_055_160.webp)
-
-![Image 162](../../assets/images/ros/basics/lesson-05/img_055_162.webp)
-
-
-![Image 163](../../assets/images/ros/basics/lesson-05/img_055_163.webp)
-
-
 ROS2 실습- Interface
 토픽은 고유의 인터페이스를 가지고 있는데 이를 메시지 인터페이스라 부르며, 파일로는msg 파일을 가르킨다.
 예를 들어, 위 예제에서/turtle1/cmd_vel 토픽은geometry_msgs/msgs/Twist 형태이다. 이름이 좀 긴 데 풀어서 설명하면 기하학 관련 메시지를 모아 둔
@@ -705,15 +591,10 @@ ROS2 실습- Interface
 교재p161
 
 
-![Image 165](../../assets/images/ros/basics/lesson-05/img_057_165.webp)
-
-
 ROS2 실습- Interface
 교재p161
 Message interface, msg
 
-
-![Image 166](../../assets/images/ros/basics/lesson-05/img_058_166.webp)
 
 ![Image 168](../../assets/images/ros/basics/lesson-05/img_058_168.webp)
 
@@ -727,18 +608,7 @@ Interface
 - proto → 특정 인터페이스 형태를 입력하면 그 인터페이스의 기본 형태를 보여 줌 Message interface, msg
 
 
-![Image 169](../../assets/images/ros/basics/lesson-05/img_059_169.webp)
-
 ![Image 171](../../assets/images/ros/basics/lesson-05/img_059_171.webp)
-
-
-![Image 172](../../assets/images/ros/basics/lesson-05/img_059_172.webp)
-
-
-![Image 173](../../assets/images/ros/basics/lesson-05/img_059_173.webp)
-
-
-![Image 174](../../assets/images/ros/basics/lesson-05/img_059_174.webp)
 
 
 ROS2 실습- Interface
@@ -746,9 +616,6 @@ ROS2 실습- Interface
  응답(Response)
  구분
 Service interface, srv
-
-
-![Image 175](../../assets/images/ros/basics/lesson-05/img_060_175.webp)
 
 
 ![Image 176](../../assets/images/ros/basics/lesson-05/img_060_176.webp)
@@ -763,28 +630,16 @@ Action interface, action
  구분
 
 
-![Image 177](../../assets/images/ros/basics/lesson-05/img_061_177.webp)
-
-
 ROS2 실습- Interface
 Node 정보 확인
 Action list
-
-
-![Image 178](../../assets/images/ros/basics/lesson-05/img_062_178.webp)
-
-
-![Image 179](../../assets/images/ros/basics/lesson-05/img_062_179.webp)
-
-
-![Image 180](../../assets/images/ros/basics/lesson-05/img_062_180.webp)
 
 
 ROS2 실습- Parameter
 파라미터 관련 기능은RCL(ROS Client Libraries)의 기본 기능으로 다음 그림과 같이 모든 노드가 자신만의Parameter server를
 가지고 있고, 그림과 같이 각 노드는Parameter client도 포함시킬 수 있어서 자기 자신의 파라미터 및 다른 노드의 파라미터를
 읽고 쓸 수 있게 된다. 이를 활용하면 각 노드의 다양한 매개 변수를 글로벌 매개 변수처럼 사용할 수 있게 되어 추가 프로그래밍이나
-컴 파일 없이 능동적으로 변화 가능한 프로세스를 만들 수 있게 된다. 그리고 각 파라미터는yaml 파일 형태의 파라미터 설정
+컴파일 없이 능동적으로 변화 가능한 프로세스를 만들 수 있게 된다. 그리고 각 파라미터는yaml 파일 형태의 파라미터 설정
 파일을 만들어 초기 파라미터 값 설정 및 노드 실행 시에 파라미터 설정 파일을 불러와서 사용할 수 있기에ROS 2 프로그래밍에
 매우 유용하게 사용할 수 있다.`
 YAML(YAML Ain't Markup Language 또는Yet Another Markup
@@ -799,47 +654,17 @@ Language)은 사람이 읽기 쉬운 데이터 직렬화 형식입니다. 주로
 ![Image 182](../../assets/images/ros/basics/lesson-05/img_063_182.webp)
 
 
-![Image 183](../../assets/images/ros/basics/lesson-05/img_063_183.webp)
+ROS2 실습– Parameter get & set
 
 
 ROS2 실습– Parameter get & set
 
 
-![Image 184](../../assets/images/ros/basics/lesson-05/img_064_184.webp)
-
-
-![Image 185](../../assets/images/ros/basics/lesson-05/img_064_185.webp)
-
-
 ROS2 실습– Parameter get & set
-
-
-![Image 186](../../assets/images/ros/basics/lesson-05/img_065_186.webp)
-
-
-![Image 187](../../assets/images/ros/basics/lesson-05/img_065_187.webp)
-
-
-ROS2 실습– Parameter get & set
-
-
-![Image 188](../../assets/images/ros/basics/lesson-05/img_066_188.webp)
-
-
-![Image 189](../../assets/images/ros/basics/lesson-05/img_066_189.webp)
 
 
 ROS2 실습– Parameter get & set
 Turtlesim parameter 변경후yaml 로딩해 보기
-
-
-![Image 190](../../assets/images/ros/basics/lesson-05/img_067_190.webp)
-
-
-![Image 191](../../assets/images/ros/basics/lesson-05/img_067_191.webp)
-
-
-![Image 192](../../assets/images/ros/basics/lesson-05/img_067_192.webp)
 
 
 ROS2 실습– Parameter get & set
@@ -886,25 +711,16 @@ ROS2 실습– RQt(Service Caller)
 ![Image 205](../../assets/images/ros/basics/lesson-05/img_072_205.webp)
 
 
-![Image 206](../../assets/images/ros/basics/lesson-05/img_072_206.webp)
-
-
 ROS2 실습– RQt(Parameter Reconfigure)
 
 
 ![Image 207](../../assets/images/ros/basics/lesson-05/img_073_207.webp)
 
 
-![Image 208](../../assets/images/ros/basics/lesson-05/img_073_208.webp)
-
-
 ROS2 실습– RQt(Plot)
 
 
 ![Image 209](../../assets/images/ros/basics/lesson-05/img_074_209.webp)
-
-
-![Image 210](../../assets/images/ros/basics/lesson-05/img_074_210.webp)
 
 
 ROS2 실습– RQt(image & console)
@@ -918,8 +734,6 @@ ROS2 실습– RQt(Image)
 
 ![Image 213](../../assets/images/ros/basics/lesson-05/img_076_213.webp)
 
-![Image 215](../../assets/images/ros/basics/lesson-05/img_076_215.webp)
-
 
 ROS2 실습– RQt(Console)
 Turtlesim과teleop_key 실행
@@ -927,9 +741,6 @@ cam2image 실행
 rqt →Logging →Console에서 확인
 
 ![Image 217](../../assets/images/ros/basics/lesson-05/img_077_217.webp)
-
-
-![Image 218](../../assets/images/ros/basics/lesson-05/img_077_218.webp)
 
 
 ROS2 실습
@@ -947,16 +758,9 @@ ROS2 실습
 :~$ git clone https://github.com/ros/ros_tutorials-git -b humble
 
 
-![Image 223](../../assets/images/ros/basics/lesson-05/img_080_223.webp)
-
 ROS2 실습
 $colcon build를 하고 나면build install log 등3개의 디렉토리가 생긴다
 colcon : Concept of Libraries for Compilers Installation
-
-
-![Image 225](../../assets/images/ros/basics/lesson-05/img_081_225.webp)
-
-![Image 227](../../assets/images/ros/basics/lesson-05/img_081_227.webp)
 
 
 ROS2 실습
@@ -1034,18 +838,15 @@ ROS2 실습– package build - my_first_package
 ※ Build 하는 경우working 디렉토리→ ros2_ws
 
 
-![Image 230](../../assets/images/ros/basics/lesson-05/img_085_230.webp)
-
-
 ![Image 231](../../assets/images/ros/basics/lesson-05/img_085_231.webp)
 
 
 ROS2 실습
-1) 전체 패키지를 빌 드 할 때
+1) 전체 패키지를 빌드 할 때
 $ cd ~/robot_ws && colcon build --symlink-install
 $ cd ~/robot_ws && colcon build --symlink-install --packages-select [패키지 이름]
 
-- vcstool (버전 컨트롤 시스템 툴) $ wget https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos $ vcs import src < ros2.repos $ sudo rosdep init $ rosdep update $ rosdep install --from-paths src -y --ignore-src $ bloom-release --ros-distro humble --track humble awesome_pkg 2) 해당 패키지만 빌 드 할 때
+- vcstool (버전 컨트롤 시스템 툴) $ wget https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos $ vcs import src < ros2.repos $ sudo rosdep init $ rosdep update $ rosdep install --from-paths src -y --ignore-src $ bloom-release --ros-distro humble --track humble awesome_pkg 2) 해당 패키지만 빌드 할 때
 - rosdep (의존성 관리 툴)
 - bloom (바이너리 패키지 관리 툴)
 
@@ -1056,7 +857,7 @@ ROS2 실습
 패키지 설정 파일
 package.xml(ROS pkg의 필수 구성 요소)
 ●
-빌 드 설정 파일
+빌드 설정 파일
 CMakeLists.txt(순수Python pkg는CMakeLists.txt 파일 없음)
 ●
 파이썬 패키지 설정 파일
@@ -1082,7 +883,7 @@ ROS2 실습– 패키지 설정 파일(package.xml)
 패키지 설정 파일은ROS 패키지의 필수 구성 요소로서 패키지의 정보를 기술하는 파일
 기술하는 내용으로는 패키지 이름, 저작자, 라이선스, 의존성 패키지 등이 있으며,
 XML 형식으로 기술하고 파일 명은`package.xml`을사용
-사용되는 빌 드 툴, 의존성 패키지들이 모두 기술되기에 빌 드 및 패키지 설치, 사용에 있어서 매우 중요한 파일
+사용되는 빌드 툴, 의존성 패키지들이 모두 기술되기에 빌드 및 패키지 설치, 사용에 있어서 매우 중요한 파일
 모든ROS 패키지의 필수 파일로 각 패키지당 무조건1개의 패키지 설정 파일(package.xml)을포함
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd"
@@ -1147,23 +948,23 @@ ROS2 실습– 패키지 설정 파일(package.xml)
 패키지 개발에 참여한 개발자의 이름과 이메일 주소를 적는다. 복수의 개발자가 참여한 경우에는 바로 다음 줄에<author> 태그를 이용하여 추가로 넣음
 <buildtool_depend> 빌드툴의의존성을기술한다.
 <build_depend>
-패키지를 빌 드할 때 필요한 의존 패키지 이름을 적는다.
+패키지를 빌드할 때 필요한 의존 패키지 이름을 적는다.
 <exec_depend>
 패키지를 실행할 때 필요한 의존 패키지 이름을 적는다.
 <test_depend>
 패키지를 테스트할 때 필요한 의존 패키지 이름을 적는다.
 <export>
-위에서 명시하지 않은 확장 태그 명을 사용할 때 쓰인다. 빌 드 타입을 적는<build_type>, RViz 플러그인에 사용되는<rviz>, RQt 플러그인에 사용되는<rqt_gui>,
+위에서 명시하지 않은 확장 태그 명을 사용할 때 쓰인다. 빌드 타입을 적는<build_type>, RViz 플러그인에 사용되는<rviz>, RQt 플러그인에 사용되는<rqt_gui>,
 deprecated되는 패키지일 경우 유저에게 알릴 수 있는<deprecated> 태그 등이 있다.
 
 
-ROS2 실습– 빌 드 설정 파일(CMakeList.txt)
+ROS2 실습– 빌드 설정 파일(CMakeList.txt)
 ROS 2의빌드 시스템인ament에서는C++ 프로그래밍 언어를 사용한 패키지나
 RQt Plugin의경우CMake(Cross Platform Make)를 이용하고 있고 패키지 폴더의
-`CMakeLists.txt`라는 파일에 빌 드 환경을 기술하여 사용하고 있다.
-이 빌 드 설정 파일에 실행 파일 생성, 의존성 패키지 우선 빌 드, 링크 생성 등을
+`CMakeLists.txt`라는 파일에 빌드 환경을 기술하여 사용하고 있다.
+이 빌드 설정 파일에 실행 파일 생성, 의존성 패키지 우선 빌드, 링크 생성 등을
 설정하게 되어 있다. ROS에서CMake를 이용하는 이유는ROS 패키지를 멀티
-플랫폼에서 빌 드할 수 있게하기 위함이다. Make가 유닉스 계열만 지원하는 것과
+플랫폼에서 빌드할 수 있게하기 위함이다. Make가 유닉스 계열만 지원하는 것과
 달리, CMake는 유닉스 계열인 리눅스, BSD, OS X뿐만 아니라 윈도우즈 계열도
 지원하기 때문이다.
 또한CMakeLists.txt은Visual Studio, Eclipse, Qt Creator 등 다양한IDE에서
@@ -1270,13 +1071,7 @@ ROS2 실습– Publisher & Subscriber(my_first_package)
 ※ Build 하는 경우work Space 디렉토리→ ~/ros2_ws
 
 
-![Image 233](../../assets/images/ros/basics/lesson-05/img_093_233.webp)
-
-
 ![Image 234](../../assets/images/ros/basics/lesson-05/img_093_234.webp)
-
-
-![Image 235](../../assets/images/ros/basics/lesson-05/img_093_235.webp)
 
 
 ![Image 236](../../assets/images/ros/basics/lesson-05/img_093_236.webp)
@@ -1285,13 +1080,7 @@ ROS2 실습– Publisher & Subscriber(my_first_package)
 ROS2 실습– Publisher & Subscriber(my_first_package)
 
 
-![Image 237](../../assets/images/ros/basics/lesson-05/img_094_237.webp)
-
-
 ![Image 238](../../assets/images/ros/basics/lesson-05/img_094_238.webp)
-
-
-![Image 239](../../assets/images/ros/basics/lesson-05/img_094_239.webp)
 
 
 ![Image 240](../../assets/images/ros/basics/lesson-05/img_094_240.webp)
@@ -1300,17 +1089,11 @@ ROS2 실습– Publisher & Subscriber(my_first_package)
 ROS2 실습– Publisher & Subscriber(my_first_package)
 
 
-![Image 241](../../assets/images/ros/basics/lesson-05/img_095_241.webp)
-
-
 ![Image 242](../../assets/images/ros/basics/lesson-05/img_095_242.webp)
 
 
 ROS2 실습– Publisher & Subscriber(my_first_package)
 ※ source 하지 않고 실행해 보기
-
-
-![Image 243](../../assets/images/ros/basics/lesson-05/img_096_243.webp)
 
 
 ![Image 244](../../assets/images/ros/basics/lesson-05/img_096_244.webp)
@@ -1329,16 +1112,7 @@ ROS2 실습– Publisher & Subscriber(my_first_package)
 ※ .bashrc example
 
 
-![Image 248](../../assets/images/ros/basics/lesson-05/img_097_248.webp)
-
-
-![Image 249](../../assets/images/ros/basics/lesson-05/img_097_249.webp)
-
-
 ROS2 실습– Publisher & Subscriber(my_first_package)
-
-
-![Image 250](../../assets/images/ros/basics/lesson-05/img_098_250.webp)
 
 
 ![Image 251](../../assets/images/ros/basics/lesson-05/img_098_251.webp)
@@ -1351,16 +1125,7 @@ my_subscriber
 →
 
 
-![Image 252](../../assets/images/ros/basics/lesson-05/img_099_252.webp)
-
-
-![Image 253](../../assets/images/ros/basics/lesson-05/img_099_253.webp)
-
-
 ROS2 실습– Publisher & Subscriber(my_first_package)
-
-
-![Image 254](../../assets/images/ros/basics/lesson-05/img_100_254.webp)
 
 
 ROS2 실습– Publisher & Subscriber(my_first_package)
@@ -1372,16 +1137,7 @@ ROS2 실습– Publisher & Subscriber(my_first_package)
 ROS2 실습– Publisher & Subscriber(my_first_package)
 
 
-![Image 256](../../assets/images/ros/basics/lesson-05/img_102_256.webp)
-
-
 ROS2 실습– Publisher & Subscriber(my_first_package)
-
-
-![Image 257](../../assets/images/ros/basics/lesson-05/img_103_257.webp)
-
-
-![Image 258](../../assets/images/ros/basics/lesson-05/img_103_258.webp)
 
 
 ROS2 실습– Publisher & Subscriber(my_first_package)
@@ -1438,9 +1194,6 @@ Robot URDF 파일을 통한 로봇 암 시각화
 - 로봇의 충돌 모델 정의
 
 
-![Image 267](../../assets/images/ros/basics/lesson-05/img_107_267.webp)
-
-
 ROS2 실습
 Robot URDF 파일의 구성
 - URDF 파일은 다음과 같은 요소로 구성되어 있음
@@ -1455,9 +1208,6 @@ Robot URDF 파일의 구성
 - <origin> 부모 link에서 자식 링크에 변환 정보
 - <parent> 부모 link 이름
 - <child> 자식link 이름 https://wiki.ros.org/urdf/Examples https://medium.com/newworld-kim/ros-urdf-b6979bfa31aa
-
-
-![Image 268](../../assets/images/ros/basics/lesson-05/img_108_268.webp)
 
 
 ROS2 실습
@@ -1485,9 +1235,6 @@ Robot URDF 파일의 예– pan-tilt 로봇
 </robot>
 
 
-![Image 269](../../assets/images/ros/basics/lesson-05/img_109_269.webp)
-
-
 ROS2 실습
 URDF 파일pan-tilt 로봇– link - joint 예
 <link name="base_link">
@@ -1508,12 +1255,6 @@ URDF 파일pan-tilt 로봇– link - joint 예
 <link name="pan_link">
 중간 생략
 </link>
-
-
-![Image 270](../../assets/images/ros/basics/lesson-05/img_110_270.webp)
-
-
-![Image 271](../../assets/images/ros/basics/lesson-05/img_110_271.webp)
 
 
 ROS2 실습
@@ -1545,9 +1286,6 @@ URDF 파일pan-tilt 로봇– link 상세
   </link>
 
 
-![Image 272](../../assets/images/ros/basics/lesson-05/img_111_272.webp)
-
-
 ROS2 실습
 URDF 파일pan-tilt 로봇– joint 상세
 <joint name="pan_joint" type="revolute">
@@ -1558,9 +1296,6 @@ URDF 파일pan-tilt 로봇– joint 상세
     <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
     <dynamics damping="50" friction="1"/>
   </joint>
-
-
-![Image 273](../../assets/images/ros/basics/lesson-05/img_112_273.webp)
 
 
 수고하셨습니다.

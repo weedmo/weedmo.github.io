@@ -108,8 +108,6 @@ ros2 bag record -o real_data /real_scan /real_odom
 참고
 https://github.com/ROBOTIS-GIT/turtlebot3_autorace_2020
 
-![Image 14](../../assets/images/ros/projects/autonomous-driving/img_010_014.webp)
-
 
 디지털 트윈, 자율 주행
 참고
@@ -279,11 +277,6 @@ turtlebot3_autorace_detect/param/lane/에 있는 lane.yaml 파일을 열고 수�
 메라가 향후 실행에 수정된 매개변수를 사용합니다.
 $ cd ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_detect/param/lane
 
-![Image 37](../../assets/images/ros/projects/autonomous-driving/img_026_037.webp)
-
-
-![Image 38](../../assets/images/ros/projects/autonomous-driving/img_026_038.webp)
-
 
 디지털 트윈, 자율 주행
 참고
@@ -398,5 +391,4 @@ ODE를 사용할 경우:
 
 참고
 수고하셨습니다.
-
 

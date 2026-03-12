@@ -399,7 +399,7 @@ RVIZ2 시각화 예시
 참고
 
 3. setup.py
-두 폴더가 컴 파일에 포함될 수 있도록 'src/urdf_tutorial/setup.py'를 아래와 같이 편집
+두 폴더가 컴파일에 포함될 수 있도록 'src/urdf_tutorial/setup.py'를 아래와 같이 편집
 import os
 from glob import glob
 from setuptools import setup
@@ -493,8 +493,8 @@ parameters=[params])
 프로젝트 기초
 참고
 
-6. 빌 드 및 소싱
-첫 번째 터미널에서 아래 명령을 실행해서 컴 파일 및 ‘robot_1.launch.py’ 파일을 실행
+6. 빌드 및 소싱
+첫 번째 터미널에서 아래 명령을 실행해서 컴파일 및 ‘robot_1.launch.py’ 파일을 실행
 
 7. 두 번째 터미널에서 아래 명령을 실행해서 Rviz를 실행
 $ cd ~/ws_urdf
@@ -613,8 +613,6 @@ Frame을 기준으로 조인트 사이의 위치 관계를 상대적인 값들�
 URDF에서는 <origin> 태그가 자주 등장하는데, 링크와 조인트에서 사용하는 의미가 조금 다르다.
  프레임(Frame)
 link의 origin이 기준 좌표(Frame)가 되는데, 바로 앞에 연결되어 있는 조인트의 좌표를 사용
-
-![Image 84](../../assets/images/ros/projects/rviz2/img_040_084.webp)
 
 
 로봇description
@@ -984,13 +982,6 @@ URDF의 로봇 정보와 joint_state 토픽 정보 활용
 /joint_states (sensor_msgs/JointState) :
  시스템에 있는 모든 움직이는 조인트 상태 값
 
-![Image 116](../../assets/images/ros/projects/rviz2/img_058_116.webp)
-
-
-![Image 117](../../assets/images/ros/projects/rviz2/img_058_117.webp)
-
-![Image 120](../../assets/images/ros/projects/rviz2/img_058_120.webp)
-
 
 주제2.1 기초
 참고
@@ -1009,8 +1000,6 @@ $ check_urdf
 $ urdf_to_graphiz
 ~/robot_ws/src/testbot_description/urdf/testbot.urdf
 
-![Image 123](../../assets/images/ros/projects/rviz2/img_059_123.webp)
-
 
 SLAM
 참고
@@ -1020,7 +1009,7 @@ SLAM
 참고
 패키지 생성 및 준비
 
-1. car_tutorial package 생성 및 빌 드
+1. car_tutorial package 생성 및 빌드
 2. 다음 4개의 폴더를 생성
 $ mkdir –p ~/car_ws/src
 $ cd ~/car_ws/src/
@@ -1035,8 +1024,8 @@ $ mkdir urdf launch config world
 
 3. package.xml 파일 편집
 
-- ROS 2 빌 드 시스템과 패키지 관리자에게 필요한 모든 정보를 제공
-- 패키지 간의 의존성을 해결하고, 빌 드 순서를 결정하며, 패키지에 대한 메타 데이터를 제공 •빌 드 의존성: <build_depend> •실행 의존성: <exec_depend> •빌 드 및 실행 의존성: <depend> src/car_tutorial/package.xml 자동차 연동 시뮬레이션 참고 패키지 메타 데이터 종속성 정의 Python의 setuptools를 사용하여 패키지의 메타 데이터와 종속성 정의 src/car_tutorial/setup.py •패키지 정보 정의 •이름, 버전, 설명 등의 메타 데이터를 지정 •종속성 선언 •패키지가 필요로 하는 다른 ROS 2 패키지나 Python 라이브러리를 명시 •설치 대상 지정 •실행 파일, Python 모듈, 데이터 파일 등 패키지에 포함될 항목들을 정의 •빌 드 설정 •컴 파일이 필요한 경우 빌 드 프로세스를 구성 이 파일은 colcon 빌 드 시스템에 의해 사용되어 패키지를 올바르게 빌 드하고 설치 ROS 2 개발에서 setup.py는 package.xml과 함께 패키지 구성의 핵심 요소 자동차 연동 시뮬레이션 참고 자동차 모델링 src/car_tutorial/urdf/car.xacro <?xml version="1.0"?> <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="urdf_tutorial"> <!-- COLOR --> <material name="white"> <color rgba="1 1 1 1" /> </material> <material name="blue"> <color rgba="0 0 1 1"/> </material> <material name="black"> <color rgba="0 0 0 1"/> </material> <material name="red"> <color rgba="1 0 0 1"/> </material> <!-- BASE LINK --> <link name="base_link"> </link> <!-- LEFT WHEEL LINK --> <joint name="left_wheel_joint" type="continuous"> <parent link="base_link"/> <child link="left_wheel"/> <origin xyz="0 0.065 0" rpy="-${pi/2} 0 0" /> <axis xyz="0 0 1"/> </joint> <link name="left_wheel"> <visual> <geometry> <cylinder radius="0.03" length="0.03"/> </geometry> <material name="blue"/> </visual> <collision> <geometry> <cylinder radius="0.03" length="0.03"/> </geometry> </collision> </link> <!-- RIGHT WHEEL LINK --> <joint name="right_wheel_joint" type="continuous"> <parent link="base_link"/> <child link="right_wheel"/> <origin xyz="0 -0.065 0" rpy="${pi/2} 0 0" /> <axis xyz="0 0 -1"/> </joint> <link name="right_wheel"> <visual> <geometry> <cylinder radius="0.03" length="0.03"/> </geometry> <material name="blue"/> </visual> <collision> <geometry> <cylinder radius="0.03" length="0.03"/> </geometry> </collision> </link> <!-- BODY LINK --> <joint name="body_joint" type="fixed"> <parent link="base_link"/> <child link="body"/> <origin xyz="-0.12 0 0"/> </joint> <link name="body"> <visual> <origin xyz="0.1 0 0.03"/> <geometry> <box size="0.2 0.1 0.06"/> </geometry> <material name="white"/> </visual> <collision> <origin xyz="0.1 0 0.03"/> <geometry> <box size="0.2 0.1 0.06"/> </geometry> </collision> </link> <!-- CASTER WHEEL LINK --> <joint name="caster_wheel_joint" type="fixed"> <parent link="body"/> <child link="caster_wheel"/> <origin xyz="0.03 0 0"/> </joint> <link name="caster_wheel"> <visual> <geometry> <sphere radius="0.03"/> </geometry> <material name="black"/> </visual> <collision> <geometry> <sphere radius="0.03"/> </geometry> </collision> </link> <!-- CAMERA --> <joint name="camera_joint" type="fixed"> <parent link="body"/> <child link="camera_link"/> <origin xyz="0.20 0 0.03" rpy="0 0 0"/> </joint> <link name="camera_link"> <visual> <geometry> <box size="0.01 0.03 0.03"/> </geometry> <material name="red"/> </visual> <collision> <geometry> <box size="0.01 0.03 0.03"/> </geometry> </collision> </link> <joint name="camera_optical_joint" type="fixed"> <parent link="camera_link"/> <child link="camera_link_optical"/> <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/> </joint> <link name="camera_link_optical"> </link> </robot>
+- ROS 2 빌드 시스템과 패키지 관리자에게 필요한 모든 정보를 제공
+- 패키지 간의 의존성을 해결하고, 빌드 순서를 결정하며, 패키지에 대한 메타 데이터를 제공 •빌드 의존성: <build_depend> •실행 의존성: <exec_depend> •빌드 및 실행 의존성: <depend> src/car_tutorial/package.xml 자동차 연동 시뮬레이션 참고 패키지 메타 데이터 종속성 정의 Python의 setuptools를 사용하여 패키지의 메타 데이터와 종속성 정의 src/car_tutorial/setup.py •패키지 정보 정의 •이름, 버전, 설명 등의 메타 데이터를 지정 •종속성 선언 •패키지가 필요로 하는 다른 ROS 2 패키지나 Python 라이브러리를 명시 •설치 대상 지정 •실행 파일, Python 모듈, 데이터 파일 등 패키지에 포함될 항목들을 정의 •빌드 설정 •컴파일이 필요한 경우 빌드 프로세스를 구성 이 파일은 colcon 빌드 시스템에 의해 사용되어 패키지를 올바르게 빌드하고 설치 ROS 2 개발에서 setup.py는 package.xml과 함께 패키지 구성의 핵심 요소 자동차 연동 시뮬레이션 참고 자동차 모델링 src/car_tutorial/urdf/car.xacro <?xml version="1.0"?> <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="urdf_tutorial"> <!-- COLOR --> <material name="white"> <color rgba="1 1 1 1" /> </material> <material name="blue"> <color rgba="0 0 1 1"/> </material> <material name="black"> <color rgba="0 0 0 1"/> </material> <material name="red"> <color rgba="1 0 0 1"/> </material> <!-- BASE LINK --> <link name="base_link"> </link> <!-- LEFT WHEEL LINK --> <joint name="left_wheel_joint" type="continuous"> <parent link="base_link"/> <child link="left_wheel"/> <origin xyz="0 0.065 0" rpy="-${pi/2} 0 0" /> <axis xyz="0 0 1"/> </joint> <link name="left_wheel"> <visual> <geometry> <cylinder radius="0.03" length="0.03"/> </geometry> <material name="blue"/> </visual> <collision> <geometry> <cylinder radius="0.03" length="0.03"/> </geometry> </collision> </link> <!-- RIGHT WHEEL LINK --> <joint name="right_wheel_joint" type="continuous"> <parent link="base_link"/> <child link="right_wheel"/> <origin xyz="0 -0.065 0" rpy="${pi/2} 0 0" /> <axis xyz="0 0 -1"/> </joint> <link name="right_wheel"> <visual> <geometry> <cylinder radius="0.03" length="0.03"/> </geometry> <material name="blue"/> </visual> <collision> <geometry> <cylinder radius="0.03" length="0.03"/> </geometry> </collision> </link> <!-- BODY LINK --> <joint name="body_joint" type="fixed"> <parent link="base_link"/> <child link="body"/> <origin xyz="-0.12 0 0"/> </joint> <link name="body"> <visual> <origin xyz="0.1 0 0.03"/> <geometry> <box size="0.2 0.1 0.06"/> </geometry> <material name="white"/> </visual> <collision> <origin xyz="0.1 0 0.03"/> <geometry> <box size="0.2 0.1 0.06"/> </geometry> </collision> </link> <!-- CASTER WHEEL LINK --> <joint name="caster_wheel_joint" type="fixed"> <parent link="body"/> <child link="caster_wheel"/> <origin xyz="0.03 0 0"/> </joint> <link name="caster_wheel"> <visual> <geometry> <sphere radius="0.03"/> </geometry> <material name="black"/> </visual> <collision> <geometry> <sphere radius="0.03"/> </geometry> </collision> </link> <!-- CAMERA --> <joint name="camera_joint" type="fixed"> <parent link="body"/> <child link="camera_link"/> <origin xyz="0.20 0 0.03" rpy="0 0 0"/> </joint> <link name="camera_link"> <visual> <geometry> <box size="0.01 0.03 0.03"/> </geometry> <material name="red"/> </visual> <collision> <geometry> <box size="0.01 0.03 0.03"/> </geometry> </collision> </link> <joint name="camera_optical_joint" type="fixed"> <parent link="camera_link"/> <child link="camera_link_optical"/> <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/> </joint> <link name="camera_link_optical"> </link> </robot>
 
 자동차 연동 시뮬레이션
 참고
@@ -1112,7 +1101,7 @@ IncludeLaunchDescription(
 
 자동차 연동 시뮬레이션
 참고
-빌 드 및 실행
+빌드 및 실행
 $ cd ~/ws_car/
 $ colcon build --symlink-install
 $ source install/setup.bash
@@ -1304,7 +1293,7 @@ ODOM,TF 발행
 -오도메트리 상태 변수(x, y, theta, 왼쪽/오른쪽 틱)를 초기화합니다.
 -왼쪽과 오른쪽 휠 인 코 더 틱을 구독합니다.
 -오도메 트리 메시지를 발행할 퍼블리셔 를 생성합니다.
--TF 브로드 캐스터를 설정합니다.
+-TF 브로드캐스터를 설정합니다.
 -오도메트리 발행을 위한 타이머를 생성합니다.
 -콜백 함수(left_callback, right_callback)에서 인 코 더 틱 정보를 저장합니다.
 -각 휠의 이동 거리를 계산합니다.
@@ -1312,7 +1301,7 @@ ODOM,TF 발행
 -로봇의 위치와 방향을 업데이트합니다.
 -오일러 각을 쿼터 니 언으로 변환합니다.
 -Odometry 메시지를 생성하고 발행합니다.
--TF(Transform) 메시지를 생성하고 브로드 캐스트합니다.
+-TF(Transform) 메시지를 생성하고 브로드캐스트합니다.
 -인 코 더 틱을 리셋합니다.
 pip install transforms3d
 package.xml에 필요한 의존성을 추가합니다:
@@ -1321,7 +1310,7 @@ xmlCopy<depend>std_msgs</depend>
 <depend>geometry_msgs</depend>
 <depend>tf2_ros</depend>
 -setup.py에 엔트리 포인트를 추가합니다.
--패키지를 빌 드하고 소스합니다.
+-패키지를 빌드하고 소스합니다.
 시작 지점으로부터 로봇의 상대적 위치 추정
 휠 인 코 더 정보나 관성 측정 센서 기반으로 추정
 다른 노드가 이 정보를 사용하여 로봇의 위치를 추적하거나 내비게이션에 활용
@@ -1468,11 +1457,6 @@ class FakeDriver(Node):
 가상 자동차 만들기
 src/car_tutorial/setup.py'의 console_scripts 부분에 아래 내용을 추가
 'src/car_tutorial/launch/fake.launch.py' 파일 수정
-
-![Image 155](../../assets/images/ros/projects/rviz2/img_081_155.webp)
-
-
-![Image 156](../../assets/images/ros/projects/rviz2/img_081_156.webp)
 
 
 자동차 연동 시뮬레이션
@@ -1653,8 +1637,6 @@ rclcpp::init(0, nullptr);
 }
 CMake 설정
 
-![Image 180](../../assets/images/ros/projects/rviz2/img_094_180.webp)
-
 
 자동차 연동 시뮬레이션
 참고
@@ -1710,8 +1692,6 @@ IMU 센서를 포함한 예제
 <odometry_frame>odom</odometry_frame>
 <robot_base_frame>base_link</robot_base_frame>
 </plugin>
-
-![Image 184](../../assets/images/ros/projects/rviz2/img_097_184.webp)
 
 
 ![Image 185](../../assets/images/ros/projects/rviz2/img_097_185.webp)
@@ -2113,7 +2093,7 @@ MoveIt Setup Assistant
 -로봇의 조인트와 링크들을 그룹으로 묶어서 모션 플래닝을 위한 그룹을 설정합니다.
 -예를 들어, 로봇 팔의 여러 조인트를 하나의 그룹으로 묶을 수 있습니다.
 -End Effectors 설정
--로봇의 말단 장치(예: 그리 퍼 또는 툴)를 설정합니다.
+-로봇의 말단 장치(예: 그리퍼 또는 툴)를 설정합니다.
 -Virtual Joints 설정
 -로봇 베이스의 가상 관절을 설정하여 이동 가능한 로봇의 경우를 고려합니다
 -(예: 로봇이 이동할 때 베이스의 가상 조인트를 추가).
@@ -2280,7 +2260,7 @@ moveit setup assistant
 Moveit2
 참고
 moveit setup assistant
-그리 퍼 계획 그룹 추가
+그리퍼 계획 그룹 추가
 Add Group을 클릭하여 그리퍼를 정의.
 그룹 이름으로 gripper를 입력하고, Kinematic Solver의 경우 None을 그대로 두고 Add Joints를 클릭.
 robotiq_85_left_knuckle_joint를 선택하고 오른쪽을 가리키는 화살표를 클릭하여 조인트가 오른쪽 열 추가
@@ -2308,7 +2288,7 @@ Moveit2
 참고
 moveit setup assistant
 로봇 포즈
-그리 퍼를 정의하려면 End Effectors 탭으로 전환하고 Add End Effector를 클릭
+그리퍼를 정의하려면 End Effectors 탭으로 전환하고 Add End Effector를 클릭
 이름을 robotiq_gripper로 지정하고 아래 그림과 같이 Group, Parent Link, Parent Group을 선택
 
 ![Image 233](../../assets/images/ros/projects/rviz2/img_132_233.webp)
@@ -2409,7 +2389,7 @@ Description)을 정의하는 파일입니다. xacro 포맷을 사용하여 SRDF�
         <joint name="joint3" value="1.57"/>
         <joint name="joint4" value="0"/>
     </group_state>
- <!-- END EFFECTOR: 그리 퍼 정의 -->
+ <!-- END EFFECTOR: 그리퍼 정의 -->
     <end_effector name="gripper" parent_link="end_effector_link"
 group="gripper"/>
  <!-- DISABLE COLLISIONS: 충돌 체크에서 제외할 링크 쌍들 -->
@@ -2453,7 +2433,7 @@ def generate_launch_description():
 -RViz2를 실행하면 Motion Planning 패널의 "Select Start State" 드롭 다운 메뉴에서 새로 추가한
 "home" 상태를 선택할 수 있습니다.
 주의 사항:
--SRDF 파일을 수정한 후에는 로봇 설정을 다시 빌 드해야할 수 있습니다
+-SRDF 파일을 수정한 후에는 로봇 설정을 다시 빌드해야할 수 있습니다
 -joint 값들은 로봇의 실제 제한 값 내에 있어야합니다
 -group name은 반드시 SRDF에 정의된 planning group과 일치해야합니다
 RViz2에서 직접 상태를 저장하려면:
@@ -2839,12 +2819,9 @@ AHRS는 Attitude and Heading Reference System의 약자로, 세 축으로 나타
 기계 센서가 MEMS(microelectromechanical systems)로 실리콘 기판 위에 집적화된 것이다.
 3축 gyroscope(16bit), 3축 acclerometer(16bit), 3축 magnetometer(13bit)로 이루어진 AHRS로, USB 포트에 꽂
 아 사용한다.
-해당 기기는 축으로 NED 타입을 사용하여, IMU에선 자 북에 대해 x(north), y(east), z(down)으로 표기한다.
+해당 기기는 축으로 NED 타입을 사용하여, IMU에 선 자 북에 대해 x(north), y(east), z(down)으로 표기한다.
 
 ![Image 272](../../assets/images/ros/projects/rviz2/img_155_272.webp)
-
-
-![Image 273](../../assets/images/ros/projects/rviz2/img_155_273.webp)
 
 
 주제2.1 기초
@@ -2866,8 +2843,6 @@ $ sudo chmod 777 /dev/tty*
 만약 포트 관련 에러가 난다면 myahrs_driver.launch 파일의 파라미터에서
 포트 이름을 위에서 조회한 이름(ttyACM1 등)으로 변경해 주어야한다.
 $ roslaunch myahrs_driver myahrs_driver.launch # lauch 파일로, Rviz도 함께 실행.
-
-![Image 275](../../assets/images/ros/projects/rviz2/img_156_275.webp)
 
 
 주제2.1 기초
@@ -3011,8 +2986,6 @@ $ git clone https://github.com/YDLIDAR/ydlidar_ros2_driver.git
 $ cd ~/ros2_ws
 $ colcon build --symlink-install
 
-![Image 287](../../assets/images/ros/projects/rviz2/img_163_287.webp)
-
 
 라이다 센서 실습
 참고
@@ -3050,7 +3023,7 @@ $ ll /dev/rp*
 $ /dev/rplidar -> ttyUSB1
 
 2. Slamtec rplidar_ros 설치
-rplidar_ros github에서 ros2 branch를 다운로드한 후 빌 드합니다.
+rplidar_ros github에서 ros2 branch를 다운로드한 후 빌드합니다.
 $ cd ~/ros2_ws/src
 $ git clone -b ros2
 https://github.com/Slamtec/rplidar_ros.git
@@ -3150,5 +3123,4 @@ class WorkerThread(QThread):
 주제2.1 기초
 참고
 수고하셨습니다.
-
 

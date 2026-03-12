@@ -1,36 +1,18 @@
-# 강의_3기_ROS2입문_2차시
-
-
-ROS2 프로그래밍 입문(2차시)
-
-2. 인터페이스 패키지
+# ROS2 입문 2차시 - 인터페이스 패키지
 
 
 ## 인터페이스패키지
-1. Python을 이용한 패키지 생성 실습
-2. 인터페이스 패키지
-3. 인터페이스 패키지 설계
-Python을 이용한 패키지 생성 실습
 
 ## Python을이용한패키지생성- 실습
 - ​Python으로publisher와subscriber node를 생성하고 실행하기 → Topic상으로message를전송/수신하는 역할(talker/listener)
 
 
-Python을 이용한 패키지 생성 실습
-
 ## Package 생성
-1. ros2_ws/src 디렉토리 생성
-2. py_pubsub package를생성
-3. 생성된Package 확인
-4. Tree를 이용한 내부 구조 확인
 
 
-![Image 2](../../assets/images/ros/intro/lesson-02/img_004_002.webp)
+!!! tip "소스코드 참조"
+    이 코드의 전체 내용은 [Pub/Sub & QoS 전체 소스코드](../code-ref/pubsub-qos.md) 페이지에서 확인할 수 있습니다.
 
-![Image 4](../../assets/images/ros/intro/lesson-02/img_004_004.webp)
-
-
-Python을 이용한 패키지 생성 실습
 
 ## Publisher 다운로드(샘플Package source code 다운로드)
 1.
@@ -38,18 +20,9 @@ Python을 이용한 패키지 생성 실습
 
 3. 파일 생성 확인
 
-![Image 10](../../assets/images/ros/intro/lesson-02/img_005_010.webp)
-
-
-Python을 이용한 패키지 생성 실습
 
 ## Publisher Code 분석
 
-
-![Image 11](../../assets/images/ros/intro/lesson-02/img_006_011.webp)
-
-
-Python을 이용한 패키지 생성 실습
 
 ## 패키지소스분석
 라이브러리 임 포트
@@ -61,10 +34,6 @@ Python을 이용한 패키지 생성 실습
 - 0.5초마다timer_callback 함수를 호출하는 타이 머를 설정 MinimalPublisher 클래스 정의
 - Node 클래스를 상속받아ROS2 노드를 정의
 
-![Image 14](../../assets/images/ros/intro/lesson-02/img_007_014.webp)
-
-
-Python을 이용한 패키지 생성 실습
 
 ## 패키지소스분석
 - timer_callback 함수 1. 이 콜백 함수는 타이머에 의해 주기적으로 호출 2. 'Hello World: [count]' 형식의 메시지를 생성하고 해당 메시지를 발행 3. 또한 해당 메시지를로 깅하여 화면에 출력
@@ -74,16 +43,11 @@ Python을 이용한 패키지 생성 실습
 - 메인 실행
 - 스크립트가 직접 실행되면main() 함수를 호출하여 위의 모든 로직을 시작 →요약하면, 이 코드는'Hello World: [count]' 형식의 메시지를0.5초마다'topic'이라는 토픽으로 발행하는 간단한ROS2 Publisher 노드를 정의하고 실행
 
-Python을 이용한 패키지 생성 실습
 
 ## 의존성추가
 - Package.xml 의존성(dependencies) 추가
 - ros2_ws/src/py_pubsub 디렉토리로 아래 하이라이트된 파일들에 대하여 작업 필요
 
-![Image 17](../../assets/images/ros/intro/lesson-02/img_009_017.webp)
-
-
-Python을 이용한 패키지 생성 실습
 
 ## 의존성추가
 - Python을 이용한 패키지 생성 실습
@@ -94,24 +58,14 @@ Python을 이용한 패키지 생성 실습
 - 해당 패키지가 실행될 때rclpy 라이브러리에 의존한다는 것을 나타냄(즉, python을 사용한ROS2 노드를 실행하는 데 필요한 라이브러리)
 - std_msgs: ROS에서 기본적으로 제공하는 메시지 타입들의 모음ex) String, Int32, Float64 등
 - 해당 패키지가 실행될 때std_msgs 메시지 라이브러리에 의존한다는 것을 나타냄
-- 이러한 의존성은 패키지를 빌 드하거나 실행할 때 필요한 외부 패키지나 라이브러리를ROS 빌 드 도구에게 알려 주는 역할 따라서ROS 빌 드 도구는 이 정보를 사용하여 필요한 의존성을 먼저 설치하거나 빌 드할 수 있음
+- 이러한 의존성은 패키지를 빌드하거나 실행할 때 필요한 외부 패키지나 라이브러리를ROS 빌드 도구에게 알려 주는 역할 따라서ROS 빌드 도구는 이 정보를 사용하여 필요한 의존성을 먼저 설치하거나 빌드할 수 있음
 
 ## Package.xml  설정
 
 
-![Image 20](../../assets/images/ros/intro/lesson-02/img_011_020.webp)
-
-![Image 22](../../assets/images/ros/intro/lesson-02/img_011_022.webp)
-
-
-![Image 23](../../assets/images/ros/intro/lesson-02/img_011_023.webp)
-
-
-Python을 이용한 패키지 생성 실습
-
 ## Package.xml 설정
 - test_depend
-- <test_depend> 태그는 빌 드 및 실행 과정 중이 아닌 테스트 단계에서만 필요한 종속성을 지정
+- <test_depend> 태그는 빌드 및 실행 과정 중이 아닌 테스트 단계에서만 필요한 종속성을 지정
 - 이는 패키지 개발 시 테스트 자동화를 위한 환경 구성에 필수적
 - ament_copyright
 - 이 도구는 소스 코드 파일 내에 적절한 저작권 고지 및 라이센스 헤더가 포함되어 있는지 검사
@@ -127,8 +81,6 @@ Python을 이용한 패키지 생성 실습
 - 이 종속성은 테스트를 정의하고 실행하는 데 필요하며, 다양한 테스트 케이스를 쉽게 작성하고 실행할 수 있게해 줌
 - pytest는 테스트의 설정, 실행, 검증 및 리 포 팅 기능을 제공
 
-
-Python을 이용한 패키지 생성 실습
 
 ## 의존성추가
 - Python을 이용한 패키지 생성 실습
@@ -151,35 +103,17 @@ Python을 이용한 패키지 생성 실습
 - 이러한 방식을 통해ROS2는Python 스크립트를 바로 실행할 수 있는 실행 가능한 커맨드를 제공
 
 
-Python을 이용한 패키지 생성 실습
-
 ## setup.py 설정
 - setuptool이 실행될 때lib 내에 실행 자를 넣으라고 지시
 - 결국‘ros2 run’ 실행시, path를 제대로 찾게해 주는 역할
 
 
-![Image 28](../../assets/images/ros/intro/lesson-02/img_016_028.webp)
-
-
-![Image 29](../../assets/images/ros/intro/lesson-02/img_016_029.webp)
-
-
-Python을 이용한 패키지 생성 실습
-
 ## Subscriber 다운로드
 - 새node를 생성하기 위해서ros2_ws/src/py_pubsub/py_pubsub로 이동하고 아래 명령 실행 1. 2. 3. 4.
 
-![Image 31](../../assets/images/ros/intro/lesson-02/img_017_031.webp)
-
-![Image 33](../../assets/images/ros/intro/lesson-02/img_017_033.webp)
-
-![Image 35](../../assets/images/ros/intro/lesson-02/img_017_035.webp)
-
-Python을 이용한 패키지 생성 실습
 
 ## Subscriber code 분석
 
-Python을 이용한 패키지 생성 실습
 
 ## Subscriber code 분석
 - Imports
@@ -199,8 +133,6 @@ Python을 이용한 패키지 생성 실습
 2. 수신된 메시지의 내용을 로그에 출력
 
 
-Python을 이용한 패키지 생성 실습
-
 ## Subscriber code 분석
 - main 함수
 - ROS2를 초기화
@@ -213,48 +145,22 @@ Python을 이용한 패키지 생성 실습
 - 전반적으로 이 코드는ROS2를 사용하여'topic'이라는 토픽에서String 메시지를 구독하고, 해당 메시지의 내용을 로그에 출력하는 간단한 구독자 노드를 구현
 
 
-Python을 이용한 패키지 생성 실습
-
 ## Subscriber node 작성
 - Setup.py 수정
 - console_script에listener 내용 추가
 
-![Image 40](../../assets/images/ros/intro/lesson-02/img_021_040.webp)
-
-
-Python을 이용한 패키지 생성 실습
 
 ## Subscriber node 작성
 - Setup.py 전체 코드
 
-![Image 42](../../assets/images/ros/intro/lesson-02/img_022_042.webp)
-
-
-Python을 이용한 패키지 생성 실습
 
 ## 빌드및실행하기
 - 의존성 체크
 - 새package 빌드
 
 
-![Image 43](../../assets/images/ros/intro/lesson-02/img_023_043.webp)
-
-![Image 45](../../assets/images/ros/intro/lesson-02/img_023_045.webp)
-
-
-![Image 46](../../assets/images/ros/intro/lesson-02/img_023_046.webp)
-
-
-Python을 이용한 패키지 생성 실습
 - install/setup.bash를source 수행
 - 새로운 터미널을 열어서 입력
-
-![Image 48](../../assets/images/ros/intro/lesson-02/img_024_048.webp)
-
-
-![Image 52](../../assets/images/ros/intro/lesson-02/img_024_052.webp)
-
-![Image 54](../../assets/images/ros/intro/lesson-02/img_024_054.webp)
 
 
 토픽, 서비스, 액션 인터페이스
@@ -278,12 +184,10 @@ Python을 이용한 패키지 생성 실습
 토픽, 서비스, 액션 인터페이스
 인터페이스 패키지 생성
 - 아래3개의 폴더 및 파일을 생성
-- 파일 명은 반드시 카멜 케이스(CamelCase)만 사용, 만약 첫 문자가 소문자일 경우 빌 드 시 오류 발생
+- 파일 명은 반드시 카멜 케이스(CamelCase)만 사용, 만약 첫 문자가 소문자일 경우 빌드 시 오류 발생
 - msg/MyMsg.msg
 - srv/MySrv.srv
 - action/MyAction.action
-
-![Image 59](../../assets/images/ros/intro/lesson-02/img_027_059.webp)
 
 
 토픽, 서비스, 액션 인터페이스
@@ -293,11 +197,6 @@ Python을 이용한 패키지 생성 실습
 - srv/MySrv.srv
 - action/MyAction.action
 
-
-![Image 60](../../assets/images/ros/intro/lesson-02/img_028_060.webp)
-
-
-![Image 61](../../assets/images/ros/intro/lesson-02/img_028_061.webp)
 
 토픽, 서비스, 액션 인터페이스
 인터페이스 패키지 생성
@@ -314,8 +213,6 @@ Python을 이용한 패키지 생성 실습
 
 ## Package.xml 파일수정
 
-![Image 66](../../assets/images/ros/intro/lesson-02/img_030_066.webp)
-
 
 토픽, 서비스, 액션 인터페이스
 인터페이스 패키지 생성
@@ -325,7 +222,7 @@ Python을 이용한 패키지 생성 실습
 
 ![Image 67](../../assets/images/ros/intro/lesson-02/img_031_067.webp)
 
-![Image 69](../../assets/images/ros/intro/lesson-02/img_031_069.webp)
+
 
 
 토픽, 서비스, 액션 인터페이스
@@ -333,15 +230,6 @@ Python을 이용한 패키지 생성 실습
 
 ## 빌드
 
-![Image 71](../../assets/images/ros/intro/lesson-02/img_032_071.webp)
-
-
-토픽, 서비스, 액션 인터페이스
-인터페이스 패키지 생성
-
-## 빌드결과
-
-![Image 73](../../assets/images/ros/intro/lesson-02/img_033_073.webp)
 
 토픽, 서비스, 액션 인터페이스
 인터페이스 패키지 생성
@@ -349,7 +237,10 @@ Python을 이용한 패키지 생성 실습
 ## 빌드결과
 
 
-![Image 76](../../assets/images/ros/intro/lesson-02/img_034_076.webp)
+토픽, 서비스, 액션 인터페이스
+인터페이스 패키지 생성
+
+## 빌드결과
 
 
 토픽, 서비스, 액션 인터페이스 실습
@@ -365,8 +256,6 @@ Python을 이용한 패키지 생성 실습
 ## package.xml
 - Package.xml에 앞에 생성한 인터페이스 패키지 추가
 
-![Image 81](../../assets/images/ros/intro/lesson-02/img_037_081.webp)
-
 
 토픽, 서비스, 액션 인터페이스 실습
 
@@ -376,12 +265,6 @@ Python을 이용한 패키지 생성 실습
 ## 빌드및실행
 터미널- 1
 터미널- 2
-
-![Image 85](../../assets/images/ros/intro/lesson-02/img_039_085.webp)
-
-![Image 87](../../assets/images/ros/intro/lesson-02/img_039_087.webp)
-
-![Image 89](../../assets/images/ros/intro/lesson-02/img_039_089.webp)
 
 
 토픽, 서비스, 액션 인터페이스
@@ -435,7 +318,6 @@ Python을 이용한 패키지 생성 실습
 
 ![Image 96](../../assets/images/ros/intro/lesson-02/img_044_096.webp)
 
-![Image 98](../../assets/images/ros/intro/lesson-02/img_044_098.webp)
 
 토픽, 서비스, 액션 인터페이스
 
@@ -446,21 +328,6 @@ ArithmeticArgument.msg
 ArithmeticOperator.srv
 
 
-![Image 100](../../assets/images/ros/intro/lesson-02/img_045_100.webp)
-
-
-![Image 101](../../assets/images/ros/intro/lesson-02/img_045_101.webp)
-
-
-![Image 102](../../assets/images/ros/intro/lesson-02/img_045_102.webp)
-
-
-![Image 103](../../assets/images/ros/intro/lesson-02/img_045_103.webp)
-
-
-![Image 104](../../assets/images/ros/intro/lesson-02/img_045_104.webp)
-
-
 토픽, 서비스, 액션 인터페이스
 
 ## 설정
@@ -468,21 +335,9 @@ Package.xml
 Setup.py
 
 
-![Image 105](../../assets/images/ros/intro/lesson-02/img_046_105.webp)
-
-
-![Image 106](../../assets/images/ros/intro/lesson-02/img_046_106.webp)
-
-
 토픽, 서비스, 액션 인터페이스
 
 ## 파라미터
-
-
-![Image 107](../../assets/images/ros/intro/lesson-02/img_047_107.webp)
-
-
-![Image 108](../../assets/images/ros/intro/lesson-02/img_047_108.webp)
 
 
 토픽, 서비스, 액션 인터페이스
@@ -490,28 +345,14 @@ Setup.py
 ## 빌드
 
 
-![Image 109](../../assets/images/ros/intro/lesson-02/img_048_109.webp)
-
 토픽, 서비스, 액션 인터페이스
 
 ## 실행
 
 
-![Image 111](../../assets/images/ros/intro/lesson-02/img_049_111.webp)
-
-
-![Image 112](../../assets/images/ros/intro/lesson-02/img_049_112.webp)
-
-
 토픽, 서비스, 액션 인터페이스
 
 ## 실행
-
-
-![Image 113](../../assets/images/ros/intro/lesson-02/img_050_113.webp)
-
-
-![Image 114](../../assets/images/ros/intro/lesson-02/img_050_114.webp)
 
 
 ---

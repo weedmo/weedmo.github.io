@@ -63,8 +63,6 @@ $sudo apt install -y ros-humble-gazebo-ros-pkgs
 gz sim -v 4 /path/to/your/world/file.sdf
 특정 월드로Gazebo 실행
 
-![Image 10](../../assets/images/ros/projects/gazebo/img_006_010.webp)
-
 
 가제보이해
 SDF(Simulation Description Format)
@@ -104,11 +102,6 @@ gedit ~/.gazebo/models/my_robot/model.sdf
 1. 툴바(toolbars)
 Upper Toolbar
 Bottom Toolbar
-
-![Image 22](../../assets/images/ros/projects/gazebo/img_011_022.webp)
-
-
-![Image 23](../../assets/images/ros/projects/gazebo/img_011_023.webp)
 
 
 가제보이해
@@ -264,7 +257,7 @@ building editor 에서 맵을 다 만들었다면 왼쪽 상단의File 탭에서
 가제보이해
 자동차 모델 만들기
 
-10. 저장 및 리로 드
+10. 저장 및 리 로 드
 ROS2 환경에서가 제보 모델 다음의 경로에 저장
 1.
 시스템 전체에서 접근 가능한 공용 가제 보 모델 저장소
@@ -287,8 +280,6 @@ gazebo.spawn_urdf_model('my_model', pkg_path, '', initial_pose, 'world')
 
 11. 저장된 모델을 로드
 2. launch 파일, `gazebo.spawn_sdf_model()` 또는`gazebo.spawn_urdf_model()` 함수 사용
-
-![Image 66](../../assets/images/ros/projects/gazebo/img_025_066.webp)
 
 
 메니퓨 레이 션 시뮬레이션
@@ -524,15 +515,11 @@ Gazebo는 기본적으로~/.gazebo/models/ 디렉터 리를 모델 경로로 인
 mkdir -p ~/.gazebo/models/my_custom_model
 모델 폴더 구조
 
-![Image 79](../../assets/images/ros/projects/gazebo/img_035_079.webp)
-
 
 .world vs .sdf 핵심 차이점
 .world 파일을 실행하려면ROS2의gazebo_ros 패키지를 사용합니다.
 ..
 ros2 launch gazebo_ros gzserver.launch.py world:=/absolute/path/to/my_world.world
-
-![Image 81](../../assets/images/ros/projects/gazebo/img_036_081.webp)
 
 
 ..
@@ -706,11 +693,6 @@ SDF
 Sdf 만들기 실습
 world, static, dynamic 객체
 
-![Image 91](../../assets/images/ros/projects/gazebo/img_045_091.webp)
-
-
-![Image 92](../../assets/images/ros/projects/gazebo/img_045_092.webp)
-
 
 ![Image 93](../../assets/images/ros/projects/gazebo/img_045_093.webp)
 
@@ -811,7 +793,7 @@ spawn_entity,
 )
 
 라이다 시뮬레이션
-패키지 빌 드 후가 제보 실행
+패키지 빌드 후가 제보 실행
 <material name="red">
 <color rgba="1 0 0 1"/>
 </material>
@@ -919,8 +901,6 @@ $ ros2 launch urdf_tutorial lidar.launch.py world:=src/urdf_tutorial/config/with
 -‘src/urdf_tutorial/urdf/lidar.xacro’ 파일에서‘laser_frame’의samples를360으로 변경.
 $ cd ~/Workspace/ros_ws/ $ ros2 topic echo /scan
 
-![Image 114](../../assets/images/ros/projects/gazebo/img_056_114.webp)
-
 
 카메라 시뮬레이션
 시뮬레이 선 수행하기
@@ -958,8 +938,6 @@ Gazebo는 시뮬레이션 환경 역할을 하며 현실적인 물리 및 센서
 Autodesk Fusion을 사용하여Gazebo에서 시뮬레이션
 로봇 모델을 개발하고ROS2용URDF 내보내기 기능을 사용하여URDF로 내보냈습니다.
 
-![Image 121](../../assets/images/ros/projects/gazebo/img_060_121.webp)
-
 
 Moveit2 실습
 Moveit2 실습
@@ -973,7 +951,6 @@ Moveit2 실습
 Moveit2 실습
 Moveit2 실습
 
-![Image 125](../../assets/images/ros/projects/gazebo/img_062_125.webp)
 
 Moveit2 실습
 Moveit2 실습
@@ -1002,8 +979,6 @@ Moveit2 실습
 Moveit2 실습
 Moveit2 실습
 moveit config 폴더에ros2_control 인터페이스 추가
-
-![Image 137](../../assets/images/ros/projects/gazebo/img_067_137.webp)
 
 
 가제보이해
@@ -1404,5 +1379,4 @@ turtle2_vel_pub.publish(cmd_vel);
 };
 
 수고하셨습니다.
-
 

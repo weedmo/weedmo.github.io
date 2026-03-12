@@ -1,38 +1,4 @@
-# 강의_3기_ROS2_기초_3차시
-
-
-ROS2 기초-3차시
-훈련 일정
-오전
-오후
-1차시
-
-- 로봇의 역사
-- 컴퓨터 구조(Booting, CPU 작동 원리, POST)
-- 리눅스와 운영 체계
-- 리눅스CLI 실습(디렉토리, 계정, 기본 명령어 등), Terminator, 커널, 쉘, gedit, bash
-- Application 작동 원리(마이크로프로세서, 메모리, 저장 장치)
-- 리눅스 CLI 실습 2차시
-- 리눅스 CLI 실습
-- 네트워크와 통신(IPV4, IPV6, 소켓, 노드, Hub, TCP, UDP)
-- API, Library, Framework, 프로세스와Thread
-- 인터프리터, 컴파일러(소스 코드→ Build → 실행 파일)
-- 소켓 프로그래밍 실습
-- OSI7 Layer, 프로토콜(RS-232C, RS-485, Ethernet, TCP/UDP, IP) 3차시
-- 센서 기초, IoT와Embedded
-- 로봇 기초, 좌표계
-- 로봇 센서 활용 및 로봇의 구성(기계 기구, 전기 전자, 소프트웨어)
-- ROS2 소개 및 활용
-- ROS2 설치(ros.org) 및demo_node 4차시
-- ROS2 소개 및 활용
-- ROS2 실습(Talker, Listener)
-- ROS2 패키지 설명
-- ROS2 실습(Turtlesim, teleop_key) 5차시
-- ROS2 실습(Turtlesim, Teleop_key 여러 개 만들기)
-- Topic, Service, Action, Parameter, RQT, RQT_Graph 이론 및 실습
-- ROS2 실습(Turtlesim, Namespace 여러 개 만들기)
-- Ros bag and play 실습, my first package build 실습
-- Turtlesim subscribing 실습, ROS의 중요한 개발 도구(Rviz, GAZEBO 소개)
+# ROS2 기초 3차시 - 센서와 ROS2 소개
 
 
 로봇과 센서
@@ -80,14 +46,6 @@ Processing
 
 ![Image 10](../../assets/images/ros/basics/lesson-03/img_004_010.webp)
 
-![Image 12](../../assets/images/ros/basics/lesson-03/img_004_012.webp)
-
-
-![Image 13](../../assets/images/ros/basics/lesson-03/img_004_013.webp)
-
-
-![Image 14](../../assets/images/ros/basics/lesson-03/img_004_014.webp)
-
 
 신호 체계
 4mA
@@ -118,9 +76,6 @@ PWM은 디지털 신호 중 특정한 형태를 띈 신호를 일 컷는 용어�
 
 
 ![Image 18](../../assets/images/ros/basics/lesson-03/img_006_018.webp)
-
-
-![Image 19](../../assets/images/ros/basics/lesson-03/img_006_019.webp)
 
 
 로봇과 센서
@@ -369,9 +324,6 @@ ROS는 컴퓨터(데스크탑 혹은 노트북)와 SBC 혹은 로봇에 탑재�
 ![Image 70](../../assets/images/ros/basics/lesson-03/img_019_070.webp)
 
 
-![Image 71](../../assets/images/ros/basics/lesson-03/img_019_071.webp)
-
-
 ![Image 72](../../assets/images/ros/basics/lesson-03/img_019_072.webp)
 
 
@@ -440,15 +392,12 @@ IoT (Internet of Things)의예
 - 시스템을 동작시키는 소프트웨어를 하드웨어에 내장하여 특수한 기능만을 수행하는 컴퓨터 시스템
 - 즉, 디바이스를 직접적으로 제어하는 프로그램을 말한다.
 - 디바이스를 제어하기 위해서 메모리 영역에서 리소스를 제어하는 것이 필요하여 강력한 메모리 조작 성능을 갖추고C/C++ 언어를 권장한다.
-- 또한 임 베 디 드 개발에서 메모리 리소스 영역을 제대로 정리하지 못하고 침범하면 하드웨어의 심각한 오작동을 유발할 수 있기 때문이다. 때문에 컴 파일 언어의 빌 드 동작으로 메모리 리소스를 효율적으로 확보해야한다.
+- 또한 임 베 디 드 개발에서 메모리 리소스 영역을 제대로 정리하지 못하고 침범하면 하드웨어의 심각한 오작동을 유발할 수 있기 때문이다. 때문에 컴파일 언어의 빌드 동작으로 메모리 리소스를 효율적으로 확보해야한다.
 - 그리고 기기에 탑재되는 프로그램 리소스가 제한될 수 있어 최적화는 반드시 필요하다. 파이썬으로 임 베 디 드 개발이 가능한가?
 - 일반적으로 파이썬으로 임 베 디 드 시스템을 개발하는 것은 부적절하다.
 - 이유는 파이썬의 메모리 할당되어 메모리를 사용자가 직접적으로 통제하기 어렵기 때문이다.
 - 파이썬에서는 가비지 컬렉션을 자체적으로 메모리를 관리해 주는 부분이 있어, 메모리 리소스 관리는 생소한 개념일 수 있다.
 - 하지만 고급 개발자가 되기 위해 해당 개념을 숙지하도록한다 Garbage Collection(가비지 컬렉션)은 메모리 관리 기법 중 하나로, 더 이상 사용되지 않는 메모리(즉, 객체들)를 자동으로 해제하여 메모리 누수를 방지하고 시스템의 효율적인 메모리 사용을 돕습니다.
-
-
-![Image 78](../../assets/images/ros/basics/lesson-03/img_023_078.webp)
 
 
 임베디드(Embedded)
@@ -584,9 +533,6 @@ Z축과의 각을θ라한다. 그리고 원점과 해당 좌표를 이은 선을
 ![Image 99](../../assets/images/ros/basics/lesson-03/img_034_099.webp)
 
 
-![Image 100](../../assets/images/ros/basics/lesson-03/img_034_100.webp)
-
-
 좌표계
 Gimber Lock
 
@@ -612,16 +558,10 @@ Gimber Lock
 ROS 소개 및 활용
 
 
-![Image 104](../../assets/images/ros/basics/lesson-03/img_037_104.webp)
-
-
 ROS 소개 및 활용
 
 
 ![Image 105](../../assets/images/ros/basics/lesson-03/img_038_105.webp)
-
-
-![Image 106](../../assets/images/ros/basics/lesson-03/img_038_106.webp)
 
 
 ROS 소개 및 활용
@@ -670,15 +610,6 @@ https://teamsparkx.notion.site/ROS2-1137ad24f8c04bffb7f958b8486b89f8?pvs=4
 *위 링크 참고해서 파일을 다운로드하세요.(링크에서 복사CLI 명령어 복사도 가능해요)
 
 
-![Image 114](../../assets/images/ros/basics/lesson-03/img_043_114.webp)
-
-
-![Image 115](../../assets/images/ros/basics/lesson-03/img_043_115.webp)
-
-
-![Image 116](../../assets/images/ros/basics/lesson-03/img_043_116.webp)
-
-
 ROS2 실습 설치
 
 
@@ -697,13 +628,7 @@ ROS2 실습
 ![Image 119](../../assets/images/ros/basics/lesson-03/img_046_119.webp)
 
 
-![Image 120](../../assets/images/ros/basics/lesson-03/img_046_120.webp)
-
-
 ROS2 실습
-
-
-![Image 121](../../assets/images/ros/basics/lesson-03/img_047_121.webp)
 
 
 ![Image 122](../../assets/images/ros/basics/lesson-03/img_047_122.webp)
@@ -712,31 +637,22 @@ ROS2 실습
 ROS2 실습
 
 
-![Image 123](../../assets/images/ros/basics/lesson-03/img_048_123.webp)
-
-
 ![Image 124](../../assets/images/ros/basics/lesson-03/img_048_124.webp)
 
 
 ROS2 실습
 → 실행 가능한binary 파일
 → 헤더 파일
-→ 패키지의 빌 드, 환경 설정 파일
+→ 패키지의 빌드, 환경 설정 파일
 → 소스 코드가 저장되는 디렉토리
 → 다양한 유틸리티 도구들
 → 공유 라이브러리
 → 패키지와 의존성(Dependency) 관리
-→ 빌 드 설정 파일
+→ 빌드 설정 파일
 → 환경 설정 파일들
 
 
-![Image 125](../../assets/images/ros/basics/lesson-03/img_049_125.webp)
-
-
 ROS2 실습
-
-
-![Image 126](../../assets/images/ros/basics/lesson-03/img_050_126.webp)
 
 
 ![Image 127](../../assets/images/ros/basics/lesson-03/img_050_127.webp)
@@ -755,9 +671,6 @@ ROS2 실습
 6. ./listener
 
 
-![Image 129](../../assets/images/ros/basics/lesson-03/img_051_129.webp)
-
-
 ![Image 130](../../assets/images/ros/basics/lesson-03/img_051_130.webp)
 
 
@@ -771,9 +684,6 @@ ROS2 실습
 source /opt/ros/humble/setup.bash 실행후(또는~/.bashrc 확인)
 3.
 ./turtlesim_node 실행하면 정상 실행됨
-
-
-![Image 132](../../assets/images/ros/basics/lesson-03/img_052_132.webp)
 
 
 ![Image 133](../../assets/images/ros/basics/lesson-03/img_052_133.webp)
@@ -793,9 +703,6 @@ ROS2 실습
 Echo 명령어 실행 및.bashrc 추가된 내용 확인
 2.
 Ros2 run tab + tab + tab 키입력(자동 완성되는 지 확인)
-
-
-![Image 137](../../assets/images/ros/basics/lesson-03/img_053_137.webp)
 
 
 ![Image 138](../../assets/images/ros/basics/lesson-03/img_053_138.webp)
@@ -843,9 +750,6 @@ Turtlesim 실행후node 확인
 turtle_teleop_key 실행 후 키보드로turtle움직여 보기
 
 
-![Image 149](../../assets/images/ros/basics/lesson-03/img_056_149.webp)
-
-
 ROS2 실습
 
 
@@ -856,9 +760,6 @@ ROS2 실습
 
 
 ![Image 155](../../assets/images/ros/basics/lesson-03/img_057_155.webp)
-
-
-![Image 156](../../assets/images/ros/basics/lesson-03/img_057_156.webp)
 
 
 ROS2 실습
@@ -881,9 +782,6 @@ ROS2 실습
 ROS2 실습
 
 
-![Image 157](../../assets/images/ros/basics/lesson-03/img_059_157.webp)
-
-
 ![Image 158](../../assets/images/ros/basics/lesson-03/img_059_158.webp)
 
 
@@ -893,9 +791,6 @@ ROS2 실습
 ROS2 실습
 Class, 상속, 생성자 복습
 객체(Object)와 인스턴스(Instance)
-
-
-![Image 160](../../assets/images/ros/basics/lesson-03/img_060_160.webp)
 
 
 ROS2 실습
@@ -909,13 +804,7 @@ ROS2 실습
 talker code 설명
 
 
-![Image 162](../../assets/images/ros/basics/lesson-03/img_062_162.webp)
-
-
 ROS2 실습
-
-
-![Image 163](../../assets/images/ros/basics/lesson-03/img_063_163.webp)
 
 
 ![Image 164](../../assets/images/ros/basics/lesson-03/img_063_164.webp)
@@ -932,20 +821,8 @@ ROS2 실습
 Listener code 설명
 
 
-![Image 166](../../assets/images/ros/basics/lesson-03/img_065_166.webp)
-
-
 ROS2 실습
 각terminal 창에서ROS_DOMAIN_ID를 바꿔 가며talker와listener 실행해서 메시지 주고받는지 확인
-
-
-![Image 167](../../assets/images/ros/basics/lesson-03/img_066_167.webp)
-
-
-![Image 168](../../assets/images/ros/basics/lesson-03/img_066_168.webp)
-
-
-![Image 169](../../assets/images/ros/basics/lesson-03/img_066_169.webp)
 
 
 ROS2 실습
@@ -953,28 +830,10 @@ talker와listener등 샘플 프로그램이 있는 디렉토리 위치
 /opt/ros/humble/share/demo_node_cpp/launch/topics
 
 
-![Image 170](../../assets/images/ros/basics/lesson-03/img_067_170.webp)
-
-
-![Image 171](../../assets/images/ros/basics/lesson-03/img_067_171.webp)
-
-
 ROS2 실습
 
 
-![Image 172](../../assets/images/ros/basics/lesson-03/img_068_172.webp)
-
-
-![Image 173](../../assets/images/ros/basics/lesson-03/img_068_173.webp)
-
-
-![Image 174](../../assets/images/ros/basics/lesson-03/img_068_174.webp)
-
-
 ROS2 실습
-
-
-![Image 175](../../assets/images/ros/basics/lesson-03/img_069_175.webp)
 
 
 수고하셨습니다.

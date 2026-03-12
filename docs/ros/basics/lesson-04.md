@@ -1,38 +1,4 @@
-# 강의_3기_ROS2_기초_4차시
-
-
-ROS2 기초-4차시
-훈련 일정
-오전
-오후
-1차시
-
-- 로봇의 역사
-- 컴퓨터 구조(Booting, CPU 작동 원리, POST)
-- 리눅스와 운영 체계
-- 리눅스CLI 실습(디렉토리, 계정, 기본 명령어 등), Terminator, 커널, 쉘, gedit, bash
-- Application 작동 원리(마이크로프로세서, 메모리, 저장 장치)
-- 리눅스 CLI 실습 2차시
-- 리눅스 CLI 실습
-- 네트워크와 통신(IPV4, IPV6, 소켓, 노드, Hub, TCP, UDP)
-- API, Library, Framework, 프로세스와Thread
-- 인터프리터, 컴파일러(소스 코드→ Build → 실행 파일)
-- 소켓 프로그래밍 실습
-- OSI7 Layer, 프로토콜(RS-232C, RS-485, Ethernet, TCP/UDP, IP) 3차시
-- 센서 기초, IoT와Embedded
-- 로봇 기초, 좌표계
-- 로봇 센서 활용 및 로봇의 구성(기계 기구, 전기 전자, 소프트웨어)
-- ROS2 소개 및 활용
-- ROS2 설치(ros.org) 및demo_node 4차시
-- ROS2 소개 및 활용
-- ROS2 실습(Talker, Listener)
-- ROS2 패키지 설명
-- ROS2 실습(Turtlesim, teleop_key) 5차시
-- ROS2 실습(Turtlesim, Teleop_key 여러 개 만들기)
-- Topic, Service, Action, Parameter, RQT, RQT_Graph 이론 및 실습
-- ROS2 실습(Turtlesim, Namespace 여러 개 만들기)
-- Ros bag and play 실습, my first package build 실습
-- Turtlesim subscribing 실습, ROS의 중요한 개발 도구(Rviz, GAZEBO 소개)
+# ROS2 기초 4차시 - ROS2 실습
 
 
 ROS2 turtlesim 복습
@@ -45,9 +11,6 @@ ROS2 turtlesim 복습
 $ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist “{linear:{x: 2.0, y: 0.0, z: 0.0},
 angular:{x: 0.0, y: 0.0, z: 1.8}}”
 이동
-
-
-![Image 7](../../assets/images/ros/basics/lesson-04/img_004_007.webp)
 
 
 ROS2 turtlesim 복습
@@ -114,8 +77,6 @@ ROS 소개 및 활용
 - Released May, 2020
 - LTS, supported until May, 2025 ROS 2 Jazzy Jalisco [출처] https://github.com/ros-infrastructure/artwork/tree/master/distributions
 
-![Image 18](../../assets/images/ros/basics/lesson-04/img_011_018.webp)
-
 
 ![Image 19](../../assets/images/ros/basics/lesson-04/img_011_019.webp)
 
@@ -127,7 +88,6 @@ ROS 소개 및 활용
 
 ![Image 23](../../assets/images/ros/basics/lesson-04/img_011_023.webp)
 
-![Image 26](../../assets/images/ros/basics/lesson-04/img_011_026.webp)
 
 ROS
 ROS란 무엇인가?
@@ -172,7 +132,7 @@ ROS 구성 요소
 - 단방향은 토픽(topic), 양방향은 서비스(service) 토픽
 - 토픽은ROS의노드 사이의 데이터 통신의 한 종류
 - 단방향 통신으로, 데이터를 메시지에 담아서 방송을 함
-- 방송을 하는 퍼 블 리 셔(publisher)와수신을하는서브스크라이버(subscriber)로 구성됨
+- 방송을 하는 퍼블리셔(publisher)와수신을하는서브스크라이버(subscriber)로 구성됨
 
 
 ROS 소개 및 활용
@@ -243,8 +203,8 @@ SDK(소프트웨어 개발 키트)이다.
 ROS 소개 및 활용
 1) Plumbing
 ROS의 핵심은 흔히"미들웨어" 또는"배관"이라고 불리는 메시지 전달 시스템을 제공한다. 커뮤니케이션은 새로운 로봇 애플리케이션이나 하드웨어와
-상호 작용하는 모든 소프트웨어 시스템을 구현할 때 가장 먼저 해결해야할 문제 중 하나이다. ROS에 내장되어 있고 충분한 테스트를 거친 메시징
-시스템은 퍼 블 리 시/서브스크 라이브 패턴을 통해 분산 노드 간의 통신 세부 사항을 관리함으로써 시간을 절약해 준다. 이러한 접근 방식은 결함 격리,
+상호 작용하는 모든 소프트웨어 시스템을 구현할 때 가장 먼저 해결해야할 문제 중 하나이다. ROS에 내장되어 있고 충분한 테스트를 거친 메시 징
+시스템은 퍼 블 리 시/서브스크라이브 패턴을 통해 분산 노드 간의 통신 세부 사항을 관리함으로써 시간을 절약해 준다. 이러한 접근 방식은 결함 격리,
 우려 사항 분리, 명확한 인터페이스 등 소프트웨어 개발의 어려운 부분들을 해결할 수 있게 돕는다. ROS를 사용하면 유지 관리, 기여, 재사용이 더 쉬운
 시스템을 만들 수 있다.
 그 과정에서 방대한 커뮤니티 경험을 활용하여 표준ROS 메시지 형식을 만들 수 있으며, 이러한 표준은LIDAR 및 카메라부터 현지화 알고리즘 및
@@ -337,7 +297,7 @@ ROS 2에서는 디자인 설계부터 이 부분을 명확히 짚고 넘어갔�
 서 산업용으로 사용 중인DDS(Data Distribution Service)를 도입하였고, 자연스럽게DDS-Security 이라는DDS 보안 사양을
 ROS에 적용하여 보안에 대한 이슈를 통신 단부터 해결하였다. 또한ROS 커뮤니티에서는SROS 2(Secure Robot Operating
 System 2)라는 툴을 개발하였고 보안 관련RCL 서포트 및 보안 관련 프로그래밍에 익숙지 않은 로보 틱 스 개발자를 위해 보안을
-위한 툴 킷 을 만들어 배포하고 있다. 이 부분에 대한 더 자세한 내용은ROS 2 디자인 문서(DDS-Security integration, Access
+위한 툴 킷을 만들어 배포하고 있다. 이 부분에 대한 더 자세한 내용은ROS 2 디자인 문서(DDS-Security integration, Access
 Control Policies, Security Enclaves, Robotic Systems Threat Model)의`Security` 관련 부분을 참고하길 바라며 지난ROSCon에서
 의 워크샵에서 진행한`Is your robot secure? ROS 1 & ROS 2 Security Workshop`의문 서도 참고하면 도움이 될 것 같다. 우리는
 추후 강좌를 통해 직접 보안 설정 및 프로그램하는 실습을 진행해 보기로 하자.
@@ -353,7 +313,7 @@ Language)를 사용하여 메시지 정의 및 직렬화를 더 쉽게, 더 포�
 데이터 전송을 보장하고 임 베 디 드 시스템에도 사용할 수 있다. DDS는 노드 간의 자동 감지 기능을 지원하고 있어서 기존ROS 1에서각
 노드들의 정보를 관리하였던ROS마스터가 없어도 여러DDS 프로그램 간에 통신할 수 있다. 또한 노드 간의 통신을 조정하는QoS(Quality
 of Service) 매개변수를 설정할 수 있어서TCP 처럼 데이터 손실을 방지함으로써 신뢰도를 높이거나, UDP 처럼 통신 속도를 최우선하여
-사용할 수도 있다. 이러한 다양한 기능을 갖춘DDS를 이용하여ROS 1의퍼블리시, 서브스크 라이브형 메세지 전달은 물론, 실시간 데이터
+사용할 수도 있다. 이러한 다양한 기능을 갖춘DDS를 이용하여ROS 1의퍼블리시, 서브스크라이브형 메세지 전달은 물론, 실시간 데이터
 전송, 불안정한 네트워크에 대한 대응, 보안 강화 등이 강화되었다. DDS의 채용은ROS 1에서ROS 2로 바뀌면서 가장 큰 변화 점이다.
 
 5. Middleware interface
@@ -370,7 +330,7 @@ ROS 소개 및 활용
 
 6. Node manager (discovery)
 ROS 1에서의 필수 실행 프로그램으로는roscore가 있다. 이를 실행시키면ROS Master, ROS Parameter Server, rosout logging node가 실행되었다.
-특히ROS Master는ROS 시스템의 노드들의 이름 지정 및 등록 서비스를 제공하였고, 각 노드에서 퍼 블 리 시 또는 서브 스 크 라이브하는 메시지를 찾아서
+특히ROS Master는ROS 시스템의 노드들의 이름 지정 및 등록 서비스를 제공하였고, 각 노드에서 퍼 블 리 시 또는 서브스크라이브하는 메시지를 찾아서
 연결할 수 있도록 정보를 제공해 주었다. 즉, 각각 독립되어 실행되는 노드들의 정보를 관리하여 서로 연결해야하는 노드들에게 상대방 노드의 정보를
 건네 주어 연결할 수 있게해 주는 매우 중요한 중매 역할을 수행했었다. 이 때문에ROS 1에서는 노드 사이의 연결을 위해 네임 서비스를 마스터에서
 실행했었어야했고, 이ROS Master가 연결이 끓기거나 죽는 경우 모든 시스템이 마비되는 단점이 있었다.
@@ -392,7 +352,7 @@ Python 3.8이 기본 요구 사항으로 되어 있다. 이다. 같은 언어를
 ROS 소개 및 활용
 
 8. Build system
-ROS 2에서는 새로운 빌 드 시스템인ament를 사용한다. ament는ROS 1에서 사용되는 빌 드 시스템인catkin의 업그레이드 버전이다. ROS 1의
+ROS 2에서는 새로운 빌드 시스템인ament를 사용한다. ament는ROS 1에서 사용되는 빌드 시스템인catkin의 업그레이드 버전이다. ROS 1의
 catkin이CMake만을 지원했던 반면, ament는CMake를 사용하지 않는Python 패키지 관리도 가능하다. 즉, ROS 2에 와서는Python 패키지는
 비로서 처음으로 완전 독립을 이루게 되었는데ROS 1에서Python 코드가 있는 패키지는setup.py 파일이CMake 내에서 사용자 정의
 로직으로 처리되었다. 하지만ROS 2에서Python 패키지는setup.py 파일의 모든 기능을 순수Python 모듈과 동등한 수준으로 개발할 수 있게
@@ -404,8 +364,8 @@ catkin이CMake만을 지원했던 반면, ament는CMake를 사용하지 않는Py
 
 9. Build tools
 ROS 1의 경우 여러 가지 다른 도구, 즉catkin_make, catkin_make_isolated 및catkin_tools가지원되었다. ROS 2에서는 알파, 베타, 그리고
-Ardent 릴리스까지 빌 드 도구로ament_tools이 이용되었고 지금에 와서는colcon을 추천하고 있다.
-colcon은ROS 2 패키지를 작성, 테스트, 빌 드 등ROS 2 기반의 프로그램할 때 빼놓을 수 없는 툴로 작업 흐름을 향상시키는CLI 타입의 명령어
+Ardent 릴리스까지 빌드 도구로ament_tools이 이용되었고 지금에 와서는colcon을 추천하고 있다.
+colcon은ROS 2 패키지를 작성, 테스트, 빌드 등ROS 2 기반의 프로그램할 때 빼놓을 수 없는 툴로 작업 흐름을 향상시키는CLI 타입의 명령어
 도구이다. 사용 방법은`colcon test`와`colcon build` 와 같이 터미널 창에서 수행하게 되며 다양한 옵션을 사용할 수 있다. 이는 추후 이어지는
 강좌들에서 더 자세히 다루도록하겠다.
 
@@ -413,21 +373,21 @@ colcon은ROS 2 패키지를 작성, 테스트, 빌 드 등ROS 2 기반의 프로
 ROS 소개 및 활용
 
 10. Build options
-ROS 2에서는 빌 드 관련 내용들이 모두 변경되면서 빌 드 옵션에도 새로운 변화가 생겼다. 그 중 사용하면서 가장 좋았던3가지를 꼽자면
+ROS 2에서는 빌드 관련 내용들이 모두 변경되면서 빌드 옵션에도 새로운 변화가 생겼다. 그 중 사용하면서 가장 좋았던3가지를 꼽자면
 아래와 같다.
 우선`Multiple workspace` 이다.
 이는ROS 1에서는`catkin_ws`와 같이 특정 워크 스페이스를 확보하고 하나의 워크 스페이스에서 모든 작업을 다 했는데ROS 2에서는 복수의
 독립된 워크 스페이스를 사용할 수 있어서 작업 목적 및 패키지 종류별로 관리할 수 있게 되었다.
 둘째는`No non-isolated build` 이다.
-ROS 1에서는 하나의CMake 파일로 여러 개의 패키지를 동시에 빌 드할 수 있었다. 이렇게 하면 빌 드 속도가 빨라지지만 모든 패키지의
-종속성에 신경을 많이 써야하고 빌 드 순서가 매우 중요하게 된다. 또한 모든 패키지가 동일 네임 스페이스 사용하게 되므로 이름에서 충돌이
-발생할 수 있었다. ROS 2에서는 이 전 빌 드 시스템인catkin에서 일부 기능으로 사용되었던`catkin_make_isolated` 형태와 같은 격리 빌드만을
-지원함으로써 모든 패키지를 별도로 빌 드하게 되었다. 이 기능 변화를 통해 설치용 폴더를 분리하거나 병합할 수 있게 되었다.
+ROS 1에서는 하나의CMake 파일로 여러 개의 패키지를 동시에 빌드할 수 있었다. 이렇게 하면 빌드 속도가 빨라지지만 모든 패키지의
+종속성에 신경을 많이 써야하고 빌드 순서가 매우 중요하게 된다. 또한 모든 패키지가 동일 네임 스페이스 사용하게 되므로 이름에서 충돌이
+발생할 수 있었다. ROS 2에서는 이 전 빌드 시스템인catkin에서 일부 기능으로 사용되었던`catkin_make_isolated` 형태와 같은 격리 빌드만을
+지원함으로써 모든 패키지를 별도로 빌드하게 되었다. 이 기능 변화를 통해 설치용 폴더를 분리하거나 병합할 수 있게 되었다.
 셋째는`No devel space`이다.
-catkin은 패키지를 빌 드한 후devel 이라는 폴더에 코드를 저장한다. 이 폴더는 패키지를 설치할 필요 없이 패키지를 사용할 수 있는 환경을
+catkin은 패키지를 빌드한 후devel 이라는 폴더에 코드를 저장한다. 이 폴더는 패키지를 설치할 필요 없이 패키지를 사용할 수 있는 환경을
 제공한다. 이를 통해 파일 복사를 피하면서 사용자는 파이썬 코드를 편집하고 즉시 코드 실행할 수 있었다. 단 이러한 기능은 매우 편리한
 기능이지만 패키지를 관리하는 측면에서 복잡성을 크게 증가시켰다.
-이에ROS 2에서는 패키지를 빌 드한 후 설치해야 패키지를 사용할 수 있도록 바뀌었다. 단 쉬운 사용성도 고려하여colcon 사용 시에`colcon
+이에ROS 2에서는 패키지를 빌드한 후 설치해야 패키지를 사용할 수 있도록 바뀌었다. 단 쉬운 사용성도 고려하여colcon 사용 시에`colcon
 build --symlink-install` 와 같은 옵션을 사용하여 심벌 릭 링크 설치의 선택적 기능을 사용하여 동일한 이점을 제공하고 있다.
 
 
@@ -451,7 +411,7 @@ ROS 기반의 프로그래밍을 작성한다는 것은ROS Middleware Interface�
 roscpp, rospy, roslisp 등각 프로그래밍 언어에 대해 클라이언트 라이브러리(Client Library)를 제공했다. 한편, ROS 2에서는ROS 클라이언트 라이브러리를
 RCL(ROS Client Library)이라는 이름으로 제공한다. 그리고 프로그래밍 언어별로rclcpp, rclc, rclpy, rcljava, rclobjc, rclada, rclgo, rclnodejs 등으로 제공된다.
 또한ROS 2는 앞서 설명한 바와 같이C이면C99, C++ 이라면C++ 14/17, Python라면Python 3 (3.5+) 등 최신 기술 사양에 대응하고 있다. 각C++/Python ROS
-Client Library API는rclcpp, rclpy을 미리 봐 둔다면 도움 일 될 것이다.
+Client Library API는rclcpp, rclpy을 미리 봐 둔다면 도움일 될 것이다.
 
 13. Life cycle
 로봇 개발에 있어서 로봇의 현재 상태를 파악하고 현재 상태에서 다른 상태로 변경되는 상태 천이 제어는 수십 년 간 로봇 공학에서도 주요 연구 주제로 다루었던 중
@@ -573,7 +533,7 @@ ROS에서 사용되는 메시지 통신 방법으로는 토픽(topic), 서비스
 목적과 사용 방법은 다르기는하지만 토픽의 발간(publish)과구독(subscribe)의 개념을 응용하고 있다. 이 데이터를 보내고 받는 발간, 구독 개
 념은ROS 1은물론ROS 2에서도 매우 중요한 개념으로 변함이 없는 데 이 기술에 사용된 통신 라이브러리는ROS 1, 2에서 조금씩 다르다.
 ROS 1에서는 자체 개발한TCPROS와 같은 통신 라이브러리를 사용하고 있던 반면, ROS 2에서는OMG(Object Management Group)에 의해 표
-준화된DDS(Data Distribution Service)의 리얼 타임 퍼 블 리 시와 서브 스 크 라이브 프로토콜인DDSI-RTPS(Real Time Publish Subscribe)를사
+준화된DDS(Data Distribution Service)의 리얼 타임 퍼 블 리 시와 서브스크라이브 프로토콜인DDSI-RTPS(Real Time Publish Subscribe)를사
 용하고 있다. ROS 2 개발 초기에는 기존TCPROS를 개선하거나ZeroMQ, Protocol Buffers 및Zeroconf 등을 이용하여 미들 웨어처럼 사용하는
 방법도 제안되었으나 무엇보다 산업용 시장을 위해 표준 방식 사용을 중요하게 여겼고, ROS 1때와 같이 자체적으로 만들기보다는 산업용 표
 준을 만들고 생태계를 꾸려 가고 있었던DDS를 통신 미들 웨어로써 사용하기로 하였다. DDS 도입에 따라 다음 그림과 같이ROS의 레이아웃은
@@ -592,7 +552,7 @@ DLRL(data local reconstruction layer)의 내용을 담아 재정한 통신 프�
 드들의 정보를 관리하였던ROS Master가없어도 여러DDS 프로그램 간에 통신할 수 있다. 또한 노드 간의 데이터 통신을 세부적으로
 조정하는QoS(Quality of Service)를 매개 변수 형태로 설정할 수 있어서TCP처럼 데이터 손실을 방지함으로써 신뢰도를 높이거나, UDP
 처럼 통신 속도를 최우선시하여 사용할 수도 있다. 그리고 산업용으로 사용되는 미들 웨어인 만큼DDS-Security 도입으로 보안 측면에서
-도 큰 혜택을 얻을 수 있었다. 이러한 다양한 기능을 갖춘DDS를 이용하여ROS 1의퍼블리시, 서브스크 라이브형 메시지 전달은 물론,
+도 큰 혜택을 얻을 수 있었다. 이러한 다양한 기능을 갖춘DDS를 이용하여ROS 1의퍼블리시, 서브스크라이브형 메시지 전달은 물론,
 실시간 데이터 전송, 불안정한 네트워크에 대한 대응, 보안 등이 강화되었다. DDS의 채용은ROS 1에서ROS 2로 바뀌면서 가장 큰 변
 화점이자 다음 그림과 같이 개발자 및 사용자로 하여금 통신 미들 웨어에 대한 개발 및 이용 부담을 줄여 진짜로 집중해야할 부분에 더
 많은 시간을 쏟을 수 있게 되었다.
@@ -673,7 +633,7 @@ rclobjc, rclada, rclgo, rclnodejs 같이 다양한 언어를 지원하는ROS 클
 4. UDP 기반의 전송 방식
 DDS 벤더별로DDS Interoperability Wire Protocol (DDSI-RTPS)의 구현 방식에 따라 상이할 수 있으나 일반적으로UDP 기반의 신뢰성
 있는 멀티 캐스트(reliable multicast)를 구현하여 시스템이 최신 네트워킹 인프라의 이점을 효율적으로 활용할 수 있도록 돕고 있다. UDP
-기반이라는 것이ROS 1에서의TCPROS가TCP 기반이었던 것에 비해 매우 큰 변화인데UDP의 멀티 캐스트(multicast)는 브로드 캐스트
+기반이라는 것이ROS 1에서의TCPROS가TCP 기반이었던 것에 비해 매우 큰 변화인데UDP의 멀티 캐스트(multicast)는 브로드캐스트
 (broadcast)처럼 여러 목적지로 동시에 데이터를 보낼 수 있지만, 불특정 목적지가 아닌 특정된 도메인 그룹에 대해서만 데이터를 전송하게
 된다. 참고로ROS 2에서는`ROS_DOMAIN_ID`라는 환경 변수로 도메인을 설정하게 된다. 이 멀티 캐스트의 방식 도입으로ROS 2에서는 전
 역 공간이라 불리는DDS Global Space이라는 공간에 있는 토픽들에 대해 구독 및 발행을 할 수 있게 된다. Best effort 개념인UDP는
@@ -704,7 +664,7 @@ DDS는 동적 검색(Dynamic Discovery)을 제공한다. 즉, 응용 프로그�
 떤노드가이를 발신하고 수신하는지 알 수 있게 된다. 이는ROS 프로그래밍할 때 데이터를 주고받을 노드들의IP 주소 및 포트를 미리 입력하 거
 나 따로 구성하지 않아도 되며 사용하는 시스템 아키텍처의 차이점을 고려할 필요가 없기 때문에 모든 운영 체제 또는 하드웨어 플랫폼에서 매
 우 쉽게 작업할 수 있다.
-ROS 1에서는ROS Master에서ROS 시스템의 노드들의 이름 지정 및 등록 서비스를 제공하였고, 각 노드에서 퍼 블 리 시 또는 서브 스 크 라이브 하는
+ROS 1에서는ROS Master에서ROS 시스템의 노드들의 이름 지정 및 등록 서비스를 제공하였고, 각 노드에서 퍼 블 리 시 또는 서브스크라이브 하는
 메시지를 찾아서 연결할 수 있도록 정보를 제공해 주었다. 즉, 각각 독립되어 실행되는 노드들의 정보를 관리하여 서로 연결해야하는 노드들에
 게 상대방 노드의 정보를 건네 주어 연결할 수 있게해 주는 매우 중요한 중매 역할을 수행했었다. 이 때문에ROS 1에서는 노드 사이의 연결을 위
 해 네임 서비스를 마스터에서 실행했었어야했고, 이ROS Master가 연결이 끊기거나 죽는 경우 모든 시스템이 마비되는 단점이 있었다.
@@ -920,9 +880,9 @@ ROS에서 가장 기본이 되는 단위
 
 
 ROS2 패키지 설명
-CMakeLists.txt : 빌 드 설정 파일입니다.
-혹시나VSCODE가아닌VS STUDIO에서 개발을 해 본 경험자라면 빌 드 옵션을 설정하는 파일입니다.
-*빌 드에 대한 것은2차시 강의 자료 참고
+CMakeLists.txt : 빌드 설정 파일입니다.
+혹시나VSCODE가아닌VS STUDIO에서 개발을 해 본 경험자라면 빌드 옵션을 설정하는 파일입니다.
+*빌드에 대한 것은2차시 강의 자료 참고
 
 
 ![Image 62](../../assets/images/ros/basics/lesson-04/img_059_062.webp)
@@ -944,7 +904,7 @@ ROS2 패키지 설명
 
 ROS2 패키지 설명
 *터미널에 입력하는 명령어입니다.
-빌 드 후 빌 드한 파일을 실행(클릭해서 실행하는 것이 아니다)
+빌드 후 빌드한 파일을 실행(클릭해서 실행하는 것이 아니다)
 
 
 ![Image 65](../../assets/images/ros/basics/lesson-04/img_062_065.webp)
@@ -991,14 +951,8 @@ ROS2 실습
 ![Image 72](../../assets/images/ros/basics/lesson-04/img_068_072.webp)
 
 
-![Image 73](../../assets/images/ros/basics/lesson-04/img_068_073.webp)
-
-
 ROS2 실습- turtlesim 1단계
 Turtlesim 실행후node 확인
-
-
-![Image 74](../../assets/images/ros/basics/lesson-04/img_069_074.webp)
 
 
 ROS2 실습
@@ -1006,12 +960,6 @@ ROS2 실습
 - turtlesim_node
 - turtle_teleop_key
 - 프로그램 위치 확인
-
-
-![Image 78](../../assets/images/ros/basics/lesson-04/img_070_078.webp)
-
-
-![Image 79](../../assets/images/ros/basics/lesson-04/img_070_079.webp)
 
 
 ROS2 실습
@@ -1023,20 +971,11 @@ ROS2 실습
 ![Image 81](../../assets/images/ros/basics/lesson-04/img_071_081.webp)
 
 
-![Image 82](../../assets/images/ros/basics/lesson-04/img_071_082.webp)
-
-
 ![Image 83](../../assets/images/ros/basics/lesson-04/img_071_083.webp)
 
 
 ROS2 실습
 multisim.launch.py 파일 위치
-
-
-![Image 84](../../assets/images/ros/basics/lesson-04/img_072_084.webp)
-
-
-![Image 85](../../assets/images/ros/basics/lesson-04/img_072_085.webp)
 
 
 ROS2 실습
@@ -1072,9 +1011,6 @@ Teleop_key실행해서turtle1 or turtle2 or turtle3 입력후turtle 제어
 ![Image 92](../../assets/images/ros/basics/lesson-04/img_074_092.webp)
 
 
-![Image 93](../../assets/images/ros/basics/lesson-04/img_074_093.webp)
-
-
 ROS2 실습- Topic
 $ros2 run turtlesim turtlesim_node
 $ ros2 topic list
@@ -1084,17 +1020,11 @@ topic list 확인
 /pose
 
 
-![Image 94](../../assets/images/ros/basics/lesson-04/img_075_094.webp)
-
-
 ROS2 실습
 topic중 pose의 데이터type 확인
 /turtle1/pose    [turtlesim/msg/Pose]
 topic이름
 데이터type
-
-
-![Image 95](../../assets/images/ros/basics/lesson-04/img_076_095.webp)
 
 
 ROS2 실습
@@ -1106,22 +1036,13 @@ Ready to listen
 Now publishing
 
 
-![Image 96](../../assets/images/ros/basics/lesson-04/img_077_096.webp)
-
-
 ROS2 실습
 $ros2 interface show turtlesim/msg/Pose
 $ros2 topic echo /turtle1/pose
 
 
-![Image 97](../../assets/images/ros/basics/lesson-04/img_078_097.webp)
-
-
 ROS2 실습
 5개 데이터가Echo 출력됨
-
-
-![Image 98](../../assets/images/ros/basics/lesson-04/img_079_098.webp)
 
 
 ROS2 실습
@@ -1162,8 +1083,6 @@ ROS2 실습- turtlesim 1단계
 Turtlesim 실행후node 확인
 
 
-![Image 100](../../assets/images/ros/basics/lesson-04/img_082_100.webp)
-
 ROS2 실습
 ROKEY
 GO!
@@ -1188,9 +1107,6 @@ Turtlesim 실행후node 확인
 
 
 ![Image 111](../../assets/images/ros/basics/lesson-04/img_084_111.webp)
-
-
-![Image 115](../../assets/images/ros/basics/lesson-04/img_084_115.webp)
 
 
 ROS2 실습
@@ -1227,8 +1143,6 @@ ROS2 실습
 Turtlesim 실행후node 확인
 Namespace + Node 이름 설정
 
-![Image 130](../../assets/images/ros/basics/lesson-04/img_087_130.webp)
-
 
 ![Image 131](../../assets/images/ros/basics/lesson-04/img_087_131.webp)
 
@@ -1236,8 +1150,6 @@ Namespace + Node 이름 설정
 ![Image 132](../../assets/images/ros/basics/lesson-04/img_087_132.webp)
 
 ROS2 실습
-
-![Image 135](../../assets/images/ros/basics/lesson-04/img_088_135.webp)
 
 
 ![Image 136](../../assets/images/ros/basics/lesson-04/img_088_136.webp)
@@ -1259,8 +1171,6 @@ ROS2 실습
 ROS2 실습
 Namespace와Name 설정
 
-![Image 149](../../assets/images/ros/basics/lesson-04/img_090_149.webp)
-
 
 ![Image 150](../../assets/images/ros/basics/lesson-04/img_090_150.webp)
 
@@ -1278,12 +1188,6 @@ ROS2 실습
 ![Image 158](../../assets/images/ros/basics/lesson-04/img_091_158.webp)
 
 ROS2 실습
-
-
-![Image 161](../../assets/images/ros/basics/lesson-04/img_092_161.webp)
-
-
-![Image 162](../../assets/images/ros/basics/lesson-04/img_092_162.webp)
 
 
 ROS2 실습

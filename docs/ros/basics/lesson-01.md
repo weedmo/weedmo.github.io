@@ -1,43 +1,6 @@
-# 강의_3기_ROS2_기초_1차시
+# ROS2 기초 1차시 - 로봇과 리눅스
 
 
-ROS2 기초-1차시
-
-훈련 일정
-오전
-오후
-1차시
-
-- 로봇의 역사
-- 컴퓨터 구조(Booting, CPU 작동 원리, POST)
-- 리눅스와 운영 체계
-- 리눅스CLI 실습(디렉토리, 계정, 기본 명령어 등), Terminator, 커널, 쉘, gedit, bash
-- Application 작동 원리(마이크로프로세서, 메모리, 저장 장치)
-- 리눅스 CLI 실습 2차시
-- 리눅스 CLI 실습
-- 네트워크와 통신(IPV4, IPV6, 소켓, 노드, Hub, TCP, UDP)
-- API, Library, Framework, 프로세스와Thread
-- 인터프리터, 컴파일러(소스 코드→ Build → 실행 파일)
-- 소켓 프로그래밍 실습
-- OSI7 Layer, 프로토콜(RS-232C, RS-485, Ethernet, TCP/UDP, IP) 3차시
-- 센서 기초, IoT와Embedded
-- 로봇 기초, 좌표계
-- 로봇 센서 활용 및 로봇의 구성(기계 기구, 전기 전자, 소프트웨어)
-- ROS2 소개 및 활용
-- ROS2 설치(ros.org) 및demo_node 4차시
-- ROS2 소개 및 활용
-- ROS2 실습(Talker, Listener)
-- ROS2 패키지 설명
-- ROS2 실습(Turtlesim, teleop_key) 5차시
-- ROS2 실습(Turtlesim, Teleop_key 여러 개 만들기)
-- Topic, Service, Action, Parameter, RQT, RQT_Graph 이론 및 실습
-- ROS2 실습(Turtlesim, Namespace 여러 개 만들기)
-- Ros bag and play 실습, my first package build 실습
-- Turtlesim subscribing 실습, ROS의 중요한 개발 도구(Rviz, GAZEBO 소개)
-
-
-로봇의 역사
-로봇의 어원
 로봇(Robot)은 어떤 작업이나 조작을 자동으로 할 수 있는 기계 장치를 말합니다.
 오늘날 우리가 익숙하게 쓰는‘로봇’이라는 용어는1920년에 체코슬로바키아 극작가인 차펙(Karel Čapek)이<로섬의
 만능 로봇(Rossum’s Universal Robots, R.U.R.)>이라는 희곡에서 처음 사용한 것이 그 기원이 되었다고 합니다.
@@ -52,8 +15,6 @@ ROS2 기초-1차시
 불과했습니다.
 [출처] 로봇의 탄생과 발전 그리고 미래|작성자 한국과학기술연구원
 
-로봇의 역사
-진짜 로봇의 탄생
 상상 속의 존재였던 로봇. 그러다1950년대에 최초의 산업용 로봇 유니메이트가 등장하면서 로봇에 관한 연구가 급속도로 발전하기
 시작합니다. 최초의 산업용 로봇 유니메이트는 공장에서 막 생산되어 뜨거운 금속 사출물을 운반하는 역할을 했습니다. 인간이 하기
 힘든 일을 대신하기 시작한 것이죠.
@@ -73,8 +34,6 @@ ROS2 기초-1차시
 ![Image 7](../../assets/images/ros/basics/lesson-01/img_004_007.webp)
 
 
-로봇의 역사
-로봇의 발전
 1999년 일본에서 출시된 반려견을 닮은 강아지 로봇 아이 보(AiBo)는 실제 강아지처럼
 인간과 상호 교류가 가능해서 큰 인기를 끌었습니다.
 그리고 마침내2000년대에 이르러서는 한국과학기술연구원(KIST) 연구 팀이 개발한
@@ -91,8 +50,6 @@ ROS2 기초-1차시
 ![Image 10](../../assets/images/ros/basics/lesson-01/img_005_010.webp)
 
 
-로봇의 역사
-로봇의 발전
 이처럼 로봇 관련 연구는 소수의 산업용 로봇으로 시작하여 보다 정확하고
 안전한 수술을 할 수 있도록 돕는 의료용 로봇이나 인간과 대화하며 상호 작용을
 하는 대화형 로봇에 이르기까지 꾸준히 발전해 왔습니다. 그러다 이제는 집안을
@@ -108,10 +65,6 @@ ROS2 기초-1차시
 ![Image 12](../../assets/images/ros/basics/lesson-01/img_006_012.webp)
 
 
-![Image 13](../../assets/images/ros/basics/lesson-01/img_006_013.webp)
-
-
-로봇의 역사
 로봇의 미래
 그렇다면 앞으로 로봇은 어떻게 발전하게 될까요?
 불과 몇 년 전 있었던 코로나19의 전 세계적인 유행으로 인해 다양한 분야에서 비대면 수요가 크게 증가했던 걸
@@ -130,7 +83,6 @@ ROS2 기초-1차시
 ![Image 16](../../assets/images/ros/basics/lesson-01/img_007_016.webp)
 
 
-로봇의 역사
 로봇의 미래
 코로나가 잠잠해진 요즘도 단순하고 반복적인 노동이 필요한 분야 또는 인간이 하기에 신체적
 부상의 위험이 있는 분야를 중심으로 로봇이 적극 사용되는 중입니다. 그래서 우리는 익숙하게
@@ -154,23 +106,12 @@ ROS2 기초-1차시
 ![Image 18](../../assets/images/ros/basics/lesson-01/img_008_018.webp)
 
 
-![Image 19](../../assets/images/ros/basics/lesson-01/img_008_019.webp)
-
-로봇의 역사
-
-![Image 23](../../assets/images/ros/basics/lesson-01/img_009_023.webp)
-
-
 ![Image 24](../../assets/images/ros/basics/lesson-01/img_009_024.webp)
-
-
-![Image 25](../../assets/images/ros/basics/lesson-01/img_009_025.webp)
 
 
 ![Image 26](../../assets/images/ros/basics/lesson-01/img_009_026.webp)
 
 
-로봇의 역사
 하지만 미래에 어떤 로봇이 만들어지든 아이작 아시모프(Isaac Asimov)라는SF소설가가 만들었던 로봇이 지켜야할 원칙은
 지켜지게 될 거예요.
 1942년 아이작 아시모프의SF소설‘런 어 라운드(Runaround)’에서 처음 언급된 로봇의3원칙은 다음과 같습니다.
@@ -220,21 +161,11 @@ CPU와 메모리는 서로 분리되어 있고 둘을 연결하는 버스(Bus)�
 
 - POST를 통과하면BIOS는CMOS(Complementary Metal-Oxide Semiconductor)에 저장된 설정 값을 읽어 옵니다. 여기에는 부팅 순서, 시간, 하드 디스크 정보 등이 포함됩니다. 전원인가 POST (Power-On Self- Test) 실행 BIOS 설정 로드 부트로더 (Boot Loader)실행 운영 체제 커널 로드 초기 프로세스 실행 사용자 인터페이스 실행
 
-![Image 36](../../assets/images/ros/basics/lesson-01/img_012_036.webp)
-
-![Image 41](../../assets/images/ros/basics/lesson-01/img_012_041.webp)
-
 
 ![Image 42](../../assets/images/ros/basics/lesson-01/img_012_042.webp)
 
 
-![Image 43](../../assets/images/ros/basics/lesson-01/img_012_043.webp)
-
-
 ![Image 44](../../assets/images/ros/basics/lesson-01/img_012_044.webp)
-
-
-![Image 45](../../assets/images/ros/basics/lesson-01/img_012_045.webp)
 
 
 컴퓨터 구조(Booting, CPU 작동 원리, POST)
@@ -249,40 +180,20 @@ CPU와 메모리는 서로 분리되어 있고 둘을 연결하는 버스(Bus)�
 ![Image 46](../../assets/images/ros/basics/lesson-01/img_013_046.webp)
 
 
-![Image 47](../../assets/images/ros/basics/lesson-01/img_013_047.webp)
-
-
 ![Image 48](../../assets/images/ros/basics/lesson-01/img_013_048.webp)
-
-
-![Image 49](../../assets/images/ros/basics/lesson-01/img_013_049.webp)
 
 
 ![Image 50](../../assets/images/ros/basics/lesson-01/img_013_050.webp)
 
 
-![Image 51](../../assets/images/ros/basics/lesson-01/img_013_051.webp)
-
-
-![Image 52](../../assets/images/ros/basics/lesson-01/img_013_052.webp)
-
-
 ![Image 53](../../assets/images/ros/basics/lesson-01/img_013_053.webp)
-
-
-![Image 54](../../assets/images/ros/basics/lesson-01/img_013_054.webp)
 
 
 ![Image 55](../../assets/images/ros/basics/lesson-01/img_013_055.webp)
 
 
-![Image 56](../../assets/images/ros/basics/lesson-01/img_013_056.webp)
-
-
 ![Image 57](../../assets/images/ros/basics/lesson-01/img_013_057.webp)
 
-
-![Image 58](../../assets/images/ros/basics/lesson-01/img_013_058.webp)
 
 컴퓨터 구조(Booting, CPU 작동 원리, POST)
 바이오스 단계
@@ -358,9 +269,6 @@ Application 작동 원리(마이크로프로세서, 메모리, 저장 장치)
 
 
 ![Image 70](../../assets/images/ros/basics/lesson-01/img_018_070.webp)
-
-
-![Image 71](../../assets/images/ros/basics/lesson-01/img_018_071.webp)
 
 
 Application 작동 원리(마이크로프로세서, 메모리, 저장 장치)
@@ -535,23 +443,18 @@ Deque
 ![Image 81](../../assets/images/ros/basics/lesson-01/img_027_081.webp)
 
 
-리눅스와 운영 체계
-
-
 ![Image 82](../../assets/images/ros/basics/lesson-01/img_028_082.webp)
 
 
 ![Image 83](../../assets/images/ros/basics/lesson-01/img_028_083.webp)
 
 
-리눅스와 운영 체계
 운영 체제의 역사
 
 
 ![Image 84](../../assets/images/ros/basics/lesson-01/img_029_084.webp)
 
 
-리눅스와 운영 체계
 리눅스와 유닉스
 
 - 리눅스: 유닉스 계열 운영 체제, '리누스가 만든 유닉스'라는 의미
@@ -568,8 +471,6 @@ Deque
 
 ![Image 85](../../assets/images/ros/basics/lesson-01/img_030_085.webp)
 
-
-리눅스와 운영 체계
 
 - 운영 체제의 구성 요소
 - 커널: 시스템의 핵심 기능을 담당
@@ -608,7 +509,6 @@ Deque
 
 리눅스의 계열
 공개형 오픈 소스 운영 체제. 마이크로소프트- 윈도우, 애플– IOS 와 달리 리눅스는 종류가 많다
-리눅스와 운영 체계
 레드햇 계열
 페도라에서 파생된 배포 판들이다. 패키지 형식은.rpm이며 패키지 관리자로yum을
 사용하는 것이 특징이다. 서버용으로 사용되는 경우가 대부분이다. 얼마 없는 상용
@@ -631,7 +531,6 @@ Deque
 
 다양한 리눅스 종류
 공개형 오픈 소스 운영 체제. 마이크로소프트- 윈도우, 애플– IOS 와 달리 리눅스는 종류가 많다
-리눅스와 운영 체계
 
 
 ![Image 90](../../assets/images/ros/basics/lesson-01/img_034_090.webp)
@@ -643,7 +542,6 @@ Deque
 ![Image 92](../../assets/images/ros/basics/lesson-01/img_034_092.webp)
 
 
-리눅스와 운영 체계
 어디에 쓰일까
 
 - 서버: IT 서비스를 구성하기 위한 서버
@@ -664,9 +562,6 @@ Deque
 
 
 ![Image 95](../../assets/images/ros/basics/lesson-01/img_035_095.webp)
-
-
-리눅스와 운영 체계
 
 
 ![Image 96](../../assets/images/ros/basics/lesson-01/img_036_096.webp)
@@ -690,7 +585,6 @@ Deque
 ![Image 102](../../assets/images/ros/basics/lesson-01/img_036_102.webp)
 
 
-리눅스와 운영 체계
 ROS와 리눅스
 
 - 운영 체계 라이선스-> 오픈API
@@ -725,16 +619,10 @@ CLI
 어려움
 
 
-![Image 106](../../assets/images/ros/basics/lesson-01/img_038_106.webp)
-
-
 ![Image 107](../../assets/images/ros/basics/lesson-01/img_038_107.webp)
 
 
 리눅스CLI 실습(디렉토리, 계정, 기본 명령어 등)
-
-
-![Image 108](../../assets/images/ros/basics/lesson-01/img_039_108.webp)
 
 
 ![Image 109](../../assets/images/ros/basics/lesson-01/img_039_109.webp)
@@ -743,25 +631,13 @@ CLI
 ![Image 110](../../assets/images/ros/basics/lesson-01/img_039_110.webp)
 
 
-![Image 111](../../assets/images/ros/basics/lesson-01/img_039_111.webp)
-
-
 리눅스CLI 실습(디렉토리, 계정, 기본 명령어 등)
 Linux의shell → bash
 Windows의shell → cmd.exe
 Windows의shell → powershell.exe
 
 
-![Image 112](../../assets/images/ros/basics/lesson-01/img_040_112.webp)
-
-
-![Image 113](../../assets/images/ros/basics/lesson-01/img_040_113.webp)
-
-
 ![Image 114](../../assets/images/ros/basics/lesson-01/img_040_114.webp)
-
-
-![Image 115](../../assets/images/ros/basics/lesson-01/img_040_115.webp)
 
 
 ![Image 116](../../assets/images/ros/basics/lesson-01/img_040_116.webp)
@@ -826,9 +702,6 @@ CentOS는없음
 - 루트 디렉토리(root directory): 파일 시스템의 최상단에 위치하는 디렉토리 현재 작업 디렉토리
 - 현재 작업 디렉토리: Bash가실행 중인 디렉터 리 홈 디렉토리
 - 홈 디렉토리(home directory): 리눅스에 사용자를 추가하면 사용자별로 할당하는 디렉토리 루트 디렉터 리 하위의 주요 디렉토리
-
-
-![Image 121](../../assets/images/ros/basics/lesson-01/img_044_121.webp)
 
 
 ![Image 122](../../assets/images/ros/basics/lesson-01/img_044_122.webp)
@@ -1048,12 +921,6 @@ sudo는superuser do의 줄임 말로, 일시적으로 관리자 권한을 부여
 리눅스CLI 실습(디렉토리, 계정, 기본 명령어 등)
 
 
-![Image 140](../../assets/images/ros/basics/lesson-01/img_059_140.webp)
-
-
-![Image 141](../../assets/images/ros/basics/lesson-01/img_059_141.webp)
-
-
 ![Image 142](../../assets/images/ros/basics/lesson-01/img_059_142.webp)
 
 
@@ -1067,9 +934,6 @@ sudo는superuser do의 줄임 말로, 일시적으로 관리자 권한을 부여
 2. 숫자 모드(Octal Mode）사용
 ※
 하위 폴더와 파일에도 적용하는 옵션
-
-
-![Image 144](../../assets/images/ros/basics/lesson-01/img_060_144.webp)
 
 
 ![Image 145](../../assets/images/ros/basics/lesson-01/img_060_145.webp)
@@ -1198,22 +1062,10 @@ grep의 가장 기본적인 사용법으로 인자로 지정한 문자열을 검
 리눅스CLI 실습(디렉토리, 계정, 기본 명령어 등)
 
 
-![Image 169](../../assets/images/ros/basics/lesson-01/img_067_169.webp)
-
-
-![Image 170](../../assets/images/ros/basics/lesson-01/img_067_170.webp)
-
-
 리눅스CLI 실습(디렉토리, 계정, 기본 명령어 등)
 
 
-![Image 171](../../assets/images/ros/basics/lesson-01/img_068_171.webp)
-
-
 ![Image 172](../../assets/images/ros/basics/lesson-01/img_068_172.webp)
-
-
-![Image 173](../../assets/images/ros/basics/lesson-01/img_068_173.webp)
 
 
 리눅스CLI 실습
@@ -1375,9 +1227,6 @@ Tab: 자동 완성
 Ctrl + R: 명령어 기록에서 검색
 
 
-![Image 177](../../assets/images/ros/basics/lesson-01/img_075_177.webp)
-
-
 터미널
 터미널(terminal): 컴퓨터와 사용자 간에 상호 작용할 수 있게 연결하는 장치
 입력 장치: 사용자가 컴퓨터에 명령을 전달하는 장치
@@ -1401,9 +1250,6 @@ apt-get install gedit -y
 ![Image 178](../../assets/images/ros/basics/lesson-01/img_076_178.webp)
 
 
-![Image 179](../../assets/images/ros/basics/lesson-01/img_076_179.webp)
-
-
 gedit 실습
 초보자 친화적인 에디터
 apt-get install gedit -y
@@ -1414,13 +1260,7 @@ gedit
 ![Image 180](../../assets/images/ros/basics/lesson-01/img_077_180.webp)
 
 
-![Image 181](../../assets/images/ros/basics/lesson-01/img_077_181.webp)
-
-
 ![Image 182](../../assets/images/ros/basics/lesson-01/img_077_182.webp)
-
-
-![Image 183](../../assets/images/ros/basics/lesson-01/img_077_183.webp)
 
 
 ![Image 184](../../assets/images/ros/basics/lesson-01/img_077_184.webp)

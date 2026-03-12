@@ -1,38 +1,4 @@
-# 강의_3기_ROS2_기초_2차시
-
-
-ROS2 기초-2차시
-훈련 일정
-오전
-오후
-1차시
-
-- 로봇의 역사
-- 컴퓨터 구조(Booting, CPU 작동 원리, POST)
-- 리눅스와 운영 체계
-- 리눅스CLI 실습(디렉토리, 계정, 기본 명령어 등), Terminator, 커널, 쉘, gedit, bash
-- Application 작동 원리(마이크로프로세서, 메모리, 저장 장치)
-- 리눅스 CLI 실습 2차시
-- 리눅스 CLI 실습
-- 네트워크와 통신(IPV4, IPV6, 소켓, 노드, Hub, TCP, UDP)
-- API, Library, Framework, 프로세스와Thread
-- 인터프리터, 컴파일러(소스 코드→ Build → 실행 파일)
-- 소켓 프로그래밍 실습
-- OSI7 Layer, 프로토콜(RS-232C, RS-485, Ethernet, TCP/UDP, IP) 3차시
-- 센서 기초, IoT와Embedded
-- 로봇 기초, 좌표계
-- 로봇 센서 활용 및 로봇의 구성(기계 기구, 전기 전자, 소프트웨어)
-- ROS2 소개 및 활용
-- ROS2 설치(ros.org) 및demo_node 4차시
-- ROS2 소개 및 활용
-- ROS2 실습(Talker, Listener)
-- ROS2 패키지 설명
-- ROS2 실습(Turtlesim, teleop_key) 5차시
-- ROS2 실습(Turtlesim, Teleop_key 여러 개 만들기)
-- Topic, Service, Action, Parameter, RQT, RQT_Graph 이론 및 실습
-- ROS2 실습(Turtlesim, Namespace 여러 개 만들기)
-- Ros bag and play 실습, my first package build 실습
-- Turtlesim subscribing 실습, ROS의 중요한 개발 도구(Rviz, GAZEBO 소개)
+# ROS2 기초 2차시 - 네트워크와 프로그래밍
 
 
 리눅스CLI 실습
@@ -358,13 +324,10 @@ HTTP 응답으로 응답합니다. 웹 서버와 사용자 브라우저는 데�
 Build 란?
 
 - 컴퓨터는 근본적으로는0과1밖에 모릅니다. 우리가 작성하는 코드들은 거의 대부분 고급 언어를 사용하기 때문에 결국에는 컴퓨터(CPU)가 이해할 수 있도록 번역이 필요
-- 컴퓨터가 이해하는 언어를 기계어라고 하는데, 우리가 만든 소스 코드가 컴퓨터 입장에서는 해외판 책이 되는 것이고, 이 책을 기계어(machine code)로 번역하여 컴퓨터에서 이해할 수 있는, 즉 실행 가능한 파일로 만드는 과정을 빌 드(Build) 라고 한다. 고급 언어: Python, Java 등 대부분의 프로그래밍 언어 저급 언어: 어셈블리 어, 기계어, C/C++(관점에 따라 저급 언어로 보거나 고급 언어로 봄)
+- 컴퓨터가 이해하는 언어를 기계어라고 하는데, 우리가 만든 소스 코드가 컴퓨터 입장에서는 해외판 책이 되는 것이고, 이 책을 기계어(machine code)로 번역하여 컴퓨터에서 이해할 수 있는, 즉 실행 가능한 파일로 만드는 과정을 빌드(Build) 라고 한다. 고급 언어: Python, Java 등 대부분의 프로그래밍 언어 저급 언어: 어셈블리 어, 기계어, C/C++(관점에 따라 저급 언어로 보거나 고급 언어로 봄)
 
 
 ![Image 30](../../assets/images/ros/basics/lesson-02/img_018_030.webp)
-
-
-![Image 31](../../assets/images/ros/basics/lesson-02/img_018_031.webp)
 
 
 ![Image 32](../../assets/images/ros/basics/lesson-02/img_018_032.webp)
@@ -383,8 +346,8 @@ Build 란?
 
 인터프리터, 컴파일러(소스 코드→ Build → 실행 파일)
 
-- 인터 프리 터 소스 코드를 빌 드해서 번역물(실행 파일 등)을 만드는 것과 다르게 한 줄씩 해석해서 실행 (Python, JavaScript)
-- 컴파일러 컴파일러는 전체 소스 코드를 한 번에 기계어 코드로 번역한 후, 실행 가능한 파일을 생성합니다. 이 과정에서 모든 코드가 기계어로 번역되므로, 실행 전에 한 번의 컴 파일이 필요합니다. (C, C++, Java) 질문1 : 코딩이란 무엇인가? 질문2 : 파이썬의 인터 프린터 언어로서 가진 특징은 무엇인가? 질문3 : 인터 프린터 언어로서 머신 러닝/딥 러닝에서 가진 장점은 무엇인가? 둘 다 기계어로 번역하는 도구
+- 인터 프리 터 소스 코드를 빌드해서 번역물(실행 파일 등)을 만드는 것과 다르게 한 줄씩 해석해서 실행 (Python, JavaScript)
+- 컴파일러 컴파일러는 전체 소스 코드를 한 번에 기계어 코드로 번역한 후, 실행 가능한 파일을 생성합니다. 이 과정에서 모든 코드가 기계어로 번역되므로, 실행 전에 한 번의 컴파일이 필요합니다. (C, C++, Java) 질문1 : 코딩이란 무엇인가? 질문2 : 파이썬의 인터 프린터 언어로서 가진 특징은 무엇인가? 질문3 : 인터 프린터 언어로서 머신 러닝/딥 러닝에서 가진 장점은 무엇인가? 둘 다 기계어로 번역하는 도구
 
 
 ![Image 37](../../assets/images/ros/basics/lesson-02/img_020_037.webp)
@@ -405,7 +368,7 @@ XML(Extensible Markup Language)은 데이터를 정의하는 규칙을 제공하
 수 없습니다. 대신 구조적 데이터 관리를 위해 모든 프로그래밍 언어 또는
 소프트웨어를 구현할 수 있습니다.
 -> ROS에서XML의역할
-ROS의 패키지 빌 드 및 의존성 관리를 해 준다.
+ROS의 패키지 빌드 및 의존성 관리를 해 준다.
 *후에ROS에서XML 사용 시 해당 내용 참고, Colab의markdown과비교
 
 
@@ -435,8 +398,6 @@ GET 요청을 전송합니다. 연락처 양식 작성과 같은 일부 정보�
 10. 이렇게 생성된HTTP 응답 메시지는TCP 프로토콜을 사용하여 인터넷을 거쳐 원래 컴퓨터로 전송된다.
 11. 도착한HTTP 응답 메시지는HTTP 프로토콜을 사용하여 웹 페이지 데이터로 변환된다.
 12. 웹 브라우저는 변환된 웹 페이지 데이터를 출력한다.
-
-![Image 42](../../assets/images/ros/basics/lesson-02/img_022_042.webp)
 
 
 네트워크와 통신(IPV4, IPV6, 소켓, 노드, Hub, TCP, UDP)
@@ -560,38 +521,20 @@ UDP (User Datagram Protocol)
 socketServer.py
 
 
-![Image 54](../../assets/images/ros/basics/lesson-02/img_029_054.webp)
-
-
 네트워크, 통신과 프로그래밍
 socketClient.py
-
-
-![Image 55](../../assets/images/ros/basics/lesson-02/img_030_055.webp)
 
 
 네트워크, 통신과 프로그래밍
 fileSend.py
 
 
-![Image 56](../../assets/images/ros/basics/lesson-02/img_031_056.webp)
-
-
 네트워크, 통신과 프로그래밍
 fileReceive.py
 
 
-![Image 57](../../assets/images/ros/basics/lesson-02/img_032_057.webp)
-
-
 Socket Programming
 ※ Python으로 다른 프로그램 실행
-
-
-![Image 58](../../assets/images/ros/basics/lesson-02/img_033_058.webp)
-
-
-![Image 59](../../assets/images/ros/basics/lesson-02/img_033_059.webp)
 
 
 ![Image 60](../../assets/images/ros/basics/lesson-02/img_033_060.webp)
@@ -612,51 +555,24 @@ __name__
 - 프로그램의 진입 점(Entry Point)
 
 
-![Image 62](../../assets/images/ros/basics/lesson-02/img_034_062.webp)
-
-
 Socket Programming
 argsExample1.py
-
-
-![Image 63](../../assets/images/ros/basics/lesson-02/img_035_063.webp)
-
-
-![Image 64](../../assets/images/ros/basics/lesson-02/img_035_064.webp)
 
 
 Socket Programming
 argsExample2.py
 
 
-![Image 65](../../assets/images/ros/basics/lesson-02/img_036_065.webp)
-
-
-![Image 66](../../assets/images/ros/basics/lesson-02/img_036_066.webp)
-
-
 Socket Programming
 argsExample3.py
-
-
-![Image 67](../../assets/images/ros/basics/lesson-02/img_037_067.webp)
-
-
-![Image 68](../../assets/images/ros/basics/lesson-02/img_037_068.webp)
 
 
 Socket Programming
 tcpServer.py
 
 
-![Image 69](../../assets/images/ros/basics/lesson-02/img_038_069.webp)
-
-
 Socket Programming
 tcpClient.py
-
-
-![Image 70](../../assets/images/ros/basics/lesson-02/img_039_070.webp)
 
 
 Socket Programming
@@ -666,53 +582,20 @@ UDP포트 점유 중인 프로세스kill
 발생. 재사용하게해 주는 코드 추가
 
 
-![Image 71](../../assets/images/ros/basics/lesson-02/img_040_071.webp)
-
-
-![Image 72](../../assets/images/ros/basics/lesson-02/img_040_072.webp)
-
-
-![Image 73](../../assets/images/ros/basics/lesson-02/img_040_073.webp)
-
-
 Socket Programming
 udpClient.py
-
-
-![Image 74](../../assets/images/ros/basics/lesson-02/img_041_074.webp)
 
 
 Socket Programming
 chattingServer.py
 
 
-![Image 75](../../assets/images/ros/basics/lesson-02/img_042_075.webp)
-
-
-![Image 76](../../assets/images/ros/basics/lesson-02/img_042_076.webp)
-
-
 Socket Programming
 chattingClient.py
 
 
-![Image 77](../../assets/images/ros/basics/lesson-02/img_043_077.webp)
-
-
-![Image 78](../../assets/images/ros/basics/lesson-02/img_043_078.webp)
-
-
 Socket Programming
 서버ip주소를argument로전달
-
-
-![Image 79](../../assets/images/ros/basics/lesson-02/img_044_079.webp)
-
-
-![Image 80](../../assets/images/ros/basics/lesson-02/img_044_080.webp)
-
-
-![Image 81](../../assets/images/ros/basics/lesson-02/img_044_081.webp)
 
 
 ![Image 82](../../assets/images/ros/basics/lesson-02/img_044_082.webp)
@@ -722,14 +605,8 @@ Socket Programming
 $ pip install pyinstaller
 
 
-![Image 83](../../assets/images/ros/basics/lesson-02/img_045_083.webp)
-
-
 Socket Programming
 ※ Python 실행 프로그램 만들기
-
-
-![Image 84](../../assets/images/ros/basics/lesson-02/img_046_084.webp)
 
 
 ![Image 85](../../assets/images/ros/basics/lesson-02/img_046_085.webp)
@@ -747,16 +624,7 @@ Socket Programming
 ![Image 89](../../assets/images/ros/basics/lesson-02/img_046_089.webp)
 
 
-![Image 90](../../assets/images/ros/basics/lesson-02/img_046_090.webp)
-
-
 Socket Programming
-
-
-![Image 91](../../assets/images/ros/basics/lesson-02/img_047_091.webp)
-
-
-![Image 92](../../assets/images/ros/basics/lesson-02/img_047_092.webp)
 
 
 ![Image 93](../../assets/images/ros/basics/lesson-02/img_047_093.webp)
@@ -766,15 +634,6 @@ Socket Programming
 
 
 Socket Programming
-
-
-![Image 95](../../assets/images/ros/basics/lesson-02/img_048_095.webp)
-
-
-![Image 96](../../assets/images/ros/basics/lesson-02/img_048_096.webp)
-
-
-![Image 97](../../assets/images/ros/basics/lesson-02/img_048_097.webp)
 
 
 OSI7 Layer, 프로토콜(RS-232C, RS-485, Ethernet, TCP/UDP, IP)
@@ -823,9 +682,6 @@ UART는UART(Universal Asynchronous Receiver/Transmitter, 범용 비동기 송수
 - UART에서 데이터는 프레임 형태로 전송됩니다.
 
 ![Image 106](../../assets/images/ros/basics/lesson-02/img_052_106.webp)
-
-
-![Image 107](../../assets/images/ros/basics/lesson-02/img_052_107.webp)
 
 
 ![Image 108](../../assets/images/ros/basics/lesson-02/img_052_108.webp)
@@ -949,9 +805,6 @@ Long Range의약자로 광범위한 커 버리지와 적은 대역 폭, 긴 배�
 
 
 ![Image 133](../../assets/images/ros/basics/lesson-02/img_060_133.webp)
-
-
-![Image 134](../../assets/images/ros/basics/lesson-02/img_060_134.webp)
 
 
 ![Image 135](../../assets/images/ros/basics/lesson-02/img_060_135.webp)

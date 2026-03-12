@@ -1,20 +1,13 @@
-# 강의_3기_ROS2입문_8차시
-
-
-ROS2 프로그래밍 입문(8차시)
-
-8. ROS2 복습_2
+# ROS2 입문 8차시 - ROS2 복습 (2)
 
 
 ## ROS2 복습_2
-1. 인터페이스 패키지 생성 및 설계
-2. 인터페이스 프로그래밍 실습
 토픽, 서비스, 액션 인터페이스
 패키지 설계
 
 ## 패키지구성
 
-- Node 클래스의create_publisher 함수를 사용하여 퍼 블 리 셔 선언
+- Node 클래스의create_publisher 함수를 사용하여 퍼블리셔 선언
 - 토픽 타입: ArithmeticArgument
 - 토픽 이름: 'arithmetic_argument
 - 'QoS 설정: 이전에 설정한QOS_RKL10V 사용
@@ -23,10 +16,7 @@ ROS2 프로그래밍 입문(8차시)
 ## create_timer 함수를이용하여1초마다publish_random_arithmetic_arguments 함수실행설정
 ## create_publisher에서의설정들은퍼블리시를위한기본설정
 ## 실제토픽발행이이루어지는부분은publish_random_arithmetic_arguments 함수
-토픽 프로그래밍
-토픽퍼블리셔코드
 
-![Image 4](../../assets/images/ros/intro/lesson-08/img_004_004.webp)
 
 - 타이머 콜백 함수로1초마다 실행
 - msg 변수를ArithmeticArgument() 클래스로 생성(지난‘토픽, 서 비스, 액션 인터페이스’ 강좌에서 작성한msg 인터페이스 활용)
@@ -40,21 +30,17 @@ ROS2 프로그래밍 입문(8차시)
 - get_logger().info() 를사용하여디버깅목적으로변수a, b 값을 터미널에 표시
 
 ## 로그출력
-토픽 프로그래밍
-토픽퍼블리셔코드
-토픽 프로그래밍
-토픽퍼블리셔코드
-- 토픽 퍼 블 리 셔 노 드와 마찬가지로Node 클래스 상속
+- 토픽 퍼블리셔 노 드와 마찬가지로Node 클래스 상속
 - 생성자에서'calculator'라는 이름으로 노드 초기화
 - 토픽서브스크라이버, 서비스 서버, 액션 서버를 포함하여 코드가 길기 때문에 전체 코드는 생략
 - 여기서는토픽서브스크라이버관련코드만설명
 - Calculator 클래스 설정
 - QoS 설정
 - QoSProfile 클래스를이용하여토픽서브스크라이버의 QoS 설정 적용
-- QoS 설정값: RELIABLE, KEEP_LAST, DEPTH 10, VOLATILE (토픽 퍼 블 리 셔와 동일 설정)
+- QoS 설정값: RELIABLE, KEEP_LAST, DEPTH 10, VOLATILE (토픽 퍼블리셔와 동일 설정)
 - QoS에 대한 자세한 내용은'DDS의QoS(Quality of Service)' 강좌 참고
 - 제일 중요한 설정으로Node 클래스의create_subscription 함수를이용하여서브스크라이버로선언
-- get_arithmetic_argument라는 콜백 함수를 지정하여 퍼 블 리셔로부터 메시지를 서브 스 크 라이브 할 때마다 실행되는 함수를 지정
+- get_arithmetic_argument라는 콜백 함수를 지정하여 퍼 블 리셔로부터 메시지를 서브스크라이브 할 때마다 실행되는 함수를 지정
 - ReentrantCallbackGroup으로callback_group을 지정하여 콜백 함수를 병렬로 실행할 수 있게해 주며 뒤에서 설정
 - 이후 설명할MultiThreadedExecutor와 함께 사용됨
 - arithmetic_argument_subscriber 설정
@@ -62,8 +48,8 @@ ROS2 프로그래밍 입문(8차시)
 - MutuallyExclusiveCallbackGroup이 기본 설정으로 사용됨
 - MutuallyExclusiveCallbackGroup: 한 번에 하나의 콜백 함 수만 실행하도록 제한
 - ReentrantCallbackGroup: 제한 없이 콜백 함수를 병렬로 실행 가능 토픽 프로그래밍 토픽서브스크라이버코드 토픽 프로그래밍 토픽서브스크라이버코드
-- 콜백 함수인 이 함수는'arithmetic_argument'이라는 토픽 이름에ArithmeticArgument 타입의 메시지를 서브 스 크라 이브하게 되면 실행됨
-- 서브스크 라이브한msg의argument_a와argument_b를 멤버 변수에 저장하고, get_logger().info() 함수를 이용하여 토픽으로 받은 시간, 변수a, b 값을 화면에 표시
+- 콜백 함수인 이 함수는'arithmetic_argument'이라는 토픽 이름에ArithmeticArgument 타입의 메시지를 서브스크라이브하게 되면 실행됨
+- 서브스크라이브한msg의argument_a와argument_b를 멤버 변수에 저장하고, get_logger().info() 함수를 이용하여 토픽으로 받은 시간, 변수a, b 값을 화면에 표시
 - get_arithmetic_argument
 
 ## entry_points 설정
@@ -103,17 +89,12 @@ ROS2 프로그래밍 입문(8차시)
 - 인터럽트시그널(Ctrl + C) 발생시, executor, calculator의 액션 서버(별도 소멸 필요), calculator 노드를 소멸
 - rclpy.shutdown으로노드를 종료
 
-![Image 18](../../assets/images/ros/intro/lesson-08/img_011_018.webp)
 
-
-서비스 프로그래밍
 서비스 클라이언트/서버
 
 
 ![Image 19](../../assets/images/ros/intro/lesson-08/img_012_019.webp)
 
-서비스 프로그래밍
-서비스 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## calculator 노드초기화
@@ -132,11 +113,6 @@ src/ex_calculator/ex_calculator/calculator/calculator.py
 - 콜백 함수인get_arithmetic_operator이 실제 서비스 요청에 해당되는 특정 수행 코드가 수행되는 부분
 
 
-![Image 21](../../assets/images/ros/intro/lesson-08/img_013_021.webp)
-
-
-서비스 프로그래밍
-서비스 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## get_arithmetic_operator 함수
@@ -155,11 +131,6 @@ src/ex_calculator/ex_calculator/calculator/calculator.py
 - 관련 수식을**get_logger().info()**를 통해 문자열로 출력하여 화면에 표시
 
 
-![Image 22](../../assets/images/ros/intro/lesson-08/img_014_022.webp)
-
-
-서비스 프로그래밍
-서비스 클라이언트 코드
 src/ex_calculator/ex_calculator/arithmetic/operator.py
 
 ## Operator 클래스초기화
@@ -175,11 +146,6 @@ src/ex_calculator/ex_calculator/arithmetic/operator.py
 - 서비스 요청 가능 여부를 위해0.1초간격으로 서비스 서버가 실행되어 있는지 확인
 
 
-![Image 23](../../assets/images/ros/intro/lesson-08/img_015_023.webp)
-
-
-서비스 프로그래밍
-서비스 클라이언트 코드
 src/ex_calculator/ex_calculator/arithmetic/operator.py
 
 ## 서비스클라이언트의목적: 서비스서버에게연산에필요한연산자를전달
@@ -194,10 +160,6 @@ self.request의arithmetic_operator 변수에 저장
 ## 서비스상태및응답값을담은futures를반환
 
 
-![Image 24](../../assets/images/ros/intro/lesson-08/img_016_024.webp)
-
-
-서비스 프로그래밍
 서비스 클라이언트 노드 실행 코드
 src/ex_calculator/ex_calculator/arithmetic/operator.py
 - rclpy.init를 이용하여 초기화
@@ -210,10 +172,6 @@ src/ex_calculator/ex_calculator/arithmetic/operator.py
 - ‘ctrl + c'와 같은 인터럽트 시그널 예외 상황에서 operator를 소멸시키고rclpy.shutdown 함수로 노 드 를 종료
 
 
-![Image 25](../../assets/images/ros/intro/lesson-08/img_017_025.webp)
-
-
-서비스 프로그래밍
 서비스 클라이언트 노드 실행 코드
 src/ex_calculator/ex_calculator/arithmetic/operator.py
 - 서비스 클라이언트는 한 번 실행 후 종료되는 방식으로, 토픽과 같은 지속적인 수행은 없음
@@ -224,24 +182,15 @@ src/ex_calculator/ex_calculator/arithmetic/operator.py
 - 연산자 선택은 사 칙 연산자(+, -, * , /) 중 하나가 랜덤으로 선택되어 송신됨
 
 
-![Image 26](../../assets/images/ros/intro/lesson-08/img_018_026.webp)
-
-
-액션 프로그래밍
 액션 클라이언트/서버
 다음 그림과 같은 액션 목표(action goal)를 지정하는 액션 클라이언트와 액션 목표를 받아 특
 정 태스크를 수행하면서 중간 결과 값에 해당되는 액션 피드백(action feedback)과 최종 결과 값
 에 해당되는 액션 결과(action result)를 전송하는 액션 서버를 작성해 볼 것이다.
 
 
-![Image 27](../../assets/images/ros/intro/lesson-08/img_019_027.webp)
-
-
 ![Image 28](../../assets/images/ros/intro/lesson-08/img_019_028.webp)
 
 
-액션 프로그래밍
-액션 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## arithmetic_action_server : rclpy.action
@@ -258,11 +207,6 @@ src/ex_calculator/ex_calculator/calculator/calculator.py
 함수임을 알아 두자
 
 
-![Image 29](../../assets/images/ros/intro/lesson-08/img_020_029.webp)
-
-
-액션 프로그래밍
-액션 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## goal_handle 매개변수
@@ -272,8 +216,6 @@ src/ex_calculator/ex_calculator/calculator/calculator.py
 ## ## ## ## ![Image 30](../../assets/images/ros/intro/lesson-08/img_021_030.webp)
 
 
-액션 프로그래밍
-액션 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## •
@@ -289,8 +231,6 @@ get_logger().info()을 통해 터미널 창에 출
 력후goal_handle.publish_feedback() 함
 수를 통해 액션 클라이언트로 전송
 
-액션 프로그래밍
-액션 서버 코드
 src/ex_calculator/ex_calculator/calculator/calculator.py
 
 ## 액션목표를달성했다는상태전환함수인
@@ -301,7 +241,6 @@ goal_handle.succeed()를 실행시켜 액션
 를 저장하고total_sum에 연산 합계를 저
 장하여 액션 결과 값인result은리턴
 
-액션 프로그래밍
 액션 서버 실행 코드
 src/ex_calculator/ex_calculator/calculator/main.py
 
@@ -312,8 +251,6 @@ src/ex_calculator/ex_calculator/calculator/main.py
 ## 해당코드에대한설명은토픽프로그래밍
 (Python) 강좌 참조
 
-액션 프로그래밍
-액션 클라이언트 코드
 src/ex_calculator/ex_calculator/checker/checker.py
 
 ## Checker 클래스
@@ -332,8 +269,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 - 액션 타입: ArithmeticChecker
 - 액션 이름: 'arithmetic_checker’
 
-액션 프로그래밍
-액션 클라이언트 코드
 src/ex_calculator/ex_calculator/checker/checker.py
 
 ## send_goal_total_sum 함수
@@ -345,8 +280,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 ## 연결에문제가있을때에while문을
 반복하게 되고 문제 없이 연결되었을
 때에는 다음 구문으로 넘어감
-액션 프로그래밍
-액션 클라이언트 코드
 src/ex_calculator/ex_calculator/checker/checker.py
 
 ## 액션메시지설정
@@ -367,11 +300,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 5. 액션 결과 값 콜백 함수 선언: get_arithmetic_action_result
 
 
-![Image 37](../../assets/images/ros/intro/lesson-08/img_027_037.webp)
-
-
-액션 프로그래밍
-액션 클라이언트 코드
 src/ex_calculator/ex_calculator/checker/checker.py
 
 ## 액션피드백값콜백함수
@@ -384,11 +312,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 - 액션 목 푯 값을 문제없이 전달된 경우, 액션 결과를 받을 콜백 함수를 get_arithmetic_action_result로설정
 
 
-![Image 38](../../assets/images/ros/intro/lesson-08/img_028_038.webp)
-
-
-액션 프로그래밍
-액션 클라이언트 코드
 src/ex_calculator/ex_calculator/checker/checker.py
 
 ## 앞서지정한"액션결과값콜백함수"
@@ -402,10 +325,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 터미널 창에 출력
 
 
-![Image 39](../../assets/images/ros/intro/lesson-08/img_029_039.webp)
-
-
-액션 프로그래밍
 액션 클라이언트 노드 실행 코드
 src/ex_calculator/ex_calculator/checker/main.py
 
@@ -427,9 +346,6 @@ src/ex_calculator/ex_calculator/checker/main.py
 - 추가적으로 토픽이나 서비스와는 달리 액션 클라이언트는 'checker.arithmetic_action_client.destroy()' 와 같이 별도로 소 멸시켜야함
 
 
-![Image 40](../../assets/images/ros/intro/lesson-08/img_030_040.webp)
-
-
 파라미터 프로그래밍
 파라미터
 우리는 이전 강좌에서 토픽, 서비스, 액션 관련 프로그래밍을 익히기 위하여argument, operator, calculator,
@@ -437,9 +353,6 @@ checker 노드를 작성해 보았다. 이들 노드 중에서 다음 그림과 
 라미터를 사용하고 있다. argument 노드는QoS 설정과 랜덤으로 생성되는 변수a, b의 랜덤 생성 범위를 파
 라미 터를 이용했었고calculator 노드는QoS 설정을 사용하였다. 우리는 여기서argument 노드에서 사용되
 는 파라미터에 대해 자세히 알아볼 것이다.
-
-
-![Image 41](../../assets/images/ros/intro/lesson-08/img_031_041.webp)
 
 
 ![Image 42](../../assets/images/ros/intro/lesson-08/img_031_042.webp)
@@ -492,12 +405,6 @@ src/ex_calculator/ex_calculator/checker/main.py
 덤 생성 범위를 변경함
 
 
-![Image 43](../../assets/images/ros/intro/lesson-08/img_033_043.webp)
-
-
-![Image 44](../../assets/images/ros/intro/lesson-08/img_033_044.webp)
-
-
 파라미터 프로그래밍
 파라미터 사용 방법(서비스 클라이언트)
 
@@ -526,11 +433,6 @@ python 패키지 설정 파일'setup.py'에 옵션을 추가해야
 할 때 해당 파일의 파라미터 이름과 값을 참조하여 자동으로
 초기화 가능
 src/ex_calculator/launch/arithmetic.launch.py
-
-![Image 46](../../assets/images/ros/intro/lesson-08/img_035_046.webp)
-
-
-![Image 47](../../assets/images/ros/intro/lesson-08/img_035_047.webp)
 
 
 실행 인자 프로그래밍
@@ -572,15 +474,6 @@ ROS2 에서의 실행 인자 처리
 - args arguments
 
 
-![Image 48](../../assets/images/ros/intro/lesson-08/img_037_048.webp)
-
-
-![Image 49](../../assets/images/ros/intro/lesson-08/img_037_049.webp)
-
-
-![Image 50](../../assets/images/ros/intro/lesson-08/img_037_050.webp)
-
-
 실행 인자 프로그래밍
 실행 인자의 구문 해석
 
@@ -589,9 +482,6 @@ ROS2 에서의 실행 인자 처리
 - 해당 코드를 통해 실행 인자를 다루어 볼 것
 - 실행 인자의 구문 해석 프로그램은python의 argparse 모듈을 이용하여 파서를 선언 후 사용할 실행 인자 값을 지정하는 것이 주를 이룸
 - 이를 순서대로 나열하면 다음과 같음 1. 파서 만들기(parser = argparse.ArgumentParser) 2. 인자 추가하기(parser.add_argument) 3. 인자 파 싱하기(args = parser.parse_args()) 4. 인자 사용하기(args.xxx) src/ex_calculator/ex_calculator/checker/main.py
-
-
-![Image 51](../../assets/images/ros/intro/lesson-08/img_038_051.webp)
 
 
 실행 인자 프로그래밍
@@ -614,8 +504,6 @@ ROS2 에서의 실행 인자 처리
 - 기본값: 50
 - 설명: 지정 인자에 대한 설명 추가(프로그램을 실행 시'-h'와 같이 실행 인자에 대한 도움말을 실행하면 볼 수 있는 문구)
 
-
-![Image 52](../../assets/images/ros/intro/lesson-08/img_039_052.webp)
 
 런치 프로그래밍
 ROS2 Launch System
@@ -642,8 +530,6 @@ ROS2 Launch System
 - 'ex_calculator' 패키지의'param'폴더에 위치한 'arithmetic_config.yaml' 파라미터 설정 파일을 의미
 - 해당 파일의 내용은 앞서 다룬'파라미터 프로그래밍 (Python)’ 참고
 
-![Image 62](../../assets/images/ros/intro/lesson-08/img_041_062.webp)
-
 
 런치 프로그래밍
 launch 작성
@@ -651,9 +537,7 @@ launch 작성
 ## remappings 기능(원본코드에는존재하지않음) :
 - 특정 이름을 변경할 수 있는 기능
 - 다음 예제와 같이'/arithmetic_argument' 토픽 이름을'/argument' 이라는 토픽 이름으로 변경할 수 있음
-- 내부 코드 변경 없이 토픽, 서비스, 액션 등의 고유 이름을 변경할 수 있는 유용한 기능이 므로 알아 두기 추천
-
-![Image 63](../../assets/images/ros/intro/lesson-08/img_042_063.webp)
+- 내부 코드 변경 없이 토픽, 서비스, 액션 등의 고유 이름을 변경할 수 있는 유용한 기능이므로 알아 두기 추천
 
 
 런치 프로그래밍
@@ -673,9 +557,6 @@ launch 작성
 - 활용예: namespace는 복수의 로봇을 사용할 때 동일 프로 그램을 이용할 때 고유 이름을 사용함에 있어서 중복됨을 피할 수 있고 데이터를 구분 지어 사용할 수 있음
 
 
-![Image 64](../../assets/images/ros/intro/lesson-08/img_043_064.webp)
-
-
 런치 프로그래밍
 launch 작성
 
@@ -686,9 +567,6 @@ LaunchDescription의add_action
 
 ## 이렇게구성하면예제와같이좀더
 간결해짐
-
-
-![Image 65](../../assets/images/ros/intro/lesson-08/img_044_065.webp)
 
 
 런치 프로그래밍
@@ -707,21 +585,17 @@ launch 작성
 - 특히, 직접 작성하지 않은 패키지의 런치 파일을 수정 없이 불러와 사용할 수 있어 편리함
 - 널리 사용되는 유용한 기능이므로 참고할 것
 
-![Image 67](../../assets/images/ros/intro/lesson-08/img_045_067.webp)
-
 
 런치 프로그래밍
-패키지 빌 드
+패키지 빌드
 
 ## rclpy 패키지계열
 - Python 패키지 설정 파일(setup.py)의data_files 옵션에launch 폴더를 지정
-- 효과: 패키지 소스 코드 내launch 폴더에 있는*.launch.py 파일들이 설치 폴더에 복사되어 위치하게 됨 런치 프로그래밍 패키지 빌 드
+- 효과: 패키지 소스 코드 내launch 폴더에 있는*.launch.py 파일들이 설치 폴더에 복사되어 위치하게 됨 런치 프로그래밍 패키지 빌드
 
 ## rclpy 패키지계열
 - Python 패키지 설정 파일(setup.py)의data_files 옵션에launch 폴더를 지정
 - 효과: 패키지 소스 코드 내launch 폴더에 있는*.launch.py 파일들이 설치 폴더에 복사되어 위치하게 됨
-
-![Image 69](../../assets/images/ros/intro/lesson-08/img_047_069.webp)
 
 
 토픽, 서비스, 액션 인터페이스
@@ -756,7 +630,7 @@ launch 작성
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/OWNER/study-site/blob/main/notebooks/ros/jupyter_ros/8차시_1_temperature_example.ipynb)
 
 ### ROS 2 Temperature Publisher/Subscriber Example in Jupyter
-가상의 온도 센서 값을 1초 간격으로 퍼블리시하고, 동시에 이를 서브스크 라이브하는 구조입니다.
+가상의 온도 센서 값을 1초 간격으로 퍼블리시하고, 동시에 이를 서브스크라이브하는 구조입니다.
 
 #### 환경 설정
 
@@ -827,7 +701,7 @@ finally:
 #### 결과
 Jupyter에서 위 셀들을 순서대로 실행하면,
 temperature 토픽으로 온도 데이터를 퍼블리시하고
-같은 토픽을 서브스크 라이브하여 출력할 수 있습니다.
+같은 토픽을 서브스크라이브하여 출력할 수 있습니다.
 
 Tip: Jupyter에서 log는 node.get_logger().info()로는 출력이 잘 안 보일 수 있으니 print()로 바꿔도 괜찮아요.
 
