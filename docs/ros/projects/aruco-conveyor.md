@@ -16,14 +16,10 @@ V1.0
 내용검증필요
 구어체변경
 
-HUMAN AI ROBOTICS
-3
 터틀봇메내퓰레이터
 참고
 아두이노, 컨베이벨트
 
-HUMAN AI ROBOTICS
-4
 터틀봇메내퓰레이터
 참고
 프로젝트개발하드웨어
@@ -43,15 +39,11 @@ wifi 동글 1
 노트북 1
 라이다센서
 
-HUMAN AI ROBOTICS
-5
 터틀봇메내퓰레이터
 참고
 아두이노
 
 
-HUMAN AI ROBOTICS
-6
 터틀봇메내퓰레이터
 참고
 아두이노
@@ -62,23 +54,17 @@ HUMAN AI ROBOTICS
 ![Image 11](../../assets/images/ros/projects/aruco-conveyor/img_006_011.webp)
 
 
-HUMAN AI ROBOTICS
-7
 터틀봇메내퓰레이터
 참고
 아두이노
 ![Image 14](../../assets/images/ros/projects/aruco-conveyor/img_007_014.webp)
 
 
-HUMAN AI ROBOTICS
-8
 터틀봇메내퓰레이터
 참고
 아두이노
 
 
-HUMAN AI ROBOTICS
-9
 터틀봇메내퓰레이터
 참고
 아두이노
@@ -89,8 +75,6 @@ HUMAN AI ROBOTICS
 ![Image 20](../../assets/images/ros/projects/aruco-conveyor/img_009_020.webp)
 
 
-HUMAN AI ROBOTICS
-10
 터틀봇메내퓰레이터
 참고
 스테핑모터, 컨베이벨트
@@ -98,13 +82,11 @@ HUMAN AI ROBOTICS
 에서 사용됩니다. 스테핑 모터는 각도별로 일정한 회전각만큼 이동할 수 있어 정밀한 제어가 가능합니다.
 
 ![Image 22](../../assets/images/ros/projects/aruco-conveyor/img_010_022.webp)
-HUMAN AI ROBOTICS
-11
 터틀봇메내퓰레이터
 참고
 스테핑모터, 컨베이벨트
 스테퍼 모터의 속도 제어
-회전 속도는 펄스 수의 밀도로 제어합니다. 1펄스로 1기준 
+회전 속도는 펄스 수의 밀도로 제어합니다. 1펄스로 1기준
 스텝각이 회전하는 경우, 1초에 10펄스를 보내는 것이, 1초
 에 1펄스를 보내는 것보다 1초의 회전한 각도가 크다. 그래
 서 펄스의 주파수가 높으면 회전 속도가 빠릅니다.
@@ -114,21 +96,17 @@ HUMAN AI ROBOTICS
 ![Image 28](../../assets/images/ros/projects/aruco-conveyor/img_011_028.webp)
 
 
-HUMAN AI ROBOTICS
-12
 터틀봇메내퓰레이터
 참고
 스테핑모터, 컨베이벨트
 
 
-HUMAN AI ROBOTICS
-13
 터틀봇메내퓰레이터
 참고
 스테핑모터, 컨베이벨트
-#define PIN_ENA 8 
+#define PIN_ENA 8
 // Enable pin on the driver (optional if you need to control enable state)
-#define PIN_DIR 9 
+#define PIN_DIR 9
 // Direction pin (controls motor direction)
 #define PIN_PUL 10 // Pulse pin (sends step signals to the driver)
 int stepDelay = 1000; // Delay between steps in microseconds (adjust motor speed)
@@ -147,7 +125,7 @@ void loop() {
 for (int i = 0; i < 2000; i++) { // 2000 steps for one full rotation (adjust based on your motor's step count)
 digitalWrite(PIN_PUL, HIGH); // Create a pulse
 delayMicroseconds(stepDelay); // Wait for step duration
-digitalWrite(PIN_PUL, LOW); 
+digitalWrite(PIN_PUL, LOW);
 // End the pulse
 delayMicroseconds(stepDelay); // Wait for step duration
 }
@@ -156,8 +134,6 @@ digitalWrite(PIN_DIR, !digitalRead(PIN_DIR)); // Reverse direction
 delay(1000); // Wait for a second before changing direction
 }
 
-HUMAN AI ROBOTICS
-14
 터틀봇메내퓰레이터
 참고
 초음파센서
@@ -168,16 +144,14 @@ HUMAN AI ROBOTICS
 ![Image 35](../../assets/images/ros/projects/aruco-conveyor/img_014_035.webp)
 
 
-HUMAN AI ROBOTICS
-15
 터틀봇메내퓰레이터
 참고
 초음파센서
 #define TRIG 9 //TRIG 핀 설정 (초음파 보내는 핀)
 #define ECHO 8 //ECHO 핀 설정 (초음파 받는 핀)
 void setup() {
-Serial.begin(9600); //PC모니터로 센서값을 확인하기위해서 시리얼 통신을 정의해줍니다. 
-  
+Serial.begin(9600); //PC모니터로 센서값을 확인하기위해서 시리얼 통신을 정의해줍니다.
+
  pinMode(TRIG, OUTPUT);
 pinMode(ECHO, INPUT);
 }
@@ -192,7 +166,7 @@ digitalWrite(TRIG, LOW);
 duration = pulseIn (ECHO, HIGH); //물체에 반사되어돌아온 초음파의 시간을 변수에 저장합니다.
  //34000*초음파가 물체로 부터 반사되어 돌아오는시간 /1000000 / 2(왕복값이아니라 편도값이기때문에 나누기2를 해줍니다.)
 //초음파센서의 거리값이 위 계산값과 동일하게 Cm로 환산되는 계산공식 입니다. 수식이 간단해지도록 적용했습니다.
- distance = duration * 17 / 1000; 
+ distance = duration * 17 / 1000;
  //PC모니터로 초음파 거리값을 확인 하는 코드 입니다.
  Serial.println(duration ); //초음파가 반사되어 돌아오는 시간을 보여줍니다.
  Serial.print("\nDIstance : ");
@@ -201,18 +175,14 @@ Serial.print(distance); //측정된 물체로부터 거리값(cm값)을 보여�
 delay(1000); //1초마다 측정값을 보여줍니다.
 }
 
-HUMAN AI ROBOTICS
-16
 터틀봇메내퓰레이터
 참고
 아루코마커
 
-HUMAN AI ROBOTICS
-17
 터틀봇메내퓰레이터
 참고
 아루코마커(ArUco marker)
-로봇 비전 혹은 컴퓨터 비전에서 많이 사용하는 마커이다. 
+로봇 비전 혹은 컴퓨터 비전에서 많이 사용하는 마커이다.
 QR 코드처럼 우리가 카메라로 아루코마커를 인식, 아루코마커가 가지고 있는 ID를 반환받아서 읽을 수 있다.
 인식한 아루코마커의 위치와 각도에 따라서 x, y, z축 방향으로의 위치와 회전 각도를 계산할 수 있다.
 aruco_pos_rot.py
@@ -223,8 +193,6 @@ aruco_pos_rot.py
 ![Image 40](../../assets/images/ros/projects/aruco-conveyor/img_017_040.webp)
 
 
-HUMAN AI ROBOTICS
-18
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -236,53 +204,45 @@ aruco_dist_pos_rot.py
 ![Image 42](../../assets/images/ros/projects/aruco-conveyor/img_018_042.webp)
 
 
-HUMAN AI ROBOTICS
-19
 터틀봇메내퓰레이터
 참고
 카메라켈리브레이션
 위치에따라 카메라 랜즈의 굴곡에따른 왜곡 현상
-이 과정은 일반적으로 체스보드 패턴을 사용하여 여러 각도에서 이미지를 
+이 과정은 일반적으로 체스보드 패턴을 사용하여 여러 각도에서 이미지를
 촬영하고, 이를 통해 카메라 매트릭스를 구하는 방식으로 진행됩니다.
-카메라 캘리브레이션을 위해서는 보통 OpenCV를 사용하여 카메라의 내부 파라미터(초점 거리, 왜곡 계수 
+카메라 캘리브레이션을 위해서는 보통 OpenCV를 사용하여 카메라의 내부 파라미터(초점 거리, 왜곡 계수
 등)를 추정
 
 ![Image 44](../../assets/images/ros/projects/aruco-conveyor/img_019_044.webp)
 
 
-HUMAN AI ROBOTICS
-20
 터틀봇메내퓰레이터
 참고
 카메라켈리브레이션
 카메라 파라미터
-1.카메라 렌즈 시스템의내부 파라미터(Internal parameters): 초점 거리 (focal length), 광학 중심 (optical 
+1.카메라 렌즈 시스템의내부 파라미터(Internal parameters): 초점 거리 (focal length), 광학 중심 (optical
 center), 렌즈의 방사 왜곡 계수 (radial distortion coefficients of the lens)
 2.외부 파라미터(External parameters): 시계 좌표계에 대한 카메라의 방향, 회전, 이동
 체커 보드
-우리는 카메라 캘리브레이션을 위해서 체커 보드(checkerboard pattern)를 사용할 것이다. 
+우리는 카메라 캘리브레이션을 위해서 체커 보드(checkerboard pattern)를 사용할 것이다.
 해당 사이트에서 체커 보드 패턴을 만들고 간단히 출력할 수 있다.
 https://markhedleyjones.com/projects/calibration-checkerboard-collection
 
-HUMAN AI ROBOTICS
-21
 터틀봇메내퓰레이터
 참고
 카메라켈리브레이션
-•10x7 체커보드 패턴(내부 코너는 9x6)에서 각 사각형이 20mm인 체커보드를 사용합니다. 
-•지정된 폴더에서 체커보드 이미지를 로드합니다. 
-•각 이미지에서 체커보드 코너를 감지합니다. 
-•감지된 코너를 사용하여 카메라 캘리브레이션을 수행합니다. 
-•카메라 행렬(intrinsic parameters)과 왜곡 계수를 계산합니다. 
-•캘리브레이션 결과를 파일로 저장합니다. 
-•선택적으로 테스트 이미지의 왜곡을 보정합니다. 
+•10x7 체커보드 패턴(내부 코너는 9x6)에서 각 사각형이 20mm인 체커보드를 사용합니다.
+•지정된 폴더에서 체커보드 이미지를 로드합니다.
+•각 이미지에서 체커보드 코너를 감지합니다.
+•감지된 코너를 사용하여 카메라 캘리브레이션을 수행합니다.
+•카메라 행렬(intrinsic parameters)과 왜곡 계수를 계산합니다.
+•캘리브레이션 결과를 파일로 저장합니다.
+•선택적으로 테스트 이미지의 왜곡을 보정합니다.
 Camera_calibration_captures.py
 Camera_calibration.py
 Camera_test.py
 Camera_test_calibrationed.py
 
-HUMAN AI ROBOTICS
-22
 터틀봇메내퓰레이터
 참고
 카메라켈리브레이션
@@ -291,8 +251,6 @@ https://darkpgmr.tistory.com/32
 ![Image 48](../../assets/images/ros/projects/aruco-conveyor/img_022_048.webp)
 
 
-HUMAN AI ROBOTICS
-23
 터틀봇메내퓰레이터
 참고
 카메라켈리브레이션
@@ -306,18 +264,14 @@ HUMAN AI ROBOTICS
 ![Image 52](../../assets/images/ros/projects/aruco-conveyor/img_023_052.webp)
 
 
-HUMAN AI ROBOTICS
-24
 터틀봇메내퓰레이터
 참고
 켈리브레이션
 
-HUMAN AI ROBOTICS
-25
 터틀봇메내퓰레이터
 참고
 아로크마커생성
-aruco_generate.py 
+aruco_generate.py
 Aruco marker generate 웹사이트
 https://chev.me/arucogen/
 https://fodi.github.io/arucosheetgen/
@@ -325,8 +279,6 @@ marker_id = 마커의 아이디
 marker_size = 마커크기(픽셀 또는 m)
 dict_type = 마커 종류와 id 갯수 (4X4,5X5,6X6, 250,500,1000)
 
-HUMAN AI ROBOTICS
-26
 터틀봇메내퓰레이터
 참고
 아로크마커거리추정
@@ -334,17 +286,15 @@ HUMAN AI ROBOTICS
 정확한 거리를 위해서 카메라 calibration이 필요
 aruco_run.py 실행
 aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_1000)
-OpenCV의 ArUco 라이브러리를 사용하여 ArUco 마커를 생성하거나 인식하기 위한 코드입니다. 
-1.cv2.aruco: OpenCV의 ArUco 모듈을 의미합니다. ArUco는 QR 코드와 유사한 방식으로 인식할 수 있는 작은 2D 마커입니다. 
+OpenCV의 ArUco 라이브러리를 사용하여 ArUco 마커를 생성하거나 인식하기 위한 코드입니다.
+1.cv2.aruco: OpenCV의 ArUco 모듈을 의미합니다. ArUco는 QR 코드와 유사한 방식으로 인식할 수 있는 작은 2D 마커입니다.
 2.주로 증강 현실(AR)이나 로봇 비전에서 사용됩니다.
-2.getPredefinedDictionary(): 이 함수는 OpenCV에서 미리 정의된 다양한 ArUco 마커 세트를 반환합니다. 
+2.getPredefinedDictionary(): 이 함수는 OpenCV에서 미리 정의된 다양한 ArUco 마커 세트를 반환합니다.
 3.사용자는 여러 종류의 마커 세트 중 하나를 선택할 수 있습니다. 이 함수는 마커들을 생성하거나 인식할 때 유용합니다.
-3.cv2.aruco.DICT_6X6_1000: 이는 "6x6 크기의 1000개의 고유한 ArUco 마커" 세트를 의미합니다. 
-4.여기서 6x6은 각 마커의 비트 크기를 나타내며, 1000은 세트 내에서 제공되는 마커의 수를 의미합니다. 
+3.cv2.aruco.DICT_6X6_1000: 이는 "6x6 크기의 1000개의 고유한 ArUco 마커" 세트를 의미합니다.
+4.여기서 6x6은 각 마커의 비트 크기를 나타내며, 1000은 세트 내에서 제공되는 마커의 수를 의미합니다.
 5.즉, 이 세트는 6x6 크기의 1000개의 서로 다른 ArUco 마커를 제공합니다.
 
-HUMAN AI ROBOTICS
-27
 터틀봇메내퓰레이터
 참고
 아로크마커거리추정
@@ -354,23 +304,19 @@ Marker ID: 9, Position: [-0.3635388  -0.06435436  0.54939859], Rotation (Yaw, Pi
 ![Image 57](../../assets/images/ros/projects/aruco-conveyor/img_027_057.webp)
 
 
-HUMAN AI ROBOTICS
-28
 터틀봇메내퓰레이터
 참고
 아로크마커거리추정
 아로크마커 거리 추정 원리
 •실제 마커 크기: 마커의 실제 크기(가령, 정사각형의 한 변의 길이)가 알려져 있어야 합니다.
-•마커의 화면 상 크기: 
+•마커의 화면 상 크기:
 •카메라에서 본 마커의 크기는 실제 크기와 카메라의 초점 거리, 마커와 카메라 사이의 거리에 따라 다르게 나타납니다.
-•삼각법: 
+•삼각법:
 •삼각형의 기하학적 원리를 사용하여, 마커의 화면 상 크기와 실제 크기, 그리고 카메라의 초점 거리로부터 거리를 계산합니다.
 
 ![Image 59](../../assets/images/ros/projects/aruco-conveyor/img_028_059.webp)
 
 
-HUMAN AI ROBOTICS
-29
 터틀봇메내퓰레이터
 참고
 아로크마커거리추정
@@ -392,12 +338,10 @@ from cv_bridge import CvBridge
 • rclpy: ROS 2 파이썬 클라이언트 라이브러리
 • sensor_msgs.msg.CompressedImage: 압축된 이미지 메시지
 • aruco_msgs.msg.Marker, MarkerArray: ArUco 마커 정보 메시지
-• cv_bridge: ROS 이미지 
+• cv_bridge: ROS 이미지
  OpenCV 이미지 변환
 • yaml: 카메라 캘리브레이션 파일 로딩
 aruco_marker_detector.py
-HUMAN AI ROBOTICS
-30
 터틀봇메내퓰레이터
 참고
 아로크마커거리추정
@@ -409,7 +353,7 @@ corners, ids, _ = detector.detectMarkers(image)
 detect_data = []
 if ids is not None:
 cv2.aruco.drawDetectedMarkers(image, corners, ids)
-rvecs, tvecs, _ = my_estimatePoseSingleMarkers(corners, marker_size, camera_matrix, 
+rvecs, tvecs, _ = my_estimatePoseSingleMarkers(corners, marker_size, camera_matrix,
 dist_coeffs)
 if rvecs is not None and tvecs is not None:
 for rvec, tvec, marker_id in zip(rvecs, tvecs, ids):
@@ -426,8 +370,6 @@ detect_markers()
 • rotationMatrixToEulerAngles()로 Euler 각도 추출
 aruco_marker_detector.py
 
-HUMAN AI ROBOTICS
-31
 터틀봇메내퓰레이터
 참고
 아로크마커거리추정
@@ -447,8 +389,6 @@ my_estimatePoseSingleMarkers()
 • 마커의 각 코너 좌표와 실제 크기를 바탕으로 자세 추정
 aruco_marker_detector.py
 
-HUMAN AI ROBOTICS
-32
 터틀봇메내퓰레이터
 참고
 아로크마커거리추정
@@ -468,8 +408,6 @@ rotationMatrixToEulerAngles()
 • 회전 행렬을 Euler 각도(roll, pitch, yaw)로 변환
 aruco_marker_detector.py
 
-HUMAN AI ROBOTICS
-33
 터틀봇메내퓰레이터
 참고
 아로크마커거리추정
@@ -485,8 +423,6 @@ load_camera_parameters()
 • ROS 패키지 내 YAML 파일에서 카메라 캘리브레이션 파라미터를 로드
 aruco_marker_detector.py
 
-HUMAN AI ROBOTICS
-34
 터틀봇메내퓰레이터
 참고
 아로크마커거리추정
@@ -529,12 +465,10 @@ cv2.waitKey(1)
 주요 역할:
 • /image_raw/compressed 주제를 구독하여 이미지를 받아옴
 • 마커 검출 후 가장 가까운 마커 정보를 로그로 출력
-• 검출된 마커 정보를 MarkerArray로 detected_markers 주제에 
+• 검출된 마커 정보를 MarkerArray로 detected_markers 주제에
 퍼블리시
 aruco_marker_detector.py
 
-HUMAN AI ROBOTICS
-35
 터틀봇메내퓰레이터
 참고
 아로크마커거리추정
@@ -557,14 +491,10 @@ main()
 3.노드 종료 시 종료 처리
 aruco_marker_detector.py
 
-HUMAN AI ROBOTICS
-36
 터틀봇메내퓰레이터
 참고
 터틀봇메니퓰레이터
 
-HUMAN AI ROBOTICS
-37
 터틀봇메내퓰레이터
 참고
 터틀봇와플메니퓰레이터시작, 종료
@@ -585,8 +515,6 @@ Open CR을 끈다
 ![Image 71](../../assets/images/ros/projects/aruco-conveyor/img_037_071.webp)
 
 
-HUMAN AI ROBOTICS
-38
 터틀봇메내퓰레이터
 참고
 SSH 로봇접속
@@ -604,8 +532,6 @@ VSCode 로봇접속
 ![Image 74](../../assets/images/ros/projects/aruco-conveyor/img_038_074.webp)
 
 
-HUMAN AI ROBOTICS
-39
 터틀봇메내퓰레이터
 참고
 VSCode 로봇접속
@@ -622,8 +548,6 @@ VSCode 로봇접속
 ![Image 79](../../assets/images/ros/projects/aruco-conveyor/img_039_079.webp)
 
 
-HUMAN AI ROBOTICS
-40
 터틀봇메내퓰레이터
 참고
 프로그램수행노드목록
@@ -650,8 +574,6 @@ conveyor_node
 
 ![Image 81](../../assets/images/ros/projects/aruco-conveyor/img_040_081.webp)
 
-HUMAN AI ROBOTICS
-41
 터틀봇메내퓰레이터
 참고
 Aruco marker 거리추정후robot 주행
@@ -667,8 +589,6 @@ Node_graph 수행해보기
 Node_graph(aruco_move.launch.py)
 Node_graph(aruco_yolo.launch.py)
 
-HUMAN AI ROBOTICS
-42
 터틀봇메내퓰레이터
 참고
 Moveit 이해
@@ -678,19 +598,17 @@ ROS2 기반에서 동작하는 모션 플래닝 프레임워크
 https://moveit.picknik.ai/main/index.html
 코드분석필요
 
-HUMAN AI ROBOTICS
-43
 터틀봇메내퓰레이터
 참고
 Moveit 수행
-로봇에서 
+로봇에서
 ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
-pc에서 
+pc에서
 ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py
 Moveit 키보드 설정
 - turtlebot3_manipulation_xyz_limit.py
 ros2 topic list
-export 
+export
 에러…
 w 전진
 s 후진
@@ -707,14 +625,10 @@ l joint4 -
 - 그리퍼 close
 = 그리퍼 open
 
-HUMAN AI ROBOTICS
-44
 터틀봇메내퓰레이터
 참고
 Moveit 수행
 rviz 화면에 보이는 manipulator와 lidar 위치가 실제와 다르기때문에 위치를 변경해야 합니다
-HUMAN AI ROBOTICS
-45
 터틀봇메내퓰레이터
 참고
 로봇모델링체크
@@ -725,15 +639,11 @@ manipulation을 x축으로 0.092만큼 전진 시킵니다
 ![Image 95](../../assets/images/ros/projects/aruco-conveyor/img_045_095.webp)
 
 
-HUMAN AI ROBOTICS
-46
 터틀봇메내퓰레이터
 참고
 Moveit 수행
 ~/turtlebot3_ws/src/turtlebot3_manipulation/turtlebot3_manipulation_description/urdf/turtlebot3_waffle_pi.urdf.xacro
 scan을 x축으로 0.076만큼 후진 시킵니다
-HUMAN AI ROBOTICS
-47
 터틀봇메내퓰레이터
 참고
 Moveit 수행
@@ -745,8 +655,6 @@ manipulation과 scan 위치가 달라지는지 확인하세요
 ![Image 100](../../assets/images/ros/projects/aruco-conveyor/img_047_100.webp)
 
 
-HUMAN AI ROBOTICS
-48
 터틀봇메내퓰레이터
 참고
 정밀도향상을위한옵션확인
@@ -763,8 +671,6 @@ turtlebot3_manipulation.srdf
 ![Image 104](../../assets/images/ros/projects/aruco-conveyor/img_048_104.webp)
 
 
-HUMAN AI ROBOTICS
-49
 터틀봇메내퓰레이터
 참고
 Moveit 아키텍처
@@ -782,16 +688,14 @@ interface plan
 request 작성
 turtlebot_cosmo_interface
 
-HUMAN AI ROBOTICS
-50
 터틀봇메내퓰레이터
 참고
 Moveit 아키텍처
-1. turtlebot_cosmo_interface.zip 
+1. turtlebot_cosmo_interface.zip
 ~/turtlebot3_ws/src/안에 해당 패키지 압축풀기 (pc)
 cd ~/turtlebot3_ws
 colcon build --packages-select turtlebot_cosmo_interface
-2. turtlebot_moveit.zip 
+2. turtlebot_moveit.zip
 ~/turtlebot3_ws/src (pc)
 cd ~/turtlebot3_ws/
 colcon build --packages-select turtlebot_moveit
@@ -799,8 +703,6 @@ colcon build --packages-select turtlebot_moveit
 ![Image 107](../../assets/images/ros/projects/aruco-conveyor/img_050_107.webp)
 
 
-HUMAN AI ROBOTICS
-51
 터틀봇메내퓰레이터
 참고
 Moveit 아키텍처
@@ -813,13 +715,11 @@ Moveit 아키텍처
 암 컨트롤러: turtlebot_arm_controller.cpp
 코드분석
 
-HUMAN AI ROBOTICS
-52
 터틀봇메내퓰레이터
 참고
 Moveit이용메니퓰레이터조작
-준비 
-Robot: 
+준비
+Robot:
 Ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
 PC:
 1. ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py
@@ -831,8 +731,6 @@ cd turtlebot_moveit/scripts/
 python3 srv_call_test.py
 python3 task.py
 
-HUMAN AI ROBOTICS
-53
 터틀봇메내퓰레이터
 참고
 암컨트롤러: turtlebot_arm_controller.cpp
@@ -842,12 +740,10 @@ HUMAN AI ROBOTICS
 3: 보라색 상자를 yolo 보는 방향으로 좌표이동
 4: 좌표와 방향을 전부 주고 좌표이동
 9: 해당 좌표 출력
-파이썬에서 암컨트롤러 서비스 호출 예시(…yolo.py 
+파이썬에서 암컨트롤러 서비스 호출 예시(…yolo.py
 명령코드
 실제 코드분석
 
-HUMAN AI ROBOTICS
-54
 터틀봇메내퓰레이터
 참고
 Moveit 아키텍처
@@ -860,8 +756,6 @@ task.py 예제 - 1
 ![Image 112](../../assets/images/ros/projects/aruco-conveyor/img_054_112.webp)
 
 
-HUMAN AI ROBOTICS
-55
 터틀봇메내퓰레이터
 참고
 Moveit 아키텍처
@@ -873,13 +767,11 @@ task.py 예제 - 2
 ![Image 114](../../assets/images/ros/projects/aruco-conveyor/img_055_114.webp)
 
 
-HUMAN AI ROBOTICS
-56
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
 전진방향이 x +
-좌는 y + 
+좌는 y +
 우는 y -
 z는 높이
 x +
@@ -889,8 +781,6 @@ y -
 ![Image 116](../../assets/images/ros/projects/aruco-conveyor/img_056_116.webp)
 
 
-HUMAN AI ROBOTICS
-57
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -904,71 +794,55 @@ y
 ±0.01
 robot_x +0.15 ±0.01
 robot_x +0.22 ±0.01
-HUMAN AI ROBOTICS
-58
 터틀봇메내퓰레이터
 참고
 Moveit 아키텍처
 task.py 예제 - 3 left_down
-x + 방향으로 15cm 만큼 
-y + 방향으로 8cm 만큼 
+x + 방향으로 15cm 만큼
+y + 방향으로 8cm 만큼
 직접 좌표이동하는 코드입니다
 
 ![Image 120](../../assets/images/ros/projects/aruco-conveyor/img_058_120.webp)
 
 
-HUMAN AI ROBOTICS
-59
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
-HUMAN AI ROBOTICS
-60
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
 task.py 예제 - 4 left_up
-x + 방향으로 22cm 만큼 
-y + 방향으로 8cm 만큼 
+x + 방향으로 22cm 만큼
+y + 방향으로 8cm 만큼
 직접 좌표이동하는 코드입니다
-HUMAN AI ROBOTICS
-61
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
-HUMAN AI ROBOTICS
-62
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
 task.py 예제 - 5 right_down
-x + 방향으로 15cm 만큼 
-y - 방향으로 8cm 만큼 
+x + 방향으로 15cm 만큼
+y - 방향으로 8cm 만큼
 직접 좌표이동하는 코드입니다
 
 ![Image 128](../../assets/images/ros/projects/aruco-conveyor/img_062_128.webp)
 
 
-HUMAN AI ROBOTICS
-63
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
-HUMAN AI ROBOTICS
-64
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
 task.py 예제 - 6 right_up
-x + 방향으로 22cm 만큼 
-y + 방향으로 8cm 만큼 
+x + 방향으로 22cm 만큼
+y + 방향으로 8cm 만큼
 직접 좌표이동하는 코드입니다
 
 ![Image 132](../../assets/images/ros/projects/aruco-conveyor/img_064_132.webp)
 
 
-HUMAN AI ROBOTICS
-65
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -979,8 +853,6 @@ ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py(pc)
 ros2 run turtlebot_moveit turtlebot_arm_controller
 python3 task_3.py
 
-HUMAN AI ROBOTICS
-66
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -988,12 +860,10 @@ YOLO Task 설명
 1. srdf에 저장된 camera_home 위치로 갑니다
 2. 그 위치에서 yolo로 찾은 좌표로 robot을 이동시킵니다
 3. gripper로 잡았으면 다시 수직으로 일어납니다
-4. srdf에 저장된 conveyor에 올리는 행동을 시킵니다 
+4. srdf에 저장된 conveyor에 올리는 행동을 시킵니다
 5. 작업이 완료되었는지 확인하고 다시 camera_home 위치로 돌
 아갑니다.
 
-HUMAN AI ROBOTICS
-67
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1001,8 +871,6 @@ YOLO 코드 설명
 pose_array에 들어가는 3가지 인자는 base link 원점 좌표에서 gripper의 좌표 x,y,z가 된다
 0.137496이란 수치는 m 단위이며 13.7496cm만큼 x축 +방향으로 가 있는것
 z축은 높이이므로 yolo로 찾은 좌표에 12.2354cm 높이에 간 상태에서 8.7354cm 높이로 내려가는 것
-HUMAN AI ROBOTICS
-68
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1010,9 +878,9 @@ yolo로 y축이 robot 기준
 으로는 x축으로 들어갑니
 다
 yolo로 x축이 robot 기준
-으로는 y축이며 yolo의 
-+방향과 robot 축 기준 
-방향이 달라서 yolo값에 
+으로는 y축이며 yolo의
++방향과 robot 축 기준
+방향이 달라서 yolo값에
 -를 곱해줍니다
 yolo_
 x +
@@ -1022,8 +890,6 @@ yolo_
 y +
 yolo_
 y -
-HUMAN AI ROBOTICS
-69
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1033,33 +899,27 @@ turtlebot_arm_control
 ler
 moveit
 yolo/detect_info
-위치는 
+위치는
 camera_ho
 me
 
-HUMAN AI ROBOTICS
-70
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
 하지만 보라색 상자잡는건 좌표축이 달라집니다
 
-HUMAN AI ROBOTICS
-71
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
 task.py 예제 - 8
 x + 방향으로 1cm 만
-큼 
+큼
 y - 방향으로 29cm 만
-큼 
-z + 방향으로 26.5cm 
+큼
+z + 방향으로 26.5cm
 만큼
 직접 좌표이동하는 코
 드입니다
-HUMAN AI ROBOTICS
-72
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1069,32 +929,26 @@ turtlebot_arm_controll
 er
 moveit
 yolo/detect_info
-위치는 
+위치는
 box_home_
-01
-
-HUMAN AI ROBOTICS
-73
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
 cmd 1을 주고 “box_home_01”행
 동을 합니다
-cmd 2를 주고 gripper에게 
+cmd 2를 주고 gripper에게
 “open”행동을 시킵니다
-cmd 3를 주고 pose_array를 
+cmd 3를 주고 pose_array를
 waypoint로 주어 해당 좌표로 이
 동시킵니다
-cmd 3를 주고 pose_array를 
+cmd 3를 주고 pose_array를
 waypoint로 주어 해당 좌표로 이
 동시킵니다
-cmd 2를 주고 gripper에게 
+cmd 2를 주고 gripper에게
 “close”행동을 시킵니다
 cmd 1을 주고 “box_up_01”행동
 을 합니다
 task.py 예제 - 9
-HUMAN AI ROBOTICS
-74
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1103,8 +957,6 @@ Aruco marker로 이동하고
 Moveit으로 상자이송 코드 작성
 simple_manager_node.py 다운로드
 
-HUMAN AI ROBOTICS
-75
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1113,8 +965,6 @@ manager_node를 완성하기전에 해야할일
 2. task_9.py(보라색 상자)가 정상적으로 작동하는 것을 완성
 3. 해당 logic을 manager_node yolo_arm_control, purple_arm_control에 적용
 
-HUMAN AI ROBOTICS
-76
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1123,13 +973,11 @@ ros2 launch turtlebot_manipulation_bringup hardware.launch.py(robot)
 ros2 launch aruco_yolo aruco_yolo.launch.py(robot)
 ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py(pc)
 ros2 run turtlebot_moveit turtlebot_arm_controller(pc)
-python3 simple_manager_node.py(pc) 
+python3 simple_manager_node.py(pc)
 -
 (turtlebot_moveit/scripts/폴더안에서 실행)
 qt_gui
 
-HUMAN AI ROBOTICS
-77
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1137,8 +985,6 @@ Aruco 전진 거리 : 25cm(Aruco marker에서 부터 camera까지)
 Aruco 후진 거리 : 117cm(Aruco marker에서 부터 camera까지)
 yolo task 거리: 22.4cm(box 윗 면에서 부터 camera 까지)
 
-HUMAN AI ROBOTICS
-78
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1147,20 +993,16 @@ image 받는 부분을 주석처리
 ![Image 152](../../assets/images/ros/projects/aruco-conveyor/img_078_152.webp)
 
 
-HUMAN AI ROBOTICS
-79
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
 ex) ros2 topic echo /joint_states >> a.txt
-1.ros2 topic echo /joint_states는 ROS 2 토픽 /joint_states를 구독하여 해당 토픽의 데이터를 출력합니다. 
+1.ros2 topic echo /joint_states는 ROS 2 토픽 /joint_states를 구독하여 해당 토픽의 데이터를 출력합니다.
 2./joint_states는 일반적으로 로봇의 관절 상태(joint positions, velocities 등)에 대한 정보를 포함하는 메시지입니다.
 2.>> a.txt는 표준 출력의 내용을 a.txt 파일에 추가합니다. 파일이 이미 존재할 경우, 기존 내용을 유지하고 새로운 데이터를 파일 끝에 추가합니다.
-따라서 이 명령은 ROS 2에서 특정 토픽 데이터를 파일로 기록할 때 유용합니다. 이를 활용하면 기록된 데이터를 분석하거나, 
+따라서 이 명령은 ROS 2에서 특정 토픽 데이터를 파일로 기록할 때 유용합니다. 이를 활용하면 기록된 데이터를 분석하거나,
 다른 프로세스에서 처리할 수 있습니다.
 
-HUMAN AI ROBOTICS
-80
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1170,8 +1012,6 @@ aruco_yolo에 자신의 pt파일을 적용시키고 싶으면
 
 ![Image 155](../../assets/images/ros/projects/aruco-conveyor/img_080_155.webp)
 
-HUMAN AI ROBOTICS
-81
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1183,8 +1023,6 @@ HUMAN AI ROBOTICS
 ![Image 159](../../assets/images/ros/projects/aruco-conveyor/img_081_159.webp)
 
 
-HUMAN AI ROBOTICS
-82
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1197,13 +1035,11 @@ HUMAN AI ROBOTICS
 ![Image 162](../../assets/images/ros/projects/aruco-conveyor/img_082_162.webp)
 
 
-HUMAN AI ROBOTICS
-83
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
-마찬가지로 aruco에 적용될 calibration 값을 변경하려면 
-aruco_yolo에 config 파일에 들어가서 수치 변경후 colcon build를 
+마찬가지로 aruco에 적용될 calibration 값을 변경하려면
+aruco_yolo에 config 파일에 들어가서 수치 변경후 colcon build를
 한다
 
 ![Image 164](../../assets/images/ros/projects/aruco-conveyor/img_083_164.webp)
@@ -1215,8 +1051,6 @@ aruco_yolo에 config 파일에 들어가서 수치 변경후 colcon build를
 ![Image 166](../../assets/images/ros/projects/aruco-conveyor/img_083_166.webp)
 
 
-HUMAN AI ROBOTICS
-84
 터틀봇메내퓰레이터
 참고
 로봇에서실행되어야하는것들
@@ -1227,20 +1061,14 @@ HUMAN AI ROBOTICS
 3. python3 simple_manager_node.py(pc) (turtlebot_moveit/scripts/폴더안에서 실행)
 pc에서실행되어야하는것들
 
-HUMAN AI ROBOTICS
-85
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
 
-HUMAN AI ROBOTICS
-86
 터틀봇메내퓰레이터
 참고
 피지컬터틀봇사용
 
-HUMAN AI ROBOTICS
-87
 터틀봇메내퓰레이터
 참고
 로봇연결및로봇조작순서
@@ -1265,8 +1093,6 @@ ssh -X rokeyOO@172.30.1.XX
 만약 연결이 안되는 경우 실제 통신이 되는지 확인해봅니다
 ping 172.30.1.XX (XX는 찾은 ip숫자)
 
-HUMAN AI ROBOTICS
-88
 터틀봇메내퓰레이터
 참고
 로봇연결및로봇조작순서
@@ -1297,8 +1123,6 @@ password:rokey1234
 2.jetson orin switch를 종료시킨다
 3.opencr을 종료시킨다
 
-HUMAN AI ROBOTICS
-89
 터틀봇메내퓰레이터
 참고
 리눅스노트북설치가이드
@@ -1311,7 +1135,7 @@ https://github.com/ROBOTIS-GIT/turtlebot3_manipulation
 이 과정이 완료되었을때 turtlebot3_ws/src에 들어있어야 하는 패키지는 다음과 같습니다
 turtlebot3_manipulation turtlebot_cosmo_interface turtlebot_moveit
 1. moveit과 관련된 ros2 package를 설치합니다
-sudo apt install ros-humble-dynamixel-sdk ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gripper-controllers 
+sudo apt install ros-humble-dynamixel-sdk ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gripper-controllers
 ros-humble-moveit* ros-humble-aruco-msgs
 2. 만약 pc에 turtlebot3_ws가 home 디렉토리에 없을경우 workspace 폴더를 만드는 절차입니다
 home 디렉토리에 있다면 무시하세요
@@ -1319,8 +1143,6 @@ mkdir -p turtlebot3_ws/src
 3. turtlebot3_manipulation 패키지를 turtlebot3_ws안에 빌드하기 위해서 해당 workspace의 src 폴더로 이동합니다
 cd ~/turtlebot3_ws/src/
 
-HUMAN AI ROBOTICS
-90
 터틀봇메내퓰레이터
 참고
 리눅스노트북설치가이드
@@ -1341,8 +1163,6 @@ ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py
 11.해당패키지를 ~/turtlebot3_ws/src/안에 넣었으면 터미널에서 빌드를 해줍니다
 cd ~/turtlebot3_ws && colcon build --packages-select turtlebot_cosmo_interface
 
-HUMAN AI ROBOTICS
-91
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1357,15 +1177,13 @@ ros2 interface show turtlebot_cosmo_interface/srv/MoveitControl
 16.해당패키지를 ~/turtlebot3_ws/src/안에 넣었으면 터미널에서 빌드를 해줍니다
 cd ~/turtlebot3_ws && colcon build --packages-select turtlebot_moveit
 현재 launch 폴더가 없는 상태인데 빌드하면서 오류가 나는것 같습니다
-turtlebot_moveit패키지의 CMakeLists.txt에서 맨아래에 가보시면 launch가 명시되었는데 삭제하시고 저장한 다음 빌드가 정상적으로 작동 될 
+turtlebot_moveit패키지의 CMakeLists.txt에서 맨아래에 가보시면 launch가 명시되었는데 삭제하시고 저장한 다음 빌드가 정상적으로 작동 될
 것입니다
 17. 빌드된 패키지를 활성화 시킵니다
 source install/setup.bash
 18. turtlebot_cosmo_interface가 제대로 빌드되었는지 확인합니다
 ros2 pkg list | grep turtlebot_moveit
 
-HUMAN AI ROBOTICS
-92
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1378,7 +1196,7 @@ aruco_yolo(package)
 marker data를 publish)
 ㄴaruco_move.py(detected_marker topic을 수신해서 조건에 맞게 cmd_vel publish)
 ㄴcompressed_image_pub.py(영상 데이터를 publish)
-ㄴyolo_detector.py (영상 데이터를 수신한 다음 yolo를 이용하여 클래스 및 x,y 데이터 
+ㄴyolo_detector.py (영상 데이터를 수신한 다음 yolo를 이용하여 클래스 및 x,y 데이터
 publish)
 ㄴconfig
 ㄴcalibration_params.yaml
@@ -1393,8 +1211,6 @@ publish)
 ㄴsetup.cfg
 ㄴsetup.py
 
-HUMAN AI ROBOTICS
-93
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1408,7 +1224,7 @@ turtlebot_moveit
 ㄴtask.py(task 요청하는 예시코드)
 ㄴsrc
 ㄴget_eef_pose.cpp (더미코드)
-ㄴturtlebot_arm_controller.cpp (move_control 서비스를 만들고 python에서 요청한 
+ㄴturtlebot_arm_controller.cpp (move_control 서비스를 만들고 python에서 요청한
 cmd,pose_name,waypoint를 수신하여 moveit에 plan을 execute하는 코드)
 ㄴturtlebot_moveit.cpp (더미코드)
 ㄴCMakeLists.txt
@@ -1420,8 +1236,6 @@ turtlebot_cosmo_interface
 ㄴCMakeLists.txt
 ㄴpackage.xml
 
-HUMAN AI ROBOTICS
-94
 터틀봇메내퓰레이터
 참고
 노트북프로그램설치
@@ -1443,13 +1257,9 @@ cd ~/turtlebot3_ws && colcon build --symlink-install
 확인하기:  cd ~/turtlebot3_ws/src/turtlebot3_manipulation
 ros2 pkg list | grep turtlebot3_manipulation
 
-HUMAN AI ROBOTICS
-95
 참고
 수고하셨습니다.
 
-HUMAN AI ROBOTICS
-96
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
@@ -1457,8 +1267,6 @@ HUMAN AI ROBOTICS
 ![Image 180](../../assets/images/ros/projects/aruco-conveyor/img_096_180.webp)
 
 
-HUMAN AI ROBOTICS
-97
 터틀봇메내퓰레이터
 참고
 task_7(red_blue).py
@@ -1472,11 +1280,9 @@ task_7(red_blue).py
 • solv2, solv_robot_arm2: 역기구학 (Inverse Kinematics) 계산 함수
 • YoloDetect: ROS 노드 클래스
 • main: 키보드 입력 기반의 상호작용 실행 루프
-＊‘파싱’이란, 이 메시지를 받아서 → 필요한 정보(예: 객체 이름, (x, y) 위치, 너비, 높이 등)를 
+＊‘파싱’이란, 이 메시지를 받아서 → 필요한 정보(예: 객체 이름, (x, y) 위치, 너비, 높이 등)를
 → 프로그래밍적으로 추출해서 사용할 수 있도록 변환하는 과정
 
-HUMAN AI ROBOTICS
-98
 터틀봇메내퓰레이터
 참고
 task_7(red_blue).py
@@ -1498,7 +1304,7 @@ z = z + r3 - j1_z_offset
 Rt = math.sqrt(x**2 + y**2 + z**2)
 Rxy = math.sqrt(x**2 + y**2)
 St = math.asin(z / Rt)
-# 
+#
 Sxy = math.acos(x / Rxy)
 Sxy = math.atan2(y, x)
 s1, s2 = solv2(r1, r2, Rt)
@@ -1513,15 +1319,13 @@ return Sxy, sr1, sr2, sr3, St, Rt
 - 삼각형의 세 변을 알고 있을 때, 각도를 구함
 (Cosine Law 활용)
 2. solv_robot_arm2(x, y, z, r1, r2, r3)
-- 로봇팔의 링크 길이와 목표 위치(x, y, z)를 입력 받아 각 
+- 로봇팔의 링크 길이와 목표 위치(x, y, z)를 입력 받아 각
 관절(joint)의 회전 각도를 계산
 
-HUMAN AI ROBOTICS
-99
 터틀봇메내퓰레이터
 참고
 task_7(red_blue).py
-Class YoloDetect(Node): 
+Class YoloDetect(Node):
 •
 self.subscription  # YOLO 인식 데이터 수신
 •
@@ -1530,7 +1334,7 @@ self.joint_pub     # 관절 제어 메시지 퍼블리셔
 self.cmd_vel_publisher  # 이동 속도 퍼블리셔
 ＜주요 속성＞
 1. listener_callback(self, msg)
-• YOLO 인식 결과(문자열 형태의 리스트)를 파싱하여 
+• YOLO 인식 결과(문자열 형태의 리스트)를 파싱하여
 self.yolo_x, self.yolo_y로 저장
 2. arm_controll(self)
 3. append_pose_init(x, y, z)
@@ -1546,46 +1350,34 @@ YOLO
 2. 객체 위치로 이동
 3. 객체를 집음
 
-HUMAN AI ROBOTICS
-100
 터틀봇메내퓰레이터
 참고
 task_7(red_blue).py
 키
 기능
-1
-YOLO 인식 결과를 한 번 수신하여 
+YOLO 인식 결과를 한 번 수신하여
 yolo_x, yolo_y 변수에 저장 및 콘솔 출력
-2
 YOLO 위치 수신 & 그리퍼 열기
-3
 YOLO 위치 기준으로 보정값 적용 및 이동
-4
 물체 잡기 전 Z축 낮춤
-5
 그리퍼 close
-6
 그리퍼 open
-7
 home2 위치 이동
-8
 camera_home 위치 이동
-9
 현재 저장된 오프셋 값들을 콘솔 출력
-0
 현재 오프셋 값을 offset_values.txt 파일에 저장
 main() - 키보드 입력 기반 제어 루프
 • getkey.getkey() 로 키보드 입력을 받아 아래 작업 수행
 offset_values.txt 파일
-• YOLO가 인식한 좌표는 정확하지 않기 때문에, 위치 보정을 위한 offset 
+• YOLO가 인식한 좌표는 정확하지 않기 때문에, 위치 보정을 위한 offset
 • 프로그램 시작 시 읽고, 키보드 조정 후 저장 가능
-Right 
+Right
 Low
-Right 
+Right
 High
-Left 
+Left
 Low
-Left 
+Left
 High
 전진후진
 닫기열기
@@ -1637,8 +1429,6 @@ box_back_put 이동
 ![Image 185](../../assets/images/ros/projects/aruco-conveyor/img_100_185.webp)
 
 
-HUMAN AI ROBOTICS
-101
 터틀봇메내퓰레이터
 참고
 task_7(red_blue).py
@@ -1665,23 +1455,16 @@ box_home_01
 box_back_put
 Ex) send_rquest(1, “home2”)
 
-HUMAN AI ROBOTICS
-102
 터틀봇메내퓰레이터
 참고
 task_7(red_blue).py
 키
 기능
-1
-YOLO 인식 결과를 한 번 수신하여 
+YOLO 인식 결과를 한 번 수신하여
 yolo_x, yolo_y 변수에 저장 및 콘솔 출력
-2
 YOLO 위치 수신 & 그리퍼 열기
-3
 YOLO 위치 기준으로 보정값 적용 및 이동
-4
 물체 잡기 전 Z축 낮춤
-5
 그리퍼 close
 키
 기능

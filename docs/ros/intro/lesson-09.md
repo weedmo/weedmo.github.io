@@ -5,27 +5,20 @@ ROS2 프로그래밍입문(9차시)
 9. ROS2 복습_3
 
 
-▶ROS2 복습_3
+## ROS2 복습_3
 1.  인터페이스프로그래밍(hangman)
 2.  rclpy 복습
 3.  ROS2 응용복습
-Contents
-00
-00
-
-
 Hang-man - 실습
-01
-01
-▶Hang-man 구조도
+## Hang-man 구조도
 Letter
 publisher
 User input
-Word 
+Word
 service
 Action
 client
-Action 
+Action
 server
 topic publish
 progress
@@ -33,14 +26,12 @@ game_progress
 request
 
 Hang-man - 실습
-02
-01
-▶코드구조
+## 코드구조
 •
 전체코드의구조는다음과같음
 •
 일부파일은지금부터생성예정
-▶hangman_interfaces
+## hangman_interfaces
 •
 hangman_interfaces/msg/Progress.msg
 •
@@ -58,13 +49,11 @@ won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 
 
 Hang-man - 실습
-03
-01
-▶hangman_interfaces
+## hangman_interfaces
 •
 hangman_interfaces/srv/CheckLetter.srv
 •
-updated_word_state: 현재상태ex) p y _ _ o n 
+updated_word_state: 현재상태ex) p y _ _ o n
 •
 is_correct : 현재user input으로들어온글자가선택된단어내에존재하는지에대한
 bool 타입자료형
@@ -75,9 +64,7 @@ message : 맞았으면“Correct”를띄우고틀리면“WRONG”을띄움
 
 
 Hang-man - 실습
-04
-01
-▶hangman_interfaces
+## hangman_interfaces
 •
 hangman_interfaces/action/GameProgress.action
 •
@@ -89,9 +76,7 @@ won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 
 
 Hang-man - 실습
-05
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/letter
 _publisher.py의전체코드
@@ -101,9 +86,7 @@ _publisher.py의전체코드
 
 
 Hang-man - 실습
-06
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/word
 _service.py의전체코드
@@ -113,9 +96,7 @@ _service.py의전체코드
 
 
 Hang-man - 실습
-07
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/word
 _service.py의전체코드
@@ -125,57 +106,43 @@ _service.py의전체코드
 
 
 Hang-man - 실습
-08
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/word
 _service.py의전체코드
 
 Hang-man - 실습
-09
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/user_
 input.py 전체코드
 
 Hang-man - 실습
-10
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/
 progress_action_client.py 전체코드
 Hang-man - 실습
-11
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/
 progress_action_client.py 전체코드
 Hang-man - 실습
-12
-01
-▶hangman_game
+## hangman_game
 •
-hangman_game/hangman_game/ 
+hangman_game/hangman_game/
 progress_action_server.py 전체코드
 Hang-man - 실습
-13
-01
-▶hangman_game
+## hangman_game
 •
-hangman_game/hangman_game/ 
+hangman_game/hangman_game/
 progress_action_server.py 전체코드
 
 ![Image 29](../../assets/images/ros/intro/lesson-09/img_015_029.webp)
 
 
 Hang-man - 실습
-14
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/
 progress_action_server.py 전체코드
@@ -184,9 +151,7 @@ progress_action_server.py 전체코드
 
 
 Hang-man - 실습
-15
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/setup.py
 •
@@ -196,9 +161,7 @@ entry_points를다음과같이변경
 
 
 Hang-man - 실습
-16
-01
-▶hangman_game
+## hangman_game
 •
 hangman_interfaces/CMakeLists.txt
 
@@ -208,20 +171,16 @@ hangman_interfaces/CMakeLists.txt
 
 
 Hang-man - 실습
-17
-01
-▶hangman_game
+## hangman_game
 •
 hangman_interfaces/package.xml
 
 ![Image 39](../../assets/images/ros/intro/lesson-09/img_019_039.webp)
 
 
-02
-18
 Executor
 ROS2계층구조
-▶ROS2 계층구조
+## ROS2 계층구조
 1. User code : 사용자가작성한코드
 2. rcl : 클라이언트라이브러리로, 사용자코드와미들웨어를연결
 3. rmw : 미들웨어와클라이언트간의인터페이스역할. 미들웨어와의
@@ -239,33 +198,29 @@ ROS2계층구조
 ![Image 40](../../assets/images/ros/intro/lesson-09/img_020_040.webp)
 
 
-02
-19
 Executor
 Executor 동작과정
-▶동작과정
+## 동작과정
 1. wait : 미들웨어에메시지가도착할때까지대기
 2. take : 새로운메시지도착시, 해당메시지를가져옴. 이과
 정에서미들웨어에저장된메시지가클라이언트로전달됨
-3. execute : 메시지처리를위한콜백함수(onGoal, nextCmd, 
+3. execute : 메시지처리를위한콜백함수(onGoal, nextCmd,
 processOdom) 실행
 
 
 ![Image 41](../../assets/images/ros/intro/lesson-09/img_021_041.webp)
 
 
-02
-20
 Executor
 Executor의종류
-▶SingleThreadedExecutor : 단일스레드에서콜백을실행
+## SingleThreadedExecutor : 단일스레드에서콜백을실행
 •
 하나의스레드만사용하여이벤트를처리하므로, 콜백이완료될때까지다른작업을처리할수
 없음
 •
 주로처리속도가중요한것이아니거나, 콜백이충돌하지않도록하기위해단일스레드환경에
 서사용
-▶StaticSingleThreadedExecutor : 단일스레드에서정적으로콜백을실행
+## StaticSingleThreadedExecutor : 단일스레드에서정적으로콜백을실행
 •
 정적단일스레드실행자는구독, 타이머, 서비스서버, 액션서버등의노드구조를스캔하는런타임
 비용을최적화
@@ -281,11 +236,9 @@ Executor의종류
 ![Image 43](../../assets/images/ros/intro/lesson-09/img_022_043.webp)
 
 
-02
-21
 Executor
 Multi Thread Executor
-▶MultiThreadedExecutor : 여러스레드에서콜백을병렬로실행
+## MultiThreadedExecutor : 여러스레드에서콜백을병렬로실행
 •
 여러스레드가동시에실행되기때문에복잡한작업이나멀티태스킹환경에서유리
 •
@@ -295,22 +248,18 @@ Multi Thread Executor
 ![Image 45](../../assets/images/ros/intro/lesson-09/img_023_045.webp)
 
 
-02
-22
 Executor
 Executor 기본동작
-▶Executor 동작순서
+## Executor 동작순서
 1. 이벤트감지: 노드에서수신된토픽, 서비스요청, 타이머이벤트등을감지
 2. 콜백큐생성: 이벤트가발생할때마다대응하는콜백을큐(queue)에수집
 3. 콜백실행: 큐에있는콜백을적절한순서대로실행. SingleThreadedExecutor는하나씩
 처리하고, MultiThreadedExecutor는병렬로처리
 
 
-02
-23
 Executor
 Executor 사용예
-▶Executor 사용예
+## Executor 사용예
 •
 SingleThreadedExecutor를사용하는간단한퍼블리셔노드
 •
@@ -321,11 +270,9 @@ SingleThreadedExecutor를사용하는간단한퍼블리셔노드
 ![Image 49](../../assets/images/ros/intro/lesson-09/img_025_049.webp)
 
 
-02
-24
 Executor
 Executor 와spin 차이점
-▶Executor 와spin 차이점
+## Executor 와spin 차이점
 Executor
 spin()
 역할
@@ -333,7 +280,7 @@ spin()
 이벤트루프실행
 설명
 
-노드에포함된콜백(토픽, 서비스, 타이머등)을관리하고, 
+노드에포함된콜백(토픽, 서비스, 타이머등)을관리하고,
 이벤트가발생하면적절한콜백을실행하는역할수행
 
 SingleThreadedExecutor와MultiThreadedExecutor
@@ -342,21 +289,19 @@ SingleThreadedExecutor와MultiThreadedExecutor
 
 Executor가이벤트를처리하는루프를실행
 
-spin()이호출되면노드는콜백이발생하기를기다리며, 
+spin()이호출되면노드는콜백이발생하기를기다리며,
 이벤트가감지될때콜백을실행
 
-Executor가동작할수있는환경을유지하는루프이며, 
+Executor가동작할수있는환경을유지하는루프이며,
 명시적으로종료하거나프로그램이종료될때까지계속실행
 
 
 ![Image 50](../../assets/images/ros/intro/lesson-09/img_026_050.webp)
 
 
-02
-25
 Executor
 Executor 와spin 의관계
-▶관계
+## 관계
 •
 Executor는콜백을처리하는"관리자"이고, spin()은해당Executor가콜백을계속해서
 처리하도록하는"루프"
@@ -365,27 +310,25 @@ Executor는콜백을실행하는규칙과방식을정의하고, spin()은그규�
 가동작하도록해주는실행메커니즘
 SingleThreadedExecutor + spin(): 한번에하나의콜백만처리
 MultiThreadedExecutor + spin(): 여러콜백을동시에처리
-▶멀티스레드와의연관성
+## 멀티스레드와의연관성
 •
-spin()을사용하면Executor가콜백을처리하는동안계속해서대기하지만, 
+spin()을사용하면Executor가콜백을처리하는동안계속해서대기하지만,
 MultiThreadedExecutor를사용하면여러콜백을동시에병렬로처리할수있음
 •
 이때도spin()을호출하여이벤트루프가유지되지만, 여러스레드가동시에동작하면
 서여러콜백을병렬처리가능
 
 
-03
-26
 ROS2 bag 이해및사용법
 명령어
-▶BAG 파일레코딩
+## BAG 파일레코딩
 •
-다음명령어는“topic_name”에서수신되는메시지를“my_bag.bag”라는이름의BAG 
+다음명령어는“topic_name”에서수신되는메시지를“my_bag.bag”라는이름의BAG
 파일에레코딩함
-▶BAG 파일재생
+## BAG 파일재생
 •
 다음명령어는“my_bag.bag”라는이름의BAG 파일을재생함
-▶BAG 파일정보표시
+## BAG 파일정보표시
 •
 다음명령어는“my_bag.bag”라는이름의BAG 파일의정보를표시함
 
@@ -400,9 +343,7 @@ ROS2 bag 이해및사용법
 
 
 BAG 파일만들기
-27
-04
-▶세번째터미널에서다음명령어를이용하여저장되어있는BAG 파일재생
+## 세번째터미널에서다음명령어를이용하여저장되어있는BAG 파일재생
 •
 간혹인터럽트등의이유로turtle의궤적이기록당시와정확히일치하지않을수있음
 •
@@ -415,9 +356,7 @@ BAG 파일만들기
 
 
 BAG 파일실습
-28
-04
-▶BAG 파일에기록된2d 카메라정보불러오기
+## BAG 파일에기록된2d 카메라정보불러오기
 •
 아래제공된링크에서rosbag2_video.tar.gz 파일을다운로드받은후압축풀기
 https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
@@ -430,9 +369,7 @@ https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
 
 
 BAG 파일실습
-29
-04
-▶BAG 파일에기록된2d 카메라정보불러오기
+## BAG 파일에기록된2d 카메라정보불러오기
 •
 압축풀린bag 파일의정보확인
 •
@@ -450,9 +387,7 @@ Bag 파일반복재생
 
 
 BAG 파일실습
-30
-04
-▶BAG 파일에기록된2d 카메라정보불러오기
+## BAG 파일에기록된2d 카메라정보불러오기
 •
 새로운터미널에서rviz 실행
 실습
@@ -461,9 +396,7 @@ BAG 파일실습
 
 
 BAG 파일실습
-31
-04
-▶BAG 파일에기록된2d 카메라정보불러오기
+## BAG 파일에기록된2d 카메라정보불러오기
 •
 Rviz에서add버튼을누른후Image 선택후OK 버튼누르기
 실습
@@ -473,9 +406,7 @@ Rviz에서add버튼을누른후Image 선택후OK 버튼누르기
 
 
 BAG 파일실습
-32
-04
-▶BAG 파일에기록된2d 카메라정보불러오기
+## BAG 파일에기록된2d 카메라정보불러오기
 •
 사이드바에서이미지의topic name을“＼video_frames”
 로바꾸기
@@ -488,9 +419,7 @@ BAG 파일실습
 ![Image 62](../../assets/images/ros/intro/lesson-09/img_034_062.webp)
 
 
-33
-▶Visual Studio Code - extension
-05
+## Visual Studio Code - extension
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
 •
@@ -508,9 +437,7 @@ Extension의주요역할및기능
 자동화및DevTools: 반복작업을자동화하거나개발환경을확장(예: Colcon Tasks)
 
 
-34
-▶Visual Studio Code - extension
-06
+## Visual Studio Code - extension
 프로그래밍응용
 Service 와Action 에서의Client  차이
 항목
@@ -936,7 +863,7 @@ subscriber = node.create_subscription(String, 'chatter', callback, 10)
 
 launch나 lifecycle 관련 노드 실행은 피하거나 별도로
 
-Launch file 기반으로 실행되는 복잡한 노드는 Jupyter에서 직접 실행하기 어렵기 때문에, 
+Launch file 기반으로 실행되는 복잡한 노드는 Jupyter에서 직접 실행하기 어렵기 때문에,
 
 ROS Launch로 띄우고 Jupyter에서 통신만 하는 식이 더 적합
 
@@ -985,7 +912,7 @@ console_script 에 아래내용 추가
 #### colcon build 실행
 
 ```bash
-colcon build --symlink-install --packages-select my_cam_pubsub 
+colcon build --symlink-install --packages-select my_cam_pubsub
 
 source install/setup.bash
 ```

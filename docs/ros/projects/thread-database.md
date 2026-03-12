@@ -7,20 +7,20 @@ Thread와Sqlite3
         sudo ufw disable
 •
 Wifi 설정
-        Rokey / rokey12345 
+        Rokey / rokey12345
 •
 같은ROS_DOMAIN_ID에영향을안받게하기
        export $ROS_LOCALHOST_ONLY=1
 김루진강사
 
-쓰레드를사용하는주된이유는프로그램의성능과응답성을향상시키기위해서입니다. 
+쓰레드를사용하는주된이유는프로그램의성능과응답성을향상시키기위해서입니다.
 특히ROS2와PyQt GUI를함께사용할때더욱중요합니다.
 
 ![Image 4](../../assets/images/ros/projects/thread-database/img_002_004.webp)
 
 
 프로세스와쓰레드
-프로그램이하나의일을처리할때, 
+프로그램이하나의일을처리할때,
 CPU는메모리에프로그램에관련된
 DATA를저장하고처리하게된다.
 이렇게일련의프로그램을진행하는것
@@ -31,7 +31,7 @@ DATA를저장하고처리하게된다.
 
 프로세스와쓰레드
 새로운프로세스를생성하는것을프로세스포크(Fork)
-프로세스는프로그램이작동하기에필요한많은데이터를가지고있다. 
+프로세스는프로그램이작동하기에필요한많은데이터를가지고있다.
 
 프로세스포크를하게되면, 새로생성된프로세스는이전의프로세스와동일한데이터를카피
 
@@ -61,7 +61,7 @@ threading 모듈의Thread 클래스를사용
 Thread 객체를생성할때target 매개변수에실행할함수를지정하고, 필요에따라args 매개변수를사용
 
 
-파이썬에서클래스를쓰레드로만들기위해서는threading 모듈의Thread 클래스를상속하거나, 
+파이썬에서클래스를쓰레드로만들기위해서는threading 모듈의Thread 클래스를상속하거나,
 Thread 인스턴스를생성할때target 매개변수에함수를지정하는방법을사용
 
 
@@ -162,10 +162,10 @@ https://wikidocs.net/35481
 •데이터일관성유지
 •트랜잭션처리
 
-•테이블(릴레이션) 
-•필드(속성, 컬럼) 
-•레코드(튜플, 행) 
-•키(기본키, 외래키) 
+•테이블(릴레이션)
+•필드(속성, 컬럼)
+•레코드(튜플, 행)
+•키(기본키, 외래키)
 •인덱스
 •뷰
 DDL(Data Definition Language)
@@ -197,7 +197,7 @@ CREATE TABLE employee (
 emp_id INT PRIMARY KEY,
 dept_id INT,
 name VARCHAR(50),
-FOREIGN KEY (dept_id) REFERENCES 
+FOREIGN KEY (dept_id) REFERENCES
 department(dept_id)
 );
 
@@ -264,7 +264,7 @@ CREATE TABLE IF NOT EXISTS order_list (
 order_id INTEGER PRIMARY KEY AUTOINCREMENT,
 table_id INTEGER,
 total_amount REAL DEFAULT 0,
-order_status TEXT DEFAULT 'pending' CHECK(order_status IN ('pending', 'preparing', 'served', 'completed', 
+order_status TEXT DEFAULT 'pending' CHECK(order_status IN ('pending', 'preparing', 'served', 'completed',
 'cancelled')),
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (table_id) REFERENCES table_order(table_id)
@@ -294,9 +294,9 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (order_id) REFERENCES order_list(order_id)
 );
 
-데이터베이스를생성할때는간단히connect() 메서드를사용하면된다. 
-이때메서드의인자로넣은값이데이터베이스파일의경로가된다. 
-예를들어'my_database.db'라는파일을생성하고자한다면다음과같이한다. 
+데이터베이스를생성할때는간단히connect() 메서드를사용하면된다.
+이때메서드의인자로넣은값이데이터베이스파일의경로가된다.
+예를들어'my_database.db'라는파일을생성하고자한다면다음과같이한다.
 현재'my_database.db'라는데이터베이스파일이없기때문에, 새롭게생성된것을확인할수있다.
 
 
@@ -306,12 +306,12 @@ FOREIGN KEY (order_id) REFERENCES order_list(order_id)
 ![Image 52](../../assets/images/ros/projects/thread-database/img_030_052.webp)
 
 
-SQL 구문을이용하기위해서는cursor 객체가필요하다. 
-cursor 객체를이용하여실제로데이터베이스에테이블(table)을삽입하거나, 테이블(table)을조회할수있다. 
-예를들어다음의명령어는Course(과목)라는이름의테이블을생성한다. 
+SQL 구문을이용하기위해서는cursor 객체가필요하다.
+cursor 객체를이용하여실제로데이터베이스에테이블(table)을삽입하거나, 테이블(table)을조회할수있다.
+예를들어다음의명령어는Course(과목)라는이름의테이블을생성한다.
 이후에생성된테이블정보를조회한다.
 cursor = con.cursor()
-SQL = "CREATE TABLE Course (Course_ID int primary key not null, Course_Name text, 
+SQL = "CREATE TABLE Course (Course_ID int primary key not null, Course_Name text,
 Course_Date date);"
 cursor.execute(SQL)
 SQL = "SELECT name FROM sqlite_master WHERE type='table';"
@@ -363,7 +363,7 @@ def insert_course(course_id, course_name, course_date):
 con = sqlite3.connect(database_name)
 cursor = con.cursor()
 SQL = "INSERT INTO Course VALUES(?, ?, ?);"
-cursor.execute(SQL, (course_id, course_name, 
+cursor.execute(SQL, (course_id, course_name,
 course_date))
 con.commit()
 con.close()

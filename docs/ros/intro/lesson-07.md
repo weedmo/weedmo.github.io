@@ -5,51 +5,36 @@ ROS2 프로그래밍입문(7차시)
 7. ROS2 복습_1
 
 
-▶ROS2 복습_1
+## ROS2 복습_1
 1.  ROS2 소개및기본사용법
 2.  ROS2 인터페이스(Topic, Server, Action)
-Contents
-00
-00
-
-
-01
-01
 ROS2 소개및기본사용법
 Topic
-▶최적화팁
-01
-02
+## 최적화팁
 ROS2 소개및기본사용법
 Service
 
 
 ![Image 4](../../assets/images/ros/intro/lesson-07/img_004_004.webp)
 
-01
-03
 ROS2 소개및기본사용법
 Action
 
-02
-04
 ROS2 인터페이스(Topic, Service, Action)
 최적화
 • ROS2에서의액션은목표전달(send_goal), 목표취소(cancel_goal), 결과받기(get_result)를위한
 토픽과서비스통신을혼합하여사용
 • 비동기방식에서원하는타이밍에적절한액션수행을위해목표상태(goal_state)에도입
 하여, 목표전달후상태머신을구동하여액션프로세스추적
-▶Message
+## Message
 
-03
-05
 프로그래밍규칙
 Python Style
-▶기본규칙
+## 기본규칙
 • Python 3(Python 3.5 이상)
-▶라인길이
+## 라인길이
 • 최대100 문자
-▶이름규칙(Naming)
+## 이름규칙(Naming)
 • CamelCased, snake_case, ALL_CAPITALS 만사용
 CamelCased: 타입, 클래스
 snake_case: 파일, 패키지, 인터페이스, 모듈, 변수, 함수, 메소드
@@ -57,11 +42,9 @@ Python Style
 Python Enhancement Proposals(PEPs)의PEP 8을준수
 Wiki 참고: https://wiki.ros.org/PyStyleGuide
 
-04
-06
 ROS2 Setup Tips
 rosdep
-▶rosdep
+## rosdep
 • 의존성관리툴인rosdep 명령어를사용하면손쉽게패키지의의존성문제를해결
 • rosdep은패키지환경설정파일인package.xml의<depend> 옵션과같은의존성정보를확인
 하여의존성패키지들을설치해주기때문에의존성패키지가많은패키지의경우, 위명령어를
@@ -70,11 +53,9 @@ rosdep
 ![Image 10](../../assets/images/ros/intro/lesson-07/img_008_010.webp)
 
 
-04
-07
 ROS2 Setup Tips
 Namespace
-▶사용방법
+## 사용방법
 • ns 명령사용
 1.
 ROS의변수중하나인ns(namespace)를입력
@@ -83,20 +64,16 @@ ROS의변수중하나인ns(namespace)를입력
 
 
 Python을이용한패키지생성실습
-08
-05
-▶Package 생성
+## Package 생성
 1. ros2_ws/src 디렉토리생성
 2. py_pubsub package를생성
 3. 생성된Package 확인
 4. Tree를이용한내부구조확인
 
 
-06
-09
 Python을이용한패키지생성
 package.xml
-▶package.xml
+## package.xml
 • 패키지에대한메타정보를포함하는파일(패키지의신분증역할)
 • 이파일은패키지이름, 버전, 저작자, 라이센스등의정보를정의하며, 패키지의의존성
 패키지와메시지, 서비스, 액션등의정의된인터페이스정보도포함
@@ -111,8 +88,6 @@ build를수행하면package.xml을참조하여, 빌드할패키지들사이의�
 
 
 Python을이용한패키지생성실습
-10
-07
 •
 description, maintainer, license 채우기
 •
@@ -128,16 +103,14 @@ std_msgs: ROS에서기본적으로제공하는메시지타입들의모음ex) Str
 •
 해당패키지가실행될때std_msgs 메시지라이브러리에의존한다는것을나타냄
 •
-이러한의존성은패키지를빌드하거나실행할때필요한외부패키지나라이브러리를ROS 빌드도구에게알려주는역할따라서ROS 
+이러한의존성은패키지를빌드하거나실행할때필요한외부패키지나라이브러리를ROS 빌드도구에게알려주는역할따라서ROS
 빌드도구는이정보를사용하여필요한의존성을먼저설치하거나빌드할수있음
-▶Package.xml  설정
+## Package.xml  설정
 
 ![Image 21](../../assets/images/ros/intro/lesson-07/img_012_021.webp)
-08
-11
 Python을이용한패키지생성
 setup.py & setup.cfg
-▶setup.cfg
+## setup.cfg
 •
 패키지빌드/설치/배포에사용(버전/설명/패키지의존성관리등)
 •
@@ -147,12 +120,12 @@ Python 패키지에대한선언적인구성정보를제공하며, setuptools의
 빌드및설치과정에서활용
 •
 주로패키지버전, 설명등이여기에정의됨
-▶setup.py
+## setup.py
 •
 setuptools를사용하여패키지를배포할준비를할때, 필요한정보를
 담고있음
 •
-Python 패키지에대한프로그래매틱한구성정보를제공하며, 
+Python 패키지에대한프로그래매틱한구성정보를제공하며,
 setuptools를통한빌드및설치과정에서사용됨
 •
 Python 패키지의설치스크립트
@@ -161,7 +134,7 @@ Python 패키지의설치스크립트
 •
 setuptools 라이브러리를사용, 패키지를빌드하고설치하는데필요한
 설정포함
-▶ROS2에서의역할
+## ROS2에서의역할
 •
 Python 기반의ROS2 패키지에대해colcon
 은setup.cfg(및setup.py)를사용하여패키
@@ -176,10 +149,9 @@ ament_python 패키지빌드타입을사용하
 줄수있음
 
 
-08
 Python을이용한패키지생성
 CMakeLists.txt
-▶CMakeLists.txt와setup.py/setup.cfg, package.xml간의비교
+## CMakeLists.txt와setup.py/setup.cfg, package.xml간의비교
 •
 CMakeLists.txt
 •
@@ -202,17 +174,12 @@ Pacakge.xml
 패키지의메타데이터와의존성을관리하는데중점
 •
 CMakeLists.txt와함께작동하여ROS2 패키지의빌드와배포를가능하게함
-▶세파일의공통점
+## 세파일의공통점
 •
-CMakeLists.txt, setup.py/setup.cfg, package.xml 
+CMakeLists.txt, setup.py/setup.cfg, package.xml
 모두패키지의빌드및설치과정에서의존성관리와설정정의에사용
-12
-
-
 Python을이용한패키지생성실습
-13
-09
-▶패키지소스분석
+## 패키지소스분석
 • timer_callback 함수
 1.
 이콜백함수는타이머에의해주기적으로호출
@@ -238,9 +205,7 @@ MinimalPublisher 클래스의인스턴스를생성하고, rclpy.spin()을사용�
 
 
 Python을이용한패키지생성실습
-14
-09
-▶의존성추가
+## 의존성추가
 •
 ​setup.py 설정
 
@@ -248,9 +213,7 @@ Python을이용한패키지생성실습
 
 
 Python을이용한패키지생성실습
-15
-09
-▶setup.py 설정
+## setup.py 설정
 •
 ​setup.py 파일열고수정하기(package.xml 파일과동일하게작성)
 •
@@ -264,9 +227,7 @@ entry_points 필드부분에talker 추가하기(추가후저장하기)
 
 
 Python을이용한패키지생성실습
-16
-09
-▶setup.py 설정
+## setup.py 설정
 •
 entry_points
 •
@@ -294,9 +255,7 @@ ROS2에서python 노드를쉽게실행할수있도록하는데특히유용함
 
 
 Python을이용한패키지생성실습
-17
-09
-▶Subscriber code 분석
+## Subscriber code 분석
 •
 Imports
 •
@@ -321,9 +280,7 @@ listener_callback 메서드
 
 
 Python을이용한패키지생성실습
-18
-09
-▶Subscriber code 분석
+## Subscriber code 분석
 •
 main 함수
 •
@@ -347,11 +304,9 @@ rclpy.shutdown : ROS2를종료하고모든리소스를해제
 메시지의내용을로그에출력하는간단한구독자노드를구현
 
 
-10
-19
 토픽, 서비스, 액션인터페이스
 인터페이스(Interface) 신규작성
-▶인터페이스(Interface)
+## 인터페이스(Interface)
 •
 ROS에서노드사이에데이터를전송시사용되는토픽(Topic), 서비스(Service), 액션(Action)
 에서사용되는데이터타입
@@ -368,8 +323,6 @@ ROS에서노드사이에데이터를전송시사용되는토픽(Topic), 서비�
 (이경우여러패키지들이만들어진인터페이스패키지를공유하며사용가능)
 
 
-10
-20
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
 •
@@ -377,13 +330,11 @@ Service, action, msg를담는인터페이스폴더역시하나의패키지로생
 •
 개발언어가python이라도build-type을ament_cmake로설정이필요
 •
-ament_cmake에는메시지를include하거나import할수있게하는기능이있지만, 
+ament_cmake에는메시지를include하거나import할수있게하는기능이있지만,
 ament_python에는없음
 
 
 ![Image 29](../../assets/images/ros/intro/lesson-07/img_022_029.webp)
-10
-21
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
 •
@@ -400,8 +351,6 @@ action/MyAction.action
 ![Image 33](../../assets/images/ros/intro/lesson-07/img_023_033.webp)
 
 
-10
-22
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
 •
@@ -423,11 +372,9 @@ action/MyAction.action
 ![Image 36](../../assets/images/ros/intro/lesson-07/img_024_036.webp)
 
 
-10
-23
 토픽, 서비스, 액션인터페이스
 패키지설계
-▶인터페이스패키지수정
+## 인터페이스패키지수정
 CMakeList.txt
 ArithmeticChecker.action
 ArithmeticArgument.msg
@@ -449,8 +396,6 @@ ArithmeticOperator.srv
 ![Image 41](../../assets/images/ros/intro/lesson-07/img_025_041.webp)
 
 
-10
-24
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
 
@@ -461,20 +406,16 @@ ArithmeticOperator.srv
 ![Image 43](../../assets/images/ros/intro/lesson-07/img_026_043.webp)
 
 
-10
-25
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
-▶Package.xml 파일수정
+## Package.xml 파일수정
 
 ![Image 45](../../assets/images/ros/intro/lesson-07/img_027_045.webp)
 
 
-10
-26
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
-▶CMakeLists.txt 파일수정
+## CMakeLists.txt 파일수정
 
 
 ![Image 46](../../assets/images/ros/intro/lesson-07/img_028_046.webp)
@@ -483,9 +424,7 @@ ArithmeticOperator.srv
 
 
 Python을이용한패키지생성실습
-27
-11
-▶Visual Studio Code 를이용한패키지생성연습
+## Visual Studio Code 를이용한패키지생성연습
 •
 py_pubsub 패키지개선하기
 •
@@ -770,7 +709,7 @@ def main():
     future = motor_control_client.send_request(int(sys.argv[1]), int(sys.argv[2]))
     rclpy.spin_until_future_complete(motor_control_client, future)
     response = future.result()
-    
+
     if int(sys.argv[1]) == 1:
         motor_control_client.get_logger().info("왼쪽 모터가 회전을 시작했습니다.")
     else:

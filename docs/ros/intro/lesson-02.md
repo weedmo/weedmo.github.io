@@ -5,28 +5,19 @@ ROS2 프로그래밍입문(2차시)
 2. 인터페이스패키지
 
 
-▶인터페이스패키지
+## 인터페이스패키지
 1.  Python을이용한패키지생성실습
 2.  인터페이스패키지
 3.  인터페이스패키지설계
-Contents
-00
-00
-
-
 Python을이용한패키지생성실습
-01
-01
-▶Python을이용한패키지생성- 실습
+## Python을이용한패키지생성- 실습
 •
 ​Python으로publisher와subscriber node를생성하고실행하기
 → Topic상으로message를전송/수신하는역할(talker/listener)
 
 
 Python을이용한패키지생성실습
-02
-01
-▶Package 생성
+## Package 생성
 1. ros2_ws/src 디렉토리생성
 2. py_pubsub package를생성
 3. 생성된Package 확인
@@ -39,9 +30,7 @@ Python을이용한패키지생성실습
 
 
 Python을이용한패키지생성실습
-03
-01
-▶Publisher 다운로드(샘플Package source code 다운로드)
+## Publisher 다운로드(샘플Package source code 다운로드)
 1.
 2.
 3. 파일생성확인
@@ -49,18 +38,14 @@ Python을이용한패키지생성실습
 
 
 Python을이용한패키지생성실습
-04
-01
-▶Publisher Code 분석
+## Publisher Code 분석
 
 
 ![Image 11](../../assets/images/ros/intro/lesson-02/img_006_011.webp)
 
 
 Python을이용한패키지생성실습
-05
-01
-▶패키지소스분석
+## 패키지소스분석
 라이브러리임포트
 •
 Rclpy : ROS2의python 클라이언트라이브러리
@@ -84,9 +69,7 @@ Node 클래스를상속받아ROS2 노드를정의
 
 
 Python을이용한패키지생성실습
-06
-01
-▶패키지소스분석
+## 패키지소스분석
 • timer_callback 함수
 1.
 이콜백함수는타이머에의해주기적으로호출
@@ -110,9 +93,7 @@ MinimalPublisher 클래스의인스턴스를생성하고, rclpy.spin()을사용�
 발행하는간단한ROS2 Publisher 노드를정의하고실행
 
 Python을이용한패키지생성실습
-07
-01
-▶의존성추가
+## 의존성추가
 •
 Package.xml 의존성(dependencies) 추가
 •
@@ -122,14 +103,10 @@ ros2_ws/src/py_pubsub 디렉토리로아래하이라이트된파일들에대하�
 
 
 Python을이용한패키지생성실습
-08
-01
-▶의존성추가
+## 의존성추가
 •
 Package.xml  설정
 Python을이용한패키지생성실습
-09
-01
 •
 description, maintainer, license 채우기
 •
@@ -145,9 +122,9 @@ std_msgs: ROS에서기본적으로제공하는메시지타입들의모음ex) Str
 •
 해당패키지가실행될때std_msgs 메시지라이브러리에의존한다는것을나타냄
 •
-이러한의존성은패키지를빌드하거나실행할때필요한외부패키지나라이브러리를ROS 빌드도구에게알려주는역할따라서ROS 
+이러한의존성은패키지를빌드하거나실행할때필요한외부패키지나라이브러리를ROS 빌드도구에게알려주는역할따라서ROS
 빌드도구는이정보를사용하여필요한의존성을먼저설치하거나빌드할수있음
-▶Package.xml  설정
+## Package.xml  설정
 
 
 ![Image 20](../../assets/images/ros/intro/lesson-02/img_011_020.webp)
@@ -159,9 +136,7 @@ std_msgs: ROS에서기본적으로제공하는메시지타입들의모음ex) Str
 
 
 Python을이용한패키지생성실습
-10
-01
-▶Package.xml 설정
+## Package.xml 설정
 •
 test_depend
 •
@@ -210,23 +185,17 @@ pytest는테스트의설정, 실행, 검증및리포팅
 
 
 Python을이용한패키지생성실습
-11
-01
-▶의존성추가
+## 의존성추가
 •
 setup.py 설정
 Python을이용한패키지생성실습
-12
-01
-▶setup.py 설정
+## setup.py 설정
 •
 ​setup.py 파일열고수정하기(package.xml 파일과동일하게작성)
 •
 entry_points 필드부분에talker 추가하기(추가후저장하기)
 Python을이용한패키지생성실습
-13
-01
-▶setup.py 설정
+## setup.py 설정
 •
 entry_points
 •
@@ -254,9 +223,7 @@ ROS2에서python 노드를쉽게실행할수있도록하는데특히유용함
 
 
 Python을이용한패키지생성실습
-14
-01
-▶setup.py 설정
+## setup.py 설정
 •
 setuptool이실행될때lib 내에실행자를넣으라고지시
 •
@@ -270,9 +237,7 @@ setuptool이실행될때lib 내에실행자를넣으라고지시
 
 
 Python을이용한패키지생성실습
-15
-01
-▶Subscriber 다운로드
+## Subscriber 다운로드
 •
 새node를생성하기위해서ros2_ws/src/py_pubsub/py_pubsub로이동하고아래명령실행
 1.
@@ -286,14 +251,10 @@ Python을이용한패키지생성실습
 
 ![Image 35](../../assets/images/ros/intro/lesson-02/img_017_035.webp)
 Python을이용한패키지생성실습
-16
-01
-▶Subscriber code 분석
+## Subscriber code 분석
 
 Python을이용한패키지생성실습
-17
-01
-▶Subscriber code 분석
+## Subscriber code 분석
 •
 Imports
 •
@@ -318,9 +279,7 @@ listener_callback 메서드
 
 
 Python을이용한패키지생성실습
-18
-01
-▶Subscriber code 분석
+## Subscriber code 분석
 •
 main 함수
 •
@@ -345,9 +304,7 @@ rclpy.shutdown : ROS2를종료하고모든리소스를해제
 
 
 Python을이용한패키지생성실습
-19
-01
-▶Subscriber node 작성
+## Subscriber node 작성
 •
 Setup.py 수정
 •
@@ -357,9 +314,7 @@ console_script에listener 내용추가
 
 
 Python을이용한패키지생성실습
-20
-01
-▶Subscriber node 작성
+## Subscriber node 작성
 •
 Setup.py 전체코드
 
@@ -367,9 +322,7 @@ Setup.py 전체코드
 
 
 Python을이용한패키지생성실습
-21
-01
-▶빌드및실행하기
+## 빌드및실행하기
 •
 의존성체크
 •
@@ -385,8 +338,6 @@ Python을이용한패키지생성실습
 
 
 Python을이용한패키지생성실습
-22
-01
 •
 install/setup.bash를source 수행
 •
@@ -400,11 +351,9 @@ install/setup.bash를source 수행
 ![Image 54](../../assets/images/ros/intro/lesson-02/img_024_054.webp)
 
 
-02
-23
 토픽, 서비스, 액션인터페이스
 인터페이스(Interface) 신규작성
-▶인터페이스(Interface)
+## 인터페이스(Interface)
 •
 ROS에서노드사이에데이터를전송시사용되는토픽(Topic), 서비스(Service), 액션(Action)
 에서사용되는데이터타입
@@ -421,8 +370,6 @@ ROS에서노드사이에데이터를전송시사용되는토픽(Topic), 서비�
 (이경우여러패키지들이만들어진인터페이스패키지를공유하며사용가능)
 
 
-02
-24
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
 •
@@ -430,12 +377,10 @@ Service, action, msg를담는인터페이스폴더역시하나의패키지로생
 •
 개발언어가python이라도build-type을ament_cmake로설정이필요
 •
-ament_cmake에는메시지를include하거나import할수있게하는기능이있지만, 
+ament_cmake에는메시지를include하거나import할수있게하는기능이있지만,
 ament_python에는없음
 
 
-02
-25
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
 •
@@ -452,8 +397,6 @@ action/MyAction.action
 ![Image 59](../../assets/images/ros/intro/lesson-02/img_027_059.webp)
 
 
-02
-26
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
 •
@@ -471,8 +414,6 @@ action/MyAction.action
 
 ![Image 61](../../assets/images/ros/intro/lesson-02/img_028_061.webp)
 
-02
-27
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
 
@@ -483,20 +424,16 @@ action/MyAction.action
 ![Image 64](../../assets/images/ros/intro/lesson-02/img_029_064.webp)
 
 
-02
-28
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
-▶Package.xml 파일수정
+## Package.xml 파일수정
 
 ![Image 66](../../assets/images/ros/intro/lesson-02/img_030_066.webp)
 
 
-02
-29
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
-▶CMakeLists.txt 파일수정
+## CMakeLists.txt 파일수정
 
 
 ![Image 67](../../assets/images/ros/intro/lesson-02/img_031_067.webp)
@@ -504,46 +441,34 @@ action/MyAction.action
 ![Image 69](../../assets/images/ros/intro/lesson-02/img_031_069.webp)
 
 
-02
-30
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
-▶빌드
+## 빌드
 
 ![Image 71](../../assets/images/ros/intro/lesson-02/img_032_071.webp)
 
 
-02
-31
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
-▶빌드결과
+## 빌드결과
 
 ![Image 73](../../assets/images/ros/intro/lesson-02/img_033_073.webp)
-02
-32
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
-▶빌드결과
+## 빌드결과
 
 
 ![Image 76](../../assets/images/ros/intro/lesson-02/img_034_076.webp)
 
 
 토픽, 서비스, 액션인터페이스실습
-33
-02
-▶새로운패키지를새로생성하여, msg interface 테스트진행
+## 새로운패키지를새로생성하여, msg interface 테스트진행
 토픽, 서비스, 액션인터페이스실습
-34
-02
-▶my_msg_test.py를생성하고
+## my_msg_test.py를생성하고
 다음과같이작성
 
 토픽, 서비스, 액션인터페이스실습
-35
-02
-▶package.xml
+## package.xml
 •
 Package.xml에앞에생성한인터페이스패키지추가
 
@@ -551,15 +476,11 @@ Package.xml에앞에생성한인터페이스패키지추가
 
 
 토픽, 서비스, 액션인터페이스실습
-36
-02
-▶setup.py
+## setup.py
 •
 setup.py에콘솔스크립트추가
 토픽, 서비스, 액션인터페이스실습
-37
-02
-▶빌드및실행
+## 빌드및실행
 터미널- 1
 터미널- 2
 
@@ -570,17 +491,15 @@ setup.py에콘솔스크립트추가
 ![Image 89](../../assets/images/ros/intro/lesson-02/img_039_089.webp)
 
 
-03
-38
 토픽, 서비스, 액션인터페이스
 패키지설계
-▶패키지설계
+## 패키지설계
 •
 ROS2의토픽, 서비스, 액션프로그래밍을이용해서각노드들이서로연동되어구동하는패키지설계
 •
 프로세스를목적별로나누어노드단위의프로그램을작성하고노드와노드간의데이터통신을고려
 하여설계
-▶실습패키지설계
+## 실습패키지설계
 •
 계산기개발
 •
@@ -594,12 +513,10 @@ ROS2의토픽, 서비스, 액션프로그래밍을이용해서각노드들이서
 ![Image 90](../../assets/images/ros/intro/lesson-02/img_040_090.webp)
 
 
-03
-39
 토픽, 서비스, 액션인터페이스
 패키지설계
-▶argument: arithmetic_argument 토픽이름으로현재시간과변수a, b를퍼블리시
-▶calculator
+## argument: arithmetic_argument 토픽이름으로현재시간과변수a, b를퍼블리시
+## calculator
 •
 토픽이생성시점과변수a,b를arithmetic_argument 토픽을통해수신(subscribe)
 •
@@ -615,43 +532,35 @@ checker 노드에전송
 •
 합산된결과값이액션목표값을넘기면최종연산합계를arithmetic_checker라는이름의액션
 결과값(③action result)으로checker에전송
-▶operator: arithmetic_operator 서비스이름으로calculator 노드에게연산자(+-*/)를
+## operator: arithmetic_operator 서비스이름으로calculator 노드에게연산자(+-*/)를
 서비스요청값으로보내기
-▶checker: 연산값의합계의한계치를arithmetic_checker 액션이름으로액션목표값으로전달
+## checker: 연산값의합계의한계치를arithmetic_checker 액션이름으로액션목표값으로전달
 
 
-03
-40
 토픽, 서비스, 액션인터페이스
 패키지설계
-▶패키지구성
+## 패키지구성
 
 
 ![Image 91](../../assets/images/ros/intro/lesson-02/img_042_091.webp)
 
 
-03
-41
 토픽, 서비스, 액션인터페이스
 토픽, 서비스, 액션복습
 
-03
-42
 토픽, 서비스, 액션인터페이스
 패키지설계
-▶의존패키지설치
-▶폴더구성
+## 의존패키지설치
+## 폴더구성
 
 
 ![Image 96](../../assets/images/ros/intro/lesson-02/img_044_096.webp)
 
 ![Image 98](../../assets/images/ros/intro/lesson-02/img_044_098.webp)
 
-03
-43
 토픽, 서비스, 액션인터페이스
 패키지설계
-▶인터페이스패키지수정
+## 인터페이스패키지수정
 CMakeList.txt
 ArithmeticChecker.action
 ArithmeticArgument.msg
@@ -673,11 +582,9 @@ ArithmeticOperator.srv
 ![Image 104](../../assets/images/ros/intro/lesson-02/img_045_104.webp)
 
 
-03
-44
 토픽, 서비스, 액션인터페이스
 패키지설계
-▶설정
+## 설정
 Package.xml
 Setup.py
 
@@ -688,11 +595,9 @@ Setup.py
 ![Image 106](../../assets/images/ros/intro/lesson-02/img_046_106.webp)
 
 
-03
-45
 토픽, 서비스, 액션인터페이스
 패키지설계
-▶파라미터
+## 파라미터
 
 
 ![Image 107](../../assets/images/ros/intro/lesson-02/img_047_107.webp)
@@ -701,20 +606,16 @@ Setup.py
 ![Image 108](../../assets/images/ros/intro/lesson-02/img_047_108.webp)
 
 
-03
-46
 토픽, 서비스, 액션인터페이스
 패키지설계
-▶빌드
+## 빌드
 
 
 ![Image 109](../../assets/images/ros/intro/lesson-02/img_048_109.webp)
 
-03
-47
 토픽, 서비스, 액션인터페이스
 패키지설계
-▶실행
+## 실행
 
 
 ![Image 111](../../assets/images/ros/intro/lesson-02/img_049_111.webp)
@@ -723,11 +624,9 @@ Setup.py
 ![Image 112](../../assets/images/ros/intro/lesson-02/img_049_112.webp)
 
 
-03
-48
 토픽, 서비스, 액션인터페이스
 패키지설계
-▶실행
+## 실행
 
 
 ![Image 113](../../assets/images/ros/intro/lesson-02/img_050_113.webp)
@@ -895,7 +794,7 @@ finally:
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/OWNER/study-site/blob/main/notebooks/ros/jupyter_ros/PublisherTest.ipynb)
 
 ```python
-import rclpy 
+import rclpy
 from geometry_msgs.msg import Twist
 
 if not rclpy.ok():  # 또는 hasattr(rclpy, '_rclpy') 등으로 체크
@@ -1054,7 +953,7 @@ def timer_callback():
     if phase >= 6:
         print("삼각형 그리기 완료 - shutdown")
         rclpy.shutdown()
-        
+
 timer = test_node.create_timer(0.1, timer_callback)
 rclpy.spin(test_node)
 ```

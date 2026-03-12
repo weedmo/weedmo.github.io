@@ -5,25 +5,16 @@ ROS2 프로그래밍입문(4차시)
 4. 인터페이스프로그래밍(응용- 2)
 
 
-▶인터페이스프로그래밍(응용_2)
+## 인터페이스프로그래밍(응용_2)
 1.  인터페이스프로그래밍(hangman)
-Contents
-00
-00
-
-
 Python을이용한패키지생성실습
-01
-01
-▶Python을이용한행맨게임_실습
+## Python을이용한행맨게임_실습
 •
 Topic, Service, Action을이용하여행맨(Hang-man) 게임만들기
 
 
 Hang-man - 실습
-02
-01
-▶Hang-man
+## Hang-man
 1. Hangman은단어나문구를추측하는고전적인단어게임
 2. 게임의목적은플레이어가주어진단어를맞추는것
 3. 단어선택: 한명의플레이어(또는시스템)가특정단어를선택
@@ -37,17 +28,15 @@ Hang-man - 실습
 
 
 Hang-man - 실습
-03
-01
-▶Hang-man 구조도
+## Hang-man 구조도
 Letter
 publisher
 User input
-Word 
+Word
 service
 Action
 client
-Action 
+Action
 server
 topic publish
 progress
@@ -55,9 +44,7 @@ game_progress
 request
 
 Hang-man - 실습
-04
-01
-▶Letter Publisher
+## Letter Publisher
 •
 a부터z까지의알파벳을순서대로publish
 
@@ -65,34 +52,24 @@ a부터z까지의알파벳을순서대로publish
 
 
 Hang-man - 실습
-05
-01
-▶Word Service
+## Word Service
 •
 임의의단어를선택, 행맨게임진행, 진행상황publish
 Hang-man - 실습
-06
-01
-▶Action Client
+## Action Client
 •
 Goal 설정, action server와의상호작용을통해행맨게임진행상태업데이트
 Hang-man - 실습
-07
-01
-▶Action Server
+## Action Server
 •
 사용자의진행상황을관리, 임의진행상태를추적, 게임결과를클라이언트에게전달
 Hang-man - 실습
-08
-01
-▶코드구조
+## 코드구조
 •
 패키지생성
 
 Hang-man - 실습
-09
-01
-▶코드구조
+## 코드구조
 •
 전체코드의구조는다음과같음
 •
@@ -102,22 +79,18 @@ Hang-man - 실습
 
 
 Hang-man - 실습
-10
-01
-▶hangman_interfaces
+## hangman_interfaces
 •
 hangman_interfaces/srv/CheckLetter.srv
 •
-updated_word_state: 현재상태ex) p y _ _ o n 
+updated_word_state: 현재상태ex) p y _ _ o n
 •
 is_correct : 현재user input으로들어온글자가선택된단어내에존재하는지에대한
 bool 타입자료형
 •
 message : 맞았으면“Correct”를띄우고틀리면“WRONG”을띄움
 Hang-man - 실습
-11
-01
-▶hangman_interfaces
+## hangman_interfaces
 •
 hangman_interfaces/msg/Progress.msg
 •
@@ -133,9 +106,7 @@ won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 
 
 Hang-man - 실습
-12
-01
-▶hangman_interfaces
+## hangman_interfaces
 •
 hangman_interfaces/action/GameProgress.action
 •
@@ -143,9 +114,7 @@ game_over : 목숨이다소진되었는지
 •
 won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 Hang-man - 실습
-13
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/letter
 _publisher.py의전체코드
@@ -155,18 +124,14 @@ _publisher.py의전체코드
 
 
 Hang-man - 실습
-14
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/letter_publisher.py 모듈별설명
 •
 __init__함수: Node 클래스를상속받아LetterPublisher 클래스를정의하고필요한퍼블리셔와타이머를설정
 
 Hang-man - 실습
-15
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/letter_publisher.py 모듈별설명
 •
@@ -177,9 +142,7 @@ publish_letter 함수: 현재알파벳문자를letter_topic 토픽에퍼블리�
 
 
 Hang-man - 실습
-16
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/letter_publisher.py 모듈별설명
 •
@@ -190,9 +153,7 @@ main 함수: ROS2 시스템을초기화하고, LetterPublisher 노드를실행
 
 
 Hang-man - 실습
-17
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/word
 _service.py의전체코드
@@ -202,9 +163,7 @@ _service.py의전체코드
 
 
 Hang-man - 실습
-18
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/word
 _service.py의전체코드
@@ -214,9 +173,7 @@ _service.py의전체코드
 
 
 Hang-man - 실습
-19
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/word
 _service.py의전체코드
@@ -226,9 +183,7 @@ _service.py의전체코드
 
 
 Hang-man - 실습
-20
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/word_service.py 모듈별설명
 •
@@ -240,9 +195,7 @@ __init__함수: ROS2의Node 클래스를상속받아WordService라는이름의�
 
 
 Hang-man - 실습
-21
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/word_service.py 모듈별설명
 •
@@ -253,9 +206,7 @@ letter_callback함수: letter_topic 토픽에서수신된메시지를처리하�
 
 
 Hang-man - 실습
-22
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/word
 _service.py 모듈별설명
@@ -263,7 +214,7 @@ _service.py 모듈별설명
 check_letter_callback 함수: 서비스요청
 을처리하며, 수신한문자가현재단어에
 포함되어있는지확인하고게임상태를
-업데이트. 업데이트된상태는Progress 
+업데이트. 업데이트된상태는Progress
 메시지를통해퍼블리시
 
 
@@ -271,9 +222,7 @@ check_letter_callback 함수: 서비스요청
 
 
 Hang-man - 실습
-23
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/word_service.py 모듈별설명
 •
@@ -284,17 +233,13 @@ main 함수: ROS2 시스템을초기화하고WordService 노드를실행
 
 
 Hang-man - 실습
-24
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/user_
 input.py 전체코드
 
 Hang-man - 실습
-25
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/user_input.py 모듈별설명
 •
@@ -305,9 +250,7 @@ __init__ 함수: Node 클래스를상속받아UserInput이라는노드를정의.
 
 
 Hang-man - 실습
-26
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/user_input.py 모듈별설명
 •
@@ -318,9 +261,7 @@ input_thread 함수: 사용자로부터Enter 키입력을기다리며, 입력이
 
 
 Hang-man - 실습
-27
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/user_input.py 모듈별설명
 •
@@ -331,9 +272,7 @@ send_request 함수: CheckLetter 서비스에비동기적으로요청을보내�
 
 
 Hang-man - 실습
-28
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/user_input.py 모듈별설명
 •
@@ -344,9 +283,7 @@ main 함수: ROS2 시스템을초기화하고UserInput 노드를실행하여사�
 
 
 Hang-man - 실습
-29
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/
 progress_action_client.py 전체코드
@@ -355,9 +292,7 @@ progress_action_client.py 전체코드
 
 
 Hang-man - 실습
-30
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/
 progress_action_client.py 전체코드
@@ -366,9 +301,7 @@ progress_action_client.py 전체코드
 
 
 Hang-man - 실습
-31
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/progress_action_client.py 모듈별설명
 •
@@ -379,9 +312,7 @@ __init__ 함수: 노드를초기화하고액션클라이언트를생성하여, �
 
 
 Hang-man - 실습
-32
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/progress_action_client.py 모듈별설명
 •
@@ -392,9 +323,7 @@ send_goal 함수: GameProgress 액션서버에목표를전송하고, 목표전�
 
 
 Hang-man - 실습
-33
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/progress_action_client.py 모듈별설명
 •
@@ -404,9 +333,7 @@ Feedback_callback 함수: 서버에서수신한피드백메시지를처리하여
 
 
 Hang-man - 실습
-34
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/progress_action_client.py 모듈별설명
 •
@@ -417,9 +344,7 @@ goal_response_callback 함수: 서버가목표를수락했는지확인하고, �
 
 
 Hang-man - 실습
-35
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/progress_action_client.py 모듈별설명
 •
@@ -429,9 +354,7 @@ get_result_callback 함수: 서버에서수신한최종결과를확인하고, �
 
 
 Hang-man - 실습
-36
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/progress_action_client.py 모듈별설명
 •
@@ -442,31 +365,25 @@ main 함수: ROS2 시스템을초기화하고ProgressActionClient 노드를실�
 
 
 Hang-man - 실습
-37
-01
-▶hangman_game
+## hangman_game
 •
-hangman_game/hangman_game/ 
+hangman_game/hangman_game/
 progress_action_server.py 전체코드
 
 ![Image 66](../../assets/images/ros/intro/lesson-04/img_039_066.webp)
 
 
 Hang-man - 실습
-38
-01
-▶hangman_game
+## hangman_game
 •
-hangman_game/hangman_game/ 
+hangman_game/hangman_game/
 progress_action_server.py 전체코드
 
 ![Image 68](../../assets/images/ros/intro/lesson-04/img_040_068.webp)
 
 
 Hang-man - 실습
-39
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/
 progress_action_server.py 전체코드
@@ -475,9 +392,7 @@ progress_action_server.py 전체코드
 
 
 Hang-man - 실습
-40
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/progress_action_server.py 모듈별설명
 •
@@ -488,29 +403,25 @@ __init__ 함수: 노드를초기화하고GameProgress 액션서버와progress �
 
 
 Hang-man - 실습
-41
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/progress_action_server.py 모듈별설명
 •
-progress_callback 함수: progress 토픽으로부터수신한메시지를처리하여, 
+progress_callback 함수: progress 토픽으로부터수신한메시지를처리하여,
 current_progress에게임상태를업데이트하고로깅
 
 ![Image 74](../../assets/images/ros/intro/lesson-04/img_043_074.webp)
 
 
 Hang-man - 실습
-42
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/pro
 gress_action_server.py 모듈별설명
 •
-execute_callback 함수: 
+execute_callback 함수:
 클라이언트의목표요청을수신하고, 게
-임진행상황을주기적으로피드백하며, 
+임진행상황을주기적으로피드백하며,
 게임종료시최종결과를반환. 주기적
 으로feedback_msg를통해게임상태를
 클라이언트에전달
@@ -519,9 +430,7 @@ execute_callback 함수:
 
 
 Hang-man - 실습
-43
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/hangman_game/progress_action_server.py 모듈별설명
 •
@@ -532,9 +441,7 @@ main 함수: ROS2 시스템을초기화하고ProgressActionServer 노드를실�
 
 
 Hang-man - 실습
-44
-01
-▶hangman_game
+## hangman_game
 •
 hangman_game/setup.py
 •
@@ -544,9 +451,7 @@ entry_points를다음과같이변경
 
 
 Hang-man - 실습
-45
-01
-▶hangman_game
+## hangman_game
 •
 hangman_interfaces/CMakeLists.txt
 
@@ -556,9 +461,7 @@ hangman_interfaces/CMakeLists.txt
 
 
 Hang-man - 실습
-46
-01
-▶hangman_game
+## hangman_game
 •
 hangman_interfaces/package.xml
 
@@ -566,9 +469,7 @@ hangman_interfaces/package.xml
 
 
 Hang-man - 실습
-47
-01
-▶hangman_game
+## hangman_game
 1.   colcon 빌드후setup.bash 적용
 2.   letter publisher 실행
 3.   새로운터미널에서word service 실행
@@ -584,9 +485,7 @@ Hang-man - 실습
 
 
 Hang-man - 실습
-48
-01
-▶hangman_game
+## hangman_game
 4. 새로운터미널에서action server 실행
 5. 새로운터미널에서action client 실행
 6.   새로운터미널에서user input 실행
@@ -602,9 +501,7 @@ Hang-man - 실습
 
 
 Hang-man - 실습
-49
-01
-▶hangman_game
+## hangman_game
 •
 실행화면
 user_input
@@ -618,9 +515,7 @@ word_service
 
 
 Hang-man - 실습
-50
-01
-▶hangman_game
+## hangman_game
 •
 실행화면
 action_server
@@ -634,9 +529,7 @@ action_client
 
 
 Hang-man - 실습
-51
-01
-▶hangman_game
+## hangman_game
 •
 실행화면
 user_input
