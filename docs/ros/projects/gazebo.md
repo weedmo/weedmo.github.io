@@ -10,26 +10,16 @@ V1.0
 시뮬레이션
 프로젝트교안
 
-
-![Image 2](../../assets/images/ros/projects/gazebo/img_001_002.webp)
-
-
 가제보(gazebo)가상환경구축
 - ROS 시뮤레이션툴인가제보를이용하여테스트환경구축하기
 - 터틀봇3를사용하여실제시뮬레이션구축및실제환경테스트
 - 가상의공장에서Pick and Place를구현하는시뮬레이션구축하기
 가제보
 
-
-
-
 HUMAN AI ROBOTICS
 3
 주제2.1 기초
 가제보이해
-
-
-
 
 HUMAN AI ROBOTICS
 4
@@ -48,14 +38,6 @@ Gazebo Classic과Ignition Gazebo (현재는Gazebo로통합)라는두가지주요
 •다른엔진을지원하기위해플러그인을사용할수있었습니다. Bullet, Simbody, DART 등과도통합
 •신규버전(Ignition Gazebo): 
 •다양한물리엔진과의더나은통합을제공하며, TPE (Trivial Physics Engine)와같은새로운엔진도입 성능과유연성 향상
-
-
-![Image 5](../../assets/images/ros/projects/gazebo/img_004_005.webp)
-
-
-![Image 6](../../assets/images/ros/projects/gazebo/img_004_006.webp)
-
-
 HUMAN AI ROBOTICS
 5
 가제보이해
@@ -78,12 +60,6 @@ source ~/.bashrc
 # Install additional tools (optional but recommended)
 sudo apt install python3-colcon-common-extensions -y
 3. 설치하기
-
-
-
-
-
-
 HUMAN AI ROBOTICS
 6
 가제보이해
@@ -95,9 +71,6 @@ $sudo apt install -y ros-humble-gazebo-ros-pkgs
 gz sim -v 4 /path/to/your/world/file.sdf
 특정월드로Gazebo 실행
 
-
-
-
 ![Image 10](../../assets/images/ros/projects/gazebo/img_006_010.webp)
 
 
@@ -108,26 +81,11 @@ SDF(Simulation Description Format)
 URDF는RViz, Moveit! 그리고Gazebo에서모두사용
 
 
-
-
-![Image 12](../../assets/images/ros/projects/gazebo/img_007_012.webp)
-
-
-
-
 HUMAN AI ROBOTICS
 8
 주제2.2.3 시뮬레이터상Machine Tending동작실습
 가제보이해
 3. 가제보다양한기능
-
-
-![Image 14](../../assets/images/ros/projects/gazebo/img_008_014.webp)
-
-
-![Image 15](../../assets/images/ros/projects/gazebo/img_008_015.webp)
-
-
 HUMAN AI ROBOTICS
 9
 가제보이해
@@ -142,9 +100,6 @@ HUMAN AI ROBOTICS
 가제보로봇모델을spawn하고ROS를통해제어하기위해필요한폴더 및파일구조
 가제보모델데이터베이스폴더구조에따른포맷의규칙을따라야한다.
 
-
-
-
 ![Image 17](../../assets/images/ros/projects/gazebo/img_009_017.webp)
 
 
@@ -158,13 +113,6 @@ gedit ~/.gazebo/models/my_robot/model.sdf
 가제보GUI 인터페이스의Insert Model을통해당신의모델을불러올수있다
 
 
-
-
-
-
-![Image 20](../../assets/images/ros/projects/gazebo/img_010_020.webp)
-
-
 HUMAN AI ROBOTICS
 11
 가제보이해
@@ -172,9 +120,6 @@ HUMAN AI ROBOTICS
 1. 툴바(toolbars)
 Upper Toolbar
 Bottom Toolbar
-
-
-
 
 ![Image 22](../../assets/images/ros/projects/gazebo/img_011_022.webp)
 
@@ -188,22 +133,10 @@ HUMAN AI ROBOTICS
 가제보화면용어
 1. 씬(scene)
 2. 판넬(panel)
-
-
-![Image 24](../../assets/images/ros/projects/gazebo/img_012_024.webp)
-
-
-![Image 25](../../assets/images/ros/projects/gazebo/img_012_025.webp)
-
-
 ![Image 26](../../assets/images/ros/projects/gazebo/img_012_026.webp)
 
 
 ![Image 27](../../assets/images/ros/projects/gazebo/img_012_027.webp)
-
-
-![Image 28](../../assets/images/ros/projects/gazebo/img_012_028.webp)
-
 
 HUMAN AI ROBOTICS
 13
@@ -212,19 +145,7 @@ HUMAN AI ROBOTICS
 1. 샤시(Chassis)
 2. 샤시크기조정
 3. 싸이즈줄이기(파란색으로납작하게)
-
-
-![Image 29](../../assets/images/ros/projects/gazebo/img_013_029.webp)
-
-
-![Image 30](../../assets/images/ros/projects/gazebo/img_013_030.webp)
-
-
 ![Image 31](../../assets/images/ros/projects/gazebo/img_013_031.webp)
-
-
-![Image 32](../../assets/images/ros/projects/gazebo/img_013_032.webp)
-
 
 HUMAN AI ROBOTICS
 14
@@ -232,9 +153,6 @@ HUMAN AI ROBOTICS
 가상환경만들기
 4. Body 사시만들기
 5. Front Wheels
-
-
-
 
 ![Image 34](../../assets/images/ros/projects/gazebo/img_014_034.webp)
 
@@ -247,10 +165,6 @@ HUMAN AI ROBOTICS
 가제보이해
 가상환경만들기
 6. 싸이즈조절및복사
-
-
-![Image 36](../../assets/images/ros/projects/gazebo/img_015_036.webp)
-
 
 ![Image 37](../../assets/images/ros/projects/gazebo/img_015_037.webp)
 
@@ -268,10 +182,6 @@ HUMAN AI ROBOTICS
 7. 관절(Joint) 추가
 상단도구모음에서조인트아이콘을클릭하여조인트생성대화상자를표시
 
-
-![Image 40](../../assets/images/ros/projects/gazebo/img_016_040.webp)
-
-
 ![Image 41](../../assets/images/ros/projects/gazebo/img_016_041.webp)
 
 
@@ -285,10 +195,6 @@ HUMAN AI ROBOTICS
 6. 휠축맞추기
 조인트축섹션을변경하고축을Z(0, 0, 1)로변경합니다.
 
-
-![Image 43](../../assets/images/ros/projects/gazebo/img_017_043.webp)
-
-
 ![Image 44](../../assets/images/ros/projects/gazebo/img_017_044.webp)
 
 
@@ -297,10 +203,6 @@ HUMAN AI ROBOTICS
 가제보이해
 가상환경만들기
 7. 휠을샤시와어라인하기그리고왼쪽바퀴도만들기
-
-
-![Image 45](../../assets/images/ros/projects/gazebo/img_018_045.webp)
-
 
 ![Image 46](../../assets/images/ros/projects/gazebo/img_018_046.webp)
 
@@ -321,10 +223,6 @@ HUMAN AI ROBOTICS
 8. 케스트볼만들기
 기하학섹션으로스크롤하여반경을0.2m로변경합니다.
 
-
-![Image 50](../../assets/images/ros/projects/gazebo/img_019_050.webp)
-
-
 ![Image 51](../../assets/images/ros/projects/gazebo/img_019_051.webp)
 
 
@@ -338,10 +236,6 @@ HUMAN AI ROBOTICS
 9. 휠을샤시와어라인하기
 Y Align Center option to center the two links in the Y axis, and select the X Align Min option
 조인트유형섹션에서볼조인트옵션을선택하세요.
-
-
-![Image 53](../../assets/images/ros/projects/gazebo/img_020_053.webp)
-
 
 ![Image 54](../../assets/images/ros/projects/gazebo/img_020_054.webp)
 
@@ -359,10 +253,6 @@ Edit 메뉴에서building editor 를클릭, 다음과같은building editor화면
 관점의맵을볼수있다. 이모눈종이구역에서벽, 계단등을생성, 배치할수있다아래쪽구역은실제gazebo 공간상에
 생성된3차원맵을보여준다.
 
-
-![Image 56](../../assets/images/ros/projects/gazebo/img_021_056.webp)
-
-
 ![Image 57](../../assets/images/ros/projects/gazebo/img_021_057.webp)
 
 
@@ -376,10 +266,6 @@ HUMAN AI ROBOTICS
 왼쪽의Create Walls의Wall을클릭하고모눈종이영역에서직선을그려주면, 벽이생성된다.  직선의길이, 위치
 등을변경하면벽의길이, 위치를변경할수있다.
 왼쪽에서Stairs 를클릭하고, 모눈종이영역을클릭해주면계단이생성된다.
-
-
-![Image 59](../../assets/images/ros/projects/gazebo/img_022_059.webp)
-
 
 ![Image 60](../../assets/images/ros/projects/gazebo/img_022_060.webp)
 
@@ -401,10 +287,6 @@ building editor 에서맵을다만들었다면왼쪽상단의File 탭에서Save 
 왼쪽상단의File -> save world as 를클릭한다.
 참고: https://www.youtube.com/watch?v=7McYSJFAqlU
 
-
-![Image 62](../../assets/images/ros/projects/gazebo/img_023_062.webp)
-
-
 ![Image 63](../../assets/images/ros/projects/gazebo/img_023_063.webp)
 
 
@@ -422,10 +304,6 @@ ROS2 환경에서가제보모델다음의경로에저장
 11. 저장된모델을로드
 1. ros2 run gazebo_ros spawn_entity.py -entity robot_name -file /path/to/your/robot.urdf -x 0 -y 0 -z 1
 
-
-![Image 64](../../assets/images/ros/projects/gazebo/img_024_064.webp)
-
-
 HUMAN AI ROBOTICS
 25
 가제보이해
@@ -439,20 +317,12 @@ gazebo.spawn_urdf_model('my_model', pkg_path, '', initial_pose, 'world')
 11. 저장된모델을로드
 2. launch 파일, `gazebo.spawn_sdf_model()` 또는`gazebo.spawn_urdf_model()` 함수사용
 
-
-![Image 65](../../assets/images/ros/projects/gazebo/img_025_065.webp)
-
-
 ![Image 66](../../assets/images/ros/projects/gazebo/img_025_066.webp)
 
 
 HUMAN AI ROBOTICS
 26
 메니퓨레이션시뮬레이션
-
-
-![Image 67](../../assets/images/ros/projects/gazebo/img_026_067.webp)
-
 
 HUMAN AI ROBOTICS
 27
@@ -477,10 +347,6 @@ $ cd .gazebo/models/gongjang/
 Model.config
 sudo apt-get install ros-humble-gazebo-ros
 참고: 가제보설치
-
-
-![Image 68](../../assets/images/ros/projects/gazebo/img_027_068.webp)
-
 
 HUMAN AI ROBOTICS
 28
@@ -547,20 +413,12 @@ HUMAN AI ROBOTICS
 </visual>
 </link>
 
-
-![Image 69](../../assets/images/ros/projects/gazebo/img_028_069.webp)
-
-
 HUMAN AI ROBOTICS
 29
 메니퓨레이션시뮬레이션
 모델불러오기
 4. 가제보의왼쪽페널에서gongjang 모델을마우스로끌어온다.
 여러가지기능을메뉴를선택해서학습하시기바랍니다.
-
-
-![Image 70](../../assets/images/ros/projects/gazebo/img_029_070.webp)
-
 
 ![Image 71](../../assets/images/ros/projects/gazebo/img_029_071.webp)
 
@@ -631,10 +489,6 @@ GAZEBO RELATED PART                             -->
 </visual>
 </link>
 
-
-![Image 72](../../assets/images/ros/projects/gazebo/img_030_072.webp)
-
-
 HUMAN AI ROBOTICS
 31
 메니퓨레이션시뮬레이션
@@ -642,20 +496,12 @@ HUMAN AI ROBOTICS
 모델을선택후> Apply Force and Torgue 선택
 힘(Force)와토크(Torque) 설정후Play 버튼
 
-
-![Image 73](../../assets/images/ros/projects/gazebo/img_031_073.webp)
-
-
 ![Image 74](../../assets/images/ros/projects/gazebo/img_031_074.webp)
 
 
 HUMAN AI ROBOTICS
 32
 World
-
-
-![Image 75](../../assets/images/ros/projects/gazebo/img_032_075.webp)
-
 
 HUMAN AI ROBOTICS
 33
@@ -683,10 +529,6 @@ HUMAN AI ROBOTICS
 </sdf>
 Gazebo의환경(월드, 조명, 지면, 로봇, 센서등) 을정의
 <include> 태그를사용하여외부모델(.sdf) 을불러옴
-
-
-![Image 76](../../assets/images/ros/projects/gazebo/img_033_076.webp)
-
 
 HUMAN AI ROBOTICS
 34
@@ -718,10 +560,6 @@ HUMAN AI ROBOTICS
 </model>
 </sdf>
 
-
-![Image 77](../../assets/images/ros/projects/gazebo/img_034_077.webp)
-
-
 HUMAN AI ROBOTICS
 35
 가제보모델
@@ -729,10 +567,6 @@ HUMAN AI ROBOTICS
 Gazebo는기본적으로~/.gazebo/models/ 디렉터리를모델경로로인식
 mkdir -p ~/.gazebo/models/my_custom_model
 모델폴더구조
-
-
-![Image 78](../../assets/images/ros/projects/gazebo/img_035_078.webp)
-
 
 ![Image 79](../../assets/images/ros/projects/gazebo/img_035_079.webp)
 
@@ -743,10 +577,6 @@ HUMAN AI ROBOTICS
 .world 파일을실행하려면ROS2의gazebo_ros 패키지를사용합니다. 
 ..
 ros2 launch gazebo_ros gzserver.launch.py world:=/absolute/path/to/my_world.world
-
-
-![Image 80](../../assets/images/ros/projects/gazebo/img_036_080.webp)
-
 
 ![Image 81](../../assets/images/ros/projects/gazebo/img_036_081.webp)
 
@@ -776,10 +606,6 @@ Gazebo의.world 파일에서특정모델을직접지정하는방법
 </world>
 </sdf>
 
-
-![Image 82](../../assets/images/ros/projects/gazebo/img_037_082.webp)
-
-
 HUMAN AI ROBOTICS
 38
 …
@@ -797,10 +623,6 @@ Gazebo의.world 파일에서특정모델을직접지정하는방법
 </world>
 </sdf>
 
-
-![Image 83](../../assets/images/ros/projects/gazebo/img_038_083.webp)
-
-
 HUMAN AI ROBOTICS
 39
 …
@@ -815,16 +637,9 @@ Gazebo는기본적으로/usr/share/gazebo-11/models/ 디렉터리에서모델을
 저장한.world 파일을실행하려면
 ros2 launch gazebo_ros gzserver.launch.py world:=/absolute/path/to/my_custom_world.world
 
-
-
-
 HUMAN AI ROBOTICS
 40
 SDF(Scenario Description Format)
-
-
-![Image 85](../../assets/images/ros/projects/gazebo/img_040_085.webp)
-
 
 HUMAN AI ROBOTICS
 41
@@ -843,9 +658,6 @@ SDF 주요요소
 •로봇의구성요소(바퀴, 몸체등) 또는오브젝트의물리적특성을정의합니다.
 •<collision>과<visual>을포함할수있습니다.
 
-
-
-
 HUMAN AI ROBOTICS
 42
 가제보이해
@@ -859,10 +671,6 @@ SDF 주요요소
 <include> - 외부모델추가
 •Gazebo의기본모델을불러오거나외부SDF 파일을로드할때사용됩니다.
 ros2 launch gazebo_ros gazebo.launch.py world:=/path/to/my_world.sdf
-
-
-![Image 87](../../assets/images/ros/projects/gazebo/img_042_087.webp)
-
 
 HUMAN AI ROBOTICS
 43
@@ -886,9 +694,6 @@ vi model.config
    <description>project rokey</description>
 </model>
 model.config
-
-
-
 
 HUMAN AI ROBOTICS
 44
@@ -959,19 +764,11 @@ static은이모델이움직이는것인지아닌지를표시,앞으로움직일'
 True이면이후에플러그인이나파라메터를전달해도움직이 않음.
 로봇모델일경우엔false로입력
 
-
-![Image 89](../../assets/images/ros/projects/gazebo/img_044_089.webp)
-
-
 HUMAN AI ROBOTICS
 45
 SDF
 Sdf 만들기실습
 world, static, dynamic 객체
-
-
-![Image 90](../../assets/images/ros/projects/gazebo/img_045_090.webp)
-
 
 ![Image 91](../../assets/images/ros/projects/gazebo/img_045_091.webp)
 
@@ -980,10 +777,6 @@ world, static, dynamic 객체
 
 
 ![Image 93](../../assets/images/ros/projects/gazebo/img_045_093.webp)
-
-
-![Image 94](../../assets/images/ros/projects/gazebo/img_045_094.webp)
-
 
 HUMAN AI ROBOTICS
 46
@@ -1000,21 +793,9 @@ effort로봇에적용할수있는최대힘(또는토크)을결정하는데, 이�
 태그<origin>는각각링크의질량중심또는중력중심을정의합니다. 
 이는질량에따라가중치가부여된시스템의모든부분의평균위치입니다. 가속도를
 계산할때유용한속성입니다.
-
-
-![Image 95](../../assets/images/ros/projects/gazebo/img_046_095.webp)
-
-
-![Image 96](../../assets/images/ros/projects/gazebo/img_046_096.webp)
-
-
 HUMAN AI ROBOTICS
 47
 실습과제2 –라이다시뮬레이션
-
-
-![Image 97](../../assets/images/ros/projects/gazebo/img_047_097.webp)
-
 
 HUMAN AI ROBOTICS
 48
@@ -1024,14 +805,6 @@ HUMAN AI ROBOTICS
 펄스를쏘고반사되어돌아오는시간을측정하여반사체의위치좌표를측정하는레이다시스템
 2D LiDAR는관찰지점으로부터2차원상의평면정보를제공합니다. 
 즉센서와평행한평면을기준으로물체와의거리가얼마나떨어져있는지확인
-
-
-![Image 98](../../assets/images/ros/projects/gazebo/img_048_098.webp)
-
-
-![Image 99](../../assets/images/ros/projects/gazebo/img_048_099.webp)
-
-
 ![Image 100](../../assets/images/ros/projects/gazebo/img_048_100.webp)
 
 
@@ -1069,10 +842,6 @@ parameters=[params],
 ]
 )
 Robot_state_publisher는robot_description을토픽으로
-
-
-![Image 101](../../assets/images/ros/projects/gazebo/img_049_101.webp)
-
 
 HUMAN AI ROBOTICS
 50
@@ -1114,10 +883,6 @@ spawn_entity,
 ]
 )
 
-
-![Image 102](../../assets/images/ros/projects/gazebo/img_050_102.webp)
-
-
 HUMAN AI ROBOTICS
 51
 라이다시뮬레이션
@@ -1148,10 +913,6 @@ $ cd ~/sim_ws/
 $ colcon build --symlink-install
 $ source install/setup.bash
 $ ros2 launch urdf_tutorial lidar.launch.py
-
-
-![Image 103](../../assets/images/ros/projects/gazebo/img_051_103.webp)
-
 
 ![Image 104](../../assets/images/ros/projects/gazebo/img_051_104.webp)
 
@@ -1202,20 +963,12 @@ HUMAN AI ROBOTICS
 <xacro:include filename="lidar.xacro"/>
 로봇모델에라이다모델추가
 
-
-![Image 105](../../assets/images/ros/projects/gazebo/img_052_105.webp)
-
-
 HUMAN AI ROBOTICS
 53
 라이다시뮬레이션
 가제보이해
 •Gazebo에서‘Insert’ 탭을누르고‘Insert model …’을누른상태로5분정도기다리면설치가능한모델목록이나타납니다.
 시뮬레이션을위한월드만들기, 로봇제거후월드저장
-
-
-![Image 106](../../assets/images/ros/projects/gazebo/img_053_106.webp)
-
 
 ![Image 107](../../assets/images/ros/projects/gazebo/img_053_107.webp)
 
@@ -1227,10 +980,6 @@ HUMAN AI ROBOTICS
 •목록에서‘with-bot’을선택후마우스메뉴버튼을누른후팝업메뉴에서‘Delete’를눌러서with-bot을제거
 •'src/urdf_tutorial/config' 폴더에‘with_robot.world’라는파일명으로저장합니다.
 
-
-![Image 108](../../assets/images/ros/projects/gazebo/img_054_108.webp)
-
-
 ![Image 109](../../assets/images/ros/projects/gazebo/img_054_109.webp)
 
 
@@ -1239,10 +988,6 @@ HUMAN AI ROBOTICS
 라이다시뮬레이션
 RVIZ2 실행하기
 $ ros2 launch urdf_tutorial lidar.launch.py world:=src/urdf_tutorial/config/with_robot.world
-
-
-![Image 110](../../assets/images/ros/projects/gazebo/img_055_110.webp)
-
 
 ![Image 111](../../assets/images/ros/projects/gazebo/img_055_111.webp)
 
@@ -1259,10 +1004,6 @@ HUMAN AI ROBOTICS
 •‘src/urdf_tutorial/urdf/lidar.xacro’ 파일에서‘laser_frame’의samples를360으로변경.
 $ cd ~/Workspace/ros_ws/ $ ros2 topic echo /scan
 
-
-![Image 113](../../assets/images/ros/projects/gazebo/img_056_113.webp)
-
-
 ![Image 114](../../assets/images/ros/projects/gazebo/img_056_114.webp)
 
 
@@ -1278,23 +1019,11 @@ lidar.launch.py world:=src/urdf_tutorial/config/with_robot.world
 $ ros2 run teleop_twist_keyboard 
 teleop_twist_keyboard
 
-
-![Image 115](../../assets/images/ros/projects/gazebo/img_057_115.webp)
-
-
 ![Image 116](../../assets/images/ros/projects/gazebo/img_057_116.webp)
-
-
-![Image 117](../../assets/images/ros/projects/gazebo/img_057_117.webp)
-
 
 HUMAN AI ROBOTICS
 58
 실습과제3- Moveit2
-
-
-![Image 118](../../assets/images/ros/projects/gazebo/img_058_118.webp)
-
 
 HUMAN AI ROBOTICS
 59
@@ -1310,10 +1039,6 @@ ROS2 Humble
 Gazebo
 Moveit2
 
-
-![Image 119](../../assets/images/ros/projects/gazebo/img_059_119.webp)
-
-
 HUMAN AI ROBOTICS
 60
 Moveit2 실습
@@ -1326,10 +1051,6 @@ Gazebo는시뮬레이션환경역할을하며현실적인물리및센서피드�
 Autodesk Fusion을사용하여Gazebo에서시뮬레이션
 로봇모델을개발하고ROS2용URDF 내보내기기능을사용하여URDF로내보냈습니다.
 
-
-![Image 120](../../assets/images/ros/projects/gazebo/img_060_120.webp)
-
-
 ![Image 121](../../assets/images/ros/projects/gazebo/img_060_121.webp)
 
 
@@ -1341,10 +1062,6 @@ Moveit2 실습
 로봇은시뮬레이션된세계에서제어가부족하므로ros2_control을사용하여제어를추가
 조인트, 명령및상태인터페이스를정의하고gazebo.launch.py에컨트롤러런처를추가하여모델을생성하고로봇의컨트롤러를시작
 
-
-![Image 122](../../assets/images/ros/projects/gazebo/img_061_122.webp)
-
-
 ![Image 123](../../assets/images/ros/projects/gazebo/img_061_123.webp)
 
 
@@ -1353,15 +1070,7 @@ HUMAN AI ROBOTICS
 Moveit2 실습
 Moveit2 실습
 
-
-![Image 124](../../assets/images/ros/projects/gazebo/img_062_124.webp)
-
-
 ![Image 125](../../assets/images/ros/projects/gazebo/img_062_125.webp)
-
-
-![Image 126](../../assets/images/ros/projects/gazebo/img_062_126.webp)
-
 
 HUMAN AI ROBOTICS
 63
@@ -1371,28 +1080,12 @@ MoveIt2를사용한모션플래닝
 MoveIt2는모션플래닝및조작작업을위한강력한프레임워크를제공
 로봇의운동학모델은MoveIt2와인터페이스되어구성공간에서경로플래닝이가능
 Rapidly-exploring Random Trees(RRT)를포함한다양한모션플래닝알고리즘이구현되어충돌없는궤적을생성
-
-
-![Image 127](../../assets/images/ros/projects/gazebo/img_063_127.webp)
-
-
-![Image 128](../../assets/images/ros/projects/gazebo/img_063_128.webp)
-
-
 HUMAN AI ROBOTICS
 64
 Moveit2 실습
 Moveit2 실습
 시스템이어떤링크가충돌하는지에대한계산을줄이기
 위해충돌행렬을생성합니다.
-
-
-![Image 129](../../assets/images/ros/projects/gazebo/img_064_129.webp)
-
-
-![Image 130](../../assets/images/ros/projects/gazebo/img_064_130.webp)
-
-
 HUMAN AI ROBOTICS
 65
 Moveit2 실습
@@ -1400,25 +1093,13 @@ Moveit2 실습
 RRT와KDLkinematic 솔버를사용하여계획그룹을생성합니다. 
 이단계에서는Moveit에서제어할링크를선택합니다.
 
-
-![Image 131](../../assets/images/ros/projects/gazebo/img_065_131.webp)
-
-
 ![Image 132](../../assets/images/ros/projects/gazebo/img_065_132.webp)
-
-
-![Image 133](../../assets/images/ros/projects/gazebo/img_065_133.webp)
-
 
 HUMAN AI ROBOTICS
 66
 Moveit2 실습
 Moveit2 실습
 로봇에휴식포즈와시작포즈의두가지포즈를제공합니다.
-
-
-![Image 134](../../assets/images/ros/projects/gazebo/img_066_134.webp)
-
 
 ![Image 135](../../assets/images/ros/projects/gazebo/img_066_135.webp)
 
@@ -1428,10 +1109,6 @@ HUMAN AI ROBOTICS
 Moveit2 실습
 Moveit2 실습
 moveit config 폴더에ros2_control 인터페이스추가
-
-
-![Image 136](../../assets/images/ros/projects/gazebo/img_067_136.webp)
-
 
 ![Image 137](../../assets/images/ros/projects/gazebo/img_067_137.webp)
 
@@ -1452,10 +1129,6 @@ SRDF는로봇의움직임에대한의미론적정보
 •  MoveIt!와통합 - 주로MoveIt!에서모션플래닝을위해사용.
 ▪SRDF
 ▪SRDF 특징
-
-
-![Image 138](../../assets/images/ros/projects/gazebo/img_068_138.webp)
-
 
 HUMAN AI ROBOTICS
 69
@@ -1494,10 +1167,6 @@ SDF (Simulation Description Format)
   </model>
 </sdf>
 
-
-![Image 139](../../assets/images/ros/projects/gazebo/img_069_139.webp)
-
-
 HUMAN AI ROBOTICS
 70
 Moveit2 실습
@@ -1508,21 +1177,9 @@ Python 스크립트는ROS 2 환경내에서로봇의동작을제어하는데활�
 이를통해프로그래밍의유연성과ROS 2 노드와의쉬운통합이가능
 스크립트는각관절의관절위치에대한6개인수와지속시간에대한2개인수를포함하여8개의인수를필요
 Python으로프로그래밍하기
-
-
-![Image 140](../../assets/images/ros/projects/gazebo/img_070_140.webp)
-
-
-![Image 141](../../assets/images/ros/projects/gazebo/img_070_141.webp)
-
-
 HUMAN AI ROBOTICS
 71
 Moveit2
-
-
-![Image 142](../../assets/images/ros/projects/gazebo/img_071_142.webp)
-
 
 HUMAN AI ROBOTICS
 72
@@ -1545,10 +1202,6 @@ MoveIt은모션플래닝을위해다양한알고리즘과플러그인기반구�
 MoveIt은로봇의모션플래닝, 제어, 시뮬레이션, 충돌감지등을지원하는강력한로봇소프트웨어플랫폼으로, 
 ROS(로봇운영체제) 기반에서동작
 
-
-![Image 143](../../assets/images/ros/projects/gazebo/img_072_143.webp)
-
-
 ![Image 144](../../assets/images/ros/projects/gazebo/img_072_144.webp)
 
 
@@ -1568,10 +1221,6 @@ Moveit 기능
 •이과정에서충돌을피하고, 로봇의운동학적제약을고려.
 •사용가능한플래닝알고리즘에는RRT, RRT*, PRM, CHOMP, STOMP, TrajOpt 등
 
-
-![Image 145](../../assets/images/ros/projects/gazebo/img_073_145.webp)
-
-
 HUMAN AI ROBOTICS
 74
 GAZEBO
@@ -1586,10 +1235,6 @@ Moveit 기능
 •MoveIt을설정하고URDF 파일을기반으로시스템구성을쉽게할수있도록돕는GUI 도구.
 •로봇모델을설정하고, 키네마틱체인및그룹설정, 플래닝그룹설정, 충돌감지설정.
 •시뮬레이션및실제로봇에서사용할수있도록MoveIt의주요구성요소들을자동으로생성.
-
-
-![Image 146](../../assets/images/ros/projects/gazebo/img_074_146.webp)
-
 
 HUMAN AI ROBOTICS
 75
@@ -1606,10 +1251,6 @@ Moveit 기능
 동작시킴.
 •로봇의조인트트레저(Joint Trajectory Controller)와같은컨트롤러를사용하여경로제어.
 
-
-![Image 147](../../assets/images/ros/projects/gazebo/img_075_147.webp)
-
-
 HUMAN AI ROBOTICS
 76
 Moveit 기능
@@ -1624,10 +1265,6 @@ Moveit 기능
 •경로계획중에실시간으로충돌여부를감지하고, 충돌을피하는경로생성.
 GAZEBO
 
-
-![Image 148](../../assets/images/ros/projects/gazebo/img_076_148.webp)
-
-
 HUMAN AI ROBOTICS
 77
 GAZEBO
@@ -1639,10 +1276,6 @@ Moveit 기능
 10. Rviz와의통합
 •사용자는Rviz의인터페이스를통해경로계획과시각화를직관적으로수행. 
 •move_group은Rviz와상호작용하여실시간경로계획및상태업데이트를처리.
-
-
-![Image 149](../../assets/images/ros/projects/gazebo/img_077_149.webp)
-
 
 HUMAN AI ROBOTICS
 78
@@ -1674,14 +1307,6 @@ msg.pose.orientation.w = quat[3]
 pub.publish(msg)
 r.sleep()
 GAZEBO
-
-
-![Image 150](../../assets/images/ros/projects/gazebo/img_078_150.webp)
-
-
-![Image 151](../../assets/images/ros/projects/gazebo/img_078_151.webp)
-
-
 ![Image 152](../../assets/images/ros/projects/gazebo/img_078_152.webp)
 
 
@@ -1724,10 +1349,6 @@ r = rospy.Rate(1)
 while not rospy.is_shutdown():
 robot.publishPose()
 r.sleep()
-
-
-![Image 153](../../assets/images/ros/projects/gazebo/img_079_153.webp)
-
 
 ![Image 154](../../assets/images/ros/projects/gazebo/img_079_154.webp)
 
@@ -1813,10 +1434,6 @@ ROS_INFO("    Pitch: %.2f degrees", pitch * 180.0 / M_PI);
 ROS_INFO("    Yaw: %.2f degrees", yaw * 180.0 / M_PI);
 }
 
-
-![Image 156](../../assets/images/ros/projects/gazebo/img_080_156.webp)
-
-
 HUMAN AI ROBOTICS
 81
 GAZEBO
@@ -1846,10 +1463,6 @@ TurtlebotLocationTracker tracker;
 tracker.run();
 return 0;
 }
-
-
-![Image 157](../../assets/images/ros/projects/gazebo/img_081_157.webp)
-
 
 HUMAN AI ROBOTICS
 82
@@ -1909,10 +1522,6 @@ turtle1_vel_pub = nh.advertise<geometry_msgs::Twist>("/turtle1/cmd_vel", 10);
 turtle2_vel_pub = nh.advertise<geometry_msgs::Twist>("/turtle2/cmd_vel", 10);
 }
 
-
-![Image 158](../../assets/images/ros/projects/gazebo/img_082_158.webp)
-
-
 HUMAN AI ROBOTICS
 83
 GAZEBO
@@ -1951,13 +1560,8 @@ turtle2_vel_pub.publish(cmd_vel);
 }
 };
 
-
-![Image 159](../../assets/images/ros/projects/gazebo/img_083_159.webp)
-
-
 HUMAN AI ROBOTICS
 84
 수고하셨습니다.
 
 
-![Image 160](../../assets/images/ros/projects/gazebo/img_084_160.webp)

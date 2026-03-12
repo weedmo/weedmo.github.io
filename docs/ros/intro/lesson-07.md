@@ -18,12 +18,6 @@ Contents
 ROS2 소개및기본사용법
 Topic
 ▶최적화팁
-
-
-
-
-
-
 01
 02
 ROS2 소개및기본사용법
@@ -32,17 +26,10 @@ Service
 
 ![Image 4](../../assets/images/ros/intro/lesson-07/img_004_004.webp)
 
-
-![Image 5](../../assets/images/ros/intro/lesson-07/img_004_005.webp)
-
-
 01
 03
 ROS2 소개및기본사용법
 Action
-
-
-
 
 02
 04
@@ -53,9 +40,6 @@ ROS2 인터페이스(Topic, Service, Action)
 • 비동기방식에서원하는타이밍에적절한액션수행을위해목표상태(goal_state)에도입
 하여, 목표전달후상태머신을구동하여액션프로세스추적
 ▶Message
-
-
-
 
 03
 05
@@ -73,10 +57,6 @@ Python Style
 Python Enhancement Proposals(PEPs)의PEP 8을준수
 Wiki 참고: https://wiki.ros.org/PyStyleGuide
 
-
-![Image 8](../../assets/images/ros/intro/lesson-07/img_007_008.webp)
-
-
 04
 06
 ROS2 Setup Tips
@@ -86,9 +66,6 @@ rosdep
 • rosdep은패키지환경설정파일인package.xml의<depend> 옵션과같은의존성정보를확인
 하여의존성패키지들을설치해주기때문에의존성패키지가많은패키지의경우, 위명령어를
 사용하면의존성패키지설치및관리에있어서매우편하게사용가능
-
-
-
 
 ![Image 10](../../assets/images/ros/intro/lesson-07/img_008_010.webp)
 
@@ -105,19 +82,6 @@ ROS의변수중하나인ns(namespace)를입력
 복수의namespace 생성
 
 
-
-
-![Image 12](../../assets/images/ros/intro/lesson-07/img_009_012.webp)
-
-
-
-
-
-
-
-
-
-
 Python을이용한패키지생성실습
 08
 05
@@ -126,12 +90,6 @@ Python을이용한패키지생성실습
 2. py_pubsub package를생성
 3. 생성된Package 확인
 4. Tree를이용한내부구조확인
-
-
-
-
-
-
 
 
 06
@@ -174,16 +132,7 @@ std_msgs: ROS에서기본적으로제공하는메시지타입들의모음ex) Str
 빌드도구는이정보를사용하여필요한의존성을먼저설치하거나빌드할수있음
 ▶Package.xml  설정
 
-
-
-
 ![Image 21](../../assets/images/ros/intro/lesson-07/img_012_021.webp)
-
-
-
-
-
-
 08
 11
 Python을이용한패키지생성
@@ -294,9 +243,6 @@ Python을이용한패키지생성실습
 ▶의존성추가
 •
 ​setup.py 설정
-
-
-
 
 ![Image 26](../../assets/images/ros/intro/lesson-07/img_016_026.webp)
 
@@ -436,12 +382,6 @@ ament_python에는없음
 
 
 ![Image 29](../../assets/images/ros/intro/lesson-07/img_022_029.webp)
-
-
-
-
-
-
 10
 21
 토픽, 서비스, 액션인터페이스
@@ -456,9 +396,6 @@ msg/MyMsg.msg
 srv/MySrv.srv
 •
 action/MyAction.action
-
-
-
 
 ![Image 33](../../assets/images/ros/intro/lesson-07/img_023_033.webp)
 
@@ -530,9 +467,6 @@ ArithmeticOperator.srv
 인터페이스패키지생성
 ▶Package.xml 파일수정
 
-
-
-
 ![Image 45](../../assets/images/ros/intro/lesson-07/img_027_045.webp)
 
 
@@ -544,9 +478,6 @@ ArithmeticOperator.srv
 
 
 ![Image 46](../../assets/images/ros/intro/lesson-07/img_028_046.webp)
-
-
-
 
 ![Image 48](../../assets/images/ros/intro/lesson-07/img_028_048.webp)
 
@@ -715,9 +646,6 @@ finally:
     [INFO] [1745347616.076176764] [minimal_subscriber]: I heard: Hello World: 28
     [INFO] [1745347617.081895438] [minimal_publisher]: Publishing: Hello World: 29
     [INFO] [1745347617.085371150] [minimal_subscriber]: I heard: Hello World: 29
-
-
-
 ### 7차시_주피터완성본_py_srvcli
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/OWNER/study-site/blob/main/notebooks/ros/7차시_수업코드_개선_/7차시 수업코드(개선)/7차시_주피터완성본_py_srvcli.ipynb)
@@ -792,9 +720,6 @@ run_client(3, 5)
     [WARN] [1745447581.357879883] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
     [INFO] [1745447581.414803233] [minimal_service]: Incoming request: a = 3, b = 5
     [INFO] [1745447581.543660360] [minimal_client_async]: Result of add_two_ints: for 3 + 5 = 8
-
-
-
 
 
 ---

@@ -19,16 +19,10 @@ Contents
 토픽프로그래밍
 ▶토픽퍼블리셔/ 토픽서브스크라이버
 
-
-
-
 01
 02
 토픽프로그래밍
 토픽퍼블리셔코드
-
-
-
 
 ![Image 4](../../assets/images/ros/intro/lesson-03/img_004_004.webp)
 
@@ -50,12 +44,6 @@ QoS 설정값: RELIABLE, KEEP_LAST, DEPTH 10,
 VOLATILE
 토픽프로그래밍
 토픽퍼블리셔코드
-
-
-
-
-
-
 01
 04
 •
@@ -73,12 +61,6 @@ Node 클래스의create_publisher 함수를사용
 ▶실제토픽발행이이루어지는부분은publish_random_arithmetic_arguments 함수
 토픽프로그래밍
 토픽퍼블리셔코드
-
-
-
-
-
-
 
 
 01
@@ -105,12 +87,6 @@ get_logger().info() 를사용하여디버깅목적으로변수a, b
 ▶로그출력
 토픽프로그래밍
 토픽퍼블리셔코드
-
-
-
-
-
-
 01
 06
 토픽프로그래밍
@@ -137,12 +113,6 @@ QoS 설정값: RELIABLE, KEEP_LAST, DEPTH 10, VOLATILE
 •
 QoS에대한자세한내용은'DDS의QoS(Quality of 
 Service)' 강좌참고
-
-
-
-
-
-
 01
 07
 •
@@ -171,12 +141,6 @@ ReentrantCallbackGroup: 제한없이콜백함수를병렬로
 실행가능
 토픽프로그래밍
 토픽서브스크라이버코드
-
-
-
-
-
-
 01
 08
 토픽프로그래밍
@@ -191,12 +155,6 @@ ReentrantCallbackGroup: 제한없이콜백함수를병렬로
 토픽으로받은시간, 변수a, b 값을화면에표시
 •
 get_arithmetic_argument
-
-
-
-
-
-
 01
 09
 토픽프로그래밍
@@ -235,13 +193,7 @@ argument: 토픽퍼블리셔노드
 토픽프로그래밍
 노드실행코드
 
-
-
-
 ![Image 19](../../assets/images/ros/intro/lesson-03/img_012_019.webp)
-
-
-
 
 ![Image 21](../../assets/images/ros/intro/lesson-03/img_012_021.webp)
 
@@ -287,9 +239,6 @@ rclpy.shutdown 함수로노드를종료
 토픽프로그래밍
 노드실행코드
 
-
-
-
 ![Image 24](../../assets/images/ros/intro/lesson-03/img_014_024.webp)
 
 
@@ -327,9 +276,6 @@ executor.spin()으로노드를실행하여지정된콜백함수실행가능’
 •
 rclpy.shutdown으로노드를종료
 13
-
-
-
 
 ![Image 26](../../assets/images/ros/intro/lesson-03/img_015_026.webp)
 
@@ -473,9 +419,6 @@ src/ex_calculator/ex_calculator/calculator/main.py
 실행코드에대한설명은이전강좌인'토픽
 프로그래밍(Python)' 참조
 
-
-
-
 ![Image 35](../../assets/images/ros/intro/lesson-03/img_022_035.webp)
 
 
@@ -548,9 +491,6 @@ src/ex_calculator/setup.py
 •
 ex_calculator 패키지의arithmetic 폴더에operator.py의main문에실행코드가담겨져있음
 
-
-
-
 ![Image 41](../../assets/images/ros/intro/lesson-03/img_026_041.webp)
 
 
@@ -614,9 +554,6 @@ input(＇xxxxx＇)을사용해반복실행가능하
 연산자선택은사칙연산자(+, -, * , /)  중하나
 가랜덤으로선택되어송신됨
 
-
-
-
 01
 액션프로그래밍
 액션클라이언트/서버
@@ -628,9 +565,6 @@ input(＇xxxxx＇)을사용해반복실행가능하
 
 ![Image 44](../../assets/images/ros/intro/lesson-03/img_029_044.webp)
 
-
-
-
 01
 액션프로그래밍
 액션서버코드
@@ -639,9 +573,6 @@ src/ex_calculator/ex_calculator/calculator/calculator.py
 
 
 ![Image 46](../../assets/images/ros/intro/lesson-03/img_030_046.webp)
-
-
-
 
 01
 액션프로그래밍
@@ -813,9 +744,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 
 ![Image 56](../../assets/images/ros/intro/lesson-03/img_038_056.webp)
 
-
-
-
 01
 액션프로그래밍
 액션클라이언트코드
@@ -898,9 +826,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 연산합계(action_result.total_sum)를
 터미널창에출력
 
-
-
-
 01
 액션프로그래밍
 액션클라이언트노드실행코드
@@ -916,9 +841,6 @@ ex_calculator.checker.main:main)
 calculator 노드도작성하여'ros2 run' 과
 같은노드실행명령어를통해각각의노
 드를실행가능하도록함
-
-
-
 
 ![Image 62](../../assets/images/ros/intro/lesson-03/img_042_062.webp)
 
@@ -1006,9 +928,6 @@ add_on_set_parameters_callback 함수
 44
 src/ex_calculator/ex_calculator/checker/main.py
 
-
-
-
 01
 파라미터프로그래밍
 파라미터설정
@@ -1040,30 +959,15 @@ update_parameter 콜백함수에서는변경하려는
 
 ![Image 67](../../assets/images/ros/intro/lesson-03/img_047_067.webp)
 
-
-
-
 01
 파라미터프로그래밍
 파라미터설정파라미터사용방법(CLI)
 46
 
 
-
-
-
-
-
-
 ![Image 72](../../assets/images/ros/intro/lesson-03/img_048_072.webp)
 
-
-
-
 ![Image 74](../../assets/images/ros/intro/lesson-03/img_048_074.webp)
-
-
-
 
 ![Image 76](../../assets/images/ros/intro/lesson-03/img_048_076.webp)
 
@@ -1096,9 +1000,6 @@ python 패키지설정파일'setup.py'에옵션을추가해야
 할때해당파일의파라미터이름과값을참조하여자동으로
 초기화가능
 src/ex_calculator/launch/arithmetic.launch.py
-
-
-
 
 ![Image 78](../../assets/images/ros/intro/lesson-03/img_050_078.webp)
 
@@ -1243,15 +1144,6 @@ add_argument() 메서드를호출하고인자의내용을채워
 
 ![Image 84](../../assets/images/ros/intro/lesson-03/img_054_084.webp)
 
-
-
-
-
-
-
-
-
-
 02
 런치프로그래밍
 ROS2 Launch System
@@ -1305,9 +1197,6 @@ argument 노드와calculator 노드를실행
 └ ex_calculator/launch/arithmetic.launch.py
 54
 
-
-
-
 ![Image 90](../../assets/images/ros/intro/lesson-03/img_056_090.webp)
 
 
@@ -1334,13 +1223,7 @@ generate_launch_description 메소드를정의하여사용
 (Python)’ 참고
 55
 
-
-
-
 ![Image 92](../../assets/images/ros/intro/lesson-03/img_057_092.webp)
-
-
-
 
 ![Image 94](../../assets/images/ros/intro/lesson-03/img_057_094.webp)
 
@@ -1360,9 +1243,6 @@ launch 작성
 고유이름을변경할수있는유용한기능이므
 로알아두기추천
 56
-
-
-
 
 02
 런치프로그래밍
@@ -1446,9 +1326,6 @@ get_package_share_directory 함수에불러올패키지명
 •
 널리사용되는유용한기능이므로참고할것
 
-
-
-
 ![Image 99](../../assets/images/ros/intro/lesson-03/img_061_099.webp)
 
 
@@ -1486,9 +1363,6 @@ Python 패키지설정파일(setup.py)의data_files 옵션에launch 폴더를지
 효과: 패키지소스코드내launch 폴더에있는*.launch.py 파일들이설치폴더에복사되어위치하게됨
 61
 
-
-
-
 ![Image 101](../../assets/images/ros/intro/lesson-03/img_063_101.webp)
 
 
@@ -1503,13 +1377,7 @@ launch 작성
 ▶이를실행시키면위에서설명한것처럼파라미터파일을공유하여사용하게되며
 argument 노드와calculator 노드를한번에실행시키게됨
 
-
-
-
 ![Image 103](../../assets/images/ros/intro/lesson-03/img_064_103.webp)
-
-
-
 
 ![Image 105](../../assets/images/ros/intro/lesson-03/img_064_105.webp)
 
@@ -1540,9 +1408,6 @@ msg = Twist()
 ```
 
     [WARN] [1745315101.346933587] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
-
-
-
 ```python
 def main():
     rclpy.init()
@@ -1623,9 +1488,6 @@ if __name__ == '__main__':
 
 
     RuntimeError: Context.init() must only be called once
-
-
-
 ```python
 node.create_timer(0.1, timer_callback)
 threading.Thread(target=rclpy.spin, args=(node,)).start()

@@ -5,17 +5,6 @@ ROKEY BOOT CAMP
 ROS2 기초-3차시
 Apr, 2025
 
-
-![Image 2](../../assets/images/ros/basics/lesson-03/img_001_002.webp)
-
-
-
-
-![Image 4](../../assets/images/ros/basics/lesson-03/img_001_004.webp)
-
-
-
-
 2
 ROKEY BOOT CAMP
 훈련일정
@@ -96,22 +85,12 @@ PWM 신호를통해위그림과같이우리가작업하는프로그램과입력,
 Processing
 (H/W, S/W, F/W, M/W, OS, etc)
 
-
-![Image 6](../../assets/images/ros/basics/lesson-03/img_004_006.webp)
-
-
 ![Image 7](../../assets/images/ros/basics/lesson-03/img_004_007.webp)
 
 
 ![Image 8](../../assets/images/ros/basics/lesson-03/img_004_008.webp)
 
-
-
-
 ![Image 10](../../assets/images/ros/basics/lesson-03/img_004_010.webp)
-
-
-
 
 ![Image 12](../../assets/images/ros/basics/lesson-03/img_004_012.webp)
 
@@ -141,10 +120,6 @@ ROKEY BOOT CAMP
 
 
 ![Image 16](../../assets/images/ros/basics/lesson-03/img_005_016.webp)
-
-
-![Image 17](../../assets/images/ros/basics/lesson-03/img_005_017.webp)
-
 
 6
 ROKEY BOOT CAMP
@@ -187,10 +162,6 @@ ROKEY BOOT CAMP
 
 ![Image 22](../../assets/images/ros/basics/lesson-03/img_007_022.webp)
 
-
-![Image 23](../../assets/images/ros/basics/lesson-03/img_007_023.webp)
-
-
 ![Image 24](../../assets/images/ros/basics/lesson-03/img_007_024.webp)
 
 
@@ -208,9 +179,6 @@ ROKEY BOOT CAMP
 센서종류
 *센서가너무민감한경우PWM 신호의펄스가너무급격히변해오히려측정에어려움을겪는경우가있다.
 이때방법중하나가특정구간(시간)의평균값혹은급격한펄스변화를노이즈라판단하고제외하는방법이있다.
-
-
-
 
 ![Image 29](../../assets/images/ros/basics/lesson-03/img_008_029.webp)
 
@@ -262,10 +230,6 @@ ROKEY BOOT CAMP
 
 ![Image 33](../../assets/images/ros/basics/lesson-03/img_010_033.webp)
 
-
-![Image 34](../../assets/images/ros/basics/lesson-03/img_010_034.webp)
-
-
 ![Image 35](../../assets/images/ros/basics/lesson-03/img_010_035.webp)
 
 
@@ -285,10 +249,6 @@ ROKEY BOOT CAMP
 
 
 ![Image 41](../../assets/images/ros/basics/lesson-03/img_010_041.webp)
-
-
-![Image 42](../../assets/images/ros/basics/lesson-03/img_010_042.webp)
-
 
 ![Image 43](../../assets/images/ros/basics/lesson-03/img_010_043.webp)
 
@@ -324,13 +284,7 @@ ROKEY BOOT CAMP
 
 ![Image 49](../../assets/images/ros/basics/lesson-03/img_012_049.webp)
 
-
-
-
 ![Image 51](../../assets/images/ros/basics/lesson-03/img_012_051.webp)
-
-
-
 
 13
 ROKEY BOOT CAMP
@@ -648,20 +602,12 @@ ROKEY BOOT CAMP
 ROKEY BOOT CAMP
 로봇의구성
 
-
-![Image 86](../../assets/images/ros/basics/lesson-03/img_027_086.webp)
-
-
 28
 ROKEY BOOT CAMP
 로봇의구성
 
 
 ![Image 87](../../assets/images/ros/basics/lesson-03/img_028_087.webp)
-
-
-![Image 88](../../assets/images/ros/basics/lesson-03/img_028_088.webp)
-
 
 ![Image 89](../../assets/images/ros/basics/lesson-03/img_028_089.webp)
 
@@ -1058,15 +1004,6 @@ turtle_teleop_key 실행후키보드로turtle움직여보기
 ![Image 149](../../assets/images/ros/basics/lesson-03/img_056_149.webp)
 
 
-![Image 150](../../assets/images/ros/basics/lesson-03/img_056_150.webp)
-
-
-![Image 151](../../assets/images/ros/basics/lesson-03/img_056_151.webp)
-
-
-![Image 152](../../assets/images/ros/basics/lesson-03/img_056_152.webp)
-
-
 57
 ROKEY BOOT CAMP
 ROS2 실습
@@ -1226,17 +1163,4 @@ ROS2 실습
 
 ROKEY BOOT CAMP
 수고하셨습니다.
-
-
-![Image 176](../../assets/images/ros/basics/lesson-03/img_070_176.webp)
-
-
-![Image 177](../../assets/images/ros/basics/lesson-03/img_070_177.webp)
-
-
-![Image 178](../../assets/images/ros/basics/lesson-03/img_070_178.webp)
-
-
-![Image 179](../../assets/images/ros/basics/lesson-03/img_070_179.webp)
-
 

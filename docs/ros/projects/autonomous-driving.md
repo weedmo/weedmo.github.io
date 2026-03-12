@@ -9,17 +9,10 @@ V1.0
 김루진
 두산 프로젝트 교안
 
-
-![Image 2](../../assets/images/ros/projects/autonomous-driving/img_001_002.webp)
-
-
 자율주행디지털트윈구현
 자율주행수행
 학습 목표
 내용검증필요
-
-
-
 
 ![Image 4](../../assets/images/ros/projects/autonomous-driving/img_002_004.webp)
 
@@ -29,9 +22,6 @@ HUMAN AI ROBOTICS
 디지털트윈, 자율주행
 참고
 디지털트윈
-
-
-
 
 HUMAN AI ROBOTICS
 4
@@ -53,10 +43,6 @@ HUMAN AI ROBOTICS
 •다양한 주행 시나리오에 대한 의사결정 최적화
 •차량 간 통신(V2V) 및 인프라 통신(V2I) 시스템 개선
 
-
-![Image 6](../../assets/images/ros/projects/autonomous-driving/img_004_006.webp)
-
-
 HUMAN AI ROBOTICS
 5
 디지털트윈, 자율주행
@@ -74,9 +60,6 @@ ros2 launch nav2_bringup localization_launch.py use_sim_time:=true
 Gazebo의 use_sim_time을 활성화하여 시뮬레이션 시간을 사용할 수 있습니다. 
 ros2 param set /gazebo use_sim_time true
 
-
-
-
 HUMAN AI ROBOTICS
 6
 디지털트윈, 자율주행
@@ -92,12 +75,6 @@ HUMAN AI ROBOTICS
 실제 센서 데이터를 MQTT로 송신하고, Gazebo에서 이를 구독할 수도 있습니다.
 ros2 run rosbridge_server rosbridge_websocket
 이후 Python을 이용하여 MQTT로 데이터를 송수신할 수 있습니다.
-
-
-
-
-
-
 HUMAN AI ROBOTICS
 7
 디지털트윈, 자율주행
@@ -113,18 +90,11 @@ ros2 bag record -o sim_data /scan /odom
 ros2 bag record -o real_data /real_scan /real_odom
 이후 데이터를 비교하여 실제와 시뮬레이션의 차이를 확인할 수 있습니다.
 
-
-
-
 HUMAN AI ROBOTICS
 8
 디지털트윈, 자율주행
 참고
 오토레이스
-
-
-![Image 11](../../assets/images/ros/projects/autonomous-driving/img_008_011.webp)
-
 
 HUMAN AI ROBOTICS
 9
@@ -144,20 +114,12 @@ HUMAN AI ROBOTICS
 •모터와 구동 시스템: 
 •높은 토크와 성능을 제공하는 구동 시스템을 갖추고 있어, 레이싱 환경에서도 안정적인 성능을 발휘.
 
-
-![Image 12](../../assets/images/ros/projects/autonomous-driving/img_009_012.webp)
-
-
 HUMAN AI ROBOTICS
 10
 디지털트윈, 자율주행
 참고
 참고
 https://github.com/ROBOTIS-GIT/turtlebot3_autorace_2020
-
-
-![Image 13](../../assets/images/ros/projects/autonomous-driving/img_010_013.webp)
-
 
 ![Image 14](../../assets/images/ros/projects/autonomous-driving/img_010_014.webp)
 
@@ -176,10 +138,6 @@ $ cd ~/turtlebot3_ws && colcon build --symlink-install
 페키지 인스톨(PC 설치)
 $ sudo apt install ros-humble-image-transport ros-humble-cv-bridge ros-humble-vision-opencv python3-
 opencv libopencv-dev ros-humble-image-pipeline
-
-
-![Image 15](../../assets/images/ros/projects/autonomous-driving/img_011_015.webp)
-
 
 HUMAN AI ROBOTICS
 12
@@ -200,10 +158,6 @@ GAZEBO_PLUGIN_PATH=$HOME/{your_ws}/build/turtlebot3_gazebo:$GAZEBO_PLUGIN_PATH' 
 정의된 카메라 매개변수를 사용하기 때문에 이러한 단계가 필요하지 않지만, 이러한 지침은 실제 하드웨어 배
 포를 위한 전체 프로세스를 이해하는 데 도움이 됩니다.
 
-
-![Image 16](../../assets/images/ros/projects/autonomous-driving/img_012_016.webp)
-
-
 HUMAN AI ROBOTICS
 13
 디지털트윈, 자율주행
@@ -220,10 +174,6 @@ $ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
 $ ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
 1. 내재적 교정
 
-
-![Image 17](../../assets/images/ros/projects/autonomous-driving/img_013_017.webp)
-
-
 HUMAN AI ROBOTICS
 14
 디지털트윈, 자율주행
@@ -239,10 +189,6 @@ HUMAN AI ROBOTICS
 시뮬레이션이 실행되면 외부 보정 프로세스를 시작합니다.
 $ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py calibration_mode:=True
 
-
-![Image 18](../../assets/images/ros/projects/autonomous-driving/img_014_018.webp)
-
-
 HUMAN AI ROBOTICS
 15
 디지털트윈, 자율주행
@@ -255,19 +201,11 @@ Navigate to Plugins > Visualization > Image view 이동합니다. 두 개의 이
 한 창에서 /camera/image_extrinsic_calib 토픽을 선택하고 다른 창에서 /camera/image_projected를 선택합니다.
 첫 번째 토픽은 빨간색 사다리꼴 모양의 이미지를 보여주고, 두 번째 토픽은 지상 투사 뷰(조감도)를 보여줍니다.
 
-
-![Image 19](../../assets/images/ros/projects/autonomous-driving/img_015_019.webp)
-
-
 HUMAN AI ROBOTICS
 16
 디지털트윈, 자율주행
 참고
 자율주행수행설치
-
-
-![Image 20](../../assets/images/ros/projects/autonomous-driving/img_016_020.webp)
-
 
 ![Image 21](../../assets/images/ros/projects/autonomous-driving/img_016_021.webp)
 
@@ -283,19 +221,11 @@ Plugins > Configuration > Dynamic Reconfigure.으로 이동합니다.
 내장 카메라 보정은 빨간색 사다리꼴의 이미지 관점을 수정합니다.
 /camera/image_compensation을 조정하여 /camera/image_projected 조감도를 미세 조정합니다.
 
-
-![Image 22](../../assets/images/ros/projects/autonomous-driving/img_017_022.webp)
-
-
 HUMAN AI ROBOTICS
 18
 디지털트윈, 자율주행
 참고
 자율주행수행설치
-
-
-![Image 23](../../assets/images/ros/projects/autonomous-driving/img_018_023.webp)
-
 
 ![Image 24](../../assets/images/ros/projects/autonomous-driving/img_018_024.webp)
 
@@ -313,19 +243,11 @@ $ gedit projection.yaml
 동적 재구성에서 얻은 값과 일치하도록 투영 매개변수를 수정합니다.
 이 방법은 외부 교정 매개변수가 향후 실행을 위해 올바르게 저장되도록 보장합니다
 
-
-![Image 25](../../assets/images/ros/projects/autonomous-driving/img_019_025.webp)
-
-
 HUMAN AI ROBOTICS
 20
 디지털트윈, 자율주행
 참고
 자율주행수행설치
-
-
-![Image 26](../../assets/images/ros/projects/autonomous-driving/img_020_026.webp)
-
 
 ![Image 27](../../assets/images/ros/projects/autonomous-driving/img_020_027.webp)
 
@@ -348,10 +270,6 @@ $ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
 rqt를 실행하고 Plugins > Visualization > Image view로 이동합니다.
 $ rqt
 
-
-![Image 29](../../assets/images/ros/projects/autonomous-driving/img_021_029.webp)
-
-
 HUMAN AI ROBOTICS
 22
 디지털트윈, 자율주행
@@ -359,20 +277,11 @@ HUMAN AI ROBOTICS
 자율주행수행설치
 성공적인 보정 설정으로, /camera/image_projected 주제를 선택했을 때 조감도(bird-eye view) 이미지가 아
 래와 같이 나타나야 합니다.
-
-
-
-
-
-
 HUMAN AI ROBOTICS
 23
 디지털트윈, 자율주행
 참고
 차선(Lane) 감지
-
-
-
 
 HUMAN AI ROBOTICS
 24
@@ -390,10 +299,6 @@ $ ros2 launch turtlebot3_gazebo turtlebot3_autorace_2020.launch.py
 $ ros2 launch turtlebot3_autorace_camera intrinsic_camera_calibration.launch.py
 $ ros2 launch turtlebot3_autorace_camera extrinsic_camera_calibration.launch.py
 
-
-![Image 33](../../assets/images/ros/projects/autonomous-driving/img_024_033.webp)
-
-
 HUMAN AI ROBOTICS
 25
 디지털트윈, 자율주행
@@ -406,10 +311,6 @@ $ ros2 launch turtlebot3_autorace_camera detect_lane.launch.py calibration_mode:
 그런 다음 Plugins > Visualization > Image View 이동하여 세 개의 이미지 뷰어를 열어 다양한 차선 감지 
 결과를 표시합니다.
 
-
-![Image 34](../../assets/images/ros/projects/autonomous-driving/img_025_034.webp)
-
-
 HUMAN AI ROBOTICS
 26
 디지털트윈, 자율주행
@@ -420,13 +321,6 @@ HUMAN AI ROBOTICS
 turtlebot3_autorace_detect/param/lane/에 있는 lane.yaml 파일을 열고 수정된 값을 이 파일에 씁니다. 이렇게 하면
 메라가 향후 실행에 수정된 매개변수를 사용합니다.
 $ cd ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_detect/param/lane
-
-
-![Image 35](../../assets/images/ros/projects/autonomous-driving/img_026_035.webp)
-
-
-
-
 ![Image 37](../../assets/images/ros/projects/autonomous-driving/img_026_037.webp)
 
 
@@ -442,10 +336,6 @@ HUMAN AI ROBOTICS
 $ cd ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_detect/param/lane
 $ ros2 launch turtlebot3_autorace_detect detect_lane.launch.py
 
-
-![Image 39](../../assets/images/ros/projects/autonomous-driving/img_027_039.webp)
-
-
 ![Image 40](../../assets/images/ros/projects/autonomous-driving/img_027_040.webp)
 
 
@@ -456,19 +346,11 @@ HUMAN AI ROBOTICS
 그런 다음, TurtleBot3가 감지된 차선을 자동으로 따라갈 수 있도록 차선 추적 제어 노드를 시작합니다.
 $ ros2 turtlebot3_autorace_driving control_lane.launch.py를 시작합니다.
 
-
-![Image 41](../../assets/images/ros/projects/autonomous-driving/img_028_041.webp)
-
-
 HUMAN AI ROBOTICS
 29
 디지털트윈, 자율주행
 참고
 프로젝트과제
-
-
-![Image 42](../../assets/images/ros/projects/autonomous-driving/img_029_042.webp)
-
 
 HUMAN AI ROBOTICS
 30
@@ -486,10 +368,6 @@ HUMAN AI ROBOTICS
 2. 박스가 도로에 있는 경우 메니퓰레이터로 들어서 마지막 지점 컨베어벨트에 놓는다.
 3. 기타 자율주행에 필요한 기술 적용
 
-
-![Image 43](../../assets/images/ros/projects/autonomous-driving/img_030_043.webp)
-
-
 HUMAN AI ROBOTICS
 31
 디지털트윈, 자율주행
@@ -502,10 +380,6 @@ cp -r ./world/turtlebot3_autorace_track* $HOME/.gazebo/models
 cp -r ./world/*_logo $HOME/.gazebo/models
 cp -r ./world/chess_flag $HOME/.gazebo/models
 
-
-![Image 44](../../assets/images/ros/projects/autonomous-driving/img_031_044.webp)
-
-
 HUMAN AI ROBOTICS
 32
 디지털트윈, 자율주행
@@ -515,10 +389,6 @@ In order to have it inside the simulation environment it has to be added to the 
 turtlebot3_descripion package. The 3D model and robot description is inside the urdf folder. 
 In order to add it to the choosable models do the following steps:
 cp ./urdf/turtlebot3_burger_pi* $HOME/catkin_ws/src/turtlebot3/turtlebot3_description/urdf/.
-
-
-![Image 45](../../assets/images/ros/projects/autonomous-driving/img_032_045.webp)
-
 
 HUMAN AI ROBOTICS
 33
@@ -539,10 +409,6 @@ robot visualization do this:
 roslaunch turtlebot3_autorace_simulation 
 config_file:=circuit.rviz
 
-
-![Image 46](../../assets/images/ros/projects/autonomous-driving/img_033_046.webp)
-
-
 ![Image 47](../../assets/images/ros/projects/autonomous-driving/img_033_047.webp)
 
 
@@ -551,35 +417,20 @@ HUMAN AI ROBOTICS
 디지털트윈, 자율주행
 참고
 
-
-![Image 48](../../assets/images/ros/projects/autonomous-driving/img_034_048.webp)
-
-
 HUMAN AI ROBOTICS
 35
 디지털트윈, 자율주행
 참고
-
-
-![Image 49](../../assets/images/ros/projects/autonomous-driving/img_035_049.webp)
-
 
 HUMAN AI ROBOTICS
 36
 디지털트윈, 자율주행
 참고
 
-
-![Image 50](../../assets/images/ros/projects/autonomous-driving/img_036_050.webp)
-
-
 HUMAN AI ROBOTICS
 37
 디지털트윈, 자율주행
 참고
-
-
-
 
 HUMAN AI ROBOTICS
 38
@@ -587,17 +438,10 @@ HUMAN AI ROBOTICS
 참고
 추가자료
 
-
-![Image 52](../../assets/images/ros/projects/autonomous-driving/img_038_052.webp)
-
-
 HUMAN AI ROBOTICS
 39
 디지털트윈, 자율주행
 참고
-
-
-
 
 HUMAN AI ROBOTICS
 40
@@ -621,14 +465,9 @@ ODE를 사용할 경우:
 •Bullet: 충돌 감지가 정밀하고 로봇 시뮬레이션에 적합
 •Simbody: 물리적으로 정확한 시뮬레이션 수행 가능
 
-
-![Image 54](../../assets/images/ros/projects/autonomous-driving/img_040_054.webp)
-
-
 HUMAN AI ROBOTICS
 41
 참고
 수고하셨습니다.
 
 
-![Image 55](../../assets/images/ros/projects/autonomous-driving/img_041_055.webp)

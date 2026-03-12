@@ -32,21 +32,6 @@ progress
 game_progress
 request
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Hang-man - 실습
 02
 01
@@ -67,13 +52,7 @@ game_over : 목숨이다소진되었는지
 •
 won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 
-
-
-
 ![Image 10](../../assets/images/ros/intro/lesson-09/img_004_010.webp)
-
-
-
 
 ![Image 12](../../assets/images/ros/intro/lesson-09/img_004_012.webp)
 
@@ -92,9 +71,6 @@ bool 타입자료형
 •
 message : 맞았으면“Correct”를띄우고틀리면“WRONG”을띄움
 
-
-
-
 ![Image 14](../../assets/images/ros/intro/lesson-09/img_005_014.webp)
 
 
@@ -108,9 +84,6 @@ hangman_interfaces/action/GameProgress.action
 game_over : 목숨이다소진되었는지
 •
 won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
-
-
-
 
 ![Image 16](../../assets/images/ros/intro/lesson-09/img_006_016.webp)
 
@@ -159,10 +132,6 @@ Hang-man - 실습
 hangman_game/hangman_game/word
 _service.py의전체코드
 
-
-![Image 20](../../assets/images/ros/intro/lesson-09/img_010_020.webp)
-
-
 Hang-man - 실습
 09
 01
@@ -171,9 +140,6 @@ Hang-man - 실습
 hangman_game/hangman_game/user_
 input.py 전체코드
 
-
-
-
 Hang-man - 실습
 10
 01
@@ -181,12 +147,6 @@ Hang-man - 실습
 •
 hangman_game/hangman_game/
 progress_action_client.py 전체코드
-
-
-
-
-
-
 Hang-man - 실습
 11
 01
@@ -194,12 +154,6 @@ Hang-man - 실습
 •
 hangman_game/hangman_game/
 progress_action_client.py 전체코드
-
-
-
-
-
-
 Hang-man - 실습
 12
 01
@@ -207,12 +161,6 @@ Hang-man - 실습
 •
 hangman_game/hangman_game/ 
 progress_action_server.py 전체코드
-
-
-
-
-
-
 Hang-man - 실습
 13
 01
@@ -220,9 +168,6 @@ Hang-man - 실습
 •
 hangman_game/hangman_game/ 
 progress_action_server.py 전체코드
-
-
-
 
 ![Image 29](../../assets/images/ros/intro/lesson-09/img_015_029.webp)
 
@@ -234,9 +179,6 @@ Hang-man - 실습
 •
 hangman_game/hangman_game/
 progress_action_server.py 전체코드
-
-
-
 
 ![Image 31](../../assets/images/ros/intro/lesson-09/img_016_031.webp)
 
@@ -250,9 +192,6 @@ hangman_game/setup.py
 •
 entry_points를다음과같이변경
 
-
-
-
 ![Image 33](../../assets/images/ros/intro/lesson-09/img_017_033.webp)
 
 
@@ -263,13 +202,7 @@ Hang-man - 실습
 •
 hangman_interfaces/CMakeLists.txt
 
-
-
-
 ![Image 35](../../assets/images/ros/intro/lesson-09/img_018_035.webp)
-
-
-
 
 ![Image 37](../../assets/images/ros/intro/lesson-09/img_018_037.webp)
 
@@ -280,9 +213,6 @@ Hang-man - 실습
 ▶hangman_game
 •
 hangman_interfaces/package.xml
-
-
-
 
 ![Image 39](../../assets/images/ros/intro/lesson-09/img_019_039.webp)
 
@@ -362,9 +292,6 @@ Multi Thread Executor
 그러나다중스레드간의자원경쟁이나동기화문제가발생할수있으므로, 적절한
 동기화처리(locking) 필요
 
-
-
-
 ![Image 45](../../assets/images/ros/intro/lesson-09/img_023_045.webp)
 
 
@@ -389,13 +316,7 @@ SingleThreadedExecutor를사용하는간단한퍼블리셔노드
 •
 이벤트는1초마다발생하여메시지를퍼블리싱
 
-
-
-
 ![Image 47](../../assets/images/ros/intro/lesson-09/img_025_047.webp)
-
-
-
 
 ![Image 49](../../assets/images/ros/intro/lesson-09/img_025_049.webp)
 
@@ -535,10 +456,6 @@ BAG 파일실습
 •
 새로운터미널에서rviz 실행
 실습
-
-
-![Image 59](../../assets/images/ros/intro/lesson-09/img_032_059.webp)
-
 
 ![Image 60](../../assets/images/ros/intro/lesson-09/img_032_060.webp)
 

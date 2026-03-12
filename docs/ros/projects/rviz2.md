@@ -9,18 +9,11 @@ V2.0
 김루진
 두산 프로젝트 교안
 
-
-![Image 2](../../assets/images/ros/projects/rviz2/img_001_002.webp)
-
-
 CONTENTS
 ROS2와RVIZ2 시뮬레이터를이용한로봇구동
 로봇URDF, XACRO,SDF 이용한로봇만들기및기동
 터틀봇3 설치및SLAM, NAVIGATION 수행
 비전딥러닝을활용한터틀봇3 활용
-
-
-
 
 ![Image 4](../../assets/images/ros/projects/rviz2/img_002_004.webp)
 
@@ -29,9 +22,6 @@ ROS2와RVIZ2 시뮬레이터를이용한로봇구동
 로봇URDF, XACRO,SDF 이용한로봇및기동
 자율주행로봇시뮬레이션
 학습 주제
-
-
-
 
 HUMAN AI ROBOTICS
 4
@@ -42,18 +32,11 @@ RVIZ2
 2. 다양한 센서 데이터를 RViz2에서 시각화하고, 로봇의 상태 및 환경을 모니터링하는 방법 학습 한다.
 3. RViz2의 고급 기능을 활용하여 실제 로봇과 상호작용하는 환경에서 시뮬레이션을 수행 할 수 있다.
 
-
-![Image 6](../../assets/images/ros/projects/rviz2/img_004_006.webp)
-
-
 HUMAN AI ROBOTICS
 5
 ROS2 시각화도구RVIZ2
 참고
 ROS2 개발도구들
-
-
-
 
 HUMAN AI ROBOTICS
 6
@@ -70,9 +53,6 @@ RVIZ2
 ▪Rviz (ROS Visualization)
 •  강력한 2D, 3D 시각화 툴
 •  로봇 시스템 이해에 도움
-
-
-
 
 HUMAN AI ROBOTICS
 7
@@ -93,20 +73,6 @@ RQT
 • rqt_console: 로그 메시지 표시및 필터링 
 • rqt_image_view: 이미지 토픽 시각화 
 • rqt_publisher: 토픽 발행 인터페이스를 제공
-
-
-![Image 9](../../assets/images/ros/projects/rviz2/img_007_009.webp)
-
-
-
-
-
-
-![Image 12](../../assets/images/ros/projects/rviz2/img_007_012.webp)
-
-
-
-
 HUMAN AI ROBOTICS
 8
 RQT
@@ -119,25 +85,10 @@ RQT Message Publisher
 •  Message Type: 게시할 메시지의 타입 (예: std_msgs/msg/String)
 $ sudo apt install ros-humble-rqt-publisher
 
-
-![Image 14](../../assets/images/ros/projects/rviz2/img_008_014.webp)
-
-
-![Image 15](../../assets/images/ros/projects/rviz2/img_008_015.webp)
-
-
-
-
-
-
 ![Image 18](../../assets/images/ros/projects/rviz2/img_008_018.webp)
 
 
 ![Image 19](../../assets/images/ros/projects/rviz2/img_008_019.webp)
-
-
-![Image 20](../../assets/images/ros/projects/rviz2/img_008_020.webp)
-
 
 HUMAN AI ROBOTICS
 9
@@ -156,13 +107,6 @@ RQT_plot
 $ ros2 run turtlesim turtlesim_node
 $ ros2 run turtlesim turtle_teleop_key
 $ rqt
-
-
-![Image 21](../../assets/images/ros/projects/rviz2/img_009_021.webp)
-
-
-
-
 ![Image 23](../../assets/images/ros/projects/rviz2/img_009_023.webp)
 
 
@@ -182,22 +126,11 @@ $ sudo apt update
 $ sudo apt install ros-humble-rqt-image-view
 • 일반적으로 이미지 데이터는 sensor_msgs/msg/Image 타입
 • 카메라 센서가 있는 경우 토픽 이름은 주로 /camera/image_raw와 같은 형식
-
-
-![Image 25](../../assets/images/ros/projects/rviz2/img_010_025.webp)
-
-
-
-
 HUMAN AI ROBOTICS
 11
 ROS2 시각화도구RVIZ2
 참고
 RVIZ2
-
-
-![Image 27](../../assets/images/ros/projects/rviz2/img_011_027.webp)
-
 
 HUMAN AI ROBOTICS
 12
@@ -214,14 +147,6 @@ RVIZ2 특징
 •  내비게이션
 •  원격제어
 •  디버깅 작업에 도움
-
-
-![Image 28](../../assets/images/ros/projects/rviz2/img_012_028.webp)
-
-
-![Image 29](../../assets/images/ros/projects/rviz2/img_012_029.webp)
-
-
 HUMAN AI ROBOTICS
 13
 ROS2 시각화도구RVIZ2
@@ -239,10 +164,6 @@ $ sudo systemctl start ssh
 ▪설치 및 실행
 ※ 원격접속을 위한 윈도우 putty 프로그램 설치
 #  Ubuntu 데스크톱 버전 필요
-
-
-![Image 30](../../assets/images/ros/projects/rviz2/img_013_030.webp)
-
 
 ![Image 31](../../assets/images/ros/projects/rviz2/img_013_031.webp)
 
@@ -264,13 +185,6 @@ RVIZ2  기본 인터페이스
 •  선택한 데이터를 시각적으로 표시해 주는 공간
 •  로봇의 상태를 3D로 관찰
 주요 패널
-
-
-![Image 32](../../assets/images/ros/projects/rviz2/img_014_032.webp)
-
-
-
-
 HUMAN AI ROBOTICS
 15
 ROS2 시각화도구RVIZ2
@@ -286,10 +200,6 @@ RViz2를 이해하기 위해 알아야 할 기본 용어
 ▪토픽 (Topics)
 •  ROS2에서 퍼블리셔가 데이터를 보내는 통신 채널
 •  RViz2는 특정 토픽에서 데이터를 구독하여 이를 시각화
-
-
-![Image 34](../../assets/images/ros/projects/rviz2/img_015_034.webp)
-
 
 HUMAN AI ROBOTICS
 16
@@ -308,13 +218,6 @@ Displays는 RViz2의 핵심 기능으로, 다양한 데이터를 시각화하기
     Odometry - 로봇의 위치 정보를 시각화 (nav_msgs/Odometry 메시지 사용)
      Map - 로봇이 생성한 2D 지도를 시각화(nav_msgs/OccupancyGrid 메시지 사용)
      Path - 로봇의 경로를 시각화(nav_msgs/Path 메시지 사용).
-
-
-![Image 35](../../assets/images/ros/projects/rviz2/img_016_035.webp)
-
-
-
-
 HUMAN AI ROBOTICS
 17
 자동차연동시뮬레이션
@@ -353,10 +256,6 @@ Rviz2에서시각화가가능한센서데이터
 •데이터 형식: sensor_msgs/JointState 
 •특징: URDF 모델과 결합하여 로봇의 현재 자세 표현
 
-
-![Image 37](../../assets/images/ros/projects/rviz2/img_017_037.webp)
-
-
 HUMAN AI ROBOTICS
 18
 ROS2 시각화도구RVIZ2
@@ -373,13 +272,6 @@ RVIZ2 주요도구모음(Toolbar)
 •Header와 Point로 구성
 •Header: 메시지의 프레임과 타임스탬프 정보를 포함합니다.
 •Point: x, y, z 좌표로 위치를 나타냅니다.
-
-
-![Image 38](../../assets/images/ros/projects/rviz2/img_018_038.webp)
-
-
-
-
 HUMAN AI ROBOTICS
 19
 ROS2 시각화도구RVIZ2
@@ -393,13 +285,6 @@ RVIZ2 시각화예시
 • 1. TF Displays 항목을 추가
 • 2. tf2에 의해 퍼블리시되는 모든 좌표 변환 확인
 • 3. 로봇의 기준 좌표(base_link 등)에서 센서 좌표계나 다른 파트로 변환되는 과정을 시각적으로 이해
-
-
-![Image 40](../../assets/images/ros/projects/rviz2/img_019_040.webp)
-
-
-
-
 HUMAN AI ROBOTICS
 20
 ROS2 시각화도구RVIZ2
@@ -408,10 +293,6 @@ ROS2 시각화도구RVIZ2
 •  디스플레이에 카메라 타입 추가
 • 카메라 타입 토픽에서 sensor_msgs/msg/Image 선택
 Rviz2에 표시된 카메라 이미지
-
-
-![Image 42](../../assets/images/ros/projects/rviz2/img_020_042.webp)
-
 
 ![Image 43](../../assets/images/ros/projects/rviz2/img_020_043.webp)
 
@@ -471,10 +352,6 @@ def main(args=None):
         rclpy.shutdown()
 if __name__ == '__main__':
     main()
-
-
-![Image 45](../../assets/images/ros/projects/rviz2/img_021_045.webp)
-
 
 HUMAN AI ROBOTICS
 22
@@ -564,10 +441,6 @@ class ImageSubscriber(Node):
     def listener_callback(self, data):
         self.current_frame = self.bridge.imgmsg_to_cv2(data, desired_encoding='bgr8')
 
-
-![Image 46](../../assets/images/ros/projects/rviz2/img_022_046.webp)
-
-
 HUMAN AI ROBOTICS
 23
 ROS2 시각화도구RVIZ2
@@ -582,15 +455,6 @@ IMU 데이터를 구독
 orientation_q = msg.orientation
 orientation_list = [    orientation_q.x, orientation_q.y, orientation_q.z, orientation_q.w]
 (roll, pitch, yaw) = euler_from_quaternion(orientation_list)
-
-
-![Image 47](../../assets/images/ros/projects/rviz2/img_023_047.webp)
-
-
-![Image 48](../../assets/images/ros/projects/rviz2/img_023_048.webp)
-
-
-![Image 49](../../assets/images/ros/projects/rviz2/img_023_049.webp)
 
 
 HUMAN AI ROBOTICS
@@ -622,13 +486,6 @@ RViz 좌측 하단의 Add에서 LaserScan 추가
 (Topic 지정 필수, Color, Color Transformer 등은 옵션)
 •  라이다 센서데이터를 2D 평면 상에 표시
 •  주변 장애물 시각적으로 확인
-
-
-![Image 50](../../assets/images/ros/projects/rviz2/img_024_050.webp)
-
-
-
-
 HUMAN AI ROBOTICS
 25
 ROS2 시각화도구RVIZ2
@@ -644,22 +501,10 @@ RViz2 구성 저장 및 로드
 > rviz2 -d your_config.rviz
 •
 RViz2 실행 시 -d 옵션으로 .rviz 파일을 지정
-
-
-![Image 52](../../assets/images/ros/projects/rviz2/img_025_052.webp)
-
-
-![Image 53](../../assets/images/ros/projects/rviz2/img_025_053.webp)
-
-
 HUMAN AI ROBOTICS
 26
 참고
 로봇Description 패키지
-
-
-![Image 54](../../assets/images/ros/projects/rviz2/img_026_054.webp)
-
 
 HUMAN AI ROBOTICS
 27
@@ -686,10 +531,6 @@ $ mkdir launch
   $ mkdir config
 •
 rm –rdf ./build ./install ./log
-
-
-![Image 55](../../assets/images/ros/projects/rviz2/img_027_055.webp)
-
 
 HUMAN AI ROBOTICS
 28
@@ -726,10 +567,6 @@ entry_points={
 )
 로봇패키지만들기실습
 
-
-![Image 56](../../assets/images/ros/projects/rviz2/img_028_056.webp)
-
-
 HUMAN AI ROBOTICS
 29
 프로젝트기초
@@ -759,10 +596,6 @@ HUMAN AI ROBOTICS
 </link>
 </robot>
 로봇패키지만들기실습
-
-
-![Image 57](../../assets/images/ros/projects/rviz2/img_029_057.webp)
-
 
 HUMAN AI ROBOTICS
 30
@@ -796,10 +629,6 @@ parameters=[params])
 ])
 로봇패키지만들기실습
 
-
-![Image 58](../../assets/images/ros/projects/rviz2/img_030_058.webp)
-
-
 HUMAN AI ROBOTICS
 31
 프로젝트기초
@@ -816,10 +645,6 @@ $ source install/setup.bash
 $ rviz2
 로봇패키지만들기실습
 
-
-![Image 59](../../assets/images/ros/projects/rviz2/img_031_059.webp)
-
-
 ![Image 60](../../assets/images/ros/projects/rviz2/img_031_060.webp)
 
 
@@ -832,18 +657,10 @@ Display > Global Option > ‘Fixed Frame’을 ‘base_link’로 변경
 왼쪽 하단의 ‘Add’ > ‘TF’ > ‘Ok’ 
 로봇패키지만들기실습
 
-
-![Image 61](../../assets/images/ros/projects/rviz2/img_032_061.webp)
-
-
 ![Image 62](../../assets/images/ros/projects/rviz2/img_032_062.webp)
 
 
 ![Image 63](../../assets/images/ros/projects/rviz2/img_032_063.webp)
-
-
-![Image 64](../../assets/images/ros/projects/rviz2/img_032_064.webp)
-
 
 HUMAN AI ROBOTICS
 33
@@ -855,18 +672,10 @@ TF의 하위 항목 중 ‘Show Names’를 선택
 왼쪽 하단의 ‘Add’ > ‘RobotModel’ > ‘Ok’ 
 로봇패키지만들기실습
 
-
-![Image 65](../../assets/images/ros/projects/rviz2/img_033_065.webp)
-
-
 ![Image 66](../../assets/images/ros/projects/rviz2/img_033_066.webp)
 
 
 ![Image 67](../../assets/images/ros/projects/rviz2/img_033_067.webp)
-
-
-![Image 68](../../assets/images/ros/projects/rviz2/img_033_068.webp)
-
 
 HUMAN AI ROBOTICS
 34
@@ -879,18 +688,10 @@ RobotModel의 하위 항목 중 ‘Description Topic’을 ‘/robot_description
 로봇 모델 불러오기
 rviz2 –d ./config/robot.rviz
 
-
-![Image 69](../../assets/images/ros/projects/rviz2/img_034_069.webp)
-
-
 ![Image 70](../../assets/images/ros/projects/rviz2/img_034_070.webp)
 
 
 ![Image 71](../../assets/images/ros/projects/rviz2/img_034_071.webp)
-
-
-![Image 72](../../assets/images/ros/projects/rviz2/img_034_072.webp)
-
 
 HUMAN AI ROBOTICS
 35
@@ -907,10 +708,6 @@ rviz2에서 실행한 Node
 ‘/tf’, ‘/tf_static’ 두 개의 topic을 전달
 $ rqt_graph
 로봇패키지만들기실습
-
-
-![Image 73](../../assets/images/ros/projects/rviz2/img_035_073.webp)
-
 
 ![Image 74](../../assets/images/ros/projects/rviz2/img_035_074.webp)
 
@@ -958,19 +755,11 @@ $ source install/setup.bash
 $ ros2 launch urdf_tutorial robot_1.launch.py
 로봇패키지만들기실습
 
-
-![Image 75](../../assets/images/ros/projects/rviz2/img_036_075.webp)
-
-
 HUMAN AI ROBOTICS
 37
 주제2.1 기초
 참고
 메니퓨레이터모델링
-
-
-![Image 76](../../assets/images/ros/projects/rviz2/img_037_076.webp)
-
 
 HUMAN AI ROBOTICS
 38
@@ -987,10 +776,6 @@ HUMAN AI ROBOTICS
 • ROS 환경에서 로봇을 표현: RViz와 같은 시뮬레이터에서 로봇을 시각화하는 데 URDF 파일사용 
 •  로봇의 구조, 동작, 환경 등을 정의하기 위한 XML 기반의 파일 포맷 및 확장자.
 ▪URDF
-
-
-![Image 77](../../assets/images/ros/projects/rviz2/img_038_077.webp)
-
 
 HUMAN AI ROBOTICS
 39
@@ -1009,17 +794,10 @@ HUMAN AI ROBOTICS
 최소, 최대 동작 값(각도, 선형 움직임), 
 조인트에 부여되는 힘 / 속도
 
-
-![Image 78](../../assets/images/ros/projects/rviz2/img_039_078.webp)
-
-
 ![Image 79](../../assets/images/ros/projects/rviz2/img_039_079.webp)
 
 
 ![Image 80](../../assets/images/ros/projects/rviz2/img_039_080.webp)
-
-
-
 
 HUMAN AI ROBOTICS
 40
@@ -1032,13 +810,6 @@ Frame을 기준으로 조인트 사이의 위치 관계를 상대적인 값들�
 URDF에서는 <origin> 태그가 자주 등장하는데, 링크와 조인트에서 사용하는 의미가 조금 다르다.
  프레임(Frame)
 link의 origin이 기준 좌표(Frame)가 되는데, 바로 앞에 연결되어있는 조인트의 좌표를 사용
-
-
-![Image 82](../../assets/images/ros/projects/rviz2/img_040_082.webp)
-
-
-
-
 ![Image 84](../../assets/images/ros/projects/rviz2/img_040_084.webp)
 
 
@@ -1055,13 +826,6 @@ HUMAN AI ROBOTICS
 <geometry>는 기하학 값들을 설정하는데, box(x, y, z), cylinder(radius, length), sphere(radius), mesh(filename)
 특히, mesh에는 3D 모델링 된 stl 파일을 지정
 <geometry>의 여러 속성 값들은 <origin>에서 설정한 위치 값을 중심으로 대칭
-
-
-![Image 85](../../assets/images/ros/projects/rviz2/img_041_085.webp)
-
-
-
-
 ![Image 87](../../assets/images/ros/projects/rviz2/img_041_087.webp)
 
 
@@ -1095,13 +859,6 @@ HUMAN AI ROBOTICS
 <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
 </inertial>
 </link>
-
-
-![Image 88](../../assets/images/ros/projects/rviz2/img_042_088.webp)
-
-
-
-
 HUMAN AI ROBOTICS
 43
 로봇description
@@ -1120,15 +877,6 @@ HUMAN AI ROBOTICS
  조인트(Joint)
  URDF 에서 지원하는 조인트 종류(type)
 
-
-
-
-
-
-
-
-
-
 HUMAN AI ROBOTICS
 44
 로봇description
@@ -1146,13 +894,6 @@ z 값만 설정
 • <limit>
 조인트 동작에 대한 최소, 최대(lower, upper) 제한 사항을 설정.
 조인트에 부여되는 힘(effort, 단위: N), 속도(단위: radian/s)의 제한 값 설정
-
-
-![Image 94](../../assets/images/ros/projects/rviz2/img_044_094.webp)
-
-
-
-
 HUMAN AI ROBOTICS
 45
 주제2.1 기초
@@ -1194,19 +935,11 @@ URDF 파일 확장자는 일반적으로 .urdf 또는 .xacro
 ...
 </xacro:robot>
 
-
-![Image 96](../../assets/images/ros/projects/rviz2/img_045_096.webp)
-
-
 HUMAN AI ROBOTICS
 46
 SLAM
 참고
 메내퓨레이터모델링
-
-
-![Image 97](../../assets/images/ros/projects/rviz2/img_046_097.webp)
-
 
 HUMAN AI ROBOTICS
 47
@@ -1341,10 +1074,6 @@ $ vim testbot.urdf
 ※ 복붙용 testbot.urdf 코드
 모두선택(ctrl+a) 후 복사
 
-
-![Image 98](../../assets/images/ros/projects/rviz2/img_047_098.webp)
-
-
 HUMAN AI ROBOTICS
 48
 주제2.1 기초
@@ -1401,10 +1130,6 @@ testbot.urdf 파일
 </collision>
 </link>
 
-
-![Image 99](../../assets/images/ros/projects/rviz2/img_048_099.webp)
-
-
 HUMAN AI ROBOTICS
 49
 주제2.1 기초
@@ -1451,10 +1176,6 @@ HUMAN AI ROBOTICS
 </link>
 메니퓨레이터 패키지 - URDF
 
-
-![Image 100](../../assets/images/ros/projects/rviz2/img_049_100.webp)
-
-
 HUMAN AI ROBOTICS
 50
 주제2.1 기초
@@ -1486,10 +1207,6 @@ HUMAN AI ROBOTICS
 </joint>
 </robot>
 메니퓨레이터 패키지 - URDF
-
-
-![Image 101](../../assets/images/ros/projects/rviz2/img_050_101.webp)
-
 
 HUMAN AI ROBOTICS
 51
@@ -1542,10 +1259,6 @@ return ld
 ※ 복붙용 testbot.launch.py 코드
 모두선택(ctrl+a) 후 복사
 
-
-![Image 102](../../assets/images/ros/projects/rviz2/img_051_102.webp)
-
-
 HUMAN AI ROBOTICS
 52
 주제2.1 기초
@@ -1591,10 +1304,6 @@ ld.add_action(rviz2)
 return ld
 메니퓨레이터 패키지 - 런치 파일 생성
 
-
-![Image 103](../../assets/images/ros/projects/rviz2/img_052_103.webp)
-
-
 HUMAN AI ROBOTICS
 53
 주제2.1 기초
@@ -1632,10 +1341,6 @@ entry_points={
 메니퓨레이터 패키지 – setup.py 파일 편집
 $ vim ~/robot_ws/src/testbot_description/setup.py
 
-
-![Image 104](../../assets/images/ros/projects/rviz2/img_053_104.webp)
-
-
 HUMAN AI ROBOTICS
 54
 주제2.1 기초
@@ -1645,14 +1350,6 @@ $ cd ~/robot_ws/src/testbot_description
 $ colcon build --symlink-install 
 $ source install/setup.bash
 $ ros2 launch testbot_description testbot.launch.py
-
-
-![Image 105](../../assets/images/ros/projects/rviz2/img_054_105.webp)
-
-
-![Image 106](../../assets/images/ros/projects/rviz2/img_054_106.webp)
-
-
 ![Image 107](../../assets/images/ros/projects/rviz2/img_054_107.webp)
 
 
@@ -1668,10 +1365,6 @@ Add -> RobotModel
 Displays -> RobotModel
 -> Description Topic : /robot_description
 
-
-![Image 108](../../assets/images/ros/projects/rviz2/img_055_108.webp)
-
-
 ![Image 109](../../assets/images/ros/projects/rviz2/img_055_109.webp)
 
 
@@ -1682,10 +1375,6 @@ HUMAN AI ROBOTICS
 메니퓨레이터 패키지– 시각화확인
 Joint State Publish gui에서
 joint 값을 바꿔가면서움직임 확인
-
-
-![Image 110](../../assets/images/ros/projects/rviz2/img_056_110.webp)
-
 
 ![Image 111](../../assets/images/ros/projects/rviz2/img_056_111.webp)
 
@@ -1702,10 +1391,6 @@ joint_state_publisher :
 robot_state_publisher  :
 URDF의 로봇 정보와 joint_state 토픽 정보 활용
 계산한 TF 정보를 /tf, /tf_static 토픽으로 퍼블리시
-
-
-![Image 112](../../assets/images/ros/projects/rviz2/img_057_112.webp)
-
 
 ![Image 113](../../assets/images/ros/projects/rviz2/img_057_113.webp)
 
@@ -1729,22 +1414,10 @@ HUMAN AI ROBOTICS
 /joint_states (sensor_msgs/JointState) :
    시스템에 있는 모든 움직이는 조인트 상태 값
 
-
-![Image 115](../../assets/images/ros/projects/rviz2/img_058_115.webp)
-
-
 ![Image 116](../../assets/images/ros/projects/rviz2/img_058_116.webp)
 
 
 ![Image 117](../../assets/images/ros/projects/rviz2/img_058_117.webp)
-
-
-![Image 118](../../assets/images/ros/projects/rviz2/img_058_118.webp)
-
-
-![Image 119](../../assets/images/ros/projects/rviz2/img_058_119.webp)
-
-
 ![Image 120](../../assets/images/ros/projects/rviz2/img_058_120.webp)
 
 
@@ -1766,14 +1439,6 @@ $ check_urdf
 ~/robot_ws/src/testbot_description/urdf/testbot.urdf
 $ urdf_to_graphiz
 ~/robot_ws/src/testbot_description/urdf/testbot.urdf
-
-
-![Image 121](../../assets/images/ros/projects/rviz2/img_059_121.webp)
-
-
-![Image 122](../../assets/images/ros/projects/rviz2/img_059_122.webp)
-
-
 ![Image 123](../../assets/images/ros/projects/rviz2/img_059_123.webp)
 
 
@@ -1782,10 +1447,6 @@ HUMAN AI ROBOTICS
 SLAM
 참고
 차동 이동 로봇 모델링
-
-
-![Image 124](../../assets/images/ros/projects/rviz2/img_060_124.webp)
-
 
 HUMAN AI ROBOTICS
 61
@@ -1801,10 +1462,6 @@ $ colcon build –symlink-install
 $ cd ~/car_ws/src/car_tutorial
 $ mkdir urdf launch config world
 
-
-![Image 125](../../assets/images/ros/projects/rviz2/img_061_125.webp)
-
-
 HUMAN AI ROBOTICS
 62
 자동차연동시뮬레이션
@@ -1817,14 +1474,6 @@ HUMAN AI ROBOTICS
 •실행 의존성: <exec_depend> 
 •빌드 및 실행 의존성: <depend>
 src/car_tutorial/package.xml
-
-
-![Image 126](../../assets/images/ros/projects/rviz2/img_062_126.webp)
-
-
-![Image 127](../../assets/images/ros/projects/rviz2/img_062_127.webp)
-
-
 HUMAN AI ROBOTICS
 63
 자동차연동시뮬레이션
@@ -1842,14 +1491,6 @@ src/car_tutorial/setup.py
 •컴파일이 필요한 경우 빌드 프로세스를 구성
 이 파일은 colcon 빌드 시스템에 의해 사용되어 패키지를 올바르게 빌드하고 설치
 ROS 2 개발에서 setup.py는 package.xml과 함께 패키지 구성의 핵심 요소
-
-
-![Image 128](../../assets/images/ros/projects/rviz2/img_063_128.webp)
-
-
-![Image 129](../../assets/images/ros/projects/rviz2/img_063_129.webp)
-
-
 HUMAN AI ROBOTICS
 64
 자동차연동시뮬레이션
@@ -1984,10 +1625,6 @@ name="urdf_tutorial">
     </link>
 </robot>
 
-
-![Image 130](../../assets/images/ros/projects/rviz2/img_064_130.webp)
-
-
 HUMAN AI ROBOTICS
 65
 자동차연동시뮬레이션
@@ -2033,10 +1670,6 @@ robot_description 을 선언
 # rviz2실행 노드 정의
 # 노드 리턴
 
-
-![Image 131](../../assets/images/ros/projects/rviz2/img_065_131.webp)
-
-
 HUMAN AI ROBOTICS
 66
 자동차연동시뮬레이션
@@ -2057,10 +1690,6 @@ Node(
 파라미터 설정
 조건부 실행
 
-
-![Image 132](../../assets/images/ros/projects/rviz2/img_066_132.webp)
-
-
 HUMAN AI ROBOTICS
 67
 자동차연동시뮬레이션
@@ -2073,10 +1702,6 @@ IncludeLaunchDescription(
     PythonLaunchDescriptionSource(['/path/to/other/launch/file.launch.py'])
 )
 기타: 이벤트 헨들러, 그룹화
-
-
-![Image 133](../../assets/images/ros/projects/rviz2/img_067_133.webp)
-
 
 HUMAN AI ROBOTICS
 68
@@ -2095,18 +1720,10 @@ RobotModel의 'Description Topic'을 '/robot_description'으로 설정하면 아
 - 새로운 창에서 joint_state_publisher_gui 수행
 $ ros2 run joint_state_publisher_gui joint_state_publisher_gui
 
-
-![Image 134](../../assets/images/ros/projects/rviz2/img_068_134.webp)
-
-
 ![Image 135](../../assets/images/ros/projects/rviz2/img_068_135.webp)
 
 
 ![Image 136](../../assets/images/ros/projects/rviz2/img_068_136.webp)
-
-
-![Image 137](../../assets/images/ros/projects/rviz2/img_068_137.webp)
-
 
 HUMAN AI ROBOTICS
 69
@@ -2117,14 +1734,6 @@ HUMAN AI ROBOTICS
  'Add' 버튼을 누른 후 뜨는 팝업에서 Image를 선택 후 'Ok' 버튼을 눌러 Image를 추가
 •
 메뉴에서 File >> Save Config As를 선택 후 뜨는 팝업에서 현재 설정 'src/car_tutorial/config/car.rviz’에 저장
-
-
-![Image 138](../../assets/images/ros/projects/rviz2/img_069_138.webp)
-
-
-![Image 139](../../assets/images/ros/projects/rviz2/img_069_139.webp)
-
-
 ![Image 140](../../assets/images/ros/projects/rviz2/img_069_140.webp)
 
 
@@ -2133,10 +1742,6 @@ HUMAN AI ROBOTICS
 SLAM
 참고
 자동차 연동 시뮬레이션
-
-
-![Image 141](../../assets/images/ros/projects/rviz2/img_070_141.webp)
-
 
 HUMAN AI ROBOTICS
 71
@@ -2150,10 +1755,6 @@ HUMAN AI ROBOTICS
 - Odometry: 자동차의 방향/속도의 측정값을 이용 실제 자동차의 위치를 계산 오돔데이터와 TF 퍼블리쉬
 실제 자동차
 가상 자동차
-
-
-![Image 142](../../assets/images/ros/projects/rviz2/img_071_142.webp)
-
 
 ![Image 143](../../assets/images/ros/projects/rviz2/img_071_143.webp)
 
@@ -2213,10 +1814,6 @@ if __name__ == '__main__':
         odom.pose.pose.orientation.w = math.cos(self.theta / 2.0)
         self.publisher.publish(odom)
 
-
-![Image 145](../../assets/images/ros/projects/rviz2/img_072_145.webp)
-
-
 HUMAN AI ROBOTICS
 73
 자동차연동시뮬레이션
@@ -2237,10 +1834,6 @@ Odometry (로봇의 이동 경로)
 2.차동 구동 컨트롤러 실행: ros2 run car_tutorial diff_drive_controller 
 3.Teleop 실행 (선택사항): ros2 run teleop_keyboard
 
-
-![Image 146](../../assets/images/ros/projects/rviz2/img_073_146.webp)
-
-
 HUMAN AI ROBOTICS
 74
 자동차연동시뮬레이션
@@ -2258,10 +1851,6 @@ HUMAN AI ROBOTICS
 •매핑
 - SLAM (Simultaneous Localization and Mapping) 알고리즘을 구현하여 로봇이 환경 맵을 생성하는 과정을 시뮬레이션. 
 4. 가제보(gazebo) 시각화
-
-
-![Image 147](../../assets/images/ros/projects/rviz2/img_074_147.webp)
-
 
 HUMAN AI ROBOTICS
 75
@@ -2303,10 +1892,6 @@ type="fixed">
         </collision>
     </link>
 
-
-![Image 148](../../assets/images/ros/projects/rviz2/img_075_148.webp)
-
-
 HUMAN AI ROBOTICS
 76
 자동차연동시뮬레이션
@@ -2329,19 +1914,11 @@ HUMAN AI ROBOTICS
 $ ros2 launch gazebo_ros gazebo.launch.py
 $ ros2 launch urdf_tutorial robot_3.launch.py use_sim_time:=true
 
-
-![Image 149](../../assets/images/ros/projects/rviz2/img_076_149.webp)
-
-
 HUMAN AI ROBOTICS
 77
 SLAM
 참고
 ODOM,TF 발행
-
-
-![Image 150](../../assets/images/ros/projects/rviz2/img_077_150.webp)
-
 
 HUMAN AI ROBOTICS
 78
@@ -2375,10 +1952,6 @@ xmlCopy<depend>std_msgs</depend>
 다른 노드가 이 정보를 사용하여 로봇의 위치를 추적하거나 내비게이션에 활용
 publish_odometry 메서드에서 오도메트리 계산과 발행
 WheelOdometryNode 클래스
-
-
-![Image 151](../../assets/images/ros/projects/rviz2/img_078_151.webp)
-
 
 HUMAN AI ROBOTICS
 79
@@ -2476,10 +2049,6 @@ def main(args=None):
 if __name__ == '__main__':
     main()
 
-
-![Image 152](../../assets/images/ros/projects/rviz2/img_079_152.webp)
-
-
 HUMAN AI ROBOTICS
 80
 자동차연동시뮬레이션
@@ -2523,10 +2092,6 @@ class FakeDriver(Node):
         self.joint_states.position[0] += 0.05
         self.joint_states.position[1] += 0.05
 
-
-![Image 153](../../assets/images/ros/projects/rviz2/img_080_153.webp)
-
-
 HUMAN AI ROBOTICS
 81
 자동차연동시뮬레이션
@@ -2534,10 +2099,6 @@ HUMAN AI ROBOTICS
 가상자동차만들기
 src/car_tutorial/setup.py'의 console_scripts 부분에 아래 내용을 추가
 'src/car_tutorial/launch/fake.launch.py' 파일 수정
-
-
-![Image 154](../../assets/images/ros/projects/rviz2/img_081_154.webp)
-
 
 ![Image 155](../../assets/images/ros/projects/rviz2/img_081_155.webp)
 
@@ -2555,14 +2116,6 @@ $ colcon build --symlink-install
 $ source install/setup.bash
 $ ros2 launch car_tutorial fake.launch.py
 터미널에서 'src/car_tutorial/launch/fake.launch.py' 실행
-
-
-![Image 157](../../assets/images/ros/projects/rviz2/img_082_157.webp)
-
-
-![Image 158](../../assets/images/ros/projects/rviz2/img_082_158.webp)
-
-
 HUMAN AI ROBOTICS
 83
 자동차연동시뮬레이션
@@ -2578,10 +2131,6 @@ FakeDriver에서cmd_vel subscribe and vel_raw 발행하기
 ◦ 현재 로봇의 속도를 'vel_raw' Topic으로 전송할 publisher를 등록
 ◦ 0.1초에 한 번씩 'vel_raw' Topic을 발송
 
-
-![Image 159](../../assets/images/ros/projects/rviz2/img_083_159.webp)
-
-
 HUMAN AI ROBOTICS
 84
 주제2.1 자동차연동시뮬레이션
@@ -2594,10 +2143,6 @@ $ colcon build --symlink-install
 $ source install/setup.bash
 $ ros2 launch car_tutorial fake.launch.py
 $ ros2 run teleop_twist_keyboard teleop_twist_keyboard
-
-
-![Image 160](../../assets/images/ros/projects/rviz2/img_084_160.webp)
-
 
 ![Image 161](../../assets/images/ros/projects/rviz2/img_084_161.webp)
 
@@ -2612,10 +2157,6 @@ $ rqt_graph
 FakeDriver - img_raw publish
 적당한 크기의 (400 x 300) 이미지를 'src/car_tutorial/car_tutorial/photo.png'에 저장
 
-
-![Image 162](../../assets/images/ros/projects/rviz2/img_085_162.webp)
-
-
 ![Image 163](../../assets/images/ros/projects/rviz2/img_085_163.webp)
 
 
@@ -2628,10 +2169,6 @@ HUMAN AI ROBOTICS
 참고
 가상자동차만들기
 'src/car_tutorial/car_tutorial/fake_driver.py' 파일을 아래와 같이 편집
-
-
-![Image 165](../../assets/images/ros/projects/rviz2/img_086_165.webp)
-
 
 ![Image 166](../../assets/images/ros/projects/rviz2/img_086_166.webp)
 
@@ -2648,10 +2185,6 @@ SLAM
 참고
 슬램(SLAM)
 
-
-![Image 169](../../assets/images/ros/projects/rviz2/img_087_169.webp)
-
-
 HUMAN AI ROBOTICS
 88
 RQT
@@ -2664,10 +2197,6 @@ SLAM과 RViz2
 3.로봇이 탐색한 영역이 지도 형태로 나타남.
 SLAM (Simultaneous Localization and Mapping)
 1. SLAM 지도 시각화
-
-
-![Image 170](../../assets/images/ros/projects/rviz2/img_088_170.webp)
-
 
 HUMAN AI ROBOTICS
 89
@@ -2690,24 +2219,12 @@ IMU(관성센서, 필터))로 위치 보상
 -  A* 알고리즘, 포텐셜 장, 파티클 필터, 그래프 등
 2. SLAM을위한 ROS2 메시지
 
-
-![Image 171](../../assets/images/ros/projects/rviz2/img_089_171.webp)
-
-
 HUMAN AI ROBOTICS
 90
 RQT
 참고
 터틀봇3를 이용한 SLAM
 3. SLAM을위한 노드들 처리 과정
-
-
-![Image 172](../../assets/images/ros/projects/rviz2/img_090_172.webp)
-
-
-![Image 173](../../assets/images/ros/projects/rviz2/img_090_173.webp)
-
-
 HUMAN AI ROBOTICS
 91
 RQT
@@ -2718,10 +2235,6 @@ RQT
 •방법: 현재 센서 입력과 이전 센서 입력 사이의 유사성을 고려
 •효과: 아래와 같이 Visual Odometry에 의해 표류오차가 누적된 빨간 선에서 루프 폐쇄 검출 알고리즘을 통해 같은 위
 치임을 판단해 전체 궤적을 초록선에 가까이 보정할 수 있음
-
-
-![Image 174](../../assets/images/ros/projects/rviz2/img_091_174.webp)
-
 
 ![Image 175](../../assets/images/ros/projects/rviz2/img_091_175.webp)
 
@@ -2740,10 +2253,6 @@ RQT
 1.목표 도달성 (목표 지점에 가까워지는 정도)
 2.장애물 회피 (장애물로부터 안전한 거리 유지)
 3.속도 프로파일 (로봇의 운동학적 제약 고려)
-
-
-![Image 176](../../assets/images/ros/projects/rviz2/img_092_176.webp)
-
 
 ![Image 177](../../assets/images/ros/projects/rviz2/img_092_177.webp)
 
@@ -2764,10 +2273,6 @@ ROS 2에서 SDF Plugin의 역할
 •ROS 2 노드와 통신
 •토픽이나 서비스를 통해 데이터 송수신
 •Gazebo 시뮬레이터 내의 로봇 동작 제어
-
-
-![Image 178](../../assets/images/ros/projects/rviz2/img_093_178.webp)
-
 
 HUMAN AI ROBOTICS
 94
@@ -2799,10 +2304,6 @@ rclcpp::init(0, nullptr);
 }
 CMake 설정
 
-
-![Image 179](../../assets/images/ros/projects/rviz2/img_094_179.webp)
-
-
 ![Image 180](../../assets/images/ros/projects/rviz2/img_094_180.webp)
 
 
@@ -2817,10 +2318,6 @@ HUMAN AI ROBOTICS
 SDF 파일에 플러그인 연결: SDF 파일의 <model> 또는 <sensor> 안에 플러그인을 정의 
 ROS 2와 통합하기 위해 플러그인은 ROS 2 노드를 통해 토픽, 서비스, 액션 등을 사용
 이를 통해 Gazebo에서 시뮬레이션된 센서 데이터나 제어 명령을 ROS 2로 전달.
-
-
-![Image 181](../../assets/images/ros/projects/rviz2/img_095_181.webp)
-
 
 HUMAN AI ROBOTICS
 96
@@ -2851,10 +2348,6 @@ IMU 센서를 포함한 예제
 •<sensor>: 센서 정의 
 •<plugin>: 추가 기능 확장
 
-
-![Image 182](../../assets/images/ros/projects/rviz2/img_096_182.webp)
-
-
 HUMAN AI ROBOTICS
 97
 자동차연동시뮬레이션
@@ -2874,10 +2367,6 @@ IMU 센서를 포함한 예제
 <odometry_frame>odom</odometry_frame> 
 <robot_base_frame>base_link</robot_base_frame> 
 </plugin>
-
-
-![Image 183](../../assets/images/ros/projects/rviz2/img_097_183.webp)
-
 
 ![Image 184](../../assets/images/ros/projects/rviz2/img_097_184.webp)
 
@@ -2935,19 +2424,11 @@ IMU 센서를 포함한 예제
         </plugin>
       </sensor>
 
-
-![Image 186](../../assets/images/ros/projects/rviz2/img_098_186.webp)
-
-
 HUMAN AI ROBOTICS
 99
 SLAM
 참고
 주행(Navigation)
-
-
-![Image 187](../../assets/images/ros/projects/rviz2/img_099_187.webp)
-
 
 HUMAN AI ROBOTICS
 100
@@ -2968,10 +2449,6 @@ HUMAN AI ROBOTICS
 •네비게이션 중 로봇의 행동을 관리합니다. 
 •회전, 대기, 정지 등 다양한 로봇 행동을 제어합니다.
 
-
-![Image 188](../../assets/images/ros/projects/rviz2/img_100_188.webp)
-
-
 HUMAN AI ROBOTICS
 101
 자동차연동시뮬레이션
@@ -2991,10 +2468,6 @@ HUMAN AI ROBOTICS
 •A* 또는 Dijkstra 알고리즘 등을 사용합니다.
 1. TurtleBot3에서 Nav2(Navigation 2)를 사용할 때 생성되는 주요 노드
 
-
-![Image 189](../../assets/images/ros/projects/rviz2/img_101_189.webp)
-
-
 HUMAN AI ROBOTICS
 102
 자동차연동시뮬레이션
@@ -3006,10 +2479,6 @@ HUMAN AI ROBOTICS
 •rviz 
 •시각화 도구로, 로봇의 위치, 경로, 센서 데이터 등을 시각적으로 표현합니다.
 1. TurtleBot3에서 Nav2(Navigation 2)를 사용할 때 생성되는 주요 노드
-
-
-![Image 190](../../assets/images/ros/projects/rviz2/img_102_190.webp)
-
 
 HUMAN AI ROBOTICS
 103
@@ -3030,10 +2499,6 @@ ros2 launch nav2_bringup navigation_launch.py
 ros2 topic pub /initialpose geometry_msgs/msg/PoseWithCovarianceStamped "{...}"
 # 목표 지점 설정
 ros2 topic pub /move_base_simple/goal geometry_msgs/msg/PoseStamped "{...}"
-
-
-![Image 191](../../assets/images/ros/projects/rviz2/img_103_191.webp)
-
 
 HUMAN AI ROBOTICS
 104
@@ -3059,19 +2524,11 @@ roslaunch turtlebot3_navigation turtlebot3_navigation.launch
 •파티클 필터로 위치 추정 정확도 개선
 오차 보정
 
-
-![Image 192](../../assets/images/ros/projects/rviz2/img_104_192.webp)
-
-
 HUMAN AI ROBOTICS
 105
 SLAM
 참고
 다중로봇환경
-
-
-![Image 193](../../assets/images/ros/projects/rviz2/img_105_193.webp)
-
 
 HUMAN AI ROBOTICS
 106
@@ -3091,10 +2548,6 @@ TurtleBot3의 launch 파일에서 namespace를 추가로 정의하고 적용합�
 예제: TurtleBot3의 robot_state_publisher에 네임스페이스 적용
 기존 turtlebot3_robot.launch.py를 수정하거나 별도의 커스텀 launch 파일을 만듭니다.
 ros2 run turtlebot3_node turtlebot3_ros --ros-args --namespace robot1
-
-
-![Image 194](../../assets/images/ros/projects/rviz2/img_106_194.webp)
-
 
 HUMAN AI ROBOTICS
 107
@@ -3124,10 +2577,6 @@ def generate_launch_description():
         )
     ])
 ros2 launch my_turtlebot3_launch.py
-
-
-![Image 195](../../assets/images/ros/projects/rviz2/img_107_195.webp)
-
 
 HUMAN AI ROBOTICS
 108
@@ -3168,10 +2617,6 @@ ros2 launch multi_robot_turtlebot3.launch.py
 •/robot2/scan 
 Topic list
 
-
-![Image 196](../../assets/images/ros/projects/rviz2/img_108_196.webp)
-
-
 HUMAN AI ROBOTICS
 109
 자동차연동시뮬레이션
@@ -3192,10 +2637,6 @@ Node(
 )
 ros2 run tf2_tools view_frames
 TF 데이터 확인:
-
-
-![Image 197](../../assets/images/ros/projects/rviz2/img_109_197.webp)
-
 
 HUMAN AI ROBOTICS
 110
@@ -3219,10 +2660,6 @@ def main():
     rclpy.spin(node)
 if __name__ == '__main__':
     main()
-
-
-![Image 198](../../assets/images/ros/projects/rviz2/img_110_198.webp)
-
 
 HUMAN AI ROBOTICS
 111
@@ -3253,10 +2690,6 @@ def generate_launch_description():
         )
     ])
 
-
-![Image 199](../../assets/images/ros/projects/rviz2/img_111_199.webp)
-
-
 HUMAN AI ROBOTICS
 112
 자동차연동시뮬레이션
@@ -3273,10 +2706,6 @@ ROS 2의 Remapping (리매핑)
 2. Remapping의 주요 방법
 A. CLI 명령어에서 Remapping
 ros2 run my_package my_node --ros-args --remap __node:=robot1_node --remap /cmd_vel:=/robot1/cmd_vel
-
-
-![Image 200](../../assets/images/ros/projects/rviz2/img_112_200.webp)
-
 
 HUMAN AI ROBOTICS
 113
@@ -3299,10 +2728,6 @@ def generate_launch_description():
             ]
         )
     ])
-
-
-![Image 201](../../assets/images/ros/projects/rviz2/img_113_201.webp)
-
 
 HUMAN AI ROBOTICS
 114
@@ -3332,10 +2757,6 @@ if __name__ == '__main__':
 main()
 ros2 run my_package my_node --ros-args --remap /cmd_vel:=/robot1/cmd_vel
 
-
-![Image 202](../../assets/images/ros/projects/rviz2/img_114_202.webp)
-
-
 HUMAN AI ROBOTICS
 115
 자동차연동시뮬레이션
@@ -3350,19 +2771,11 @@ ros2 run my_package my_node --ros-args --remap __ns:=/robot1
 C. 토픽 이름 리매핑
 ros2 run my_package my_node --ros-args --remap /cmd_vel:=/robot1/cmd_vel
 
-
-![Image 203](../../assets/images/ros/projects/rviz2/img_115_203.webp)
-
-
 HUMAN AI ROBOTICS
 116
 SLAM
 참고
 MOVEIT2
-
-
-![Image 204](../../assets/images/ros/projects/rviz2/img_116_204.webp)
-
 
 HUMAN AI ROBOTICS
 117
@@ -3376,10 +2789,6 @@ MoveIt2 Setup Assistant 사용
 로봇의 URDF 또는 XACRO 파일을 MoveIt2 환경에서 쉽게 사용할 수 있도록 설정하는 도구인 
 MoveIt Setup Assistant를 사용하여 설정합니다.
 ros2 launch moveit_setup_assistant setup_assistant.launch.py
-
-
-![Image 205](../../assets/images/ros/projects/rviz2/img_117_205.webp)
-
 
 HUMAN AI ROBOTICS
 118
@@ -3407,10 +2816,6 @@ MoveIt Setup Assistant
 •설정이 완료되면 config 폴더에 로봇의 MoveIt 설정 파일을 저장합니다. 
 •이는 launch 파일, srdf 파일 등으로 구성됩니다.
 
-
-![Image 206](../../assets/images/ros/projects/rviz2/img_118_206.webp)
-
-
 HUMAN AI ROBOTICS
 119
 Moveit2
@@ -3423,10 +2828,6 @@ RViz2에서 시각화
 •MoveIt 2는 RViz2와 연동되어 로봇의 경로 및 움직임을 시각화할 수 있습니다. 
 •RViz2에서 로봇의 현재 상태를 보고, 목표 지점을 설정하며 모션 플래닝 결과를 시각적으로 확인할 
 수 있습니다.
-
-
-![Image 207](../../assets/images/ros/projects/rviz2/img_119_207.webp)
-
 
 HUMAN AI ROBOTICS
 120
@@ -3442,10 +2843,6 @@ Moveit은 로봇 공학에서 사용할 수 있는 매우 강력한 모션 플�
 •충돌 감지 및 키네마틱 솔버를 활용하여 최적 경로를 확인하고 수정.
 •계획된 경로를 로봇 컨트롤러로 전송하여 실제 로봇동작수행.
 •센서를 통해 환경 정보를 업데이트하여 실시간 경로 계획을 반영.
-
-
-![Image 208](../../assets/images/ros/projects/rviz2/img_120_208.webp)
-
 
 ![Image 209](../../assets/images/ros/projects/rviz2/img_120_209.webp)
 
@@ -3463,10 +2860,6 @@ Moveit, 모션 플래닝 프레임워크
 ~/catkin_ws/src$ git clone -b <distro>-devel https://github.com/ros-industrial/universal_robot.git
 ~/catkin_ws/src$ git clone https://github.com/filesmuggler/robotiq.git
 wget https://raw.githubusercontent.com/utecrobotics/ur5/master/ur5_description/urdf/ur5_robotiq85_gripper.urdf.xacro
-
-
-![Image 210](../../assets/images/ros/projects/rviz2/img_121_210.webp)
-
 
 HUMAN AI ROBOTICS
 122
@@ -3487,10 +2880,6 @@ MOVEIT2
 음과 같이 수정해야 합니다.
 <xacro:arg name="transmission_hw_interface" default="hardware_interface/EffortJointInterface"/>
 
-
-![Image 211](../../assets/images/ros/projects/rviz2/img_122_211.webp)
-
-
 HUMAN AI ROBOTICS
 123
 Moveit2
@@ -3498,10 +2887,6 @@ Moveit2
 moveit setup assistant
 Moveit 설정 어시스턴트를 사용하여 Moveit 구성 패키지.
 $ ros2 launch moveit_setup_assistant setup_assistant.launch
-
-
-![Image 212](../../assets/images/ros/projects/rviz2/img_123_212.webp)
-
 
 ![Image 213](../../assets/images/ros/projects/rviz2/img_123_213.webp)
 
@@ -3516,10 +2901,6 @@ universal_robot 저장소에서 /universal_robot/ur_description/urdf/ur5_robotiq
 Load Files를 클릭 . 
 완료되면 다음과 같은 성공 메시지가 표시
 
-
-![Image 214](../../assets/images/ros/projects/rviz2/img_124_214.webp)
-
-
 ![Image 215](../../assets/images/ros/projects/rviz2/img_124_215.webp)
 
 
@@ -3532,10 +2913,6 @@ Self-Collisions를 선택합니다 .
 설정을 그대로 두고 Generate Collision Matrix를 클릭
 Moveit이 모션 플래닝을 할 때, 이동 중에 로봇 부품(링크) 간에 충돌이 발생하는지 확인
 Moveit은 물리적으로 서로 충돌할 수 없는 링크를 찾아 계산에서 제외하려함.
-
-
-![Image 216](../../assets/images/ros/projects/rviz2/img_125_216.webp)
-
 
 ![Image 217](../../assets/images/ros/projects/rviz2/img_125_217.webp)
 
@@ -3551,10 +2928,6 @@ moveit setup assistant
 가상 조인트 
 로봇을 환경에 고정하기 위해 가상의 고정 조인트를 정의
 가상 조인트 추가를 클릭하고 그림과 같이 빈칸을 채웁니다.
-
-
-![Image 219](../../assets/images/ros/projects/rviz2/img_126_219.webp)
-
 
 ![Image 220](../../assets/images/ros/projects/rviz2/img_126_220.webp)
 
@@ -3579,10 +2952,6 @@ PRM (Probabilistic Roadmap Method)
 을 구성한 후, 그 로드맵을 사용
 STOMP: 무작위 샘플링을 사용해 장애물 회피 경로 생성.
 
-
-![Image 221](../../assets/images/ros/projects/rviz2/img_127_221.webp)
-
-
 ![Image 222](../../assets/images/ros/projects/rviz2/img_127_222.webp)
 
 
@@ -3604,10 +2973,6 @@ moveit setup assistant
 운동학 풀이 도구, 이것은 정방향 운동학(Forward Kinematics)과 역방향 운동학(IK)을 푸는 것
 [조인트 추가]를 클릭하여 조인트를 추가
 
-
-![Image 223](../../assets/images/ros/projects/rviz2/img_128_223.webp)
-
-
 ![Image 224](../../assets/images/ros/projects/rviz2/img_128_224.webp)
 
 
@@ -3617,10 +2982,6 @@ Moveit2
 참고
 moveit setup assistant
 모션 플렌이 필요한 조인트 선택
-
-
-![Image 225](../../assets/images/ros/projects/rviz2/img_129_225.webp)
-
 
 ![Image 226](../../assets/images/ros/projects/rviz2/img_129_226.webp)
 
@@ -3637,10 +2998,6 @@ moveit setup assistant
 Add Group을 클릭하여 그리퍼를 정의. 
 그룹 이름으로 gripper를 입력하고, Kinematic Solver의 경우 None을 그대로 두고 Add Joints를 클릭. 
 robotiq_85_left_knuckle_joint를 선택하고 오른쪽을 가리키는 화살표를 클릭하여 조인트가 오른쪽 열 추가
-
-
-![Image 228](../../assets/images/ros/projects/rviz2/img_130_228.webp)
-
 
 ![Image 229](../../assets/images/ros/projects/rviz2/img_130_229.webp)
 
@@ -3660,10 +3017,6 @@ moveit setup assistant
 •wrist_2_joint: -1.5794
 •wrist_3_joint: 0.0
 
-
-![Image 230](../../assets/images/ros/projects/rviz2/img_131_230.webp)
-
-
 ![Image 231](../../assets/images/ros/projects/rviz2/img_131_231.webp)
 
 
@@ -3676,10 +3029,6 @@ moveit setup assistant
 그리퍼를 정의하려면 End Effectors 탭으로 전환하고 Add End Effector를 클릭
 이름을 robotiq_gripper로 지정하고 아래 그림과 같이 Group, Parent Link, Parent Group을 선택
 
-
-![Image 232](../../assets/images/ros/projects/rviz2/img_132_232.webp)
-
-
 ![Image 233](../../assets/images/ros/projects/rviz2/img_132_233.webp)
 
 
@@ -3689,10 +3038,6 @@ Moveit2
 참고
 moveit setup assistant
 수동 조인트
-
-
-![Image 234](../../assets/images/ros/projects/rviz2/img_133_234.webp)
-
 
 ![Image 235](../../assets/images/ros/projects/rviz2/img_133_235.webp)
 
@@ -3706,10 +3051,6 @@ ROS Control
 Ros_control은 조인트에 대한 컨트롤러를 쉽게 설정할 수 있는 패키지
 설정 어시스턴트에서 각 계획 그룹에 대해 FollowJointsTrajctory 컨트롤러 자동 추가 클릭
 
-
-![Image 236](../../assets/images/ros/projects/rviz2/img_134_236.webp)
-
-
 ![Image 237](../../assets/images/ros/projects/rviz2/img_134_237.webp)
 
 
@@ -3721,10 +3062,6 @@ moveit setup assistant
 시뮬레이션
 Moveit은 Gazebo 시뮬레이션에서 로봇을 실행하는 데 사용할 수 있는 URDF를 생성
 
-
-![Image 238](../../assets/images/ros/projects/rviz2/img_135_238.webp)
-
-
 ![Image 239](../../assets/images/ros/projects/rviz2/img_135_239.webp)
 
 
@@ -3735,10 +3072,6 @@ HUMAN AI ROBOTICS
 moveit setup assistant
 3D Preception Pane은 3D 센서 데이터를 사용하고자 하는 경우 매개변수를 설정하기 위한 것
 Configuration Files 저장
-
-
-![Image 240](../../assets/images/ros/projects/rviz2/img_136_240.webp)
-
 
 ![Image 241](../../assets/images/ros/projects/rviz2/img_136_241.webp)
 
@@ -3758,10 +3091,6 @@ https://docs.ros.org/en/noetic/api/moveit_commander/ht
 ml/classmoveit__commander_1_1move__group_1_1Move
 GroupCommander.html
 
-
-![Image 243](../../assets/images/ros/projects/rviz2/img_137_243.webp)
-
-
 ![Image 244](../../assets/images/ros/projects/rviz2/img_137_244.webp)
 
 
@@ -3769,10 +3098,6 @@ HUMAN AI ROBOTICS
 138
 MoveItのコンセプト
 「MoveIt」のコンセプトの概要をまとめました。
-
-
-![Image 245](../../assets/images/ros/projects/rviz2/img_138_245.webp)
-
 
 ![Image 246](../../assets/images/ros/projects/rviz2/img_138_246.webp)
 
@@ -3784,10 +3109,6 @@ HUMAN AI ROBOTICS
 139
 MoveItのコンセプト
 「MoveIt」のコンセプトの概要をまとめました。
-
-
-![Image 248](../../assets/images/ros/projects/rviz2/img_139_248.webp)
-
 
 ![Image 249](../../assets/images/ros/projects/rviz2/img_139_249.webp)
 
@@ -3839,10 +3160,6 @@ group="gripper"/>
 move_group.set_named_target("home")  # home 포즈로 
 이동 명령
 
-
-![Image 252](../../assets/images/ros/projects/rviz2/img_140_252.webp)
-
-
 HUMAN AI ROBOTICS
 141
 Moveit2
@@ -3858,10 +3175,6 @@ Moveit2
     <!-- 필요한 모든 joint들의 값을 지정 -->
   </group_state>
 </robot>
-
-
-![Image 253](../../assets/images/ros/projects/rviz2/img_141_253.webp)
-
 
 HUMAN AI ROBOTICS
 142
@@ -3884,10 +3197,6 @@ RViz2에서 직접 상태를 저장하려면:
 2."Planning" 탭에서 "Save Current State"를 선택
 3.이름을 지정하고 저장
 2. launch 파일에서 로드
-
-
-![Image 254](../../assets/images/ros/projects/rviz2/img_142_254.webp)
-
 
 HUMAN AI ROBOTICS
 143
@@ -3945,10 +3254,6 @@ def main():
     rclpy.shutdown()
 if __name__ == '__main__':
     main()
-
-
-![Image 255](../../assets/images/ros/projects/rviz2/img_143_255.webp)
-
 
 HUMAN AI ROBOTICS
 144
@@ -4050,10 +3355,6 @@ def add_object_to_scene(self):
         self.arm_group.go(wait=True)
         self.arm_group.stop()
 
-
-![Image 256](../../assets/images/ros/projects/rviz2/img_144_256.webp)
-
-
 HUMAN AI ROBOTICS
 145
 Moveit2
@@ -4128,10 +3429,6 @@ def execute_pick_and_place(self):
         except Exception as e:
             self.get_logger().error(f"Error in pick and place: {str(e)}")
 
-
-![Image 257](../../assets/images/ros/projects/rviz2/img_145_257.webp)
-
-
 HUMAN AI ROBOTICS
 146
 Moveit2
@@ -4164,19 +3461,11 @@ if __name__ == '__main__':
         
         return object_pose
 
-
-![Image 258](../../assets/images/ros/projects/rviz2/img_146_258.webp)
-
-
 HUMAN AI ROBOTICS
 147
 주제2.1 기초
 참고
 추가자료
-
-
-![Image 259](../../assets/images/ros/projects/rviz2/img_147_259.webp)
-
 
 HUMAN AI ROBOTICS
 148
@@ -4193,10 +3482,6 @@ Available computational power should guide your decision.
 Fixed frame: 
 Frame rate:
 
-
-![Image 260](../../assets/images/ros/projects/rviz2/img_148_260.webp)
-
-
 ![Image 261](../../assets/images/ros/projects/rviz2/img_148_261.webp)
 
 
@@ -4211,10 +3496,6 @@ Plane cell count: The size of the grid in cells
 Normal cell count: The number of cells in the direction normal to the grid plane (normally: 0)
 Cell size: Dimensions in meters of each grid cell
 Plane: The two axes that identify the grid plane
-
-
-![Image 262](../../assets/images/ros/projects/rviz2/img_149_262.webp)
-
 
 ![Image 263](../../assets/images/ros/projects/rviz2/img_149_263.webp)
 
@@ -4231,10 +3512,6 @@ Description Source: You can choose between File and Topic.
 At the moment of writing this guide the Topic option is not working as expected, so File is the 
 right option
 Description File: the URDF file that contains the Robot Description zed.urdf or zedm.urdf.
-
-
-![Image 264](../../assets/images/ros/projects/rviz2/img_150_264.webp)
-
 
 ![Image 265](../../assets/images/ros/projects/rviz2/img_150_265.webp)
 
@@ -4254,10 +3531,6 @@ Marker Scale: Used to rescale all the TF objects to let them be more visible and
 chaotic
 Update interval: The update time in seconds. Leave at 0 to see each update
 
-
-![Image 266](../../assets/images/ros/projects/rviz2/img_151_266.webp)
-
-
 ![Image 267](../../assets/images/ros/projects/rviz2/img_151_267.webp)
 
 
@@ -4276,10 +3549,6 @@ common tag
 <geometry> 태그는 origin 좌표 중심으로 표시 범위와 모양과 크기를 적는다
 모델의 모양 입력은 box, cylinder, sphere 형태를 기본으로 제공한다
 표현하기 어려운 모델인 경우에는 STL, DAE등의 CAD 파일을 입력할 수도 있다
-
-
-![Image 268](../../assets/images/ros/projects/rviz2/img_152_268.webp)
-
 
 HUMAN AI ROBOTICS
 153
@@ -4305,10 +3574,6 @@ izz
 <origin> 와 <geometry> 태그는 위에서 언급한 내용과 동일한데 표시 범위가 아닌 간섭 범위
 로 <visual> 태그의 표시 범위보다 더 크게하여 안전을 더 고려할 수도 있다
 
-
-![Image 269](../../assets/images/ros/projects/rviz2/img_153_269.webp)
-
-
 HUMAN AI ROBOTICS
 154
 주제2.1 기초
@@ -4321,10 +3586,6 @@ URDF - LINK
 을 그대로 표시하는 상태를 의미
 <texture> 텍스쳐는 파일(ex.webp)로 지정
 
-
-![Image 270](../../assets/images/ros/projects/rviz2/img_154_270.webp)
-
-
 HUMAN AI ROBOTICS
 155
 주제2.1 기초
@@ -4336,10 +3597,6 @@ AHRS는 Attitude and Heading Reference System의 약자로, 세 축으로 나타
 3축 gyroscope(16bit), 3축 acclerometer(16bit), 3축 magnetometer(13bit)로 이루어진 AHRS로, USB 포트에 꽂
 아 사용한다.
 해당 기기는 축으로 NED 타입을 사용하여, IMU에선 자북에 대해 x(north), y(east), z(down)으로 표기한다.
-
-
-![Image 271](../../assets/images/ros/projects/rviz2/img_155_271.webp)
-
 
 ![Image 272](../../assets/images/ros/projects/rviz2/img_155_272.webp)
 
@@ -4369,10 +3626,6 @@ $ sudo chmod 777 /dev/tty*
 포트 이름을 위에서 조회한 이름(ttyACM1 등)으로 변경해주어야 한다.
 $ roslaunch myahrs_driver myahrs_driver.launch # lauch 파일로, Rviz도 함께 실행.
 
-
-![Image 274](../../assets/images/ros/projects/rviz2/img_156_274.webp)
-
-
 ![Image 275](../../assets/images/ros/projects/rviz2/img_156_275.webp)
 
 
@@ -4384,10 +3637,6 @@ HUMAN AI ROBOTICS
 Rviz로 축을 확인한다. Rviz는 launch 파일 실행과 동시에 함께 켜질 것이다. 
 좌측에서 Axes, Imu의 체크박스를 각각 선택하면 아래 사진처럼 크게 분홍색 화살표가 보일 것이다. 
 현재 IMU가 가리키고 있는 방향이다.
-
-
-![Image 276](../../assets/images/ros/projects/rviz2/img_157_276.webp)
-
 
 ![Image 277](../../assets/images/ros/projects/rviz2/img_157_277.webp)
 
@@ -4401,10 +3650,6 @@ HUMAN AI ROBOTICS
 참고
 센서정보시각화- IMU
 IMU화살표가 너무 커서 축이 잘 보이지 않는다. Imu의 옵션에서 Alpha 값을 0.3 정도로 조정하면 축이 보일 것이다.
-
-
-![Image 279](../../assets/images/ros/projects/rviz2/img_158_279.webp)
-
 
 ![Image 280](../../assets/images/ros/projects/rviz2/img_158_280.webp)
 
@@ -4441,10 +3686,6 @@ HUMAN AI ROBOTICS
 •CameraPublisher 클래스 정의: 
 •ROS 2의 Node 클래스를 상속받아 새로운 노드를 정의합니다.
 
-
-![Image 282](../../assets/images/ros/projects/rviz2/img_159_282.webp)
-
-
 HUMAN AI ROBOTICS
 160
 주제2.1 기초
@@ -4479,10 +3720,6 @@ def main(args=None):
 if __name__ == '__main__':
     main()
 publisher (ROS2 humble)
-
-
-![Image 283](../../assets/images/ros/projects/rviz2/img_160_283.webp)
-
 
 HUMAN AI ROBOTICS
 161
@@ -4529,19 +3766,11 @@ if __name__ == '__main__' :
   main()
 https://github.com/ANI717/ros2_camera_publish
 
-
-![Image 284](../../assets/images/ros/projects/rviz2/img_161_284.webp)
-
-
 HUMAN AI ROBOTICS
 162
 SLAM
 참고
 라이다센서실습
-
-
-![Image 285](../../assets/images/ros/projects/rviz2/img_162_285.webp)
-
 
 HUMAN AI ROBOTICS
 163
@@ -4554,10 +3783,6 @@ $ git clone https://github.com/YDLIDAR/YDLidar-SDK.git
 $ git clone https://github.com/YDLIDAR/ydlidar_ros2_driver.git
 $ cd ~/ros2_ws 
 $ colcon build --symlink-install
-
-
-![Image 286](../../assets/images/ros/projects/rviz2/img_163_286.webp)
-
 
 ![Image 287](../../assets/images/ros/projects/rviz2/img_163_287.webp)
 
@@ -4579,20 +3804,12 @@ frequency:=10.0 --ros-args --param invalid_range_is_inf:=false
 $ cd ~/ros2_ws/src/ 
 $ git clone https://github.com/mechasolution/ydlidar_x4_example.git
 
-
-![Image 288](../../assets/images/ros/projects/rviz2/img_164_288.webp)
-
-
 HUMAN AI ROBOTICS
 165
 라이다센서실습
 참고
 센서정보시각화- 라이다
 rviz2
-
-
-![Image 289](../../assets/images/ros/projects/rviz2/img_165_289.webp)
-
 
 ![Image 290](../../assets/images/ros/projects/rviz2/img_165_290.webp)
 
@@ -4617,10 +3834,6 @@ https://github.com/Slamtec/rplidar_ros.git
 $ cd ..
 $ cbp rplidar_ros
 
-
-![Image 292](../../assets/images/ros/projects/rviz2/img_166_292.webp)
-
-
 HUMAN AI ROBOTICS
 167
 참고
@@ -4636,10 +3849,6 @@ $ ros2 launch monicar2_bringup rplidar.launch.py
 #terminal #2, PC에서 실행
 $ ros2 launch monicar2_bringup view_rplidar.launch.py
 
-
-![Image 293](../../assets/images/ros/projects/rviz2/img_167_293.webp)
-
-
 ![Image 294](../../assets/images/ros/projects/rviz2/img_167_294.webp)
 
 
@@ -4652,10 +3861,6 @@ PyQT5
 pip install PyQt5
 pip install pyqt5-tools
 
-
-![Image 295](../../assets/images/ros/projects/rviz2/img_168_295.webp)
-
-
 ![Image 296](../../assets/images/ros/projects/rviz2/img_168_296.webp)
 
 
@@ -4667,10 +3872,6 @@ HUMAN AI ROBOTICS
 라이다센서실습
 참고
 PyQT5
-
-
-![Image 298](../../assets/images/ros/projects/rviz2/img_169_298.webp)
-
 
 ![Image 299](../../assets/images/ros/projects/rviz2/img_169_299.webp)
 
@@ -4730,10 +3931,6 @@ class WorkerThread(QThread):
         # 작업이 끝나면 시그널로 결과를 전달
         self.finished.emit(result)
 
-
-![Image 301](../../assets/images/ros/projects/rviz2/img_170_301.webp)
-
-
 HUMAN AI ROBOTICS
 171
 주제2.1 기초
@@ -4741,4 +3938,3 @@ HUMAN AI ROBOTICS
 수고하셨습니다.
 
 
-![Image 302](../../assets/images/ros/projects/rviz2/img_171_302.webp)

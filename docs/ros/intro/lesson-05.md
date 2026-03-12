@@ -63,12 +63,6 @@ ROS2 시스템에서전역적혹은로컬파라미터
 03
 rclpy
 노드의구현및실행흐름
-
-
-
-
-
-
 02
 04
 Multi Thread
@@ -81,9 +75,6 @@ rclpy는멀티스레드실행지원가능
 •
 예를들어, 서비스와퍼블리셔가동일한노드내에서동시에작동하는경우, 
 MultiThreadedExecutor를사용가능
-
-
-
 
 ![Image 5](../../assets/images/ros/intro/lesson-05/img_006_005.webp)
 
@@ -102,13 +93,6 @@ rclpy는asyncio와통합가능
 
 
 ![Image 6](../../assets/images/ros/intro/lesson-05/img_007_006.webp)
-
-
-
-
-![Image 8](../../assets/images/ros/intro/lesson-05/img_007_008.webp)
-
-
 02
 06
 Multi Thread
@@ -252,9 +236,6 @@ Multi Thread Executor
 그러나다중스레드간의자원경쟁이나동기화문제가발생할수있으므로, 적절한
 동기화처리(locking) 필요
 
-
-
-
 ![Image 14](../../assets/images/ros/intro/lesson-05/img_014_014.webp)
 
 
@@ -279,13 +260,7 @@ SingleThreadedExecutor를사용하는간단한퍼블리셔노드
 •
 이벤트는1초마다발생하여메시지를퍼블리싱
 
-
-
-
 ![Image 16](../../assets/images/ros/intro/lesson-05/img_016_016.webp)
-
-
-
 
 ![Image 18](../../assets/images/ros/intro/lesson-05/img_016_018.webp)
 
@@ -331,17 +306,7 @@ Executor 와spin 차이점
 •
 Executor.spin()은노드의이벤트루프를돌려서콜백이발생할때처리되도록함
 
-
-
-
 ![Image 21](../../assets/images/ros/intro/lesson-05/img_018_021.webp)
-
-
-
-
-![Image 23](../../assets/images/ros/intro/lesson-05/img_018_023.webp)
-
-
 03
 17
 Executor

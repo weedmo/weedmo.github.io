@@ -13,15 +13,8 @@ Wifi 설정
        export $ROS_LOCALHOST_ONLY=1
 김루진강사
 
-
-![Image 2](../../assets/images/ros/projects/thread-database/img_001_002.webp)
-
-
 쓰레드를사용하는주된이유는프로그램의성능과응답성을향상시키기위해서입니다. 
 특히ROS2와PyQt GUI를함께사용할때더욱중요합니다.
-
-
-
 
 ![Image 4](../../assets/images/ros/projects/thread-database/img_002_004.webp)
 
@@ -36,9 +29,6 @@ DATA를저장하고처리하게된다.
 로그램은한개의프로세스를가지게된
 다.
 
-
-
-
 프로세스와쓰레드
 새로운프로세스를생성하는것을프로세스포크(Fork)
 프로세스는프로그램이작동하기에필요한많은데이터를가지고있다. 
@@ -50,10 +40,6 @@ DATA를저장하고처리하게된다.
 새로운프로세스는필요하지않지만, 하나의일을따로처리해야할때사용하는것이쓰레드
 멀티쓰레드와멀티프로세스의가장큰차이는자원공유
 
-
-![Image 6](../../assets/images/ros/projects/thread-database/img_004_006.webp)
-
-
 GUI 응답성유지
 GUI는메인쓰레드(이벤트루프)에서실행됨
 시간이오래걸리는작업을메인쓰레드에서실행하면GUI가멈춤
@@ -63,9 +49,6 @@ DATA를저장하고처리하게된다.
 메인쓰레드에서처리하면다른작업수행불가
 별도쓰레드로분리하여동시처리가능
 
-
-
-
 자원효율성
 멀티코어CPU 활용가능
 작업을병렬로처리하여성능향상
@@ -74,46 +57,18 @@ DATA를저장하고처리하게된다.
 GUI 이벤트처리와ROS2 통신을분리
 상호블로킹현상방지
 안정적인프로그램실행
-
-
-
-
-
-
 threading 모듈의Thread 클래스를사용
 Thread 객체를생성할때target 매개변수에실행할함수를지정하고, 필요에따라args 매개변수를사용
-
-
-
-
-
-
-![Image 12](../../assets/images/ros/projects/thread-database/img_007_012.webp)
 
 
 파이썬에서클래스를쓰레드로만들기위해서는threading 모듈의Thread 클래스를상속하거나, 
 Thread 인스턴스를생성할때target 매개변수에함수를지정하는방법을사용
 
 
-
-
-![Image 14](../../assets/images/ros/projects/thread-database/img_008_014.webp)
-
-
-![Image 15](../../assets/images/ros/projects/thread-database/img_008_015.webp)
-
-
 생성단계
 시작(Started) 단계
 
-
-
-
 ![Image 17](../../assets/images/ros/projects/thread-database/img_009_017.webp)
-
-
-![Image 18](../../assets/images/ros/projects/thread-database/img_009_018.webp)
-
 
 ![Image 19](../../assets/images/ros/projects/thread-database/img_009_019.webp)
 
@@ -122,19 +77,7 @@ Thread 인스턴스를생성할때target 매개변수에함수를지정하는방
 
 대기(Waiting) 단계
 종료(Terminated) 단계
-
-
-![Image 20](../../assets/images/ros/projects/thread-database/img_010_020.webp)
-
-
-![Image 21](../../assets/images/ros/projects/thread-database/img_010_021.webp)
-
-
 ![Image 22](../../assets/images/ros/projects/thread-database/img_010_022.webp)
-
-
-![Image 23](../../assets/images/ros/projects/thread-database/img_010_023.webp)
-
 
 Publisher.py
 Subscriber.py
@@ -146,10 +89,6 @@ Gui (pyqt)
 node
 Sub thread
 Main thread
-
-
-![Image 24](../../assets/images/ros/projects/thread-database/img_011_024.webp)
-
 
 ![Page 12](../../assets/images/ros/projects/thread-database/page_012.webp)
 
@@ -164,14 +103,7 @@ Queue
 Signal
 Topic
 
-
-
-
 ![Image 26](../../assets/images/ros/projects/thread-database/img_013_026.webp)
-
-
-![Image 27](../../assets/images/ros/projects/thread-database/img_013_027.webp)
-
 
 ![Image 28](../../assets/images/ros/projects/thread-database/img_013_028.webp)
 
@@ -212,17 +144,7 @@ GUI프로그램이완성
 UI파일을Python에Import하여사용하는방법
 https://wikidocs.net/35481
 
-
-
-
 ![Image 35](../../assets/images/ros/projects/thread-database/img_017_035.webp)
-
-
-
-
-![Image 37](../../assets/images/ros/projects/thread-database/img_017_037.webp)
-
-
 ![Page 18](../../assets/images/ros/projects/thread-database/page_018.webp)
 
 
@@ -240,9 +162,6 @@ https://wikidocs.net/35481
 •데이터일관성유지
 •트랜잭션처리
 
-
-
-
 •테이블(릴레이션) 
 •필드(속성, 컬럼) 
 •레코드(튜플, 행) 
@@ -258,10 +177,6 @@ DML(Data Manipulation Language)
 
 ![Image 40](../../assets/images/ros/projects/thread-database/img_020_040.webp)
 
-
-![Image 41](../../assets/images/ros/projects/thread-database/img_020_041.webp)
-
-
 One-to-One (1:1)
 CREATE TABLE user (
 user_id INT PRIMARY KEY,
@@ -272,10 +187,6 @@ passport_id INT PRIMARY KEY,
 user_id INT UNIQUE,
 FOREIGN KEY (user_id) REFERENCES user(user_id)
 );
-
-
-![Image 42](../../assets/images/ros/projects/thread-database/img_021_042.webp)
-
 
 One-to-Many (1:N)
 CREATE TABLE department (
@@ -311,9 +222,6 @@ FOREIGN KEY (student_id) REFERENCES student(student_id),
 FOREIGN KEY (course_id) REFERENCES course(course_id)
 );
 
-
-
-
 SQLite3는파일기반의경량관계형데이터베이스시스템
 # 장점
 - 서버가필요없음(파일기반)
@@ -340,9 +248,6 @@ status TEXT DEFAULT 'empty' CHECK(status IN ('empty', 'occupied', 'reserved')),
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
-
-
 -- 메뉴정보(menu)
 CREATE TABLE IF NOT EXISTS menu (
 menu_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -354,10 +259,6 @@ available BOOLEAN DEFAULT 1,
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
-![Image 47](../../assets/images/ros/projects/thread-database/img_026_047.webp)
-
-
 -- 주문목록(order_list)
 CREATE TABLE IF NOT EXISTS order_list (
 order_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -368,10 +269,6 @@ order_status TEXT DEFAULT 'pending' CHECK(order_status IN ('pending', 'preparing
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (table_id) REFERENCES table_order(table_id)
 );
-
-
-![Image 48](../../assets/images/ros/projects/thread-database/img_027_048.webp)
-
 
 -- 주문상세항목(order_items)
 CREATE TABLE IF NOT EXISTS order_items (
@@ -386,10 +283,6 @@ FOREIGN KEY (order_id) REFERENCES order_list(order_id),
 FOREIGN KEY (menu_id) REFERENCES menu(menu_id)
 );
 
-
-![Image 49](../../assets/images/ros/projects/thread-database/img_028_049.webp)
-
-
 -- 취소정보(cancel)
 CREATE TABLE IF NOT EXISTS cancel (
 cancel_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -400,10 +293,6 @@ cancel_status TEXT DEFAULT 'pending' CHECK(cancel_status IN ('pending', 'approve
 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (order_id) REFERENCES order_list(order_id)
 );
-
-
-![Image 50](../../assets/images/ros/projects/thread-database/img_029_050.webp)
-
 
 데이터베이스를생성할때는간단히connect() 메서드를사용하면된다. 
 이때메서드의인자로넣은값이데이터베이스파일의경로가된다. 
@@ -490,9 +379,6 @@ SQL = "INSERT INTO Course VALUES(?, ?, ?);"
 cursor.executemany(SQL, course_list)
 con.commit()
 con.close()
-
-
-
 
 def search_course_by_name(course_name):
 con = sqlite3.connect(database_name)

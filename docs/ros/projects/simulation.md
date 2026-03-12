@@ -9,18 +9,11 @@ V2.0
 김루진강사
 협동로봇 프로젝트 수행
 
-
-![Image 2](../../assets/images/ros/projects/simulation/img_001_002.webp)
-
-
 Rokey
 2
 로봇패키지
 참고
 차동 이동 로봇URDF - 1
-
-
-
 
 Rokey
 3
@@ -32,9 +25,6 @@ URDF (Unified Robot Description Format) 학습 목표
 •시각적 요소(visual)와 충돌(collision) 속성 설정
 •관성(inertial) 속성 정의 방법
 •URDF 파일 검증 및 디버깅 방법
-
-
-
 
 Rokey
 4
@@ -57,10 +47,6 @@ $ mkdir launch
 차동 구동 로봇(Differential Drive Robot)
 •XML 형식의 로봇 모델 정의 
 •Xacro 매크로를 사용하여 파라메터화 및 코드 재사용성 향상
-
-
-![Image 5](../../assets/images/ros/projects/simulation/img_004_005.webp)
-
 
 Rokey
 5
@@ -98,9 +84,6 @@ entry_points={
 로봇패키지만들기실습
 *.urdf 도 추가하세요.
 
-
-
-
 Rokey
 6
 로봇패키지
@@ -137,9 +120,6 @@ Rokey
 •물리적 특성(질량, 관성) 정의 
 •ROS 호환 설계
 
-
-
-
 Rokey
 7
 로봇패키지
@@ -173,14 +153,6 @@ parameters=[params])
 로봇 시스템의 노드, 파라미터, 액션 등을 설정하는 데 사용
 
 
-![Image 8](../../assets/images/ros/projects/simulation/img_007_008.webp)
-
-
-![Image 9](../../assets/images/ros/projects/simulation/img_007_009.webp)
-
-
-
-
 Rokey
 8
 로봇패키지
@@ -195,13 +167,6 @@ $ cd ~/urdf_ws
 $ source install/setup.bash
 $ rviz2
 로봇패키지만들기실습
-
-
-![Image 11](../../assets/images/ros/projects/simulation/img_008_011.webp)
-
-
-
-
 Rokey
 9
 로봇패키지
@@ -209,15 +174,6 @@ Rokey
 Display > Global Option > ‘Fixed Frame’을‘base_link’로변경
 왼쪽하단의‘Add’ > ‘TF’ > ‘Ok’ 
 로봇패키지만들기실습
-
-
-
-
-
-
-
-
-
 
 Rokey
 10
@@ -228,16 +184,6 @@ TF의하위항목중‘Show Names’를선택
 왼쪽하단의‘Add’ > ‘RobotModel’ > ‘Ok’ 
 로봇패키지만들기실습
 
-
-
-
-
-
-
-
-![Image 20](../../assets/images/ros/projects/simulation/img_010_020.webp)
-
-
 Rokey
 11
 로봇패키지
@@ -246,17 +192,10 @@ RobotModel의하위항목중‘Description Topic’을‘/robot_description’�
 'File' 메뉴에서'Save Config As'를선택
 로봇패키지만들기실습
 
-
-
-
 ![Image 22](../../assets/images/ros/projects/simulation/img_011_022.webp)
 
 
 ![Image 23](../../assets/images/ros/projects/simulation/img_011_023.webp)
-
-
-![Image 24](../../assets/images/ros/projects/simulation/img_011_024.webp)
-
 
 Rokey
 12
@@ -272,10 +211,6 @@ rviz2에서실행한Node
 ‘/tf’, ‘/tf_static’ 두개의topic을전달
 $ rqt_graph
 로봇패키지만들기실습
-
-
-![Image 25](../../assets/images/ros/projects/simulation/img_012_025.webp)
-
 
 ![Image 26](../../assets/images/ros/projects/simulation/img_012_026.webp)
 
@@ -319,10 +254,6 @@ $ source install/setup.bash
 $ ros2 launch urdf_tutorial robot_1.launch.py
 로봇패키지만들기실습
 
-
-![Image 27](../../assets/images/ros/projects/simulation/img_013_027.webp)
-
-
 Rokey
 14
 로봇패키지
@@ -338,10 +269,6 @@ Mesh (메쉬)
 왜 완전한 원
 이 아닐까?
 
-
-![Image 28](../../assets/images/ros/projects/simulation/img_014_028.webp)
-
-
 ![Image 29](../../assets/images/ros/projects/simulation/img_014_029.webp)
 
 
@@ -349,13 +276,6 @@ Mesh (메쉬)
 
 
 ![Image 31](../../assets/images/ros/projects/simulation/img_014_031.webp)
-
-
-![Image 32](../../assets/images/ros/projects/simulation/img_014_032.webp)
-
-
-
-
 ![Image 34](../../assets/images/ros/projects/simulation/img_014_034.webp)
 
 
@@ -371,18 +291,11 @@ STL 파일 준비:
 • mesh를 사용할 때는 .stl 또는 .dae 파일이 필요
 • Blender, SolidWorks, FreeCAD 등에서 3D 모델을 생성.
 
-
-![Image 35](../../assets/images/ros/projects/simulation/img_015_035.webp)
-
-
 Rokey
 16
 로봇패키지
 참고
 TF2(Transfor Framework)2
-
-
-
 
 Rokey
 17
@@ -397,14 +310,6 @@ TF2가 필요한 이유
 •센서 데이터는 각각 다른 시간에 수집됩니다
 •TF2는 시간에 따른 좌표계 변환을 자동으로 보간 처리
 https://with-rl.tistory.com/entry/ROS2-Transformation-System-TF2
-
-
-![Image 37](../../assets/images/ros/projects/simulation/img_017_037.webp)
-
-
-![Image 38](../../assets/images/ros/projects/simulation/img_017_038.webp)
-
-
 Rokey
 18
 로봇패키지
@@ -425,9 +330,6 @@ SLAM을 구현하는데 TF2는 필수적
 •
 정확한 좌표계 변환 없이는 센서 데이터를 올바르게 통합할 수 없고, 결과적으로 정확한 지도 생성과 위치 
 추정이 불가능
-
-
-
 
 Rokey
 19
@@ -454,19 +356,11 @@ TF2, Map과 Odom 변환
 •이를 통해 오도메트리의 누적 오차를 보정
 •결과적으로 로봇의 실제 위치(map 프레임)를 정확하게 추정
 
-
-![Image 40](../../assets/images/ros/projects/simulation/img_019_040.webp)
-
-
 Rokey
 20
 로봇패키지
 참고
 차동 이동 로봇URDF - 2
-
-
-![Image 41](../../assets/images/ros/projects/simulation/img_020_041.webp)
-
 
 Rokey
 21
@@ -488,10 +382,6 @@ c) map 프레임
 •SLAM에서 중요한 좌표계
 •절대 좌표 제공
 
-
-![Image 42](../../assets/images/ros/projects/simulation/img_021_042.webp)
-
-
 ![Image 43](../../assets/images/ros/projects/simulation/img_021_043.webp)
 
 
@@ -506,15 +396,6 @@ Rokey
 2. src/urdf_tutorial/urdf/robot_2.xacro
 
 
-![Image 45](../../assets/images/ros/projects/simulation/img_022_045.webp)
-
-
-![Image 46](../../assets/images/ros/projects/simulation/img_022_046.webp)
-
-
-![Image 47](../../assets/images/ros/projects/simulation/img_022_047.webp)
-
-
 Rokey
 23
 로봇패키지
@@ -525,27 +406,12 @@ $ cd ~/urdf_ws
 $ colcon build --symlink-install 
 $ source install/setup.bash
 $ ros2 launch urdf_tutorial robot_2.launch.py
-
-
-![Image 48](../../assets/images/ros/projects/simulation/img_023_048.webp)
-
-
-![Image 49](../../assets/images/ros/projects/simulation/img_023_049.webp)
-
-
 Rokey
 24
 로봇패키지
 참고
 로봇패키지만들기실습
 4. Rviz 메뉴에서 'File' >> 'Open Config' 선택 후 이전 과정에서 저장한 config 파일
-
-
-![Image 50](../../assets/images/ros/projects/simulation/img_024_050.webp)
-
-
-
-
 ![Image 52](../../assets/images/ros/projects/simulation/img_024_052.webp)
 
 
@@ -555,14 +421,6 @@ Rokey
 참고
 로봇패키지만들기실습
 4. Wheel 추가
-
-
-![Image 53](../../assets/images/ros/projects/simulation/img_025_053.webp)
-
-
-![Image 54](../../assets/images/ros/projects/simulation/img_025_054.webp)
-
-
 ![Image 55](../../assets/images/ros/projects/simulation/img_025_055.webp)
 
 
@@ -588,12 +446,6 @@ Rokey
 •링크 간 움직임 없음
 •강체로 연결
 •구조적 연결, 센서 장착 등
-
-
-
-
-
-
 Rokey
 27
 로봇패키지
@@ -603,9 +455,6 @@ Rokey
 rqt_graph
 ‘joint_state_publisher_gui’에서 ‘left_wheel_joint’ 값을 변경
 left_wheel이 회전하는 것 확인
-
-
-
 
 ![Image 59](../../assets/images/ros/projects/simulation/img_027_059.webp)
 
@@ -625,10 +474,6 @@ Rokey
 base_link에 'continuous' 형식 부착
 8. Caster Wheel 추가하기
 
-
-![Image 62](../../assets/images/ros/projects/simulation/img_028_062.webp)
-
-
 ![Image 63](../../assets/images/ros/projects/simulation/img_028_063.webp)
 
 
@@ -641,10 +486,6 @@ Rokey
 참고
 로봇패키지만들기실습
 9. Collision 추가
-
-
-![Image 65](../../assets/images/ros/projects/simulation/img_029_065.webp)
-
 
 ![Image 66](../../assets/images/ros/projects/simulation/img_029_066.webp)
 
@@ -670,25 +511,13 @@ Rokey
 •물체가 얼마나 회전하기 어려운지를 결정합니다
 •로봇 제어 시 동적 특성에 큰 영향을 미칩니다
 
-
-![Image 70](../../assets/images/ros/projects/simulation/img_030_070.webp)
-
-
 ![Image 71](../../assets/images/ros/projects/simulation/img_030_071.webp)
-
-
-![Image 72](../../assets/images/ros/projects/simulation/img_030_072.webp)
-
 
 Rokey
 31
 차동구동로봇패키지
 참고
 차동구동로봇센서들
-
-
-![Image 73](../../assets/images/ros/projects/simulation/img_031_073.webp)
-
 
 Rokey
 32
@@ -706,10 +535,6 @@ $ pip install opencv-python
 $ sudo apt install ros-humble-tf-transformations
 1. 필요라이브러리, 패키지설치
 
-
-![Image 74](../../assets/images/ros/projects/simulation/img_032_074.webp)
-
-
 Rokey
 33
 차동구동로봇패키지
@@ -722,14 +547,6 @@ $ wget -O photo/photo.png  [이미지url]
 tf publisher
 로봇을 만들었다면 로봇이 가만히 있을리는 당연히 없다. 이러한 robot의 위치를 변화시켜주려면, robot의 base가 
 되는 link와 map의 transform을 publish해주는 node를 작성하면 된다.
-
-
-![Image 75](../../assets/images/ros/projects/simulation/img_033_075.webp)
-
-
-![Image 76](../../assets/images/ros/projects/simulation/img_033_076.webp)
-
-
 Rokey
 34
 차동구동로봇패키지
@@ -805,10 +622,6 @@ class Driver(Node):
         self.joint_states.position[0] += self.wheel_rotate[0] *self.timer_frequently
         self.joint_states.position[1] += self.wheel_rotate[1] *self.timer_frequently
 
-
-![Image 77](../../assets/images/ros/projects/simulation/img_034_077.webp)
-
-
 Rokey
 35
 차동구동로봇패키지
@@ -833,10 +646,6 @@ def main(args=None):
     
 if __name__ == "__main__":
     main()
-
-
-![Image 78](../../assets/images/ros/projects/simulation/img_035_078.webp)
-
 
 Rokey
 36
@@ -904,10 +713,6 @@ src/car_tutorial/urdf/car.xacro
 </geometry>
 </collision>
 </link>
-
-
-![Image 79](../../assets/images/ros/projects/simulation/img_036_079.webp)
-
 
 Rokey
 37
@@ -979,9 +784,6 @@ Rokey
 <material name="black"/>
 </visual>
 
-
-
-
 Rokey
 38
 차동구동로봇패키지
@@ -1007,10 +809,6 @@ Rokey
 <link name="camera_link_optical">
 </link>
 </robot>
-
-
-![Image 81](../../assets/images/ros/projects/simulation/img_038_081.webp)
-
 
 Rokey
 39
@@ -1060,10 +858,6 @@ driver,
 # 노드실행
 패키지생성및실행
 
-
-![Image 82](../../assets/images/ros/projects/simulation/img_039_082.webp)
-
-
 Rokey
 40
 차동구동로봇패키지
@@ -1090,9 +884,6 @@ from launch.launch_description_sources import PythonLaunchDescriptionSource
 IncludeLaunchDescription(
 PythonLaunchDescriptionSource(['/path/to/other/launch/file.launch.py'])
 )
-
-
-
 
 Rokey
 41
@@ -1145,10 +936,6 @@ Python 라이브러리를명시
 - package.xml과함께패키지구성의핵심요소
 패키지생성및실행
 
-
-![Image 84](../../assets/images/ros/projects/simulation/img_041_084.webp)
-
-
 Rokey
 42
 차동구동로봇패키지
@@ -1168,15 +955,7 @@ Image > Topic : /image
 File -> Save Config
 패키지생성및실행
 
-
-![Image 85](../../assets/images/ros/projects/simulation/img_042_085.webp)
-
-
 ![Image 86](../../assets/images/ros/projects/simulation/img_042_086.webp)
-
-
-![Image 87](../../assets/images/ros/projects/simulation/img_042_087.webp)
-
 
 Rokey
 43
@@ -1188,21 +967,11 @@ u, I, o, j, k, l, m, ,, . 키로조작
 패키지생성및실행
 https://with-rl.tistory.com/entry/URDF%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EA%B0%84%EB%8B%A8%ED%95%9C-
 %EB%A1%9C%EB%B4%87-%EB%A7%8C%EB%93%A4%EA%B8%B0-3
-
-
-
-
-
-
 Rokey
 44
 차동구동로봇패키지
 참고
 Odom(odometry)
-
-
-![Image 90](../../assets/images/ros/projects/simulation/img_044_090.webp)
-
 
 HUMAN AI ROBOTICS
 45
@@ -1286,23 +1055,11 @@ odom
 
 ![Image 99](../../assets/images/ros/projects/simulation/img_049_099.webp)
 
-
-![Image 100](../../assets/images/ros/projects/simulation/img_049_100.webp)
-
-
 HUMAN AI ROBOTICS
 50
 Odom
 odom
 6. Odometry 자동차의 위치 변화
-
-
-![Image 101](../../assets/images/ros/projects/simulation/img_050_101.webp)
-
-
-![Image 102](../../assets/images/ros/projects/simulation/img_050_102.webp)
-
-
 HUMAN AI ROBOTICS
 51
 Odom
@@ -1312,19 +1069,11 @@ $ ros2 run tf2_ros static_transform_publisher 2 1 0 0.785 0 0 world robot_1
 ◦2 1 0: x, y, z 좌표로 x=2, y=1, z=0이라는 의미입니다.
 ◦0.785 0 0: 은 yaw, pitch, roll 값으로 반시계 방향으로 45° π/4π/4 만큼 회전하라는 의미입니다.
 
-
-![Image 103](../../assets/images/ros/projects/simulation/img_051_103.webp)
-
-
 Rokey
 52
 차동구동로봇패키지
 참고
 Controller Driver, Plugin
-
-
-![Image 104](../../assets/images/ros/projects/simulation/img_052_104.webp)
-
 
 Rokey
 53
@@ -1392,10 +1141,6 @@ class Odom(Node):
         odom.header.stamp = self.get_clock().now().to_msg()
         odom.header.frame_id = "odom"
         odom.child_frame_id = "base_link"
-
-
-![Image 105](../../assets/images/ros/projects/simulation/img_053_105.webp)
-
 
 Rokey
 54
@@ -1548,10 +1293,6 @@ def main(args=None):
 if __name__ == "__main__":
     main()
 
-
-![Image 106](../../assets/images/ros/projects/simulation/img_054_106.webp)
-
-
 Rokey
 55
 차동구동로봇패키지
@@ -1559,14 +1300,6 @@ Rokey
 2. launch 수정
 src/car_tutorial/launch/car_tutorial.launch.py
 패키지생성및실행
-
-
-![Image 107](../../assets/images/ros/projects/simulation/img_055_107.webp)
-
-
-![Image 108](../../assets/images/ros/projects/simulation/img_055_108.webp)
-
-
 Rokey
 56
 차동구동로봇패키지
@@ -1574,14 +1307,6 @@ Rokey
 3. setup.py 수정
 src/car_tutorial/setup.py
 패키지생성및실행
-
-
-![Image 109](../../assets/images/ros/projects/simulation/img_056_109.webp)
-
-
-![Image 110](../../assets/images/ros/projects/simulation/img_056_110.webp)
-
-
 Rokey
 57
 차동구동로봇패키지
@@ -1600,14 +1325,6 @@ RobotModel > Description Topic : /robot_description
 Image > Topic : /image
 File -> Save Config
 패키지생성및실행
-
-
-![Image 111](../../assets/images/ros/projects/simulation/img_057_111.webp)
-
-
-![Image 112](../../assets/images/ros/projects/simulation/img_057_112.webp)
-
-
 ![Image 113](../../assets/images/ros/projects/simulation/img_057_113.webp)
 
 
@@ -1619,14 +1336,6 @@ $ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 6. 두번째터미널에서실행
 u, I, o, j, k, l, m, ,, . 키로조작
 패키지생성및실행
-
-
-![Image 114](../../assets/images/ros/projects/simulation/img_058_114.webp)
-
-
-![Image 115](../../assets/images/ros/projects/simulation/img_058_115.webp)
-
-
 Rokey
 59
 차동구동로봇패키지
@@ -1634,10 +1343,6 @@ Rokey
 7. rqt_graph 실행
 $ rqt_graph
 패키지생성및실행
-
-
-![Image 116](../../assets/images/ros/projects/simulation/img_059_116.webp)
-
 
 ![Image 117](../../assets/images/ros/projects/simulation/img_059_117.webp)
 
@@ -1647,10 +1352,6 @@ Rokey
 차동구동로봇패키지
 참고
 가제보 시뮬레이션
-
-
-![Image 118](../../assets/images/ros/projects/simulation/img_060_118.webp)
-
 
 HUMAN AI ROBOTICS
 61
@@ -1726,10 +1427,6 @@ Rokey
 src/sim_tutorial/setup.py
 패키지생성및실행
 시뮬레이션
-
-
-![Image 120](../../assets/images/ros/projects/simulation/img_064_120.webp)
-
 
 ![Image 121](../../assets/images/ros/projects/simulation/img_064_121.webp)
 
@@ -1864,10 +1561,6 @@ Rokey
 참고
 차동로봇 시뮬레이션
 
-
-![Image 123](../../assets/images/ros/projects/simulation/img_069_123.webp)
-
-
 HUMAN AI ROBOTICS
 70
 운전하기
@@ -1993,10 +1686,6 @@ Rokey
 차동구동로봇패키지
 참고
 라이다 시뮬레이션
-
-
-![Image 129](../../assets/images/ros/projects/simulation/img_077_129.webp)
-
 
 HUMAN AI ROBOTICS
 78
@@ -2130,10 +1819,6 @@ Rokey
 참고
 카메라 시뮬레이션
 
-
-![Image 138](../../assets/images/ros/projects/simulation/img_084_138.webp)
-
-
 HUMAN AI ROBOTICS
 85
 카메라
@@ -2229,10 +1914,6 @@ Rokey
 89
 참고
 openManipulatorX , moveit2
-
-
-![Image 142](../../assets/images/ros/projects/simulation/img_089_142.webp)
-
 
 ![Image 143](../../assets/images/ros/projects/simulation/img_089_143.webp)
 
@@ -2577,10 +2258,6 @@ Rokey
 참고
 Make a world
 
-
-![Image 146](../../assets/images/ros/projects/simulation/img_100_146.webp)
-
-
 HUMAN AI ROBOTICS
 101
 시뮬레이션월드만들기
@@ -2646,10 +2323,6 @@ Rokey
 차동구동로봇패키지
 참고
 예시 프로젝트
-
-
-![Image 155](../../assets/images/ros/projects/simulation/img_105_155.webp)
-
 
 HUMAN AI ROBOTICS
 Turtlebot3 Manipulation
@@ -2813,4 +2486,3 @@ Rokey
 감사합니다.
 
 
-![Image 175](../../assets/images/ros/projects/simulation/img_116_175.webp)

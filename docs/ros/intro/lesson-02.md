@@ -35,9 +35,6 @@ Python을이용한패키지생성실습
 
 ![Image 2](../../assets/images/ros/intro/lesson-02/img_004_002.webp)
 
-
-
-
 ![Image 4](../../assets/images/ros/intro/lesson-02/img_004_004.webp)
 
 
@@ -48,18 +45,6 @@ Python을이용한패키지생성실습
 1.
 2.
 3. 파일생성확인
-
-
-
-
-
-
-
-
-
-
-
-
 ![Image 10](../../assets/images/ros/intro/lesson-02/img_005_010.webp)
 
 
@@ -95,13 +80,6 @@ String : std_msgs 패키지에서제공하는문자열메시지타입
 MinimalPublisher 클래스정의
 •
 Node 클래스를상속받아ROS2 노드를정의
-
-
-![Image 12](../../assets/images/ros/intro/lesson-02/img_007_012.webp)
-
-
-
-
 ![Image 14](../../assets/images/ros/intro/lesson-02/img_007_014.webp)
 
 
@@ -131,10 +109,6 @@ MinimalPublisher 클래스의인스턴스를생성하고, rclpy.spin()을사용�
 →요약하면, 이코드는'Hello World: [count]' 형식의메시지를0.5초마다'topic'이라는토픽으로
 발행하는간단한ROS2 Publisher 노드를정의하고실행
 
-
-![Image 15](../../assets/images/ros/intro/lesson-02/img_008_015.webp)
-
-
 Python을이용한패키지생성실습
 07
 01
@@ -143,9 +117,6 @@ Python을이용한패키지생성실습
 Package.xml 의존성(dependencies) 추가
 •
 ros2_ws/src/py_pubsub 디렉토리로아래하이라이트된파일들에대하여작업필요
-
-
-
 
 ![Image 17](../../assets/images/ros/intro/lesson-02/img_009_017.webp)
 
@@ -156,12 +127,6 @@ Python을이용한패키지생성실습
 ▶의존성추가
 •
 Package.xml  설정
-
-
-
-
-
-
 Python을이용한패키지생성실습
 09
 01
@@ -186,9 +151,6 @@ std_msgs: ROS에서기본적으로제공하는메시지타입들의모음ex) Str
 
 
 ![Image 20](../../assets/images/ros/intro/lesson-02/img_011_020.webp)
-
-
-
 
 ![Image 22](../../assets/images/ros/intro/lesson-02/img_011_022.webp)
 
@@ -253,12 +215,6 @@ Python을이용한패키지생성실습
 ▶의존성추가
 •
 setup.py 설정
-
-
-
-
-
-
 Python을이용한패키지생성실습
 12
 01
@@ -267,12 +223,6 @@ Python을이용한패키지생성실습
 ​setup.py 파일열고수정하기(package.xml 파일과동일하게작성)
 •
 entry_points 필드부분에talker 추가하기(추가후저장하기)
-
-
-
-
-
-
 Python을이용한패키지생성실습
 13
 01
@@ -330,35 +280,15 @@ Python을이용한패키지생성실습
 3.
 4.
 
-
-
-
 ![Image 31](../../assets/images/ros/intro/lesson-02/img_017_031.webp)
-
-
-
 
 ![Image 33](../../assets/images/ros/intro/lesson-02/img_017_033.webp)
 
-
-
-
 ![Image 35](../../assets/images/ros/intro/lesson-02/img_017_035.webp)
-
-
-
-
-![Image 37](../../assets/images/ros/intro/lesson-02/img_017_037.webp)
-
-
 Python을이용한패키지생성실습
 16
 01
 ▶Subscriber code 분석
-
-
-![Image 38](../../assets/images/ros/intro/lesson-02/img_018_038.webp)
-
 
 Python을이용한패키지생성실습
 17
@@ -423,9 +353,6 @@ Setup.py 수정
 •
 console_script에listener 내용추가
 
-
-
-
 ![Image 40](../../assets/images/ros/intro/lesson-02/img_021_040.webp)
 
 
@@ -435,9 +362,6 @@ Python을이용한패키지생성실습
 ▶Subscriber node 작성
 •
 Setup.py 전체코드
-
-
-
 
 ![Image 42](../../assets/images/ros/intro/lesson-02/img_022_042.webp)
 
@@ -454,9 +378,6 @@ Python을이용한패키지생성실습
 
 ![Image 43](../../assets/images/ros/intro/lesson-02/img_023_043.webp)
 
-
-
-
 ![Image 45](../../assets/images/ros/intro/lesson-02/img_023_045.webp)
 
 
@@ -471,23 +392,10 @@ install/setup.bash를source 수행
 •
 새로운터미널을열어서입력
 
-
-
-
 ![Image 48](../../assets/images/ros/intro/lesson-02/img_024_048.webp)
 
 
-
-
-![Image 50](../../assets/images/ros/intro/lesson-02/img_024_050.webp)
-
-
-
-
 ![Image 52](../../assets/images/ros/intro/lesson-02/img_024_052.webp)
-
-
-
 
 ![Image 54](../../assets/images/ros/intro/lesson-02/img_024_054.webp)
 
@@ -526,13 +434,6 @@ ament_cmake에는메시지를include하거나import할수있게하는기능이�
 ament_python에는없음
 
 
-![Image 55](../../assets/images/ros/intro/lesson-02/img_026_055.webp)
-
-
-
-
-
-
 02
 25
 토픽, 서비스, 액션인터페이스
@@ -547,9 +448,6 @@ msg/MyMsg.msg
 srv/MySrv.srv
 •
 action/MyAction.action
-
-
-
 
 ![Image 59](../../assets/images/ros/intro/lesson-02/img_027_059.webp)
 
@@ -573,10 +471,6 @@ action/MyAction.action
 
 ![Image 61](../../assets/images/ros/intro/lesson-02/img_028_061.webp)
 
-
-![Image 62](../../assets/images/ros/intro/lesson-02/img_028_062.webp)
-
-
 02
 27
 토픽, 서비스, 액션인터페이스
@@ -595,9 +489,6 @@ action/MyAction.action
 인터페이스패키지생성
 ▶Package.xml 파일수정
 
-
-
-
 ![Image 66](../../assets/images/ros/intro/lesson-02/img_030_066.webp)
 
 
@@ -610,9 +501,6 @@ action/MyAction.action
 
 ![Image 67](../../assets/images/ros/intro/lesson-02/img_031_067.webp)
 
-
-
-
 ![Image 69](../../assets/images/ros/intro/lesson-02/img_031_069.webp)
 
 
@@ -621,9 +509,6 @@ action/MyAction.action
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
 ▶빌드
-
-
-
 
 ![Image 71](../../assets/images/ros/intro/lesson-02/img_032_071.webp)
 
@@ -634,17 +519,7 @@ action/MyAction.action
 인터페이스패키지생성
 ▶빌드결과
 
-
-
-
 ![Image 73](../../assets/images/ros/intro/lesson-02/img_033_073.webp)
-
-
-
-
-![Image 75](../../assets/images/ros/intro/lesson-02/img_033_075.webp)
-
-
 02
 32
 토픽, 서비스, 액션인터페이스
@@ -659,22 +534,11 @@ action/MyAction.action
 33
 02
 ▶새로운패키지를새로생성하여, msg interface 테스트진행
-
-
-
-
-![Image 78](../../assets/images/ros/intro/lesson-02/img_035_078.webp)
-
-
 토픽, 서비스, 액션인터페이스실습
 34
 02
 ▶my_msg_test.py를생성하고
 다음과같이작성
-
-
-![Image 79](../../assets/images/ros/intro/lesson-02/img_036_079.webp)
-
 
 토픽, 서비스, 액션인터페이스실습
 35
@@ -682,9 +546,6 @@ action/MyAction.action
 ▶package.xml
 •
 Package.xml에앞에생성한인터페이스패키지추가
-
-
-
 
 ![Image 81](../../assets/images/ros/intro/lesson-02/img_037_081.webp)
 
@@ -695,13 +556,6 @@ Package.xml에앞에생성한인터페이스패키지추가
 ▶setup.py
 •
 setup.py에콘솔스크립트추가
-
-
-
-
-![Image 83](../../assets/images/ros/intro/lesson-02/img_038_083.webp)
-
-
 토픽, 서비스, 액션인터페이스실습
 37
 02
@@ -709,18 +563,9 @@ setup.py에콘솔스크립트추가
 터미널- 1
 터미널- 2
 
-
-
-
 ![Image 85](../../assets/images/ros/intro/lesson-02/img_039_085.webp)
 
-
-
-
 ![Image 87](../../assets/images/ros/intro/lesson-02/img_039_087.webp)
-
-
-
 
 ![Image 89](../../assets/images/ros/intro/lesson-02/img_039_089.webp)
 
@@ -790,9 +635,6 @@ checker 노드에전송
 토픽, 서비스, 액션인터페이스
 토픽, 서비스, 액션복습
 
-
-
-
 03
 42
 토픽, 서비스, 액션인터페이스
@@ -801,22 +643,9 @@ checker 노드에전송
 ▶폴더구성
 
 
-
-
-![Image 94](../../assets/images/ros/intro/lesson-02/img_044_094.webp)
-
-
-
-
 ![Image 96](../../assets/images/ros/intro/lesson-02/img_044_096.webp)
 
-
-
-
 ![Image 98](../../assets/images/ros/intro/lesson-02/img_044_098.webp)
-
-
-
 
 03
 43
@@ -880,9 +709,6 @@ Setup.py
 
 
 ![Image 109](../../assets/images/ros/intro/lesson-02/img_048_109.webp)
-
-
-
 
 03
 47
@@ -1064,9 +890,6 @@ finally:
     [INFO] [1745347616.076176764] [minimal_subscriber]: I heard: Hello World: 28
     [INFO] [1745347617.081895438] [minimal_publisher]: Publishing: Hello World: 29
     [INFO] [1745347617.085371150] [minimal_subscriber]: I heard: Hello World: 29
-
-
-
 ### PublisherTest
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/OWNER/study-site/blob/main/notebooks/ros/jupyter_ros/PublisherTest.ipynb)
@@ -1081,27 +904,18 @@ test_node = rclpy.create_node('pub_test')
 ```
 
     1745315536.778231 [25]    python3: selected interface "lo" is not multicast-capable: disabling multicast
-
-
-
 ```python
 msg = Twist()
 print(msg)
 ```
 
     geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=0.0, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0.0, y=0.0, z=0.0))
-
-
-
 ```python
 msg.linear.x = 0.0
 print(msg)
 ```
 
     geometry_msgs.msg.Twist(linear=geometry_msgs.msg.Vector3(x=0.0, y=0.0, z=0.0), angular=geometry_msgs.msg.Vector3(x=0.0, y=0.0, z=0.0))
-
-
-
 ```python
 pub = test_node.create_publisher(Twist, '/turtle1/cmd_vel', 10)
 ```
@@ -1142,9 +956,6 @@ rclpy.spin(test_node)
     4
     5
     6
-
-
-
     ---------------------------------------------------------------------------
 
     Exception                                 Traceback (most recent call last)
@@ -1211,9 +1022,6 @@ rclpy.spin(test_node)
 
 
     Exception: publisher stop
-
-
-
 ```python
 cnt = 0
 phase = 0  # 짝수: 직진 / 홀수: 회전
@@ -1357,9 +1165,6 @@ rclpy.spin(test_node)
     [13] Phase: 5
     [14] Phase: 5
     삼각형 그리기 완료 - shutdown
-
-
-
 ```python
 
 ```
@@ -1387,9 +1192,6 @@ test_node = rclpy.create_node('sub_test')
 ```
 
     [WARN] [1744163682.294190713] [rcl.logging_rosout]: Publisher already registered for provided node name. If this is due to multiple nodes with the same name then all logs for that logger name will go out over the existing publisher. As soon as any node with that name is destructed it will unregister the publisher, preventing any further logs for that name from being published on the rosout topic.
-
-
-
 ```python
 def callback1(data):
     print('---')
@@ -1415,13 +1217,7 @@ def callback2(data):
 test_node.create_subscription(Pose, '/turtle1/pose',callback1,10)
 ```
 
-
-
-
     <rclpy.subscription.Subscription at 0x755184771b70>
-
-
-
 
 ```python
 # node 연결
@@ -1429,22 +1225,13 @@ test_node.create_subscription(Pose, '/turtle1/pose',callback1,10)
 test_node.create_subscription(Pose, '/turtle1/pose',callback2,10)
 ```
 
-
-
-
     <rclpy.subscription.Subscription at 0x7551847f0370>
-
-
-
 
 ```python
 rclpy.spin_once(test_node)
 ```
 
     > 6 -> X : 5.544444561004639 ,Y :  5.544444561004639
-
-
-
     ---------------------------------------------------------------------------
 
     Exception                                 Traceback (most recent call last)
@@ -1510,9 +1297,6 @@ rclpy.spin_once(test_node)
 
 
     Exception: subscription Stop
-
-
-
 ```python
 # 노드 구독 once는 한번만 그냥 spin은 무한 반복
 rclpy.spin(test_node)
@@ -1522,9 +1306,6 @@ rclpy.spin(test_node)
     > 2 -> X : 5.544444561004639 ,Y :  5.544444561004639
     > 3 -> X : 5.544444561004639 ,Y :  5.544444561004639
     > 4 -> X : 5.544444561004639 ,Y :  5.544444561004639
-
-
-
     ---------------------------------------------------------------------------
 
     Exception                                 Traceback (most recent call last)
@@ -1591,9 +1372,6 @@ rclpy.spin(test_node)
 
 
     Exception: subscription Stop
-
-
-
 ```python
 
 ```

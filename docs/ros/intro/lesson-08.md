@@ -19,9 +19,6 @@ Contents
 패키지설계
 ▶패키지구성
 
-
-
-
 02
 02
 •
@@ -40,14 +37,7 @@ Node 클래스의create_publisher 함수를사용
 토픽프로그래밍
 토픽퍼블리셔코드
 
-
-
-
 ![Image 4](../../assets/images/ros/intro/lesson-08/img_004_004.webp)
-
-
-![Image 5](../../assets/images/ros/intro/lesson-08/img_004_005.webp)
-
 
 02
 •
@@ -73,12 +63,6 @@ get_logger().info() 를사용하여디버깅목적으로변수a, b
 ▶로그출력
 토픽프로그래밍
 토픽퍼블리셔코드
-
-
-
-
-
-
 02
 04
 토픽프로그래밍
@@ -105,12 +89,6 @@ QoS 설정값: RELIABLE, KEEP_LAST, DEPTH 10, VOLATILE
 •
 QoS에대한자세한내용은'DDS의QoS(Quality of 
 Service)' 강좌참고
-
-
-
-
-
-
 02
 05
 •
@@ -139,12 +117,6 @@ ReentrantCallbackGroup: 제한없이콜백함수를병렬로
 실행가능
 토픽프로그래밍
 토픽서브스크라이버코드
-
-
-
-
-
-
 02
 06
 토픽프로그래밍
@@ -159,12 +131,6 @@ ReentrantCallbackGroup: 제한없이콜백함수를병렬로
 토픽으로받은시간, 변수a, b 값을화면에표시
 •
 get_arithmetic_argument
-
-
-
-
-
-
 02
 07
 ▶entry_points 설정
@@ -184,9 +150,6 @@ checker 노드: ex_calculator 패키지의checker 폴더의main.py main문에실
 토픽프로그래밍
 노드실행코드
 
-
-
-
 02
 08
 ▶argument 노드
@@ -204,12 +167,6 @@ rclpy.spin 함수를이용하여생성한노드를spin
 rclpy.shutdown 함수로노드를종료
 토픽프로그래밍
 노드실행코드
-
-
-
-
-
-
 02
 토픽프로그래밍
 노드실행코드
@@ -245,9 +202,6 @@ executor.spin()으로노드를실행하여지정된콜백함수실행가능’
 rclpy.shutdown으로노드를종료
 09
 
-
-
-
 ![Image 18](../../assets/images/ros/intro/lesson-08/img_011_018.webp)
 
 
@@ -258,9 +212,6 @@ rclpy.shutdown으로노드를종료
 
 
 ![Image 19](../../assets/images/ros/intro/lesson-08/img_012_019.webp)
-
-
-
 
 03
 서비스프로그래밍
@@ -532,9 +483,6 @@ get_logger().info()을통해터미널창에출
 력후goal_handle.publish_feedback() 함
 수를통해액션클라이언트로전송
 
-
-
-
 04
 액션프로그래밍
 액션서버코드
@@ -547,9 +495,6 @@ goal_handle.succeed()를실행시켜액션
 를저장하고total_sum에연산합계를저
 장하여액션결과값인result은리턴
 
-
-
-
 04
 액션프로그래밍
 액션서버실행코드
@@ -560,10 +505,6 @@ src/ex_calculator/ex_calculator/calculator/main.py
 할을하는복합기능의노드
 ▶해당코드에대한설명은토픽프로그래밍
 (Python) 강좌참조
-
-
-![Image 33](../../assets/images/ros/intro/lesson-08/img_024_033.webp)
-
 
 04
 액션프로그래밍
@@ -587,10 +528,6 @@ rclpy.node 모듈의Node 클래스를상속
 •
 액션이름: 'arithmetic_checker’
 
-
-![Image 34](../../assets/images/ros/intro/lesson-08/img_025_034.webp)
-
-
 04
 액션프로그래밍
 액션클라이언트코드
@@ -606,13 +543,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 ▶연결에문제가있을때에while문을
 반복하게되고문제없이연결되었을
 때에는다음구문으로넘어감
-
-
-![Image 35](../../assets/images/ros/intro/lesson-08/img_026_035.webp)
-
-
-
-
 04
 액션프로그래밍
 액션클라이언트코드
@@ -840,9 +770,6 @@ python 패키지설정파일'setup.py'에옵션을추가해야
 초기화가능
 src/ex_calculator/launch/arithmetic.launch.py
 
-
-
-
 ![Image 46](../../assets/images/ros/intro/lesson-08/img_035_046.webp)
 
 
@@ -986,15 +913,6 @@ add_argument() 메서드를호출하고인자의내용을채워
 
 ![Image 52](../../assets/images/ros/intro/lesson-08/img_039_052.webp)
 
-
-
-
-
-
-
-
-
-
 07
 런치프로그래밍
 ROS2 Launch System
@@ -1018,12 +936,6 @@ argument 노드와calculator 노드를실행
 'arithmetic.launch.py' 파일은하기위치에위치해있음
 └ ex_calculator/launch/arithmetic.launch.py
 38
-
-
-
-
-
-
 07
 런치프로그래밍
 launch 작성
@@ -1046,12 +958,6 @@ generate_launch_description 메소드를정의하여사용
 해당파일의내용은앞서다룬'파라미터프로그래밍
 (Python)’ 참고
 39
-
-
-
-
-
-
 
 
 ![Image 62](../../assets/images/ros/intro/lesson-08/img_041_062.webp)
@@ -1159,9 +1065,6 @@ get_package_share_directory 함수에불러올패키지명
 •
 널리사용되는유용한기능이므로참고할것
 
-
-
-
 ![Image 67](../../assets/images/ros/intro/lesson-08/img_045_067.webp)
 
 
@@ -1185,9 +1088,6 @@ Python 패키지설정파일(setup.py)의data_files 옵션에launch 폴더를지
 •
 효과: 패키지소스코드내launch 폴더에있는*.launch.py 파일들이설치폴더에복사되어위치하게됨
 45
-
-
-
 
 ![Image 69](../../assets/images/ros/intro/lesson-08/img_047_069.webp)
 

@@ -5,17 +5,6 @@ ROKEY BOOT CAMP
 Apr, 2025
 ROS2 기초-1차시
 
-
-![Image 2](../../assets/images/ros/basics/lesson-01/img_001_002.webp)
-
-
-
-
-![Image 4](../../assets/images/ros/basics/lesson-01/img_001_004.webp)
-
-
-
-
 2
 ROKEY BOOT CAMP
 훈련일정
@@ -72,9 +61,6 @@ ROKEY BOOT CAMP
 불과했습니다.
 [출처] 로봇의탄생과발전그리고미래|작성자한국과학기술연구원
 
-
-
-
 4
 ROKEY BOOT CAMP
 로봇의역사
@@ -115,12 +101,6 @@ ROKEY BOOT CAMP
 1위를했다고합니다. 당시대회에서는차량운전, 사다리타기, 장애물제거등인간
 구조대원이실제로재난현장에서하는활동을해내야했다고하는데이대회에서
 1등을했다니대단하죠?
-
-
-
-
-
-
 ![Image 10](../../assets/images/ros/basics/lesson-01/img_005_010.webp)
 
 
@@ -191,28 +171,14 @@ ROKEY BOOT CAMP
 일상생활속으로스며들고있는겁니다.
 [출처] 로봇의탄생과발전그리고미래|작성자한국과학기술연구원
 
-
-
-
 ![Image 18](../../assets/images/ros/basics/lesson-01/img_008_018.webp)
 
 
 ![Image 19](../../assets/images/ros/basics/lesson-01/img_008_019.webp)
 
-
-![Image 20](../../assets/images/ros/basics/lesson-01/img_008_020.webp)
-
-
 9
 ROKEY BOOT CAMP
 로봇의역사
-
-
-![Image 21](../../assets/images/ros/basics/lesson-01/img_009_021.webp)
-
-
-
-
 ![Image 23](../../assets/images/ros/basics/lesson-01/img_009_023.webp)
 
 
@@ -291,28 +257,7 @@ BIOS 설정로드
 초기프로세스실행
 사용자인터페이스실행
 
-
-
-
-
-
-
-
-
-
 ![Image 36](../../assets/images/ros/basics/lesson-01/img_012_036.webp)
-
-
-![Image 37](../../assets/images/ros/basics/lesson-01/img_012_037.webp)
-
-
-
-
-![Image 39](../../assets/images/ros/basics/lesson-01/img_012_039.webp)
-
-
-![Image 40](../../assets/images/ros/basics/lesson-01/img_012_040.webp)
-
 
 ![Image 41](../../assets/images/ros/basics/lesson-01/img_012_041.webp)
 
@@ -392,9 +337,6 @@ BIOS 설정로드
 
 
 ![Image 58](../../assets/images/ros/basics/lesson-01/img_013_058.webp)
-
-
-
 
 14
 ROKEY BOOT CAMP
@@ -1459,9 +1401,6 @@ ROKEY BOOT CAMP
 
 ![Image 147](../../assets/images/ros/basics/lesson-01/img_060_147.webp)
 
-
-
-
 ![Image 149](../../assets/images/ros/basics/lesson-01/img_060_149.webp)
 
 
@@ -1478,9 +1417,6 @@ ROKEY BOOT CAMP
 
 
 ![Image 154](../../assets/images/ros/basics/lesson-01/img_060_154.webp)
-
-
-
 
 61
 ROKEY BOOT CAMP
@@ -1875,17 +1811,4 @@ gedit
 
 ROKEY BOOT CAMP
 수고하셨습니다.
-
-
-![Image 185](../../assets/images/ros/basics/lesson-01/img_078_185.webp)
-
-
-![Image 186](../../assets/images/ros/basics/lesson-01/img_078_186.webp)
-
-
-![Image 187](../../assets/images/ros/basics/lesson-01/img_078_187.webp)
-
-
-![Image 188](../../assets/images/ros/basics/lesson-01/img_078_188.webp)
-
 

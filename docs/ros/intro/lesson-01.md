@@ -19,9 +19,6 @@ ROS2 프로그래밍입문
 ROS2 프로그래밍입문(1차시)
 1. ROS2 프로그래밍기초
 
-
-
-
 ▶ROS2 프로그래밍기초
 1. ROS2 프로그래밍이란?
 2. 프로그래밍규칙
@@ -38,9 +35,6 @@ Contents
 ROS2 프로그래밍이란?
 로봇SW
 
-
-
-
 01
 02
 ▶Message
@@ -54,9 +48,6 @@ Message ㅡTopic
 이지만N:N 통신도가능
 • 비동기성과연속성을가지기때문에센서값전송이나항시
 정보를주고받아야하는부분에서주로사용
-
-
-
 
 ![Image 5](../../assets/images/ros/intro/lesson-01/img_006_005.webp)
 
@@ -78,9 +69,6 @@ Message ㅡService
 
 ![Image 6](../../assets/images/ros/intro/lesson-01/img_007_006.webp)
 
-
-
-
 01
 04
 ▶Message
@@ -95,9 +83,6 @@ Action Server 간의통신
 
 
 ![Image 8](../../assets/images/ros/intro/lesson-01/img_008_008.webp)
-
-
-
 
 01
 05
@@ -119,9 +104,6 @@ Message ㅡAction
 06
 ROS2 프로그래밍이란?
 ROS1과ROS2비교
-
-
-
 
 01
 07
@@ -274,9 +256,6 @@ K&R
 BSD
 GNU
 
-
-
-
 ![Image 15](../../assets/images/ros/intro/lesson-01/img_018_015.webp)
 
 
@@ -284,9 +263,6 @@ GNU
 
 
 ![Image 17](../../assets/images/ros/intro/lesson-01/img_018_017.webp)
-
-
-
 
 02
 15
@@ -348,9 +324,6 @@ set < list <string> >처럼
 • 패키지생성시만들어지는파일의경우규칙을따르지
 않음
 
-
-
-
 ![Image 20](../../assets/images/ros/intro/lesson-01/img_021_020.webp)
 
 
@@ -370,13 +343,7 @@ setup.bash를선언하여사용
 
 ![Image 21](../../assets/images/ros/intro/lesson-01/img_022_021.webp)
 
-
-
-
 ![Image 23](../../assets/images/ros/intro/lesson-01/img_022_023.webp)
-
-
-
 
 ![Image 25](../../assets/images/ros/intro/lesson-01/img_022_025.webp)
 
@@ -453,9 +420,6 @@ colcon_cd
 • ROS1의ros_cd와비슷한기능
 • ./bashrc에아래와같이추가
 
-
-
-
 ![Image 27](../../assets/images/ros/intro/lesson-01/img_025_027.webp)
 
 
@@ -468,9 +432,6 @@ rosdep
 • rosdep은패키지환경설정파일인package.xml의<depend> 옵션과같은의존성정보를확인
 하여의존성패키지들을설치해주기때문에의존성패키지가많은패키지의경우, 위명령어를
 사용하면의존성패키지설치및관리에있어서매우편하게사용가능
-
-
-
 
 ![Image 29](../../assets/images/ros/intro/lesson-01/img_026_029.webp)
 
@@ -577,13 +538,7 @@ ROS의변수중하나인ns(namespace)를입력
 2.
 복수의namespace 생성
 
-
-
-
 ![Image 32](../../assets/images/ros/intro/lesson-01/img_032_032.webp)
-
-
-
 
 ![Image 34](../../assets/images/ros/intro/lesson-01/img_032_034.webp)
 
@@ -601,13 +556,7 @@ Uninstall
 ▶ROS2 관련패키지들삭제
 ▶ROS2 repository 삭제
 
-
-
-
 ![Image 38](../../assets/images/ros/intro/lesson-01/img_033_038.webp)
-
-
-
 
 ![Image 40](../../assets/images/ros/intro/lesson-01/img_033_040.webp)
 
@@ -619,9 +568,6 @@ Python을이용한패키지생성
 • 노드(Node): 실행가능한최소한의프로세서단위
 • 패키지(Package): 하나이상의노드가기능적단위
 로묶인것
-
-
-
 
 ![Image 42](../../assets/images/ros/intro/lesson-01/img_034_042.webp)
 

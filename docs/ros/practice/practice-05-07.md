@@ -6,32 +6,12 @@ ROS-2 프로그래밍 실습 강의자료
 ROKEY BOOT CAMP
 5 ~ 7 차시
 
-
-![Image 2](../../assets/images/ros/practice/practice-05-07/img_001_002.webp)
-
-
-
-
-![Image 4](../../assets/images/ros/practice/practice-05-07/img_001_004.webp)
-
-
-
-
 2
 OpenCV와 ROS2연동
 Lane Detection
 두산 Robot Simulation 실습
 Open3D
 Contents
-
-
-
-
-
-
-
-
-
 
 두산 로봇팔과 시뮬레이션 실습
 ▪로봇 팔(Manipulator)
@@ -43,18 +23,10 @@ Contents
 사람의 손과 유사하며 물체를 쥐고 조작할 수 있음
 용도에 알맞은 다양한 크기와 구조의 그리퍼가 있음
 
-
-![Image 10](../../assets/images/ros/practice/practice-05-07/img_003_010.webp)
-
-
 ![Image 11](../../assets/images/ros/practice/practice-05-07/img_003_011.webp)
 
 
 ![Image 12](../../assets/images/ros/practice/practice-05-07/img_003_012.webp)
-
-
-![Image 13](../../assets/images/ros/practice/practice-05-07/img_003_013.webp)
-
 
 ![Image 14](../../assets/images/ros/practice/practice-05-07/img_003_014.webp)
 
@@ -91,10 +63,6 @@ Odometry 좌표계
 7.
 기타 좌표계 : Sensor좌표계(LiDAR, IMU등의 센서 고유 좌표계), Camera 좌표계(카메라의 렌즈 중심을 원점으로 하여 Z축이 보는 방향) 등
 
-
-![Image 17](../../assets/images/ros/practice/practice-05-07/img_004_017.webp)
-
-
 ![Image 18](../../assets/images/ros/practice/practice-05-07/img_004_018.webp)
 
 
@@ -111,10 +79,6 @@ Odometry 좌표계
 TCP란?
 Tool Center Point의 약자로 로봇에 장착된 도구의 위치와 방향을 카르테시안 좌표계로 표현함
 Rx, Rx, Rz
-
-
-![Image 19](../../assets/images/ros/practice/practice-05-07/img_005_019.webp)
-
 
 ![Image 20](../../assets/images/ros/practice/practice-05-07/img_005_020.webp)
 
@@ -163,13 +127,6 @@ MoveJ에 비해 상대적으로 모션의 속도가 느림
 예시
 특이점이란?
 작업공간의 제한이나 구조적 한계로로봇을 제어할 수 없는 상태를 의미함
-
-
-![Image 25](../../assets/images/ros/practice/practice-05-07/img_006_025.webp)
-
-
-
-
 ![Image 27](../../assets/images/ros/practice/practice-05-07/img_006_027.webp)
 
 
@@ -198,10 +155,6 @@ MoveJ에 비해 상대적으로 모션의 속도가 느림
 예를 들면 아래 그림 1의 상태에서 로봇이 빨간 점으로 이동하고자 할 때, 로봇은 그림 2처럼 다음 자세를 A 자세가 되도록 각 관절을 움직
 여야 하는 건지 B 자세로 움직여야 하는 건지 판단을 할 수가 없는 상태가 되며 이 위치(또는 점)를 특이점이라고 함
 
-
-![Image 33](../../assets/images/ros/practice/practice-05-07/img_007_033.webp)
-
-
 ![Image 34](../../assets/images/ros/practice/practice-05-07/img_007_034.webp)
 
 
@@ -225,10 +178,6 @@ MoveJ에 비해 상대적으로 모션의 속도가 느림
 선행 모션을 무시하고 덮어씌울 것인지(Override)를 선택하는 옵션
 연속된 움직임을 보다 부드럽고 자연스럽게 수행. 각 지점에서 정지하지 않고 꺾이지 않게 부드럽게 이어지는 경로 생성
 
-
-![Image 35](../../assets/images/ros/practice/practice-05-07/img_008_035.webp)
-
-
 ![Image 36](../../assets/images/ros/practice/practice-05-07/img_008_036.webp)
 
 
@@ -246,10 +195,6 @@ Async
 수행하는 것으로 모션이 부드럽게 연결됨
 동작을 빠르게 수행하여 작업 효율의 증대
 But 제어 로직이 복잡해질 수 있음
-
-
-![Image 38](../../assets/images/ros/practice/practice-05-07/img_009_038.webp)
-
 
 ![Image 39](../../assets/images/ros/practice/practice-05-07/img_009_039.webp)
 
@@ -274,10 +219,6 @@ Override
 ▪즉각적인 작업전환으로 비상상황 대처에 적합
 ▪속도가 중요한 연속작업(Palletizing, Pick & Place)
 ▪미리 방향을 틀어서 이동
-
-
-![Image 42](../../assets/images/ros/practice/practice-05-07/img_010_042.webp)
-
 
 ![Image 43](../../assets/images/ros/practice/practice-05-07/img_010_043.webp)
 
@@ -313,10 +254,6 @@ K = F/X
 (K는 강성, F는 외력, X는 이동거리
 K는 스프링 상수의 역할)
 
-
-![Image 48](../../assets/images/ros/practice/practice-05-07/img_011_048.webp)
-
-
 ![Image 49](../../assets/images/ros/practice/practice-05-07/img_011_049.webp)
 
 
@@ -337,21 +274,7 @@ K는 스프링 상수의 역할)
 작업 반경에 따라서 최대 가반하중이 달라지기 때문에 이에 유의해야 함
 작업반경
 가반하중(Payload)
-
-
-
-
-![Image 53](../../assets/images/ros/practice/practice-05-07/img_012_053.webp)
-
-
 ![Image 54](../../assets/images/ros/practice/practice-05-07/img_012_054.webp)
-
-
-
-
-
-
-![Image 57](../../assets/images/ros/practice/practice-05-07/img_012_057.webp)
 
 
 ![Image 58](../../assets/images/ros/practice/practice-05-07/img_012_058.webp)
@@ -387,13 +310,6 @@ ros2 launch dsr_bringup2 dsr_bringup2_rviz.launch.py mode:=virtual host:=127.0.0
 https://boundless-binder-063.notion.site/ROS-and-DR-1389786e552e800480e8d88cfb5f2fb5
 ▪설치 순서(우측 링크 접속 후 아래 요약내용에 따라 순서대로 실행)
 ※ 필요한파일 : cpp_qt_plugin.zip
-
-
-
-
-![Image 60](../../assets/images/ros/practice/practice-05-07/img_013_060.webp)
-
-
 ![Image 61](../../assets/images/ros/practice/practice-05-07/img_013_061.webp)
 
 
@@ -402,13 +318,6 @@ https://boundless-binder-063.notion.site/ROS-and-DR-1389786e552e800480e8d88cfb5f
 ✓실습환경 실행
 두산 로봇팔과 시뮬레이션 실습
 ▪빌드 및 패키지 실행
-
-
-
-
-![Image 63](../../assets/images/ros/practice/practice-05-07/img_014_063.webp)
-
-
 ![Image 64](../../assets/images/ros/practice/practice-05-07/img_014_064.webp)
 
 
@@ -422,21 +331,10 @@ https://boundless-binder-063.notion.site/ROS-and-DR-1389786e552e800480e8d88cfb5f
 기타 에러 발생 시
 Gazebo simulation 강제 종료 후 
 다시 실행
-
-
-
-
-![Image 66](../../assets/images/ros/practice/practice-05-07/img_015_066.webp)
-
-
 ![Image 67](../../assets/images/ros/practice/practice-05-07/img_015_067.webp)
 
 
 ![Image 68](../../assets/images/ros/practice/practice-05-07/img_015_068.webp)
-
-
-![Image 69](../../assets/images/ros/practice/practice-05-07/img_015_069.webp)
-
 
 21
 실습
@@ -444,21 +342,6 @@ Gazebo simulation 강제 종료 후
 두산 로봇팔과 시뮬레이션 실습
 ▪GUI 컨트롤러 환경 구축 및 GUI 컨트롤러 실행
 ※ cpp_qt_plugin.zip을 ros2_ws 디렉토리에 압축풀기
-
-
-
-
-![Image 71](../../assets/images/ros/practice/practice-05-07/img_016_071.webp)
-
-
-![Image 72](../../assets/images/ros/practice/practice-05-07/img_016_072.webp)
-
-
-![Image 73](../../assets/images/ros/practice/practice-05-07/img_016_073.webp)
-
-
-
-
 ![Image 75](../../assets/images/ros/practice/practice-05-07/img_016_075.webp)
 
 
@@ -470,13 +353,6 @@ Gazebo simulation 강제 종료 후
 ✓실습환경 실행
 두산 로봇팔과 시뮬레이션 실습
 ▪Rviz 및 GUI 컨트롤러 실행
-
-
-
-
-![Image 78](../../assets/images/ros/practice/practice-05-07/img_017_078.webp)
-
-
 ![Image 79](../../assets/images/ros/practice/practice-05-07/img_017_079.webp)
 
 
@@ -487,13 +363,6 @@ Gazebo simulation 강제 종료 후
 ▪Joint값 변경 후 Move_J 실행
 해당 그래프는각 Joint의 변화를 시각화함
 ※ 필히 example dance를 종료해야 GUI의 값 수정사항이 적용되어 Robot이 동작
-
-
-
-
-![Image 81](../../assets/images/ros/practice/practice-05-07/img_018_081.webp)
-
-
 ![Image 82](../../assets/images/ros/practice/practice-05-07/img_018_082.webp)
 
 
@@ -506,13 +375,6 @@ Gazebo simulation 강제 종료 후
 두산 로봇팔과 시뮬레이션 실습
 ▪copy 버튼으로 값 복사
 Ctrl+V를 하면 현재의 Joint값과 TCP의 좌표를 붙여 넣을 수 있음
-
-
-
-
-![Image 85](../../assets/images/ros/practice/practice-05-07/img_019_085.webp)
-
-
 ![Image 86](../../assets/images/ros/practice/practice-05-07/img_019_086.webp)
 
 
@@ -523,13 +385,6 @@ Ctrl+V를 하면 현재의 Joint값과 TCP의 좌표를 붙여 넣을 수 있음
 ▪속도 및 가속도 조절
 슬라이드 바를 이용해서 속도와 가속도를 변경한 뒤 reset버튼 클릭 
 더 느리게 움직이는 것을 확인할 수 있음
-
-
-
-
-![Image 88](../../assets/images/ros/practice/practice-05-07/img_020_088.webp)
-
-
 ![Image 89](../../assets/images/ros/practice/practice-05-07/img_020_089.webp)
 
 
@@ -551,13 +406,6 @@ current_posx는 TCP의 카르테시안 좌표를 나타냄
 빨간 사각형의 그래프 버튼을 눌러
 그래프를 더 직관적으로 확인할 수 있도록 
 다음과 같이 축의 정보를 설정
-
-
-
-
-![Image 92](../../assets/images/ros/practice/practice-05-07/img_021_092.webp)
-
-
 ![Image 93](../../assets/images/ros/practice/practice-05-07/img_021_093.webp)
 
 
@@ -568,15 +416,6 @@ current_posx는 TCP의 카르테시안 좌표를 나타냄
 OpenCV와 ROS2 연동
 
 
-![Image 95](../../assets/images/ros/practice/practice-05-07/img_022_095.webp)
-
-
-![Image 96](../../assets/images/ros/practice/practice-05-07/img_022_096.webp)
-
-
-![Image 97](../../assets/images/ros/practice/practice-05-07/img_022_097.webp)
-
-
 opencv/src의하위디렉토리
 publisher와subscriber 구조
 OpenCV와 ROS2
@@ -585,22 +424,10 @@ OpenCV와 ROS2
 ※ $home에 opencv 워크스페이스새로 만들기
 ※ 필요한파일 : opencv.zip
 
-
-![Image 98](../../assets/images/ros/practice/practice-05-07/img_023_098.webp)
-
-
 ![Image 99](../../assets/images/ros/practice/practice-05-07/img_023_099.webp)
 
 
 ![Image 100](../../assets/images/ros/practice/practice-05-07/img_023_100.webp)
-
-
-![Image 101](../../assets/images/ros/practice/practice-05-07/img_023_101.webp)
-
-
-![Image 102](../../assets/images/ros/practice/practice-05-07/img_023_102.webp)
-
-
 ▪Step 1. opencv 디렉토리로 이동
 ▪Step 3. colcon build
 ▪Step 2. opencv.zip파일의 압축을 해제후
@@ -609,27 +436,10 @@ OpenCV와 ROS2
 OpenCV와ROS2
 실습
 ✓실습 환경 구축
-
-
-![Image 103](../../assets/images/ros/practice/practice-05-07/img_024_103.webp)
-
-
-
-
 ![Image 105](../../assets/images/ros/practice/practice-05-07/img_024_105.webp)
 
 
-
-
-![Image 107](../../assets/images/ros/practice/practice-05-07/img_024_107.webp)
-
-
-
-
 ![Image 109](../../assets/images/ros/practice/practice-05-07/img_024_109.webp)
-
-
-
 
 ![Image 111](../../assets/images/ros/practice/practice-05-07/img_024_111.webp)
 
@@ -642,14 +452,6 @@ OpenCV와ROS2
 실습
 
 
-![Image 113](../../assets/images/ros/practice/practice-05-07/img_025_113.webp)
-
-
-![Image 114](../../assets/images/ros/practice/practice-05-07/img_025_114.webp)
-
-
-
-
 ![Image 116](../../assets/images/ros/practice/practice-05-07/img_025_116.webp)
 
 
@@ -659,67 +461,27 @@ OpenCV와ROS2
 ▪Step 6. rqt 세팅
 OpenCV와ROS2
 실습
-
-
-![Image 118](../../assets/images/ros/practice/practice-05-07/img_026_118.webp)
-
-
-
-
 ![Image 120](../../assets/images/ros/practice/practice-05-07/img_026_120.webp)
-
-
-
 
 ▪Step 7.  토픽 선택
 /hough_transform
 OpenCV와ROS2
 실습
-
-
-![Image 122](../../assets/images/ros/practice/practice-05-07/img_027_122.webp)
-
-
-
-
 ![Image 124](../../assets/images/ros/practice/practice-05-07/img_027_124.webp)
-
-
-
 
 ▪Step 8. 결과확인: 원본 이미지 vs 허프 변환 이미지
 직선을검출해서초록색으로표현함
 HoughLinesP()의파라미터를조절하여정확도를높일수있음
 OpenCV와ROS2
 실습
-
-
-![Image 126](../../assets/images/ros/practice/practice-05-07/img_028_126.webp)
-
-
-
-
 ![Image 128](../../assets/images/ros/practice/practice-05-07/img_028_128.webp)
 
-
-
-
 ![Image 130](../../assets/images/ros/practice/practice-05-07/img_028_130.webp)
-
-
-
 
 ▪Step 9. 결과확인: 노드 그래프
 OpenCV와ROS2
 실습
 그래프가 제대로 보이지 않는다면 Nodes/Topics (active)로 변경 후 새로고침 버튼을 클릭
-
-
-![Image 132](../../assets/images/ros/practice/practice-05-07/img_029_132.webp)
-
-
-
-
 ![Image 134](../../assets/images/ros/practice/practice-05-07/img_029_134.webp)
 
 
@@ -729,13 +491,6 @@ OpenCV와ROS2
 ▪Appendix. 직선이외에 circle도 감지 가능
 OpenCV와ROS2
 실습
-
-
-![Image 136](../../assets/images/ros/practice/practice-05-07/img_030_136.webp)
-
-
-
-
 ![Image 138](../../assets/images/ros/practice/practice-05-07/img_030_138.webp)
 
 
@@ -750,13 +505,6 @@ OpenCV와ROS2
 실습
 ※ sudoku.png로 circle검출해보기, coin.png로 line 검출해보기
 ※ 그 외 다른 그림으로 해보기
-
-
-![Image 141](../../assets/images/ros/practice/practice-05-07/img_031_141.webp)
-
-
-
-
 ![Image 143](../../assets/images/ros/practice/practice-05-07/img_031_143.webp)
 
 
@@ -776,10 +524,6 @@ OpenCV
 자율 주행, 얼굴 인식 등 다양한 분야에서 활용됨
 OpenCV와 ROS2
 OpenCV란?
-
-
-![Image 145](../../assets/images/ros/practice/practice-05-07/img_032_145.webp)
-
 
 ![Image 146](../../assets/images/ros/practice/practice-05-07/img_032_146.webp)
 
@@ -802,16 +546,6 @@ OpenCV 좌표계
 데이터 타입
 데이터 연산
 ( 0 ,  0 )
-
-
-![Image 149](../../assets/images/ros/practice/practice-05-07/img_033_149.webp)
-
-
-
-
-
-
-
 
 ![Image 153](../../assets/images/ros/practice/practice-05-07/img_033_153.webp)
 
@@ -842,14 +576,7 @@ Threshold 설정Tip
 ▪두 값을 너무 높게 설정하면 →진짜 edge까지 놓칠 수 있음
 ▪일반적으로 Lower는  Upper의 0.4 ~ 0.5로 설정(50, 150)
 
-
-![Image 156](../../assets/images/ros/practice/practice-05-07/img_034_156.webp)
-
-
 ![Image 157](../../assets/images/ros/practice/practice-05-07/img_034_157.webp)
-
-
-
 
 ![Image 159](../../assets/images/ros/practice/practice-05-07/img_034_159.webp)
 
@@ -890,13 +617,6 @@ OpenCV와 ROS2
 y = mx + b →극좌표계로 표현
 Ρ(rho) = x cos θ + y sin θ(theta)
 Ref. HoughLines(image, rho, theta, threshold)
-
-
-![Image 162](../../assets/images/ros/practice/practice-05-07/img_035_162.webp)
-
-
-
-
 ![Image 164](../../assets/images/ros/practice/practice-05-07/img_035_164.webp)
 
 
@@ -910,13 +630,6 @@ Ref. HoughLines(image, rho, theta, threshold)
 ✓허프 변환이란? Circle
 OpenCV와 ROS2
 Edge 검출(Canny, Sobel, Laplacian) →Line or Circle(Hough Transform)
-
-
-![Image 166](../../assets/images/ros/practice/practice-05-07/img_036_166.webp)
-
-
-
-
 ![Image 168](../../assets/images/ros/practice/practice-05-07/img_036_168.webp)
 
 
@@ -948,10 +661,6 @@ minRadius와 maxRadius는 검출할 원의 최소 및 최대 반지름을 설정
 maxRadius=100 →반지름 100픽셀보다 큰 원은 무시)
 OpenCV와 ROS2
 
-
-![Image 170](../../assets/images/ros/practice/practice-05-07/img_037_170.webp)
-
-
 ![Image 171](../../assets/images/ros/practice/practice-05-07/img_037_171.webp)
 
 
@@ -974,13 +683,6 @@ cv2 : openCV 함수를 사용하기 위한 클래스
 ▪ImagePublisher 클래스 정의
 ※ 확인!!!
 $ ros2 interface show sensor_msgs/msg/Image
-
-
-![Image 172](../../assets/images/ros/practice/practice-05-07/img_038_172.webp)
-
-
-
-
 ![Image 174](../../assets/images/ros/practice/practice-05-07/img_038_174.webp)
 
 
@@ -1009,13 +711,6 @@ publish_image()
 OpenCV와ROS2
 실습
 ✓코드 설명- img_pub.py
-
-
-![Image 177](../../assets/images/ros/practice/practice-05-07/img_039_177.webp)
-
-
-
-
 ![Image 179](../../assets/images/ros/practice/practice-05-07/img_039_179.webp)
 
 
@@ -1035,24 +730,9 @@ cv2_to_imgmsg 변환 후 publishing
 ▪Hough Transform 원/선 검출
 ▪cv2_to_imgmsg 변환후
 ▪publishing
-
-
-![Image 180](../../assets/images/ros/practice/practice-05-07/img_040_180.webp)
-
-
-
-
 ![Image 182](../../assets/images/ros/practice/practice-05-07/img_040_182.webp)
 
-
-![Image 183](../../assets/images/ros/practice/practice-05-07/img_040_183.webp)
-
-
 ![Image 184](../../assets/images/ros/practice/practice-05-07/img_040_184.webp)
-
-
-![Image 185](../../assets/images/ros/practice/practice-05-07/img_040_185.webp)
-
 
 ✓코드 설명
 OpenCV와ROS2
@@ -1068,13 +748,6 @@ OpenCV와ROS2
 ▪처리된 image를 publishing 할publisher 생성. Topic이름은 “hough_transform”
 ▪데이터 타입은 sensor_msgs.msg.Image
 ▪method를 line 또는 circle 중 하나를 지정해야 함
-
-
-![Image 186](../../assets/images/ros/practice/practice-05-07/img_041_186.webp)
-
-
-
-
 ![Image 188](../../assets/images/ros/practice/practice-05-07/img_041_188.webp)
 
 
@@ -1091,13 +764,6 @@ method(line/circle)에 따라서 “Hough Transformation＂을 수행 한 다음
 • encoding은 bgr8(blue, green, red, 8bit)
 • Method가 circle이면 원을 찾고, line이면 선을 찾으며 둘 다 아닌 경우 에러 출력
 • 처리된 OpenCV이미지를 다시 ROS2 메지지로 변환하고 “hough_transformation” Topic으로 Publishing함
-
-
-![Image 190](../../assets/images/ros/practice/practice-05-07/img_042_190.webp)
-
-
-
-
 ![Image 192](../../assets/images/ros/practice/practice-05-07/img_042_192.webp)
 
 
@@ -1126,13 +792,6 @@ detect_lines_image()
 ④Param2 : 원 검출 threshold
 ②np.pi/180 : 각도 해상도(라디안)
 ④20 : 선분의 최소 길이
-
-
-![Image 193](../../assets/images/ros/practice/practice-05-07/img_043_193.webp)
-
-
-
-
 ![Image 195](../../assets/images/ros/practice/practice-05-07/img_043_195.webp)
 
 
@@ -1152,24 +811,9 @@ cv2_to_imgmsg 변환 후 publishing
 ▪Hough Transform 원/선 검출
 ▪cv2_to_imgmsg 변환후
 ▪publishing
-
-
-![Image 196](../../assets/images/ros/practice/practice-05-07/img_044_196.webp)
-
-
-
-
 ![Image 198](../../assets/images/ros/practice/practice-05-07/img_044_198.webp)
 
-
-![Image 199](../../assets/images/ros/practice/practice-05-07/img_044_199.webp)
-
-
 ![Image 200](../../assets/images/ros/practice/practice-05-07/img_044_200.webp)
-
-
-![Image 201](../../assets/images/ros/practice/practice-05-07/img_044_201.webp)
-
 
 OpenCV와ROS2
 shape(2, 2, 3) →(h=2, w=2, 3ch)
@@ -1203,25 +847,10 @@ Data
 Step = ? 
 [255, 0, 0, 0, 255, 0, 0, 0, 255, 255, 255, 255]
 Big-Endian(일부ARM) vs Little-Endian(x86계열)
-
-
-![Image 202](../../assets/images/ros/practice/practice-05-07/img_045_202.webp)
-
-
-
-
 ![Image 204](../../assets/images/ros/practice/practice-05-07/img_045_204.webp)
 
 
 ![Image 205](../../assets/images/ros/practice/practice-05-07/img_045_205.webp)
-
-
-![Image 206](../../assets/images/ros/practice/practice-05-07/img_045_206.webp)
-
-
-![Image 207](../../assets/images/ros/practice/practice-05-07/img_045_207.webp)
-
-
 ![Image 208](../../assets/images/ros/practice/practice-05-07/img_045_208.webp)
 
 
@@ -1241,23 +870,11 @@ Workspace 관리
 opencv workspace로 이동
 ros2_ws  workspace로 이동
 
-
-![Image 212](../../assets/images/ros/practice/practice-05-07/img_046_212.webp)
-
-
 ![Image 213](../../assets/images/ros/practice/practice-05-07/img_046_213.webp)
 
 
 52
 Lane Detection
-
-
-![Image 214](../../assets/images/ros/practice/practice-05-07/img_047_214.webp)
-
-
-![Image 215](../../assets/images/ros/practice/practice-05-07/img_047_215.webp)
-
-
 
 
 ![Image 217](../../assets/images/ros/practice/practice-05-07/img_047_217.webp)
@@ -1280,10 +897,6 @@ ROS2와 차선인식
 슬라이딩 윈도우
 자율 주행
 
-
-![Image 218](../../assets/images/ros/practice/practice-05-07/img_048_218.webp)
-
-
 ![Image 219](../../assets/images/ros/practice/practice-05-07/img_048_219.webp)
 
 
@@ -1296,10 +909,6 @@ ROS2와 차선인식
 실습환경구축
 ROS2와 차선인식
 완성된 lane detection 실습 화면 한눈에 보기
-
-
-![Image 222](../../assets/images/ros/practice/practice-05-07/img_049_222.webp)
-
 
 ![Image 223](../../assets/images/ros/practice/practice-05-07/img_049_223.webp)
 
@@ -1319,10 +928,6 @@ opencv
 lane_detect.zip 파일 →기존opencv 안에 아래와 같이 압축 풀기
 ※ 필요한파일 : lane_detect.zip
 
-
-![Image 224](../../assets/images/ros/practice/practice-05-07/img_050_224.webp)
-
-
 ![Image 225](../../assets/images/ros/practice/practice-05-07/img_050_225.webp)
 
 
@@ -1339,10 +944,6 @@ ROS2와 차선인식
 2
 3
 
-
-![Image 227](../../assets/images/ros/practice/practice-05-07/img_051_227.webp)
-
-
 ![Image 228](../../assets/images/ros/practice/practice-05-07/img_051_228.webp)
 
 
@@ -1354,13 +955,6 @@ ROS2와 차선인식
 ROS2와 차선인식
 opencv 디렉토리 구조
 vscode 구조
-
-
-![Image 230](../../assets/images/ros/practice/practice-05-07/img_052_230.webp)
-
-
-
-
 ![Image 232](../../assets/images/ros/practice/practice-05-07/img_052_232.webp)
 
 
@@ -1380,10 +974,6 @@ ROS2와 차선인식
 Step 1. lane_detect.zip파일 압축 해제
 opencv
 
-
-![Image 234](../../assets/images/ros/practice/practice-05-07/img_053_234.webp)
-
-
 ![Image 235](../../assets/images/ros/practice/practice-05-07/img_053_235.webp)
 
 
@@ -1394,9 +984,6 @@ opencv
 
 
 ![Image 238](../../assets/images/ros/practice/practice-05-07/img_053_238.webp)
-
-
-
 
 ![Image 240](../../assets/images/ros/practice/practice-05-07/img_053_240.webp)
 
@@ -1412,13 +999,6 @@ opencv
 Step 4. 패키지 빌드하기
 실습
 ROS2와 차선인식
-
-
-![Image 243](../../assets/images/ros/practice/practice-05-07/img_054_243.webp)
-
-
-
-
 ![Image 245](../../assets/images/ros/practice/practice-05-07/img_054_245.webp)
 
 
@@ -1439,10 +1019,6 @@ Step 5. 3개의 터미널창에 각각 명령어를 입력한다.
 Terminal1
 ros2 run lane_detect publisher_node --ros-args -p video_path:=/video/track_video_1.mp4
 
-
-![Image 247](../../assets/images/ros/practice/practice-05-07/img_055_247.webp)
-
-
 ![Image 248](../../assets/images/ros/practice/practice-05-07/img_055_248.webp)
 
 
@@ -1451,21 +1027,11 @@ ros2 run lane_detect publisher_node --ros-args -p video_path:=/video/track_video
 
 ![Image 250](../../assets/images/ros/practice/practice-05-07/img_055_250.webp)
 
-
-
-
 실습하기
 실습
 ROS2와 차선인식
 ▪
 Step 5. 터미널 화면
-
-
-![Image 252](../../assets/images/ros/practice/practice-05-07/img_056_252.webp)
-
-
-
-
 ![Image 254](../../assets/images/ros/practice/practice-05-07/img_056_254.webp)
 
 
@@ -1474,10 +1040,6 @@ Step 5. 터미널 화면
 Step 6. rviz2 설정하기
 실습
 ROS2와 차선인식
-
-
-![Image 255](../../assets/images/ros/practice/practice-05-07/img_057_255.webp)
-
 
 ![Image 256](../../assets/images/ros/practice/practice-05-07/img_057_256.webp)
 
@@ -1490,9 +1052,6 @@ ROS2와 차선인식
 
 ![Image 259](../../assets/images/ros/practice/practice-05-07/img_057_259.webp)
 
-
-
-
 실습하기
 ▪
 Step 6. rviz2 설정하기
@@ -1501,14 +1060,7 @@ ROS2와 차선인식
 왼쪽 차선의 x좌표
 오른쪽 차선의 x좌표
 
-
-![Image 261](../../assets/images/ros/practice/practice-05-07/img_058_261.webp)
-
-
 ![Image 262](../../assets/images/ros/practice/practice-05-07/img_058_262.webp)
-
-
-
 
 ROS2와 차선인식
 실습
@@ -1519,18 +1071,6 @@ ROS2와 차선인식
 1
 2
 3
-
-
-![Image 264](../../assets/images/ros/practice/practice-05-07/img_059_264.webp)
-
-
-
-
-![Image 266](../../assets/images/ros/practice/practice-05-07/img_059_266.webp)
-
-
-![Image 267](../../assets/images/ros/practice/practice-05-07/img_059_267.webp)
-
 
 ![Image 268](../../assets/images/ros/practice/practice-05-07/img_059_268.webp)
 
@@ -1550,14 +1090,6 @@ ROS2와 차선인식
 ![Image 273](../../assets/images/ros/practice/practice-05-07/img_059_273.webp)
 
 
-![Image 274](../../assets/images/ros/practice/practice-05-07/img_059_274.webp)
-
-
-![Image 275](../../assets/images/ros/practice/practice-05-07/img_059_275.webp)
-
-
-
-
 ROS2와 차선인식
 실습
 ✓코드와 설명: publisher_node.py
@@ -1568,30 +1100,11 @@ cv2.VideoCapture()
 - 해당 경로의 video 읽어오기
 publisher에서 사용할 모듈 import
 
-
-![Image 277](../../assets/images/ros/practice/practice-05-07/img_060_277.webp)
-
-
-
-
-![Image 279](../../assets/images/ros/practice/practice-05-07/img_060_279.webp)
-
-
-
-
 ROS2와 차선인식
 실습
 ✓코드와 설명
 ▪declare_and_fetch_parameters()
 os 모듈의 os.path.dirname()과 os.path.realpath()를 사용해현재 video_path의 절대 경로를 얻음
-
-
-![Image 281](../../assets/images/ros/practice/practice-05-07/img_061_281.webp)
-
-
-
-
-![Image 283](../../assets/images/ros/practice/practice-05-07/img_061_283.webp)
 
 
 ROS2와 차선인식
@@ -1603,14 +1116,6 @@ fps를 기준으로 video를 publishing할 시간 간격을 지정video의 한 �
 fps가 30이므로 1/30sec = 0.03sec = 30ms = 30회/초당
 
 
-![Image 284](../../assets/images/ros/practice/practice-05-07/img_062_284.webp)
-
-
-
-
-![Image 286](../../assets/images/ros/practice/practice-05-07/img_062_286.webp)
-
-
 ROS2와 차선인식
 실습
 ✓코드와 설명
@@ -1618,18 +1123,7 @@ ROS2와 차선인식
 main()에서 ros2를 초기화하고 30fps으로 video를 publishing함
 만약 publisher가종료되면 VideoCapture()에 할당된 자원을 해제
 ※ 4분 18초(258초), 30fps x 258초 = 7740frames
-
-
-![Image 287](../../assets/images/ros/practice/practice-05-07/img_063_287.webp)
-
-
-
-
 ![Image 289](../../assets/images/ros/practice/practice-05-07/img_063_289.webp)
-
-
-![Image 290](../../assets/images/ros/practice/practice-05-07/img_063_290.webp)
-
 
 ROS2와 차선인식
 실습
@@ -1640,13 +1134,6 @@ Rviz에 텍스트를 시각화하기 위한 모듈
 from lane_detect import slide_window
 from lane_detect import camera_process
 전처리를 위한 camera_process, 차선인식을 위한 slide_window
-
-
-![Image 291](../../assets/images/ros/practice/practice-05-07/img_064_291.webp)
-
-
-
-
 ![Image 293](../../assets/images/ros/practice/practice-05-07/img_064_293.webp)
 
 
@@ -1663,13 +1150,6 @@ camera_process객체와 slide_window 객체 선언
 처리된 이미지를 processed_frames Topic에 publishing 할 publisher 생성
 lane 검출 정보를 시각화(RViz) 할 Marker를 publishing 할 publisher 생성
 이미지 전처리 및 lane 추출을 위한 두 개의 인스턴스 생성
-
-
-![Image 294](../../assets/images/ros/practice/practice-05-07/img_065_294.webp)
-
-
-
-
 ![Image 296](../../assets/images/ros/practice/practice-05-07/img_065_296.webp)
 
 
@@ -1704,13 +1184,6 @@ text: 표시할 텍스트 내용
 ▪불투명한 흰색
 마커에 위에서 만든 Text 넣고 Publishing
 processed를 다시 imgmsg로 변환하여 publishing
-
-
-![Image 297](../../assets/images/ros/practice/practice-05-07/img_066_297.webp)
-
-
-
-
 ![Image 299](../../assets/images/ros/practice/practice-05-07/img_066_299.webp)
 
 
@@ -1740,34 +1213,16 @@ lane_visualization →차선 인식한 위치를 수직으로 확장하여 표�
 -200
 -150
 frame.shape = (480, 640)
-
-
-![Image 300](../../assets/images/ros/practice/practice-05-07/img_067_300.webp)
-
-
-
-
 ![Image 302](../../assets/images/ros/practice/practice-05-07/img_067_302.webp)
 
 
 ![Image 303](../../assets/images/ros/practice/practice-05-07/img_067_303.webp)
-
-
-![Image 304](../../assets/images/ros/practice/practice-05-07/img_067_304.webp)
-
 
 ROS2와 차선인식
 실습
 ✓코드와 설명
 ▪main()
 main()에서 ros2를 초기화하고 실행
-
-
-![Image 305](../../assets/images/ros/practice/practice-05-07/img_068_305.webp)
-
-
-
-
 ![Image 307](../../assets/images/ros/practice/practice-05-07/img_068_307.webp)
 
 
@@ -1797,23 +1252,12 @@ ROS2와 차선인식
 6
 1
 
-
-![Image 308](../../assets/images/ros/practice/practice-05-07/img_069_308.webp)
-
-
 ![Image 309](../../assets/images/ros/practice/practice-05-07/img_069_309.webp)
-
-
-
 
 ![Image 311](../../assets/images/ros/practice/practice-05-07/img_069_311.webp)
 
 
 ![Image 312](../../assets/images/ros/practice/practice-05-07/img_069_312.webp)
-
-
-![Image 313](../../assets/images/ros/practice/practice-05-07/img_069_313.webp)
-
 
 1. 흑백 이미지로 변환하기
 ROS2와 차선인식
@@ -1823,17 +1267,10 @@ ROS2와 차선인식
 조명(빛 반사 등)으로 인한 Noise를 제거하는 함수(조명 보정)
 1
 
-
-![Image 314](../../assets/images/ros/practice/practice-05-07/img_070_314.webp)
-
-
 ![Image 315](../../assets/images/ros/practice/practice-05-07/img_070_315.webp)
 
 
 ![Image 316](../../assets/images/ros/practice/practice-05-07/img_070_316.webp)
-
-
-
 
 ![Image 318](../../assets/images/ros/practice/practice-05-07/img_070_318.webp)
 
@@ -1854,10 +1291,6 @@ ROS2와 차선인식
 ✓코드와 설명
 2
 
-
-![Image 319](../../assets/images/ros/practice/practice-05-07/img_071_319.webp)
-
-
 ![Image 320](../../assets/images/ros/practice/practice-05-07/img_071_320.webp)
 
 
@@ -1865,9 +1298,6 @@ ROS2와 차선인식
 
 
 ![Image 322](../../assets/images/ros/practice/practice-05-07/img_071_322.webp)
-
-
-
 
 ROS2와 차선인식
 실습
@@ -1878,22 +1308,7 @@ ROS2와 차선인식
 ▪하지만 조명이나 빛 반사 때문에정확도가 떨어질 수 있음→조명 제거 알고리즘 필요
 3
 
-
-![Image 324](../../assets/images/ros/practice/practice-05-07/img_072_324.webp)
-
-
 ![Image 325](../../assets/images/ros/practice/practice-05-07/img_072_325.webp)
-
-
-
-
-![Image 327](../../assets/images/ros/practice/practice-05-07/img_072_327.webp)
-
-
-![Image 328](../../assets/images/ros/practice/practice-05-07/img_072_328.webp)
-
-
-
 
 4. medianBlur 적용
 ▪조명 제거를 했지만 아직 노이즈가 잔존→중위수 필터(medianBlur) 적용
@@ -1921,21 +1336,6 @@ Edge는 잘 보존하고 잡음만 깔끔하게 제거
 [21, 20, 22]
 ↑ 중간 값 21
 4
-
-
-![Image 330](../../assets/images/ros/practice/practice-05-07/img_073_330.webp)
-
-
-![Image 331](../../assets/images/ros/practice/practice-05-07/img_073_331.webp)
-
-
-![Image 332](../../assets/images/ros/practice/practice-05-07/img_073_332.webp)
-
-
-
-
-
-
 5. Warp변환(이미지투시변환)으로 차선을 평행하게 만들기
 현재 medianBlur까지 적용한 모습
 하지만 차선이 가까운 곳은 넓고 먼 곳은 좁은 형태로 원근법이 적용되어 있음
@@ -1944,17 +1344,6 @@ ROS2와 차선인식
 실습
 ✓코드와 설명
 5
-
-
-![Image 335](../../assets/images/ros/practice/practice-05-07/img_074_335.webp)
-
-
-![Image 336](../../assets/images/ros/practice/practice-05-07/img_074_336.webp)
-
-
-
-
-
 
 ![Image 339](../../assets/images/ros/practice/practice-05-07/img_074_339.webp)
 
@@ -1976,17 +1365,7 @@ ROS2와 차선인식
 OpenCV 함수로 변환 매트릭스를 계산
 4.
 변환 적용
-
-
-![Image 340](../../assets/images/ros/practice/practice-05-07/img_075_340.webp)
-
-
-
-
 ![Image 342](../../assets/images/ros/practice/practice-05-07/img_075_342.webp)
-
-
-
 
 5. Warp변환으로 차선을 평행하게 만들기
 차선을 평행하게 변환할 영역의 좌표를 정의
@@ -2001,17 +1380,7 @@ ROS2와 차선인식
 ( 140 ,  480 )
 ( 500 ,  0 )
 ( 500 ,  480 )
-
-
-![Image 344](../../assets/images/ros/practice/practice-05-07/img_076_344.webp)
-
-
-
-
 ![Image 346](../../assets/images/ros/practice/practice-05-07/img_076_346.webp)
-
-
-
 
 ![Image 348](../../assets/images/ros/practice/practice-05-07/img_076_348.webp)
 
@@ -2035,13 +1404,7 @@ ROS2와 차선인식
 6
 가장Edge가 강한 필터 고르기
 
-
-
-
 ![Image 350](../../assets/images/ros/practice/practice-05-07/img_077_350.webp)
-
-
-
 
 ![Image 352](../../assets/images/ros/practice/practice-05-07/img_077_352.webp)
 
@@ -2059,13 +1422,6 @@ ROS2와 차선인식
 4
 5
 6
-
-
-![Image 354](../../assets/images/ros/practice/practice-05-07/img_078_354.webp)
-
-
-
-
 ![Image 356](../../assets/images/ros/practice/practice-05-07/img_078_356.webp)
 
 
@@ -2098,14 +1454,6 @@ ROS2와 차선인식
 6
 
 
-![Image 358](../../assets/images/ros/practice/practice-05-07/img_079_358.webp)
-
-
-![Image 359](../../assets/images/ros/practice/practice-05-07/img_079_359.webp)
-
-
-
-
 ROS2와 차선인식
 ✓코드와 설명
 이론
@@ -2117,17 +1465,6 @@ subscriber_node.py에서 slide_window알고리즘을호출할 때 이미지의 �
 330
 -200
 -150
-
-
-![Image 361](../../assets/images/ros/practice/practice-05-07/img_080_361.webp)
-
-
-![Image 362](../../assets/images/ros/practice/practice-05-07/img_080_362.webp)
-
-
-
-
-
 
 ![Image 365](../../assets/images/ros/practice/practice-05-07/img_080_365.webp)
 
@@ -2158,19 +1495,7 @@ ROS2와 차선인식
 ▪가로방향으로 부드럽게 세밀하게 찾기 위해 가로가 큼(30)
 ▪노이즈에 강하고 진짜 차선만 찾는 적당한 숫자(흰색 점 40개)
 
-
-![Image 366](../../assets/images/ros/practice/practice-05-07/img_081_366.webp)
-
-
 ![Image 367](../../assets/images/ros/practice/practice-05-07/img_081_367.webp)
-
-
-![Image 368](../../assets/images/ros/practice/practice-05-07/img_081_368.webp)
-
-
-![Image 369](../../assets/images/ros/practice/practice-05-07/img_081_369.webp)
-
-
 
 
 2. 슬라이딩 윈도우 기본변수 세팅
@@ -2184,14 +1509,7 @@ ROS2와 차선인식
 ✓코드와 설명
 이론
 
-
-![Image 371](../../assets/images/ros/practice/practice-05-07/img_082_371.webp)
-
-
 ![Image 372](../../assets/images/ros/practice/practice-05-07/img_082_372.webp)
-
-
-
 
 ▪
 이미지를 윈도우 단위로 자르고유효한 픽셀이 충분한지 확인
@@ -2208,17 +1526,10 @@ ROS2와 차선인식
 ✓코드와 설명
 이론
 
-
-![Image 374](../../assets/images/ros/practice/practice-05-07/img_083_374.webp)
-
-
 ![Image 375](../../assets/images/ros/practice/practice-05-07/img_083_375.webp)
 
 
 ![Image 376](../../assets/images/ros/practice/practice-05-07/img_083_376.webp)
-
-
-
 
 ![Image 378](../../assets/images/ros/practice/practice-05-07/img_083_378.webp)
 
@@ -2229,14 +1540,7 @@ ROS2와 차선인식
 ✓코드와 설명
 이론
 
-
-![Image 379](../../assets/images/ros/practice/practice-05-07/img_084_379.webp)
-
-
 ![Image 380](../../assets/images/ros/practice/practice-05-07/img_084_380.webp)
-
-
-
 
 4. 슬라이딩 윈도우에서 차선을 찾은 경우(Case 2: 한 쪽만)
 ※ 한쪽만 찾은 경우→center를 보정하고 감지하지 못한 차선의 
@@ -2246,14 +1550,7 @@ ROS2와 차선인식
 ✓코드와 설명
 이론
 
-
-![Image 382](../../assets/images/ros/practice/practice-05-07/img_085_382.webp)
-
-
 ![Image 383](../../assets/images/ros/practice/practice-05-07/img_085_383.webp)
-
-
-
 
 이론
 ▪
@@ -2265,13 +1562,6 @@ ROS2와 차선인식
 차선의 왼쪽 좌표와 오른쪽 좌표를 구할 수 있다.
 ✓코드와 설명
 5. 슬라이딩 윈도우에서 차선을 못 찾은 경우(Case 3: 못 찾음)
-
-
-![Image 385](../../assets/images/ros/practice/practice-05-07/img_086_385.webp)
-
-
-
-
 ![Image 387](../../assets/images/ros/practice/practice-05-07/img_086_387.webp)
 
 
@@ -2285,10 +1575,6 @@ ROS2와 차선인식
 방향의 차선을 찾음
 left_lane_pts/right_lane_pts에각각 좌우 차선의 좌표를 저장하여 시각화
 
-
-![Image 389](../../assets/images/ros/practice/practice-05-07/img_087_389.webp)
-
-
 ![Image 390](../../assets/images/ros/practice/practice-05-07/img_087_390.webp)
 
 
@@ -2299,10 +1585,6 @@ left_lane_pts/right_lane_pts에각각 좌우 차선의 좌표를 저장하여 �
 ✓slide_window.py
 ROS2와 차선인식
 
-
-![Image 392](../../assets/images/ros/practice/practice-05-07/img_088_392.webp)
-
-
 ![Image 393](../../assets/images/ros/practice/practice-05-07/img_088_393.webp)
 
 
@@ -2312,10 +1594,6 @@ ROS2와 차선인식
 ▪전체 코드 : indent에 주의
 ✓slide_window.py
 ROS2와 차선인식
-
-
-![Image 395](../../assets/images/ros/practice/practice-05-07/img_089_395.webp)
-
 
 ![Image 396](../../assets/images/ros/practice/practice-05-07/img_089_396.webp)
 
@@ -2337,18 +1615,10 @@ Open3D
 Open3D와 ROS2
 Open3D란?
 
-
-![Image 398](../../assets/images/ros/practice/practice-05-07/img_090_398.webp)
-
-
 ![Image 399](../../assets/images/ros/practice/practice-05-07/img_090_399.webp)
 
 
 ![Image 400](../../assets/images/ros/practice/practice-05-07/img_090_400.webp)
-
-
-![Image 401](../../assets/images/ros/practice/practice-05-07/img_090_401.webp)
-
 
 Open3D와 ROS2
 Open3D란?
@@ -2364,20 +1634,6 @@ Open3D란?
 Open3D 좌표계
 데이터 타입
 데이터 연산
-
-
-![Image 402](../../assets/images/ros/practice/practice-05-07/img_091_402.webp)
-
-
-
-
-
-
-
-
-![Image 406](../../assets/images/ros/practice/practice-05-07/img_091_406.webp)
-
-
 ![Image 407](../../assets/images/ros/practice/practice-05-07/img_091_407.webp)
 
 
@@ -2401,10 +1657,6 @@ LiDAR센서, RGB-D센서 등으로 부터 수집되는 데이터
 3차원 공간상에 퍼져 있는 여러 포인트(Point)의 집합(Cloud)을 의미. (x, y, z)의 3차원 정보
 ▪
 2D 이미지와는 다르게 깊이(Z축)정보를 가지고 있으며 Nx3의  numpy 배열로 표현.각 n줄은 하나의 점과 Mapping
-
-
-![Image 411](../../assets/images/ros/practice/practice-05-07/img_092_411.webp)
-
 
 ![Image 412](../../assets/images/ros/practice/practice-05-07/img_092_412.webp)
 
@@ -2439,10 +1691,6 @@ Dynamic Graph CNN(DGCNN)
 ▪가장 가까운 이웃을 기반으로 동적으로 그래프를 구성하여 Pointcloud데이터에서 특징을 추출
 ▪이 동적 그래프 주고를 통해 CNN과 유사한 연산을 수행
 
-
-![Image 417](../../assets/images/ros/practice/practice-05-07/img_093_417.webp)
-
-
 ▪Open3D.zip 한눈에 보기
 CMakeList.txt
 opencv의하위디렉토리
@@ -2458,13 +1706,6 @@ pcd_subscriber_node는 그 데이터를 받아서 rviz 혹은
 open3d로 시각화할 수 있게 함
 opencv
 ※ 필요한파일 : point_cloud.zip
-
-
-![Image 418](../../assets/images/ros/practice/practice-05-07/img_094_418.webp)
-
-
-
-
 ![Image 420](../../assets/images/ros/practice/practice-05-07/img_094_420.webp)
 
 
@@ -2477,13 +1718,6 @@ opencv
 Open3D와ROS2
 실습
 ✓실행한 화면
-
-
-![Image 423](../../assets/images/ros/practice/practice-05-07/img_095_423.webp)
-
-
-
-
 ![Image 425](../../assets/images/ros/practice/practice-05-07/img_095_425.webp)
 
 
@@ -2493,17 +1727,10 @@ Open3D와ROS2
 ✓코드와 설명
 ▪Step 2. open3d 라이브러리 설치하기
 
-
-![Image 426](../../assets/images/ros/practice/practice-05-07/img_096_426.webp)
-
-
 ![Image 427](../../assets/images/ros/practice/practice-05-07/img_096_427.webp)
 
 
 ![Image 428](../../assets/images/ros/practice/practice-05-07/img_096_428.webp)
-
-
-
 
 ![Image 430](../../assets/images/ros/practice/practice-05-07/img_096_430.webp)
 
@@ -2519,17 +1746,10 @@ Terminal2
 ✓코드와 설명
 opencv
 
-
-![Image 432](../../assets/images/ros/practice/practice-05-07/img_097_432.webp)
-
-
 ![Image 433](../../assets/images/ros/practice/practice-05-07/img_097_433.webp)
 
 
 ![Image 434](../../assets/images/ros/practice/practice-05-07/img_097_434.webp)
-
-
-
 
 ![Image 436](../../assets/images/ros/practice/practice-05-07/img_097_436.webp)
 
@@ -2537,13 +1757,6 @@ opencv
 Open3D와ROS2
 실습
 ✓Numpy version 오류 발생시 1.24.4로 reinstall(or         ,          )
-
-
-![Image 437](../../assets/images/ros/practice/practice-05-07/img_098_437.webp)
-
-
-
-
 ![Image 439](../../assets/images/ros/practice/practice-05-07/img_098_439.webp)
 
 
@@ -2564,13 +1777,6 @@ Open3D와ROS2
 실습
 ✓코드와 설명
 아래과같이Open3D 화면이출력되면성공!
-
-
-![Image 444](../../assets/images/ros/practice/practice-05-07/img_099_444.webp)
-
-
-
-
 ![Image 446](../../assets/images/ros/practice/practice-05-07/img_099_446.webp)
 
 
@@ -2582,17 +1788,10 @@ Open3D와ROS2
 ▪Rviz2로 시각화하기
 Add버튼 클릭
 
-
-![Image 447](../../assets/images/ros/practice/practice-05-07/img_100_447.webp)
-
-
 ![Image 448](../../assets/images/ros/practice/practice-05-07/img_100_448.webp)
 
 
 ![Image 449](../../assets/images/ros/practice/practice-05-07/img_100_449.webp)
-
-
-
 
 마우스
 기능
@@ -2609,14 +1808,7 @@ Open3D와ROS2
 ✓코드와 설명
 ▪Rviz2로 시각화하기
 
-
-![Image 451](../../assets/images/ros/practice/practice-05-07/img_101_451.webp)
-
-
 ![Image 452](../../assets/images/ros/practice/practice-05-07/img_101_452.webp)
-
-
-
 
 ▪voxel_size를 0.05로 설정하면듬성듬성 랜더링되는 3D모델을 볼 수 있다
 Open3D와ROS2
@@ -2624,14 +1816,7 @@ Open3D와ROS2
 ✓코드와 설명
 ▪Rviz2로 시각화하기
 
-
-![Image 454](../../assets/images/ros/practice/practice-05-07/img_102_454.webp)
-
-
 ![Image 455](../../assets/images/ros/practice/practice-05-07/img_102_455.webp)
-
-
-
 
 ![Image 457](../../assets/images/ros/practice/practice-05-07/img_102_457.webp)
 
@@ -2641,17 +1826,10 @@ Open3D와ROS2
 ✓코드와 설명
 ▪Rviz2로 시각화하기
 
-
-![Image 458](../../assets/images/ros/practice/practice-05-07/img_103_458.webp)
-
-
 ![Image 459](../../assets/images/ros/practice/practice-05-07/img_103_459.webp)
 
 
 ![Image 460](../../assets/images/ros/practice/practice-05-07/img_103_460.webp)
-
-
-
 
 ▪pcd_publisher_node.py
 ▪struct: Python에서 이진 데이터(숫자나 문자 같은 데이터)를 다룰 때 사용하는 라이브러리
@@ -2660,17 +1838,7 @@ Open3D와ROS2
 실습
 ✓코드와 설명
 
-
-
-
 ![Image 463](../../assets/images/ros/practice/practice-05-07/img_104_463.webp)
-
-
-![Image 464](../../assets/images/ros/practice/practice-05-07/img_104_464.webp)
-
-
-
-
 ▪.ply파일
 3D 객체의 모양을 저장하는 파일 형식
 점, 면 등의 정보를 포함해 3D 데이터를 저장
@@ -2679,24 +1847,8 @@ Open3D와ROS2
 실습
 ✓코드와 설명
 
-
-
-
 ![Image 467](../../assets/images/ros/practice/practice-05-07/img_105_467.webp)
-
-
-![Image 468](../../assets/images/ros/practice/practice-05-07/img_105_468.webp)
-
-
-
-
 ![Image 470](../../assets/images/ros/practice/practice-05-07/img_105_470.webp)
-
-
-
-
-
-
 ![Image 473](../../assets/images/ros/practice/practice-05-07/img_105_473.webp)
 
 
@@ -2706,13 +1858,6 @@ Open3D와ROS2
 Open3D와ROS2
 실습
 ✓코드와 설명
-
-
-![Image 475](../../assets/images/ros/practice/practice-05-07/img_106_475.webp)
-
-
-
-
 ![Image 477](../../assets/images/ros/practice/practice-05-07/img_106_477.webp)
 
 
@@ -2736,17 +1881,7 @@ Open3D와ROS2
 Pointcloud 로딩
 X축 기준으로 90도 회전 후 Z축 위치를 전체적으로 2.5올림(지면에서 띄우는 효과)
 30Hz Publishing 콜백 실행
-
-
-![Image 479](../../assets/images/ros/practice/practice-05-07/img_107_479.webp)
-
-
-
-
 ![Image 481](../../assets/images/ros/practice/practice-05-07/img_107_481.webp)
-
-
-
 
 ▪Voxel
 ▪
@@ -2767,22 +1902,12 @@ Open3D와ROS2
 ✓코드와 설명
 PointCloud2 interface
 
-
-
-
 ![Image 484](../../assets/images/ros/practice/practice-05-07/img_108_484.webp)
-
-
-![Image 485](../../assets/images/ros/practice/practice-05-07/img_108_485.webp)
-
 
 ![Image 486](../../assets/images/ros/practice/practice-05-07/img_108_486.webp)
 
 
 ![Image 487](../../assets/images/ros/practice/practice-05-07/img_108_487.webp)
-
-
-
 
 ![Image 489](../../assets/images/ros/practice/practice-05-07/img_108_489.webp)
 
@@ -2809,17 +1934,7 @@ Open3D와ROS2
 ▪정규화(0 ~ 1)된 데이터라서 처리속도 향상
 ▪수학적 계산이 편함(Interpolation)
 ▪메모리 절약
-
-
-![Image 490](../../assets/images/ros/practice/practice-05-07/img_109_490.webp)
-
-
-
-
 ![Image 492](../../assets/images/ros/practice/practice-05-07/img_109_492.webp)
-
-
-
 
 ![Image 494](../../assets/images/ros/practice/practice-05-07/img_109_494.webp)
 
@@ -2838,20 +1953,7 @@ Open3D와ROS2
 Open3D와ROS2
 실습
 ✓코드와 설명
-
-
-![Image 497](../../assets/images/ros/practice/practice-05-07/img_110_497.webp)
-
-
-
-
 ![Image 499](../../assets/images/ros/practice/practice-05-07/img_110_499.webp)
-
-
-
-
-
-
 
 
 ▪행렬의 회전
@@ -2866,23 +1968,7 @@ Open3D와ROS2
 [ 1 ]
 [ 1 ]
 X
-
-
-
-
-![Image 504](../../assets/images/ros/practice/practice-05-07/img_111_504.webp)
-
-
 ![Image 505](../../assets/images/ros/practice/practice-05-07/img_111_505.webp)
-
-
-
-
-
-
-
-
-
 
 3차원에서 회전 행렬
 x축이 고정된 회전 
@@ -2892,13 +1978,6 @@ Open3D와ROS2
 실습
 ✓코드와 설명
 ▪행렬의 회전
-
-
-![Image 510](../../assets/images/ros/practice/practice-05-07/img_112_510.webp)
-
-
-
-
 ![Image 512](../../assets/images/ros/practice/practice-05-07/img_112_512.webp)
 
 
@@ -2906,9 +1985,6 @@ Open3D와ROS2
 
 
 ![Image 514](../../assets/images/ros/practice/practice-05-07/img_112_514.webp)
-
-
-
 
 ▪rotate_points_90()
 ▪x축이 고정된 회전 행렬을 이용하여3차원의 점을 X축 기준으로 90도 
@@ -2922,27 +1998,13 @@ Open3D와ROS2
 실습
 ✓코드와 설명
 
-
-![Image 516](../../assets/images/ros/practice/practice-05-07/img_113_516.webp)
-
-
 ![Image 517](../../assets/images/ros/practice/practice-05-07/img_113_517.webp)
-
-
-
 
 Open3D와ROS2
 실습
 ✓코드와 설명
 ▪
 이 코드는 좌표와 색상 데이터를 바이너리 형태로 변환하고 구조화함
-
-
-![Image 519](../../assets/images/ros/practice/practice-05-07/img_114_519.webp)
-
-
-
-
 ![Image 521](../../assets/images/ros/practice/practice-05-07/img_114_521.webp)
 
 
@@ -2957,39 +2019,19 @@ Open3D와ROS2
 x, y, z 좌표값은 float타입으로 바꾸고
 colors는 int타입으로 바꾼다
 
-
-![Image 522](../../assets/images/ros/practice/practice-05-07/img_115_522.webp)
-
-
 ![Image 523](../../assets/images/ros/practice/practice-05-07/img_115_523.webp)
 
 
 ![Image 524](../../assets/images/ros/practice/practice-05-07/img_115_524.webp)
-
-
-
-
-
-
 Open3D와ROS2
 실습
 최종적으로 다음과 같이 바이너리 코드로 변환됨
 ✓코드와 설명
 
-
-![Image 527](../../assets/images/ros/practice/practice-05-07/img_116_527.webp)
-
-
 ![Image 528](../../assets/images/ros/practice/practice-05-07/img_116_528.webp)
 
 
 ![Image 529](../../assets/images/ros/practice/practice-05-07/img_116_529.webp)
-
-
-
-
-
-
 ▪main()
 Open3D와ROS2
 실습
@@ -2998,14 +2040,7 @@ voxel_size에 대한 인자와
 .ply파일의 경로를 받아서
 데이터를 publishing함
 
-
-![Image 532](../../assets/images/ros/practice/practice-05-07/img_117_532.webp)
-
-
 ![Image 533](../../assets/images/ros/practice/practice-05-07/img_117_533.webp)
-
-
-
 
 ▪pcd_subscriber_node.py
 from sensor_msgs.msg import PointCloud2, PointField
@@ -3014,14 +2049,7 @@ Open3D와ROS2
 실습
 ✓코드와 설명
 
-
-![Image 535](../../assets/images/ros/practice/practice-05-07/img_118_535.webp)
-
-
 ![Image 536](../../assets/images/ros/practice/practice-05-07/img_118_536.webp)
-
-
-
 
 ▪pcd_subscriber_node.py
 ▪
@@ -3040,13 +2068,6 @@ Open3D와ROS2
 
 
 ![Image 538](../../assets/images/ros/practice/practice-05-07/img_119_538.webp)
-
-
-![Image 539](../../assets/images/ros/practice/practice-05-07/img_119_539.webp)
-
-
-
-
 #기타 시각화 및 업데이트 코드 
 Open3D와ROS2
 실습
@@ -3069,14 +2090,7 @@ o3d.utility.Vector3dVector(pcd_as_numpy_array)
 시각화를 위해 numPy 배열 데이터를 Open3D의 PointCloud 객체로 변환
 1. PointCloud2 메시지 수신 →2. x, y, z, rgb 데이터 추출 →3. Numpy 배열로 변환 →4. Open3D PointCloud(self.o3_pcd)에 적용 →5. 화면에 3D로 시각화
 
-
-![Image 541](../../assets/images/ros/practice/practice-05-07/img_120_541.webp)
-
-
 ![Image 542](../../assets/images/ros/practice/practice-05-07/img_120_542.webp)
-
-
-
 
 3D 데이터에 들어가는 각 점들의 정보 (예: 위치, 색상 등)가 
 어떤 형식으로 저장되는지를 나타낸 데이터 구조
@@ -3085,14 +2099,7 @@ Open3D와ROS2
 ✓코드와 설명
 각데이터 타입에따른 약어와 바이트 수를 정의
 
-
-![Image 544](../../assets/images/ros/practice/practice-05-07/img_121_544.webp)
-
-
 ![Image 545](../../assets/images/ros/practice/practice-05-07/img_121_545.webp)
-
-
-
 
 ![Image 547](../../assets/images/ros/practice/practice-05-07/img_121_547.webp)
 
@@ -3113,14 +2120,7 @@ unpack_from = struct.Struct(fmt).unpack_from
 : 데이터를 어떤 포멧을 읽을 것인지 미리 정의해주는 역할.
 yield를 통해 함수 실행 중간에 unpack한 값을 return해줌
 
-
-![Image 548](../../assets/images/ros/practice/practice-05-07/img_122_548.webp)
-
-
 ![Image 549](../../assets/images/ros/practice/practice-05-07/img_122_549.webp)
-
-
-
 
 Open3D와ROS2
 실습
@@ -3138,14 +2138,7 @@ fields_sorted = sorted(fields, key=lambda f: f.offset)
 For문
 : 데이터 형식에 알맞게 포맷을 생성 후 return
 
-
-![Image 551](../../assets/images/ros/practice/practice-05-07/img_123_551.webp)
-
-
 ![Image 552](../../assets/images/ros/practice/practice-05-07/img_123_552.webp)
-
-
-
 
 ▪main()
 노드를 초기화하고 실행
@@ -3163,14 +2156,7 @@ PointCloud2 메시지 생성 및 Publishing
 30Hz 주기로 Publishing
 새로운 프레임이 들어오면 렌더링 업데이트
 
-
-![Image 554](../../assets/images/ros/practice/practice-05-07/img_124_554.webp)
-
-
 ![Image 555](../../assets/images/ros/practice/practice-05-07/img_124_555.webp)
-
-
-
 
 Open3D와ROS2
 실습
@@ -3179,13 +2165,6 @@ Open3D와ROS2
 0.１
 0.05
 0
-
-
-![Image 557](../../assets/images/ros/practice/practice-05-07/img_125_557.webp)
-
-
-
-
 ![Image 559](../../assets/images/ros/practice/practice-05-07/img_125_559.webp)
 
 
@@ -3208,13 +2187,3 @@ ROKEY BOOT CAMP
 수고하셨습니다.
 
 
-![Image 565](../../assets/images/ros/practice/practice-05-07/img_126_565.webp)
-
-
-![Image 566](../../assets/images/ros/practice/practice-05-07/img_126_566.webp)
-
-
-![Image 567](../../assets/images/ros/practice/practice-05-07/img_126_567.webp)
-
-
-![Image 568](../../assets/images/ros/practice/practice-05-07/img_126_568.webp)

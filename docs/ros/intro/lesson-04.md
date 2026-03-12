@@ -54,30 +54,12 @@ progress
 game_progress
 request
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Hang-man - 실습
 04
 01
 ▶Letter Publisher
 •
 a부터z까지의알파벳을순서대로publish
-
-
-
 
 ![Image 10](../../assets/images/ros/intro/lesson-04/img_006_010.webp)
 
@@ -88,54 +70,24 @@ Hang-man - 실습
 ▶Word Service
 •
 임의의단어를선택, 행맨게임진행, 진행상황publish
-
-
-
-
-![Image 12](../../assets/images/ros/intro/lesson-04/img_007_012.webp)
-
-
 Hang-man - 실습
 06
 01
 ▶Action Client
 •
 Goal 설정, action server와의상호작용을통해행맨게임진행상태업데이트
-
-
-
-
-![Image 14](../../assets/images/ros/intro/lesson-04/img_008_014.webp)
-
-
 Hang-man - 실습
 07
 01
 ▶Action Server
 •
 사용자의진행상황을관리, 임의진행상태를추적, 게임결과를클라이언트에게전달
-
-
-
-
-
-
 Hang-man - 실습
 08
 01
 ▶코드구조
 •
 패키지생성
-
-
-
-
-
-
-
-
-![Image 20](../../assets/images/ros/intro/lesson-04/img_010_020.webp)
-
 
 Hang-man - 실습
 09
@@ -145,9 +97,6 @@ Hang-man - 실습
 전체코드의구조는다음과같음
 •
 일부파일은지금부터생성예정
-
-
-
 
 ![Image 22](../../assets/images/ros/intro/lesson-04/img_011_022.webp)
 
@@ -165,13 +114,6 @@ is_correct : 현재user input으로들어온글자가선택된단어내에존재
 bool 타입자료형
 •
 message : 맞았으면“Correct”를띄우고틀리면“WRONG”을띄움
-
-
-
-
-![Image 24](../../assets/images/ros/intro/lesson-04/img_012_024.webp)
-
-
 Hang-man - 실습
 11
 01
@@ -187,9 +129,6 @@ game_over : 목숨이다소진되었는지
 •
 won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 
-
-
-
 ![Image 26](../../assets/images/ros/intro/lesson-04/img_013_026.webp)
 
 
@@ -203,13 +142,6 @@ hangman_interfaces/action/GameProgress.action
 game_over : 목숨이다소진되었는지
 •
 won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
-
-
-
-
-![Image 28](../../assets/images/ros/intro/lesson-04/img_014_028.webp)
-
-
 Hang-man - 실습
 13
 01
@@ -230,9 +162,6 @@ Hang-man - 실습
 hangman_game/hangman_game/letter_publisher.py 모듈별설명
 •
 __init__함수: Node 클래스를상속받아LetterPublisher 클래스를정의하고필요한퍼블리셔와타이머를설정
-
-
-
 
 Hang-man - 실습
 15
@@ -362,9 +291,6 @@ Hang-man - 실습
 hangman_game/hangman_game/user_
 input.py 전체코드
 
-
-
-
 Hang-man - 실습
 25
 01
@@ -374,9 +300,6 @@ hangman_game/hangman_game/user_input.py 모듈별설명
 •
 __init__ 함수: Node 클래스를상속받아UserInput이라는노드를정의. 이노드는CheckLetter 서비스에
 문자확인요청을보냄
-
-
-
 
 ![Image 42](../../assets/images/ros/intro/lesson-04/img_027_042.webp)
 
@@ -391,9 +314,6 @@ hangman_game/hangman_game/user_input.py 모듈별설명
 input_thread 함수: 사용자로부터Enter 키입력을기다리며, 입력이들어오면send_request
 메서드를호출하여현재요청을서비스로보냄
 
-
-
-
 ![Image 44](../../assets/images/ros/intro/lesson-04/img_028_044.webp)
 
 
@@ -406,9 +326,6 @@ hangman_game/hangman_game/user_input.py 모듈별설명
 •
 send_request 함수: CheckLetter 서비스에비동기적으로요청을보내어, 현재선택된문자가
 단어에포함되어있는지확인
-
-
-
 
 ![Image 46](../../assets/images/ros/intro/lesson-04/img_029_046.webp)
 
@@ -423,9 +340,6 @@ hangman_game/hangman_game/user_input.py 모듈별설명
 main 함수: ROS2 시스템을초기화하고UserInput 노드를실행하여사용자입력을
 기다리며, 서비스요청을반복적으로보낼수있는구조를만듦
 
-
-
-
 ![Image 48](../../assets/images/ros/intro/lesson-04/img_030_048.webp)
 
 
@@ -437,9 +351,6 @@ Hang-man - 실습
 hangman_game/hangman_game/
 progress_action_client.py 전체코드
 
-
-
-
 ![Image 50](../../assets/images/ros/intro/lesson-04/img_031_050.webp)
 
 
@@ -450,9 +361,6 @@ Hang-man - 실습
 •
 hangman_game/hangman_game/
 progress_action_client.py 전체코드
-
-
-
 
 ![Image 52](../../assets/images/ros/intro/lesson-04/img_032_052.webp)
 
@@ -467,9 +375,6 @@ hangman_game/hangman_game/progress_action_client.py 모듈별설명
 __init__ 함수: 노드를초기화하고액션클라이언트를생성하여, 게임진행목표를서버에전송할
 준비를함
 
-
-
-
 ![Image 54](../../assets/images/ros/intro/lesson-04/img_033_054.webp)
 
 
@@ -483,9 +388,6 @@ hangman_game/hangman_game/progress_action_client.py 모듈별설명
 send_goal 함수: GameProgress 액션서버에목표를전송하고, 목표전송후에피드백콜백과완료
 콜백을설정하여서버응답을처리
 
-
-
-
 ![Image 56](../../assets/images/ros/intro/lesson-04/img_034_056.webp)
 
 
@@ -497,9 +399,6 @@ Hang-man - 실습
 hangman_game/hangman_game/progress_action_client.py 모듈별설명
 •
 Feedback_callback 함수: 서버에서수신한피드백메시지를처리하여, 게임종료상태를확인하고로깅
-
-
-
 
 ![Image 58](../../assets/images/ros/intro/lesson-04/img_035_058.webp)
 
@@ -514,9 +413,6 @@ hangman_game/hangman_game/progress_action_client.py 모듈별설명
 goal_response_callback 함수: 서버가목표를수락했는지확인하고, 수락된경우최종결과를비동기적으로
 요청하며결과콜백을설정
 
-
-
-
 ![Image 60](../../assets/images/ros/intro/lesson-04/img_036_060.webp)
 
 
@@ -528,9 +424,6 @@ Hang-man - 실습
 hangman_game/hangman_game/progress_action_client.py 모듈별설명
 •
 get_result_callback 함수: 서버에서수신한최종결과를확인하고, 승리또는패배에따라로깅을진행
-
-
-
 
 ![Image 62](../../assets/images/ros/intro/lesson-04/img_037_062.webp)
 
@@ -545,9 +438,6 @@ hangman_game/hangman_game/progress_action_client.py 모듈별설명
 main 함수: ROS2 시스템을초기화하고ProgressActionClient 노드를실행하여목표를
 전송하고결과가수신될때까지이벤트루프를유지
 
-
-
-
 ![Image 64](../../assets/images/ros/intro/lesson-04/img_038_064.webp)
 
 
@@ -558,9 +448,6 @@ Hang-man - 실습
 •
 hangman_game/hangman_game/ 
 progress_action_server.py 전체코드
-
-
-
 
 ![Image 66](../../assets/images/ros/intro/lesson-04/img_039_066.webp)
 
@@ -573,9 +460,6 @@ Hang-man - 실습
 hangman_game/hangman_game/ 
 progress_action_server.py 전체코드
 
-
-
-
 ![Image 68](../../assets/images/ros/intro/lesson-04/img_040_068.webp)
 
 
@@ -586,9 +470,6 @@ Hang-man - 실습
 •
 hangman_game/hangman_game/
 progress_action_server.py 전체코드
-
-
-
 
 ![Image 70](../../assets/images/ros/intro/lesson-04/img_041_070.webp)
 
@@ -603,9 +484,6 @@ hangman_game/hangman_game/progress_action_server.py 모듈별설명
 __init__ 함수: 노드를초기화하고GameProgress 액션서버와progress 토픽을구독하여
 게임진행상태를관리
 
-
-
-
 ![Image 72](../../assets/images/ros/intro/lesson-04/img_042_072.webp)
 
 
@@ -618,9 +496,6 @@ hangman_game/hangman_game/progress_action_server.py 모듈별설명
 •
 progress_callback 함수: progress 토픽으로부터수신한메시지를처리하여, 
 current_progress에게임상태를업데이트하고로깅
-
-
-
 
 ![Image 74](../../assets/images/ros/intro/lesson-04/img_043_074.webp)
 
@@ -640,9 +515,6 @@ execute_callback 함수:
 으로feedback_msg를통해게임상태를
 클라이언트에전달
 
-
-
-
 ![Image 76](../../assets/images/ros/intro/lesson-04/img_044_076.webp)
 
 
@@ -656,9 +528,6 @@ hangman_game/hangman_game/progress_action_server.py 모듈별설명
 main 함수: ROS2 시스템을초기화하고ProgressActionServer 노드를실행하여목표
 요청과토픽구독을동시에처리할수있도록멀티스레드실행자를사용
 
-
-
-
 ![Image 78](../../assets/images/ros/intro/lesson-04/img_045_078.webp)
 
 
@@ -671,9 +540,6 @@ hangman_game/setup.py
 •
 entry_points를다음과같이변경
 
-
-
-
 ![Image 80](../../assets/images/ros/intro/lesson-04/img_046_080.webp)
 
 
@@ -684,13 +550,7 @@ Hang-man - 실습
 •
 hangman_interfaces/CMakeLists.txt
 
-
-
-
 ![Image 82](../../assets/images/ros/intro/lesson-04/img_047_082.webp)
-
-
-
 
 ![Image 84](../../assets/images/ros/intro/lesson-04/img_047_084.webp)
 
@@ -701,9 +561,6 @@ Hang-man - 실습
 ▶hangman_game
 •
 hangman_interfaces/package.xml
-
-
-
 
 ![Image 86](../../assets/images/ros/intro/lesson-04/img_048_086.webp)
 

@@ -5,17 +5,6 @@ ROKEY BOOT CAMP
 ROS2 기초-4차시
 Apr, 2025
 
-
-![Image 2](../../assets/images/ros/basics/lesson-04/img_001_002.webp)
-
-
-
-
-![Image 4](../../assets/images/ros/basics/lesson-04/img_001_004.webp)
-
-
-
-
 2
 ROKEY BOOT CAMP
 훈련일정
@@ -63,9 +52,6 @@ angular:{x: 0.0, y: 0.0, z: 0.0}}”
 이동
 Turtle 다시 생성해보기
 
-
-
-
 4
 ROKEY BOOT CAMP
 ROS2 turtlesim 복습
@@ -89,9 +75,6 @@ $ros2 topic pub --once /turtle1/cmd_vel geometry_msgs/msg/Twist “{linear:{x: 0
 angular:{x: 0.0, y: 0.0, z: 1.8}}”
 ※ Tip : ctrl + 화살표눌러서cli 빠른이동
 
-
-
-
 6
 ROKEY BOOT CAMP
 ROS2 turtlesim 복습
@@ -102,9 +85,6 @@ angular:{x: 0.0, y: 0.0, z: 1.8}}”
 (회전)
 Rate 1(초당1회)
 
-
-
-
 7
 ROKEY BOOT CAMP
 ROS2 turtlesim 복습
@@ -113,22 +93,10 @@ $ros2 topic pub --rate 1 /turtle1/cmd_vel geometry_msgs/msg/Twist “{linear:{x:
 angular:{x: 0.0, y: 0.0, z: 3.6}}”
 원운동
 (회전)
-
-
-
-
-
-
 8
 ROKEY BOOT CAMP
 ROS2 turtlesim 복습
 8
-
-
-
-
-
-
 9
 ROKEY BOOT CAMP
 ROS 소개및활용
@@ -155,9 +123,6 @@ ROS 2 Configuring environment
 ▪
 ROS 2 Turtlesim Tutorial
 
-
-
-
 10
 ROKEY BOOT CAMP
 ROS 소개및활용
@@ -165,12 +130,6 @@ ROS 소개및활용
 ROS는메타운영체제로, 메타운영체제란애플리케이션과분산컴퓨팅
 자원간의가상화레이어로분산컴퓨팅자원을활용하여, 스케줄링,로드, 
 감시, 에러처리등을실행하는시스템이다.
-
-
-
-
-
-
 11
 ROKEY BOOT CAMP
 ROS 소개및활용
@@ -201,9 +160,6 @@ ROS 소개및활용
 ROS 2 Jazzy Jalisco
 [출처] https://github.com/ros-infrastructure/artwork/tree/master/distributions
 
-
-
-
 ![Image 18](../../assets/images/ros/basics/lesson-04/img_011_018.webp)
 
 
@@ -212,26 +168,11 @@ ROS 2 Jazzy Jalisco
 
 ![Image 20](../../assets/images/ros/basics/lesson-04/img_011_020.webp)
 
-
-
-
 ![Image 22](../../assets/images/ros/basics/lesson-04/img_011_022.webp)
 
 
 ![Image 23](../../assets/images/ros/basics/lesson-04/img_011_023.webp)
-
-
-![Image 24](../../assets/images/ros/basics/lesson-04/img_011_024.webp)
-
-
-![Image 25](../../assets/images/ros/basics/lesson-04/img_011_025.webp)
-
-
 ![Image 26](../../assets/images/ros/basics/lesson-04/img_011_026.webp)
-
-
-![Image 27](../../assets/images/ros/basics/lesson-04/img_011_027.webp)
-
 
 12
 ROKEY BOOT CAMP
@@ -245,26 +186,6 @@ Open Source
 확장성
 ROS는기존의윈도우나리눅스같은운영체계가아니며, 기존운영체계에추가적인설치를동반하는미들웨어이다.
 ROS의데이터통신은서로다른운영체제, 하드웨어시스템에서도데이터를주고받을수있기때문에로봇개발에적합하다.
-
-
-![Image 28](../../assets/images/ros/basics/lesson-04/img_012_028.webp)
-
-
-![Image 29](../../assets/images/ros/basics/lesson-04/img_012_029.webp)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 13
 ROKEY BOOT CAMP
 ROS와Linux를사용하는이유
@@ -346,10 +267,6 @@ ROKEY BOOT CAMP
 ROS 소개및활용
 앞시간에서임베디드와역할을잘분배해야한다는설명이있었습니다.
 
-
-![Image 37](../../assets/images/ros/basics/lesson-04/img_016_037.webp)
-
-
 17
 ROKEY BOOT CAMP
 ROS 소개및활용
@@ -407,9 +324,6 @@ ROS 소개및활용
 SDK(소프트웨어개발키트)이다.
 수업프로젝트, 과학실험, 연구프로토타입, 최종제품등어떤애플리케이션이든ROS를사용하면목표를더빨리달성할수있다.
 그리고, 모두오픈소스이다.
-
-
-
 
 20
 ROKEY BOOT CAMP
@@ -1033,12 +947,6 @@ ROKEY BOOT CAMP
 정밀도고도화
 R2X간
 상호운용성중심
-
-
-
-
-
-
 51
 ROKEY BOOT CAMP
 ROS2 - 노드와메시지통신
@@ -1286,15 +1194,6 @@ Turtlesim 실행후node 확인
 ![Image 74](../../assets/images/ros/basics/lesson-04/img_069_074.webp)
 
 
-![Image 75](../../assets/images/ros/basics/lesson-04/img_069_075.webp)
-
-
-![Image 76](../../assets/images/ros/basics/lesson-04/img_069_076.webp)
-
-
-![Image 77](../../assets/images/ros/basics/lesson-04/img_069_077.webp)
-
-
 70
 ROKEY BOOT CAMP
 ROS2 실습
@@ -1488,23 +1387,6 @@ Turtlesim 실행후node 확인
 
 
 ![Image 100](../../assets/images/ros/basics/lesson-04/img_082_100.webp)
-
-
-![Image 101](../../assets/images/ros/basics/lesson-04/img_082_101.webp)
-
-
-![Image 102](../../assets/images/ros/basics/lesson-04/img_082_102.webp)
-
-
-![Image 103](../../assets/images/ros/basics/lesson-04/img_082_103.webp)
-
-
-![Image 104](../../assets/images/ros/basics/lesson-04/img_082_104.webp)
-
-
-![Image 105](../../assets/images/ros/basics/lesson-04/img_082_105.webp)
-
-
 83
 ROKEY BOOT CAMP
 ROS2 실습
@@ -1537,15 +1419,6 @@ Turtlesim 실행후node 확인
 ![Image 111](../../assets/images/ros/basics/lesson-04/img_084_111.webp)
 
 
-![Image 112](../../assets/images/ros/basics/lesson-04/img_084_112.webp)
-
-
-![Image 113](../../assets/images/ros/basics/lesson-04/img_084_113.webp)
-
-
-![Image 114](../../assets/images/ros/basics/lesson-04/img_084_114.webp)
-
-
 ![Image 115](../../assets/images/ros/basics/lesson-04/img_084_115.webp)
 
 
@@ -1571,19 +1444,6 @@ Namespace 설정(p101)
 
 ![Image 120](../../assets/images/ros/basics/lesson-04/img_085_120.webp)
 
-
-![Image 121](../../assets/images/ros/basics/lesson-04/img_085_121.webp)
-
-
-![Image 122](../../assets/images/ros/basics/lesson-04/img_085_122.webp)
-
-
-![Image 123](../../assets/images/ros/basics/lesson-04/img_085_123.webp)
-
-
-![Image 124](../../assets/images/ros/basics/lesson-04/img_085_124.webp)
-
-
 86
 ROKEY BOOT CAMP
 ROS2 실습
@@ -1599,14 +1459,6 @@ Namespace + Node 이름설정
 
 
 ![Image 127](../../assets/images/ros/basics/lesson-04/img_086_127.webp)
-
-
-![Image 128](../../assets/images/ros/basics/lesson-04/img_086_128.webp)
-
-
-![Image 129](../../assets/images/ros/basics/lesson-04/img_086_129.webp)
-
-
 87
 ROKEY BOOT CAMP
 ROS2 실습
@@ -1622,14 +1474,6 @@ Namespace + Node 이름설정
 
 
 ![Image 132](../../assets/images/ros/basics/lesson-04/img_087_132.webp)
-
-
-![Image 133](../../assets/images/ros/basics/lesson-04/img_087_133.webp)
-
-
-![Image 134](../../assets/images/ros/basics/lesson-04/img_087_134.webp)
-
-
 88
 ROKEY BOOT CAMP
 ROS2 실습
@@ -1640,14 +1484,6 @@ ROS2 실습
 
 
 ![Image 136](../../assets/images/ros/basics/lesson-04/img_088_136.webp)
-
-
-![Image 137](../../assets/images/ros/basics/lesson-04/img_088_137.webp)
-
-
-![Image 138](../../assets/images/ros/basics/lesson-04/img_088_138.webp)
-
-
 ![Image 139](../../assets/images/ros/basics/lesson-04/img_088_139.webp)
 
 
@@ -1655,14 +1491,6 @@ ROS2 실습
 
 
 ![Image 141](../../assets/images/ros/basics/lesson-04/img_088_141.webp)
-
-
-![Image 142](../../assets/images/ros/basics/lesson-04/img_088_142.webp)
-
-
-![Image 143](../../assets/images/ros/basics/lesson-04/img_088_143.webp)
-
-
 89
 ROKEY BOOT CAMP
 ROS2 실습
@@ -1671,19 +1499,7 @@ ROS2 실습
 
 ![Image 144](../../assets/images/ros/basics/lesson-04/img_089_144.webp)
 
-
-![Image 145](../../assets/images/ros/basics/lesson-04/img_089_145.webp)
-
-
 ![Image 146](../../assets/images/ros/basics/lesson-04/img_089_146.webp)
-
-
-![Image 147](../../assets/images/ros/basics/lesson-04/img_089_147.webp)
-
-
-![Image 148](../../assets/images/ros/basics/lesson-04/img_089_148.webp)
-
-
 90
 ROKEY BOOT CAMP
 ROS2 실습
@@ -1695,14 +1511,6 @@ Namespace와Name 설정
 
 
 ![Image 150](../../assets/images/ros/basics/lesson-04/img_090_150.webp)
-
-
-![Image 151](../../assets/images/ros/basics/lesson-04/img_090_151.webp)
-
-
-![Image 152](../../assets/images/ros/basics/lesson-04/img_090_152.webp)
-
-
 ![Image 153](../../assets/images/ros/basics/lesson-04/img_090_153.webp)
 
 
@@ -1710,28 +1518,12 @@ Namespace와Name 설정
 
 
 ![Image 155](../../assets/images/ros/basics/lesson-04/img_090_155.webp)
-
-
-![Image 156](../../assets/images/ros/basics/lesson-04/img_090_156.webp)
-
-
-![Image 157](../../assets/images/ros/basics/lesson-04/img_090_157.webp)
-
-
 91
 ROKEY BOOT CAMP
 ROS2 실습
 
 
 ![Image 158](../../assets/images/ros/basics/lesson-04/img_091_158.webp)
-
-
-![Image 159](../../assets/images/ros/basics/lesson-04/img_091_159.webp)
-
-
-![Image 160](../../assets/images/ros/basics/lesson-04/img_091_160.webp)
-
-
 92
 ROKEY BOOT CAMP
 ROS2 실습
@@ -1754,17 +1546,4 @@ ROS2 실습
 
 ROKEY BOOT CAMP
 수고하셨습니다.
-
-
-![Image 164](../../assets/images/ros/basics/lesson-04/img_094_164.webp)
-
-
-![Image 165](../../assets/images/ros/basics/lesson-04/img_094_165.webp)
-
-
-![Image 166](../../assets/images/ros/basics/lesson-04/img_094_166.webp)
-
-
-![Image 167](../../assets/images/ros/basics/lesson-04/img_094_167.webp)
-
 

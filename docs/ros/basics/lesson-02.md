@@ -5,17 +5,6 @@ ROKEY BOOT CAMP
 ROS2 기초-2차시
 Apr, 2025
 
-
-![Image 2](../../assets/images/ros/basics/lesson-02/img_001_002.webp)
-
-
-
-
-![Image 4](../../assets/images/ros/basics/lesson-02/img_001_004.webp)
-
-
-
-
 2
 ROKEY BOOT CAMP
 훈련일정
@@ -208,9 +197,6 @@ ROKEY BOOT CAMP
 
 ![Image 6](../../assets/images/ros/basics/lesson-02/img_008_006.webp)
 
-
-
-
 ![Image 8](../../assets/images/ros/basics/lesson-02/img_008_008.webp)
 
 
@@ -230,9 +216,6 @@ ROKEY BOOT CAMP
 ▪프로세스는최소하나이상의스레드를포함한다.
 ▪각프로세스는별도의주소공간에서실행되며, 서로독자적인메모리공간을갖기때문에서로메모리공간을
 공유할수없다. 즉, 다른프로세스의변수나자료구조에접근할수없다.
-
-
-
 
 10
 ROKEY BOOT CAMP
@@ -385,10 +368,6 @@ Framework의특징
 
 ![Image 17](../../assets/images/ros/basics/lesson-02/img_014_017.webp)
 
-
-![Image 18](../../assets/images/ros/basics/lesson-02/img_014_018.webp)
-
-
 ![Image 19](../../assets/images/ros/basics/lesson-02/img_014_019.webp)
 
 
@@ -399,9 +378,6 @@ Framework의특징
 
 
 ![Image 22](../../assets/images/ros/basics/lesson-02/img_014_022.webp)
-
-
-
 
 15
 ROKEY BOOT CAMP
@@ -417,9 +393,6 @@ API와Library 차이점
 
 
 ![Image 24](../../assets/images/ros/basics/lesson-02/img_015_024.webp)
-
-
-
 
 16
 ROKEY BOOT CAMP
@@ -483,9 +456,6 @@ Build 란?
 
 ![Image 33](../../assets/images/ros/basics/lesson-02/img_018_033.webp)
 
-
-
-
 19
 ROKEY BOOT CAMP
 인터프리터, 컴파일러(소스코드→ Build → 실행파일)
@@ -541,9 +511,6 @@ ROS의패키지빌드및의존성관리를해준다.
 
 ![Image 38](../../assets/images/ros/basics/lesson-02/img_021_038.webp)
 
-
-
-
 ![Image 40](../../assets/images/ros/basics/lesson-02/img_021_040.webp)
 
 
@@ -570,9 +537,6 @@ GET 요청을전송합니다. 연락처양식작성과같은일부정보를전�
 11. 도착한HTTP 응답메시지는HTTP 프로토콜을사용하여웹페이지데이터로변환된다.
 12. 웹브라우저는변환된웹페이지데이터를출력한다.
 
-
-
-
 ![Image 42](../../assets/images/ros/basics/lesson-02/img_022_042.webp)
 
 
@@ -587,9 +551,6 @@ ROS는각노드간에service, topic, action 같은통신인터페이스를제공
 
 
 ![Image 43](../../assets/images/ros/basics/lesson-02/img_023_043.webp)
-
-
-
 
 24
 ROKEY BOOT CAMP
@@ -637,9 +598,6 @@ IP를사용하는네트워크내에서컴퓨터간에메세지들이교환될때
 
 
 ![Image 47](../../assets/images/ros/basics/lesson-02/img_025_047.webp)
-
-
-
 
 26
 ROKEY BOOT CAMP
@@ -1009,10 +967,6 @@ MAC Address
 
 ![Image 100](../../assets/images/ros/basics/lesson-02/img_050_100.webp)
 
-
-![Image 101](../../assets/images/ros/basics/lesson-02/img_050_101.webp)
-
-
 51
 ROKEY BOOT CAMP
 OSI7 Layer, 프로토콜(RS-232C, RS-485, Ethernet, TCP/UDP, IP)
@@ -1046,14 +1000,6 @@ Noise에강하고긴거리안정적
 가격
 상대적으로저렴
 상대적으로비쌈
-
-
-![Image 102](../../assets/images/ros/basics/lesson-02/img_051_102.webp)
-
-
-![Image 103](../../assets/images/ros/basics/lesson-02/img_051_103.webp)
-
-
 ![Image 104](../../assets/images/ros/basics/lesson-02/img_051_104.webp)
 
 
@@ -1067,10 +1013,6 @@ UART는UART(Universal Asynchronous Receiver/Transmitter, 범용비동기송수�
 duplex(반이중)(한번에한쪽만전송가능) 또는Full-duplex(전이중)(양쪽이동시에전송가능) 방식이있습니다.
 ▪UART에서데이터는프레임형태로전송됩니다.
 
-
-![Image 105](../../assets/images/ros/basics/lesson-02/img_052_105.webp)
-
-
 ![Image 106](../../assets/images/ros/basics/lesson-02/img_052_106.webp)
 
 
@@ -1078,10 +1020,6 @@ duplex(반이중)(한번에한쪽만전송가능) 또는Full-duplex(전이중)(�
 
 
 ![Image 108](../../assets/images/ros/basics/lesson-02/img_052_108.webp)
-
-
-![Image 109](../../assets/images/ros/basics/lesson-02/img_052_109.webp)
-
 
 53
 ROKEY BOOT CAMP
@@ -1111,10 +1049,6 @@ RS-485 4wired
 단점
 단방향통신, 속도제한
 배선복잡, 설치비용
-
-
-![Image 110](../../assets/images/ros/basics/lesson-02/img_053_110.webp)
-
 
 ![Image 111](../../assets/images/ros/basics/lesson-02/img_053_111.webp)
 
@@ -1256,17 +1190,5 @@ Long Range의약자로광범위한커버리지와적은대역폭, 긴배터리�
 
 ROKEY BOOT CAMP
 수고하셨습니다.
-
-
-![Image 137](../../assets/images/ros/basics/lesson-02/img_061_137.webp)
-
-
-![Image 138](../../assets/images/ros/basics/lesson-02/img_061_138.webp)
-
-
 ![Image 139](../../assets/images/ros/basics/lesson-02/img_061_139.webp)
-
-
-![Image 140](../../assets/images/ros/basics/lesson-02/img_061_140.webp)
-
 
