@@ -61,11 +61,6 @@ Namespace 설정
 ![Image 29](../../assets/images/ros/basics/lesson-05/img_011_029.webp)
 
 
-![Image 30](../../assets/images/ros/basics/lesson-05/img_011_030.webp)
-
-
-![Image 31](../../assets/images/ros/basics/lesson-05/img_011_031.webp)
-
 ROS2 실습
 Turtlesim 실행후node 확인
 Namespace + Node 이름 설정
@@ -85,8 +80,6 @@ ROS2 실습
 
 
 ![Image 47](../../assets/images/ros/basics/lesson-05/img_014_047.webp)
-
-![Image 50](../../assets/images/ros/basics/lesson-05/img_014_050.webp)
 
 
 ![Image 51](../../assets/images/ros/basics/lesson-05/img_014_051.webp)
@@ -357,9 +350,6 @@ ROS2 실습– ros bag
 ROS2 실습– ros2 bag and ros2 play
 
 
-![Image 123](../../assets/images/ros/basics/lesson-05/img_037_123.webp)
-
-
 ROS2 실습– ros2 bag and ros2 play
 
 
@@ -467,9 +457,6 @@ ROS2 실습– Service with RQT
 
 
 ![Image 135](../../assets/images/ros/basics/lesson-05/img_046_135.webp)
-
-
-![Image 136](../../assets/images/ros/basics/lesson-05/img_046_136.webp)
 
 
 ROS2 실습- Action
@@ -689,26 +676,7 @@ ROS2 실습– RQt(Message Publisher)
 ![Image 196](../../assets/images/ros/basics/lesson-05/img_071_196.webp)
 
 
-![Image 197](../../assets/images/ros/basics/lesson-05/img_071_197.webp)
-
-
-![Image 198](../../assets/images/ros/basics/lesson-05/img_071_198.webp)
-
-![Image 200](../../assets/images/ros/basics/lesson-05/img_071_200.webp)
-
-
-![Image 201](../../assets/images/ros/basics/lesson-05/img_071_201.webp)
-
-
-![Image 202](../../assets/images/ros/basics/lesson-05/img_071_202.webp)
-
-
 ROS2 실습– RQt(Service Caller)
-
-![Image 204](../../assets/images/ros/basics/lesson-05/img_072_204.webp)
-
-
-![Image 205](../../assets/images/ros/basics/lesson-05/img_072_205.webp)
 
 
 ROS2 실습– RQt(Parameter Reconfigure)
@@ -750,8 +718,6 @@ ROS2 실습
 
 ROS2 실습- Build
 :~$ mkdir –p ~/ros2_ws/src
-
-![Image 222](../../assets/images/ros/basics/lesson-05/img_079_222.webp)
 
 
 ROS2 실습
@@ -1063,9 +1029,6 @@ entry_points={
 )
 
 
-![Image 232](../../assets/images/ros/basics/lesson-05/img_092_232.webp)
-
-
 ROS2 실습– Publisher & Subscriber(my_first_package)
 ※ Package 생성 시 디렉토리→ ~ros2_ws/src
 ※ Build 하는 경우work Space 디렉토리→ ~/ros2_ws
@@ -1074,16 +1037,7 @@ ROS2 실습– Publisher & Subscriber(my_first_package)
 ![Image 234](../../assets/images/ros/basics/lesson-05/img_093_234.webp)
 
 
-![Image 236](../../assets/images/ros/basics/lesson-05/img_093_236.webp)
-
-
 ROS2 실습– Publisher & Subscriber(my_first_package)
-
-
-![Image 238](../../assets/images/ros/basics/lesson-05/img_094_238.webp)
-
-
-![Image 240](../../assets/images/ros/basics/lesson-05/img_094_240.webp)
 
 
 ROS2 실습– Publisher & Subscriber(my_first_package)
@@ -1097,12 +1051,6 @@ ROS2 실습– Publisher & Subscriber(my_first_package)
 
 
 ![Image 244](../../assets/images/ros/basics/lesson-05/img_096_244.webp)
-
-
-![Image 245](../../assets/images/ros/basics/lesson-05/img_096_245.webp)
-
-
-![Image 246](../../assets/images/ros/basics/lesson-05/img_096_246.webp)
 
 
 ![Image 247](../../assets/images/ros/basics/lesson-05/img_096_247.webp)
@@ -1296,7 +1244,4 @@ URDF 파일pan-tilt 로봇– joint 상세
     <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
     <dynamics damping="50" friction="1"/>
   </joint>
-
-
-수고하셨습니다.
 

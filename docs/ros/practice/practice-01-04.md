@@ -1,31 +1,4 @@
 # ROS2 실습 1~4차시
-
-
-ROS-2 프로그래밍 실습
-
-ROS2 프로그래밍 실습 목차
-주제: ROS2 CLI
-
-- ROS2 CLI / CLI 명령 종류 및 사용법 주제: ROS2 심화 기능1
-- 신규ROS2 CLI(ros2env.zip) 주제: ROS2 심화 기능1
-- Intra-Process Communication
-- DDS의QoS(Quality of Service) 이해 및 활용법 주제: ROS2 심화 기능1
-- DDS의QoS(Quality of Service) 이해 및 활용법
-- QoS 실습 예제(QoS(py_pubsub.zip)) 주제: ROS2 심화 기능2
-- Component
-- RQt Plugin 사용법 및 실습(rqt_example.zip) 주제: ROS2 심화 기능2
-- RQt Plugin 사용법 및 실습(rqt_example.zip) 주제: ROS2 심화 기능2
-- Lifecycle(노드 관리)에 대한 이해 및 활용법
-- Security(ROS2의보안) 주제: 시뮬레이션 개발
-- Urdf, tf2 주제: 시뮬레이션 개발
-- Gazebo, SLAM, Nav2 주제: 두산 로봇과ROS2
-- ROS2를 활용한 두 산 로봇의 기본 명령어 주제: ROS2와OpenCV
-- OpenCV + ROS2 연동 및 기능 구현 주제: ROS2와OpenCV
-- Lane detect 구현및ROS2 통합 실습 주제: ROS2와3차원 영상 및 시각화
-- Point Cloud 개념 이해(2D, 3D RViz)
-- Open3D
-- ROS2 정기 평가
-
 ![Image 13](../../assets/images/ros/practice/practice-01-04/img_002_013.webp)
 
 
@@ -47,62 +20,35 @@ ROS2 프로그래밍 실습 목차
 ![Image 22](../../assets/images/ros/practice/practice-01-04/img_002_022.webp)
 
 
-ROS-2 프로그래밍 실습 강의 자료
-1 ~ 4 차시
-
-
 ![Image 26](../../assets/images/ros/practice/practice-01-04/img_003_026.webp)
 
-ROS2 CLI
-ROS2 신규CLI 작성법
-Intra-process communication
-QoS
-Component
-RQt plugin
-Lifecycle
-Security
 
-ROS2 CLI
-(Command Line Interface)
-
-
-ROS2 CLI 사용법
+##
 
 - ROS2 CLI 명령어
 - verbs: 동작을 지정하며, 수행할 작업의 유형을 나타냄. run, topic, service등이 올 수 있음
 - sub-verbs: 특정 동작에 대한 세부 동작(sub-verb)을 지정함. Verbs가topic인경우pub, echo, list 등이 올 수 있음
 - options: 명령어의 실행 방식을 설정하는 추가 파라미터. –h, --node-name, --qos 등이 올 수 있음
-- arguments: 실행할 때 필요한 인수를 지정함. 특정 노드의 이름이나 토픽의 이름, 서비스 이름 등이 올 수 있음 ROS2 CLI ROS2 CLI사용법
+- arguments: 실행할 때 필요한 인수를 지정함. 특정 노드의 이름이나 토픽의 이름, 서비스 이름 등이 올 수 있음
 
 
 - ROS2 CLI 명령어
-- -h 옵션을 이용하면verbs, sub-verbs, option등에 대하여 더 자세히 알 수 있음 ROS2 CLI ROS2 CLI사용법
+- -h 옵션을 이용하면verbs, sub-verbs, option등에 대하여 더 자세히 알 수 있음
 
 
-ROS2 CLI 실행 명령어
-ROS2 CLI
-ROS2 CLI실행 명령어
+##
 
 - ROS2 CLI + arguments ros2cli + [verbs] [arguments] 기능 ros2 run <package> <executable> 특정 패키지의 특정 노드 실행 (1개의 노드) * executable에 따라 복수 노 드도 실행 가능 ros2 launch <package> <launch-file> 특정 패키지의 특정 런치 파일 실행 (0개~ 복수 개의 노드)
 
 
 - ROS2 CLI + arguments 예시
 - ROS2에서turtlesim 시뮬레이터를 실행하는 기본 명령어
-- ROS2의demo_nodes_cpp 패키지에서talker_listener.launch.py 파일을 실행 ROS2 CLI ROS2 CLI실행 명령어
+- ROS2의demo_nodes_cpp 패키지에서talker_listener.launch.py 파일을 실행
 
 
-ROS2 CLI
-ROS2 CLI정보 명령어
-
-- ROS2 CLI + sub-verbs ros2cli + [verbs] [sub-verbs] 기능 ros2 pkg create 새로운ROS2 패키지 생성 executables 지정 패키지의 실행 파일 목록 출력 list 사용 가능한 패키지 목록 출력 prefix 지정 패키지의 저장 위치 출력 xml 지정 패키지의 패키지 정보 파일(xml) 출력 ros2 node info 실행 중인 노드 중 지정한 노드의 정보 출력 list 실행 중인 모든 노드의 목록 출력 ros2 topic bw 지정 토픽의 대역 폭 측정 delay 지정 토픽의 지연 시간 측정 echo 지정 토픽의 데이터 출력 find 지정 타입을 사용하는 토픽 이름 출력 hz 지정 토픽의 주기 측정 info 지정 토픽의 정보 출력 list 사용 가능한 토픽 목록 출력 pub 지정 토픽의 토픽 발행 type 지정 토픽의 토픽 타입 출력 ROS2 CLI 정보 명령어
+- ROS2 CLI + sub-verbs ros2cli + [verbs] [sub-verbs] 기능 ros2 pkg create 새로운ROS2 패키지 생성 executables 지정 패키지의 실행 파일 목록 출력 list 사용 가능한 패키지 목록 출력 prefix 지정 패키지의 저장 위치 출력 xml 지정 패키지의 패키지 정보 파일(xml) 출력 ros2 node info 실행 중인 노드 중 지정한 노드의 정보 출력 list 실행 중인 모든 노드의 목록 출력 ros2 topic bw 지정 토픽의 대역 폭 측정 delay 지정 토픽의 지연 시간 측정 echo 지정 토픽의 데이터 출력 find 지정 타입을 사용하는 토픽 이름 출력 hz 지정 토픽의 주기 측정 info 지정 토픽의 정보 출력 list 사용 가능한 토픽 목록 출력 pub 지정 토픽의 토픽 발행 type 지정 토픽의 토픽 타입 출력
 
 
-ROS2 CLI
-ROS2 CLI정보 명령어
-ros2cli + [verbs]
-[sub-verbs]
-기능
-ros2 service
 call
 지정 서비스의 서비스 요청 전달
 find
@@ -111,14 +57,12 @@ list
 사용 가능한 서비스 목록 출력
 type
 지정 서비스의 타입 출력
-ros2 action
 info
 지정 액션의 정보 출력
 list
 사용 가능한 액션 목록 출력
 send_goal
 지정 액션의 액션 목표 전송
-ros2 interface
 list
 사용 가능한 모든 인터페이스 목록 출력
 package
@@ -133,18 +77,9 @@ show
 - ROS2 CLI + sub-verbs
 
 
-ROS2 CLI
-ROS2 CLI정보 명령어
-
-- ROS2 CLI 실습
+-
 
 
-ROS2 CLI
-ROS2 CLI정보 명령어
-ros2cli + [verbs]
-[sub-verbs]
-기능
-ros2 param
 delete
 지정 파라미터 삭제
 describe
@@ -157,7 +92,6 @@ list
 사용 가능한 파라미터 목록 출력
 set
 지정 파라미터 쓰기
-ros2 bag
 info
 저장된rosbag 정보 출력
 play
@@ -168,34 +102,25 @@ rosbag 재생
 - ROS2 CLI + sub-verbs
 
 
-ROS2 CLI 정보 명령어
-ROS2 CLI
-ROS2 CLI정보 명령어
+##
 
 - ROS2 CLI + sub-verbs 예시
 - turtlesim 패키지에서 실행 가능한 모든 노드 및 실행 파일들을 나열
 - /turtlesim 노드에 대한 정보를 표시함. 노드의 이름, 관련된 토픽, 서비스 및 파라미터 정보 확인 가능 (turtlesim 시뮬레이터가 실행 중이어야함)
 
 
-ROS2 CLI 기능 보조 명령어
-ROS2 CLI
+##
 ROS2 CLI기능 정보 명령어
 
 - ROS2 CLI + verbs + sub-verbs ros2cli + [verbs] [sub-verbs] (options) 기능 ros2 extensions (-a) (-v) ros2cli의extension 목록 출력 (ros2cli개발용으로 사용, 일반적 사용x) ros2 extension_points (-a) (-v) ros2cli의extension point 목록 출력 (ros2cli개발용으로 사용, 일반적 사용x) ros2 daemon start daemon 시작 status daemon 상태 보기 stop daemon 정지 ros2 multicast receive multicast 수신 send multicast 전송 ※ CLI 후반부에 실습
 
 
-ROS2 CLI
 ROS2 CLI기능 정보 명령어
 
 - ROS2 CLI + verbs + sub-verbs ros2cli + [verbs] [sub-verbs] (options) 기능 ros2 doctor hello (-r) (-rf) (-iw) ROS 설정 및 네트워크, 패키지 버전, rmw 미들 웨어 등과 같은 잠재적 문제를 확인하는 도구 ros2 wtf hello (-r) (-rf) (-iw) doctor와 동일함 (ros2 doctor의alias) (WTF: Where's The Fire) ros2 lifecycle get 라이프 사이클 정보 출력 list 지정 노드의 사용 가능한 상태 전이 목록 출력 nodes 라이프 사이클을 사용하는 노드 목록 출력 set 라이프 사이클 상태 전환 트리 거
 
 
-ROS2 CLI
 ROS2 CLI기능 정보 명령어
-ros2cli + [verbs]
-[sub-verbs]
-기능
-ros2 component
 list
 실행 중인 컨테이너와 컴포넌트 목록 출력
 load
@@ -206,7 +131,6 @@ types
 사용 가능한 컴포넌트들의 목록 출력
 unload
 지정 컴포넌트의 실행 중지
-ros2 security
 create_key
 보안 키 생성
 create_keystore
@@ -223,30 +147,20 @@ list_keys
 - ROS2 CLI + verbs + sub-verbs
 
 
-ROS2 CLI
-ROS2 CLI기능 보조 명령어
-
 - ROS2 CLI + verbs + sub-verbs 예시
 - ROS2에서 사용할 수 있는 모든extension들을 나열함
-- ROS2 시스템의 상태를 진단하고 문제를 확인하는 도구 ROS2 CLI 기능 보조 명령어
+- ROS2 시스템의 상태를 진단하고 문제를 확인하는 도구
 
-ROS2 CLI
-ROS2 CLI실습
 
 - run은 특정 패키지의 특정 노드를 실행하는 명령어
 - turtlesim 패키지의turtle_sim node를실행
 - turtlesim 패키지의turtle_teleop_key를실행 ros2 run
 
-ROS2 CLI
-ROS2 CLI실습
 
 - launch는 특정 패키지의 특정 런치 파일을 실행하는 명령어. 복수 개의 노드 실행이나 또 다른 패키지의 다른 런치 파일을 불러와 실행 가능
 - turtlesim 패키지의turtle_sim node를실행
 - ROS2에서demo_nodes_cpp 패키지에 포함된talker_listener.launch.py 파일을 실행하여 두 개의 노드를 동시에 시작 ros2 launch
 
-
-ROS2 CLI
-ROS2 CLI실습
 
 - pkg는 지정 패키지의 정보를 얻거나 패키지를 생성하는 데 사용되는 명령어
 - ament python 빌드 형태의rclpy, std_msgs 패키지에 의존성을 가진my_ros_pkg 패키지를 생성
@@ -256,16 +170,10 @@ ROS2 CLI실습
 - turtlesim 패키지의 패키지 정보 파일(package.xml)을확인 ros2 pkg
 
 
-ROS2 CLI
-ROS2 CLI실습
-
 - node는 노 드의 정보를 얻는 데 사용하는 명령어
 - 실행 중인 모든 노드의 목록을 확인
 - /turtlesim 노드의 정보를 확인 ros2 node
 
-
-ROS2 CLI
-ROS2 CLI실습
 
 - topic은 토픽의 구성, 대역 폭, 지연 시간, 인터페이스 형태 등의 정보를 얻거나 특정 토픽을 송신 및 수신하는 데 사용되는 명령어
 - /turtle1/cmd_vel 토픽의 대역 폭을 확인
@@ -276,18 +184,12 @@ ROS2 CLI실습
 - 만일 아무것도 뜨지 않을 경우turtle_teleop_key를 이용해turtle을이동
 
 
-ROS2 CLI
-ROS2 CLI실습
-
 - /turtle1/cmd_vel 토픽의 인터페이스 형태, 토픽의 퍼블리시 및 서브스크라이브 정보를 확인
 - 현재 개발 환경에서 동작 중인 모든 노드들의 토픽 이름을 확인
 - 현재 개발 환경에서 동작 중인 모든 노드들의 인터페이스 형태와 함께 토픽 이름을 확인
 - /turtle1/cmd_vel 토픽을 퍼블리시한다. 테스트용으로 주로 사용
 - /turtle1/cmd_vel 토픽의 인터페이스 형태를 확인 예제가 정상적으로 동작하기 위해서는turtlesim_node와turtle_teleop_key노드가 실행되어 있어야함
 
-
-ROS2 CLI
-ROS2 CLI실습
 
 - service는 서비스의 정보를 얻거나 직접 서비스 요청을 테스트해 볼 수 있는 명령어
 - turtlesim/srv/SetPen 인터페이스 형태를 사용하고 있는/turtle1/set_pen 서비스를 특정 값을 요청 값으로 콜
@@ -297,18 +199,12 @@ ROS2 CLI실습
 - /clear 서비스의 인터페이스 형태를 확인 ros2 service
 
 
-ROS2 CLI
-ROS2 CLI실습
-
 - action은 액션의 정보를 얻거나 직접 액션 목표 전달을 테스트해 볼 수 있는 명령어
 - turtle1/rotate_absolute 액션을 사용하는 액션 서버 및 클라이언트 노드 이름 및 개수를 확인
 - 현재 개발 환경에서 동작 중인 모든 노드들의 액션 이름을 확인
 - 현재 개발 환경에서 동작 중인 모든 노드들의 인터페이스 형태와 액션 이름을 확인
 - turtlesim/action/RotateAbsolute 인터페이스 형태를 사용하는/turtle1/rotate_absolute 액션에 특정 값으로 액션 목표를 전달 ros2 action
 
-
-ROS2 CLI
-ROS2 CLI실습
 
 - interface는토픽/서비스/액션에서 사용하는 인터페이스의 정보를 얻는 데 사용되는 명령어
 - 현재 개발 환경의 모든msg, srv, action 인터페이스를 확인
@@ -318,25 +214,16 @@ ROS2 CLI실습
 - 지정한 각 메시지의 인터페이스 및 메시지 이름을 확인 ros2 interface
 
 
-ROS2 CLI
-ROS2 CLI실습
-
 - param은 파라미터의 정보를 확인하고 파라미터를 설정하거나 읽어 오는 등의 일을 수행할 수 있는 명령어
 - 사용 가능한 모든 파라미터 목록을 확인
 - /turtlesim 노드의background_r 파라미터의 값을 읽어 옴
 - /turtlesim 노드의background_r 파라미터를250이라는 값으로 설정 ros2 param
 
 
-ROS2 CLI
-ROS2 CLI실습
-
 - 파라미터가 어떤 형태, 목적, 인터페이스 형태, 최소/최 댓 값을 갖는지 확인
 - /turtlesim 노드의PARAMETER 1이라는 이름을 갖는 파라미터를 삭제(현재는 삭제 가능한 파라미터가 없음)
 - 현재 폴더에/turtlesim노드의 파라미터들을yaml 형태로 저장. 특정 이름을 지정하지 않으면 지정한 노드 이름으로 파일이 생성됨 ros2 param
 
-
-ROS2 CLI
-ROS2 CLI실습
 
 - bag은 토픽을 저장하거나 재생할 때 사용하는 명령어
 - 원하는 토픽을‘my_turtle’이라는 이름으로 저장
@@ -345,23 +232,14 @@ ROS2 CLI실습
 - 지정한rosbag 파일을 재생 ros2 bag
 
 
-ROS2 CLI
-ROS2 CLI실습
-
 - extensions 명령어는ros2cli 개발용으로 사용되는 명령어로, ROS2 CLI에 추가할 수 있는 확장(extensions) 목록을 보여 주고 관리하는 역할
 - 현재 설치된extension의 간단한 목록을 표시
 - 로드에 실패했거나 호환되지 않는extension도표시 ros2 extensions ※ CLI 후반부에 실습
 
 
-ROS2 CLI
-ROS2 CLI실습
-
 - extension_points 명령어는ros2cli 개발용으로 사용되는 명령어로, extension points(확장 가능한 지점) 목록을 보여 주는 역할
 - 현재 사용 가능한extension points 목록을 표시 ros2 extension_points
 
-
-ROS2 CLI
-ROS2 CLI실습
 
 - Daemon은ROS2 도구들의 빠른 실행을 위해 도입된 툴로 주로 백 그라운드에서 실행되는 프로그램이나 프로세스를 말함
 - ROS2 Daemon 프로세스는 노드들을 발견하고 연결하는 역할을 하며, 특히 다음과 같은 명령어로 관리할 수 있음
@@ -373,16 +251,10 @@ ROS2 CLI실습
 - 통신, 관리, 서비스 제공 등의 역할
 
 
-ROS2 CLI
-ROS2 CLI실습
-
 - multicast는ROS2 DDS 테스트용으로 나온 명령어로Multicast 송/수신 테스트에 사용되는 명령어
 - 단일UDP 멀티캐스트 패킷 수신(송신된 패킷을 받기 전까지 대기함)
 - 단일UDP 멀티캐스트 패킷 송신(새로운 터미널을 열어 송신 시 기존 터미널에서 수신 대기 중인 터미널이 패킷을 수신함) ros2 multicast
 
-
-ROS2 CLI
-ROS2 CLI실습
 
 - doctor는ROS2 설정 및 네트워크, 패키지 버전, RMW 등과 같은ROS2 개발 환경의 잠재적 문제를 진단 및 점검하는 명령어
 - 네트워크 연결 확인
@@ -391,9 +263,6 @@ ROS2 CLI실습
 - -iw 옵션은include-warnings를 의미하며 경고성 아이템을 확인함 ros2 doctor
 
 
-ROS2 CLI
-ROS2 CLI실습
-
 - wtf는What’s The Fast를 의미하며, 성능 최적화 및 데이터 전송 성능을 개선하는 도구
 - 데이터 전송 속도, 지연 시간, 대역폭 사용 효율 등을 개선
 - 네트워크 연결 확인
@@ -401,9 +270,6 @@ ROS2 CLI실습
 - -rf 옵션은report-fail을 의미하며 체크할 때 실패한 아이템을 확인함
 - -iw 옵션은include-warnings를 의미하며 경고성 아이템을 확인함 ros2 wtf
 
-
-ROS2 CLI
-ROS2 CLI실습
 
 - Lifecycle은 노 드의 수명 주기(lifecycle)를 관리하는 명령어
 - 기본적으로 노 드는4개의 상태(state), Unconfigured, Inactive, Active, Finalized로구분
@@ -420,9 +286,6 @@ ROS2 CLI실습
 - errorprocessing : 에러 발생 후 에러 복구 중인 상태
 
 
-ROS2 CLI
-ROS2 CLI실습
-
 - Component는 여러 노드를 단일 프로세스에서 실행하여 시스템의 효율성과 성능을 향상시키는 방식
 - 컴포넌트의 목록 조회, 로드, 언로드 등의 작업을 수행할 수 있음
 - 실행 중인 컨테이너와 컴포넌트 목록 출력
@@ -434,9 +297,6 @@ ROS2 CLI실습
 - 이를 통해 노드 간의 통신 오버 헤드를 줄이고, 시스템의 자원 활용을 최적화할 수 있음
 - 이러한 방식을**컴 포지션(Composition)**이라고 함 ※ CLI 후반부에 실습
 
-
-ROS2 CLI
-ROS2 CLI실습
 
 - Security는SROS의 유틸리티로, DDS-Security를ROS2에서 사용하기 위해 필요한 도구를 모아 둔 것 ros2 security
 - ros2 security는ROS 2에서 보안 기능을 설정하고 관리하는 명령어
@@ -505,15 +365,12 @@ CLI에서arguments 사용하기
 ![Image 224](../../assets/images/ros/practice/practice-01-04/img_046_224.webp)
 
 
-신규ROS2 cli 작성법
-신규ROS2 cli 작성법
-
 - 앞에서ROS2 CLI 명령어의 개념, 사용법 및 종류에 대해 학습하였음
 - 지금부터는 새로운ROS2 CLI 명령어를 생성하는 방법을 탐구하고자함 소개
 - ros2 env라는 기존에 없던ROS2 CLI를 만들기 신규ROS2 cli 작성법 ※ 필요한 파일: ros2env.zip
 
 
-✓실행 예제
+### 실행 예제
 
 1. ros2 폴더의src폴더로 이동하여ros2env 패키지 생성
 2. ros2env 폴더로 이동하여vscode 실행
@@ -528,13 +385,11 @@ Build 하고 실행해 보기
 DOMAIN_ID 바꿔서 실행해 보기
 
 
-✓실행 예제– env.py
+### 실행 예제– env.py
 
 1. env.py: 인터페이스(CLI)에서 확장 기능을 추가하는EnvCommand 클래스를 정의
 CLI의“env” 메인 명령을 정의( $ros2 env list or $ros2 env set)
 
-
-✓실행 예제– env.py
 
 2. add_arguments 함수
 
@@ -544,8 +399,6 @@ Build 하고 실행해 보기
 
 ![Image 249](../../assets/images/ros/practice/practice-01-04/img_053_249.webp)
 
-
-✓실행 예제– env.py
 
 3. add_subparsers_on_demand 함수
 
@@ -558,19 +411,15 @@ Build 하고 실행해 보기
 - required: 서브 명령어가 필수인지 여부를 결정. False로 설정할 경우 서브 명령어가 없을 때 기본적으로 도움말이 출력됨 ros2env.verb로부터 필요한 시점에서command를 가져옴
 
 
-✓실행 예제– env.py
-
 4. main 메서드
 
 - 서브 명령어가 주어지지 않은 경우 도움 말을 출력하고, 주어진 경우 해당 서브 명령어의main 메서드를 호출하여 실행 ros2 env list나ros2 env set에서list와set args._verb에 사용자가 입력한 하위 명령어(verb)가 들어옴. 서브 커맨드 입력 여부 검사 만약 사용자가 서브 커맨드를 입력하지 않았다면help 출력
 
 
-✓실행 예제– list.py
+### 실행 예제– list.py
 
 1. verb폴더 생성 후 안에list.py파일 생성
 
-
-✓실행 예제– list.py
 
 2. list.py: ros2env 패키지의 일부로, ROS2 환경 변수들을 출력하는ListVerb 클래스를 정의
 ros2 env –r
@@ -578,22 +427,16 @@ Build 하고 실행해 보기
 ros2 env –a
 
 
-✓실행 예제– list.py
-
 3. code import
 
 - get_all_env_list, get_dds_env_list, get_ros_env_list : 각각 모든 환경 변수, DDS 관련 환경 변수, ROS 관련 환경 변수를 반환하는 함수들
 - VerbExtension: ROS2 CLI 명령어 확장 기능을 제공하는 기본 클래스 * DDS: 네트워크에 연결된 여러 장치들이 데이터를 주고받을 수 있게해 주는 통신 기술 ※ 왜ros2env.api 모듈로 별도 분리해서 사용하는지 확인해 보자!!!
 
 
-✓실행 예제– list.py
-
 4. ListVerb 클래스
 
 - ros2env와 관련된 명령어로 환경 변수를 리스트로 출력할 수 있는 기능을 제공
 
-
-✓실행 예제– list.py
 
 5. add_arguments 함수
 
@@ -604,8 +447,6 @@ Build 하고 실행해 보기
 - 각 옵션은action="store_true"로 설정되어, 명령어에 옵션을 포함할 경우 True 값을 가지며, 그렇지 않을 경우False 값을 가짐
 - help 매개변수는 각 옵션의 설명을 제공하여ros2 list --help로 명령어에 대한 도움말을 볼 때 사용됨
 
-
-✓실행 예제– list.py
 
 6. main 메서드
 
@@ -622,62 +463,66 @@ Build 하고 실행해 보기
 - 두 옵션 모두False일경우(즉, --all 옵션이거나 아무 옵션도 사용하지 않은 경우), get_all_env_list()를 호출하여 모든 환경 변수를 가져옴
 
 
-✓실행 예제– api/__init__.py
-
-1. api 폴더 생성 후__init__.py 파일 생성
+??? example "코드 분석: 실행 예제– api/__init__.py"
 
 
-✓실행 예제– api/__init__.py
-1.
-__init__.py: ROS2와 관련된 환경 변수를 읽고 설정
+    1. api 폴더 생성 후__init__.py 파일 생성
 
 
-✓실행 예제– api/__init__.py
+??? example "코드 분석: 실행 예제– api/__init__.py"
 
-2. get_ros_env_list 함수
-
-- ROS2와 관련된 환경 변수인ROS_VERSION, ROS_DISTRO, ROS_PYTHON_VERSION 값을 가져옴
-- os.getenv() 함수를 사용하여 각 환경 변수를 읽어 옴
-- 세 환경 변수를 문자열로 포맷 팅하여 반환
+    1.
+    __init__.py: ROS2와 관련된 환경 변수를 읽고 설정
 
 
-✓실행 예제– api/__init__.py
-3.
-get_dds_env_list 함수
-
-- 이 함수는DDS와 관련된 환경 변수인ROS_DOMAIN_ID와RMW_IMPLEMENTATION 값을 가져옴
-- ROS2에서DDS를 설정하기 위한 역할을 함
-- 환경 변수 값이 없을 경우'None'을 반환하도록하여, 존재 여부를 확인 * RMW_IMPLEMENTATION: ROS2가데이터를 주고받을 때 어떤 방식을 사용할지 정하는 환경 변수
+??? example "코드 분석: 실행 예제– api/__init__.py"
 
 
-✓실행 예제– api/__init__.py
-4.
-get_all_env_list 함수
+    2. get_ros_env_list 함수
 
-- 이 함수는 앞서 설명한get_ros_env_list()와get_dds_env_list()를 호출하여, 모든ROS 및DDS 관련 환경 변수를 가져옴
-- 두 함수의 반환 값을 결합하여 모든 환경 변수를 하나의 문자열로 반환
-
-
-✓실행 예제– api/__init__.py
-
-5. set_ros_env 함수
-
-- 이 함수는env_name과env_value라는 두 인자를 받아 해당 환경 변수를 설정
-- os.environ 딕셔너리에 값을 직접 할당하여 환경 변수를 설정하며, os.getenv()로 설정된 값을 다시 확인하여 반환
-- 환경 변수 설정 후 반환 값을 통해 변수 명과 설정된 값을 문자열 형태로 확인 가능
+    - ROS2와 관련된 환경 변수인ROS_VERSION, ROS_DISTRO, ROS_PYTHON_VERSION 값을 가져옴
+    - os.getenv() 함수를 사용하여 각 환경 변수를 읽어 옴
+    - 세 환경 변수를 문자열로 포맷 팅하여 반환
 
 
-✓실행 예제– set.py
+??? example "코드 분석: 실행 예제– api/__init__.py"
+
+    3.
+    get_dds_env_list 함수
+
+    - 이 함수는DDS와 관련된 환경 변수인ROS_DOMAIN_ID와RMW_IMPLEMENTATION 값을 가져옴
+    - ROS2에서DDS를 설정하기 위한 역할을 함
+    - 환경 변수 값이 없을 경우'None'을 반환하도록하여, 존재 여부를 확인 * RMW_IMPLEMENTATION: ROS2가데이터를 주고받을 때 어떤 방식을 사용할지 정하는 환경 변수
+
+
+??? example "코드 분석: 실행 예제– api/__init__.py"
+
+    4.
+    get_all_env_list 함수
+
+    - 이 함수는 앞서 설명한get_ros_env_list()와get_dds_env_list()를 호출하여, 모든ROS 및DDS 관련 환경 변수를 가져옴
+    - 두 함수의 반환 값을 결합하여 모든 환경 변수를 하나의 문자열로 반환
+
+
+??? example "코드 분석: 실행 예제– api/__init__.py"
+
+
+    5. set_ros_env 함수
+
+    - 이 함수는env_name과env_value라는 두 인자를 받아 해당 환경 변수를 설정
+    - os.environ 딕셔너리에 값을 직접 할당하여 환경 변수를 설정하며, os.getenv()로 설정된 값을 다시 확인하여 반환
+    - 환경 변수 설정 후 반환 값을 통해 변수 명과 설정된 값을 문자열 형태로 확인 가능
+
+
+### 실행 예제– set.py
 
 1. 이전에 만들어 두었던verb 폴더 안에set.py 파일 생성
 
 
-✓실행 예제– set.py
 2.
 set.py: ros2env 패키지를 사용하여ROS2 Humble에서 환경 변수를 설정하고 출력하는 기능을 제공
 
 
-✓실행 예제– set.py
 3.
 code import
 
@@ -686,14 +531,12 @@ code import
 - VerbExtension: ROS2 CLI 확장 명령어를 구현하기 위한 기본 클래스. 이 클래스는ros2 <verb>와 같은 형식으로 명령어를 확장할 수 있도록 지원하며, ROS2 Humble에서SetVerb 명령어를 추가하는 데 사용됨
 
 
-✓실행 예제– set.py
 4.
 SetVerb 클래스
 
 - ROS 환경 변수를 설정하는 데 사용되는 클래스로, VerbExtension을 상속받아ROS2 명령어 확장을 구현함
 
 
-✓실행 예제– set.py
 5.
 add_arguments 함수
 
@@ -702,7 +545,6 @@ add_arguments 함수
 - help 매개변수는 각 인자의 설명을 제공. ros2 set --help 명령어로 실행됨
 
 
-✓실행 예제– set.py
 6.
 main 함수
 
@@ -710,53 +552,60 @@ main 함수
 - env_name 또는value 값이 있는 경우에만 환경 변수를 설정 • 환경 변수 설정: set_ros_env(args.env_name, args.value) 함수가 호출되어 해당 환경 변수에 값을 설정
 - get_all_env_list() 함수를 호출하여 모든 환경 변수의 현재 상태를 가져오고, [Current ROS environment variable]: 메시지와 함께 출력
 
-✓실행 예제– verb/__init__.py
-
-1. verb 폴더 안에__init__.py 파일 생성
-
-✓실행 예제– verb/__init__.py
-2.
-__init__.py: ROS2 Humble에서env 명령어에 대한 확장 포인트를 정의하기 위한 파일로ROS2 CLI
-확장을 위한 기본 템플릿으로 사용됨
+??? example "코드 분석: 실행 예제– verb/__init__.py"
 
 
-✓실행 예제– verb/__init__.py
-3.
-code import
-
-- PLUGIN_SYSTEM_VERSION: 현재 사용 중인ROS2 CLI 플러그인 시스템의 버전을 나타냄
-- satisfies_version: 플러그인 시스템의 버전과 확장의 버전이 호환되는지 검사하는 함수. 특정 버전 규칙을 따르는지 확인하여, 버전 불일치로 인한 오류를 방지
+    1. verb 폴더 안에__init__.py 파일 생성
 
 
-✓실행 예제– verb/__init__.py
-4.
-VerbExtension 클래스
+??? example "코드 분석: 실행 예제– verb/__init__.py"
 
-- ROS2 CLI 확장 시스템에서 명령어 확장을 위한 기본 클래스로 사용됨
-- NAME : 확장의 이름을 설정할 때 사용되는 속성
-- EXTENSION_POINT_VERSION : 이 확장이 구현하는 확장 포인트의 버전
+    2.
+    __init__.py: ROS2 Humble에서env 명령어에 대한 확장 포인트를 정의하기 위한 파일로ROS2 CLI
+    확장을 위한 기본 템플릿으로 사용됨
 
 
-✓실행 예제– verb/__init__.py
-5.
-__init__ 함수
+??? example "코드 분석: 실행 예제– verb/__init__.py"
 
-- satisfies_version 함수를 사용해 현재 플러그인 시스템 버전이EXTENSION_POINT_VERSION과 호환되는지 확인
+    3.
+    code import
 
-6. add_arguments 함수
-
-- ROS2 명령어에 필요한 인자들을 정의하기 위한 메서드. 기본 클래스에서는 비어 있으며, 구체적인 확장에서 필요에 따라 이 메서드를 오버 라 이드하여 구현함
+    - PLUGIN_SYSTEM_VERSION: 현재 사용 중인ROS2 CLI 플러그인 시스템의 버전을 나타냄
+    - satisfies_version: 플러그인 시스템의 버전과 확장의 버전이 호환되는지 검사하는 함수. 특정 버전 규칙을 따르는지 확인하여, 버전 불일치로 인한 오류를 방지
 
 
-✓실행 예제– verb/__init__.py
-7.
-main 함수
+??? example "코드 분석: 실행 예제– verb/__init__.py"
 
-- 각 명령어 확장에서 반드시 구현해야하는 메서드로, 명령어의 주요 로직을 수행하는 함수
-- 기본 클래스에서는NotImplementedError를 발생시켜 이 메서드가 반드시 하위 클래스에서 오버 라 이드되어야함을 알림
+    4.
+    VerbExtension 클래스
+
+    - ROS2 CLI 확장 시스템에서 명령어 확장을 위한 기본 클래스로 사용됨
+    - NAME : 확장의 이름을 설정할 때 사용되는 속성
+    - EXTENSION_POINT_VERSION : 이 확장이 구현하는 확장 포인트의 버전
 
 
-✓복습Override(Object Oriented Programming)
+??? example "코드 분석: 실행 예제– verb/__init__.py"
+
+    5.
+    __init__ 함수
+
+    - satisfies_version 함수를 사용해 현재 플러그인 시스템 버전이EXTENSION_POINT_VERSION과 호환되는지 확인
+
+    6. add_arguments 함수
+
+    - ROS2 명령어에 필요한 인자들을 정의하기 위한 메서드. 기본 클래스에서는 비어 있으며, 구체적인 확장에서 필요에 따라 이 메서드를 오버 라 이드하여 구현함
+
+
+??? example "코드 분석: 실행 예제– verb/__init__.py"
+
+    7.
+    main 함수
+
+    - 각 명령어 확장에서 반드시 구현해야하는 메서드로, 명령어의 주요 로직을 수행하는 함수
+    - 기본 클래스에서는NotImplementedError를 발생시켜 이 메서드가 반드시 하위 클래스에서 오버 라 이드되어야함을 알림
+
+
+### 복습Override(Object Oriented Programming)
 Override란?
 
 - 상속 받은 부모 클래스(슈퍼 클래스)의 메서드를, 자식 클래스(서브 클래스)에서 다시 정의함
@@ -766,7 +615,7 @@ Override란?
 - 코드 재상용성을 높이고, 다형성(Polymorphism)도구 현 다형성? 하나의 인터페이스(메서드 이름)가 여러 형태로 동작하는 것
 
 
-✓복습Override vs Overload
+### 복습Override vs Overload
 ※ C++, Java에서는Overload지원하나Python에서는 엄밀하게 보면 지원하지 않으나source code내에서 분기하는 형태로 구현 가능
 
 
@@ -776,7 +625,7 @@ Override란?
 ![Image 372](../../assets/images/ros/practice/practice-01-04/img_081_372.webp)
 
 
-✓복습interface와 추상 클래스
+### 복습interface와 추상 클래스
 Interface란?
 
 - 이런 기능들을 갖춘 객체여야한다고 선언
@@ -792,21 +641,23 @@ Interface란?
 ![Image 380](../../assets/images/ros/practice/practice-01-04/img_082_380.webp)
 
 
-✓실행 예제– setup.py
-
-1. setup.py의entry_points를 아래와 같이 수정
-env라는 이름으로ros2env/command/env.py 파일 안의EnvCommand 클래스를 등록(ros2 env 명령이 동작)
-extention_point 등록. ros2env/verb.py파일 안의VerbExtention클래스를 연결. Verb가 어떤 인터페이스를 사용하는지 알려 줌
-서브 명령어(verb)를 등록하는 부분. ros2env/verb/list.py와ros2env/verb/list.py 2개 클래스. ros2 env list와ros2 env set 입력 가능
+??? example "코드 분석: 실행 예제– setup.py"
 
 
-✓실행 예제– setup.py
+    1. setup.py의entry_points를 아래와 같이 수정
+    env라는 이름으로ros2env/command/env.py 파일 안의EnvCommand 클래스를 등록(ros2 env 명령이 동작)
+    extention_point 등록. ros2env/verb.py파일 안의VerbExtention클래스를 연결. Verb가 어떤 인터페이스를 사용하는지 알려 줌
+    서브 명령어(verb)를 등록하는 부분. ros2env/verb/list.py와ros2env/verb/list.py 2개 클래스. ros2 env list와ros2 env set 입력 가능
 
-2. 터미널을 열어 패키지를 빌드하고, 새로 빌드된 패키지를 사용
-3. 아래 명령어들을 실행하여 제대로 빌드가 되었음을 확인
+
+??? example "코드 분석: 실행 예제– setup.py"
 
 
-Intra-Process Communication
+    2. 터미널을 열어 패키지를 빌드하고, 새로 빌드된 패키지를 사용
+    3. 아래 명령어들을 실행하여 제대로 빌드가 되었음을 확인
+
+
+## Intra-Process Communication
 
 ![Image 392](../../assets/images/ros/practice/practice-01-04/img_085_392.webp)
 
@@ -819,8 +670,6 @@ Intra-Process Communication
 
 - ROS에서 서로 다른 프로세스의 아이디를 확인해 보면 명확히 다른 것을 확인 가능 Intra-process communication
 
-
-Intra-process communication
 
 - 서로 다른 프로세스는 송수신되는 데이터가 여러 번 메모리에 복사되어 성능 저하가 발생 두노드 간의 일반적인 데이터 흐름 이 과정에서 여러 번의 메모리 복사가 발생하며, 특히 대용량 데이터(이미지, LiDAR 포인트 클라우드 등) 전송 시 메모리 사용량 증가와 성능 저하 발생 [ 기본적인 데이터 복사] 일반적으로ROS 2에서노드 간에 데이터를 전달할 때, 메시지는 다음과 같은 단계를 거침
 
@@ -862,7 +711,6 @@ ROS2는DDS(Data Distribution Service)를 사용하여 메시지를 전달함
 ![Image 403](../../assets/images/ros/practice/practice-01-04/img_090_403.webp)
 
 
-Intra-process communication
 프로세스1개
 
 - 노드2개(Producer, Consumer)가1개 프로세스에 있음
@@ -870,7 +718,6 @@ Intra-process communication
 - 메모리 복사 없이 빠르게 메시지 전달(메모리 주소) 메시지address 1개 https://github.com/ros2/demos/tree/humble/intra_process_demo/src https://github.com/ros2/demos/tree/humble/intra_process_demo/src
 
 
-Intra-process communication
 Topic1
 Topic2
 pipe1
@@ -894,15 +741,12 @@ subscribing
 - 두 번째 터미널은camera_node와watermark_node는 같은 프로세스에서zero-copy로 이미지 송수신하지만, image_view_node는 다른 프로세스에서 실행되며 참조하는 메모리 주소도 다름 camera_node watermark_node image_view_node
 
 
-QoS
 (Quality of Service)
 
 
 ![Image 421](../../assets/images/ros/practice/practice-01-04/img_095_421.webp)
 
 
-QoS
-DDS의QoS
 DDS의 서비스 품질(QoS, Quality of Service)
 
 - QoS(Quality of Service)란 쉽게 말해‘데이터 통신 옵션’
@@ -926,7 +770,6 @@ DDS의 서비스 품질(QoS, Quality of Service)
 
 
 Reliability
-DDS의QoS
 ROS2에서 사용하는QoS 옵션
 
 - Values
@@ -934,7 +777,6 @@ ROS2에서 사용하는QoS 옵션
 
 
 Durability
-DDS의QoS
 ROS2에서 사용하는QoS 옵션
 
 - Values
@@ -942,7 +784,6 @@ ROS2에서 사용하는QoS 옵션
 
 
 Deadline
-DDS의QoS
 ROS2에서 사용하는QoS 옵션
 
 - Values
@@ -950,7 +791,6 @@ ROS2에서 사용하는QoS 옵션
 
 
 Lifespan
-DDS의QoS
 ROS2에서 사용하는QoS 옵션
 
 - Values
@@ -958,15 +798,13 @@ ROS2에서 사용하는QoS 옵션
 
 
 Liveliness
-DDS의QoS
 ROS2에서 사용하는QoS 옵션
 
 - Values
 - 예시 Liveliness 정해진 주기 내 노드 또는 토픽의 생사를 확인 liveliness 자동 또는 매뉴얼로 확인할지 지정하는 옵션(3가지 중 선택) (AUTOMATIC, MANUAL_BY_NODE, MANUAL_BY_TOPIC) lease_duration Liveliness를 확인하는 주기
 
 
-rmw_qos_profile
-DDS의QoS
+## rmw_qos_profile
 rmw_qos_profile 사용과 유저QoS 프로파일 사용
 
 - RMW QoS Profile: ROS2의RMW에서 가장 많이 사용하는QoS 설정을 하나의 세트로 표현한 것
@@ -1012,11 +850,8 @@ error(+ daemon
 ![Image 462](../../assets/images/ros/practice/practice-01-04/img_105_462.webp)
 
 
-DDS의QoS
 DDS& QoS
-DDS
 (Data Distribution Service)
-QoS
 (Quality of Service)
 개념
 
@@ -1053,22 +888,17 @@ QoS
 ![Image 471](../../assets/images/ros/practice/practice-01-04/img_106_471.webp)
 
 
-rmw_qos_profile
-DDS의QoS
 rmw_qos_profile 사용과 유저QoS 프로파일 사용
 
 - 예를 들어, 센서와 같이 지속성이 높으며 순간적으로 데이터를 빠르게 전달해야하는 경우 아래와 같이 설정
 
 
-rmw_qos_profile
-DDS의QoS
 rmw_qos_profile 사용과 유저QoS 프로파일 사용
 
 - 실제 파이썬 코드에서 사용은 다음과 같이'qos_profile_sensor_data' 모듈을import하여 사용함
 
 
 유저QoS 프로파일
-DDS의QoS
 rmw_qos_profile 사용과 유저QoS 프로파일 사용
 
 - 사전 정의한rmw_qos_profile 이 외에도 유저가 직접 설정하여 새로운 프로파일을 만들어 사용 가능
@@ -1077,14 +907,13 @@ rmw_qos_profile 사용과 유저QoS 프로파일 사용
 
 
 유저QoS 프로파일
-DDS의QoS
 rmw_qos_profile 사용과 유저QoS 프로파일 사용
 
 - 다음'create_publisher'와 같은 함수를 사용할 때'rmw_qos_profile' 대신 유저 가정의 한 커스 텀 QoS 프로파일을 매개변수로 사용
 - 유저QoS 프로파일을 사용하는 것이 커스 터 마이 징에 용이하기 때문에, 실제 개발 시 더 많이 사용됨
 
 
-QoS programming
+## QoS 프로그래밍
 
 - Topic, Service, Action의QoS 설정 ⇢예제 코드 중심의QoS 프로그래밍 코드 분석 ※ 필요한 파일: py_pubsub_qos.zip Topic QoS Programming Topic, Service, Action의QoS 설정
 - Topic의기본QoS 설정은RMW QoS Profile의 기본 설정과 동일
@@ -1152,29 +981,32 @@ QoS 실습
 - 제공된 코드 파일의 압축 풀기
 
 
-✓py_pubsub/src/publisher_member_function.py 설정
-
-- QoS profile 변경
-- Publisher에는QoS(Quality of Service) 프로파일의 기본 값으로rmw_qos_profile_default로사용
-- 'create_publisher'의3번째 인자에10을 넣어 주면, depth가10인 기본 프로파일'QoSProfile(depth=10)'이 입력되는 구조
+??? example "코드 분석: py_pubsub/src/publisher_member_function.py 설정"
 
 
-✓py_pubsub/src/publisher_member_function.py 설정
-
-- QoS profile 변경
-- History의값을KEEP_LAST로 변경하고 싶다면, 다음과 같이 작성
-- KEEP_ALL로 변경하고 싶다면 ros_tutorials
+    - QoS profile 변경
+    - Publisher에는QoS(Quality of Service) 프로파일의 기본 값으로rmw_qos_profile_default로사용
+    - 'create_publisher'의3번째 인자에10을 넣어 주면, depth가10인 기본 프로파일'QoSProfile(depth=10)'이 입력되는 구조
 
 
-✓py_pubsub/src/publisher_member_function.py 설정
-
-- QoS profile 변경
-- 작성한QoS profile을 적용하려면, create_publisher 부분에 작성한qos_profile을 인자로 전달
-- 이번 예제에서는History 값을KEEP_ALL로 설정하여 테스트
-- publisher 노드를 실행한 후 한참이 지나도 모든 데이터가subscriber에게 전달되는지 확인
+??? example "코드 분석: py_pubsub/src/publisher_member_function.py 설정"
 
 
-✓py_pubsub/src/publisher_member_function.py
+    - QoS profile 변경
+    - History의값을KEEP_LAST로 변경하고 싶다면, 다음과 같이 작성
+    - KEEP_ALL로 변경하고 싶다면 ros_tutorials
+
+
+??? example "코드 분석: py_pubsub/src/publisher_member_function.py 설정"
+
+
+    - QoS profile 변경
+    - 작성한QoS profile을 적용하려면, create_publisher 부분에 작성한qos_profile을 인자로 전달
+    - 이번 예제에서는History 값을KEEP_ALL로 설정하여 테스트
+    - publisher 노드를 실행한 후 한참이 지나도 모든 데이터가subscriber에게 전달되는지 확인
+
+
+### py_pubsub/src/publisher_member_function.py
 
 - 퍼블리셔QoS profile 변경
 - Reliability는RELIABLE로변경
@@ -1185,23 +1017,24 @@ QoS 실습
 - VOLATILE: Subscription이 생성되기 전 데이터도 보관
 
 
-✓py_pubsub/src/subscriber_member_function.py 설정
-
-- QoS profile 변경
-- 서브스크라이버에도마찬가지로, QoS 프로파일을 적용 [ 활용 사례]
-- 카메라가0.01초마다 사진을Publishing, Subscriber는 딥 러닝Inference 0.1초소요 →최근5개 데이터만 버퍼에 저장해 두고 그 이전 데이터는 버림
-- 로봇이 경로 명령(move to waypoint)를 보내고 있는 경우 하나라도 메시지를 놓치면 문제 발생→이때KEEP_ALL로 모든 데이터(waypoint) 보관
-- 배터리 잔량, 온도 센서 모니터링 등→과거 이력 데이터보다는 지금 실시간 현재 상태만 모니터링하고 싶은 경우→가장 최신 메시지1개만 받음
+??? example "코드 분석: py_pubsub/src/subscriber_member_function.py 설정"
 
 
-✓빌드후py_pubsub 실행
+    - QoS profile 변경
+    - 서브스크라이버에도마찬가지로, QoS 프로파일을 적용 [ 활용 사례]
+    - 카메라가0.01초마다 사진을Publishing, Subscriber는 딥 러닝Inference 0.1초소요 →최근5개 데이터만 버퍼에 저장해 두고 그 이전 데이터는 버림
+    - 로봇이 경로 명령(move to waypoint)를 보내고 있는 경우 하나라도 메시지를 놓치면 문제 발생→이때KEEP_ALL로 모든 데이터(waypoint) 보관
+    - 배터리 잔량, 온도 센서 모니터링 등→과거 이력 데이터보다는 지금 실시간 현재 상태만 모니터링하고 싶은 경우→가장 최신 메시지1개만 받음
+
+
+### 빌드후py_pubsub 실행
 
 - 빌드
 - Talker 실행
 - Listener 실행(Talker의Publish 메시지가10개 이상 발행된 뒤 실행)
 
 
-✓History 결과 확인
+### History 결과 확인
 
 - Talker
 - Listener ※ QosHistoryPolicy를KEEP_ALL과KEEP_LAST로 옵션을 변경해서build 후 실행해서 비교해 보기 QoSHistoryPolicy 설정 Depth 적용 여부 메시지 저장 방식 KEEP_ALL X (무시됨) 모든 메시지를 저장 (RMW에 따라 차이는 있지만 시스템 메모리에 의해 제한) KEEP_LAST O (필수 설정) 최근depth 개수만 유지
@@ -1223,13 +1056,11 @@ QoS 실습
 - Talker 실행
 
 
-✓Reliable 결과 확인
+### Reliable 결과 확인
 
 - Talker
 - Listener
 
-
-✓Reliable 결과 확인
 
 - 결과 해석
 - Listener가 먼저 실행되어, Talker가발행하기를 대기하였음
@@ -1239,8 +1070,6 @@ QoS 실습
 - 추후 원활한 네트워크 통신을 위해 데이터 손실 명령 초기화
 - 명령어의add 부분을delete로 변경하여 복원
 
-
-✓Reliable 결과 확인
 
 - 데이터 손실 명령 복원 확인
 - Listener와Talker를 다시 실행하여 데이터 손실 명령어가 제대로 복원되었는지 확인하기
@@ -1266,14 +1095,12 @@ QoS 실습
 - VOLATILE : Subscriber가 생성되기 전 데이터는 사용하지 않음
 
 
-✓빌드후py_pubsub 실행
-
 - 빌드
 - Talker 실행
 - Listener 실행(Talker의Publish 메시지가10개 이상 발행된 뒤 실행)
 
 
-✓Durability 테스트 결과 확인
+### Durability 테스트 결과 확인
 
 - Talker
 - Listener Durability Depth 적용 여부 메시지 저장 방식 VOLATILE X (무시됨) 메시지는 발행될 때만 존재, 새로운 구독자는 이전 메시지 받을 수 없음 TRANSIENT_LOCAL O 최근depth 개수만 유지
@@ -1313,24 +1140,26 @@ Durability
 ![Image 599](../../assets/images/ros/practice/practice-01-04/img_140_599.webp)
 
 
-✓deadline.py 분석
-
-- 주기 설정
-- 'parsed_args.deadline'을 통해 사용자가 정의한 주기를 설정할 수 있음
-- 'Duration' 객체로 주기 정보를 갖는 변수'deadline'의선언
-- 만약, deadline을500으로 설정 시, 500/1000초= 0.5초로 설정되는 코드
-- QoS 프로파일 설정
-- deadline 인자에, 'Duration' 객체로 선언된 변수'deadline' 할당
+??? example "코드 분석: deadline.py 분석"
 
 
-✓deadline.py 분석
+    - 주기 설정
+    - 'parsed_args.deadline'을 통해 사용자가 정의한 주기를 설정할 수 있음
+    - 'Duration' 객체로 주기 정보를 갖는 변수'deadline'의선언
+    - 만약, deadline을500으로 설정 시, 500/1000초= 0.5초로 설정되는 코드
+    - QoS 프로파일 설정
+    - deadline 인자에, 'Duration' 객체로 선언된 변수'deadline' 할당
 
-- Callback 함수 선언 및Talker, Listener 선언
-- Timer로Publishing/Pause 반복 설정
-- Talker가publish_for_seconds 동안 메시지를 보낸 다음pause_for_seconds 동안 발행을 멈춤→의도적으로deadline 위반 상황 발생시킴
+
+??? example "코드 분석: deadline.py 분석"
 
 
-✓터미널에서Deadline 데모 실행
+    - Callback 함수 선언 및Talker, Listener 선언
+    - Timer로Publishing/Pause 반복 설정
+    - Talker가publish_for_seconds 동안 메시지를 보낸 다음pause_for_seconds 동안 발행을 멈춤→의도적으로deadline 위반 상황 발생시킴
+
+
+### 터미널에서Deadline 데모 실행
 
 - Deadline 0.7초, 데이터 발행 기간3초, 일시 정지0초로 설정해 보자
 - deadline 700 : deadline 시간700ms
@@ -1341,21 +1170,15 @@ Durability
 - 3초 동안 데이터가 발신되고0초 동안 일시 정지이기 때문에, 결국 쉴 틈 없이 데이터를 발신
 
 
-✓터미널에서Deadline 데모 실행
-
 - Deadline 0.7초, 데이터 발행 기간3초, 일시 정지0초로 설정해 보자
 - 실행 결과
 - 데이터가 쉴 틈 없이 발신 및 수신되기 때문에 이벤트 함수 호출이 되지 않음
 
 
-✓터미널에서Deadline 데모 실행
-
 - Deadline 0.7초, 데이터 발행 기간3초, 일시 정지1초로 설정해 보자
 - 일시 정지 시간을 늘려 인위적으로deadline을 넘어 보자
 - 즉, 3초 동안 발행하다1초 동안 쉬게 된다면 어떤 결과가 나오는지 확인
 
-
-✓터미널에서Deadline 데모 실행
 
 - Deadline 0.7초, 데이터 발행 기간3초, 일시 정지1초로 설정해 보자
 - 실행 결과 [ 활용] Deadline QoS 설정을 사용하면, 토픽을 정해진 시간 안에Publishing 못 하거나Subscribing하지 못할 때, 이벤트 콜백 함수 호출하여 특정 루틴을 수행하게할 수 있다.
@@ -1374,18 +1197,19 @@ QoS 실습
 - 로봇 팔을 움직이는 명령은1초가 지난 명령인 경우 무시 메시지의 유효 기간(수명)을 지정하는 옵션. Publisher가데이터 발행한 순간부터lifespan이 지나면 그 데이터는 무효 ✓lifespan.py – main 함수
 
 
-✓lifespan.py 분석
-
-- 주기 설정
-- 'parsed_args.lifespan'을 통해 사용자가 정의한 주기를 설정할 수 있음
-- 'Duration' 객체로 주기 정보를 갖는 변수' lifespan'의선언
-- 만약, lifespan을500으로 설정 시, 500/1000초= 0.5초로 설정되는 코드
-- QoS 프로파일 설정
-- lifespan 인자에, 'Duration' 객체로 선언된 변수'lifespan' 할당
-- reliability는RELIABLE(반드시 전달), durability는TRANSIENT_LOCAL(New Subscriber에게 데이터 전달)로설정
+??? example "코드 분석: lifespan.py 분석"
 
 
-✓터미널에서Lifespan 데모 실행
+    - 주기 설정
+    - 'parsed_args.lifespan'을 통해 사용자가 정의한 주기를 설정할 수 있음
+    - 'Duration' 객체로 주기 정보를 갖는 변수' lifespan'의선언
+    - 만약, lifespan을500으로 설정 시, 500/1000초= 0.5초로 설정되는 코드
+    - QoS 프로파일 설정
+    - lifespan 인자에, 'Duration' 객체로 선언된 변수'lifespan' 할당
+    - reliability는RELIABLE(반드시 전달), durability는TRANSIENT_LOCAL(New Subscriber에게 데이터 전달)로설정
+
+
+### 터미널에서Lifespan 데모 실행
 
 - Lifespan 1초, 데이터 발행 개수10개, 3초후Listener 시작
 - 실행시/qos_talker와/qos_listener 노드가 함께 실행
@@ -1397,13 +1221,8 @@ QoS 실습
 - Lifespan을2000으로 변경해서 테스트해 보기
 
 
-✓터미널에서Lifespan 데모 실행
-
 - Lifespan 실행 결과
 - Listener는‘5’가발행된 이후에도Talker의‘4, 5’를 성공적으로 수신 받았음을 확인
-
-
-✓터미널에서Lifespan 데모 실행
 
 
 Liveliness
@@ -1424,7 +1243,7 @@ QoS 실습
 - 시스템운영중어떤노드가죽으면빠르게디버깅해야함 Publisher가 아직 살아 있음을Subscriber에게 어떻게 보장할지 정하는 방법 GitHub https://github.com/ros2/rclpy/blob/rolling/rclpy/rclpy/publisher.py https://github.com/ros2/rclpy/blob/rolling/rclpy/rclpy/publisher.py GitHub
 
 
-✓liveliness.py – main 함수
+### liveliness.py – main 함수
 /opt/ros/humble/lib/python3.10/site-packages/quality_of_service_demo_py/liveliness.py
 [ Liveliness의역할]
 Liveliness는 다음과 같은 상황에서 중요하게 사용됩니다.
@@ -1436,18 +1255,19 @@ Liveliness는 다음과 같은 상황에서 중요하게 사용됩니다.
 - 특정 시간 내에 발행자가 데이터를 보내지 않으면 구독자는 이를 감지하고 대체 데이터 소스를 사용할 수도 있음.
 
 
-✓liveliness.py 분석
-
-- 주기 설정
-- 'parsed_args.liveliness_lease_duration'을 통해 사용자가 정의한 주기를 설정할 수 있음
-- 'Duration' 객체로 주기 정보를 갖는 변수' lifespan'의선언
-- 'POLICY_MAP' 딕셔너리에서 사용자가 입력한 정책(parsed_args.policy)을 가져옴
-- QoS 프로파일 설정
-- 동일한qos_profile을사용
-- depth=10, Liveliness는 명령어로 실행 시 설정할 수 있도록함
+??? example "코드 분석: liveliness.py 분석"
 
 
-✓터미널에서Liveliness 데모 실행
+    - 주기 설정
+    - 'parsed_args.liveliness_lease_duration'을 통해 사용자가 정의한 주기를 설정할 수 있음
+    - 'Duration' 객체로 주기 정보를 갖는 변수' lifespan'의선언
+    - 'POLICY_MAP' 딕셔너리에서 사용자가 입력한 정책(parsed_args.policy)을 가져옴
+    - QoS 프로파일 설정
+    - 동일한qos_profile을사용
+    - depth=10, Liveliness는 명령어로 실행 시 설정할 수 있도록함
+
+
+### 터미널에서Liveliness 데모 실행
 
 - Liveliness 1초설정, 실행2초후퍼블리셔노드종료, 자동으로 확인
 - 실행 결과
@@ -1455,8 +1275,6 @@ Liveliness는 다음과 같은 상황에서 중요하게 사용됩니다.
 - 2초가지나면퍼블리셔노드인qos_talker가종료
 - 이때Listener는liveliness로 설정한1초주기 동안 노 드가 죽었다는 것을 자동으로 확인
 
-
-✓터미널에서Liveliness 데모 실행
 
 - Liveliness 1초설정, 실행2초후퍼블리셔노드종료, 수동으로 확인
 - 실행 결과
@@ -1475,7 +1293,6 @@ Duration은ROS2에서 시간 간격(time span)을 표현하는 전용 타입
 [ Duration 객체]
 
 
-QoS
 설명
 옵션
 Reliability
@@ -1489,8 +1306,6 @@ TCP처럼 데이터 손실 방지하며 신뢰도를 우선할지
 - TRANSIENT_LOCAL
 - VOLATILE(휘발성) Deadline 정해진 주기 안 데 데이터가 발신 및 수신되지 않을 경우 이벤트 함수를 실행시킴 deadline_duration(단위:ms) (700, 1000등) Lifespan 정해진 주기 안에서 수신되는 데이터만 유효 판정하고 그렇지 않은 데이터는 삭제 lifespan_duration(단위:ms) (700, 1000 등) Liveliness 정해진 주기 안에서 노 드 혹은 토픽의 생사를 확인 Liveliness(AUTOMATIC, MANUAL_BY_TOPIC) QoS Programming QoS 정리
 
-ROS2 CLI
-ROS2 CLI실습
 
 - Component는 실행 중인 컨테이너와 컴포넌트 목록을 확인하거나 실행 및 중지를 할 수 있는 명령어
 - 실행 중인 컨테이너와 컴포넌트 목록 출력
@@ -1506,48 +1321,24 @@ ROS2 CLI실습
 - p39 참조
 
 
-ROS2 CLI
-ROS2 CLI실습
-ros2 component
 컨테이너 실행
 컴포넌트 확인
 교재: ROS2로 시작하는 로봇 프로그래밍(p533)
 
 
-ROS2 CLI
-ROS2 CLI실습
-
 - Talker 컴포넌트를 컨테이너에 적재
 - 적재가 완료되면 컨테이너를 실행시켰던 터미널 창에Publishing 됨
 
 
-ROS2 CLI
-ROS2 CLI실습
-
 - Listener 컴포넌트도 컨테이너에 적재
 - 적재가 완료되면 컨테이너를 실행시켰던 터미널 창에 로그 확인
 
-
-ROS2 CLI
-ROS2 CLI실습
 
 - Talker 컴포넌트에namespace를 붙여서 실행
 - 라이브러리를 불러오지 않음
 - 이미talker 컨포넌트 가 공유 라이브러리로 메모리에 적재되어 있어서
 - 해당 메모리에 접근할 수 있고(Zero-copy)
 - 네임 스페이스 옵션만 변경하여 실행시킴
-
-
-ROS2 CLI
-ROS2 CLI실습
-
-
-ROS2 CLI
-ROS2 CLI실습
-
-
-ROS2 CLI
-ROS2 CLI실습
 
 
 RQt
@@ -1572,7 +1363,7 @@ RQt
 ![Image 712](../../assets/images/ros/practice/practice-01-04/img_169_712.webp)
 
 
-RQt 플러그인 스타일의 장점
+## RQt 플러그인
 
 - 표준화된GUI 절차 제공
 - GUI 시작 및 종료 처리 용이함
@@ -1966,7 +1757,7 @@ Turtlesim Node 연동 실습
 ![Image 880](../../assets/images/ros/practice/practice-01-04/img_212_880.webp)
 
 
-Lifecycle
+## Lifecycle
 
 - Lifecycle
 - ROS2에서는 노 드의 상태 관리를 위해Lifecycle 인터페이스 제공
@@ -2022,19 +1813,13 @@ Lifecycle
 - lc_client를 실행시킬 시lc_talker의 상태가configure →Inactive →Activate →Inactive Active →Inactivate →Finalized의 순서로 전환되는 것을 확인 가능 Lifecycle Lifecycle
 
 
-ROS2 CLI
-ROS2 CLI실습
-
 - Security는SROS의 유틸리티로, DDS-Security를ROS2에서 사용하기 위해 필요한 도구를 모아 둔 것
 - 보안 키 저장소 생성
 - 보안 키 생성
 - 환경 변수 구성 ros2 security ~/sros2_demo/demo_keystore/enclaves디렉토리 확인해 보기 Terminator 2개 실행해서 진행: menu →broadastall
 
 
-ROS2 CLI
-ROS2 CLI실습
-
-- 환경 변수3가지 1. ROS_SECURITY_KEYSTORE : 보안 설정 파일을 보관하는 폴더를 지정. demo_keystore 2. ROS_SECURITY_ENABLE : 보안 설정의On/Off 기능으로true/false 형태로 설정. Default는false 3. ROS_SECURITY_STRATEGY : 보안 설정 방법. Enforce로 설정하면 보안 설정 파일이 없는 메시지 통신은 금지, Permissive의 경우 비보안 참여자로 참석시킴. ※ 위 환경 변수3가지는 노드를 실행할 때마다 매번 각 터미널에서 선언해야함. ROS2 보안 기능을 지속적으로 사용할 예정이라면~/.bashrc에 추가해야함 ROS2 CLI ROS2 CLI실습
+- 환경 변수3가지 1. ROS_SECURITY_KEYSTORE : 보안 설정 파일을 보관하는 폴더를 지정. demo_keystore 2. ROS_SECURITY_ENABLE : 보안 설정의On/Off 기능으로true/false 형태로 설정. Default는false 3. ROS_SECURITY_STRATEGY : 보안 설정 방법. Enforce로 설정하면 보안 설정 파일이 없는 메시지 통신은 금지, Permissive의 경우 비보안 참여자로 참석시킴. ※ 위 환경 변수3가지는 노드를 실행할 때마다 매번 각 터미널에서 선언해야함. ROS2 보안 기능을 지속적으로 사용할 예정이라면~/.bashrc에 추가해야함
 - Security는SROS의 유틸리티로, DDS-Security를ROS2에서 사용하기 위해 필요한 도구를 모아 둔 것
 - talker node 실행하여 데모를 시작
 - 새로운 터미널에서listener node 실행
@@ -2044,8 +1829,6 @@ ROS2 CLI실습
 ![Page 226](../../assets/images/ros/practice/practice-01-04/page_226.webp)
 
 
-ROS2 CLI
-ROS2 CLI실습
 192.168.1.99
 192.168.1.32
 192.168.1.55
@@ -2053,11 +1836,6 @@ ROS2 CLI실습
 
 ![Image 921](../../assets/images/ros/practice/practice-01-04/img_228_921.webp)
 
-
-![Image 922](../../assets/images/ros/practice/practice-01-04/img_228_922.webp)
-
-
-수고하셨습니다.
 
 ![Image 927](../../assets/images/ros/practice/practice-01-04/img_229_927.webp)
 

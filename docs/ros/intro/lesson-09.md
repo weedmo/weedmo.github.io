@@ -956,7 +956,6 @@ self._action_client.wait_for_server()
 goal_msg = GameProgress.Goal()
 ```
 
-서버가 준비될 때까지 대기
 
 액션 목표를 담을 메시지 인스턴스 생성
 

@@ -1186,7 +1186,6 @@ cd ~/turtlebot3_ws && colcon build --symlink-install
 ros2 pkg list | grep turtlebot3_manipulation
 
 참고
-수고하셨습니다.
 
 터틀봇메내퓰레이터
 참고
@@ -1282,7 +1281,6 @@ Class YoloDetect(Node):
 참고
 task_7(red_blue).py
 키
-기능
 YOLO 인식 결과를 한 번 수신하여
 yolo_x, yolo_y 변수에 저장 및 콘솔 출력
 YOLO 위치 수신 & 그리퍼 열기
@@ -1315,7 +1313,6 @@ task_7(red_blue).py
 참고
 task_7(red_blue).py
 키
-기능
 YOLO 인식 결과를 한 번 수신하여
 yolo_x, yolo_y 변수에 저장 및 콘솔 출력
 YOLO 위치 수신 & 그리퍼 열기
@@ -1323,9 +1320,7 @@ YOLO 위치 기준으로 보정 값 적용 및 이동
 물체 잡기 전 Z축 낮춤
 그리퍼 close
 키
-기능
 키
-기능
 A
 home2 이동
 F

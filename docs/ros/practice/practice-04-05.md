@@ -1,23 +1,7 @@
 # ROS2 실습 4~5차시 - TF2와 URDF
 
 
-ROS-2 프로그래밍 실습 강의 자료
-4 ~ 5 차시
-
-
-로봇의 시각적 모델 만들기(URDF R2D2)
-움직일 수 있는 로봇 모델 만들기
-Xacro 사용하기
-URDF와 robot_state_publisher 사용하기
-My_URDF 패키지 생성하기
-TF(Transform)
-Robot Simulation
-(Gazebo, Lidar, SLAM, NAV2)
-충돌 및 관성 속성 추가
-
-
-Transformations(좌표 변환)
-tf2 소개
+## 좌표 변환 (Transformations)
 
 - tf2: ROS2에서 여러 좌표 프레임 간의 변환과 관계를 추적하고 관리하는 라이브러리 tf2
 - 로봇 시스템은 일반적으로 세계 프레임, 기본 프레임, 그리퍼 프레임, 헤드 프레임 등과 같이 시간에 따라 변경되는 많은 3D 좌표 프레임을 가짐
@@ -30,9 +14,6 @@ tf2 소개
 ![Image 14](../../assets/images/ros/practice/practice-04-05/img_003_014.webp)
 
 
-Transformations(좌표 변환)
-tf2 소개
-✓
 World Frame
 
 - World Frame은 좌표계에서 가장 기본이 되는 기준 좌표계(Reference Frame)
@@ -50,9 +31,6 @@ World Frame
 
 ![Image 16](../../assets/images/ros/practice/practice-04-05/img_004_016.webp)
 
-
-Transformations(좌표 변환)
-tf2 소개
 
 - Frame : 좌표계(예, map, odom, base_link, camera_link)
 - Transform :한 프레임에서 다른 프레임으로의 변환 관계(회전 + 이동)
@@ -75,20 +53,16 @@ tf2 소개
 - View_frames는 현재 tf에 존재하는 모든 프레임과 그 연결 관계를 시각화해 주는 도구(좌표계 지도) Turtlesim 예제
 
 
-✓Turtlesim 예제
+### Turtlesim 예제
 
 1. 데모 패키지와 종속 파일들 설치
 
-
-✓Turtlesim 예제
 
 2. 터미널에서 다음 명령어 실행
 
 
 ![Image 29](../../assets/images/ros/practice/practice-04-05/img_008_029.webp)
 
-
-✓Turtlesim 예제
 
 3. 두 번째 터미널을 열어 teleopkey를 실행시켜 거북
 이를 움직이면 거북이가 따라오는 것을 관찰 가능
@@ -97,21 +71,19 @@ tf2 소개
 ![Image 33](../../assets/images/ros/practice/practice-04-05/img_009_033.webp)
 
 
-✓Turtlesim 예제
-
 1. tf2 라이브러리를 사용하여 세 개의 좌표 프레임(world frame, turtle1 frame, turtle2 frame)을 생성
 2. tf2 브로드캐스터를 통해 거북이 좌표 프레임을 게시하고, tf2 리스너를 이용해 거북이 프레임 간의 차이를 계산한 뒤, 한
 거북이가 다른 거북이를 따라가도록 설정
 
 3. 지금부터 3가지 방법(view_frame, tf2_echo, rviz)을 통해 이 데모를 만드는 데 tf2가 어떻게 사용되었는지 확인해 보자
 
-✓Turtlesim 예제 – view_frames
+### Turtlesim 예제 – view_frames
 
 1. view_frames는 ROS를 통해 tf2가 브로드캐스트 하는 프레임의 다이어그램을 생성
 2. 다음 명령어를 이용하여 tf2가 브로드캐스트 하는 프레임의 다이어그램을 생성
 
 
-✓Turtlesim 예제– view_frames
+### Turtlesim 예제– view_frames
 
 3. 생성된“frames_2024-10-*****.pdf” 파일 열기
 
@@ -122,8 +94,6 @@ tf2 소개
 - Oldest transform : 가장 오래된 transform의 timestamp
 
 
-✓Turtlesim 예제– view_frames
-
 4. 해당 파일을 통해 tf2에서 브로드캐스트하는 세 개의 프레임을 확인 가능
 
 - World frame: turtle1과 turtle2 frame의 부모frame
@@ -132,13 +102,11 @@ tf2 소개
 ![Image 42](../../assets/images/ros/practice/practice-04-05/img_013_042.webp)
 
 
-✓Turtlesim 예제– tf2_echo
+### Turtlesim 예제– tf2_echo
 
 1. tf2_echo는 ROS를 통해 브로드캐스트된 두 프레임 간의 변환을 보고함
 2. 다음 명령어를 이용하여 tf2_echo 실행(turtle2 기준으로 turtle1의 위치 좌표를 보여 줌)
 
-
-✓Turtlesim 예제– tf2_echo
 
 3. 다음과 같은 출력을 통해 tf2_echo 리스너가 ROS2를 통해 broadcasting 된 프레임을 수신할 때 transform이 표
 시되는 것을 관찰 가능
@@ -151,7 +119,7 @@ tf2 소개
 ![Image 47](../../assets/images/ros/practice/practice-04-05/img_015_047.webp)
 
 
-✓Turtlesim 예제– rviz
+### Turtlesim 예제– rviz
 
 1. Rviz2 역시 tf2 프레임을 검사하는 데 유용한 시각화 도구로 사용 가능
 
@@ -160,7 +128,6 @@ tf2 소개
 2. 앞의 상태를 계속 유지한 상태에서 다른 터미널 창에서 다음 명령어를 통해 rviz2 실행
 
 
-✓Turtlesim 예제– rviz
 3.
 사이드 바를 통해 tf2에서 broadcast
 된 frame을 관찰 가능하며, 거북이를
@@ -175,7 +142,6 @@ tf2 소개
 ![Image 56](../../assets/images/ros/practice/practice-04-05/img_017_056.webp)
 
 
-✓Turtlesim 예제– rviz
 [ 실습해 보기 ]
 
 - RQT의 pose에서 turtle1과 2의 좌표 확인해 보기
@@ -211,98 +177,101 @@ tf2 소개
 - rviz를 통해 확인 가능한 로봇의 시각적 모델 만들기 로봇의 시각적 모델 만들기
 
 
-✓로봇의 시각적 모델 만들기
+### 로봇의 시각적 모델 만들기
 - 본 섹션에서는 아래와 같이 생긴 로봇을 URDF를 이용하여 만들 예정
 
 
-✓로봇의 시각적 모델 만들기 1
+### 로봇의 시각적 모델 만들기 1
 
 1. 다음 명령어를 이용하여 urdf-tutorial 설치
 2. 다음 명령어를 이용하여 urdf 파일 실행
 
-
-✓로봇의 시각적 모델 만들기 1
 
 3. 실행 결과
 
 ![Image 75](../../assets/images/ros/practice/practice-04-05/img_023_075.webp)
 
 
-✓로봇의 시각적 모델 만들기 1 – 코드
-- 다음 명령어를 이용하여 urdf 파일의 코드 확인(아래 링크를 통해서도 확인 가능) https://github.com/ros/urdf_tutorial/blob/ros2/urdf/01-myfirst.urdf https://github.com/ros/urdf_tutorial/blob/ros2/urdf/01-myfirst.urdf GitHub
+??? example "코드 분석: 로봇의 시각적 모델 만들기 1 – 코드"
+
+    - 다음 명령어를 이용하여 urdf 파일의 코드 확인(아래 링크를 통해서도 확인 가능) https://github.com/ros/urdf_tutorial/blob/ros2/urdf/01-myfirst.urdf https://github.com/ros/urdf_tutorial/blob/ros2/urdf/01-myfirst.urdf GitHub
 
 
-![Image 79](../../assets/images/ros/practice/practice-04-05/img_024_079.webp)
+    ![Image 79](../../assets/images/ros/practice/practice-04-05/img_024_079.webp)
 
 
-✓로봇의 시각적 모델 만들기 1 – 코드
-- XML 버전 선언
-- Robot 태그: URDF 파일을 사용할 때 로봇을 구별할 수 있는 이름 선언
-- 링크 선언: 링크의 이름 선언 후 geometry 태그 안에서 cylinder 태그를 사용해 길이 0.6m, 반지름 0.2m의 원기둥을 선언
+??? example "코드 분석: 로봇의 시각적 모델 만들기 1 – 코드"
+
+    - XML 버전 선언
+    - Robot 태그: URDF 파일을 사용할 때 로봇을 구별할 수 있는 이름 선언
+    - 링크 선언: 링크의 이름 선언 후 geometry 태그 안에서 cylinder 태그를 사용해 길이 0.6m, 반지름 0.2m의 원기둥을 선언
 
 
-✓로봇의 시각적 모델 만들기 2
+### 로봇의 시각적 모델 만들기 2
 
 - 다음 명령어를 이용하여 두 번째 urdf 파일 실행
 
-
-✓로봇의 시각적 모델 만들기 2
 
 - 실행 결과(왼쪽의 tf 혹은 RobotModel등의 체크 박스 해제 유무에 따라 다소 다르게 보일 수도 있습니다)
 
 ![Image 87](../../assets/images/ros/practice/practice-04-05/img_027_087.webp)
 
 
-✓로봇의 시각적 모델 만들기 2 - 코드
-
-- 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능) 크기 정보(X=0.6, Y=0.1, Z=0.2) Joint 정의 https://github.com/ros/urdf_tutorial/tree/ros2/urdf https://github.com/ros/urdf_tutorial/tree/ros2/urdf GitHub
+??? example "코드 분석: 로봇의 시각적 모델 만들기 2 - 코드"
 
 
-![Image 91](../../assets/images/ros/practice/practice-04-05/img_028_091.webp)
+    - 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능) 크기 정보(X=0.6, Y=0.1, Z=0.2) Joint 정의 https://github.com/ros/urdf_tutorial/tree/ros2/urdf https://github.com/ros/urdf_tutorial/tree/ros2/urdf GitHub
 
 
-✓로봇의 시각적 모델 만들기 2 – 코드
-
-- right_leg 링크 : 링크의 이름 선언 후 geometry 태그 안에서 box 태그를 사용해 x, y, z의 크기가 각각 0.6, 0.1, 0.2인 박스 선언 X Y Z
+    ![Image 91](../../assets/images/ros/practice/practice-04-05/img_028_091.webp)
 
 
-✓로봇의 시각적 모델 만들기 2 – 코드
-
-- base와 right_leg를 연결하는 조인트: 조인트 이름 선언 후 type=“fixed”를 통해 고정 조인트임을 선언
-- Parent link와 child link를 통해 어느 링크가 부모이고 어느 링크가 자식임을 선언 • Parent link(부모 링크) : 특정 joint를 기준으로 상위에 위치하는 링크로, Joint가 연결되는 주체 링크이며, joint의 움직임에 따라 child link를 제어하거나 지원 • Child link(자식 링크) : 특정 joint를 기준으로 하위에 위치하는 링크로, Parent link로부터 동역학적 영향을 전달받음
+??? example "코드 분석: 로봇의 시각적 모델 만들기 2 – 코드"
 
 
-✓로봇의 시각적 모델 만들기3
+    - right_leg 링크 : 링크의 이름 선언 후 geometry 태그 안에서 box 태그를 사용해 x, y, z의 크기가 각각 0.6, 0.1, 0.2인 박스 선언 X Y Z
+
+
+??? example "코드 분석: 로봇의 시각적 모델 만들기 2 – 코드"
+
+
+    - base와 right_leg를 연결하는 조인트: 조인트 이름 선언 후 type=“fixed”를 통해 고정 조인트임을 선언
+    - Parent link와 child link를 통해 어느 링크가 부모이고 어느 링크가 자식임을 선언 • Parent link(부모 링크) : 특정 joint를 기준으로 상위에 위치하는 링크로, Joint가 연결되는 주체 링크이며, joint의 움직임에 따라 child link를 제어하거나 지원 • Child link(자식 링크) : 특정 joint를 기준으로 하위에 위치하는 링크로, Parent link로부터 동역학적 영향을 전달받음
+
+
+### 로봇의 시각적 모델 만들기3
 
 1. 다음 명령어를 이용하여 세 번째 urdf 파일 실행: 다리의 위치를 알맞게 조정해 준 파일
 
 
-✓로봇의 시각적 모델 만들기 3
+### 로봇의 시각적 모델 만들기 3
 
 2. 실행 결과(왼쪽의 tf 혹은 RobotModel등의 체크 박스 해제 유무에 따라 다소 다르게 보일 수도 있습니다)
 
 ![Image 101](../../assets/images/ros/practice/practice-04-05/img_032_101.webp)
 
 
-✓로봇의 시각적 모델 만들기 3 – 코드
-
-- 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
+??? example "코드 분석: 로봇의 시각적 모델 만들기 3 – 코드"
 
 
-![Image 105](../../assets/images/ros/practice/practice-04-05/img_033_105.webp)
+    - 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
 
 
-✓로봇의 시각적 모델 만들기 3 – 코드
-- Origin 추가 : 기존 링크에 origin을 통해 해당 부분이 공간상에서 어디에 위치하고 어떻게 회전되어 있는 지를 선언
-
-1. link에서의 origin
-
-- 링크의 좌표계를 기준으로 시각적 요소(박스 형태의 다리)의 위치와 자세를 정의
-- 링크의 좌표계는 부모 링크의 좌표계에서 조인트를 통해 정의됨 2. joint에서의 origin :
-- 자식 링크(child link)의 좌표계가 부모 링크의 좌표계에서 어떻게 배치되는지 정의 Y축으로 90도(1.57rad) 회전, Z방향으로 -0.3만큼 이동 Base좌표계 기준으로 Y방향으로 -0.22(왼쪽), Z방향으로 0.25 만큼 이동
+    ![Image 105](../../assets/images/ros/practice/practice-04-05/img_033_105.webp)
 
 
-✓로봇의 시각적 모델 만들기 4
+??? example "코드 분석: 로봇의 시각적 모델 만들기 3 – 코드"
+
+    - Origin 추가 : 기존 링크에 origin을 통해 해당 부분이 공간상에서 어디에 위치하고 어떻게 회전되어 있는 지를 선언
+
+    1. link에서의 origin
+
+    - 링크의 좌표계를 기준으로 시각적 요소(박스 형태의 다리)의 위치와 자세를 정의
+    - 링크의 좌표계는 부모 링크의 좌표계에서 조인트를 통해 정의됨 2. joint에서의 origin :
+    - 자식 링크(child link)의 좌표계가 부모 링크의 좌표계에서 어떻게 배치되는지 정의 Y축으로 90도(1.57rad) 회전, Z방향으로 -0.3만큼 이동 Base좌표계 기준으로 Y방향으로 -0.22(왼쪽), Z방향으로 0.25 만큼 이동
+
+
+### 로봇의 시각적 모델 만들기 4
 
 1. 다음 명령어를 이용하여 네 번째 urdf 파일 실행: 로봇에 색 정보와 오른쪽 다리를 추가한 파일
 
@@ -310,30 +279,30 @@ tf2 소개
 ![Image 110](../../assets/images/ros/practice/practice-04-05/img_035_110.webp)
 
 
-✓로봇의 시각적 모델 만들기 4
-
 2. 실행 결과(왼쪽의 tf 혹은 RobotModel등의 체크 박스 해제 유무에 따라 다소 다르게 보일 수도 있습니다)
 
 ![Image 112](../../assets/images/ros/practice/practice-04-05/img_036_112.webp)
 
 
-✓로봇의 시각적 모델 만들기4
+### 로봇의 시각적 모델 만들기4
 - 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
 
 
-✓로봇의 시각적 모델 만들기 4 – 코드
-- 재질(material) 정의 : 파란색 재질과 빨간색 재질 선언. 값은 rgba로 빨강, 초록, 파랑, 투명도 순으로 나열되어 있음 0 : 투명, 1 : 불투명
+??? example "코드 분석: 로봇의 시각적 모델 만들기 4 – 코드"
+
+    - 재질(material) 정의 : 파란색 재질과 빨간색 재질 선언. 값은 rgba로 빨강, 초록, 파랑, 투명도 순으로 나열되어 있음 0 : 투명, 1 : 불투명
 
 
-✓로봇의 시각적 모델 만들기 4 – 코드
-- 왼쪽, 오른쪽 동일하게 선언
+??? example "코드 분석: 로봇의 시각적 모델 만들기 4 – 코드"
 
-- Base_link(원통) 위쪽에 두 개의 다리(right_leg, left_leg)가 고정됨
-- Right_leg는 오른쪽(-0.22, 0.25), left_leg는 왼쪽(0.22, 0.25)에 위치
-- 두 다리는 Y축 기준 90도(1.57rad) 회전하여 긴 면이 Z축을 바라보게 됨
+    - 왼쪽, 오른쪽 동일하게 선언
+
+    - Base_link(원통) 위쪽에 두 개의 다리(right_leg, left_leg)가 고정됨
+    - Right_leg는 오른쪽(-0.22, 0.25), left_leg는 왼쪽(0.22, 0.25)에 위치
+    - 두 다리는 Y축 기준 90도(1.57rad) 회전하여 긴 면이 Z축을 바라보게 됨
 
 
-✓로봇의 시각적 모델 만들기 5
+### 로봇의 시각적 모델 만들기 5
 
 1. 다음 명령어를 이용하여 다섯 번째 urdf 파일 실행: 로봇에 여러 부속품들 추가
 
@@ -341,35 +310,35 @@ tf2 소개
 ![Image 124](../../assets/images/ros/practice/practice-04-05/img_040_124.webp)
 
 
-✓로봇의 시각적 모델 만들기 5
-
 2. 실행 결과(왼쪽의 tf 혹은 RobotModel등의 체크 박스 해제 유무에 따라 다소 다르게 보일 수도 있습니다)
 
 ![Image 128](../../assets/images/ros/practice/practice-04-05/img_041_128.webp)
 
 
-✓로봇의 시각적 모델 만들기 5 – 코드
-- 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
+??? example "코드 분석: 로봇의 시각적 모델 만들기 5 – 코드"
+
+    - 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
 
 
-![Image 132](../../assets/images/ros/practice/practice-04-05/img_042_132.webp)
+    ![Image 132](../../assets/images/ros/practice/practice-04-05/img_042_132.webp)
 
 
-✓로봇의 시각적 모델 만들기 5 – 코드
-- 다음과 같이 그리퍼, 머리 등 여러 부속이 추가되어 있음 DAE파일(COLLADA)
+??? example "코드 분석: 로봇의 시각적 모델 만들기 5 – 코드"
 
-- Digital Asset Exchange. 3D 모델 파일
-- XML형식으로 저장되어 3D소프트웨어 간 데이터 교환을 쉽게해 줌
-- 기하학적 정보 외 재질, 조명, 애니매이션 등도 포함
-- URDF와 함께 사용하며 화려한 시각 모델을 표현
-- COLLAborative Design Activity STL파일(STereoLithography)
-- 3D 프린팅 및 CAD프로그램에서 널리 사용되는 파일 형식
-- 재질, 색상, 애니매이션 정보는 없고 오직 기하학적 정보만 있음
-- 3D프린팅에서 가장 많이 사용되고 COLLADA파일보다 단순함
-- Gazebo에서 사용
+    - 다음과 같이 그리퍼, 머리 등 여러 부속이 추가되어 있음 DAE파일(COLLADA)
+
+    - Digital Asset Exchange. 3D 모델 파일
+    - XML형식으로 저장되어 3D소프트웨어 간 데이터 교환을 쉽게해 줌
+    - 기하학적 정보 외 재질, 조명, 애니매이션 등도 포함
+    - URDF와 함께 사용하며 화려한 시각 모델을 표현
+    - COLLAborative Design Activity STL파일(STereoLithography)
+    - 3D 프린팅 및 CAD프로그램에서 널리 사용되는 파일 형식
+    - 재질, 색상, 애니매이션 정보는 없고 오직 기하학적 정보만 있음
+    - 3D프린팅에서 가장 많이 사용되고 COLLADA파일보다 단순함
+    - Gazebo에서 사용
 
 
-✓로봇의 시각적 모델 만들기 – CAD
+### 로봇의 시각적 모델 만들기 – CAD
 
 1. 실제 현업에서는 손으로 일일이 URDF 파일을 만드는 경우는 적음
 2. URDF에는 3D모델이 없고 외부 참조만 함
@@ -404,50 +373,50 @@ FreeCAD
 - 이동식 조인트 만들기 움직일 수 있는 로봇 모델 만들기
 
 
-✓움직일 수 있는 로봇 모델 만들기
+### 움직일 수 있는 로봇 모델 만들기
 - 본 섹션에서는 이전 튜토 리얼에서 만들었던 로봇이 움직일 수 있도록 만들 예정
 
 ![Image 140](../../assets/images/ros/practice/practice-04-05/img_046_140.webp)
 
 
-✓움직일 수 있는 로봇 모델 만들기
-
 1. 다음 명령어를 이용하여 urdf 파일 실행
 
-
-✓움직일 수 있는 로봇 모델 만들기
 
 2. 실행 결과(왼쪽의 tf 혹은 RobotModel등의 체크 박스 해제 유무에 따라 다소 다르게 보일 수도 있습니다)
 
 ![Image 144](../../assets/images/ros/practice/practice-04-05/img_048_144.webp)
 
 
-✓움직일 수 있는 로봇 모델 만들기 - 코드
-- 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
+??? example "코드 분석: 움직일 수 있는 로봇 모델 만들기 - 코드"
+
+    - 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
 
 
-✓움직일 수 있는 로봇 모델 만들기– 코드
-- joint type: 다음과 같이 joint의 type을 지정해 주어야함
+??? example "코드 분석: 움직일 수 있는 로봇 모델 만들기– 코드"
+
+    - joint type: 다음과 같이 joint의 type을 지정해 주어야함
 
 
-✓움직일 수 있는 로봇 모델 만들기– 코드
-
-- 머리 • 머리의 경우 연속 조인트(continuous joint)로 모델링 됨 • 연속 조인트의 경우 모든 각도를 취할 수 있으므로 상세한 제한은 기록하지 않음 continuous joint
+??? example "코드 분석: 움직일 수 있는 로봇 모델 만들기– 코드"
 
 
-✓움직일 수 있는 로봇 모델 만들기– 코드
-- 그리퍼
-- 그리퍼의 경우 회전 조인트(revolute joint)로 모델링 됨(limit가 있음)
-- 조인트의 토크(effort), 하한(lower), 상한(upper) 그리고 최대 속도(velocity) 등을 정의함 revolute joint
+    - 머리 • 머리의 경우 연속 조인트(continuous joint)로 모델링 됨 • 연속 조인트의 경우 모든 각도를 취할 수 있으므로 상세한 제한은 기록하지 않음 continuous joint
 
 
-✓움직일 수 있는 로봇 모델 만들기– 코드
-- 그리퍼 암
-- 그리퍼 암의 경우 축을 따라 직선 운동을 하는 프리스메틱 조인트(prismatic joint)로 모델링 됨
-- limit에 사용되는 단위로 revolute joint와 달리 미터 사용 prismatic joint 0.38m 안쪽(마이너스 방향)으로 들어가도록 설계
+??? example "코드 분석: 움직일 수 있는 로봇 모델 만들기– 코드"
+
+    - 그리퍼
+    - 그리퍼의 경우 회전 조인트(revolute joint)로 모델링 됨(limit가 있음)
+    - 조인트의 토크(effort), 하한(lower), 상한(upper) 그리고 최대 속도(velocity) 등을 정의함 revolute joint
 
 
-✓움직일 수 있는 로봇 모델 만들기
+??? example "코드 분석: 움직일 수 있는 로봇 모델 만들기– 코드"
+
+    - 그리퍼 암
+    - 그리퍼 암의 경우 축을 따라 직선 운동을 하는 프리스메틱 조인트(prismatic joint)로 모델링 됨
+    - limit에 사용되는 단위로 revolute joint와 달리 미터 사용 prismatic joint 0.38m 안쪽(마이너스 방향)으로 들어가도록 설계
+
+
 - GUI 슬라이더: GUI 슬라이더는 다음과 같은 원리로 동작됨
 - GUI가 URDF를 구문 분석하고 고정되지 않은 모든 조인트와 제한 값(limit)을 찾음
 - 슬라이더의 값을 사용하여 ‘sensor_msgs/msg/JointState’ 메시지를 발행
@@ -510,36 +479,37 @@ topic
 - 조인트에 조인트 역학(joint dynamics)를 추가하기 충돌 및 관성 속성 추가
 
 
-✓충돌 및 관성 속성 추가
+### 충돌 및 관성 속성 추가
 
 - URDF 모델에 기본적인 물리적 속성을 추가하는 방법과 충돌 속성을 지정하는 방법을 알아보자
 - 충돌(collision)은 일반적으로 관성 태그(inertial tag)를 추가하여 사용
 
-✓충돌 및 관성 속성 추가 - 코드
-- 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
+??? example "코드 분석: 충돌 및 관성 속성 추가 - 코드"
+
+    - 다음 명령어를 이용하여 urdf 파일의 코드 확인(링크를 통해서도 확인 가능)
 
 
-✓충돌 및 관성 속성 추가 - 코드
-
-- geometry: 링크의 충돌 영역의 기하학적 형태를 정의 • cylender: 원기둥 형태 사용
-- inertia: 관성 텐서를 정의 • mass: 질량(kg) • ixx, iyy, izz : 각각 x, y, z축을 중심으로 하는 회전 저항 • ixy, ixz, iyz : 관성 곱(product of inertia)으로, 링크가 주축 이외의 축에 대해 어떻게 회전하는지를 나타냄(대칭 물체는 모두 0) • 관성 텐서는 링크의 회전 운동 방정식을 결정하는 데 사용됨. • 정확한 관성 값을 제공함으로써 시뮬레이션에서 링크의 회전 움직임이 현실적으로 표현할 수 있음
+??? example "코드 분석: 충돌 및 관성 속성 추가 - 코드"
 
 
-- Xacro를 사용하여 URDF 코드를 단순화하기 Using Xacro
-- XACRO (XML Macros)는 URDF파일을 더 효율적으로 작성할 수 있도록 도와주는 XML 기반의 매크로 언어
-- ROS2에서 로봇 모델을 생성할 때 URDF를 직접 작성하는 대신,
-- XACRO를 사용하면 재사용 가능한 코드 블록을 정의하고
-- 이를 통해 코드의 중복을 줄이며 유지 보수성을 높일 수 있음
-- Xacro, URDF, SRDF 알아보기
+    - geometry: 링크의 충돌 영역의 기하학적 형태를 정의 • cylender: 원기둥 형태 사용
+    - inertia: 관성 텐서를 정의 • mass: 질량(kg) • ixx, iyy, izz : 각각 x, y, z축을 중심으로 하는 회전 저항 • ixy, ixz, iyz : 관성 곱(product of inertia)으로, 링크가 주축 이외의 축에 대해 어떻게 회전하는지를 나타냄(대칭 물체는 모두 0) • 관성 텐서는 링크의 회전 운동 방정식을 결정하는 데 사용됨. • 정확한 관성 값을 제공함으로써 시뮬레이션에서 링크의 회전 움직임이 현실적으로 표현할 수 있음
 
 
-✓Using Xacro
+    - Xacro를 사용하여 URDF 코드를 단순화하기 Using Xacro
+    - XACRO (XML Macros)는 URDF파일을 더 효율적으로 작성할 수 있도록 도와주는 XML 기반의 매크로 언어
+    - ROS2에서 로봇 모델을 생성할 때 URDF를 직접 작성하는 대신,
+    - XACRO를 사용하면 재사용 가능한 코드 블록을 정의하고
+    - 이를 통해 코드의 중복을 줄이며 유지 보수성을 높일 수 있음
+    - Xacro, URDF, SRDF 알아보기
+
+
+### Using Xacro
 
 - 본 섹션에서는 Xacro를 이용하여 코드를 단순화하는 방법을 진행할 예정
 - Xacro는 다음과 같은 장점을 가짐 • 재사용성 향상 : 공통된 요소를 매크로로 정의하여 여러 곳에서 재사용 가능 • 가독성 향상 : 파일의 구조를 더 명확하게 만들어 이해하기 쉬움 • 유지 보수 용이 : 변경 사항을 한 곳에서 수정하면 전체에 반영되므로 관리가 편리 • Xacro는 다음 명령어로 설치 가능(대부분의 경우 이미 설치되어 있을 가능성이 높음)
 
 
-✓Using Xacro
 1.
 Xacro는 XML용 매크로 언어
 2.
@@ -571,20 +541,16 @@ Xacro는 URDF를 생성하는 도구
 ※ 예, SolidWorks등 CAD 소프트웨어 로봇 모델 생성 →Xacro (변환) →URDF (수작업 변환) →SRDF
 ※ 파일 변환 관계 : xacro →urdf 명령어로 파일 변환 가능한 반면 urdf →xacro 수동 변환 가능
 
-✓Using Xacro - Constants
+### Using Xacro - Constants
 
 - 본 섹션에서는 Xacro에 서 상수를 어떻게 다루는지 알아볼 예정
 - 이전 R2D2 예제에서는 다음과 같이 중복이 일어남(ex: cylinder의 길이와 반지름을 두 번 지정함). 이러한 경우 하나의 값을 변경하려면 다른 하나도 같이 변경해 주어야함
 - 따라서 왼쪽의 코드를 변경하여 상수 역할을 하는 속성을 지정한 오른쪽 코드와 같이 변경하는 것이 좋음
 
 
-✓Using Xacro - Constants
-
 - 상수의 경우 처음 두 줄에 지정되며, 이 값은 거의 모든 곳에서 어떤 수준에서든 사용 전이나 후에 정의 가능
 - 상수는 “${}”의중 괄호 안에 상수를 집어넣는 방식으로 사용 가능
 
-
-✓Using Xacro - Constants
 
 - 본 섹션에서는 Xacro에서 수식을 다루는 방법에 대하여 알아볼 예정
 - Xacro에서는 기본 사 칙 연산, 부호 반전(unary minus), 괄호(parenthesis)등을 사용하여 복잡한 표현 식 작성 가능
@@ -592,15 +558,13 @@ Xacro는 URDF를 생성하는 도구
 - xyz중 x값은 reflect * (width + 0.02)
 
 
-✓Using Xacro - Macros
+### Using Xacro - Macros
 
 - 본 섹션에서는 Xacro 매크로를 다루는 방법에 대하여 알아볼 예정
 - Xacro 매크로는 ‘<xacro:macro>’ 태그를 사용하여 정의되며, 특정 기능을 수행하는 코드 블록으로, 필요할 때마다 매크로를 호출하여 해당 코드를 재사용이 가능하도록하는 것
 - 즉 매크로는 python의 함수와 비슷한 역할을 한다고 볼 수 있음
 - 단순한 매크로의 예시: 1. 다음 제공된 것은 단순한 Xacro 매크로로, default_origin이라는 이름을 가진 매크로를 정의한 것. 2. ‘<xacro:default_origin />’를 호출 시 ‘<origin xyz="0 0 0" rpy="0 0 0"/>’가 해당 위치에 삽입 됨
 
-
-✓Using Xacro - Macros
 
 - 더 나아가 매크로에 파라미터를 넣고자할 경우 다음과 같은 방법 사용 가능 1. 파라미터를 사용하고자할 때 매크로 이름 뒤에 ‘params’를 추가 가능 2. 이 경우<xacro:default_inertial mass="10"/>를 호출 시 해당 위치에 오른쪽 코드가 삽입됨
 
@@ -615,13 +579,12 @@ Xacro는 URDF를 생성하는 도구
 - 다른 ROS 패키지에서 로봇의 위치와 자세를 참조할 수 있도록함
 
 
-✓Using URDF with robot_state_publisher
+### Using URDF with robot_state_publisher
 
 - 본 섹션에서는 걷는 로봇을 모델링하고, 상태를 tf2 메시지로 게시하고, Rviz에서 시뮬레이션을 관찰할 예정
 - 진행 과정은 다음과 같음 1. 로봇 어셈블리를 설명하는 URDF 모델 생성 2. 동작을 시뮬레이션하고 JointState와 변환을 게시하는 노드 작성 3. robot_state_publisher를 사용하여 전체 로봇 상태를 /tf2에 게시 • robot_state_publisher: URDF 파일을 사용하여 로봇의 상태(특히 조인트 상태)를 퍼블리시하는 노드로, 로봇의 각 조인트 상태와 링크 간의 변환을 계산한하여TF 프레임으로 퍼블리시함 urdf_revolution.zip을 우측과 같이 디렉토리에 압축 풀고 복사 → ※ 필요한 파일 : urdf_revolution.zip
 
 
-✓Using URDF with robot_state_publisher
 1.
 폴더 생성 후 src 폴더 안에서 패키지 생성
 2.
@@ -631,7 +594,6 @@ revolution
 revolution
 
 
-✓Using URDF with robot_state_publisher
 3.
 src/urdf_revolution/urdf_revolution/state_publisher.py 파일에 다음 코드 작성
 로봇의 위치를 원형 궤도로 이동하도록 x, y 좌표를 업데이트→
@@ -645,17 +607,13 @@ yaw(회전각) 값을 쿼터 니 언으로 변환 →
 ※ tilt, height, swivel, angle 각각 주석 처리 후 build해서 동작 확인해 보기
 
 
-✓Using URDF with robot_state_publisher
 3.
 src/urdf_revolution/urdf_revolution/state_publisher.py 파일에 다음 코드 작성
 
 
-✓Using URDF with robot_state_publisher
 4.
 src/urdf_revolution/launch/demo.launch.py 파일에 다음 코드 작성
 
-
-✓Using URDF with robot_state_publisher
 
 5. setup.py에 필요한 모듈 가져오기
 6. data_files에 다음 코드 추가
@@ -663,60 +621,48 @@ src/urdf_revolution/launch/demo.launch.py 파일에 다음 코드 작성
 revolution.state_publisher:main’
 
 
-✓Using URDF with robot_state_publisher
-
 8. 패키지 설치
 9. 설정 파일 가져오기
 revolution
 ros2 topic echo /tf | grep -A 10 "child_frame_id: body"
 
 
-✓Using URDF with robot_state_publisher
-
 10. launch파일 실행
 11. 새로운 터미널을 열어 rviz 실행 (뒤에 나오는 파일 경로는 사용자마다 다를 수 있습니다)
 
-
-✓Using URDF with robot_state_publisher
 
 12. 실행 결과
 
 ![Image 217](../../assets/images/ros/practice/practice-04-05/img_077_217.webp)
 
 
-✓My_URDF 패키지 생성해서 Humanoid 만들어 보기
+### My_URDF 패키지 생성해서 Humanoid 만들어 보기
 ※ 필요한 파일 : my_urdf.zip
 
 ![Image 219](../../assets/images/ros/practice/practice-04-05/img_078_219.webp)
 
 
-✓URDF 패키지 수정하기
+### URDF 패키지 수정하기
 
 1. robot_1.launch.py : 폴더 및 파일 만들기
 2. Robot_1.xacro 복사하기
 3. setup.py 수정하기
 
 
-✓URDF 패키지 수정하기
+### Build 후 실행해 보기
 
 
-✓Build 후 실행해 보기
-
-
-✓RViz에서 설정하기
+### RViz에서 설정하기
 
 ![Image 229](../../assets/images/ros/practice/practice-04-05/img_082_229.webp)
 
 
-✓RViz에서 Humanoid Robot 확인하기
+### RViz에서 Humanoid Robot 확인하기
 
 ![Image 231](../../assets/images/ros/practice/practice-04-05/img_083_231.webp)
 
 
-✓robot_1.launch.py로 실행하기
-
-
-✓robot_1.launch.py로 실행하기
+### robot_1.launch.py로 실행하기
 
 
 ROS2 시뮬레이션
@@ -1063,8 +1009,6 @@ Gazebo Simulation과 SLAM : 기초 이론
 ![Image 327](../../assets/images/ros/practice/practice-04-05/img_109_327.webp)
 
 
-![Image 328](../../assets/images/ros/practice/practice-04-05/img_109_328.webp)
-
 Gazebo Simulation과 SLAM : 기초 이론
 SLAM : LiDAR
 Step0. 센서 초기화
@@ -1331,7 +1275,7 @@ Navigation – Nav2의 주요 서버
 
 
 Gazebo Simulation과 SLAM
-✓3D Camera & SLAM
+### 3D Camera & SLAM
 스테레오 카메라(Link)
 Using rtabmap visual slam using zed2i camera
 RTAB-Map (Real-Time Appearance-Based Mapping)
@@ -1361,7 +1305,7 @@ Gazebo Simulation과 SLAM
 
 
 Gazebo Simulation과 SLAM
-✓실습 환경 구축
+### 실습 환경 구축
 Gazebo 패키지 설치
 Turtlebot3 패키지 설치
 Cartographer 패키지 설치
@@ -1375,11 +1319,9 @@ Navigation2 패키지 설치
 
 
 Gazebo Simulation과 SLAM
-✓실습 환경 구축
 
 
 Gazebo Simulation과 SLAM
-✓실습 환경 구축
 realsense_warehouse_ws.zip을 풀면 이와 같은 파일을 확인할 수 있음
 [주요 파일에 대한 설명]
 
@@ -1391,7 +1333,7 @@ realsense_warehouse_ws.zip을 풀면 이와 같은 파일을 확인할 수 있�
 
 
 Gazebo Simulation과 SLAM
-✓런치 파일 실행
+### 런치 파일 실행
 Gazebo World와 Turtlebot Waffle을 불러옴
 
 
@@ -1399,7 +1341,6 @@ Gazebo World와 Turtlebot Waffle을 불러옴
 
 
 Gazebo Simulation과 SLAM
-✓실습 환경 구축
 turtlebot3_no_roof_aws.launch.py에 해당 코드를 추가
 Gazebo world를 구성할 때 필요한model들의 경로를 설정하는 코드임
 만약 위 코드가 정상적으로 작동하지 않는다면 해당 명령어로 직접 모델 파일을 추가해야함
@@ -1407,12 +1348,11 @@ Gazebo world를 구성할 때 필요한model들의 경로를 설정하는 코드
 
 
 Gazebo Simulation과 SLAM
-✓런치 파일 실행
 Error Control
 
 
 Gazebo Simulation과 SLAM
-✓Cartographer실행
+### Cartographer실행
 SLAM 라이브러리 중 하나
 
 
@@ -1420,12 +1360,11 @@ SLAM 라이브러리 중 하나
 
 
 Gazebo Simulation과 SLAM
-✓Keyboard Controller실행
+### Keyboard Controller실행
 키보드로 로봇을 조종해서 지도를 탐색할 수 있음
 
 
 Gazebo Simulation과 SLAM
-✓Keyboard Controller실행
 
 1. 자동으로 맵을 탐색하는 명령어
 2. 로봇이 탐색한 영역에 대해 지도 생성
@@ -1434,7 +1373,7 @@ Gazebo Simulation과 SLAM
 
 
 Gazebo Simulation과 SLAM
-✓GIMP로map 편집
+### GIMP로map 편집
 부정확한 부분에 대해 수작업으로 편집할 수 있음
 GIMP는 .pgm파일 편집을 지원함
 Trinary(세 가지 상태)
@@ -1454,7 +1393,7 @@ Trinary(세 가지 상태)
 
 
 Gazebo Simulation과 SLAM
-✓NAV2 실행
+### NAV2 실행
 생성된 Map을 바탕으로 Nav2 실행
 
 
@@ -1462,7 +1401,6 @@ Gazebo Simulation과 SLAM
 
 
 Gazebo Simulation과 SLAM
-✓NAV2 실행
 Result : Costmap
 Result에 표시된 화면은Costmap으로
 로봇의 입장에서map을 다양한 영역으로 나눈 것
@@ -1477,7 +1415,6 @@ Result에 표시된 화면은Costmap으로
 
 
 Gazebo Simulation과 SLAM
-✓NAV2 실행
 Nav2 Goal을 설정하면 로봇이 해당 위치와 방향에 맞게 도착함
 Rviz에서 Nav2Goal 버튼을 선택한 뒤
 원하는 위치와 방향을 지정
@@ -1711,14 +1648,12 @@ SLAM : 정확도 향상
 
 Gazebo Simulation과 SLAM
 실습
-✓실습 환경 구축
 
 - RTAB_MAP 설치 vslam_ws.zip의 압축을 풀고 해당 폴더로 이동한 뒤 다음 명령어 실행 ※ PC의 사양에 따라 작동 안 되는 경우가 있음 git clone --branch humble-devel https://github.com/introlab/rtabmap_ros.git src/rtabmap_ros
 
 
 Gazebo Simulation과 SLAM
 실습
-✓실습 환경 구축
 패키지 빌드하기
 시간이 오래 걸릴 수 있음
 빌드 에러 발생 시
@@ -1727,7 +1662,6 @@ Gazebo Simulation과 SLAM
 
 Gazebo Simulation과 SLAM
 실습
-✓실습 환경 구축
 실행 에러 발생 시
 Gazebo관련 프로세스 종료 후 재시도
 런치 파일 실행
@@ -1735,7 +1669,6 @@ Gazebo관련 프로세스 종료 후 재시도
 
 Gazebo Simulation과 SLAM
 실습
-✓실습 환경 구축
 실행 결과
 
 
@@ -1744,7 +1677,6 @@ Gazebo Simulation과 SLAM
 
 Gazebo Simulation과 SLAM
 실습
-✓실습 환경 구축
 RQt로 토픽 데이터 확인하기
 Plugins →visualization →ImageView선택 →camera/depth/image_raw 선택
 
@@ -1760,7 +1692,6 @@ Plugins →visualization →ImageView선택 →camera/depth/image_raw 선택
 
 Gazebo Simulation과 SLAM
 실습
-✓실습 환경 구축
 depth camera 결과
 
 
@@ -1769,7 +1700,6 @@ depth camera 결과
 
 Gazebo Simulation과 SLAM
 실습
-✓실습 환경 구축
 /camera/image_raw선택
 rgb 카메라 결과
 
@@ -1782,7 +1712,6 @@ rgb 카메라 결과
 
 Gazebo Simulation과 SLAM
 실습
-✓실습 환경 구축
 키보드로 터 틀 봇 제어
 Loop Closure를 위해 터 틀 봇을 이동시키며
 원래 자리로 되돌아옴
@@ -1796,7 +1725,6 @@ Loop Closure를 위해 터 틀 봇을 이동시키며
 
 Gazebo Simulation과 SLAM
 실습
-✓실습 환경 구축
 View 옵션을 조정
 터미널을 종료하면 자동으로 데이터가 저장되며 다음의 명령어로 확인할 수 있음
 
@@ -1806,7 +1734,6 @@ View 옵션을 조정
 
 Gazebo Simulation과 SLAM
 실습
-✓실습 환경 구축
 View 옵션을 조정
 LoopClosure를
 감지하고 인덱스를
@@ -1825,7 +1752,6 @@ loop closure로 판단
 
 ![Image 589](../../assets/images/ros/practice/practice-04-05/img_166_589.webp)
 
-수고하셨습니다.
 
 ![Image 600](../../assets/images/ros/practice/practice-04-05/img_167_600.webp)
 

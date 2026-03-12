@@ -27,8 +27,6 @@ ROS2 bag 이해 및 사용법
     이 코드의 전체 내용은 [Calculator 프로젝트 전체 소스코드](../code-ref/calculator.md) 페이지에서 확인할 수 있습니다.
 
 
-신규ROS2 cli 작성법
-
 ## ROS2 BAG(Turtlesim)
 - Turtle의 움직임을BAG 파일에 기록하기
 - 기록된BAG 파일을 이용하여turtle 움직이기 실습
@@ -91,7 +89,6 @@ BAG 파일 만들기
 - 간혹 인터럽트 등의 이유로turtle의 궤적이 기록 당시와 정확히 일치하지 않을 수 있음
 - 이 문제를 방지하려면turtle의 움직임을 기록할 때, 각 명령이 완전히 완료된 후 다음 명령을 실행해야함 실습
 
-신규ROS2 cli 작성법
 
 ## ROS2 BAG(2D, 3D, Lidar)
 - 2D 카메라, 3D 카메라, Lidar를 이용하여 기록된BAG 파일 실행하기 실습
@@ -253,8 +250,6 @@ Jupyter를 이용한 프로그래밍
 VSCode에서Jupyter 사용
 - Vscode의 좌 상단에서newfile을 클릭하여 새로운 파일을 만듦
 - 파일 명은HelloWorld.ipynb로설정
-
-
 
 
 ## Visual Studio Code

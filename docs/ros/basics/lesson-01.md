@@ -162,12 +162,6 @@ CPU와 메모리는 서로 분리되어 있고 둘을 연결하는 버스(Bus)�
 - POST를 통과하면BIOS는CMOS(Complementary Metal-Oxide Semiconductor)에 저장된 설정 값을 읽어 옵니다. 여기에는 부팅 순서, 시간, 하드 디스크 정보 등이 포함됩니다. 전원인가 POST (Power-On Self- Test) 실행 BIOS 설정 로드 부트로더 (Boot Loader)실행 운영 체제 커널 로드 초기 프로세스 실행 사용자 인터페이스 실행
 
 
-![Image 42](../../assets/images/ros/basics/lesson-01/img_012_042.webp)
-
-
-![Image 44](../../assets/images/ros/basics/lesson-01/img_012_044.webp)
-
-
 컴퓨터 구조(Booting, CPU 작동 원리, POST)
 ​4. 부트로더(Boot Loader) 실행
 
@@ -175,24 +169,6 @@ CPU와 메모리는 서로 분리되어 있고 둘을 연결하는 버스(Bus)�
 - 부트로더는 하드 디스크에서 운영 체제 커널을 찾아 메모리에 적재합니다. 커널은 운영 체제의 핵심 부분으로, 하드웨어를 제어하고 시스템 자원을 관리합니다. ​6. 초기 프로세스 실행
 - 커널은 시스템 초기화를 마치고init(리눅스) 또는smss.exe(윈도우) 같은 첫 번째 프로세스를 실행합니다. 이 프로세스는 운영 체제의 나머지 부분을 로드하고 실행합니다. ​7. 사용자 인터페이스 실행
 - 사용자 인터페이스(데스크톱 환경, 로그인 화면 등)가 실행되어 사용자가 컴퓨터를 사용할 수 있게 됩니다 전원인가 POST (Power-On Self- Test) 실행 BIOS 설정 로드 부트로더 (Boot Loader)실행 운영 체제 커널 로드 초기 프로세스 실행 사용자 인터페이스 실행
-
-
-![Image 46](../../assets/images/ros/basics/lesson-01/img_013_046.webp)
-
-
-![Image 48](../../assets/images/ros/basics/lesson-01/img_013_048.webp)
-
-
-![Image 50](../../assets/images/ros/basics/lesson-01/img_013_050.webp)
-
-
-![Image 53](../../assets/images/ros/basics/lesson-01/img_013_053.webp)
-
-
-![Image 55](../../assets/images/ros/basics/lesson-01/img_013_055.webp)
-
-
-![Image 57](../../assets/images/ros/basics/lesson-01/img_013_057.webp)
 
 
 컴퓨터 구조(Booting, CPU 작동 원리, POST)
@@ -638,9 +614,6 @@ Windows의shell → powershell.exe
 
 
 ![Image 114](../../assets/images/ros/basics/lesson-01/img_040_114.webp)
-
-
-![Image 116](../../assets/images/ros/basics/lesson-01/img_040_116.webp)
 
 
 리눅스CLI 실습(디렉토리, 계정, 기본 명령어 등)
@@ -1264,7 +1237,4 @@ gedit
 
 
 ![Image 184](../../assets/images/ros/basics/lesson-01/img_077_184.webp)
-
-
-수고하셨습니다.
 

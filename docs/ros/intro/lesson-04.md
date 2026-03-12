@@ -69,8 +69,6 @@ Hang-man - 실습
 - 일부 파일은 지금부터 생성 예정
 
 
-
-
 Hang-man - 실습
 
 ## hangman_interfaces

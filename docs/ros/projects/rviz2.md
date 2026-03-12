@@ -3005,7 +3005,6 @@ $ git clone https://github.com/mechasolution/ydlidar_x4_example.git
 라이다 센서 실습
 참고
 센서 정보 시각화- 라이다
-rviz2
 
 ![Image 290](../../assets/images/ros/projects/rviz2/img_165_290.webp)
 
@@ -3122,5 +3121,4 @@ class WorkerThread(QThread):
 
 주제2.1 기초
 참고
-수고하셨습니다.
 

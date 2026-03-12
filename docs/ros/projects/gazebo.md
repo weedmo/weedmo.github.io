@@ -1378,5 +1378,3 @@ turtle2_vel_pub.publish(cmd_vel);
 }
 };
 
-수고하셨습니다.
-

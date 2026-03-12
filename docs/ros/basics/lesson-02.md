@@ -618,12 +618,6 @@ Socket Programming
 ![Image 87](../../assets/images/ros/basics/lesson-02/img_046_087.webp)
 
 
-![Image 88](../../assets/images/ros/basics/lesson-02/img_046_088.webp)
-
-
-![Image 89](../../assets/images/ros/basics/lesson-02/img_046_089.webp)
-
-
 Socket Programming
 
 
@@ -712,9 +706,6 @@ OpenCR은 로봇의 센서, 모터, 엑츄에이터를
 
 
 ![Image 114](../../assets/images/ros/basics/lesson-02/img_054_114.webp)
-
-
-![Image 115](../../assets/images/ros/basics/lesson-02/img_054_115.webp)
 
 
 RS-485와센서
@@ -812,8 +803,6 @@ Long Range의약자로 광범위한 커 버리지와 적은 대역 폭, 긴 배�
 
 ![Image 136](../../assets/images/ros/basics/lesson-02/img_060_136.webp)
 
-
-수고하셨습니다.
 
 ![Image 139](../../assets/images/ros/basics/lesson-02/img_061_139.webp)
 

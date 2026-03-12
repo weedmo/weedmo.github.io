@@ -602,9 +602,6 @@ ROS설치 파일.zip
 ![Image 112](../../assets/images/ros/basics/lesson-03/img_042_112.webp)
 
 
-![Image 113](../../assets/images/ros/basics/lesson-03/img_042_113.webp)
-
-
 ROS2 실습 설치
 https://teamsparkx.notion.site/ROS2-1137ad24f8c04bffb7f958b8486b89f8?pvs=4
 *위 링크 참고해서 파일을 다운로드하세요.(링크에서 복사CLI 명령어 복사도 가능해요)
@@ -671,12 +668,6 @@ ROS2 실습
 6. ./listener
 
 
-![Image 130](../../assets/images/ros/basics/lesson-03/img_051_130.webp)
-
-
-![Image 131](../../assets/images/ros/basics/lesson-03/img_051_131.webp)
-
-
 ROS2 실습
 1.
 ./turtlesim_node 실행 시 에러 발생
@@ -686,16 +677,7 @@ source /opt/ros/humble/setup.bash 실행후(또는~/.bashrc 확인)
 ./turtlesim_node 실행하면 정상 실행됨
 
 
-![Image 133](../../assets/images/ros/basics/lesson-03/img_052_133.webp)
-
-
-![Image 134](../../assets/images/ros/basics/lesson-03/img_052_134.webp)
-
-
 ![Image 135](../../assets/images/ros/basics/lesson-03/img_052_135.webp)
-
-
-![Image 136](../../assets/images/ros/basics/lesson-03/img_052_136.webp)
 
 
 ROS2 실습
@@ -724,9 +706,6 @@ ROS2 실습
 ![Image 142](../../assets/images/ros/basics/lesson-03/img_054_142.webp)
 
 
-![Image 143](../../assets/images/ros/basics/lesson-03/img_054_143.webp)
-
-
 ![Image 144](../../assets/images/ros/basics/lesson-03/img_054_144.webp)
 
 
@@ -737,12 +716,6 @@ ROS2 실습
 
 
 ![Image 146](../../assets/images/ros/basics/lesson-03/img_055_146.webp)
-
-
-![Image 147](../../assets/images/ros/basics/lesson-03/img_055_147.webp)
-
-
-![Image 148](../../assets/images/ros/basics/lesson-03/img_055_148.webp)
 
 
 ROS2 실습
@@ -807,9 +780,6 @@ talker code 설명
 ROS2 실습
 
 
-![Image 164](../../assets/images/ros/basics/lesson-03/img_063_164.webp)
-
-
 ROS2 실습
 Listener code 설명
 
@@ -834,7 +804,4 @@ ROS2 실습
 
 
 ROS2 실습
-
-
-수고하셨습니다.
 

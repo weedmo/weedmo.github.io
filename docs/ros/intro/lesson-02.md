@@ -223,8 +223,6 @@
 ![Image 67](../../assets/images/ros/intro/lesson-02/img_031_067.webp)
 
 
-
-
 토픽, 서비스, 액션 인터페이스
 인터페이스 패키지 생성
 

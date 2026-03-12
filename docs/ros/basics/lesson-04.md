@@ -856,12 +856,6 @@ msg 인터페이스
 srv 인터페이스
 action 인터페이스
 CLI 명령어
-ros2 topic
-ros2 interface
-ros2 service
-ros2 interface
-ros2 action
-ros2 interface
 사용예
 센서 데이터, 로봇 상태,
 로봇 좌표, 로봇 속도 명령 등
@@ -985,9 +979,6 @@ Turtle 2개 동시 이동
 ![Image 86](../../assets/images/ros/basics/lesson-04/img_073_086.webp)
 
 
-![Image 87](../../assets/images/ros/basics/lesson-04/img_073_087.webp)
-
-
 ![Image 88](../../assets/images/ros/basics/lesson-04/img_073_088.webp)
 
 
@@ -1006,9 +997,6 @@ Teleop_key실행해서turtle1 or turtle2 or turtle3 입력후turtle 제어
 
 
 ![Image 91](../../assets/images/ros/basics/lesson-04/img_074_091.webp)
-
-
-![Image 92](../../assets/images/ros/basics/lesson-04/img_074_092.webp)
 
 
 ROS2 실습- Topic
@@ -1100,12 +1088,6 @@ Turtlesim 실행후node 확인
 ![Image 108](../../assets/images/ros/basics/lesson-04/img_084_108.webp)
 
 
-![Image 109](../../assets/images/ros/basics/lesson-04/img_084_109.webp)
-
-
-![Image 110](../../assets/images/ros/basics/lesson-04/img_084_110.webp)
-
-
 ![Image 111](../../assets/images/ros/basics/lesson-04/img_084_111.webp)
 
 
@@ -1121,11 +1103,6 @@ Namespace 설정(p101)
 
 ![Image 118](../../assets/images/ros/basics/lesson-04/img_085_118.webp)
 
-
-![Image 119](../../assets/images/ros/basics/lesson-04/img_085_119.webp)
-
-
-![Image 120](../../assets/images/ros/basics/lesson-04/img_085_120.webp)
 
 ROS2 실습
 Turtlesim 실행후node 확인
@@ -1153,8 +1130,6 @@ ROS2 실습
 
 
 ![Image 136](../../assets/images/ros/basics/lesson-04/img_088_136.webp)
-
-![Image 139](../../assets/images/ros/basics/lesson-04/img_088_139.webp)
 
 
 ![Image 140](../../assets/images/ros/basics/lesson-04/img_088_140.webp)
@@ -1195,7 +1170,4 @@ ROS2 실습
 
 
 ![Image 163](../../assets/images/ros/basics/lesson-04/img_093_163.webp)
-
-
-수고하셨습니다.
 
