@@ -1,15 +1,15 @@
 # 강의_3기_ROS2입문_9차시
 
 
-ROS2 프로그래밍입문(9차시)
+ROS2 프로그래밍 입문(9차시)
 
 9. ROS2 복습_3
 
 
 ## ROS2 복습_3
-1.  인터페이스프로그래밍(hangman)
-2.  rclpy 복습
-3.  ROS2 응용복습
+1. 인터페이스 프로그래밍(hangman)
+2. rclpy 복습
+3. ROS2 응용 복습
 Hang-man - 실습
 
 ## Hang-man 구조도
@@ -30,15 +30,15 @@ request
 Hang-man - 실습
 
 ## 코드구조
-- 전체코드의구조는다음과같음
-- 일부파일은지금부터생성예정
+- 전체 코드의 구조는 다음과 같음
+- 일부 파일은 지금부터 생성 예정
 
 ## hangman_interfaces
 - hangman_interfaces/msg/Progress.msg
-- current_state : 현재상태ex) p y _ _ o n
-- attempts_left : 목숨(남은시도횟수)
-- game_over : 목숨이다소진되었는지
-- won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
+- current_state : 현재 상태ex) p y _ _ o n
+- attempts_left : 목숨(남은 시도 횟수)
+- game_over : 목숨이 다 소진되었는지
+- won : 게임에서 이겼는지(목숨 소진 이전에 정답을 맞추었는지)
 
 ![Image 10](../../assets/images/ros/intro/lesson-09/img_004_010.webp)
 
@@ -49,9 +49,9 @@ Hang-man - 실습
 
 ## hangman_interfaces
 - hangman_interfaces/srv/CheckLetter.srv
-- updated_word_state: 현재상태ex) p y _ _ o n
-- is_correct : 현재user input으로들어온글자가선택된단어내에존재하는지에대한 bool 타입자료형
-- message : 맞았으면“Correct”를띄우고틀리면“WRONG”을띄움
+- updated_word_state: 현재 상태ex) p y _ _ o n
+- is_correct : 현재user input으로 들어온 글자가 선택된 단어 내에 존재하는지에 대한 bool 타입 자료형
+- message : 맞았으면“Correct”를 띄우고 틀리면“WRONG”을띄움
 
 ![Image 14](../../assets/images/ros/intro/lesson-09/img_005_014.webp)
 
@@ -60,8 +60,8 @@ Hang-man - 실습
 
 ## hangman_interfaces
 - hangman_interfaces/action/GameProgress.action
-- game_over : 목숨이다소진되었는지
-- won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
+- game_over : 목숨이 다 소진되었는지
+- won : 게임에서 이겼는지(목숨 소진 이전에 정답을 맞추었는지)
 
 ![Image 16](../../assets/images/ros/intro/lesson-09/img_006_016.webp)
 
@@ -69,7 +69,7 @@ Hang-man - 실습
 Hang-man - 실습
 
 ## hangman_game
-- hangman_game/hangman_game/letter _publisher.py의전체코드
+- hangman_game/hangman_game/letter _publisher.py의 전체 코드
 
 
 ![Image 17](../../assets/images/ros/intro/lesson-09/img_007_017.webp)
@@ -78,7 +78,7 @@ Hang-man - 실습
 Hang-man - 실습
 
 ## hangman_game
-- hangman_game/hangman_game/word _service.py의전체코드
+- hangman_game/hangman_game/word _service.py의 전체 코드
 
 
 ![Image 18](../../assets/images/ros/intro/lesson-09/img_008_018.webp)
@@ -87,7 +87,7 @@ Hang-man - 실습
 Hang-man - 실습
 
 ## hangman_game
-- hangman_game/hangman_game/word _service.py의전체코드
+- hangman_game/hangman_game/word _service.py의 전체 코드
 
 
 ![Image 19](../../assets/images/ros/intro/lesson-09/img_009_019.webp)
@@ -96,26 +96,26 @@ Hang-man - 실습
 Hang-man - 실습
 
 ## hangman_game
-- hangman_game/hangman_game/word _service.py의전체코드
+- hangman_game/hangman_game/word _service.py의 전체 코드
 
 Hang-man - 실습
 
 ## hangman_game
-- hangman_game/hangman_game/user_ input.py 전체코드
+- hangman_game/hangman_game/user_ input.py 전체 코드
 
 Hang-man - 실습
 
 ## hangman_game
-- hangman_game/hangman_game/ progress_action_client.py 전체코드 Hang-man - 실습
+- hangman_game/hangman_game/ progress_action_client.py 전체 코드 Hang-man - 실습
 
 ## hangman_game
-- hangman_game/hangman_game/ progress_action_client.py 전체코드 Hang-man - 실습
+- hangman_game/hangman_game/ progress_action_client.py 전체 코드 Hang-man - 실습
 
 ## hangman_game
-- hangman_game/hangman_game/ progress_action_server.py 전체코드 Hang-man - 실습
+- hangman_game/hangman_game/ progress_action_server.py 전체 코드 Hang-man - 실습
 
 ## hangman_game
-- hangman_game/hangman_game/ progress_action_server.py 전체코드
+- hangman_game/hangman_game/ progress_action_server.py 전체 코드
 
 ![Image 29](../../assets/images/ros/intro/lesson-09/img_015_029.webp)
 
@@ -123,7 +123,7 @@ Hang-man - 실습
 Hang-man - 실습
 
 ## hangman_game
-- hangman_game/hangman_game/ progress_action_server.py 전체코드
+- hangman_game/hangman_game/ progress_action_server.py 전체 코드
 
 ![Image 31](../../assets/images/ros/intro/lesson-09/img_016_031.webp)
 
@@ -132,7 +132,7 @@ Hang-man - 실습
 
 ## hangman_game
 - hangman_game/setup.py
-- entry_points를다음과같이변경
+- entry_points를 다음과 같이 변경
 
 ![Image 33](../../assets/images/ros/intro/lesson-09/img_017_033.webp)
 
@@ -156,34 +156,34 @@ Hang-man - 실습
 
 
 Executor
-ROS2계층구조
+ROS2계층 구조
 
 ## ROS2 계층구조
-1. User code : 사용자가작성한코드
-2. rcl : 클라이언트라이브러리로, 사용자코드와미들웨어를연결
-3. rmw : 미들웨어와클라이언트간의인터페이스역할. 미들웨어와의
-상호작용을추상화
+1. User code : 사용자가 작성한 코드
+2. rcl : 클라이언트 라이브러리로, 사용자 코드와 미들 웨어를 연결
+3. rmw : 미들 웨어와 클라이언트 간의 인터페이스 역할. 미들 웨어와의
+상호 작용을 추상화
 
-4. rmw adapter : RMW와미들웨어를연결하는중간계층역할. 이를
-통해ROS2는특정DDS 구현체에종속되지않고, 다양한미들웨어를
-지원할수있는유연성을가짐
+4. rmw adapter : RMW와 미들 웨어를 연결하는 중간 계층 역할. 이를
+통해ROS2는특정DDS 구현 체에 종속되지 않고, 다양한 미들 웨어를
+지원할 수 있는 유연성을 가짐
 
-5. Middleware : 실제메시지전달과QoS 설정을처리하는계층
-- 미들웨어: 분산네트워크에서애플리케이션또는구성요소간에하나이상 의종류의통신또는연결을가능하게하는소프트웨어. ROS2에서는노드간 의메시지송수신및이벤트처리를담당
+5. Middleware : 실제 메시지 전달과QoS 설정을 처리하는 계층
+- 미들웨어: 분산 네트워크에서 애플리케이션 또는 구성 요소 간에 하나 이상의 종류의 통신 또는 연결을 가능하게하는 소프트웨어. ROS2에서는 노드 간의 메시지 송수신 및 이벤트 처리를 담당
 
 
 ![Image 40](../../assets/images/ros/intro/lesson-09/img_020_040.webp)
 
 
 Executor
-Executor 동작과정
+Executor 동작 과정
 
 ## 동작과정
-1. wait : 미들웨어에메시지가도착할때까지대기
-2. take : 새로운메시지도착시, 해당메시지를가져옴. 이과
-정에서미들웨어에저장된메시지가클라이언트로전달됨
+1. wait : 미들 웨어에 메시지가 도착할 때까지 대기
+2. take : 새로운 메시지 도착 시, 해당 메시지를 가져옴. 이 과
+정에서 미들 웨어에 저장된 메시지가 클라이언트로 전달됨
 
-3. execute : 메시지처리를위한콜백함수(onGoal, nextCmd,
+3. execute : 메시지 처리를 위한 콜백 함수(onGoal, nextCmd,
 processOdom) 실행
 
 
@@ -194,13 +194,13 @@ Executor
 Executor의종류
 
 ## SingleThreadedExecutor : 단일스레드에서콜백을실행
-- 하나의스레드만사용하여이벤트를처리하므로, 콜백이완료될때까지다른작업을처리할수 없음
-- 주로처리속도가중요한것이아니거나, 콜백이충돌하지않도록하기위해단일스레드환경에 서사용
+- 하나의 스레드만 사용하여 이벤트를 처리하므로, 콜백이 완료될 때까지 다른 작업을 처리할 수 없음
+- 주로 처리 속도가 중요한 것이 아니거나, 콜백이 충돌하지 않도록하기 위해 단일 스레드 환경에서 사용
 
 ## StaticSingleThreadedExecutor : 단일스레드에서정적으로콜백을실행
-- 정적단일스레드실행자는구독, 타이머, 서비스서버, 액션서버등의노드구조를스캔하는런타임 비용을최적화
-- 노드가추가될때콜백스캔을한번만수행되며, 다른두Executer는이러한변화를정기적으로스캔
-- 정적단일스레드실행자는초기화중에모든구독, 타이머등을생성하는노드와함께사용해야함
+- 정적 단일스레 드 실행자는 구독, 타이머, 서비스 서버, 액션 서버 등의 노드 구조를 스캔하는 런 타임 비용을 최적화
+- 노드가 추가될 때 콜백 스캔을 한 번만 수행되며, 다른 두Executer는 이러한 변화를 정기적으로 스캔
+- 정적 단일스레 드 실행자는 초기화 중에 모든 구독, 타이머 등을 생성하는 노드와 함께 사용해야함
 
 
 ![Image 42](../../assets/images/ros/intro/lesson-09/img_022_042.webp)
@@ -213,27 +213,27 @@ Executor
 Multi Thread Executor
 
 ## MultiThreadedExecutor : 여러스레드에서콜백을병렬로실행
-- 여러스레드가동시에실행되기때문에복잡한작업이나멀티태스킹환경에서유리
-- 그러나다중스레드간의자원경쟁이나동기화문제가발생할수있으므로, 적절한 동기화처리(locking) 필요
+- 여러 스레드가 동시에 실행되기 때문에 복잡한 작업이나 멀티태스킹 환경에서 유리
+- 그러나 다중 스레드 간의 자원 경쟁이나 동기화 문제가 발생할 수 있으므로, 적절한 동기화 처리(locking) 필요
 
 ![Image 45](../../assets/images/ros/intro/lesson-09/img_023_045.webp)
 
 
 Executor
-Executor 기본동작
+Executor 기본 동작
 
 ## Executor 동작순서
-1. 이벤트감지: 노드에서수신된토픽, 서비스요청, 타이머이벤트등을감지
-2. 콜백큐생성: 이벤트가발생할때마다대응하는콜백을큐(queue)에수집
-3. 콜백실행: 큐에있는콜백을적절한순서대로실행. SingleThreadedExecutor는하나씩
-처리하고, MultiThreadedExecutor는병렬로처리
+1. 이벤트 감지: 노드에서 수신된 토픽, 서비스 요청, 타이머 이벤트 등을 감지
+2. 콜백 큐 생성: 이벤트가 발생할 때마다 대응하는 콜백을 큐(queue)에수집
+3. 콜백 실행: 큐에 있는 콜백을 적절한 순서대로 실행. SingleThreadedExecutor는 하나씩
+처리하고, MultiThreadedExecutor는 병렬로 처리
 
 
 Executor
 
 ## Executor 사용예
-- SingleThreadedExecutor를사용하는간단한퍼블리셔노드
-- 이벤트는1초마다발생하여메시지를퍼블리싱
+- SingleThreadedExecutor를 사용하는 간단한 퍼 블 리 셔 노 드
+- 이벤트는1초마다 발생하여 메시지를 퍼블리싱
 
 ![Image 47](../../assets/images/ros/intro/lesson-09/img_025_047.webp)
 
@@ -246,24 +246,24 @@ Executor
 Executor
 spin()
 역할
-콜백관리및실행
-이벤트루프실행
+콜백 관리 및 실행
+이벤트루프 실행
 설명
 
-노드에포함된콜백(토픽, 서비스, 타이머등)을관리하고,
-이벤트가발생하면적절한콜백을실행하는역할수행
+노드에 포함된 콜백(토픽, 서비스, 타이머 등)을 관리하고,
+이벤트가 발생하면 적절한 콜백을 실행하는 역할 수행
 
 SingleThreadedExecutor와MultiThreadedExecutor
-같은다양한종류가있으며, 콜백을실행하는방식에따라
-동작방식이달라짐
+같은 다양한 종류가 있으며, 콜백을 실행하는 방식에 따라
+동작 방식이 달라짐
 
-Executor가이벤트를처리하는루프를실행
+Executor가이벤트를 처리하는 루프를 실행
 
-spin()이호출되면노드는콜백이발생하기를기다리며,
-이벤트가감지될때콜백을실행
+spin()이 호출되면 노 드는 콜백이 발생하기를 기다리며,
+이벤트가 감지될 때 콜백을 실행
 
-Executor가동작할수있는환경을유지하는루프이며,
-명시적으로종료하거나프로그램이종료될때까지계속실행
+Executor가동작할 수 있는 환경을 유지하는 루프이며,
+명시적으로 종료하거나 프로그램이 종료될 때까지 계속 실행
 
 
 ![Image 50](../../assets/images/ros/intro/lesson-09/img_026_050.webp)
@@ -273,25 +273,25 @@ Executor
 Executor 와spin 의관계
 
 ## 관계
-- Executor는콜백을처리하는"관리자"이고, spin()은해당Executor가콜백을계속해서 처리하도록하는"루프"
-- Executor는콜백을실행하는규칙과방식을정의하고, spin()은그규칙에따라Executor 가동작하도록해주는실행메커니즘 SingleThreadedExecutor + spin(): 한번에하나의콜백만처리 MultiThreadedExecutor + spin(): 여러콜백을동시에처리
+- Executor는 콜백을 처리하는"관리자"이고, spin()은해당Executor가 콜백을 계속해서 처리하도록하는"루프"
+- Executor는 콜백을 실행하는 규칙과 방식을 정의하고, spin()은 그 규칙에 따라Executor 가동작하도록해 주는 실행 메커니즘 SingleThreadedExecutor + spin(): 한 번에 하나의 콜백만 처리 MultiThreadedExecutor + spin(): 여러 콜백을 동시에 처리
 
 ## 멀티스레드와의연관성
-- spin()을사용하면Executor가콜백을처리하는동안계속해서대기하지만, MultiThreadedExecutor를사용하면여러콜백을동시에병렬로처리할수있음
-- 이때도spin()을호출하여이벤트루프가유지되지만, 여러스레드가동시에동작하면 서여러콜백을병렬처리가능
+- spin()을 사용하면Executor가 콜백을 처리하는 동안 계속해서 대기하지만, MultiThreadedExecutor를 사용하면 여러 콜백을 동시에 병렬로 처리할 수 있음
+- 이때도spin()을 호출하여 이벤트루프가 유지되지만, 여러 스레드가 동시에 동작하면 서 여러 콜백을 병렬 처리 가능
 
 
-ROS2 bag 이해및사용법
+ROS2 bag 이해 및 사용법
 명령어
 
 ## BAG 파일레코딩
-- 다음명령어는“topic_name”에서수신되는메시지를“my_bag.bag”라는이름의BAG 파일에레코딩함
+- 다음 명령어는“topic_name”에서 수신되는 메시지를“my_bag.bag”라는 이름의BAG 파일에 레코딩함
 
 ## BAG 파일재생
-- 다음명령어는“my_bag.bag”라는이름의BAG 파일을재생함
+- 다음 명령어는“my_bag.bag”라는 이름의BAG 파일을 재생함
 
 ## BAG 파일정보표시
-- 다음명령어는“my_bag.bag”라는이름의BAG 파일의정보를표시함
+- 다음 명령어는“my_bag.bag”라는 이름의BAG 파일의 정보를 표시함
 
 
 ![Image 51](../../assets/images/ros/intro/lesson-09/img_028_051.webp)
@@ -303,31 +303,31 @@ ROS2 bag 이해및사용법
 ![Image 53](../../assets/images/ros/intro/lesson-09/img_028_053.webp)
 
 
-BAG 파일만들기
+BAG 파일 만들기
 
 ## 세번째터미널에서다음명령어를이용하여저장되어있는BAG 파일재생
-- 간혹인터럽트등의이유로turtle의궤적이기록당시와정확히일치하지않을수있음
-- 이문제를방지하려면turtle의움직임을기록할때, 각명령이완전히완료된후다음명령을 실행해야함 실습
+- 간혹 인터럽트 등의 이유로turtle의 궤적이 기록 당시와 정확히 일치하지 않을 수 있음
+- 이 문제를 방지하려면turtle의 움직임을 기록할 때, 각 명령이 완전히 완료된 후 다음 명령을 실행해야함 실습
 
 
 ![Image 54](../../assets/images/ros/intro/lesson-09/img_029_054.webp)
 
 
-BAG 파일실습
+BAG 파일 실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
-- 아래제공된링크에서rosbag2_video.tar.gz 파일을다운로드받은후압축풀기 https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
-- 다운로드된압축파일의압축풀기 실습
+- 아래 제공된 링크에서rosbag2_video.tar.gz 파일을 다운로드 받은 후 압축 풀기 https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
+- 다운로드된 압축 파일의 압축 풀기 실습
 
 
 ![Image 55](../../assets/images/ros/intro/lesson-09/img_030_055.webp)
 
 
-BAG 파일실습
+BAG 파일 실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
-- 압축풀린bag 파일의정보확인
-- Bag 파일반복재생 실습
+- 압축 풀린bag 파일의 정보 확인
+- Bag 파일 반복 재생 실습
 
 
 ![Image 56](../../assets/images/ros/intro/lesson-09/img_031_056.webp)
@@ -339,70 +339,70 @@ BAG 파일실습
 ![Image 58](../../assets/images/ros/intro/lesson-09/img_031_058.webp)
 
 
-BAG 파일실습
+BAG 파일 실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
-- 새로운터미널에서rviz 실행 실습
+- 새로운 터미널에서rviz 실행 실습
 
 ![Image 60](../../assets/images/ros/intro/lesson-09/img_032_060.webp)
 
 
-BAG 파일실습
+BAG 파일 실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
-- Rviz에서add버튼을누른후Image 선택후OK 버튼누르기 실습
+- Rviz에서add버튼을 누른 후Image 선택후OK 버튼 누르기 실습
 
 
 ![Image 61](../../assets/images/ros/intro/lesson-09/img_033_061.webp)
 
 
-BAG 파일실습
+BAG 파일 실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
-- 사이드바에서이미지의topic name을“＼video_frames” 로바꾸기
-- 하단의Image 창에영상이재생되는것을확인 영상출처: https://www.youtube.com/watch?v=29iFysOZg3Q 실습
+- 사이드 바에서 이미지의topic name을“＼video_frames” 로 바꾸기
+- 하단의Image 창에 영상이 재생되는 것을 확인 영상 출처: https://www.youtube.com/watch?v=29iFysOZg3Q 실습
 
 
 ![Image 62](../../assets/images/ros/intro/lesson-09/img_034_062.webp)
 
 
 ## Visual Studio Code - extension
-Jupyter를이용한프로그래밍
+Jupyter를 이용한 프로그래밍
 VSCode에서Jupyter 사용
-- Extension의주요역할및기능
-- 프로그래밍언어지원추가: 추가언어를지원하거나기존언어의기능을확장 (예: Python, YAML등)
-- 생산성향상도구: 코딩, 탐색, 리팩토링, 반복작업을자동화해생산성향상 (예: XML Tools, Markdown All in One)
-- 특정기술또는프레임워크지원: 특정프레임워크나기술을위한추가기능제공 (예: ROS, URDF)
-- 자동화및DevTools: 반복작업을자동화하거나개발환경을확장(예: Colcon Tasks)
+- Extension의 주요 역할 및 기능
+- 프로그래밍 언어 지원 추가: 추가 언어를 지원하거나 기존 언어의 기능을 확장 (예: Python, YAML등)
+- 생산성 향상 도구: 코딩, 탐색, 리팩토링, 반복 작업을 자동화해 생산성 향상 (예: XML Tools, Markdown All in One)
+- 특정 기술 또는 프레임워크 지원: 특정 프레임워크나 기술을 위한 추가 기능 제공 (예: ROS, URDF)
+- 자동화 및DevTools: 반복 작업을 자동화하거나 개발 환경을 확장(예: Colcon Tasks)
 
 
 ## Visual Studio Code - extension
-프로그래밍응용
-Service 와Action 에서의Client  차이
+프로그래밍 응용
+Service 와Action 에서의Client 차이
 항목
 Service Client
 Action Client
 목적
-요청-응답1회성호출
-장시간작업의관리
+요청-응답1회성 호출
+장시간 작업의 관리
 단계수
 1단계(call_async)
 3단계(send_goal_async → Go
 alHandle → get_result_async)
-중간상태
+중간 상태
 없음
-진행상태(feedback), 취소등
-처리가능
+진행 상태(feedback), 취소등
+처리 가능
 .result() 위치
 call_async 후future에서
 get_result_async 후future에
 서
-피드백처리
+피드백 처리
 불가
 가능(feedback_callback)
 쓰임새
-빠른계산요청(예: IK)
-장기제어작업(예: 궤적추종)
+빠른 계산 요청(예: IK)
+장기 제어 작업(예: 궤적 추종)
 
 
 ![Image 63](../../assets/images/ros/intro/lesson-09/img_036_063.webp)
@@ -415,7 +415,7 @@ get_result_async 후future에
 
 ### 9차시_1_ROS2_API함수정리
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/OWNER/study-site/blob/main/notebooks/ros/jupyter_ros/9차시_1_ROS2_API함수정리.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/OWNER/study-site/blob/main/notebooks/ros/jupyter_ros/9차시_1_ROS2_API함수 정리.ipynb)
 
 **ROS 2 Humble**에서 자주 사용하는 **Topic, Service, Action** 관련 Python API 함수들을 정리한 노트.
 
@@ -615,7 +615,7 @@ self._action_server = ActionServer(
 
 3. self.on_goal(goal_request) 실행 → execute
 
-이 줄은 ROS 2의 액션 서버를 구현할 때 필요한 핵심 클래스와 상수를 임포트하는 구문
+이 줄은 ROS 2의 액션 서버를 구현할 때 필요한 핵심 클래스와 상수를 임 포트하는 구문
 
 
 ```python
@@ -692,7 +692,7 @@ execute_callback	실제 작업 수행 / 피드백 보내고 결과 반환
 
 ```
 
-예제 흐름 (서버에서)
+예 제 흐름 (서버에서)
 
 
 ```python
@@ -710,7 +710,7 @@ async def execute_callback(self, goal_handle):
 
 ### 9차시_2_주피터노트북_사용시_주의사항
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/OWNER/study-site/blob/main/notebooks/ros/jupyter_ros/9차시_2_주피터노트북_사용시_주의사항.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/OWNER/study-site/blob/main/notebooks/ros/jupyter_ros/9차시_2_주피터 노트북_사용시_주의 사항.ipynb)
 
 ## 주피터 노트북으로 ROS2 사용시 주의해야할 사항들 정리
 #### rclpy 초기화/종료
@@ -765,7 +765,7 @@ rclpy.shutdown()
 
  rclpy.spin()은 블로킹이기 때문에, Jupyter에서는 rclpy.spin_once()를 주기적으로 호출하는 방식이 더 적합할 수 있음 (아래 예시 참고)
 
-그다음 셀에서
+그 다음 셀에서
 
 
 ```python
@@ -811,7 +811,7 @@ ROS Launch로 띄우고 Jupyter에서 통신만 하는 식이 더 적합
 - ROS 환경 활성화	setup.bash source 후 jupyter lab 실행
 - rclpy.init()/shutdown() 수동 관리	셀 분리해서 실행
 - rclpy.spin() 대신 spin_once() + loop	인터랙티브 실행 가능
-- 블로킹 함수 주의	spin()은 막히기 때문에 반복문으로 대체
+- 블로킹 함수 주의	spin()은 막히기 때문에 반복 문으로 대체
 - 타이머/퍼블리셔/서브스크라이버는 가능	대부분 잘 작동
 - launch 파일은 별도로 실행	Jupyter에서는 통신 위주로 활용
 
@@ -842,7 +842,7 @@ sudo apt install ros-humble-cv-bridge python3-opencv
 
 setup.py 수정
 
-console_script 에 아래내용 추가
+console_script 에 아래 내용 추가
 ```bash
 'cam_pub = my_cam_pubsub.cam_pub:main',
 'cam_sub = my_cam_pubsub.cam_sub:main',
@@ -889,7 +889,7 @@ self.publisher_ = self.create_publisher(String, 'letter_topic', 10)
 self.timer = self.create_timer(1.0, self.publish_letter)
 ```
 
-letter_topic이라는 이름의 토픽을 만들고, std_msgs/msg/String 타입의 데이터를 퍼블리시할 퍼블리셔 객체 생성
+letter_topic이라는 이름의 토픽을 만들고, std_msgs/msg/String 타입의 데이터를 퍼블리시 할 퍼블리셔 객체 생성
 
 10: 큐 사이즈 (토픽 메시지 버퍼 용량)
 

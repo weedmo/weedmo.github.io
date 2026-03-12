@@ -3,19 +3,19 @@
 
 Version
 V2.0
-최종수정일
+최종 수정 일
 2025.03.03
 작성자
-김루진강사
-협동로봇 프로젝트 수행
+김 루 진 강사
+협동 로봇 프로젝트 수행
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
 차동 이동 로봇URDF - 1
 
 Rokey
-로봇패키지
+로봇 패키지
 학습 목표
 URDF (Unified Robot Description Format) 학습 목표
 -URDF의 기본 구조와 문법 이해
@@ -25,20 +25,20 @@ URDF (Unified Robot Description Format) 학습 목표
 -URDF 파일 검증 및 디버깅 방법
 
 Rokey
-로봇패키지
-로봇모델링 , URDF 실습
+로봇 패키지
+로봇 모델링 , URDF 실습
 
 1. URDF Package 생성하기
-2. 연관폴더만들기
-- src/urdf_tutorial 폴더아래다음두폴더를추가
-- urdf: URDF 파일을저장할폴더
-- launch: ROS2 실행launch 스크립트를저장할폴더 $ mkdir -p ~/urdf_ws/src $ cd ~/urdf_ws/src $ ros2 pkg create --build-type ament_python urdf_tutorial $ cd urdf_tutorial $ mkdir urdf $ mkdir launch 차동 구동 로봇(Differential Drive Robot) -XML 형식의 로봇 모델 정의 -Xacro 매크로를 사용하여 파라메터화 및 코드 재사용성 향상
+2. 연관 폴더 만들기
+- src/urdf_tutorial 폴더 아래 다음 두 폴더를 추가
+- urdf: URDF 파일을 저장할 폴더
+- launch: ROS2 실행launch 스크립트를 저장할 폴더 $ mkdir -p ~/urdf_ws/src $ cd ~/urdf_ws/src $ ros2 pkg create --build-type ament_python urdf_tutorial $ cd urdf_tutorial $ mkdir urdf $ mkdir launch 차 동 구동 로봇(Differential Drive Robot) -XML 형식의 로봇 모델 정의 -Xacro 매크로를 사용하여 파라메터화 및 코드 재사용성 향상
 
 Rokey
-로봇패키지
+로봇 패키지
 
 3. setup.py
-두폴더가컴파일에포함될수있도록'src/urdf_tutorial/setup.py'를아래와같이편집
+두 폴더가 컴 파일에 포함될 수 있도록'src/urdf_tutorial/setup.py'를 아래와 같이 편집
 import os
 from glob import glob
 from setuptools import setup
@@ -67,18 +67,18 @@ entry_points={
 ],
 },
 )
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 *.urdf 도 추가하세요.
 
 Rokey
-로봇패키지
-‘src/urdf_tutorial/urdf/robot_1.xacro’ 파일을만들고아래와같이편집
+로봇 패키지
+‘src/urdf_tutorial/urdf/robot_1.xacro’ 파일을 만들고 아래와 같이 편집
 
-- base_link: 자동차 중심링크
-- body: 가로, 세로, 높이각각1m인상자
-- body_joint: base_link와body를연결하는joint
+- base_link: 자동차 중심 링크
+- body: 가로, 세로, 높이 각각1m인상자
+- body_joint: base_link와body를 연결하는joint
 
-4. 로봇모델만들기
+4. 로봇 모델 만들기
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="urdf_test">
 <!-- BASE -->
@@ -98,17 +98,17 @@ Rokey
 </visual>
 </link>
 </robot>
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 
 - Base Link: 로봇의 메인 본체 (직육면체)
 - Wheels: 왼쪽과 오른쪽 바퀴 (원통형)
-- Joints: 바퀴와 베이스를 연결하는 조인트 -차동 구동 메커니즘: 두 바퀴가 독립적으로 제어 가능 -Gazebo 호환 플러그인 내장 -물리적 특성(질량, 관성) 정의 -ROS 호환 설계
+- Joints: 바퀴와 베이스를 연결하는 조인트 -차 동 구동 메커니즘: 두 바퀴가 독립적으로 제어 가능 -Gazebo 호환 플러그인 내장 -물리적 특성(질량, 관성) 정의 -ROS 호환 설계
 
 Rokey
-로봇패키지
-‘src/urdf_tutorial/launch/robot_1.launch.py’ 파일을만들고아래와같이편집, 2가지 방법
+로봇 패키지
+‘src/urdf_tutorial/launch/robot_1.launch.py’ 파일을 만들고 아래와 같이 편집, 2가지 방법
 
-5. 런치파일만들기
+5. 런치 파일 만들기
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
@@ -133,17 +133,17 @@ executable='robot_state_publisher',
 output='screen',
 parameters=[params])
 ])
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 로봇 시스템의 노드, 파라미터, 액션 등을 설정하는 데 사용
 
 
 Rokey
-로봇패키지
+로봇 패키지
 
-6. 빌드및소싱
-첫번째터미널에서아래명령을실행해서컴파일및‘robot_1.launch.py’ 파일을실행
+6. 빌 드 및 소싱
+첫 번째 터미널에서 아래 명령을 실행해서 컴 파일 및‘robot_1.launch.py’ 파일을 실행
 
-7. 두번째터미널에서아래명령을실행해서Rviz를실행
+7. 두 번째 터미널에서 아래 명령을 실행해서Rviz를실행
 $ cd ~/urdf_ws
 $ colcon build --symlink-install
 $ source install/setup.bash
@@ -151,31 +151,31 @@ $ ros2 launch urdf_tutorial robot_1.launch.py
 $ cd ~/urdf_ws
 $ source install/setup.bash
 $ rviz2
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 Rokey
-로봇패키지
+로봇 패키지
 
 8. rviz2 설정
 Display > Global Option > ‘Fixed Frame’을‘base_link’로변경
-왼쪽하단의‘Add’ > ‘TF’ > ‘Ok’
-로봇패키지만들기실습
+왼쪽 하단의‘Add’ > ‘TF’ > ‘Ok’
+로봇 패키지 만들기 실습
 
 Rokey
-로봇패키지
+로봇 패키지
 
 9. TF 보기
-TF의하위항목중‘Show Names’를선택
-중앙에‘base_link’와‘body’가겹쳐진상태로보이는것확인
-왼쪽하단의‘Add’ > ‘RobotModel’ > ‘Ok’
-로봇패키지만들기실습
+TF의 하위 항목 중‘Show Names’를선택
+중앙에‘base_link’와‘body’가 겹쳐진 상태로 보이는 것 확인
+왼쪽 하단의‘Add’ > ‘RobotModel’ > ‘Ok’
+로봇 패키지 만들기 실습
 
 Rokey
-로봇패키지
+로봇 패키지
 
-10. 로봇모델보기
-RobotModel의하위항목중‘Description Topic’을‘/robot_description’으로변경
+10. 로봇 모델 보기
+RobotModel의 하위 항목 중‘Description Topic’을‘/robot_description’으로 변경
 'File' 메뉴에서'Save Config As'를선택
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 
 ![Image 22](../../assets/images/ros/projects/simulation/img_011_022.webp)
 
@@ -183,37 +183,37 @@ RobotModel의하위항목중‘Description Topic’을‘/robot_description’�
 ![Image 23](../../assets/images/ros/projects/simulation/img_011_023.webp)
 
 Rokey
-로봇패키지
+로봇 패키지
 
-11. 노드및토픽확인
-세번째터미널에서아래명령을실행해서rqt_graph를실행
+11. 노드 및 토픽 확인
+세 번째 터미널에서 아래 명령을 실행해서rqt_graph를실행
 
-- /robot_state_publisher: ‘robot.launch.py’를이용해서실행한Node
+- /robot_state_publisher: ‘robot.launch.py’를 이용해서 실행한Node
 
-- /transform_listner_Impl: rviz2에서실행한Node
+- /transform_listner_Impl: rviz2에서 실행한Node
 
-- ‘/robot_state_publisher’ Node는 ‘/transform_listner_Impl’ Node에게 ‘/tf’, ‘/tf_static’ 두개의topic을전달 $ rqt_graph 로봇패키지만들기실습
+- ‘/robot_state_publisher’ Node는 ‘/transform_listner_Impl’ Node에게 ‘/tf’, ‘/tf_static’ 두개의topic을전달 $ rqt_graph 로봇 패키지 만들기 실습
 
 ![Image 26](../../assets/images/ros/projects/simulation/img_012_026.webp)
 
 
 Rokey
-로봇패키지
+로봇 패키지
 
-12. 정육면체의색변경
-‘src/urdf_tutorial/urdf/robot_1.xacro’ 파일을아래와같이수정
+12. 정육면체의 색 변경
+‘src/urdf_tutorial/urdf/robot_1.xacro’ 파일을 아래와 같이 수정
 
-- material white: 위쪽에흰색을표현하는white material을선언 색상은rgba 모두1로지정: (색상의범위:  0 ~ 1 )
+- material white: 위쪽에 흰색을 표현하는white material을 선언 색상은rgba 모두1로지정: (색상의 범위: 0 ~ 1 )
 
-- body link material: body link에위에서지정한white material을지정 변경된값을반영하기위해첫번째터미널에서 ‘CTRL+C’ 키를입력해서ROS2를종료한후명령을수행 <?xml version="1.0"?> <robot xmlns:xacro="http://ros.org/wiki/xacro" name="urdf_test"> <!-- COLOR--> <material name="white"> <color rgba="1 1 1 1"/> </material> <!-- BASE --> <link name="base_link"> </link> <!-- BODY LINK --> <joint name="body_joint" type="fixed"> <parent link="base_link"/> <child link="body"/> </joint> <link name="body"> <visual> <geometry> <box size="1 1 1"/> </geometry> <material name="white"/> </visual> </link> </robot> $ cd ~/urdf_ws $ colcon build --symlink-install $ source install/setup.bash $ ros2 launch urdf_tutorial robot_1.launch.py 로봇패키지만들기실습
+- body link material: body link에 위에서 지정한white material을 지정 변경된 값을 반영하기 위해 첫 번째 터미널에서 ‘CTRL+C’ 키를 입력해서ROS2를 종료한 후 명령을 수행 <?xml version="1.0"?> <robot xmlns:xacro="http://ros.org/wiki/xacro" name="urdf_test"> <!-- COLOR--> <material name="white"> <color rgba="1 1 1 1"/> </material> <!-- BASE --> <link name="base_link"> </link> <!-- BODY LINK --> <joint name="body_joint" type="fixed"> <parent link="base_link"/> <child link="body"/> </joint> <link name="body"> <visual> <geometry> <box size="1 1 1"/> </geometry> <material name="white"/> </visual> </link> </robot> $ cd ~/urdf_ws $ colcon build --symlink-install $ source install/setup.bash $ ros2 launch urdf_tutorial robot_1.launch.py 로봇 패키지 만들기 실습
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
 
 12. 바디를 원통형(cylinder)로 변경
-‘src/urdf_tutorial/urdf/robot_1.xacro’ 파일을아래와같이수정
-로봇패키지만들기실습
+‘src/urdf_tutorial/urdf/robot_1.xacro’ 파일을 아래와 같이 수정
+로봇 패키지 만들기 실습
 geometry 태그는 로봇의 각 링크(link)의 모양과 충돌 모델을 정의
 Box (상자)
 Sphere (구체)
@@ -234,11 +234,11 @@ Mesh (메쉬)
 
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
 
 13. 시각적 표현과 충돌 모델의 분리
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 URDF에서 visual 태그와 collision 태그 안에 별도로 geometry를 정의
 예를 들어, 시각적으로는 메쉬를 사용하지만, 충돌 모델은 간단한 Box로 정의 가능.
 STL 파일 준비:
@@ -247,24 +247,24 @@ STL 파일 준비:
 - Blender, SolidWorks, FreeCAD 등에서 3D 모델을 생성.
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
 TF2(Transfor Framework)2
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
 TF2가 필요한 이유
 1.로봇 시스템의 좌표계 관리
 -로봇은 여러 센서(라이다, 카메라, IMU 등)와 부품(바퀴, 관절 등)이 있으며, 각각은 서로 다른 위치에 장착
 -각 부품과 센서의 위치 관계를 수학적으로 표현하고 관리
--TF2는 이러한 좌표계 변환을 자동으로 처리해주는 프레임워크
+-TF2는 이러한 좌표계 변환을 자동으로 처리해 주는 프레임워크
 2.시간 동기화
 -센서 데이터는 각각 다른 시간에 수집됩니다
--TF2는 시간에 따른 좌표계 변환을 자동으로 보간 처리
+-TF2는 시간에 따른 좌표계 변환을 자동으로 보 간 처리
 https://with-rl.tistory.com/entry/ROS2-Transformation-System-TF2
 Rokey
-로봇패키지
+로봇 패키지
 참고
 SLAM에서 TF2의 필요성
 1.센서 데이터 통합
@@ -274,14 +274,14 @@ SLAM에서 TF2의 필요성
 -base_link(로봇 중심)와 odom(주행 기준) 간의 변환
 -map과 odom 사이의 변환
 -이러한 변환들은 SLAM의 핵심 요소입니다
-3.센서 캘리브레이션
--라이다나 카메라의 실제 장착 위치를 정확히 반영해야 합니다
+3.센서 캘리브 레이 션
+-라이다나 카메라의 실제 장착 위치를 정확히 반영해야합니다
 -TF2를 통해 센서의 위치 관계를 정의하고 관리할 수 있습니다
 - SLAM을 구현하는데 TF2는 필수적
 - 정확한 좌표계 변환 없이는 센서 데이터를 올바르게 통합할 수 없고, 결과적으로 정확한 지도 생성과 위치 추정이 불가능
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
 TF2, Map과 Odom 변환
 "로봇이 생각하는 자신의 위치"와 "로봇의 실제 위치" 사이의 차이를 계산하고 보정하는 과정
@@ -295,7 +295,7 @@ TF2, Map과 Odom 변환
 ✓주로 휠 엔코더나 IMU 등의 센서로부터 계산
 ✓시간이 지날수록 오차가 누적되는 특징
 2.변환이 필요한 이유
--로봇이 출발점에서 1m 전진했다고 가정해보겠습니다
+-로봇이 출발점에서 1m 전진했다고 가정해 보겠습니다
 -odom 프레임에서는 정확히 1m 이동했다고 측정
 -하지만 실제 map 프레임에서는 바닥이 미끄러워서 0.9m만 이동 시
 => 이러한 차이를 보정하기 위해 map과 odom 사이의 변환이 필요
@@ -305,14 +305,14 @@ TF2, Map과 Odom 변환
 -결과적으로 로봇의 실제 위치(map 프레임)를 정확하게 추정
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
 차동 이동 로봇URDF - 2
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 
 1. ROS 로봇 좌표계
 위치에 대한 표현은 x, y, z 3개의 좌표로 표현
@@ -336,17 +336,17 @@ c) map 프레임
 
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 
 2. src/urdf_tutorial/urdf/robot_2.xacro
 
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 
 3. src/urdf_tutorial/launch/robot_2.launch.py
 $ cd ~/urdf_ws
@@ -354,9 +354,9 @@ $ colcon build --symlink-install
 $ source install/setup.bash
 $ ros2 launch urdf_tutorial robot_2.launch.py
 Rokey
-로봇패키지
+로봇 패키지
 참고
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 
 4. Rviz 메뉴에서 'File' >> 'Open Config' 선택 후 이전 과정에서 저장한 config 파일
 
@@ -364,9 +364,9 @@ Rokey
 
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 
 4. Wheel 추가
 
@@ -374,9 +374,9 @@ Rokey
 
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 
 5. URDF에서 <joint type> 은 로봇의 링크 간 연결 방식
 1.continuous (연속)
@@ -396,9 +396,9 @@ Rokey
 -강체로 연결
 -구조적 연결, 센서 장착 등
 Rokey
-로봇패키지
+로봇 패키지
 참고
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 
 6. joint_state_publisher_gui
 rqt_graph
@@ -415,9 +415,9 @@ left_wheel이 회전하는 것 확인
 
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 
 7. right_wheel_joint
 base_link에 'continuous' 형식 부착
@@ -431,9 +431,9 @@ base_link에 'continuous' 형식 부착
 
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 
 9. Collision 추가
 
@@ -450,13 +450,13 @@ Rokey
 
 
 Rokey
-로봇패키지
+로봇 패키지
 참고
-로봇패키지만들기실습
+로봇 패키지 만들기 실습
 
-10. 관성 모멘트 추가
+10. 관성 모 멘트 추가
 -로봇의 링크(link)의 질량 분포와 관성 정보
--관성 모멘트의 계산식은https://en.wikipedia.org/wiki/List_of_moments_of_inertia에서 확인
+-관성 모 멘트의 계산 식은https://en.wikipedia.org/wiki/List_of_moments_of_inertia에서 확인
 -회전 운동에 대한 저항을 나타냅니다
 -물체가 얼마나 회전하기 어려운지를 결정합니다
 -로봇 제어 시 동적 특성에 큰 영향을 미칩니다
@@ -464,16 +464,16 @@ Rokey
 ![Image 71](../../assets/images/ros/projects/simulation/img_030_071.webp)
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
-차동구동로봇센서들
+차 동 구동 로봇 센서들
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
-패키지생성및실행
+패키지 생성 및 실행
 
-2. 워크스페이스및패키지생성
+2. 워크 스페이스 및 패키지 생성
 $ mkdir –p ~/car_ws/src
 $ cd ~/car_ws/src/
 $ ros2 pkg create --build-type ament_python car_tutorial
@@ -483,27 +483,27 @@ $ pip install numpy
 $ pip install opencv-python
 $ sudo apt install ros-humble-tf-transformations
 
-1. 필요라이브러리, 패키지설치
+1. 필요 라이브러리, 패키지 설치
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
-적당한크기의(400 x 300) 이미지를
+적당한 크기의(400 x 300) 이미지를
 " src/car_tutorial/photo/photo.png"에저장
 
-3. 이미지저장
-패키지생성및실행
-$ wget -O photo/photo.png  [이미지url]
+3. 이미지 저장
+패키지 생성 및 실행
+$ wget -O photo/photo.png [이미지url]
 tf publisher
-로봇을 만들었다면 로봇이 가만히 있을리는 당연히 없다. 이러한 robot의 위치를 변화시켜주려면, robot의 base가
+로봇을 만들었다면 로봇이 가만히 있을 리는 당연히 없다. 이러한 robot의 위치를 변화시켜 주려면, robot의 base가
 되는 link와 map의 transform을 publish해주는 node를 작성하면 된다.
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 
-4. driver 노드작성
+4. driver 노드 작성
 src/car_tutorial/car_tutorial/driver.py
-패키지생성및실행
+패키지 생성 및 실행
 import cv2
 import rclpy
 from rclpy.node import Node
@@ -573,9 +573,9 @@ class Driver(Node):
         self.joint_states.position[1] += self.wheel_rotate[1] *self.timer_frequently
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
-패키지생성및실행
+패키지 생성 및 실행
 # publish
 
 self.pub_joint_states.publish(self.joint_states)
@@ -597,12 +597,12 @@ if __name__ == "__main__":
     main()
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 
 5. xacro 작성
 src/car_tutorial/urdf/car.xacro
-패키지생성및실행
+패키지 생성 및 실행
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="urdf_tutorial">
 <!-- COLOR -->
@@ -664,9 +664,9 @@ src/car_tutorial/urdf/car.xacro
 </link>
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
-패키지생성및실행
+패키지 생성 및 실행
 <collision>
 <geometry>
 <cylinder radius="0.03" length="0.03"/>
@@ -733,8 +733,8 @@ Rokey
 </visual>
 
 Rokey
-차동구동로봇패키지
-패키지생성및실행
+차 동 구동 로봇 패키지
+패키지 생성 및 실행
 <link name="camera_link">
 <visual>
 <geometry>
@@ -758,7 +758,7 @@ Rokey
 </robot>
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 
 6. launch 작성
@@ -803,14 +803,14 @@ driver,
 # 모델정의파일지정
 # 노드정의
 # 노드실행
-패키지생성및실행
+패키지 생성 및 실행
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
-런치파일– 추가기능
-파라미터설정
-조건부실행
+런치 파일– 추가 기능
+파라미터 설정
+조건부 실행
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 DeclareLaunchArgument('use_sim_time', default_value='false'),
@@ -823,8 +823,8 @@ Node(
 # ...
 condition=IfCondition(LaunchConfiguration('condition_var'))
 )
-다른launch 파일포함
-기타: 이벤트헨들러, 그룹화
+다른launch 파일 포함
+기타: 이벤트 헨들러, 그룹화
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 IncludeLaunchDescription(
@@ -832,7 +832,7 @@ PythonLaunchDescriptionSource(['/path/to/other/launch/file.launch.py'])
 )
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 
 7. setup.py 작성
@@ -868,26 +868,26 @@ entry_points={
 },
 )
 
-- 패키지정보정의 이름, 버전, 설명등의메타데이터를지정
+- 패키지 정보 정의 이름, 버전, 설명 등의 메타 데이터를 지정
 
-- 종속성선언 패키지가필요로하는다른ROS 2 패키지나 Python 라이브러리를명시
+- 종속성 선언 패키지가 필요로 하는 다른ROS 2 패키지나 Python 라이브러리를 명시
 
-- 설치대상지정 실행파일, Python 모듈, 데이터파일등패키지에 포함될항목들을정의
+- 설치 대상 지정 실행 파일, Python 모듈, 데이터 파일 등 패키지에 포함될 항목들을 정의
 
-- 빌드설정 컴파일이필요한경우빌드프로세스를구성
+- 빌 드 설정 컴 파일이 필요한 경우 빌 드 프로세스를 구성
 
-- colcon 빌드시스템에의해사용되어 패키지빌드및설치
-- package.xml과함께패키지구성의핵심요소 패키지생성및실행
+- colcon 빌 드 시스템에 의해 사용되어 패키지 빌 드 및 설치
+- package.xml과 함께 패키지 구성의 핵심 요소 패키지 생성 및 실행
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 $ cd ~/car_ws
 $ colcon build –symlink-install
 $ source install/setup.bash
 $ ros2 launch car_tutorial car_tutorial.launch
 
-8. 빌드및실행
+8. 빌 드 및 실행
 9. rviz 설정
 Add -> TF
 Add -> RobotModel
@@ -896,22 +896,22 @@ Global Options > Fixed Frame : base_link
 RobotModel > Description Topic : /robot_description
 Image > Topic : /image
 File -> Save Config
-패키지생성및실행
+패키지 생성 및 실행
 
 ![Image 86](../../assets/images/ros/projects/simulation/img_042_086.webp)
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 $ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
-10. 두번째터미널에서실행
-u, I, o, j, k, l, m, ,, . 키로조작
-패키지생성및실행
+10. 두 번째 터미널에서 실행
+u, I, o, j, k, l, m, ,, . 키로 조작
+패키지 생성 및 실행
 https://with-rl.tistory.com/entry/URDF%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EA%B0%84%EB%8B%A8%ED%95%9C-
 %EB%A1%9C%EB%B4%87-%EB%A7%8C%EB%93%A4%EA%B8%B0-3
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 Odom(odometry)
 
@@ -946,9 +946,9 @@ Odom
 
 4. FakeDriver 개념
 -Keyboard Controller: 자동차의 방향/속도를 제어하는 명령을 Topic 전송
-Real Driver: 자동차에방향/속도를 제어하는 명령을 보내고 실제 자동차의 방향/속도의 측정값 및 카메라 화면 정보를 수
+Real Driver: 자동차에 방향/속도를 제어하는 명령을 보내고 실제 자동차의 방향/속도의 측정 값 및 카메라 화면 정보를 수
 신해서 Topic으로 전송
-Odometry: 자동차의방향/속도의 측정값을 이용해서 실제 자동차의 위치를 계산
+Odometry: 자동차의 방향/속도의 측정 값을 이용해서 실제 자동차의 위치를 계산
 
 
 ![Image 94](../../assets/images/ros/projects/simulation/img_047_094.webp)
@@ -961,7 +961,7 @@ Odom
 Odom
 
 5. car_odom 코드
-Driver에서 속도/방향에 대한 측정값을 보내면 이 값을 기준으로 회전변환행렬을 이용해서 자동차의 실제 위치 계산
+Driver에서 속도/방향에 대한 측정 값을 보내면 이 값을 기준으로 회전 변환 행렬을 이용해서 자동차의 실제 위치 계산
 
 
 ![Image 96](../../assets/images/ros/projects/simulation/img_048_096.webp)
@@ -972,9 +972,9 @@ Driver에서 속도/방향에 대한 측정값을 보내면 이 값을 기준으
 
 Odom
 odom
-회전변환행렬
+회전 변환 행렬
 
-6. Odometry 회전행렬 변환식
+6. Odometry 회전 행렬 변환 식
 -3차원 공간에서 물체의 위치와 자세를 표현(x,y,z,θx,θy,θz)(x,y,z,θx,θy,θz) 6개의 값
 ◦xx: x 축 방향으로 이동 거리입니다.
 ◦yy: y 축 방향으로 이동 거리입니다.
@@ -1003,20 +1003,20 @@ odom
 7. static_transform_publisher를 이용한 TF2 기능
 $ ros2 run tf2_ros static_transform_publisher 2 1 0 0.785 0 0 world robot_1
 ◦2 1 0: x, y, z 좌표로 x=2, y=1, z=0이라는 의미입니다.
-◦0.785 0 0: 은 yaw, pitch, roll 값으로 반시계 방향으로 45° π/4π/4 만큼 회전하라는 의미입니다.
+◦0.785 0 0: 은 yaw, pitch, roll 값으로 반 시계 방향으로 45° π/4π/4 만큼 회전하라는 의미입니다.
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 Controller Driver, Plugin
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 
-1. odom 노드작성
+1. odom 노드 작성
 src/car_tutorial/car_tutorial/odom.py
-패키지생성및실행
+패키지 생성 및 실행
 import numpy as np
 import rclpy
 from rclpy.node import Node
@@ -1078,9 +1078,9 @@ class Odom(Node):
         odom.child_frame_id = "base_link"
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
-패키지생성및실행
+패키지 생성 및 실행
         odom.pose.pose.position.x = self.pos_x
         odom.pose.pose.position.y = self.pos_y
         odom.pose.pose.position.z = 0.0
@@ -1228,28 +1228,28 @@ if __name__ == "__main__":
     main()
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 
 2. launch 수정
 src/car_tutorial/launch/car_tutorial.launch.py
-패키지생성및실행
+패키지 생성 및 실행
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 
 3. setup.py 수정
 src/car_tutorial/setup.py
-패키지생성및실행
+패키지 생성 및 실행
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 $ cd ~/car_ws
 $ colcon build –symlink-install
 $ source install/setup.bash
 $ ros2 launch car_tutorial car_tutorial.launch
 
-4. 빌드및실행
+4. 빌 드 및 실행
 5. rviz 설정
 Add -> TF
 Add -> RobotModel
@@ -1258,34 +1258,34 @@ Global Options > Fixed Frame : base_link
 RobotModel > Description Topic : /robot_description
 Image > Topic : /image
 File -> Save Config
-패키지생성및실행
+패키지 생성 및 실행
 
 ![Image 113](../../assets/images/ros/projects/simulation/img_057_113.webp)
 
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 $ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
-6. 두번째터미널에서실행
-u, I, o, j, k, l, m, ,, . 키로조작
-패키지생성및실행
+6. 두 번째 터미널에서 실행
+u, I, o, j, k, l, m, ,, . 키로 조작
+패키지 생성 및 실행
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 
 7. rqt_graph 실행
 $ rqt_graph
-패키지생성및실행
+패키지 생성 및 실행
 
 ![Image 117](../../assets/images/ros/projects/simulation/img_059_117.webp)
 
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
-가제보 시뮬레이션
+가제 보 시뮬레이션
 
 시뮬레이션
 gazebo
@@ -1357,7 +1357,7 @@ Rokey
 
 5. setup.py 작성
 src/sim_tutorial/setup.py
-패키지생성및실행
+패키지 생성 및 실행
 시뮬레이션
 
 ![Image 121](../../assets/images/ros/projects/simulation/img_064_121.webp)
@@ -1403,7 +1403,7 @@ $ colcon build –symlink-install
 $ source install/setup.bash
 $ ros2 launch sim_tutorial car_simulation.launch
 
-7. 빌드및실행
+7. 빌 드 및 실행
 $ ros2 launch gazebo_ros gazebo.launch.py
 $ ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity with_robot
 패키지 생성 및 실행
@@ -1420,7 +1420,7 @@ Gazebo는 로봇을 3D 환경에서 시뮬레이션할 수 있는 강력한 물�
 -중력, 충돌, 마찰, 센서 노이즈 등을 포함한 시뮬레이션 가능.
 -센서 시뮬레이션
 -LiDAR, 카메라, IMU, GPS, Force-Torque 센서 등을 가상 환경에서 사용할 수 있음.
--예: /scan 토픽을 이용해 가상 LiDAR 데이터를 ROS 2에서 받아올 수 있음.
+-예: /scan 토픽을 이용해 가상 LiDAR 데이터를 ROS 2에서 받아 올 수 있음.
 
 
 ![Image 122](../../assets/images/ros/projects/simulation/img_067_122.webp)
@@ -1428,7 +1428,7 @@ Gazebo는 로봇을 3D 환경에서 시뮬레이션할 수 있는 강력한 물�
 
 시뮬레이션
 gazebo
-Launch 파일로 한번에 실행
+Launch 파일로 한 번에 실행
 import os
 import xacro
 from ament_index_python.packages import get_package_share_directory
@@ -1483,12 +1483,12 @@ src/sim_tutorial/launch/car_simulation_once.launch.py
 
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
-차동로봇 시뮬레이션
+차 동 로봇 시뮬레이션
 
 운전하기
-가제보시뮬레이션
+가제 보 시뮬레이션
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
     <gazebo>
@@ -1515,7 +1515,7 @@ src/car_simulation/urdf/gazebo.xacro
 
 
 운전하기
-가제보시뮬레이션
+가제 보 시뮬레이션
 xacro 파일 수정
 src/sim_turoail/urdf/car.xacro
 macros 부분 추가
@@ -1530,10 +1530,10 @@ $ colcon build –symlink-install
 $ source install/setup.bash
 $ ros2 launch sim_tutorial car_simulation_once.launch
 
-8. 빌드및실행
+8. 빌 드 및 실행
 $ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 $ rviz2
-가제보시뮬레이션
+가제 보 시뮬레이션
 
 
 운전하기
@@ -1542,7 +1542,7 @@ Add -> RobotModel
 Description Topic: /robot_description
 Global Options > Fixed Frame : odom
 Rviz2 Odom 설정
-ODOM 프레임(Odometry Frame)은 로봇의 이동 경로를 추적하는데 사용되는 중요한 좌표계
+ODOM 프레임(Odometry Frame)은 로봇의 이동 경로를 추적하는 데 사용되는 중요한 좌표계
 1.기본 특징:
 -로봇이 시작한 위치를 기준으로 하는 좌표계
 -로봇의 상대적인 움직임을 표현
@@ -1559,7 +1559,7 @@ ODOM 프레임(Odometry Frame)은 로봇의 이동 경로를 추적하는데 사
 
 
 운전하기
-추측항법(推測航法, dead reckoning, dead reckoning navigation)
+추측 항법(推測航法, dead reckoning, dead reckoning navigation)
 Rviz2 Odom 설정
 TF 트리에서의 위치
 world/map -> odom -> base_link -> 기타 센서 프레임
@@ -1575,12 +1575,12 @@ world/map -> odom -> base_link -> 기타 센서 프레임
 주의할 점:
 -시간이 지날수록 오차가 누적될 수 있음
 -전역 위치 보정이 필요할 수 있음
--map 프레임과의 관계를 주기적으로 업데이트 해야 함
+-map 프레임과의 관계를 주기적으로 업데이트해야함
 
 
 운전하기
 teleop 을 이용한 조작
-가제보시뮬레이션
+가제 보 시뮬레이션
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 
@@ -1593,19 +1593,19 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 운전하기
 rqt_graph 실행
 $ rqt_graph
-가제보시뮬레이션
+가제 보 시뮬레이션
 
 
 ![Image 128](../../assets/images/ros/projects/simulation/img_076_128.webp)
 
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 라이다 시뮬레이션
 
 라이다
-라이다시뮬레이션
+라이다 시뮬레이션
 lidar.xacro 파일 작성
 src/sim_tutorial/urdf/lidar.xacro
 라이더 기능 추가
@@ -1642,7 +1642,7 @@ src/sim_tutorial/urdf/lidar.xacro
 </robot>
 ◦update_rate : 초당 10회 정보를 제공합니다.
 ◦samples: 검색 구간 내에서 360개의 광선을 발사합니다.
-(이 부분을 조절하면서 간단한 테스트를 진행하겠습니
+(이 부분을 조절하면서 간단한 테스트를 진행하겠 습 니
 다.)
 ◦min_angle, max_angle: 2D LiDAR가 스캔할 구간입니다.
 −π부터+π까지2π 전체를 스캔합니다.
@@ -1653,7 +1653,7 @@ src/sim_tutorial/urdf/lidar.xacro
 
 
 라이다
-라이다시뮬레이션
+라이다 시뮬레이션
 
 1. xacro 파일 수정
 src/sim_tutorial/urdf/car.xacro
@@ -1668,8 +1668,8 @@ $ cd ~/car_ws
 $ colcon build –symlink-install
 $ source install/setup.bash
 $ ros2 launch sim_tutorial lidar.launch.py
-빌드및실행
-라이다시뮬레이션
+빌 드 및 실행
+라이다 시뮬레이션
 $ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 동작 시키기
 
@@ -1679,7 +1679,7 @@ $ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 라이다
 모델 추가
-라이다시뮬레이션
+라이다 시뮬레이션
 insert
 http://model  ~~
 모델 추가
@@ -1696,7 +1696,7 @@ http://model  ~~
 
 라이다
 world 저장
-라이다시뮬레이션
+라이다 시뮬레이션
 File > Save World As
 ~/car_ws/src/car_simulation/my_world.world
 
@@ -1709,7 +1709,7 @@ File > Save World As
 
 라이다
 Rviz 실행 및 설정
-라이다시뮬레이션
+라이다 시뮬레이션
 $ rviz2
 Add -> TF
 Add -> RobotModel
@@ -1724,17 +1724,17 @@ LaserScan > Topic : /scan
 
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 카메라 시뮬레이션
 
 카메라
-카메라시뮬레이션
+카메라 시뮬레이션
 camera.xacro 파일 작성
 src/sim_tutorial/urdf/camera.xacro
 카메라 기능 추가
 ◦update_rate: 초당 10회 정보를 제공합니다.
-◦horizontal_fov: 가로 방향의 FOV (Field of View)는 1.089로 설정했습니
+◦horizontal_fov: 가로 방향의 FOV (Field of View)는 1.089로 설정했 습 니
 다. Gazebo에서는 세로 방향의 FOV는 이미지 사이즈에 따라서 자동으로
 계산되는 것으로 보입니다.
 ◦image format: R8G 8B8로 빨강, 초록, 파랑 모두 8비트로 인코딩 됩니다.
@@ -1772,7 +1772,7 @@ src/sim_tutorial/urdf/camera.xacro
 
 
 카메라
-카메라시뮬레이션
+카메라 시뮬레이션
 
 1. xacro 파일 수정
 src/sim_tutorial/urdf/car.xacro
@@ -1787,8 +1787,8 @@ $ cd ~/car_ws
 $ colcon build –symlink-install
 $ source install/setup.bash
 $ ros2 launch sim_tutorial camera.launch.py
-빌드및실행
-카메라시뮬레이션
+빌 드 및 실행
+카메라 시뮬레이션
 $ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 동작 시키기
 
@@ -1808,7 +1808,7 @@ LaserScan > Topic : /scan
 Image > Topic : /camera/image_raw
 Rviz 실행 및 설정
 $ rviz2
-카메라시뮬레이션
+카메라 시뮬레이션
 
 
 ![Image 141](../../assets/images/ros/projects/simulation/img_088_141.webp)
@@ -1822,24 +1822,24 @@ openManipulatorX , moveit2
 
 
 OpenManipulatorX
-가제보에서 물체를 붙여서 메니퓨레이터 이동시키기
+가제보에서 물체를 붙여서 메니퓨 레이 터 이동시키기
 메니퓰레이터
 https://emanual.robotis.com/docs/en/platform/openmanipulator_x/quick_start_guide_basic_operation/
 OpenManipulatorX 특징:
 1.구조
 
-1. 5개의 다이나믹셀 서보 모터 사용 (XM430-W350-T)
+1. 5개의 다이나믹 셀 서 보 모터 사용 (XM430-W350-T)
 2. 4 자유도 매니퓰레이터 + 그리퍼
-3. 최대 가반하중: 0.5kg
+3. 최대가 반 하중: 0.5kg
 4. 작업 반경: 약 380mm
 1.하드웨어 구성
 
-1. 다이나믹셀 모터: 관절 제어
-2. U2D2: 다이나믹셀 통신용 컨버터
+1. 다이나믹 셀 모터: 관절 제어
+2. U2D2: 다이나믹 셀 통신용 컨버터
 3. 프레임: 3D 프린팅 가능한 부품들
 
 
-객체(object)와함께로봇팔다루기
+객체(object)와 함께 로봇 팔 다루기
 설치 과정
 메니퓰레이터
 sudo apt-get install ros-${ROS_DISTRO}-dynamixel-sdk
@@ -1857,7 +1857,7 @@ cd ~/robotis_ws
 catkin_make
 
 
-객체(object)와함께로봇팔다루기
+객체(object)와 함께 로봇 팔 다루기
 # ~/.bashrc에 추가
 echo 'source ~/robotis_ws/devel/setup.bash' >> ~/.bashrc
 source ~/.bashrc
@@ -2003,7 +2003,7 @@ if __name__ == '__main__':
 메니퓰레이터
 
 
-Open manipulatorX , moveit2를이용타겟으로이동시키기
+Open manipulatorX , moveit2를 이용 타겟으로 이동시키기
 #!/usr/bin/env python3
 import rclpy
 from rclpy.node import Node
@@ -2114,9 +2114,9 @@ if __name__ == '__main__':
 메니퓰레이터
 
 
-객체(object)와함께로봇팔다루기
+객체(object)와 함께 로봇 팔 다루기
 https://github.com/minwoominwoominwoo7/op_moveit_client
-가제보에서 물체를 붙여서 메니퓨레이터 이동시키기
+가제보에서 물체를 붙여서 메니퓨 레이 터 이동시키기
 메니퓰레이터
 
 
@@ -2141,7 +2141,7 @@ Rokey
 참고
 Make a world
 
-시뮬레이션월드만들기
+시뮬레이션 월드 만들기
 Edit 메뉴에서 building editor 를 클릭한다.
 그러면 다음과 같은 building editor화면이 나타난다.
 Make a world
@@ -2150,10 +2150,10 @@ Make a world
 ![Image 147](../../assets/images/ros/projects/simulation/img_101_147.webp)
 
 
-시뮬레이션월드만들기
-화면에서 왼쪽에는 벽, 문, 계단 등을 만들수 있는 항목들이 있고, 모눈종이처럼 생긴 구역에서 위에서
-내려다보는 평면도 관점의 맵을 볼 수 있다. 이 모눈종이 구역에서 벽, 계단 등을 생성, 배치할 수 있다 아래쪽
-구역은 실제 gazebo 공간상에 생성된 3차원 맵을 보여준다.
+시뮬레이션 월드 만들기
+화면에서 왼쪽에는 벽, 문, 계단 등을 만들 수 있는 항목들이 있고, 모눈종이처럼 생긴 구역에서 위에서
+내려다보는 평면도 관점의 맵을 볼 수 있다. 이 모눈종이 구역에서 벽, 계단 등을 생성, 배치할 수 있다 아래 쪽
+구역은 실제 gazebo 공간상에 생성된 3차원 맵을 보여 준다.
 Make a world
 Model 이름으로 저장한다.
 
@@ -2164,7 +2164,7 @@ Model 이름으로 저장한다.
 ![Image 149](../../assets/images/ros/projects/simulation/img_102_149.webp)
 
 
-시뮬레이션월드만들기
+시뮬레이션 월드 만들기
 계단 만들기
 Make a world
 
@@ -2175,7 +2175,7 @@ Make a world
 ![Image 151](../../assets/images/ros/projects/simulation/img_103_151.webp)
 
 
-시뮬레이션월드만들기
+시뮬레이션 월드 만들기
 표면 이미지 추가 및 World 저장하기
 Make a world
 Add Texture
@@ -2193,7 +2193,7 @@ https://www.youtube.com/watch?v=7McYSJFAqlU
 
 
 Rokey
-차동구동로봇패키지
+차 동 구동 로봇 패키지
 참고
 예시 프로젝트
 
@@ -2221,7 +2221,7 @@ ros2 launch turtlebot3_manipulation_bringup gazebo.launch.py
 ros2 launch turtlebot3_manipulation_bringup
 gazebo.launch.py start_rviz:=true
 또는
-가상환경
+가상 환경
 
 
 ![Image 158](../../assets/images/ros/projects/simulation/img_107_158.webp)
@@ -2232,7 +2232,7 @@ ros2 launch turtlebot3_manipulation_moveit_config moveit_gazebo.launch.py
 ros2 launch turtlebot3_manipulation_bringup gazebo.launch.py
 ros2 run nav2_map_server map_saver_cli -f ~/map
 ros2 launch turtlebot3_manipulation_cartographer cartographer.launch.py
-가상환경
+가상 환경
 
 
 ![Image 159](../../assets/images/ros/projects/simulation/img_108_159.webp)
@@ -2242,28 +2242,28 @@ ros2 launch turtlebot3_manipulation_cartographer cartographer.launch.py
 
 
 Turtlebot3 Manipulation
-가상환경
+가상 환경
 
 
 ![Image 161](../../assets/images/ros/projects/simulation/img_109_161.webp)
 
 
 gazebo에서 3D맵 만들기
-가상환경
+가상 환경
 Edit 메뉴에서 building editor 를 클릭한다.
-화면에서 왼쪽에는 벽, 문, 계단 등을 만들수 있는 항목들이 있고, 모눈종이처럼 생긴 구역에서 위에서 내려다보
-는 평면도 관점의 맵을 볼 수 있다. 이 모눈종이 구역에서 벽, 계단 등을 생성, 배치할 수 있다 아래쪽 구역은 실제
-gazebo 공간상에 생성된 3차원 맵을 보여준다.
+화면에서 왼쪽에는 벽, 문, 계단 등을 만들 수 있는 항목들이 있고, 모눈종이처럼 생긴 구역에서 위에서 내려다보
+는 평면도 관점의 맵을 볼 수 있다. 이 모눈종이 구역에서 벽, 계단 등을 생성, 배치할 수 있다 아래 쪽 구역은 실제
+gazebo 공간상에 생성된 3차원 맵을 보여 준다.
 
 
 ![Image 162](../../assets/images/ros/projects/simulation/img_110_162.webp)
 
 
 gazebo에서 3D맵 만들기
-가상환경
-Add texture 기능으로 물체의 표면 질감?을 바꿔줄수 있다.
+가상 환경
+Add texture 기능으로 물체의 표면 질감?을 바꿔 줄 수 있다.
 building editor 에서 맵을 다 만들었다면 왼쪽 상단의 File 탭에서 Save as..를 클릭하고
-이름을 바꿔준 뒤, 저장한다.
+이름을 바꿔 준 뒤, 저장한다.
 저장한 뒤 File -> exit building editor 를 눌러 buildig editor 화면에서 나간다.
 
 
@@ -2271,14 +2271,14 @@ building editor 에서 맵을 다 만들었다면 왼쪽 상단의 File 탭에�
 
 
 gazebo에서 3D맵 만들기
-가상환경
-Gazebo에서 생성한 world를 SDF 파일로부터 불러와 실행하는 방법을 설명해드리겠습니다.
+가상 환경
+Gazebo에서 생성한 world를 SDF 파일로부터 불러와 실행하는 방법을 설명해 드리겠습니다.
 1.터미널에서 직접 실행하는 방법:
 gazebo <world_file_path>.sdf
 
 2. launch 파일을 통해 실행하는 방법:
 <launch>
-  <!-- Gazebo 서버와 클라이언트 실행 -->
+ <!-- Gazebo 서버와 클라이언트 실행 -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find
 your_package)/worlds/your_world.sdf"/>
@@ -2291,8 +2291,8 @@ your_package)/worlds/your_world.sdf"/>
 </launch>
 
 
-복수의정찰로봇관제시스템
-가상환경
+복수의 정찰 로봇 관제 시스템
+가상 환경
 
 
 ![Image 164](../../assets/images/ros/projects/simulation/img_113_164.webp)
@@ -2304,11 +2304,11 @@ your_package)/worlds/your_world.sdf"/>
 ![Image 166](../../assets/images/ros/projects/simulation/img_113_166.webp)
 
 
-로봇암을이용한자동주차시스템
+로봇 암을 이용한 자동 주차 시스템
 최대 높이 : 125m
 6-DoF로 설계
 MoveIT2 구동
-가상환경
+가상 환경
 
 
 ![Image 167](../../assets/images/ros/projects/simulation/img_114_167.webp)
@@ -2326,11 +2326,11 @@ MoveIT2 구동
 ![Image 171](../../assets/images/ros/projects/simulation/img_114_171.webp)
 
 
-드론모델을적용한정찰
+드론 모델을 적용한 정찰
 Drone
 
 - sjtu_drone 모델을 가져와서 사용
-- 자세제어가 들어가 있는 점이 장점 https://github.com/NovoG93/sjtu_drone 가상환경
+- 자세 제어가 들어가 있는 점이 장점 https://github.com/NovoG93/sjtu_drone 가상 환경
 
 
 ![Image 172](../../assets/images/ros/projects/simulation/img_115_172.webp)
