@@ -12,30 +12,22 @@ ROS2 기초-5차시
 - 리눅스와운영체계
 - 리눅스CLI 실습(디렉토리, 계정, 기본명령어등), Terminator, 커널, 쉘, gedit, bash
 - Application 작동원리(마이크로프로세서, 메모리, 저장장치)
-- 리눅스 CLI 실습
-2차시
-
+- 리눅스 CLI 실습 2차시
 - 리눅스 CLI 실습
 - 네트워크와통신(IPV4, IPV6, 소켓, 노드, Hub, TCP, UDP)
 - API, Library, Framework, 프로세스와Thread
 - 인터프리터, 컴파일러(소스코드→ Build → 실행파일)
 - 소켓프로그래밍실습
-- OSI7 Layer, 프로토콜(RS-232C, RS-485, Ethernet, TCP/UDP, IP)
-3차시
-
+- OSI7 Layer, 프로토콜(RS-232C, RS-485, Ethernet, TCP/UDP, IP) 3차시
 - 센서 기초, IoT와Embedded
 - 로봇기초, 좌표계
 - 로봇센서활용및로봇의 구성(기계기구, 전기전자, 소프트웨어)
 - ROS2 소개및활용
-- ROS2 설치(ros.org) 및demo_node
-4차시
-
+- ROS2 설치(ros.org) 및demo_node 4차시
 - ROS2 소개및활용
 - ROS2 실습(Talker, Listener)
 - ROS2 패키지설명
-- ROS2 실습(Turtlesim, teleop_key)
-5차시
-
+- ROS2 실습(Turtlesim, teleop_key) 5차시
 - ROS2 실습(Turtlesim, Teleop_key 여러개만들기)
 - Topic, Service, Action, Parameter, RQT, RQT_Graph 이론및실습
 - ROS2 실습(Turtlesim, Namespace 여러개만들기)
@@ -273,11 +265,8 @@ ROS2 실습– 노드와메시지통신(10장)
 ROS2 실습– 노드와메시지통신(10장)
 파라미터(Parameter)
 
-- 각노드에파라미터관련Parameter server를실행시켜외부의Parameter client 간의통신으로파라미터를
-변경하는것으로서비스와동일
-
-- 노드내매개변수또는글로벌매개변수를서비스메시지통신방법을사용하여노드내부또는외부에서쉽게
-지정(Set) 하거나변경할수있고, 쉽게가져(Get)와서사용할수있게하는점에서목적이다름
+- 각노드에파라미터관련Parameter server를실행시켜외부의Parameter client 간의통신으로파라미터를 변경하는것으로서비스와동일
+- 노드내매개변수또는글로벌매개변수를서비스메시지통신방법을사용하여노드내부또는외부에서쉽게 지정(Set) 하거나변경할수있고, 쉽게가져(Get)와서사용할수있게하는점에서목적이다름
 
 
 ![Image 108](../../assets/images/ros/basics/lesson-05/img_026_108.webp)
@@ -446,8 +435,7 @@ ROS2 실습- Service
 
 - 서비스는다음그림과같이동일서비스에대해복수의클라이언트를가질수있도록설계되었다.
 - 단, 서비스응답은서비스요청이있었던서비스클라이언트에대해서만응답을하는형태
-- Node C의Service Client가Node B의Service Server에게서비스요청을하였다면Node B의
-Service Server는요청받은서비스를수행한후Node C의Service Client에게만서비스응답
+- Node C의Service Client가Node B의Service Server에게서비스요청을하였다면Node B의 Service Server는요청받은서비스를수행한후Node C의Service Client에게만서비스응답
 
 
 ![Image 126](../../assets/images/ros/basics/lesson-05/img_039_126.webp)
@@ -636,9 +624,7 @@ Ros2에서사용하는단위
 - Kg
 - Sec
 - Meter
-- Radian
-r
-ROS2 실습- Action
+- Radian r ROS2 실습- Action
 
 
 ![Image 152](../../assets/images/ros/basics/lesson-05/img_052_152.webp)
@@ -676,12 +662,10 @@ srv, action 이있다. 토픽, 서비스, 액션은각각msg, srv, action interf
 [단순자료형]
 
 - 예) 정수(integer), 부동소수점(floating point), 불(boolean)
-- https://github.com/ros2/common_interfaces/tree/humble/std_msgs
-[메시지안에메시지를품고있는간단한데이터구조]
+- https://github.com/ros2/common_interfaces/tree/humble/std_msgs [메시지안에메시지를품고있는간단한데이터구조]
 
 - 예) geometry_msgs/msgs/Twist의`Vector3 linear`
-- https://github.com/ros2/common_interfaces/blob/humble/geometry_msgs/msg/Twist.msg
-[메시지들이나열된배열과같은구조]
+- https://github.com/ros2/common_interfaces/blob/humble/geometry_msgs/msg/Twist.msg [메시지들이나열된배열과같은구조]
 
 - 예) sensor_msgs/msgs/LaserScan 의`float32[] ranges`
 - https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/LaserScan.msg
@@ -740,8 +724,7 @@ Interface
 - list → 현재개발환경의모든msg, srv, action 메시지보여줌
 - package → msg, srv, action 인터페이스를담고있는패키지목록
 - package → 옵션에package명을입력하면지정한패키지에포함된interface보여줌
-- proto → 특정인터페이스형태를입력하면그인터페이스의기본형태를보여줌
-Message interface, msg
+- proto → 특정인터페이스형태를입력하면그인터페이스의기본형태를보여줌 Message interface, msg
 
 
 ![Image 169](../../assets/images/ros/basics/lesson-05/img_059_169.webp)
@@ -1062,15 +1045,7 @@ ROS2 실습
 $ cd ~/robot_ws && colcon build --symlink-install
 $ cd ~/robot_ws && colcon build --symlink-install --packages-select [패키지이름]
 
-- vcstool (버전컨트롤시스템툴)
-$ wget https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos
-$ vcs import src < ros2.repos
-$ sudo rosdep init
-$ rosdep update
-$ rosdep install --from-paths src -y --ignore-src
-$ bloom-release --ros-distro humble --track humble awesome_pkg
-2) 해당패키지만빌드할때
-
+- vcstool (버전컨트롤시스템툴) $ wget https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos $ vcs import src < ros2.repos $ sudo rosdep init $ rosdep update $ rosdep install --from-paths src -y --ignore-src $ bloom-release --ros-distro humble --track humble awesome_pkg 2) 해당패키지만빌드할때
 - rosdep (의존성관리툴)
 - bloom (바이너리패키지관리툴)
 
@@ -1423,13 +1398,8 @@ ROS2 실습– Publisher & Subscriber(my_first_package)
 
 ROS2 실습
 ROS의중요한개발도구들
--
-ROS는GUI기반이아닌, 터미널에서command line 방식으로동작을시킬수있음
--
-여기에더해서ROS 사용의효율을높이기위해서다양한개발도구를제공함
-rViz
-gazebo
-rqt
+- ROS는GUI기반이아닌, 터미널에서command line 방식으로동작을시킬수있음
+- 여기에더해서ROS 사용의효율을높이기위해서다양한개발도구를제공함 rViz gazebo rqt
 
 
 ![Image 262](../../assets/images/ros/basics/lesson-05/img_105_262.webp)
@@ -1443,15 +1413,10 @@ rqt
 
 ROS2 실습
 rViz (ROS Visualization Tool)
--
-rViz는ROS에서얻어지는데이터를시각화(visualization)하는도구임
--
-IMU 데이터의시각화
--
-URDF 파일을이용한로봇암동작의시각화
--
-라이다 센서데이터시각화를통한SLAM 적용
-https://velog.io/@y2k4388/rViz%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%84%BC%EC%84%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8B%9C%EA%B0%81%ED%99%94
+- rViz는ROS에서얻어지는데이터를시각화(visualization)하는도구임
+- IMU 데이터의시각화
+- URDF 파일을이용한로봇암동작의시각화
+- 라이다 센서데이터시각화를통한SLAM 적용 https://velog.io/@y2k4388/rViz%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%84%BC%EC%84%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8B%9C%EA%B0%81%ED%99%94
 
 
 ![Image 265](../../assets/images/ros/basics/lesson-05/img_106_265.webp)
@@ -1462,26 +1427,15 @@ https://velog.io/@y2k4388/rViz%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%84%BC%EC
 
 ROS2 실습
 Robot URDF 파일을통한로봇암시각화
--
-rViz의기능중URDF 파일을읽어서로봇암의동작을시각화하는기능이있음
--
--
-URDF(Universal Robot description Format)이란?
--
-URDF는 xml기반의텍스트파일로, 로봇의형태와동작을 정의한파일임
--
-ROS 초보자가URDF 파일을작성하기는어렵지만,
-어떤로봇에URDF 파일이존재하면,
--
-이로봇을rViz를통해서가상으로동작시켜볼수있음
--
-URDF 파일로할수있는것
--
-로봇의구조를정의
--
-로봇동작의시각화
--
-로봇의충돌모델정의
+- rViz의기능중URDF 파일을읽어서로봇암의동작을시각화하는기능이있음
+- URDF(Universal Robot description Format)이란?
+- URDF는 xml기반의텍스트파일로, 로봇의형태와동작을 정의한파일임
+- ROS 초보자가URDF 파일을작성하기는어렵지만, 어떤로봇에URDF 파일이존재하면,
+- 이로봇을rViz를통해서가상으로동작시켜볼수있음
+- URDF 파일로할수있는것
+- 로봇의구조를정의
+- 로봇동작의시각화
+- 로봇의충돌모델정의
 
 
 ![Image 267](../../assets/images/ros/basics/lesson-05/img_107_267.webp)
@@ -1489,32 +1443,18 @@ URDF 파일로할수있는것
 
 ROS2 실습
 Robot URDF 파일의구성
--
-URDF 파일은다음과같은요소로구성되어있음
--
-Link, joint
--
-Link
--
-로봇을 구성하는구성요소중하나, 3가지속성이있음
--
-<inertial>  링크의관성정보. Link의관성중심, 질량, 관성계수등을기록함
--
-<visual> rViz 같은시각화도구에서로봇을시가화할때사용되는속성들을정의함
--
-<collision> 물리적인충돌속성정의, 충돌모델정의
--
-Joint
--
-Link 와link를연결하는로봇구성요소. URDF는6가지joint 타입이있음
--
-<origin> 부모 link에서자식링크에변환정보
--
-<parent> 부모 link 이름
--
-<child> 자식link 이름
-https://wiki.ros.org/urdf/Examples
-https://medium.com/newworld-kim/ros-urdf-b6979bfa31aa
+- URDF 파일은다음과같은요소로구성되어있음
+- Link, joint
+- Link
+- 로봇을 구성하는구성요소중하나, 3가지속성이있음
+- <inertial>  링크의관성정보. Link의관성중심, 질량, 관성계수등을기록함
+- <visual> rViz 같은시각화도구에서로봇을시가화할때사용되는속성들을정의함
+- <collision> 물리적인충돌속성정의, 충돌모델정의
+- Joint
+- Link 와link를연결하는로봇구성요소. URDF는6가지joint 타입이있음
+- <origin> 부모 link에서자식링크에변환정보
+- <parent> 부모 link 이름
+- <child> 자식link 이름 https://wiki.ros.org/urdf/Examples https://medium.com/newworld-kim/ros-urdf-b6979bfa31aa
 
 
 ![Image 268](../../assets/images/ros/basics/lesson-05/img_108_268.webp)

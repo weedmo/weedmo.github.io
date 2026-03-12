@@ -341,39 +341,14 @@ from cv_bridge import CvBridge
 - rclpy: ROS 2 파이썬 클라이언트 라이브러리
 - sensor_msgs.msg.CompressedImage: 압축된 이미지 메시지
 - aruco_msgs.msg.Marker, MarkerArray: ArUco 마커 정보 메시지
-- cv_bridge: ROS 이미지
- OpenCV 이미지 변환
+- cv_bridge: ROS 이미지 OpenCV 이미지 변환
 
-- yaml: 카메라 캘리브레이션 파일 로딩
-aruco_marker_detector.py
-터틀봇메내퓰레이터
-참고
-아로크마커거리추정
-def detect_markers(image, camera_matrix, dist_coeffs, marker_size):
-aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_1000)
-parameters = cv2.aruco.DetectorParameters()
-detector = cv2.aruco.ArucoDetector(aruco_dict, parameters)
-corners, ids, _ = detector.detectMarkers(image)
-detect_data = []
-if ids is not None:
-cv2.aruco.drawDetectedMarkers(image, corners, ids)
-rvecs, tvecs, _ = my_estimatePoseSingleMarkers(corners, marker_size, camera_matrix,
-dist_coeffs)
-if rvecs is not None and tvecs is not None:
-for rvec, tvec, marker_id in zip(rvecs, tvecs, ids):
-rot_mat, _ = cv2.Rodrigues(rvec)
-yaw, pitch, roll = rotationMatrixToEulerAngles(rot_mat)
-marker_pos = np.dot(-rot_mat.T, tvec).flatten()
-distance = np.linalg.norm(tvec)
-detect_data.append([marker_id, marker_pos, (yaw, pitch, roll), distance])
-return image, detect_data
-detect_markers()
+- yaml: 카메라 캘리브레이션 파일 로딩 aruco_marker_detector.py 터틀봇메내퓰레이터 참고 아로크마커거리추정 def detect_markers(image, camera_matrix, dist_coeffs, marker_size): aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_6X6_1000) parameters = cv2.aruco.DetectorParameters() detector = cv2.aruco.ArucoDetector(aruco_dict, parameters) corners, ids, _ = detector.detectMarkers(image) detect_data = [] if ids is not None: cv2.aruco.drawDetectedMarkers(image, corners, ids) rvecs, tvecs, _ = my_estimatePoseSingleMarkers(corners, marker_size, camera_matrix, dist_coeffs) if rvecs is not None and tvecs is not None: for rvec, tvec, marker_id in zip(rvecs, tvecs, ids): rot_mat, _ = cv2.Rodrigues(rvec) yaw, pitch, roll = rotationMatrixToEulerAngles(rot_mat) marker_pos = np.dot(-rot_mat.T, tvec).flatten() distance = np.linalg.norm(tvec) detect_data.append([marker_id, marker_pos, (yaw, pitch, roll), distance]) return image, detect_data detect_markers()
 
 - 카메라 영상에서 ArUco 마커 검출
 - 마커 ID, 위치, 회전각, 거리 등을 추출
 - cv2.solvePnP()을 통해 자세 추정
-- rotationMatrixToEulerAngles()로 Euler 각도 추출
-aruco_marker_detector.py
+- rotationMatrixToEulerAngles()로 Euler 각도 추출 aruco_marker_detector.py
 
 터틀봇메내퓰레이터
 참고
@@ -392,8 +367,7 @@ tvecs.append(t)
 return rvecs, tvecs, []
 my_estimatePoseSingleMarkers()
 
-- 마커의 각 코너 좌표와 실제 크기를 바탕으로 자세 추정
-aruco_marker_detector.py
+- 마커의 각 코너 좌표와 실제 크기를 바탕으로 자세 추정 aruco_marker_detector.py
 
 터틀봇메내퓰레이터
 참고
@@ -412,8 +386,7 @@ z = 0
 return np.degrees(x), np.degrees(y), np.degrees(z)
 rotationMatrixToEulerAngles()
 
-- 회전 행렬을 Euler 각도(roll, pitch, yaw)로 변환
-aruco_marker_detector.py
+- 회전 행렬을 Euler 각도(roll, pitch, yaw)로 변환 aruco_marker_detector.py
 
 터틀봇메내퓰레이터
 참고
@@ -428,8 +401,7 @@ dist_coeffs = np.array(data["distortion_coefficients"]["data"], dtype=np.float32
 return camera_matrix, dist_coeffs
 load_camera_parameters()
 
-- ROS 패키지 내 YAML 파일에서 카메라 캘리브레이션 파라미터를 로드
-aruco_marker_detector.py
+- ROS 패키지 내 YAML 파일에서 카메라 캘리브레이션 파라미터를 로드 aruco_marker_detector.py
 
 터틀봇메내퓰레이터
 참고
@@ -474,9 +446,7 @@ cv2.waitKey(1)
 
 - /image_raw/compressed 주제를 구독하여 이미지를 받아옴
 - 마커 검출 후 가장 가까운 마커 정보를 로그로 출력
-- 검출된 마커 정보를 MarkerArray로 detected_markers 주제에
-퍼블리시
-aruco_marker_detector.py
+- 검출된 마커 정보를 MarkerArray로 detected_markers 주제에 퍼블리시 aruco_marker_detector.py
 
 터틀봇메내퓰레이터
 참고
@@ -619,25 +589,8 @@ pc에서
 ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py
 Moveit 키보드 설정
 
-- turtlebot3_manipulation_xyz_limit.py
-ros2 topic list
-export
-에러…
-w 전진
-s 후진
-a 좌회전
-d 우회전
-y  joint1 +
-h joint1 -
-u joint2 +
-j joint2 -
-i joint3 +
-k joint3 -
-o joint4 +
-l joint4 -
-
-- 그리퍼 close
-= 그리퍼 open
+- turtlebot3_manipulation_xyz_limit.py ros2 topic list export 에러… w 전진 s 후진 a 좌회전 d 우회전 y  joint1 + h joint1 - u joint2 + j joint2 - i joint3 + k joint3 - o joint4 + l joint4 -
+- 그리퍼 close = 그리퍼 open
 
 터틀봇메내퓰레이터
 참고
@@ -810,17 +763,7 @@ y
 robot_
 y
 
-- 0.08
-±0.01
-robot_x +0.15 ±0.01
-robot_x +0.22 ±0.01
-터틀봇메내퓰레이터
-참고
-Moveit 아키텍처
-task.py 예제 - 3 left_down
-x + 방향으로 15cm 만큼
-y + 방향으로 8cm 만큼
-직접 좌표이동하는 코드입니다
+- 0.08 ±0.01 robot_x +0.15 ±0.01 robot_x +0.22 ±0.01 터틀봇메내퓰레이터 참고 Moveit 아키텍처 task.py 예제 - 3 left_down x + 방향으로 15cm 만큼 y + 방향으로 8cm 만큼 직접 좌표이동하는 코드입니다
 
 ![Image 120](../../assets/images/ros/projects/aruco-conveyor/img_058_120.webp)
 
@@ -996,9 +939,8 @@ ros2 launch aruco_yolo aruco_yolo.launch.py(robot)
 ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py(pc)
 ros2 run turtlebot_moveit turtlebot_arm_controller(pc)
 python3 simple_manager_node.py(pc)
--
-(turtlebot_moveit/scripts/폴더안에서 실행)
-qt_gui
+
+- (turtlebot_moveit/scripts/폴더안에서 실행) qt_gui
 
 터틀봇메내퓰레이터
 참고
@@ -1333,9 +1275,7 @@ task_7(red_blue).py
 
 - solv2, solv_robot_arm2: 역기구학 (Inverse Kinematics) 계산 함수
 - YoloDetect: ROS 노드 클래스
-- main: 키보드 입력 기반의 상호작용 실행 루프
-＊‘파싱’이란, 이 메시지를 받아서 → 필요한 정보(예: 객체 이름, (x, y) 위치, 너비, 높이 등)를
-→ 프로그래밍적으로 추출해서 사용할 수 있도록 변환하는 과정
+- main: 키보드 입력 기반의 상호작용 실행 루프 ＊‘파싱’이란, 이 메시지를 받아서 → 필요한 정보(예: 객체 이름, (x, y) 위치, 너비, 높이 등)를 → 프로그래밍적으로 추출해서 사용할 수 있도록 변환하는 과정
 
 터틀봇메내퓰레이터
 참고
@@ -1367,35 +1307,27 @@ sr2 = s1 + s2
 sr2_ = sr1 + sr2
 sr3 = math.pi - sr2_
 return Sxy, sr1, sr2, sr3, St, Rt
--
-역기구학 함수
+- 역기구학 함수
 
 1. solv2(r1, r2, r3)
 
-- 삼각형의 세 변을 알고 있을 때, 각도를 구함
-(Cosine Law 활용)
+- 삼각형의 세 변을 알고 있을 때, 각도를 구함 (Cosine Law 활용)
 
 2. solv_robot_arm2(x, y, z, r1, r2, r3)
 
-- 로봇팔의 링크 길이와 목표 위치(x, y, z)를 입력 받아 각
-관절(joint)의 회전 각도를 계산
+- 로봇팔의 링크 길이와 목표 위치(x, y, z)를 입력 받아 각 관절(joint)의 회전 각도를 계산
 
 터틀봇메내퓰레이터
 참고
 task_7(red_blue).py
 Class YoloDetect(Node):
--
-self.subscription  # YOLO 인식 데이터 수신
--
-self.joint_pub     # 관절 제어 메시지 퍼블리셔
--
-self.cmd_vel_publisher  # 이동 속도 퍼블리셔
-＜주요 속성＞
+- self.subscription  # YOLO 인식 데이터 수신
+- self.joint_pub     # 관절 제어 메시지 퍼블리셔
+- self.cmd_vel_publisher  # 이동 속도 퍼블리셔 ＜주요 속성＞
 
 1. listener_callback(self, msg)
 
-- YOLO 인식 결과(문자열 형태의 리스트)를 파싱하여
-self.yolo_x, self.yolo_y로 저장
+- YOLO 인식 결과(문자열 형태의 리스트)를 파싱하여 self.yolo_x, self.yolo_y로 저장
 
 2. arm_controll(self)
 3. append_pose_init(x, y, z)
@@ -1404,10 +1336,7 @@ self.yolo_x, self.yolo_y로 저장
 
 4. joint_states_callback
 
-- 현재 로봇 관절(joint)의 위치 상태 출력
-＜주요 동작＞
-YOLO
-객체 인식
+- 현재 로봇 관절(joint)의 위치 상태 출력 ＜주요 동작＞ YOLO 객체 인식
 
 5. 다시 camera 위치로 이동
 4. Home 위치로 복귀
@@ -1433,65 +1362,10 @@ camera_home 위치 이동
 현재 오프셋 값을 offset_values.txt 파일에 저장
 main() - 키보드 입력 기반 제어 루프
 
-- getkey.getkey() 로 키보드 입력을 받아 아래 작업 수행
-offset_values.txt 파일
+- getkey.getkey() 로 키보드 입력을 받아 아래 작업 수행 offset_values.txt 파일
 
 - YOLO가 인식한 좌표는 정확하지 않기 때문에, 위치 보정을 위한 offset
-- 프로그램 시작 시 읽고, 키보드 조정 후 저장 가능
-Right
-Low
-Right
-High
-Left
-Low
-Left
-High
-전진후진
-닫기열기
-X+
-X-
-Y+
-Y-
-X+
-X-
-Y+
-Y-
-X+
-X-
-Y+
-Y-
-X+
-X-
-Y+
-Y-
-키
-기능
-키
-기능
-A
-home2 이동
-F
-box_up_01 이동
-B
-conveyor_up 이동
-G
-box_up_02 이동
-C
-camera_home 이동
-H
-box_up_03 이동
-D
-test_conveyor 이동
-I
-box_back_01 이동
-E
-box_home_01 이동
-J
-box_back_put 이동
-현재 관절 상태 출력
-프로그램 종료
-[그리퍼]
-[로봇]
+- 프로그램 시작 시 읽고, 키보드 조정 후 저장 가능 Right Low Right High Left Low Left High 전진후진 닫기열기 X+ X- Y+ Y- X+ X- Y+ Y- X+ X- Y+ Y- X+ X- Y+ Y- 키 기능 키 기능 A home2 이동 F box_up_01 이동 B conveyor_up 이동 G box_up_02 이동 C camera_home 이동 H box_up_03 이동 D test_conveyor 이동 I box_back_01 이동 E box_home_01 이동 J box_back_put 이동 현재 관절 상태 출력 프로그램 종료 [그리퍼] [로봇]
 
 ![Image 185](../../assets/images/ros/projects/aruco-conveyor/img_100_185.webp)
 
@@ -1501,27 +1375,7 @@ box_back_put 이동
 task_7(red_blue).py
 서비스 클라이언트: TurtlebotArmClient
 
-- send_request 메서드를 통해 MoveIt으로 로봇 암 제어 명령을 보냄
-타입
-의미
-send_request(0, "", pose_array)
-특정 위치로 이동
-send_request(1, "group_states")
-지정된 홈 위치로 이동
-send_request(2, "open") / close
-그리퍼 열기/닫기
-group_states
-home2
-box_up_01
-conveyor_up
-box_up_02
-camera_home
-box_up_03
-test_conveyor
-box_back_01
-box_home_01
-box_back_put
-Ex) send_rquest(1, “home2”)
+- send_request 메서드를 통해 MoveIt으로 로봇 암 제어 명령을 보냄 타입 의미 send_request(0, "", pose_array) 특정 위치로 이동 send_request(1, "group_states") 지정된 홈 위치로 이동 send_request(2, "open") / close 그리퍼 열기/닫기 group_states home2 box_up_01 conveyor_up box_up_02 camera_home box_up_03 test_conveyor box_back_01 box_home_01 box_back_put Ex) send_rquest(1, “home2”)
 
 터틀봇메내퓰레이터
 참고

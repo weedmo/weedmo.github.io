@@ -30,22 +30,15 @@ request
 Hang-man - 실습
 
 ## 코드구조
--
-전체코드의구조는다음과같음
--
-일부파일은지금부터생성예정
+- 전체코드의구조는다음과같음
+- 일부파일은지금부터생성예정
 
 ## hangman_interfaces
--
-hangman_interfaces/msg/Progress.msg
--
-current_state : 현재상태ex) p y _ _ o n
--
-attempts_left : 목숨(남은시도횟수)
--
-game_over : 목숨이다소진되었는지
--
-won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
+- hangman_interfaces/msg/Progress.msg
+- current_state : 현재상태ex) p y _ _ o n
+- attempts_left : 목숨(남은시도횟수)
+- game_over : 목숨이다소진되었는지
+- won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 
 ![Image 10](../../assets/images/ros/intro/lesson-09/img_004_010.webp)
 
@@ -55,15 +48,10 @@ won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 Hang-man - 실습
 
 ## hangman_interfaces
--
-hangman_interfaces/srv/CheckLetter.srv
--
-updated_word_state: 현재상태ex) p y _ _ o n
--
-is_correct : 현재user input으로들어온글자가선택된단어내에존재하는지에대한
-bool 타입자료형
--
-message : 맞았으면“Correct”를띄우고틀리면“WRONG”을띄움
+- hangman_interfaces/srv/CheckLetter.srv
+- updated_word_state: 현재상태ex) p y _ _ o n
+- is_correct : 현재user input으로들어온글자가선택된단어내에존재하는지에대한 bool 타입자료형
+- message : 맞았으면“Correct”를띄우고틀리면“WRONG”을띄움
 
 ![Image 14](../../assets/images/ros/intro/lesson-09/img_005_014.webp)
 
@@ -71,12 +59,9 @@ message : 맞았으면“Correct”를띄우고틀리면“WRONG”을띄움
 Hang-man - 실습
 
 ## hangman_interfaces
--
-hangman_interfaces/action/GameProgress.action
--
-game_over : 목숨이다소진되었는지
--
-won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
+- hangman_interfaces/action/GameProgress.action
+- game_over : 목숨이다소진되었는지
+- won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 
 ![Image 16](../../assets/images/ros/intro/lesson-09/img_006_016.webp)
 
@@ -84,9 +69,7 @@ won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/letter
-_publisher.py의전체코드
+- hangman_game/hangman_game/letter _publisher.py의전체코드
 
 
 ![Image 17](../../assets/images/ros/intro/lesson-09/img_007_017.webp)
@@ -95,9 +78,7 @@ _publisher.py의전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/word
-_service.py의전체코드
+- hangman_game/hangman_game/word _service.py의전체코드
 
 
 ![Image 18](../../assets/images/ros/intro/lesson-09/img_008_018.webp)
@@ -106,9 +87,7 @@ _service.py의전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/word
-_service.py의전체코드
+- hangman_game/hangman_game/word _service.py의전체코드
 
 
 ![Image 19](../../assets/images/ros/intro/lesson-09/img_009_019.webp)
@@ -117,41 +96,26 @@ _service.py의전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/word
-_service.py의전체코드
+- hangman_game/hangman_game/word _service.py의전체코드
 
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/user_
-input.py 전체코드
+- hangman_game/hangman_game/user_ input.py 전체코드
 
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/
-progress_action_client.py 전체코드
-Hang-man - 실습
+- hangman_game/hangman_game/ progress_action_client.py 전체코드 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/
-progress_action_client.py 전체코드
-Hang-man - 실습
+- hangman_game/hangman_game/ progress_action_client.py 전체코드 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/
-progress_action_server.py 전체코드
-Hang-man - 실습
+- hangman_game/hangman_game/ progress_action_server.py 전체코드 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/
-progress_action_server.py 전체코드
+- hangman_game/hangman_game/ progress_action_server.py 전체코드
 
 ![Image 29](../../assets/images/ros/intro/lesson-09/img_015_029.webp)
 
@@ -159,9 +123,7 @@ progress_action_server.py 전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/
-progress_action_server.py 전체코드
+- hangman_game/hangman_game/ progress_action_server.py 전체코드
 
 ![Image 31](../../assets/images/ros/intro/lesson-09/img_016_031.webp)
 
@@ -169,10 +131,8 @@ progress_action_server.py 전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/setup.py
--
-entry_points를다음과같이변경
+- hangman_game/setup.py
+- entry_points를다음과같이변경
 
 ![Image 33](../../assets/images/ros/intro/lesson-09/img_017_033.webp)
 
@@ -180,8 +140,7 @@ entry_points를다음과같이변경
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_interfaces/CMakeLists.txt
+- hangman_interfaces/CMakeLists.txt
 
 ![Image 35](../../assets/images/ros/intro/lesson-09/img_018_035.webp)
 
@@ -191,8 +150,7 @@ hangman_interfaces/CMakeLists.txt
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_interfaces/package.xml
+- hangman_interfaces/package.xml
 
 ![Image 39](../../assets/images/ros/intro/lesson-09/img_019_039.webp)
 
@@ -211,10 +169,7 @@ ROS2계층구조
 지원할수있는유연성을가짐
 
 5. Middleware : 실제메시지전달과QoS 설정을처리하는계층
--
-미들웨어: 분산네트워크에서애플리케이션또는구성요소간에하나이상
-의종류의통신또는연결을가능하게하는소프트웨어. ROS2에서는노드간
-의메시지송수신및이벤트처리를담당
+- 미들웨어: 분산네트워크에서애플리케이션또는구성요소간에하나이상 의종류의통신또는연결을가능하게하는소프트웨어. ROS2에서는노드간 의메시지송수신및이벤트처리를담당
 
 
 ![Image 40](../../assets/images/ros/intro/lesson-09/img_020_040.webp)
@@ -239,21 +194,13 @@ Executor
 Executor의종류
 
 ## SingleThreadedExecutor : 단일스레드에서콜백을실행
--
-하나의스레드만사용하여이벤트를처리하므로, 콜백이완료될때까지다른작업을처리할수
-없음
--
-주로처리속도가중요한것이아니거나, 콜백이충돌하지않도록하기위해단일스레드환경에
-서사용
+- 하나의스레드만사용하여이벤트를처리하므로, 콜백이완료될때까지다른작업을처리할수 없음
+- 주로처리속도가중요한것이아니거나, 콜백이충돌하지않도록하기위해단일스레드환경에 서사용
 
 ## StaticSingleThreadedExecutor : 단일스레드에서정적으로콜백을실행
--
-정적단일스레드실행자는구독, 타이머, 서비스서버, 액션서버등의노드구조를스캔하는런타임
-비용을최적화
--
-노드가추가될때콜백스캔을한번만수행되며, 다른두Executer는이러한변화를정기적으로스캔
--
-정적단일스레드실행자는초기화중에모든구독, 타이머등을생성하는노드와함께사용해야함
+- 정적단일스레드실행자는구독, 타이머, 서비스서버, 액션서버등의노드구조를스캔하는런타임 비용을최적화
+- 노드가추가될때콜백스캔을한번만수행되며, 다른두Executer는이러한변화를정기적으로스캔
+- 정적단일스레드실행자는초기화중에모든구독, 타이머등을생성하는노드와함께사용해야함
 
 
 ![Image 42](../../assets/images/ros/intro/lesson-09/img_022_042.webp)
@@ -266,11 +213,8 @@ Executor
 Multi Thread Executor
 
 ## MultiThreadedExecutor : 여러스레드에서콜백을병렬로실행
--
-여러스레드가동시에실행되기때문에복잡한작업이나멀티태스킹환경에서유리
--
-그러나다중스레드간의자원경쟁이나동기화문제가발생할수있으므로, 적절한
-동기화처리(locking) 필요
+- 여러스레드가동시에실행되기때문에복잡한작업이나멀티태스킹환경에서유리
+- 그러나다중스레드간의자원경쟁이나동기화문제가발생할수있으므로, 적절한 동기화처리(locking) 필요
 
 ![Image 45](../../assets/images/ros/intro/lesson-09/img_023_045.webp)
 
@@ -288,10 +232,8 @@ Executor 기본동작
 Executor
 
 ## Executor 사용예
--
-SingleThreadedExecutor를사용하는간단한퍼블리셔노드
--
-이벤트는1초마다발생하여메시지를퍼블리싱
+- SingleThreadedExecutor를사용하는간단한퍼블리셔노드
+- 이벤트는1초마다발생하여메시지를퍼블리싱
 
 ![Image 47](../../assets/images/ros/intro/lesson-09/img_025_047.webp)
 
@@ -331,39 +273,25 @@ Executor
 Executor 와spin 의관계
 
 ## 관계
--
-Executor는콜백을처리하는"관리자"이고, spin()은해당Executor가콜백을계속해서
-처리하도록하는"루프"
--
-Executor는콜백을실행하는규칙과방식을정의하고, spin()은그규칙에따라Executor
-가동작하도록해주는실행메커니즘
-SingleThreadedExecutor + spin(): 한번에하나의콜백만처리
-MultiThreadedExecutor + spin(): 여러콜백을동시에처리
+- Executor는콜백을처리하는"관리자"이고, spin()은해당Executor가콜백을계속해서 처리하도록하는"루프"
+- Executor는콜백을실행하는규칙과방식을정의하고, spin()은그규칙에따라Executor 가동작하도록해주는실행메커니즘 SingleThreadedExecutor + spin(): 한번에하나의콜백만처리 MultiThreadedExecutor + spin(): 여러콜백을동시에처리
 
 ## 멀티스레드와의연관성
--
-spin()을사용하면Executor가콜백을처리하는동안계속해서대기하지만,
-MultiThreadedExecutor를사용하면여러콜백을동시에병렬로처리할수있음
--
-이때도spin()을호출하여이벤트루프가유지되지만, 여러스레드가동시에동작하면
-서여러콜백을병렬처리가능
+- spin()을사용하면Executor가콜백을처리하는동안계속해서대기하지만, MultiThreadedExecutor를사용하면여러콜백을동시에병렬로처리할수있음
+- 이때도spin()을호출하여이벤트루프가유지되지만, 여러스레드가동시에동작하면 서여러콜백을병렬처리가능
 
 
 ROS2 bag 이해및사용법
 명령어
 
 ## BAG 파일레코딩
--
-다음명령어는“topic_name”에서수신되는메시지를“my_bag.bag”라는이름의BAG
-파일에레코딩함
+- 다음명령어는“topic_name”에서수신되는메시지를“my_bag.bag”라는이름의BAG 파일에레코딩함
 
 ## BAG 파일재생
--
-다음명령어는“my_bag.bag”라는이름의BAG 파일을재생함
+- 다음명령어는“my_bag.bag”라는이름의BAG 파일을재생함
 
 ## BAG 파일정보표시
--
-다음명령어는“my_bag.bag”라는이름의BAG 파일의정보를표시함
+- 다음명령어는“my_bag.bag”라는이름의BAG 파일의정보를표시함
 
 
 ![Image 51](../../assets/images/ros/intro/lesson-09/img_028_051.webp)
@@ -378,12 +306,8 @@ ROS2 bag 이해및사용법
 BAG 파일만들기
 
 ## 세번째터미널에서다음명령어를이용하여저장되어있는BAG 파일재생
--
-간혹인터럽트등의이유로turtle의궤적이기록당시와정확히일치하지않을수있음
--
-이문제를방지하려면turtle의움직임을기록할때, 각명령이완전히완료된후다음명령을
-실행해야함
-실습
+- 간혹인터럽트등의이유로turtle의궤적이기록당시와정확히일치하지않을수있음
+- 이문제를방지하려면turtle의움직임을기록할때, 각명령이완전히완료된후다음명령을 실행해야함 실습
 
 
 ![Image 54](../../assets/images/ros/intro/lesson-09/img_029_054.webp)
@@ -392,12 +316,8 @@ BAG 파일만들기
 BAG 파일실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
--
-아래제공된링크에서rosbag2_video.tar.gz 파일을다운로드받은후압축풀기
-https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
--
-다운로드된압축파일의압축풀기
-실습
+- 아래제공된링크에서rosbag2_video.tar.gz 파일을다운로드받은후압축풀기 https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
+- 다운로드된압축파일의압축풀기 실습
 
 
 ![Image 55](../../assets/images/ros/intro/lesson-09/img_030_055.webp)
@@ -406,11 +326,8 @@ https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
 BAG 파일실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
--
-압축풀린bag 파일의정보확인
--
-Bag 파일반복재생
-실습
+- 압축풀린bag 파일의정보확인
+- Bag 파일반복재생 실습
 
 
 ![Image 56](../../assets/images/ros/intro/lesson-09/img_031_056.webp)
@@ -425,9 +342,7 @@ Bag 파일반복재생
 BAG 파일실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
--
-새로운터미널에서rviz 실행
-실습
+- 새로운터미널에서rviz 실행 실습
 
 ![Image 60](../../assets/images/ros/intro/lesson-09/img_032_060.webp)
 
@@ -435,9 +350,7 @@ BAG 파일실습
 BAG 파일실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
--
-Rviz에서add버튼을누른후Image 선택후OK 버튼누르기
-실습
+- Rviz에서add버튼을누른후Image 선택후OK 버튼누르기 실습
 
 
 ![Image 61](../../assets/images/ros/intro/lesson-09/img_033_061.webp)
@@ -446,13 +359,8 @@ Rviz에서add버튼을누른후Image 선택후OK 버튼누르기
 BAG 파일실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
--
-사이드바에서이미지의topic name을“＼video_frames”
-로바꾸기
--
-하단의Image 창에영상이재생되는것을확인
-영상출처: https://www.youtube.com/watch?v=29iFysOZg3Q
-실습
+- 사이드바에서이미지의topic name을“＼video_frames” 로바꾸기
+- 하단의Image 창에영상이재생되는것을확인 영상출처: https://www.youtube.com/watch?v=29iFysOZg3Q 실습
 
 
 ![Image 62](../../assets/images/ros/intro/lesson-09/img_034_062.webp)
@@ -461,19 +369,11 @@ BAG 파일실습
 ## Visual Studio Code - extension
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-Extension의주요역할및기능
--
-프로그래밍언어지원추가: 추가언어를지원하거나기존언어의기능을확장
-(예: Python, YAML등)
--
-생산성향상도구: 코딩, 탐색, 리팩토링, 반복작업을자동화해생산성향상
-(예: XML Tools, Markdown All in One)
--
-특정기술또는프레임워크지원: 특정프레임워크나기술을위한추가기능제공
-(예: ROS, URDF)
--
-자동화및DevTools: 반복작업을자동화하거나개발환경을확장(예: Colcon Tasks)
+- Extension의주요역할및기능
+- 프로그래밍언어지원추가: 추가언어를지원하거나기존언어의기능을확장 (예: Python, YAML등)
+- 생산성향상도구: 코딩, 탐색, 리팩토링, 반복작업을자동화해생산성향상 (예: XML Tools, Markdown All in One)
+- 특정기술또는프레임워크지원: 특정프레임워크나기술을위한추가기능제공 (예: ROS, URDF)
+- 자동화및DevTools: 반복작업을자동화하거나개발환경을확장(예: Colcon Tasks)
 
 
 ## Visual Studio Code - extension
@@ -701,9 +601,9 @@ self._action_server = ActionServer(
 
 - `ActionServer(self, ActionType, action_name, execute_callback)`: 액션 서버 생성
 - `execute_callback(goal_handle)`: goal 처리 함수
-  - 내부에서 `goal_handle.publish_feedback()`으로 피드백 전송
-  - `goal_handle.succeed()` 또는 `goal_handle.abort()`
-  - `return result` 로 결과 전달
+- 내부에서 `goal_handle.publish_feedback()`으로 피드백 전송
+- `goal_handle.succeed()` 또는 `goal_handle.abort()`
+- `return result` 로 결과 전달
 
 액션 서버 콜백
 

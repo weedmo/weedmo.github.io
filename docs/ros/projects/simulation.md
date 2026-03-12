@@ -30,21 +30,9 @@ Rokey
 
 1. URDF Package 생성하기
 2. 연관폴더만들기
--
-src/urdf_tutorial 폴더아래다음두폴더를추가
--
-urdf: URDF 파일을저장할폴더
--
-launch: ROS2 실행launch 스크립트를저장할폴더
-$ mkdir -p ~/urdf_ws/src
-$ cd ~/urdf_ws/src
-$ ros2 pkg create --build-type ament_python urdf_tutorial
-$ cd urdf_tutorial
-$ mkdir urdf
-$ mkdir launch
-차동 구동 로봇(Differential Drive Robot)
--XML 형식의 로봇 모델 정의
--Xacro 매크로를 사용하여 파라메터화 및 코드 재사용성 향상
+- src/urdf_tutorial 폴더아래다음두폴더를추가
+- urdf: URDF 파일을저장할폴더
+- launch: ROS2 실행launch 스크립트를저장할폴더 $ mkdir -p ~/urdf_ws/src $ cd ~/urdf_ws/src $ ros2 pkg create --build-type ament_python urdf_tutorial $ cd urdf_tutorial $ mkdir urdf $ mkdir launch 차동 구동 로봇(Differential Drive Robot) -XML 형식의 로봇 모델 정의 -Xacro 매크로를 사용하여 파라메터화 및 코드 재사용성 향상
 
 Rokey
 로봇패키지
@@ -114,11 +102,7 @@ Rokey
 
 - Base Link: 로봇의 메인 본체 (직육면체)
 - Wheels: 왼쪽과 오른쪽 바퀴 (원통형)
-- Joints: 바퀴와 베이스를 연결하는 조인트
--차동 구동 메커니즘: 두 바퀴가 독립적으로 제어 가능
--Gazebo 호환 플러그인 내장
--물리적 특성(질량, 관성) 정의
--ROS 호환 설계
+- Joints: 바퀴와 베이스를 연결하는 조인트 -차동 구동 메커니즘: 두 바퀴가 독립적으로 제어 가능 -Gazebo 호환 플러그인 내장 -물리적 특성(질량, 관성) 정의 -ROS 호환 설계
 
 Rokey
 로봇패키지
@@ -204,17 +188,11 @@ Rokey
 11. 노드및토픽확인
 세번째터미널에서아래명령을실행해서rqt_graph를실행
 
-- /robot_state_publisher:
-‘robot.launch.py’를이용해서실행한Node
+- /robot_state_publisher: ‘robot.launch.py’를이용해서실행한Node
 
-- /transform_listner_Impl:
-rviz2에서실행한Node
+- /transform_listner_Impl: rviz2에서실행한Node
 
-- ‘/robot_state_publisher’ Node는
-‘/transform_listner_Impl’ Node에게
-‘/tf’, ‘/tf_static’ 두개의topic을전달
-$ rqt_graph
-로봇패키지만들기실습
+- ‘/robot_state_publisher’ Node는 ‘/transform_listner_Impl’ Node에게 ‘/tf’, ‘/tf_static’ 두개의topic을전달 $ rqt_graph 로봇패키지만들기실습
 
 ![Image 26](../../assets/images/ros/projects/simulation/img_012_026.webp)
 
@@ -225,40 +203,9 @@ Rokey
 12. 정육면체의색변경
 ‘src/urdf_tutorial/urdf/robot_1.xacro’ 파일을아래와같이수정
 
-- material white: 위쪽에흰색을표현하는white material을선언
-색상은rgba 모두1로지정: (색상의범위:  0 ~ 1 )
+- material white: 위쪽에흰색을표현하는white material을선언 색상은rgba 모두1로지정: (색상의범위:  0 ~ 1 )
 
-- body link material: body link에위에서지정한white material을지정
-변경된값을반영하기위해첫번째터미널에서
-‘CTRL+C’ 키를입력해서ROS2를종료한후명령을수행
-<?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="urdf_test">
-<!-- COLOR-->
-<material name="white">
-<color rgba="1 1 1 1"/>
-</material>
-<!-- BASE -->
-<link name="base_link">
-</link>
-<!-- BODY LINK -->
-<joint name="body_joint" type="fixed">
-<parent link="base_link"/>
-<child link="body"/>
-</joint>
-<link name="body">
-<visual>
-<geometry>
-<box size="1 1 1"/>
-</geometry>
-<material name="white"/>
-</visual>
-</link>
-</robot>
-$ cd ~/urdf_ws
-$ colcon build --symlink-install
-$ source install/setup.bash
-$ ros2 launch urdf_tutorial robot_1.launch.py
-로봇패키지만들기실습
+- body link material: body link에위에서지정한white material을지정 변경된값을반영하기위해첫번째터미널에서 ‘CTRL+C’ 키를입력해서ROS2를종료한후명령을수행 <?xml version="1.0"?> <robot xmlns:xacro="http://ros.org/wiki/xacro" name="urdf_test"> <!-- COLOR--> <material name="white"> <color rgba="1 1 1 1"/> </material> <!-- BASE --> <link name="base_link"> </link> <!-- BODY LINK --> <joint name="body_joint" type="fixed"> <parent link="base_link"/> <child link="body"/> </joint> <link name="body"> <visual> <geometry> <box size="1 1 1"/> </geometry> <material name="white"/> </visual> </link> </robot> $ cd ~/urdf_ws $ colcon build --symlink-install $ source install/setup.bash $ ros2 launch urdf_tutorial robot_1.launch.py 로봇패키지만들기실습
 
 Rokey
 로봇패키지
@@ -330,11 +277,8 @@ SLAM에서 TF2의 필요성
 3.센서 캘리브레이션
 -라이다나 카메라의 실제 장착 위치를 정확히 반영해야 합니다
 -TF2를 통해 센서의 위치 관계를 정의하고 관리할 수 있습니다
--
-SLAM을 구현하는데 TF2는 필수적
--
-정확한 좌표계 변환 없이는 센서 데이터를 올바르게 통합할 수 없고, 결과적으로 정확한 지도 생성과 위치
-추정이 불가능
+- SLAM을 구현하는데 TF2는 필수적
+- 정확한 좌표계 변환 없이는 센서 데이터를 올바르게 통합할 수 없고, 결과적으로 정확한 지도 생성과 위치 추정이 불가능
 
 Rokey
 로봇패키지
@@ -924,25 +868,16 @@ entry_points={
 },
 )
 
-- 패키지정보정의
-이름, 버전, 설명등의메타데이터를지정
+- 패키지정보정의 이름, 버전, 설명등의메타데이터를지정
 
-- 종속성선언
-패키지가필요로하는다른ROS 2 패키지나
-Python 라이브러리를명시
+- 종속성선언 패키지가필요로하는다른ROS 2 패키지나 Python 라이브러리를명시
 
-- 설치대상지정
-실행파일, Python 모듈, 데이터파일등패키지에
-포함될항목들을정의
+- 설치대상지정 실행파일, Python 모듈, 데이터파일등패키지에 포함될항목들을정의
 
-- 빌드설정
-컴파일이필요한경우빌드프로세스를구성
+- 빌드설정 컴파일이필요한경우빌드프로세스를구성
 
-- colcon 빌드시스템에의해사용되어
-패키지빌드및설치
-
-- package.xml과함께패키지구성의핵심요소
-패키지생성및실행
+- colcon 빌드시스템에의해사용되어 패키지빌드및설치
+- package.xml과함께패키지구성의핵심요소 패키지생성및실행
 
 Rokey
 차동구동로봇패키지
@@ -2395,9 +2330,7 @@ MoveIT2 구동
 Drone
 
 - sjtu_drone 모델을 가져와서 사용
-- 자세제어가 들어가 있는 점이 장점
-https://github.com/NovoG93/sjtu_drone
-가상환경
+- 자세제어가 들어가 있는 점이 장점 https://github.com/NovoG93/sjtu_drone 가상환경
 
 
 ![Image 172](../../assets/images/ros/projects/simulation/img_115_172.webp)

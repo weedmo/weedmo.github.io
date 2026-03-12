@@ -14,8 +14,7 @@ V1.0
 
 - ROS 시뮤레이션툴인가제보를이용하여테스트환경구축하기
 - 터틀봇3를사용하여실제시뮬레이션구축및실제환경테스트
-- 가상의공장에서Pick and Place를구현하는시뮬레이션구축하기
-가제보
+- 가상의공장에서Pick and Place를구현하는시뮬레이션구축하기 가제보
 
 주제2.1 기초
 가제보이해
@@ -1009,58 +1008,24 @@ moveit config 폴더에ros2_control 인터페이스추가
 
 가제보이해
 SRDF (Semantic Robot Description Format)
--
-URDF와같은로봇의의미론적정보(semantic information)를정의하는XML 파일포맷
--
-주로MoveIt!과같은로봇모션계획소프트웨어에서사용
--
-SRDF는로봇의움직임에대한의미론적정보
+- URDF와같은로봇의의미론적정보(semantic information)를정의하는XML 파일포맷
+- 주로MoveIt!과같은로봇모션계획소프트웨어에서사용
+- SRDF는로봇의움직임에대한의미론적정보
 
-      - 어떤조인트를그룹으로묶을지, 플래닝그룹, 엔드이펙터정의등
--  플래닝그룹 - 로봇의특정조인트들을그룹화하여모션플래닝을위해사용하는데, 이를SRDF에서정의.
--  자유도제약및제한 - 특정조인트에대한운동범위제한및제약조건을정의.
--  MoveIt!와통합 - 주로MoveIt!에서모션플래닝을위해사용.
+- 어떤조인트를그룹으로묶을지, 플래닝그룹, 엔드이펙터정의등 •  플래닝그룹 - 로봇의특정조인트들을그룹화하여모션플래닝을위해사용하는데, 이를SRDF에서정의. •  자유도제약및제한 - 특정조인트에대한운동범위제한및제약조건을정의. •  MoveIt!와통합 - 주로MoveIt!에서모션플래닝을위해사용.
 - SRDF
 - SRDF 특징
 
 가제보이해
 SDF (Simulation Description Format)
 
--  복잡한시뮬레이션환경지원:
-     로봇뿐만아니라전체시뮬레이션환경(장애물, 지형등) 정의
+-  복잡한시뮬레이션환경지원: 로봇뿐만아니라전체시뮬레이션환경(장애물, 지형등) 정의
 
--  다양한물리적특성:
-     URDF보다더복잡한물리엔진지원및모델정의가능
-     (예: 다양한마찰력, 관성모멘트등을정교하게설정)
+-  다양한물리적특성: URDF보다더복잡한물리엔진지원및모델정의가능 (예: 다양한마찰력, 관성모멘트등을정교하게설정)
 
--  Gazebo에서주로사용:
-     Gazebo 시뮬레이터와통합
-     고급물리시뮬레이션을위해설계
+-  Gazebo에서주로사용: Gazebo 시뮬레이터와통합 고급물리시뮬레이션을위해설계
 
-- SDF
-<sdf version="1.6">
-  <model name="example_robot">
-      <link name="base_link">
-        <visual>
-          <geometry>
-            <box size="1 1 1"/>
-          </geometry>
-        </visual>
-        <collision>
-          <geometry>
-            <box size="1 1 1"/>
-          </geometry>
-        </collision>
-      </link>
-      <joint name="joint1" type="revolute">
-        <parent>base_link</parent>
-        <child>link1</child>
-        <axis>
-          <xyz>0 0 1</xyz>
-        </axis>
-      </joint>
-  </model>
-</sdf>
+- SDF <sdf version="1.6"> <model name="example_robot"> <link name="base_link"> <visual> <geometry> <box size="1 1 1"/> </geometry> </visual> <collision> <geometry> <box size="1 1 1"/> </geometry> </collision> </link> <joint name="joint1" type="revolute"> <parent>base_link</parent> <child>link1</child> <axis> <xyz>0 0 1</xyz> </axis> </joint> </model> </sdf>
 
 Moveit2 실습
 Moveit2 실습

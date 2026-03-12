@@ -2,16 +2,9 @@
 
 
 Thread와Sqlite3
--
-방화벽해지
-        sudo ufw disable
--
-Wifi 설정
-        Rokey / rokey12345
--
-같은ROS_DOMAIN_ID에영향을안받게하기
-       export $ROS_LOCALHOST_ONLY=1
-김루진강사
+- 방화벽해지 sudo ufw disable
+- Wifi 설정 Rokey / rokey12345
+- 같은ROS_DOMAIN_ID에영향을안받게하기 export $ROS_LOCALHOST_ONLY=1 김루진강사
 
 쓰레드를사용하는주된이유는프로그램의성능과응답성을향상시키기위해서입니다.
 특히ROS2와PyQt GUI를함께사용할때더욱중요합니다.

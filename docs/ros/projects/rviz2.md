@@ -39,16 +39,9 @@ RVIZ2
 참고
 기타개발지원도구
 
-- CLI: Command-Line Instruction
--  GUI 없이 ROS에서 제공되는 명령어만으로도 로봇 제어 및 거의 모든 ROS 기능 소화 가능
-- RQT
--  그래픽 인터페이스 개발을 위한 Qt 기반 프레임 워크 제공
--  노드와 그들 사이의 연결 정보 표시 (rqt_graph)
--  인코더, 전압같이 시간에 따라 변화하는 숫자를 플로팅 (rqt_plot)
--  데이터를 메시지 형태로 기록하고 재생 (rqt_bag)
-- Rviz (ROS Visualization)
--  강력한 2D, 3D 시각화 툴
--  로봇 시스템 이해에 도움
+- CLI: Command-Line Instruction •  GUI 없이 ROS에서 제공되는 명령어만으로도 로봇 제어 및 거의 모든 ROS 기능 소화 가능
+- RQT •  그래픽 인터페이스 개발을 위한 Qt 기반 프레임 워크 제공 •  노드와 그들 사이의 연결 정보 표시 (rqt_graph) •  인코더, 전압같이 시간에 따라 변화하는 숫자를 플로팅 (rqt_plot) •  데이터를 메시지 형태로 기록하고 재생 (rqt_bag)
+- Rviz (ROS Visualization) •  강력한 2D, 3D 시각화 툴 •  로봇 시스템 이해에 도움
 
 RQT
 참고
@@ -61,24 +54,16 @@ RQT
 - 노드 그래프 시각화
 - 로그 뷰어
 - 플롯 도구
-- 이미지 뷰어
- 주요 플로그인:
+- 이미지 뷰어 주요 플로그인:
 
 - rqt_graph: 노드 토픽 연결을 그래프로 표시
 - rqt_plot: 토픽 데이터를 실시간 그래프로 표시
 - rqt_console: 로그 메시지 표시및 필터링
 - rqt_image_view: 이미지 토픽 시각화
-- rqt_publisher: 토픽 발행 인터페이스를 제공
-RQT
-참고
-RQT Message Publisher
-  상단 메뉴에서 Plugins -> Topic -> Message Publisher
-※ 만약 플러그인이 표시되지 않으면 rqt 관련 플러그인이 설치되지 않았을 수 있으니 설치.
-  토픽과 메시지 형식을 선택.
+- rqt_publisher: 토픽 발행 인터페이스를 제공 RQT 참고 RQT Message Publisher 상단 메뉴에서 Plugins -> Topic -> Message Publisher ※ 만약 플러그인이 표시되지 않으면 rqt 관련 플러그인이 설치되지 않았을 수 있으니 설치. 토픽과 메시지 형식을 선택.
 
 -  Topic Name: 게시할 토픽의 이름 (예: /my_topic)
--  Message Type: 게시할 메시지의 타입 (예: std_msgs/msg/String)
-$ sudo apt install ros-humble-rqt-publisher
+-  Message Type: 게시할 메시지의 타입 (예: std_msgs/msg/String) $ sudo apt install ros-humble-rqt-publisher
 
 ![Image 18](../../assets/images/ros/projects/rviz2/img_008_018.webp)
 
@@ -90,10 +75,7 @@ RQT
 RQT_plot
 
 -  실시간 토픽 데이터 시각화 툴
--  Plugins -> Visualization -> Plot
-예시: 터틀심
-1.
-터틀심, teleop_key, rqt 실행
+-  Plugins -> Visualization -> Plot 예시: 터틀심 1. 터틀심, teleop_key, rqt 실행
 
 2. rqt_plots 추가
 3. plot Topic에 /turtle1/cmd_vel/linear 입력
@@ -115,34 +97,17 @@ RQT_IMAGE_VIEW
  rqt_image_view
 
 -  카메라 또는 다른 이미지 센서가 퍼블리시하는 이미지를 실시간으로 확인
--  Plugins -> Visualization -> image_view
-※ 만약 플러그인이 표시되지 않으면 rqt 관련 플러그인이 설치되지 않았을 수 있으니 설치.
-$ sudo apt update
-$ sudo apt install ros-humble-rqt-image-view
+-  Plugins -> Visualization -> image_view ※ 만약 플러그인이 표시되지 않으면 rqt 관련 플러그인이 설치되지 않았을 수 있으니 설치. $ sudo apt update $ sudo apt install ros-humble-rqt-image-view
 
 - 일반적으로 이미지 데이터는 sensor_msgs/msg/Image 타입
-- 카메라 센서가 있는 경우 토픽 이름은 주로 /camera/image_raw와 같은 형식
-ROS2 시각화도구RVIZ2
-참고
-RVIZ2
+- 카메라 센서가 있는 경우 토픽 이름은 주로 /camera/image_raw와 같은 형식 ROS2 시각화도구RVIZ2 참고 RVIZ2
 
 ROS2 시각화도구RVIZ2
 참고
 RVIZ2 특징
 
-- 강력한 시각화 툴
--  로봇의 외형(URDF/XACRO 형식의 3D 모델), 위치, 자세시각화
--  IMU 관성 데이터 , 라이더의 거리 데이터, Depth Camera의 포인트 클라우드 데이터등다양한 데이터 시각화
--  지도(2D/3D) 시각화
--  토픽 데이터 시각화
--  계획된 동작을 표현
-- 다른 ROS 툴과의 사용
--  내비게이션
--  원격제어
--  디버깅 작업에 도움
-ROS2 시각화도구RVIZ2
-참고
-RVIZ2 설치및실생
+- 강력한 시각화 툴 •  로봇의 외형(URDF/XACRO 형식의 3D 모델), 위치, 자세시각화 •  IMU 관성 데이터 , 라이더의 거리 데이터, Depth Camera의 포인트 클라우드 데이터등다양한 데이터 시각화 •  지도(2D/3D) 시각화 •  토픽 데이터 시각화 •  계획된 동작을 표현
+- 다른 ROS 툴과의 사용 •  내비게이션 •  원격제어 •  디버깅 작업에 도움 ROS2 시각화도구RVIZ2 참고 RVIZ2 설치및실생
 # 설치 (ros2 humble 설치시 자동 설치됨)
 ※ 원격접속을 위한 ubuntu Open ssh server 설치
 # 실행
@@ -153,8 +118,7 @@ $ ros2 run rviz2 rviz2
 $ sudo apt install openssh-server
 $ sudo systemctl start ssh
 
-- 설치 및 실행
-※ 원격접속을 위한 윈도우 putty 프로그램 설치
+- 설치 및 실행 ※ 원격접속을 위한 윈도우 putty 프로그램 설치
 #  Ubuntu 데스크톱 버전 필요
 
 ![Image 31](../../assets/images/ros/projects/rviz2/img_013_031.webp)
@@ -165,33 +129,19 @@ ROS2 시각화도구RVIZ2
 RVIZ2  기본 인터페이스
  Displays:
 
--  시각화 할 항목을 선택, 설정하는 패널.
- Global Options:
+-  시각화 할 항목을 선택, 설정하는 패널. Global Options:
 
 -  전체 환경의 좌표계와 배경색, 고정된 프레임을 설정
--  고정 프레임(fixed fram): 로봇의 모든 센서 및 데이터의 기준이 되는 좌표계
- Tools:
+-  고정 프레임(fixed fram): 로봇의 모든 센서 및 데이터의 기준이 되는 좌표계 Tools:
 
--  카메라 이동, 목표 위치 설정 등의 도구
- 3D 뷰 포트
+-  카메라 이동, 목표 위치 설정 등의 도구 3D 뷰 포트
 
 -  선택한 데이터를 시각적으로 표시해 주는 공간
--  로봇의 상태를 3D로 관찰
-주요 패널
-ROS2 시각화도구RVIZ2
-참고
-RVIZ2 기본 용어
-RViz2를 이해하기 위해 알아야 할 기본 용어
+-  로봇의 상태를 3D로 관찰 주요 패널 ROS2 시각화도구RVIZ2 참고 RVIZ2 기본 용어 RViz2를 이해하기 위해 알아야 할 기본 용어
 
-- 고정 프레임 (Fixed Frame)
--  RViz2에서 모든 시각화 요소가 기준으로 삼는 좌표계
--  로봇의 기본 좌표계인 base_link 또는 세계 좌표계인 map을 사용
-- TF (Transform Frames)
--  각 좌표계 간의 관계를 정의하는 프레임 변환 정보
--  RViz2는 tf2 라이브러리를 사용해 여러 좌표계 간의 변환을 시각화
-- 토픽 (Topics)
--  ROS2에서 퍼블리셔가 데이터를 보내는 통신 채널
--  RViz2는 특정 토픽에서 데이터를 구독하여 이를 시각화
+- 고정 프레임 (Fixed Frame) •  RViz2에서 모든 시각화 요소가 기준으로 삼는 좌표계 •  로봇의 기본 좌표계인 base_link 또는 세계 좌표계인 map을 사용
+- TF (Transform Frames) •  각 좌표계 간의 관계를 정의하는 프레임 변환 정보 •  RViz2는 tf2 라이브러리를 사용해 여러 좌표계 간의 변환을 시각화
+- 토픽 (Topics) •  ROS2에서 퍼블리셔가 데이터를 보내는 통신 채널 •  RViz2는 특정 토픽에서 데이터를 구독하여 이를 시각화
 
 ROS2 시각화도구RVIZ2
 참고
@@ -250,36 +200,20 @@ RVIZ2 주요도구모음(Toolbar)
 
 -  2D Pose Estimate: 2D 포즈를 추정
 -  2D Nav Goal: 2D 내비게이션 목표를 설정
--  Publish Point: 특정 지점의 좌표를 발행
--3D 시각화 환경에서 사용자가 선택한 특정 지점의 3D 좌표를ROS 토픽으로 발행(publish)
+-  Publish Point: 특정 지점의 좌표를 발행 -3D 시각화 환경에서 사용자가 선택한 특정 지점의 3D 좌표를ROS 토픽으로 발행(publish)
 
-- 기본적으로 /clicked_point 토픽 발행
--메시지 타입은 geometry_msg/PointStamped
-  RViz Navigation
--geometry_msgs/PointStamped 메시지 타입은 특정 시간에 특정 위치를 나타내는 메시지입니다.
--Header와 Point로 구성
--Header: 메시지의 프레임과 타임스탬프 정보를 포함합니다.
--Point: x, y, z 좌표로 위치를 나타냅니다.
-ROS2 시각화도구RVIZ2
-참고
-RVIZ2 시각화예시
-  TF 좌표계 변환
+- 기본적으로 /clicked_point 토픽 발행 -메시지 타입은 geometry_msg/PointStamped RViz Navigation -geometry_msgs/PointStamped 메시지 타입은 특정 시간에 특정 위치를 나타내는 메시지입니다. -Header와 Point로 구성 -Header: 메시지의 프레임과 타임스탬프 정보를 포함합니다. -Point: x, y, z 좌표로 위치를 나타냅니다. ROS2 시각화도구RVIZ2 참고 RVIZ2 시각화예시 TF 좌표계 변환
 
 -  TF 프레임을 통해 로봇의 센서와 다양한 파트 간의 좌표 변환을 시각화
 -  로봇의 다양한 파트(링크)들의 움직임과 연결 상태 확인
--  TF는 좌표계 간의 관계를 주기에따라 보냄(topic publish), 로봇의 상태를 실시간으로 추적
-  TF 시각화방법
+-  TF는 좌표계 간의 관계를 주기에따라 보냄(topic publish), 로봇의 상태를 실시간으로 추적 TF 시각화방법
 
 - 1. TF Displays 항목을 추가
 - 2. tf2에 의해 퍼블리시되는 모든 좌표 변환 확인
-- 3. 로봇의 기준 좌표(base_link 등)에서 센서 좌표계나 다른 파트로 변환되는 과정을 시각적으로 이해
-ROS2 시각화도구RVIZ2
-참고
-카메라시각화
+- 3. 로봇의 기준 좌표(base_link 등)에서 센서 좌표계나 다른 파트로 변환되는 과정을 시각적으로 이해 ROS2 시각화도구RVIZ2 참고 카메라시각화
 
 -  디스플레이에 카메라 타입 추가
-- 카메라 타입 토픽에서 sensor_msgs/msg/Image 선택
-Rviz2에 표시된 카메라 이미지
+- 카메라 타입 토픽에서 sensor_msgs/msg/Image 선택 Rviz2에 표시된 카메라 이미지
 
 ![Image 43](../../assets/images/ros/projects/rviz2/img_020_043.webp)
 
@@ -444,46 +378,11 @@ RVIZ2 시각화예시
 
 -   "LaserScan" 항목 확장
 -   "Topic" 필드 클릭
--   드롭다운 메뉴에서 "/scan" 토픽 선택
-$ cd ~/ros2_ws/src
-$ git clone https://github.com/Slamtec/sllidar_ros2.git
-$ cd ~/ros2_ws
-$ rosdep install --from-paths src --ignore-src -r -y
-$ colcon build --symlink-install
-$ source ~/ros2_ws/install/setup.bash
-$ sudo chmod 666 /dev/ttyUSB0
-$ ros2 launch sllidar_ros2 sllidar_launch.py
+-   드롭다운 메뉴에서 "/scan" 토픽 선택 $ cd ~/ros2_ws/src $ git clone https://github.com/Slamtec/sllidar_ros2.git $ cd ~/ros2_ws $ rosdep install --from-paths src --ignore-src -r -y $ colcon build --symlink-install $ source ~/ros2_ws/install/setup.bash $ sudo chmod 666 /dev/ttyUSB0 $ ros2 launch sllidar_ros2 sllidar_launch.py
 
-- RPLIDAR 데이터 시각화
-1)  Fixed Frame 변경
-Global Options > Fixed Frame = laser
-2)
-Axes 추가 및 설정
-RViz 좌측 하단의 Add에서 Axes 추가
-(Length 및 Radius 변경은 옵션)
-3)
-LaserScan 추가 및 설정
-RViz 좌측 하단의 Add에서 LaserScan 추가
-(Topic 지정 필수, Color, Color Transformer 등은 옵션)
-
--  라이다 센서데이터를 2D 평면 상에 표시
--  주변 장애물 시각적으로 확인
-ROS2 시각화도구RVIZ2
-참고
-RViz2 구성 저장 및 로드
-
+- RPLIDAR 데이터 시각화 1)  Fixed Frame 변경 Global Options > Fixed Frame = laser 2) Axes 추가 및 설정 RViz 좌측 하단의 Add에서 Axes 추가 (Length 및 Radius 변경은 옵션) 3) LaserScan 추가 및 설정 RViz 좌측 하단의 Add에서 LaserScan 추가 (Topic 지정 필수, Color, Color Transformer 등은 옵션) •  라이다 센서데이터를 2D 평면 상에 표시 •  주변 장애물 시각적으로 확인 ROS2 시각화도구RVIZ2 참고 RViz2 구성 저장 및 로드
 - 환경 저장
-- 환경 불러오기
-- File -> Save Config As
--  일반적으로 config 디렉토리에 저장
-- Launch 파일에서 실행할 때 불러오는 방법
-.rviz 파일은 RViz2(ROS Visualization Tool)의 설정 파일입니다. 이 파일은 RViz2의 사용자 인터페이스 설정,
-로드된 플러그인, 시각화 옵션 등 RViz2의 전체 구성을 저장
-> rviz2 -d your_config.rviz
--
-RViz2 실행 시 -d 옵션으로 .rviz 파일을 지정
-참고
-로봇Description 패키지
+- 환경 불러오기 • File -> Save Config As •  일반적으로 config 디렉토리에 저장 • Launch 파일에서 실행할 때 불러오는 방법 .rviz 파일은 RViz2(ROS Visualization Tool)의 설정 파일입니다. 이 파일은 RViz2의 사용자 인터페이스 설정, 로드된 플러그인, 시각화 옵션 등 RViz2의 전체 구성을 저장 > rviz2 -d your_config.rviz • RViz2 실행 시 -d 옵션으로 .rviz 파일을 지정 참고 로봇Description 패키지
 
 프로젝트기초
 참고
@@ -491,24 +390,10 @@ RViz2 실행 시 -d 옵션으로 .rviz 파일을 지정
 
 1. URDF Package 생성하기
 2. 연관 폴더만들기
--
-src/urdf_tutorial 폴더 아래 다음 두 폴더를 추가
--
-urdf: URDF 파일을 저장할 폴더
--
-launch: ROS2 실행 launch 스크립트를 저장할 폴더
-$ mkdir -p ~/ws_urdf/src
-$ cd ~/ws_urdf/src
-$ ros2 pkg create --build-type ament_python urdf_tutorial
-$ cd ..
-$ colcon build –symlink-install
-$ cd src
-$ cd urdf_tutorial
-$ mkdir urdf
-$ mkdir launch
-  $ mkdir config
--
-rm –rdf ./build ./install ./log
+- src/urdf_tutorial 폴더 아래 다음 두 폴더를 추가
+- urdf: URDF 파일을 저장할 폴더
+- launch: ROS2 실행 launch 스크립트를 저장할 폴더 $ mkdir -p ~/ws_urdf/src $ cd ~/ws_urdf/src $ ros2 pkg create --build-type ament_python urdf_tutorial $ cd .. $ colcon build –symlink-install $ cd src $ cd urdf_tutorial $ mkdir urdf $ mkdir launch $ mkdir config
+- rm –rdf ./build ./install ./log
 
 프로젝트기초
 참고
@@ -549,8 +434,8 @@ entry_points={
 ‘src/urdf_tutorial/urdf/robot_1.xacro’ 파일을 만들고 아래와 같이 편집
 
 - base_link: 가상의 링크
- - body: 가로, 세로, 높이 각각 1m인 상자
- - body_joint: base_link와 body를 연결하는 joint
+- body: 가로, 세로, 높이 각각 1m인 상자
+- body_joint: base_link와 body를 연결하는 joint
 
 4. 로봇 모델 만들기
 <?xml version="1.0"?>
@@ -672,17 +557,11 @@ rviz2 –d ./config/robot.rviz
 11. 노드 및 토픽 확인
    세 번째 터미널에서 아래 명령을 실행해서 rqt_graph를 실행
 
-- /robot_state_publisher:
-‘robot.launch.py’를 이용해서 실행한 Node
+- /robot_state_publisher: ‘robot.launch.py’를 이용해서 실행한 Node
 
- - /transform_listner_Impl:
-rviz2에서 실행한 Node
+- /transform_listner_Impl: rviz2에서 실행한 Node
 
- - ‘/robot_state_publisher’ Node는
-‘/transform_listner_Impl’ Node에게
-‘/tf’, ‘/tf_static’ 두 개의 topic을 전달
-$ rqt_graph
-로봇패키지만들기실습
+- ‘/robot_state_publisher’ Node는 ‘/transform_listner_Impl’ Node에게 ‘/tf’, ‘/tf_static’ 두 개의 topic을 전달 $ rqt_graph 로봇패키지만들기실습
 
 ![Image 74](../../assets/images/ros/projects/rviz2/img_035_074.webp)
 
@@ -693,43 +572,9 @@ $ rqt_graph
 12. 정육면체의 색 변경
   ‘src/urdf_tutorial/urdf/robot_1.xacro’ 파일을 아래와 같이 수정
 
-- material white: 위쪽에 흰색을 표현하는
-white material을 선언
-색상은 rgba 모두 1로 지정
-(색상의 범위: 0 ~ 1 )
+- material white: 위쪽에 흰색을 표현하는 white material을 선언 색상은 rgba 모두 1로 지정 (색상의 범위: 0 ~ 1 )
 
- - body link material: body link에 위에서 지정한
-white material을 지정
-변경된 값을 반영하기 위해 첫 번째 터미널에서
-‘CTRL+C’ 키를 입력해서 ROS2를 종료한 후 명령을 수행
-<?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="urdf_test">
-<!-- COLOR-->
-<material name="white">
-<color rgba="1 1 1 1"/>
-</material>
-<!-- BASE -->
-<link name="base_link">
-</link>
-<!-- BODY LINK -->
-<joint name="body_joint" type="fixed">
-<parent link="base_link"/>
-<child link="body"/>
-</joint>
-<link name="body">
-<visual>
-<geometry>
-<box size="1 1 1"/>
-</geometry>
-<material name="white"/>
-</visual>
-</link>
-</robot>
-$ cd ~/ws_urdf/urdf_tutorail
-$ colcon build --symlink-install
-$ source install/setup.bash
-$ ros2 launch urdf_tutorial robot_1.launch.py
-로봇패키지만들기실습
+- body link material: body link에 위에서 지정한 white material을 지정 변경된 값을 반영하기 위해 첫 번째 터미널에서 ‘CTRL+C’ 키를 입력해서 ROS2를 종료한 후 명령을 수행 <?xml version="1.0"?> <robot xmlns:xacro="http://ros.org/wiki/xacro" name="urdf_test"> <!-- COLOR--> <material name="white"> <color rgba="1 1 1 1"/> </material> <!-- BASE --> <link name="base_link"> </link> <!-- BODY LINK --> <joint name="body_joint" type="fixed"> <parent link="base_link"/> <child link="body"/> </joint> <link name="body"> <visual> <geometry> <box size="1 1 1"/> </geometry> <material name="white"/> </visual> </link> </robot> $ cd ~/ws_urdf/urdf_tutorail $ colcon build --symlink-install $ source install/setup.bash $ ros2 launch urdf_tutorial robot_1.launch.py 로봇패키지만들기실습
 
 주제2.1 기초
 참고
@@ -739,15 +584,7 @@ $ ros2 launch urdf_tutorial robot_1.launch.py
 참고
 기초 지식
 
-- URDF, SDF, SRDF,XACRO
--  로봇의 기구학적 구조(모델)를 설명하는 XML 기반 포맷
--  주로 로봇의 링크, 조인트, 메시, 물리적 속성(질량, 관성 등) 등을 정의
-- 로봇의 물리적 모델 정의: 로봇의 구조를 텍스트로 설명
-- 각 링크(로봇의 고정된 부분)와 조인트(회전 또는 직선 운동을 하는 부분)를 정의
-- 충돌 모델: 로봇이 다른 물체와 충돌할 때 사용하는 단순한 충돌 체적(보통 상자나 구 형태)을 정의
-- 시각적 모델: 로봇의 시각적 표현을 위한 3D 메시(주로 STL, COLLADA) 파일 경로를 정의
-- ROS 환경에서 로봇을 표현: RViz와 같은 시뮬레이터에서 로봇을 시각화하는 데 URDF 파일사용
--  로봇의 구조, 동작, 환경 등을 정의하기 위한 XML 기반의 파일 포맷 및 확장자.
+- URDF, SDF, SRDF,XACRO •  로봇의 기구학적 구조(모델)를 설명하는 XML 기반 포맷 •  주로 로봇의 링크, 조인트, 메시, 물리적 속성(질량, 관성 등) 등을 정의 • 로봇의 물리적 모델 정의: 로봇의 구조를 텍스트로 설명 • 각 링크(로봇의 고정된 부분)와 조인트(회전 또는 직선 운동을 하는 부분)를 정의 • 충돌 모델: 로봇이 다른 물체와 충돌할 때 사용하는 단순한 충돌 체적(보통 상자나 구 형태)을 정의 • 시각적 모델: 로봇의 시각적 표현을 위한 3D 메시(주로 STL, COLLADA) 파일 경로를 정의 • ROS 환경에서 로봇을 표현: RViz와 같은 시뮬레이터에서 로봇을 시각화하는 데 URDF 파일사용 •  로봇의 구조, 동작, 환경 등을 정의하기 위한 XML 기반의 파일 포맷 및 확장자.
 - URDF
 
 로봇description
@@ -758,14 +595,9 @@ $ ros2 launch urdf_tutorial robot_1.launch.py
  링크(Link)
 
 - description :링크의 이름, 외형, 무게(mass, kg), 관성 모멘트(Kg.m^2)
-- 외형: 주로 원통, 원뿔, 직육면체등의 간단한 모형 모델 사용
-복잡한 구조는 메쉬 (mesh)를 표현 할 수 있는 stl, dae(collda) 포맷을 사용
- 조인트(Joint)
+- 외형: 주로 원통, 원뿔, 직육면체등의 간단한 모형 모델 사용 복잡한 구조는 메쉬 (mesh)를 표현 할 수 있는 stl, dae(collda) 포맷을 사용 조인트(Joint)
 
-- description : 조인트의 이름, 종류, 운동의 기준 축,
-연결하는 링크,
-최소, 최대 동작 값(각도, 선형 움직임),
-조인트에 부여되는 힘 / 속도
+- description : 조인트의 이름, 종류, 운동의 기준 축, 연결하는 링크, 최소, 최대 동작 값(각도, 선형 움직임), 조인트에 부여되는 힘 / 속도
 
 ![Image 79](../../assets/images/ros/projects/rviz2/img_039_079.webp)
 
@@ -838,73 +670,29 @@ link의 origin이 기준 좌표(Frame)가 되는데, 바로 앞에 연결되어�
 - fixed (고정): 움직임이 허용되지 않는 관절(link)이다
 - revolute (회전): 선풍기의 좌우 회전과 같이 일정 각도 범위를 회전
 - continuous (연속): 자동차 바퀴처럼 연속 회전을 하는 관절
-- prismatic (프리즘): 단일 축에 대해 선형으로 미끄러지는 관절
-최대, 최소 위치 제한 정의 필요
+- prismatic (프리즘): 단일 축에 대해 선형으로 미끄러지는 관절 최대, 최소 위치 제한 정의 필요
 
 - floating (자유): 6차원 이동 및 회전을 허용하는 관절
-- planar (평면): 한 평면에 수직으로 이동 및 회전할 수 있는 관절
- 조인트(Joint)
- URDF 에서 지원하는 조인트 종류(type)
+- planar (평면): 한 평면에 수직으로 이동 및 회전할 수 있는 관절 조인트(Joint) URDF 에서 지원하는 조인트 종류(type)
 
 로봇description
 참고
 URDF – JOINT 예시
 
-- <parent>, <child>
-부모 링크(parent link)와 자식 링크(child link)의 이름 지정 (기저에 가까운 링크가 부모 링크)
+- <parent>, <child> 부모 링크(parent link)와 자식 링크(child link)의 이름 지정 (기저에 가까운 링크가 부모 링크)
 
-- <axis>
-회전 축을 정의
-축은 로봇의 기준 좌표를 기준으로 정의
-회전 운동의 방향을 결정.
+- <axis> 회전 축을 정의 축은 로봇의 기준 좌표를 기준으로 정의 회전 운동의 방향을 결정.
 
-- <axis xyz="0 0 1"/>
-z 값만 설정
-옆 그림의 경우에는 선풍기 목부분 z 축 기준으로 회전
+- <axis xyz="0 0 1"/> z 값만 설정 옆 그림의 경우에는 선풍기 목부분 z 축 기준으로 회전
 
-- <limit>
-조인트 동작에 대한 최소, 최대(lower, upper) 제한 사항을 설정.
-조인트에 부여되는 힘(effort, 단위: N), 속도(단위: radian/s)의 제한 값 설정
-주제2.1 기초
-참고
-URDF 예시
+- <limit> 조인트 동작에 대한 최소, 최대(lower, upper) 제한 사항을 설정. 조인트에 부여되는 힘(effort, 단위: N), 속도(단위: radian/s)의 제한 값 설정 주제2.1 기초 참고 URDF 예시
 
 - parent : 기준 링크 결정 (기저에 가까운 링크)
-- origin: parent link 좌표계에서 조인트 위치, 회전
-(rpy- 기울어진 정도, xyz- 위상차이)
+- origin: parent link 좌표계에서 조인트 위치, 회전 (rpy- 기울어진 정도, xyz- 위상차이)
 
-- axis: 어떤 축을 기준으로 child 링크를 움직일 것인지 나타냄
-(위 코드에서 y축을 기준으로 움직이므로 xyz=‘0 1 0’으로 정의
--
-URDF 파일 확장자는 일반적으로 .urdf 또는 .xacro
--
-파라미터로 로봇 이름 확인 가능(예: ros2 param get /robot_state_publisher robot_name)
-<robot name="example_robot">
-<link name="base_link">
-<visual>
-<geometry>
-<box size="1 1 1"/>
-</geometry>
-<material name="red"/>
-</visual>
-</link>
-<joint name="joint1" type="revolute">
-<parent link="base_link"/>
-<child link="link1"/>
-<axis xyz="0 0 1"/>
-</joint>
-</robot>
-<joint name="joint_chassis_left_wheel" type="continuous">
-<origin rpy="0 0 0" xyz="-0.5 0.65 0" />
-<child link="link_left_wheel" />
-<parent link="link_chassis" />
-<axis rpy="0 0 0" xyz="0 1 0" />
-<limit effort="10000" velocity="1000" />
-<joint_properties damping="1.0" friction="1.0" />
-</joint>
-<xacro:robot name="my_robot">
-...
-</xacro:robot>
+- axis: 어떤 축을 기준으로 child 링크를 움직일 것인지 나타냄 (위 코드에서 y축을 기준으로 움직이므로 xyz=‘0 1 0’으로 정의
+- URDF 파일 확장자는 일반적으로 .urdf 또는 .xacro
+- 파라미터로 로봇 이름 확인 가능(예: ros2 param get /robot_state_publisher robot_name) <robot name="example_robot"> <link name="base_link"> <visual> <geometry> <box size="1 1 1"/> </geometry> <material name="red"/> </visual> </link> <joint name="joint1" type="revolute"> <parent link="base_link"/> <child link="link1"/> <axis xyz="0 0 1"/> </joint> </robot> <joint name="joint_chassis_left_wheel" type="continuous"> <origin rpy="0 0 0" xyz="-0.5 0.65 0" /> <child link="link_left_wheel" /> <parent link="link_chassis" /> <axis rpy="0 0 0" xyz="0 1 0" /> <limit effort="10000" velocity="1000" /> <joint_properties damping="1.0" friction="1.0" /> </joint> <xacro:robot name="my_robot"> ... </xacro:robot>
 
 SLAM
 참고
@@ -914,134 +702,9 @@ SLAM
 참고
 메니퓨레이터 패키지 - 생성
 
--  로봇의 모델링 정보을 받음 패키지 생성
-매니플레이터의 기본 정보를 URDF로 작성해보자.
-로봇의 모델링 정보를 담은 패키지를 로봇명_descriptio으로 이름 만들기
-$ cd ~/robot_ws/src
-$ ros2 pkg create testbot_description --build-type ament_python --dependencies urdf
-$ cd testbot_description
-$ mkdir urdf rviz
-$ cd urdf
-$ vim testbot.urdf
+-  로봇의 모델링 정보을 받음 패키지 생성 매니플레이터의 기본 정보를 URDF로 작성해보자. 로봇의 모델링 정보를 담은 패키지를 로봇명_descriptio으로 이름 만들기 $ cd ~/robot_ws/src $ ros2 pkg create testbot_description --build-type ament_python --dependencies urdf $ cd testbot_description $ mkdir urdf rviz $ cd urdf $ vim testbot.urdf
 
--  urdf 폴더 생성후 urdf 파일 생성
-<?xml version="1.0" ?>
-<robot name="testbot">
-<material name="green">
-<color rgba="0 0.6 0 1" />
-</material>
-<material name="orange">
-<color rgba="1.0 0.4 0.0 1.0"/>
-</material>
-<link name="base"/>
-<link name="link1">
-<inertial>
-<origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/>
-<mass value="1.0"/>
-<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
-</inertial>
-<visual>
-<origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/>
-<geometry>
-<box size="0.1 0.1 0.5"/>
-</geometry>
-<material name="green"/>
-</visual>
-<collision>
-<origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/>
-<geometry>
-<box size="0.1 0.1 0.5"/>
-</geometry>
-</collision>
-</link>
-<link name="link2">
-<inertial>
-<origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/>
-<mass value="1.0"/>
-<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
-</inertial>
-<visual>
-<origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/>
-<geometry>
-<box size="0.1 0.1 0.5"/>
-</geometry>
-<material name="orange"/>
-</visual>
-<collision>
-<origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/>
-<geometry>
-<box size="0.1 0.1 0.5"/>
-</geometry>
-</collision>
-</link>
-<link name="link3">
-<inertial>
-<origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0"/>
-<mass value="1.0"/>
-<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
-</inertial>
-<visual>
-<origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0"/>
-<geometry>
-<box size="0.1 0.1 1.0"/>
-</geometry>
-<material name="green"/>
-</visual>
-<collision>
-<origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0"/>
-<geometry>
-<box size="0.1 0.1 1.0"/>
-</geometry>
-</collision>
-</link>
-<link name="link4">
-<inertial>
-<origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/>
-<mass value="1.0"/>
-<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
-</inertial>
-<visual>
-<origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/>
-<geometry>
-<box size="0.1 0.1 0.5"/>
-</geometry>
-<material name="orange"/>
-</visual>
-<collision>
-<origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/>
-<geometry>
-<box size="0.1 0.1 0.5"/>
-</geometry>
-</collision>
-</link>
-<joint name="base_joint" type="fixed">
-<parent link="base"/>
-<child link="link1"/>
-</joint>
-<joint name="link1_link2" type="revolute">
-<origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0"/>
-<parent link="link1"/>
-<child link="link2"/>
-<axis xyz="0.0 0.0 1.0"/>
-<limit lower="-2.617" upper="2.617" effort="30.0" velocity="1.571"/>
-</joint>
-<joint name="link2_link3" type="revolute">
-<origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0"/>
-<parent link="link2"/>
-<child link="link3"/>
-<axis xyz="0.0 1.0 0.0"/>
-<limit lower="-2.617" upper="2.617" effort="30.0" velocity="1.571"/>
-</joint>
-<joint name="link3_link4" type="revolute">
-<origin xyz="0.0 0.0 1.0" rpy="0.0 0.0 0.0"/>
-<parent link="link3"/>
-<child link="link4"/>
-<axis xyz="0.0 1.0 0.0"/>
-<limit lower="-2.617" upper="2.617" effort="30.0" velocity="1.571"/>
-</joint>
-</robot>
-※ 복붙용 testbot.urdf 코드
-모두선택(ctrl+a) 후 복사
+-  urdf 폴더 생성후 urdf 파일 생성 <?xml version="1.0" ?> <robot name="testbot"> <material name="green"> <color rgba="0 0.6 0 1" /> </material> <material name="orange"> <color rgba="1.0 0.4 0.0 1.0"/> </material> <link name="base"/> <link name="link1"> <inertial> <origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/> <mass value="1.0"/> <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/> </inertial> <visual> <origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/> <geometry> <box size="0.1 0.1 0.5"/> </geometry> <material name="green"/> </visual> <collision> <origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/> <geometry> <box size="0.1 0.1 0.5"/> </geometry> </collision> </link> <link name="link2"> <inertial> <origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/> <mass value="1.0"/> <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/> </inertial> <visual> <origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/> <geometry> <box size="0.1 0.1 0.5"/> </geometry> <material name="orange"/> </visual> <collision> <origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/> <geometry> <box size="0.1 0.1 0.5"/> </geometry> </collision> </link> <link name="link3"> <inertial> <origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0"/> <mass value="1.0"/> <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/> </inertial> <visual> <origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0"/> <geometry> <box size="0.1 0.1 1.0"/> </geometry> <material name="green"/> </visual> <collision> <origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0"/> <geometry> <box size="0.1 0.1 1.0"/> </geometry> </collision> </link> <link name="link4"> <inertial> <origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/> <mass value="1.0"/> <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/> </inertial> <visual> <origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/> <geometry> <box size="0.1 0.1 0.5"/> </geometry> <material name="orange"/> </visual> <collision> <origin xyz="0.0 0.0 0.25" rpy="0.0 0.0 0.0"/> <geometry> <box size="0.1 0.1 0.5"/> </geometry> </collision> </link> <joint name="base_joint" type="fixed"> <parent link="base"/> <child link="link1"/> </joint> <joint name="link1_link2" type="revolute"> <origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0"/> <parent link="link1"/> <child link="link2"/> <axis xyz="0.0 0.0 1.0"/> <limit lower="-2.617" upper="2.617" effort="30.0" velocity="1.571"/> </joint> <joint name="link2_link3" type="revolute"> <origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0"/> <parent link="link2"/> <child link="link3"/> <axis xyz="0.0 1.0 0.0"/> <limit lower="-2.617" upper="2.617" effort="30.0" velocity="1.571"/> </joint> <joint name="link3_link4" type="revolute"> <origin xyz="0.0 0.0 1.0" rpy="0.0 0.0 0.0"/> <parent link="link3"/> <child link="link4"/> <axis xyz="0.0 1.0 0.0"/> <limit lower="-2.617" upper="2.617" effort="30.0" velocity="1.571"/> </joint> </robot> ※ 복붙용 testbot.urdf 코드 모두선택(ctrl+a) 후 복사
 
 주제2.1 기초
 참고
@@ -1177,49 +840,7 @@ testbot.urdf 파일
 
 -  check_urdf 나 urdf_to_graphiz 와 같은 명령어를 통해서 작성한 URDF syntax나 렌더링 된 모습 확인
 -  testbot_description 패키지 폴더로 이동해 testbot.launch.py 파일 생성
-- 런치 파일 생성
-$ cd ~/robot_ws/src/testbot_description
-$ mkdir launch
-$ cd launch
-$ vim testbot.launch.py
-import os
-from ament_index_python.packages import get_package_share_directory
-from launch import LaunchDescription
-from launch_ros.actions import Node
-def generate_launch_description():
-rviz_display_config_file = os.path.join(
-get_package_share_directory('testbot_description'),
-'rviz',
-'testbot.rviz')
-urdf_file = os.path.join(
-get_package_share_directory('testbot_description'),
-'urdf',
-'testbot.urdf')
-with open(urdf_file, 'r') as infp:
-robot_description_file = infp.read()
-ld = LaunchDescription()
-robot_state_publisher = Node(
-package='robot_state_publisher',
-executable='robot_state_publisher',
-parameters=[
-{'use_sim_time': False},
-{'robot_description': robot_description_file}
-],output='screen')
-joint_state_publisher_gui = Node(
-package='joint_state_publisher_gui',
-executable='joint_state_publisher_gui',
-output='screen')
-rviz2 = Node(
-package='rviz2',
-executable='rviz2',
-arguments=['-d', rviz_display_config_file],
-output='screen')
-ld.add_action(robot_state_publisher)
-ld.add_action(joint_state_publisher_gui)
-ld.add_action(rviz2)
-return ld
-※ 복붙용 testbot.launch.py 코드
-모두선택(ctrl+a) 후 복사
+- 런치 파일 생성 $ cd ~/robot_ws/src/testbot_description $ mkdir launch $ cd launch $ vim testbot.launch.py import os from ament_index_python.packages import get_package_share_directory from launch import LaunchDescription from launch_ros.actions import Node def generate_launch_description(): rviz_display_config_file = os.path.join( get_package_share_directory('testbot_description'), 'rviz', 'testbot.rviz') urdf_file = os.path.join( get_package_share_directory('testbot_description'), 'urdf', 'testbot.urdf') with open(urdf_file, 'r') as infp: robot_description_file = infp.read() ld = LaunchDescription() robot_state_publisher = Node( package='robot_state_publisher', executable='robot_state_publisher', parameters=[ {'use_sim_time': False}, {'robot_description': robot_description_file} ],output='screen') joint_state_publisher_gui = Node( package='joint_state_publisher_gui', executable='joint_state_publisher_gui', output='screen') rviz2 = Node( package='rviz2', executable='rviz2', arguments=['-d', rviz_display_config_file], output='screen') ld.add_action(robot_state_publisher) ld.add_action(joint_state_publisher_gui) ld.add_action(rviz2) return ld ※ 복붙용 testbot.launch.py 코드 모두선택(ctrl+a) 후 복사
 
 주제2.1 기초
 참고
@@ -1415,157 +1036,7 @@ $ mkdir urdf launch config world
 3. package.xml 파일 편집
 
 - ROS 2 빌드 시스템과 패키지 관리자에게 필요한 모든 정보를 제공
-   - 패키지 간의 의존성을 해결하고, 빌드 순서를 결정하며, 패키지에 대한 메타데이터를 제공
--빌드 의존성: <build_depend>
--실행 의존성: <exec_depend>
--빌드 및 실행 의존성: <depend>
-src/car_tutorial/package.xml
-자동차연동시뮬레이션
-참고
-패키지메타데이터종속성정의
-Python의 setuptools를 사용하여 패키지의 메타데이터와 종속성 정의
-src/car_tutorial/setup.py
--패키지 정보 정의
--이름, 버전, 설명 등의 메타데이터를 지정
--종속성 선언
--패키지가 필요로 하는 다른 ROS 2 패키지나 Python 라이브러리를 명시
--설치 대상 지정
--실행 파일, Python 모듈, 데이터 파일 등 패키지에 포함될 항목들을 정의
--빌드 설정
--컴파일이 필요한 경우 빌드 프로세스를 구성
-이 파일은 colcon 빌드 시스템에 의해 사용되어 패키지를 올바르게 빌드하고 설치
-ROS 2 개발에서 setup.py는 package.xml과 함께 패키지 구성의 핵심 요소
-자동차연동시뮬레이션
-참고
-자동차모델링
-src/car_tutorial/urdf/car.xacro
-<?xml version="1.0"?>
-<robot
-xmlns:xacro="http://www.ros.org/wiki/xacro"
-name="urdf_tutorial">
-    <!-- COLOR -->
-    <material name="white">
-        <color rgba="1 1 1 1" />
-    </material>
-    <material name="blue">
-        <color rgba="0 0 1 1"/>
-    </material>
-    <material name="black">
-        <color rgba="0 0 0 1"/>
-    </material>
-    <material name="red">
-        <color rgba="1 0 0 1"/>
-    </material>
-    <!-- BASE LINK -->
-    <link name="base_link">
-    </link>
-<!-- LEFT WHEEL LINK -->
-    <joint name="left_wheel_joint" type="continuous">
-        <parent link="base_link"/>
-        <child link="left_wheel"/>
-        <origin xyz="0 0.065 0" rpy="-${pi/2} 0 0" />
-        <axis xyz="0 0 1"/>
-    </joint>
-    <link name="left_wheel">
-        <visual>
-            <geometry>
-                <cylinder radius="0.03" length="0.03"/>
-            </geometry>
-            <material name="blue"/>
-        </visual>
-        <collision>
-            <geometry>
-                <cylinder radius="0.03" length="0.03"/>
-            </geometry>
-        </collision>
-    </link>
-    <!-- RIGHT WHEEL LINK -->
-    <joint name="right_wheel_joint" type="continuous">
-        <parent link="base_link"/>
-        <child link="right_wheel"/>
-        <origin xyz="0 -0.065 0" rpy="${pi/2} 0 0" />
-        <axis xyz="0 0 -1"/>
-    </joint>
-    <link name="right_wheel">
-        <visual>
-            <geometry>
-                <cylinder radius="0.03" length="0.03"/>
-            </geometry>
-            <material name="blue"/>
-        </visual>
-        <collision>
-            <geometry>
-                <cylinder radius="0.03" length="0.03"/>
-            </geometry>
-        </collision>
-    </link>
-    <!-- BODY LINK -->
-    <joint name="body_joint" type="fixed">
-        <parent link="base_link"/>
-        <child link="body"/>
-        <origin xyz="-0.12 0 0"/>
-    </joint>
-    <link name="body">
-        <visual>
-            <origin xyz="0.1 0 0.03"/>
-            <geometry>
-                <box size="0.2 0.1 0.06"/>
-            </geometry>
-            <material name="white"/>
-        </visual>
-        <collision>
-            <origin xyz="0.1 0 0.03"/>
-            <geometry>
-                <box size="0.2 0.1 0.06"/>
-            </geometry>
-        </collision>
-    </link>
-<!-- CASTER WHEEL LINK -->
-    <joint name="caster_wheel_joint" type="fixed">
-        <parent link="body"/>
-        <child link="caster_wheel"/>
-        <origin xyz="0.03 0 0"/>
-    </joint>
-    <link name="caster_wheel">
-        <visual>
-            <geometry>
-                <sphere radius="0.03"/>
-            </geometry>
-            <material name="black"/>
-        </visual>
-        <collision>
-            <geometry>
-                <sphere radius="0.03"/>
-            </geometry>
-        </collision>
-    </link>
-<!-- CAMERA -->
-    <joint name="camera_joint" type="fixed">
-        <parent link="body"/>
-        <child link="camera_link"/>
-        <origin xyz="0.20 0 0.03" rpy="0 0 0"/>
-    </joint>
-    <link name="camera_link">
-        <visual>
-            <geometry>
-                <box size="0.01 0.03 0.03"/>
-            </geometry>
-            <material name="red"/>
-        </visual>
-        <collision>
-            <geometry>
-                <box size="0.01 0.03 0.03"/>
-            </geometry>
-        </collision>
-    </link>
-    <joint name="camera_optical_joint" type="fixed">
-        <parent link="camera_link"/>
-        <child link="camera_link_optical"/>
-        <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
-    </joint>
-    <link name="camera_link_optical">
-    </link>
-</robot>
+- 패키지 간의 의존성을 해결하고, 빌드 순서를 결정하며, 패키지에 대한 메타데이터를 제공 •빌드 의존성: <build_depend> •실행 의존성: <exec_depend> •빌드 및 실행 의존성: <depend> src/car_tutorial/package.xml 자동차연동시뮬레이션 참고 패키지메타데이터종속성정의 Python의 setuptools를 사용하여 패키지의 메타데이터와 종속성 정의 src/car_tutorial/setup.py •패키지 정보 정의 •이름, 버전, 설명 등의 메타데이터를 지정 •종속성 선언 •패키지가 필요로 하는 다른 ROS 2 패키지나 Python 라이브러리를 명시 •설치 대상 지정 •실행 파일, Python 모듈, 데이터 파일 등 패키지에 포함될 항목들을 정의 •빌드 설정 •컴파일이 필요한 경우 빌드 프로세스를 구성 이 파일은 colcon 빌드 시스템에 의해 사용되어 패키지를 올바르게 빌드하고 설치 ROS 2 개발에서 setup.py는 package.xml과 함께 패키지 구성의 핵심 요소 자동차연동시뮬레이션 참고 자동차모델링 src/car_tutorial/urdf/car.xacro <?xml version="1.0"?> <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="urdf_tutorial"> <!-- COLOR --> <material name="white"> <color rgba="1 1 1 1" /> </material> <material name="blue"> <color rgba="0 0 1 1"/> </material> <material name="black"> <color rgba="0 0 0 1"/> </material> <material name="red"> <color rgba="1 0 0 1"/> </material> <!-- BASE LINK --> <link name="base_link"> </link> <!-- LEFT WHEEL LINK --> <joint name="left_wheel_joint" type="continuous"> <parent link="base_link"/> <child link="left_wheel"/> <origin xyz="0 0.065 0" rpy="-${pi/2} 0 0" /> <axis xyz="0 0 1"/> </joint> <link name="left_wheel"> <visual> <geometry> <cylinder radius="0.03" length="0.03"/> </geometry> <material name="blue"/> </visual> <collision> <geometry> <cylinder radius="0.03" length="0.03"/> </geometry> </collision> </link> <!-- RIGHT WHEEL LINK --> <joint name="right_wheel_joint" type="continuous"> <parent link="base_link"/> <child link="right_wheel"/> <origin xyz="0 -0.065 0" rpy="${pi/2} 0 0" /> <axis xyz="0 0 -1"/> </joint> <link name="right_wheel"> <visual> <geometry> <cylinder radius="0.03" length="0.03"/> </geometry> <material name="blue"/> </visual> <collision> <geometry> <cylinder radius="0.03" length="0.03"/> </geometry> </collision> </link> <!-- BODY LINK --> <joint name="body_joint" type="fixed"> <parent link="base_link"/> <child link="body"/> <origin xyz="-0.12 0 0"/> </joint> <link name="body"> <visual> <origin xyz="0.1 0 0.03"/> <geometry> <box size="0.2 0.1 0.06"/> </geometry> <material name="white"/> </visual> <collision> <origin xyz="0.1 0 0.03"/> <geometry> <box size="0.2 0.1 0.06"/> </geometry> </collision> </link> <!-- CASTER WHEEL LINK --> <joint name="caster_wheel_joint" type="fixed"> <parent link="body"/> <child link="caster_wheel"/> <origin xyz="0.03 0 0"/> </joint> <link name="caster_wheel"> <visual> <geometry> <sphere radius="0.03"/> </geometry> <material name="black"/> </visual> <collision> <geometry> <sphere radius="0.03"/> </geometry> </collision> </link> <!-- CAMERA --> <joint name="camera_joint" type="fixed"> <parent link="body"/> <child link="camera_link"/> <origin xyz="0.20 0 0.03" rpy="0 0 0"/> </joint> <link name="camera_link"> <visual> <geometry> <box size="0.01 0.03 0.03"/> </geometry> <material name="red"/> </visual> <collision> <geometry> <box size="0.01 0.03 0.03"/> </geometry> </collision> </link> <joint name="camera_optical_joint" type="fixed"> <parent link="camera_link"/> <child link="camera_link_optical"/> <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/> </joint> <link name="camera_link_optical"> </link> </robot>
 
 자동차연동시뮬레이션
 참고
@@ -1646,14 +1117,11 @@ $ cd ~/ws_car/
 $ colcon build --symlink-install
 $ source install/setup.bash
 $ ros2 launch car_tutorial fake.launch.py
--
-RobotModel의 'Description Topic'을 '/robot_description'으로 설정하면 아래와 같이 모델이 보임.
--
- 'Status' Error가 발생하는데 이유
+- RobotModel의 'Description Topic'을 '/robot_description'으로 설정하면 아래와 같이 모델이 보임.
+- 'Status' Error가 발생하는데 이유
 
 - 두 개의 Joint (left_wheel_joint, right_wheel_joint)에 대한 /joint_states Topic을 수신하지 못했기 때문.
-- 새로운 창에서 joint_state_publisher_gui 수행
-$ ros2 run joint_state_publisher_gui joint_state_publisher_gui
+- 새로운 창에서 joint_state_publisher_gui 수행 $ ros2 run joint_state_publisher_gui joint_state_publisher_gui
 
 ![Image 135](../../assets/images/ros/projects/rviz2/img_068_135.webp)
 
@@ -1663,10 +1131,8 @@ $ ros2 run joint_state_publisher_gui joint_state_publisher_gui
 자동차연동시뮬레이션
 참고
 이미지보기와설정저장
--
- 'Add' 버튼을 누른 후 뜨는 팝업에서 Image를 선택 후 'Ok' 버튼을 눌러 Image를 추가
--
-메뉴에서 File >> Save Config As를 선택 후 뜨는 팝업에서 현재 설정 'src/car_tutorial/config/car.rviz’에 저장
+- 'Add' 버튼을 누른 후 뜨는 팝업에서 Image를 선택 후 'Ok' 버튼을 눌러 Image를 추가
+- 메뉴에서 File >> Save Config As를 선택 후 뜨는 팝업에서 현재 설정 'src/car_tutorial/config/car.rviz’에 저장
 
 ![Image 140](../../assets/images/ros/projects/rviz2/img_069_140.webp)
 
@@ -1681,13 +1147,9 @@ SLAM
 
 1. ROS에 자동차를 제어하고 Rviz로 확인하기 위한 최소의 컨트롤러 구성 요소
 
- - Keyboard Controller: 자동차의 방향/속도를 제어하는 명령을 Topic 퍼블리쉬
-- Real Driver: 자동차에 방향/속도를 제어하는 명령을 보내고 실제 자동차의 방향/속도의 측정값 퍼블리쉬
-카메라 화면 정보를 수신해서 Topic 퍼블리쉬
-
-- Odometry: 자동차의 방향/속도의 측정값을 이용 실제 자동차의 위치를 계산 오돔데이터와 TF 퍼블리쉬
-실제 자동차
-가상 자동차
+- Keyboard Controller: 자동차의 방향/속도를 제어하는 명령을 Topic 퍼블리쉬
+- Real Driver: 자동차에 방향/속도를 제어하는 명령을 보내고 실제 자동차의 방향/속도의 측정값 퍼블리쉬 카메라 화면 정보를 수신해서 Topic 퍼블리쉬
+- Odometry: 자동차의 방향/속도의 측정값을 이용 실제 자동차의 위치를 계산 오돔데이터와 TF 퍼블리쉬 실제 자동차 가상 자동차
 
 ![Image 143](../../assets/images/ros/projects/rviz2/img_071_143.webp)
 
@@ -1752,20 +1214,8 @@ if __name__ == '__main__':
 
 3. Rviz2 변화의 시각화
 
-- RViz2 자체는 시뮬레이터가 아니라 시각화 도구이지만, 차동 이동 로봇의 움직임을 시각화 가능
-RViz2 설정
-
-- RViz2를 실행하고 다음 디스플레이들을 추가
--
-RobotModel (로봇 시각화)
--
-TF (좌표 프레임 관계)
--
-Odometry (로봇의 이동 경로)
-실행
-1.런치 파일 실행: ros2 launch car_tutorial your_launch_file.py
-2.차동 구동 컨트롤러 실행: ros2 run car_tutorial diff_drive_controller
-3.Teleop 실행 (선택사항): ros2 run teleop_keyboard
+- RViz2 자체는 시뮬레이터가 아니라 시각화 도구이지만, 차동 이동 로봇의 움직임을 시각화 가능 RViz2 설정
+- RViz2를 실행하고 다음 디스플레이들을 추가 • RobotModel (로봇 시각화) • TF (좌표 프레임 관계) • Odometry (로봇의 이동 경로) 실행 1.런치 파일 실행: ros2 launch car_tutorial your_launch_file.py 2.차동 구동 컨트롤러 실행: ros2 run car_tutorial diff_drive_controller 3.Teleop 실행 (선택사항): ros2 run teleop_keyboard
 
 자동차연동시뮬레이션
 참고
@@ -1773,18 +1223,10 @@ Odometry (로봇의 이동 경로)
 -물리 시뮬레이션
 
 - 더 정확한 시뮬레이션을 위해서는 Gazebo와 같은 물리 엔진을 사용하는 것권장
-- Gazebo는 ROS2와 통합되어 있어 RViz2와 함께 사용.
--센서 시뮬레이션
-
-- 실제 로봇에 장착된 센서들(예: 라이다, 카메라 등)을 시뮬레이션하려면 추가적인 노드나 Gazebo 플러그인이 필요.
--제어 알고리즘
-
-- 실제 로봇 제어에 사용될 알고리즘(예: PID 제어, 장애물 회피 등)을 구현하고 테스트.
--네비게이션
-
-- ROS2의 nav2 패키지를 사용하여 자율 주행 기능을 구현하고 테스트.
--매핑
-
+- Gazebo는 ROS2와 통합되어 있어 RViz2와 함께 사용. •센서 시뮬레이션
+- 실제 로봇에 장착된 센서들(예: 라이다, 카메라 등)을 시뮬레이션하려면 추가적인 노드나 Gazebo 플러그인이 필요. •제어 알고리즘
+- 실제 로봇 제어에 사용될 알고리즘(예: PID 제어, 장애물 회피 등)을 구현하고 테스트. •네비게이션
+- ROS2의 nav2 패키지를 사용하여 자율 주행 기능을 구현하고 테스트. •매핑
 - SLAM (Simultaneous Localization and Mapping) 알고리즘을 구현하여 로봇이 환경 맵을 생성하는 과정을 시뮬레이션.
 
 4. 가제보(gazebo) 시각화
@@ -2105,11 +1547,7 @@ RQT
 SLAM과 RViz2
 
 - 로봇의 자율주행을 위해 SLAM을 사용하는 경우, RViz2에서 SLAM이 생성하는 실시간 지도를 확인
-- ROS2에서는 주로 nav2 패키지와 함께 사용되며, RViz2에서 로봇의 위치와 생성된 지도를 동시에 시각화
-1.Map Displays 항목을 추가.
-2.SLAM 알고리즘이 퍼블리시하는 map 토픽을 설정.
-3.로봇이 탐색한 영역이 지도 형태로 나타남.
-SLAM (Simultaneous Localization and Mapping)
+- ROS2에서는 주로 nav2 패키지와 함께 사용되며, RViz2에서 로봇의 위치와 생성된 지도를 동시에 시각화 1.Map Displays 항목을 추가. 2.SLAM 알고리즘이 퍼블리시하는 map 토픽을 설정. 3.로봇이 탐색한 영역이 지도 형태로 나타남. SLAM (Simultaneous Localization and Mapping)
 
 1. SLAM 지도 시각화
 
@@ -2121,11 +1559,8 @@ RQT
 
 - GPS : 오차,날씨,실외 등의 문제점
 - 해결책(절대위치): IPS(indoor positioning sensor): landmark, indoor gps, wifi slam, beacon
--
-추측항법(상대위치): 양 바퀴 축의 회전 값 이용/ 이동거리와 회전 값 이용해 위치 측정
--
-IMU(관성센서, 필터))로 위치 보상
- -> 필요정보: 양 바퀴 축의 엔코더 값, 바퀴 간 거리, 바퀴반지름 이용하여 식에 대입
+- 추측항법(상대위치): 양 바퀴 축의 회전 값 이용/ 이동거리와 회전 값 이용해 위치 측정
+- IMU(관성센서, 필터))로 위치 보상 -> 필요정보: 양 바퀴 축의 엔코더 값, 바퀴 간 거리, 바퀴반지름 이용하여 식에 대입
 
 2. 센싱: 벽, 물체 등의 장애물의 계측하는 기능
 
@@ -2169,10 +1604,7 @@ RQT
 즉, 지도를 위치영역 기반이 아닌 속도영역으로 바꿈
 평가 기준
 
-- 각 속도 조합은 다음 세 가지 주요 기준으로 평가
-1.목표 도달성 (목표 지점에 가까워지는 정도)
-2.장애물 회피 (장애물로부터 안전한 거리 유지)
-3.속도 프로파일 (로봇의 운동학적 제약 고려)
+- 각 속도 조합은 다음 세 가지 주요 기준으로 평가 1.목표 도달성 (목표 지점에 가까워지는 정도) 2.장애물 회피 (장애물로부터 안전한 거리 유지) 3.속도 프로파일 (로봇의 운동학적 제약 고려)
 
 ![Image 177](../../assets/images/ros/projects/rviz2/img_092_177.webp)
 

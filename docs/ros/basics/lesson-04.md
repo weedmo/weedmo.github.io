@@ -12,30 +12,22 @@ ROS2 기초-4차시
 - 리눅스와운영체계
 - 리눅스CLI 실습(디렉토리, 계정, 기본명령어등), Terminator, 커널, 쉘, gedit, bash
 - Application 작동원리(마이크로프로세서, 메모리, 저장장치)
-- 리눅스 CLI 실습
-2차시
-
+- 리눅스 CLI 실습 2차시
 - 리눅스 CLI 실습
 - 네트워크와통신(IPV4, IPV6, 소켓, 노드, Hub, TCP, UDP)
 - API, Library, Framework, 프로세스와Thread
 - 인터프리터, 컴파일러(소스코드→ Build → 실행파일)
 - 소켓프로그래밍실습
-- OSI7 Layer, 프로토콜(RS-232C, RS-485, Ethernet, TCP/UDP, IP)
-3차시
-
+- OSI7 Layer, 프로토콜(RS-232C, RS-485, Ethernet, TCP/UDP, IP) 3차시
 - 센서 기초, IoT와Embedded
 - 로봇기초, 좌표계
 - 로봇센서활용및로봇의 구성(기계기구, 전기전자, 소프트웨어)
 - ROS2 소개및활용
-- ROS2 설치(ros.org) 및demo_node
-4차시
-
+- ROS2 설치(ros.org) 및demo_node 4차시
 - ROS2 소개및활용
 - ROS2 실습(Talker, Listener)
 - ROS2 패키지설명
-- ROS2 실습(Turtlesim, teleop_key)
-5차시
-
+- ROS2 실습(Turtlesim, teleop_key) 5차시
 - ROS2 실습(Turtlesim, Teleop_key 여러개만들기)
 - Topic, Service, Action, Parameter, RQT, RQT_Graph 이론및실습
 - ROS2 실습(Turtlesim, Namespace 여러개만들기)
@@ -83,22 +75,10 @@ ROS 소개및활용
 ●
 OS
 
-- Ubuntu 22.04 (Jammy Jellyfish)
-●
-ROS
-
-- ROS 2 Humble
-●
-에디터
-
-- Visual Studio Code, gedit
-●
-설치매뉴얼
-
-- ROS 2 Installation (Humble)
-●
-환경설정및간단튜토리얼
-
+- Ubuntu 22.04 (Jammy Jellyfish) ● ROS
+- ROS 2 Humble ● 에디터
+- Visual Studio Code, gedit ● 설치매뉴얼
+- ROS 2 Installation (Humble) ● 환경설정및간단튜토리얼
 - ROS 2 Configuring environment
 - ROS 2 Turtlesim Tutorial
 
@@ -132,9 +112,7 @@ ROS 소개및활용
 - 2015.08.31 - ROS 2 Alpha1 (code name Anchor)
 - ROS Noetic Ninjemys
 - Released May, 2020
-- LTS, supported until May, 2025
-ROS 2 Jazzy Jalisco
-[출처] https://github.com/ros-infrastructure/artwork/tree/master/distributions
+- LTS, supported until May, 2025 ROS 2 Jazzy Jalisco [출처] https://github.com/ros-infrastructure/artwork/tree/master/distributions
 
 ![Image 18](../../assets/images/ros/basics/lesson-04/img_011_018.webp)
 
@@ -182,24 +160,16 @@ ROS 구성요소
 마스터
 
 - 노드와노드사이연결및메시지통신의네임서버역할
-- Roscore로실행이되며, URI 주소는기본적으로는현재의로컬IP 사용
-노드
-
+- Roscore로실행이되며, URI 주소는기본적으로는현재의로컬IP 사용 노드
 - ROS에서실행되는최소단위의프로세스를말함
 - ROS에서는하나의목적에하나의노드작성을권장함
-- 노드가구동될때, 노드의역할(토리그서비스등), 메시지형태등이등록됨
-패키지
-
+- 노드가구동될때, 노드의역할(토리그서비스등), 메시지형태등이등록됨 패키지
 - ROS를구성하는기본단위
-- ROS 응용프로그램은패키지단위로개발되며최소한하나의노드를가짐
-메시지
-
+- ROS 응용프로그램은패키지단위로개발되며최소한하나의노드를가짐 메시지
 - 노드와노드는서로메시지를통해서데이터를주고받음
 - 메시지는integer, float, Boolean 등의변수형태임
 - 메시지 안에메시지를품는데이터구조가가능
-- 단방향은토픽(topic), 양방향은서비스(service)
-토픽
-
+- 단방향은토픽(topic), 양방향은서비스(service) 토픽
 - 토픽은ROS의노드사이의데이터통신의한종류
 - 단방향통신으로, 데이터를메시지에담아서방송을함
 - 방송을하는퍼블리셔(publisher)와수신을하는서브스크라이버(subscriber)로 구성됨
@@ -216,10 +186,8 @@ ROS2
 불안정한네트워크환경에서도동작할수있는유연함
 단일플랫폼(Linux)
 멀티플랫폼(Linux, Windows, MacOS)
--
-최신기술지원(Zeroconf, Protocon Buffers, ZeroMQ, WedSockets, DDS등)
-주로대학이나연구소등의아카데믹연구용도
-상업용제품지원
+
+- 최신기술지원(Zeroconf, Protocon Buffers, ZeroMQ, WedSockets, DDS등) 주로대학이나연구소등의아카데믹연구용도 상업용제품지원
 
 
 ROS 소개및활용
@@ -313,8 +281,7 @@ Willow Garage사가개인서비스로봇인PR2개발에필요한미들웨어형�
 - Linux 환경
 - 실시간제어지원하지않음
 - 안정된네트워크환경이요구됨
-- 주로대학이나연구소와같은아카데믹연구용도
-ROS1과ROS2의차이점
+- 주로대학이나연구소와같은아카데믹연구용도 ROS1과ROS2의차이점
 
 
 ROS 소개및활용
@@ -334,12 +301,7 @@ ROS 소개및활용
 - 불안정한네트워크환경에서도동작할수있는유연함
 - 멀티플랫폼(Linux, Windows, macOS)
 - 최신기술지원(Zeroconf, Protocol Buffers, ZeroMQ, WebSockets, DDS 등)
-- 상업용제품지원
-ROS 1에서이러한새롭게요구되는기능을제공하려면대규모API의변경이필요하다. 그러나기존의ROS 1과의호환성을유지하면서수많은새로운
-기능을추가하는것은쉽지않았다. 또한, 기존의ROS 1을문제없이이용하고있는사용자에게는큰API의변경은바람직하지않다.
-그래서ROS의차세대기능을도입한버전을ROS 2라고, ROS 1에서분리하여개발하게된것이다. 기존의ROS 1 사용자는필요하다면그대로ROS 1을
-이용할수있다. 한편, 새로운기능이필요한사용자는ROS 2를선택하면된다. 또한, ROS 1과ROS 2 사이에서서로메시지통신이가능한브리지프로그램
-(ros1_bridge) 제공되므로두버전모두를함께사용하는것도가능하다.
+- 상업용제품지원 ROS 1에서이러한새롭게요구되는기능을제공하려면대규모API의변경이필요하다. 그러나기존의ROS 1과의호환성을유지하면서수많은새로운 기능을추가하는것은쉽지않았다. 또한, 기존의ROS 1을문제없이이용하고있는사용자에게는큰API의변경은바람직하지않다. 그래서ROS의차세대기능을도입한버전을ROS 2라고, ROS 1에서분리하여개발하게된것이다. 기존의ROS 1 사용자는필요하다면그대로ROS 1을 이용할수있다. 한편, 새로운기능이필요한사용자는ROS 2를선택하면된다. 또한, ROS 1과ROS 2 사이에서서로메시지통신이가능한브리지프로그램 (ros1_bridge) 제공되므로두버전모두를함께사용하는것도가능하다.
 
 
 ROS 소개및활용
@@ -477,17 +439,7 @@ ROS는수많은소스코드공여자로부터만들어가는코드의집합이�
 Mercurial, Subversion, Bazaar 등다양하다.
 
 - ROS 1: rosws → wstool, rosinstall (*.rosinstall)
-- ROS 2: vcstool (*.repos)
-ROS 커뮤니티에서는이러한다양한리포지토리와혼재된버전관리시스템을사용하더라도ROS를사용함에있어서불편함이없도록통합적인툴이
-필요했다. ROS 1에서는처음에rosws이라는툴에서wstool을이용하였다가최근ROS 2에서는vcstool으로통합하였다.
-현재ROS 1에서도vcstool를사용하고있는상황이다. vcstool은여러리포지토리작업을보다쉽게관리할수있도록설계된버전관리시스템(VCS) 툴이다.
-이툴은ROS 2를소스코드로부터설치해본사람이라면자신도모르게사용했을것이다. 아래의명령어2줄을살펴보자. 우선wget을통하여
-ros2.repos라는파일을받게되는데이파일에는vcs 타입은무었이고, 리포지토리주소는어떻게되며, 설치해야하는브랜치는어떤것인지가명시된
-파일이다. 이러한정보가기재된*.repos 파일을이용하여다양한리포지토리, 다양한vcs를지원하며패키지들을관리할수있도록하는것을의미한다.
-특히ROS 2에서는기존vcs 툴을통폐합하여vcstool 이라는이름으로제공되어사용에매우편리하게되었다. 자세한사용법은README 파일을
-참고하도록하자.
-wget https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos
-vcs import src < ros2.repos
+- ROS 2: vcstool (*.repos) ROS 커뮤니티에서는이러한다양한리포지토리와혼재된버전관리시스템을사용하더라도ROS를사용함에있어서불편함이없도록통합적인툴이 필요했다. ROS 1에서는처음에rosws이라는툴에서wstool을이용하였다가최근ROS 2에서는vcstool으로통합하였다. 현재ROS 1에서도vcstool를사용하고있는상황이다. vcstool은여러리포지토리작업을보다쉽게관리할수있도록설계된버전관리시스템(VCS) 툴이다. 이툴은ROS 2를소스코드로부터설치해본사람이라면자신도모르게사용했을것이다. 아래의명령어2줄을살펴보자. 우선wget을통하여 ros2.repos라는파일을받게되는데이파일에는vcs 타입은무었이고, 리포지토리주소는어떻게되며, 설치해야하는브랜치는어떤것인지가명시된 파일이다. 이러한정보가기재된*.repos 파일을이용하여다양한리포지토리, 다양한vcs를지원하며패키지들을관리할수있도록하는것을의미한다. 특히ROS 2에서는기존vcs 툴을통폐합하여vcstool 이라는이름으로제공되어사용에매우편리하게되었다. 자세한사용법은README 파일을 참고하도록하자. wget https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos vcs import src < ros2.repos
 
 
 ROS 소개및활용
@@ -587,9 +539,7 @@ BOSCH, ROBOTIS, FIWARE, Amazon, Renesas 등에서다음참고자료와같이다�
 임베디드환경에서DDS 및ROS 메시지통신등에관심있는사람은아래참고자료를참고하도록하자.
 
 - ROS 1: rosserial, mROS
-- ROS 2: micro-ROS, XEL Network, ros2arduino, Renesas, DDS-XRCE(Micro-XRCE-DDS), AWS ARCLM
-[참고자료]
-
+- ROS 2: micro-ROS, XEL Network, ros2arduino, Renesas, DDS-XRCE(Micro-XRCE-DDS), AWS ARCLM [참고자료]
 - https://micro-ros.github.io/
 - http://xelnetwork.robotis.com/
 - https://github.com/ROBOTIS-GIT/ros2arduino

@@ -11,8 +11,7 @@ ROS2 프로그래밍입문(4차시)
 Python을이용한패키지생성실습
 
 ## Python을이용한행맨게임_실습
--
-Topic, Service, Action을이용하여행맨(Hang-man) 게임만들기
+- Topic, Service, Action을이용하여행맨(Hang-man) 게임만들기
 
 
 Hang-man - 실습
@@ -52,8 +51,7 @@ request
 Hang-man - 실습
 
 ## Letter Publisher
--
-a부터z까지의알파벳을순서대로publish
+- a부터z까지의알파벳을순서대로publish
 
 ![Image 10](../../assets/images/ros/intro/lesson-04/img_006_010.webp)
 
@@ -61,31 +59,22 @@ a부터z까지의알파벳을순서대로publish
 Hang-man - 실습
 
 ## Word Service
--
-임의의단어를선택, 행맨게임진행, 진행상황publish
-Hang-man - 실습
+- 임의의단어를선택, 행맨게임진행, 진행상황publish Hang-man - 실습
 
 ## Action Client
--
-Goal 설정, action server와의상호작용을통해행맨게임진행상태업데이트
-Hang-man - 실습
+- Goal 설정, action server와의상호작용을통해행맨게임진행상태업데이트 Hang-man - 실습
 
 ## Action Server
--
-사용자의진행상황을관리, 임의진행상태를추적, 게임결과를클라이언트에게전달
+- 사용자의진행상황을관리, 임의진행상태를추적, 게임결과를클라이언트에게전달 Hang-man - 실습
+
+## 코드구조
+- 패키지생성
+
 Hang-man - 실습
 
 ## 코드구조
--
-패키지생성
-
-Hang-man - 실습
-
-## 코드구조
--
-전체코드의구조는다음과같음
--
-일부파일은지금부터생성예정
+- 전체코드의구조는다음과같음
+- 일부파일은지금부터생성예정
 
 ![Image 22](../../assets/images/ros/intro/lesson-04/img_011_022.webp)
 
@@ -93,28 +82,17 @@ Hang-man - 실습
 Hang-man - 실습
 
 ## hangman_interfaces
--
-hangman_interfaces/srv/CheckLetter.srv
--
-updated_word_state: 현재상태ex) p y _ _ o n
--
-is_correct : 현재user input으로들어온글자가선택된단어내에존재하는지에대한
-bool 타입자료형
--
-message : 맞았으면“Correct”를띄우고틀리면“WRONG”을띄움
-Hang-man - 실습
+- hangman_interfaces/srv/CheckLetter.srv
+- updated_word_state: 현재상태ex) p y _ _ o n
+- is_correct : 현재user input으로들어온글자가선택된단어내에존재하는지에대한 bool 타입자료형
+- message : 맞았으면“Correct”를띄우고틀리면“WRONG”을띄움 Hang-man - 실습
 
 ## hangman_interfaces
--
-hangman_interfaces/msg/Progress.msg
--
-current_state : 현재상태ex) p y _ _ o n
--
-attempts_left : 목숨(남은시도횟수)
--
-game_over : 목숨이다소진되었는지
--
-won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
+- hangman_interfaces/msg/Progress.msg
+- current_state : 현재상태ex) p y _ _ o n
+- attempts_left : 목숨(남은시도횟수)
+- game_over : 목숨이다소진되었는지
+- won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 
 ![Image 26](../../assets/images/ros/intro/lesson-04/img_013_026.webp)
 
@@ -122,18 +100,12 @@ won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 Hang-man - 실습
 
 ## hangman_interfaces
--
-hangman_interfaces/action/GameProgress.action
--
-game_over : 목숨이다소진되었는지
--
-won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
-Hang-man - 실습
+- hangman_interfaces/action/GameProgress.action
+- game_over : 목숨이다소진되었는지
+- won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지) Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/letter
-_publisher.py의전체코드
+- hangman_game/hangman_game/letter _publisher.py의전체코드
 
 
 ![Image 29](../../assets/images/ros/intro/lesson-04/img_015_029.webp)
@@ -142,18 +114,14 @@ _publisher.py의전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/letter_publisher.py 모듈별설명
--
-__init__함수: Node 클래스를상속받아LetterPublisher 클래스를정의하고필요한퍼블리셔와타이머를설정
+- hangman_game/hangman_game/letter_publisher.py 모듈별설명
+- __init__함수: Node 클래스를상속받아LetterPublisher 클래스를정의하고필요한퍼블리셔와타이머를설정
 
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/letter_publisher.py 모듈별설명
--
-publish_letter 함수: 현재알파벳문자를letter_topic 토픽에퍼블리시하는함수
+- hangman_game/hangman_game/letter_publisher.py 모듈별설명
+- publish_letter 함수: 현재알파벳문자를letter_topic 토픽에퍼블리시하는함수
 
 
 ![Image 31](../../assets/images/ros/intro/lesson-04/img_017_031.webp)
@@ -162,10 +130,8 @@ publish_letter 함수: 현재알파벳문자를letter_topic 토픽에퍼블리�
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/letter_publisher.py 모듈별설명
--
-main 함수: ROS2 시스템을초기화하고, LetterPublisher 노드를실행
+- hangman_game/hangman_game/letter_publisher.py 모듈별설명
+- main 함수: ROS2 시스템을초기화하고, LetterPublisher 노드를실행
 
 
 ![Image 32](../../assets/images/ros/intro/lesson-04/img_018_032.webp)
@@ -174,9 +140,7 @@ main 함수: ROS2 시스템을초기화하고, LetterPublisher 노드를실행
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/word
-_service.py의전체코드
+- hangman_game/hangman_game/word _service.py의전체코드
 
 
 ![Image 33](../../assets/images/ros/intro/lesson-04/img_019_033.webp)
@@ -185,9 +149,7 @@ _service.py의전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/word
-_service.py의전체코드
+- hangman_game/hangman_game/word _service.py의전체코드
 
 
 ![Image 34](../../assets/images/ros/intro/lesson-04/img_020_034.webp)
@@ -196,9 +158,7 @@ _service.py의전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/word
-_service.py의전체코드
+- hangman_game/hangman_game/word _service.py의전체코드
 
 
 ![Image 35](../../assets/images/ros/intro/lesson-04/img_021_035.webp)
@@ -207,11 +167,8 @@ _service.py의전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/word_service.py 모듈별설명
--
-__init__함수: ROS2의Node 클래스를상속받아WordService라는이름의노드를정의후내부에
-서비스서버와퍼블리셔, 서브스크라이버를정의
+- hangman_game/hangman_game/word_service.py 모듈별설명
+- __init__함수: ROS2의Node 클래스를상속받아WordService라는이름의노드를정의후내부에 서비스서버와퍼블리셔, 서브스크라이버를정의
 
 
 ![Image 36](../../assets/images/ros/intro/lesson-04/img_022_036.webp)
@@ -220,10 +177,8 @@ __init__함수: ROS2의Node 클래스를상속받아WordService라는이름의�
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/word_service.py 모듈별설명
--
-letter_callback함수: letter_topic 토픽에서수신된메시지를처리하여self.current_letter에저장
+- hangman_game/hangman_game/word_service.py 모듈별설명
+- letter_callback함수: letter_topic 토픽에서수신된메시지를처리하여self.current_letter에저장
 
 
 ![Image 37](../../assets/images/ros/intro/lesson-04/img_023_037.webp)
@@ -232,15 +187,8 @@ letter_callback함수: letter_topic 토픽에서수신된메시지를처리하�
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/word
-_service.py 모듈별설명
--
-check_letter_callback 함수: 서비스요청
-을처리하며, 수신한문자가현재단어에
-포함되어있는지확인하고게임상태를
-업데이트. 업데이트된상태는Progress
-메시지를통해퍼블리시
+- hangman_game/hangman_game/word _service.py 모듈별설명
+- check_letter_callback 함수: 서비스요청 을처리하며, 수신한문자가현재단어에 포함되어있는지확인하고게임상태를 업데이트. 업데이트된상태는Progress 메시지를통해퍼블리시
 
 
 ![Image 38](../../assets/images/ros/intro/lesson-04/img_024_038.webp)
@@ -249,10 +197,8 @@ check_letter_callback 함수: 서비스요청
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/word_service.py 모듈별설명
--
-main 함수: ROS2 시스템을초기화하고WordService 노드를실행
+- hangman_game/hangman_game/word_service.py 모듈별설명
+- main 함수: ROS2 시스템을초기화하고WordService 노드를실행
 
 
 ![Image 39](../../assets/images/ros/intro/lesson-04/img_025_039.webp)
@@ -261,18 +207,13 @@ main 함수: ROS2 시스템을초기화하고WordService 노드를실행
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/user_
-input.py 전체코드
+- hangman_game/hangman_game/user_ input.py 전체코드
 
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/user_input.py 모듈별설명
--
-__init__ 함수: Node 클래스를상속받아UserInput이라는노드를정의. 이노드는CheckLetter 서비스에
-문자확인요청을보냄
+- hangman_game/hangman_game/user_input.py 모듈별설명
+- __init__ 함수: Node 클래스를상속받아UserInput이라는노드를정의. 이노드는CheckLetter 서비스에 문자확인요청을보냄
 
 ![Image 42](../../assets/images/ros/intro/lesson-04/img_027_042.webp)
 
@@ -280,11 +221,8 @@ __init__ 함수: Node 클래스를상속받아UserInput이라는노드를정의.
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/user_input.py 모듈별설명
--
-input_thread 함수: 사용자로부터Enter 키입력을기다리며, 입력이들어오면send_request
-메서드를호출하여현재요청을서비스로보냄
+- hangman_game/hangman_game/user_input.py 모듈별설명
+- input_thread 함수: 사용자로부터Enter 키입력을기다리며, 입력이들어오면send_request 메서드를호출하여현재요청을서비스로보냄
 
 ![Image 44](../../assets/images/ros/intro/lesson-04/img_028_044.webp)
 
@@ -292,11 +230,8 @@ input_thread 함수: 사용자로부터Enter 키입력을기다리며, 입력이
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/user_input.py 모듈별설명
--
-send_request 함수: CheckLetter 서비스에비동기적으로요청을보내어, 현재선택된문자가
-단어에포함되어있는지확인
+- hangman_game/hangman_game/user_input.py 모듈별설명
+- send_request 함수: CheckLetter 서비스에비동기적으로요청을보내어, 현재선택된문자가 단어에포함되어있는지확인
 
 ![Image 46](../../assets/images/ros/intro/lesson-04/img_029_046.webp)
 
@@ -304,11 +239,8 @@ send_request 함수: CheckLetter 서비스에비동기적으로요청을보내�
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/user_input.py 모듈별설명
--
-main 함수: ROS2 시스템을초기화하고UserInput 노드를실행하여사용자입력을
-기다리며, 서비스요청을반복적으로보낼수있는구조를만듦
+- hangman_game/hangman_game/user_input.py 모듈별설명
+- main 함수: ROS2 시스템을초기화하고UserInput 노드를실행하여사용자입력을 기다리며, 서비스요청을반복적으로보낼수있는구조를만듦
 
 ![Image 48](../../assets/images/ros/intro/lesson-04/img_030_048.webp)
 
@@ -316,9 +248,7 @@ main 함수: ROS2 시스템을초기화하고UserInput 노드를실행하여사�
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/
-progress_action_client.py 전체코드
+- hangman_game/hangman_game/ progress_action_client.py 전체코드
 
 ![Image 50](../../assets/images/ros/intro/lesson-04/img_031_050.webp)
 
@@ -326,9 +256,7 @@ progress_action_client.py 전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/
-progress_action_client.py 전체코드
+- hangman_game/hangman_game/ progress_action_client.py 전체코드
 
 ![Image 52](../../assets/images/ros/intro/lesson-04/img_032_052.webp)
 
@@ -336,11 +264,8 @@ progress_action_client.py 전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/progress_action_client.py 모듈별설명
--
-__init__ 함수: 노드를초기화하고액션클라이언트를생성하여, 게임진행목표를서버에전송할
-준비를함
+- hangman_game/hangman_game/progress_action_client.py 모듈별설명
+- __init__ 함수: 노드를초기화하고액션클라이언트를생성하여, 게임진행목표를서버에전송할 준비를함
 
 ![Image 54](../../assets/images/ros/intro/lesson-04/img_033_054.webp)
 
@@ -348,11 +273,8 @@ __init__ 함수: 노드를초기화하고액션클라이언트를생성하여, �
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/progress_action_client.py 모듈별설명
--
-send_goal 함수: GameProgress 액션서버에목표를전송하고, 목표전송후에피드백콜백과완료
-콜백을설정하여서버응답을처리
+- hangman_game/hangman_game/progress_action_client.py 모듈별설명
+- send_goal 함수: GameProgress 액션서버에목표를전송하고, 목표전송후에피드백콜백과완료 콜백을설정하여서버응답을처리
 
 ![Image 56](../../assets/images/ros/intro/lesson-04/img_034_056.webp)
 
@@ -360,10 +282,8 @@ send_goal 함수: GameProgress 액션서버에목표를전송하고, 목표전�
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/progress_action_client.py 모듈별설명
--
-Feedback_callback 함수: 서버에서수신한피드백메시지를처리하여, 게임종료상태를확인하고로깅
+- hangman_game/hangman_game/progress_action_client.py 모듈별설명
+- Feedback_callback 함수: 서버에서수신한피드백메시지를처리하여, 게임종료상태를확인하고로깅
 
 ![Image 58](../../assets/images/ros/intro/lesson-04/img_035_058.webp)
 
@@ -371,11 +291,8 @@ Feedback_callback 함수: 서버에서수신한피드백메시지를처리하여
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/progress_action_client.py 모듈별설명
--
-goal_response_callback 함수: 서버가목표를수락했는지확인하고, 수락된경우최종결과를비동기적으로
-요청하며결과콜백을설정
+- hangman_game/hangman_game/progress_action_client.py 모듈별설명
+- goal_response_callback 함수: 서버가목표를수락했는지확인하고, 수락된경우최종결과를비동기적으로 요청하며결과콜백을설정
 
 ![Image 60](../../assets/images/ros/intro/lesson-04/img_036_060.webp)
 
@@ -383,10 +300,8 @@ goal_response_callback 함수: 서버가목표를수락했는지확인하고, �
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/progress_action_client.py 모듈별설명
--
-get_result_callback 함수: 서버에서수신한최종결과를확인하고, 승리또는패배에따라로깅을진행
+- hangman_game/hangman_game/progress_action_client.py 모듈별설명
+- get_result_callback 함수: 서버에서수신한최종결과를확인하고, 승리또는패배에따라로깅을진행
 
 ![Image 62](../../assets/images/ros/intro/lesson-04/img_037_062.webp)
 
@@ -394,11 +309,8 @@ get_result_callback 함수: 서버에서수신한최종결과를확인하고, �
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/progress_action_client.py 모듈별설명
--
-main 함수: ROS2 시스템을초기화하고ProgressActionClient 노드를실행하여목표를
-전송하고결과가수신될때까지이벤트루프를유지
+- hangman_game/hangman_game/progress_action_client.py 모듈별설명
+- main 함수: ROS2 시스템을초기화하고ProgressActionClient 노드를실행하여목표를 전송하고결과가수신될때까지이벤트루프를유지
 
 ![Image 64](../../assets/images/ros/intro/lesson-04/img_038_064.webp)
 
@@ -406,9 +318,7 @@ main 함수: ROS2 시스템을초기화하고ProgressActionClient 노드를실�
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/
-progress_action_server.py 전체코드
+- hangman_game/hangman_game/ progress_action_server.py 전체코드
 
 ![Image 66](../../assets/images/ros/intro/lesson-04/img_039_066.webp)
 
@@ -416,9 +326,7 @@ progress_action_server.py 전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/
-progress_action_server.py 전체코드
+- hangman_game/hangman_game/ progress_action_server.py 전체코드
 
 ![Image 68](../../assets/images/ros/intro/lesson-04/img_040_068.webp)
 
@@ -426,9 +334,7 @@ progress_action_server.py 전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/
-progress_action_server.py 전체코드
+- hangman_game/hangman_game/ progress_action_server.py 전체코드
 
 ![Image 70](../../assets/images/ros/intro/lesson-04/img_041_070.webp)
 
@@ -436,11 +342,8 @@ progress_action_server.py 전체코드
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/progress_action_server.py 모듈별설명
--
-__init__ 함수: 노드를초기화하고GameProgress 액션서버와progress 토픽을구독하여
-게임진행상태를관리
+- hangman_game/hangman_game/progress_action_server.py 모듈별설명
+- __init__ 함수: 노드를초기화하고GameProgress 액션서버와progress 토픽을구독하여 게임진행상태를관리
 
 ![Image 72](../../assets/images/ros/intro/lesson-04/img_042_072.webp)
 
@@ -448,11 +351,8 @@ __init__ 함수: 노드를초기화하고GameProgress 액션서버와progress �
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/progress_action_server.py 모듈별설명
--
-progress_callback 함수: progress 토픽으로부터수신한메시지를처리하여,
-current_progress에게임상태를업데이트하고로깅
+- hangman_game/hangman_game/progress_action_server.py 모듈별설명
+- progress_callback 함수: progress 토픽으로부터수신한메시지를처리하여, current_progress에게임상태를업데이트하고로깅
 
 ![Image 74](../../assets/images/ros/intro/lesson-04/img_043_074.webp)
 
@@ -460,16 +360,8 @@ current_progress에게임상태를업데이트하고로깅
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/pro
-gress_action_server.py 모듈별설명
--
-execute_callback 함수:
-클라이언트의목표요청을수신하고, 게
-임진행상황을주기적으로피드백하며,
-게임종료시최종결과를반환. 주기적
-으로feedback_msg를통해게임상태를
-클라이언트에전달
+- hangman_game/hangman_game/pro gress_action_server.py 모듈별설명
+- execute_callback 함수: 클라이언트의목표요청을수신하고, 게 임진행상황을주기적으로피드백하며, 게임종료시최종결과를반환. 주기적 으로feedback_msg를통해게임상태를 클라이언트에전달
 
 ![Image 76](../../assets/images/ros/intro/lesson-04/img_044_076.webp)
 
@@ -477,11 +369,8 @@ execute_callback 함수:
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/hangman_game/progress_action_server.py 모듈별설명
--
-main 함수: ROS2 시스템을초기화하고ProgressActionServer 노드를실행하여목표
-요청과토픽구독을동시에처리할수있도록멀티스레드실행자를사용
+- hangman_game/hangman_game/progress_action_server.py 모듈별설명
+- main 함수: ROS2 시스템을초기화하고ProgressActionServer 노드를실행하여목표 요청과토픽구독을동시에처리할수있도록멀티스레드실행자를사용
 
 ![Image 78](../../assets/images/ros/intro/lesson-04/img_045_078.webp)
 
@@ -489,10 +378,8 @@ main 함수: ROS2 시스템을초기화하고ProgressActionServer 노드를실�
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_game/setup.py
--
-entry_points를다음과같이변경
+- hangman_game/setup.py
+- entry_points를다음과같이변경
 
 ![Image 80](../../assets/images/ros/intro/lesson-04/img_046_080.webp)
 
@@ -500,8 +387,7 @@ entry_points를다음과같이변경
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_interfaces/CMakeLists.txt
+- hangman_interfaces/CMakeLists.txt
 
 ![Image 82](../../assets/images/ros/intro/lesson-04/img_047_082.webp)
 
@@ -511,8 +397,7 @@ hangman_interfaces/CMakeLists.txt
 Hang-man - 실습
 
 ## hangman_game
--
-hangman_interfaces/package.xml
+- hangman_interfaces/package.xml
 
 ![Image 86](../../assets/images/ros/intro/lesson-04/img_048_086.webp)
 
@@ -554,10 +439,7 @@ Hang-man - 실습
 Hang-man - 실습
 
 ## hangman_game
--
-실행화면
-user_input
-word_service
+- 실행화면 user_input word_service
 
 
 ![Image 93](../../assets/images/ros/intro/lesson-04/img_051_093.webp)
@@ -569,10 +451,7 @@ word_service
 Hang-man - 실습
 
 ## hangman_game
--
-실행화면
-action_server
-action_client
+- 실행화면 action_server action_client
 
 
 ![Image 95](../../assets/images/ros/intro/lesson-04/img_052_095.webp)
@@ -584,9 +463,7 @@ action_client
 Hang-man - 실습
 
 ## hangman_game
--
-실행화면
-user_input
+- 실행화면 user_input
 
 
 ![Image 97](../../assets/images/ros/intro/lesson-04/img_053_097.webp)
@@ -706,9 +583,9 @@ self._action_server = ActionServer(
 
 - `ActionServer(self, ActionType, action_name, execute_callback)`: 액션 서버 생성
 - `execute_callback(goal_handle)`: goal 처리 함수
-  - 내부에서 `goal_handle.publish_feedback()`으로 피드백 전송
-  - `goal_handle.succeed()` 또는 `goal_handle.abort()`
-  - `return result` 로 결과 전달
+- 내부에서 `goal_handle.publish_feedback()`으로 피드백 전송
+- `goal_handle.succeed()` 또는 `goal_handle.abort()`
+- `return result` 로 결과 전달
 
 #### 참고용 예시 메시지 타입
 - Topic: `std_msgs.msg.String`, `sensor_msgs.msg.Image`

@@ -13,28 +13,21 @@ ROS2 bag 이해및사용법
 Bag 파일이란?
 
 ## BAG 파일이란?
--
-ROS2 BAG은시스템의토픽에게시된데이터를기록하기위한플랫폼기능
--
-각토픽에서수집된데이터를데이터베이스에저장하며, 이를재생하여테스트및
-실험결과를재현할수있음
+- ROS2 BAG은시스템의토픽에게시된데이터를기록하기위한플랫폼기능
+- 각토픽에서수집된데이터를데이터베이스에저장하며, 이를재생하여테스트및 실험결과를재현할수있음
 
 
 ROS2 bag 이해및사용법
 명령어
 
 ## BAG 파일레코딩
--
-다음명령어는“topic_name”에서수신되는메시지를“my_bag.bag”라는이름의BAG
-파일에레코딩함
+- 다음명령어는“topic_name”에서수신되는메시지를“my_bag.bag”라는이름의BAG 파일에레코딩함
 
 ## BAG 파일재생
--
-다음명령어는“my_bag.bag”라는이름의BAG 파일을재생함
+- 다음명령어는“my_bag.bag”라는이름의BAG 파일을재생함
 
 ## BAG 파일정보표시
--
-다음명령어는“my_bag.bag”라는이름의BAG 파일의정보를표시함
+- 다음명령어는“my_bag.bag”라는이름의BAG 파일의정보를표시함
 
 
 ![Image 2](../../assets/images/ros/intro/lesson-06/img_004_002.webp)
@@ -45,21 +38,14 @@ ROS2 bag 이해및사용법
 신규ROS2 cli 작성법
 
 ## ROS2 BAG(Turtlesim)
--
-Turtle의움직임을BAG 파일에기록하기
--
-기록된BAG 파일을이용하여turtle 움직이기
-실습
+- Turtle의움직임을BAG 파일에기록하기
+- 기록된BAG 파일을이용하여turtle 움직이기 실습
 
 
 BAG 파일만들기
 
 ## 준비단계
--
-다음실습은여러터미널을사용하여진행됩니다.
-혼란을방지하기위해, 터미널좌측상단의버튼을눌러미리3개의
-터미널을열어두는것을권장합니다.
-실습
+- 다음실습은여러터미널을사용하여진행됩니다. 혼란을방지하기위해, 터미널좌측상단의버튼을눌러미리3개의 터미널을열어두는것을권장합니다. 실습
 
 
 ![Image 5](../../assets/images/ros/intro/lesson-06/img_006_005.webp)
@@ -85,11 +71,8 @@ BAG 파일만들기
 BAG 파일만들기
 
 ## 세번째터미널에서다음명령어를이용하여/turtle1/cmd_vel 토픽기록
--
-/turtle1/cmd_vel이라는이름을가진토픽을turtle_bag이라는이름의BAG 파일에기록
--
-주의사항: 반드시“Subscribed to topic ‘/turtle1/cmd_vel’” 이뜨는지확인할것
-실습
+- /turtle1/cmd_vel이라는이름을가진토픽을turtle_bag이라는이름의BAG 파일에기록
+- 주의사항: 반드시“Subscribed to topic ‘/turtle1/cmd_vel’” 이뜨는지확인할것 실습
 
 ![Image 10](../../assets/images/ros/intro/lesson-06/img_009_010.webp)
 
@@ -97,9 +80,7 @@ BAG 파일만들기
 BAG 파일만들기
 
 ## 레코딩
--
-두번째터미널로이동하여방향키를사용해turtle을임의로이동시키기
-실습
+- 두번째터미널로이동하여방향키를사용해turtle을임의로이동시키기 실습
 
 ![Image 12](../../assets/images/ros/intro/lesson-06/img_010_012.webp)
 
@@ -107,9 +88,7 @@ BAG 파일만들기
 BAG 파일만들기
 
 ## 세번째터미널에서실행되고있는record 종료
--
-종료는ctrl + c 사용
-실습
+- 종료는ctrl + c 사용 실습
 
 ![Image 14](../../assets/images/ros/intro/lesson-06/img_011_014.webp)
 
@@ -121,37 +100,25 @@ BAG 파일만들기
 BAG 파일만들기
 
 ## BAG 재생
--
-첫번째터미널에서실행중인turtlesim을종료후재실행
-실습
+- 첫번째터미널에서실행중인turtlesim을종료후재실행 실습
 
 BAG 파일만들기
 
 ## 세번째터미널에서다음명령어를이용하여저장되어있는BAG 파일재생
--
-간혹인터럽트등의이유로turtle의궤적이기록당시와정확히일치하지않을수있음
--
-이문제를방지하려면turtle의움직임을기록할때, 각명령이완전히완료된후다음명령을
-실행해야함
-실습
+- 간혹인터럽트등의이유로turtle의궤적이기록당시와정확히일치하지않을수있음
+- 이문제를방지하려면turtle의움직임을기록할때, 각명령이완전히완료된후다음명령을 실행해야함 실습
 
 신규ROS2 cli 작성법
 
 ## ROS2 BAG(2D, 3D, Lidar)
--
-2D 카메라, 3D 카메라, Lidar를이용하여기록된BAG 파일실행하기
-실습
+- 2D 카메라, 3D 카메라, Lidar를이용하여기록된BAG 파일실행하기 실습
 
 
 BAG 파일실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
--
-아래제공된링크에서rosbag2_video.tar.gz 파일을다운로드받은후압축풀기
-https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
--
-다운로드된압축파일의압축풀기
-실습
+- 아래제공된링크에서rosbag2_video.tar.gz 파일을다운로드받은후압축풀기 https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
+- 다운로드된압축파일의압축풀기 실습
 
 
 ![Image 19](../../assets/images/ros/intro/lesson-06/img_016_019.webp)
@@ -160,11 +127,8 @@ https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
 BAG 파일실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
--
-압축풀린bag 파일의정보확인
--
-Bag 파일반복재생
-실습
+- 압축풀린bag 파일의정보확인
+- Bag 파일반복재생 실습
 
 
 ![Image 20](../../assets/images/ros/intro/lesson-06/img_017_020.webp)
@@ -175,9 +139,7 @@ Bag 파일반복재생
 BAG 파일실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
--
-새로운터미널에서rviz 실행
-실습
+- 새로운터미널에서rviz 실행 실습
 
 ![Image 24](../../assets/images/ros/intro/lesson-06/img_018_024.webp)
 
@@ -185,30 +147,19 @@ BAG 파일실습
 BAG 파일실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
--
-Rviz에서add버튼을누른후Image 선택후OK 버튼누르기
-실습
+- Rviz에서add버튼을누른후Image 선택후OK 버튼누르기 실습
 
 BAG 파일실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
--
-사이드바에서이미지의topic name을“＼video_frames”
-로바꾸기
--
-하단의Image 창에영상이재생되는것을확인
-영상출처: https://www.youtube.com/watch?v=29iFysOZg3Q
-실습
+- 사이드바에서이미지의topic name을“＼video_frames” 로바꾸기
+- 하단의Image 창에영상이재생되는것을확인 영상출처: https://www.youtube.com/watch?v=29iFysOZg3Q 실습
 
 BAG 파일실습
 
 ## BAG 파일에기록된3d 카메라정보불러오기
--
-아래제공된링크에서realsense.tar.gz 파일을다운로드받은후압축풀기
-https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
--
-다운로드된압축파일의압축풀기
-실습
+- 아래제공된링크에서realsense.tar.gz 파일을다운로드받은후압축풀기 https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
+- 다운로드된압축파일의압축풀기 실습
 
 
 ![Image 27](../../assets/images/ros/intro/lesson-06/img_021_027.webp)
@@ -217,11 +168,8 @@ https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
 BAG 파일실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
--
-압축풀린bag 파일의정보확인
--
-Bag 파일반복재생
-실습
+- 압축풀린bag 파일의정보확인
+- Bag 파일반복재생 실습
 
 
 ![Image 28](../../assets/images/ros/intro/lesson-06/img_022_028.webp)
@@ -232,23 +180,15 @@ Bag 파일반복재생
 BAG 파일실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
--
-새로운터미널에서rviz 실행
-실습
-BAG 파일실습
+- 새로운터미널에서rviz 실행 실습 BAG 파일실습
 
 ## BAG 파일에기록된2d 카메라정보불러오기
--
-Global Options의FixedFrame을‘camera_depth_optical_frame’으로바꾸기
-실습
+- Global Options의FixedFrame을‘camera_depth_optical_frame’으로바꾸기 실습
 
 BAG 파일실습
 
 ## BAG 파일에기록된3d 카메라정보불러오기
--
-ADD → By topic → camera → camera → depth → color → points → PointCloud2
-선택후OK 버튼클릭
-실습
+- ADD → By topic → camera → camera → depth → color → points → PointCloud2 선택후OK 버튼클릭 실습
 
 BAG 파일실습
 
@@ -267,12 +207,8 @@ BAG 파일실습
 BAG 파일실습
 
 ## BAG 파일에기록된lidar 정보불러오기
--
-아래제공된링크에서race_car.tar.gz 파일을다운로드받은후압축풀기
-https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
--
-다운로드된압축파일의압축풀기
-실습
+- 아래제공된링크에서race_car.tar.gz 파일을다운로드받은후압축풀기 https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
+- 다운로드된압축파일의압축풀기 실습
 
 
 ![Image 37](../../assets/images/ros/intro/lesson-06/img_028_037.webp)
@@ -281,11 +217,8 @@ https://drive.google.com/drive/folders/1zjGVRD5YQkiM_yLwjGOGRF5cruz8-Wsn
 BAG 파일실습
 
 ## BAG 파일에기록된lidar 정보불러오기
--
-압축풀린bag 파일의정보확인
--
-Bag 파일반복재생
-실습
+- 압축풀린bag 파일의정보확인
+- Bag 파일반복재생 실습
 
 
 ![Image 38](../../assets/images/ros/intro/lesson-06/img_029_038.webp)
@@ -300,9 +233,7 @@ Bag 파일반복재생
 BAG 파일실습
 
 ## BAG 파일에기록된lidar 정보불러오기
--
-새로운터미널에서rviz 실행
-실습
+- 새로운터미널에서rviz 실행 실습
 
 ![Image 42](../../assets/images/ros/intro/lesson-06/img_030_042.webp)
 
@@ -310,9 +241,7 @@ BAG 파일실습
 BAG 파일실습
 
 ## BAG 파일에기록된lidar 정보불러오기
--
-Global Options의FixedFrame을‘luminar_front’로바꾸기
-실습
+- Global Options의FixedFrame을‘luminar_front’로바꾸기 실습
 
 
 ![Image 43](../../assets/images/ros/intro/lesson-06/img_031_043.webp)
@@ -321,9 +250,7 @@ Global Options의FixedFrame을‘luminar_front’로바꾸기
 BAG 파일실습
 
 ## BAG 파일에기록된lidar 정보불러오기
--
-ADD → by topic → vehicle8 → luminar_front_points → PointCloud2 선택후OK 버튼클릭
-실습
+- ADD → by topic → vehicle8 → luminar_front_points → PointCloud2 선택후OK 버튼클릭 실습
 
 
 ![Image 44](../../assets/images/ros/intro/lesson-06/img_032_044.webp)
@@ -332,9 +259,7 @@ ADD → by topic → vehicle8 → luminar_front_points → PointCloud2 선택후
 BAG 파일실습
 
 ## BAG 파일에기록된lidar 정보불러오기
--
-사이드바의PointCloud2에서Size(m)을0.1로변경
-실습
+- 사이드바의PointCloud2에서Size(m)을0.1로변경 실습
 
 
 ![Image 45](../../assets/images/ros/intro/lesson-06/img_033_045.webp)
@@ -343,9 +268,7 @@ BAG 파일실습
 BAG 파일실습
 
 ## BAG 파일에기록된lidar 정보불러오기
--
-사이드바의PointCloud2에서Size(m)을0.1로변경
-실습
+- 사이드바의PointCloud2에서Size(m)을0.1로변경 실습
 
 
 ![Image 46](../../assets/images/ros/intro/lesson-06/img_034_046.webp)
@@ -354,9 +277,7 @@ BAG 파일실습
 BAG 파일실습
 
 ## BAG 파일에기록된lidar 정보불러오기
--
-실제RGB 영상과의비교
-실습
+- 실제RGB 영상과의비교 실습
 
 
 ![Image 47](../../assets/images/ros/intro/lesson-06/img_035_047.webp)
@@ -379,15 +300,9 @@ VSCode에서Jupyter 사용
 ## Visual Studio Code
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-재부팅후vscode를실행
--
-VS Code에서
-‘extension’ 탭으로이동한
-후, 'Jupyter' 검색
--
-검색결과에서나타나는Jupyter를선택하고
-‘Install' 버튼을눌러설치
+- 재부팅후vscode를실행
+- VS Code에서 ‘extension’ 탭으로이동한 후, 'Jupyter' 검색
+- 검색결과에서나타나는Jupyter를선택하고 ‘Install' 버튼을눌러설치
 
 ![Image 52](../../assets/images/ros/intro/lesson-06/img_037_052.webp)
 
@@ -398,11 +313,8 @@ VS Code에서
 ## Visual Studio Code
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-Vscode의좌상단에서newfile을클릭하여
-새로운파일을만듦
--
-파일명은HelloWorld.ipynb로설정
+- Vscode의좌상단에서newfile을클릭하여 새로운파일을만듦
+- 파일명은HelloWorld.ipynb로설정
 
 ![Image 55](../../assets/images/ros/intro/lesson-06/img_038_055.webp)
 
@@ -410,10 +322,8 @@ Vscode의좌상단에서newfile을클릭하여
 ## Visual Studio Code
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-아래와같이빈칸에print("Hello World")를입력후shift + enter를입력
--
-Select Kernel창에서“Python Environments”를선택
+- 아래와같이빈칸에print("Hello World")를입력후shift + enter를입력
+- Select Kernel창에서“Python Environments”를선택
 
 ![Image 57](../../assets/images/ros/intro/lesson-06/img_039_057.webp)
 
@@ -421,8 +331,7 @@ Select Kernel창에서“Python Environments”를선택
 ## Visual Studio Code
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-나열된Python 버전중하나를선택(되도록Global Env를선택하는것을추천)
+- 나열된Python 버전중하나를선택(되도록Global Env를선택하는것을추천)
 
 ![Image 59](../../assets/images/ros/intro/lesson-06/img_040_059.webp)
 
@@ -430,55 +339,36 @@ VSCode에서Jupyter 사용
 ## Visual Studio Code
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-이후python 코드가성공적으로실행되는것을확인가능
+- 이후python 코드가성공적으로실행되는것을확인가능
 
 ## Visual Studio Code - extension
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-Extension의주요역할및기능
--
-프로그래밍언어지원추가: 추가언어를지원하거나기존언어의기능을확장
-(예: Python, YAML등)
--
-생산성향상도구: 코딩, 탐색, 리팩토링, 반복작업을자동화해생산성향상
-(예: XML Tools, Markdown All in One)
--
-특정기술또는프레임워크지원: 특정프레임워크나기술을위한추가기능제공
-(예: ROS, URDF)
--
-자동화및DevTools: 반복작업을자동화하거나개발환경을확장(예: Colcon Tasks)
+- Extension의주요역할및기능
+- 프로그래밍언어지원추가: 추가언어를지원하거나기존언어의기능을확장 (예: Python, YAML등)
+- 생산성향상도구: 코딩, 탐색, 리팩토링, 반복작업을자동화해생산성향상 (예: XML Tools, Markdown All in One)
+- 특정기술또는프레임워크지원: 특정프레임워크나기술을위한추가기능제공 (예: ROS, URDF)
+- 자동화및DevTools: 반복작업을자동화하거나개발환경을확장(예: Colcon Tasks)
 
 
 ## Visual Studio Code - extension
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-ROS2의간편한이용을위한extension설치
--
-Python : 디버깅, 코드서식지정, 리팩토링, 단위테스트등
--
-ROS : ROS 개발지원
--
-URDF : URDF/xacro 지원
--
-Colcon Tasks: setup scripts를자동으로환경에맞게run 함
--
-XML Tools: XML 포맷팅, XML tree view를제공
--
-YAML: YAML 지원
--
-Markdown All in One : Markdown지원
+- ROS2의간편한이용을위한extension설치
+- Python : 디버깅, 코드서식지정, 리팩토링, 단위테스트등
+- ROS : ROS 개발지원
+- URDF : URDF/xacro 지원
+- Colcon Tasks: setup scripts를자동으로환경에맞게run 함
+- XML Tools: XML 포맷팅, XML tree view를제공
+- YAML: YAML 지원
+- Markdown All in One : Markdown지원
 
 
 ## Visual Studio Code - extension
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-Python Extension 설치(Python)
--
-Vscode의extention 탭에서코드명(ms-python.python)을검색후install을눌러설치
+- Python Extension 설치(Python)
+- Vscode의extention 탭에서코드명(ms-python.python)을검색후install을눌러설치
 
 ![Image 63](../../assets/images/ros/intro/lesson-06/img_044_063.webp)
 
@@ -486,10 +376,8 @@ Vscode의extention 탭에서코드명(ms-python.python)을검색후install을눌
 ## Visual Studio Code - extension
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-Python Extension 설치(ROS)
--
-Vscode의extention 탭에서코드명(ms-iot.vscode-ros)을검색후install을눌러설치
+- Python Extension 설치(ROS)
+- Vscode의extention 탭에서코드명(ms-iot.vscode-ros)을검색후install을눌러설치
 
 ![Image 65](../../assets/images/ros/intro/lesson-06/img_045_065.webp)
 
@@ -497,10 +385,8 @@ Vscode의extention 탭에서코드명(ms-iot.vscode-ros)을검색후install을�
 ## Visual Studio Code - extension
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-Python Extension 설치(URDF)
--
-Vscode의extention 탭에서코드명(smilerobotics.urdf)을검색후install을눌러설치
+- Python Extension 설치(URDF)
+- Vscode의extention 탭에서코드명(smilerobotics.urdf)을검색후install을눌러설치
 
 ![Image 67](../../assets/images/ros/intro/lesson-06/img_046_067.webp)
 
@@ -508,10 +394,8 @@ Vscode의extention 탭에서코드명(smilerobotics.urdf)을검색후install을�
 ## Visual Studio Code - extension
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-Python Extension 설치(Colcon Tasks)
--
-Vscode의extention 탭에서코드명(deitry.colcon-helper)을검색후install을눌러설치
+- Python Extension 설치(Colcon Tasks)
+- Vscode의extention 탭에서코드명(deitry.colcon-helper)을검색후install을눌러설치
 
 ![Image 69](../../assets/images/ros/intro/lesson-06/img_047_069.webp)
 
@@ -519,18 +403,14 @@ Vscode의extention 탭에서코드명(deitry.colcon-helper)을검색후install�
 ## Visual Studio Code - extension
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-Python Extension 설치(XML Tools)
--
-Vscode의extention 탭에서코드명(dotjoshjohnson.xml)을검색후install을눌러설치
+- Python Extension 설치(XML Tools)
+- Vscode의extention 탭에서코드명(dotjoshjohnson.xml)을검색후install을눌러설치
 
 ## Visual Studio Code - extension
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-Python Extension 설치(YAML)
--
-Vscode의extention 탭에서코드명(redhat.vscode-yaml)을검색후install을눌러설치
+- Python Extension 설치(YAML)
+- Vscode의extention 탭에서코드명(redhat.vscode-yaml)을검색후install을눌러설치
 
 ![Image 73](../../assets/images/ros/intro/lesson-06/img_049_073.webp)
 
@@ -538,10 +418,8 @@ Vscode의extention 탭에서코드명(redhat.vscode-yaml)을검색후install을�
 ## Visual Studio Code - extension
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-Python Extension 설치(Markdown)
--
-Vscode의extention 탭에서코드명(yzhang.markdown-all-in-one)을검색후install을눌러설치
+- Python Extension 설치(Markdown)
+- Vscode의extention 탭에서코드명(yzhang.markdown-all-in-one)을검색후install을눌러설치
 
 ![Image 75](../../assets/images/ros/intro/lesson-06/img_050_075.webp)
 
@@ -549,12 +427,9 @@ Vscode의extention 탭에서코드명(yzhang.markdown-all-in-one)을검색후ins
 ## Visual Studio Code - extension
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-User settings 설정
--
-Vscode에서ctrl + shift + p를누른후‘open user settings’을선택
--
-엔터를눌러settings.json파일을열기
+- User settings 설정
+- Vscode에서ctrl + shift + p를누른후‘open user settings’을선택
+- 엔터를눌러settings.json파일을열기
 
 ![Image 77](../../assets/images/ros/intro/lesson-06/img_051_077.webp)
 
@@ -562,14 +437,10 @@ Vscode에서ctrl + shift + p를누른후‘open user settings’을선택
 ## Visual Studio Code - extension
 Jupyter를이용한프로그래밍
 VSCode에서Jupyter 사용
--
-User settings 설정
--
-settings.json 파일을아래와같이수정
--
-다만, 이미동일한내용이있는경우추가할필요없음
--
-저장후vscode를재시작
+- User settings 설정
+- settings.json 파일을아래와같이수정
+- 다만, 이미동일한내용이있는경우추가할필요없음
+- 저장후vscode를재시작
 
 ![Image 79](../../assets/images/ros/intro/lesson-06/img_052_079.webp)
 
@@ -832,12 +703,7 @@ Python으로액션서버다루기
 ## action_server.ipynb파일생성
 액션서버생성
 action_server를구현하기위한모듈import
--
-TurtleRotateServer 클래스정의
-/turtle1/rotate_absolute에대해
-회전명령을처리하는액션서버
-goal_callback, cancel_callback 메서드로
-goal과cancel 상태반환f정
+- TurtleRotateServer 클래스정의 /turtle1/rotate_absolute에대해 회전명령을처리하는액션서버 goal_callback, cancel_callback 메서드로 goal과cancel 상태반환f정
 
 
 ![Image 140](../../assets/images/ros/intro/lesson-06/img_076_140.webp)
