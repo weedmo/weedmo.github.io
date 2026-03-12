@@ -6,6 +6,7 @@ ROS2 기초-5차시
 오전
 오후
 1차시
+
 - 로봇의역사
 - 컴퓨터구조(Booting, CPU 작동원리, POST)
 - 리눅스와운영체계
@@ -13,6 +14,7 @@ ROS2 기초-5차시
 - Application 작동원리(마이크로프로세서, 메모리, 저장장치)
 - 리눅스 CLI 실습
 2차시
+
 - 리눅스 CLI 실습
 - 네트워크와통신(IPV4, IPV6, 소켓, 노드, Hub, TCP, UDP)
 - API, Library, Framework, 프로세스와Thread
@@ -20,17 +22,20 @@ ROS2 기초-5차시
 - 소켓프로그래밍실습
 - OSI7 Layer, 프로토콜(RS-232C, RS-485, Ethernet, TCP/UDP, IP)
 3차시
+
 - 센서 기초, IoT와Embedded
 - 로봇기초, 좌표계
 - 로봇센서활용및로봇의 구성(기계기구, 전기전자, 소프트웨어)
 - ROS2 소개및활용
 - ROS2 설치(ros.org) 및demo_node
 4차시
+
 - ROS2 소개및활용
 - ROS2 실습(Talker, Listener)
 - ROS2 패키지설명
 - ROS2 실습(Turtlesim, teleop_key)
 5차시
+
 - ROS2 실습(Turtlesim, Teleop_key 여러개만들기)
 - Topic, Service, Action, Parameter, RQT, RQT_Graph 이론및실습
 - ROS2 실습(Turtlesim, Namespace 여러개만들기)
@@ -79,6 +84,7 @@ Turtlesim 실행후node 확인
 
 
 ![Image 10](../../assets/images/ros/basics/lesson-05/img_008_010.webp)
+
 ROS2 실습
 ROKEY
 GO!
@@ -88,11 +94,13 @@ GO!
 
 ROS2 실습- turtlesim
 Turtlesim 실행후node 확인
+
 ![Image 22](../../assets/images/ros/basics/lesson-05/img_010_022.webp)
 
 ROS2 실습
 Turtlesim 실행후node 확인
 Namespace 설정
+
 ![Image 28](../../assets/images/ros/basics/lesson-05/img_011_028.webp)
 
 
@@ -107,20 +115,25 @@ Namespace 설정
 ROS2 실습
 Turtlesim 실행후node 확인
 Namespace + Node 이름설정
+
 ![Image 36](../../assets/images/ros/basics/lesson-05/img_012_036.webp)
 
 ROS2 실습
 Turtlesim 실행후node 확인
 Namespace + Node 이름설정
+
 ![Image 42](../../assets/images/ros/basics/lesson-05/img_013_042.webp)
 
 
 ![Image 43](../../assets/images/ros/basics/lesson-05/img_013_043.webp)
+
 ROS2 실습
+
 ![Image 46](../../assets/images/ros/basics/lesson-05/img_014_046.webp)
 
 
 ![Image 47](../../assets/images/ros/basics/lesson-05/img_014_047.webp)
+
 ![Image 50](../../assets/images/ros/basics/lesson-05/img_014_050.webp)
 
 
@@ -128,16 +141,21 @@ ROS2 실습
 
 
 ![Image 52](../../assets/images/ros/basics/lesson-05/img_014_052.webp)
+
 ROS2 실습
+
 ![Image 55](../../assets/images/ros/basics/lesson-05/img_015_055.webp)
 
 ![Image 57](../../assets/images/ros/basics/lesson-05/img_015_057.webp)
+
 ROS2 실습
 Namespace와Name 설정
+
 ![Image 60](../../assets/images/ros/basics/lesson-05/img_016_060.webp)
 
 
 ![Image 61](../../assets/images/ros/basics/lesson-05/img_016_061.webp)
+
 ![Image 64](../../assets/images/ros/basics/lesson-05/img_016_064.webp)
 
 
@@ -145,12 +163,16 @@ Namespace와Name 설정
 
 
 ![Image 66](../../assets/images/ros/basics/lesson-05/img_016_066.webp)
+
 ROS2 실습
 
 
 ![Image 69](../../assets/images/ros/basics/lesson-05/img_017_069.webp)
+
 ROS2 실습
+
 ![Image 72](../../assets/images/ros/basics/lesson-05/img_018_072.webp)
+
 ![Image 75](../../assets/images/ros/basics/lesson-05/img_018_075.webp)
 
 
@@ -162,6 +184,7 @@ ROS2 실습
 
 ROS2 실습
 1st Namespace와Name각각설정
+
 ![Image 81](../../assets/images/ros/basics/lesson-05/img_019_081.webp)
 
 ![Image 86](../../assets/images/ros/basics/lesson-05/img_019_086.webp)
@@ -174,7 +197,9 @@ ROS2 실습
 
 ROS2 실습
 2nd Namespace와Name 각각설정
+
 ![Image 90](../../assets/images/ros/basics/lesson-05/img_020_090.webp)
+
 ![Image 93](../../assets/images/ros/basics/lesson-05/img_020_093.webp)
 
 
@@ -194,6 +219,7 @@ ROS2 실습
 
 
 ROS2 실습
+
 ![Image 99](../../assets/images/ros/basics/lesson-05/img_021_099.webp)
 
 
@@ -202,6 +228,7 @@ ROS2 실습
 
 ROS2 실습– 노드와메시지통신(10장)
 노드(node)
+
 - 아래그림처럼Node A, Node B, Node C 각각의노드들은서로유기적으로Message로연결
 - 수행하고자하는태스크가많아질수록메시지로연결되는노드가늘어나며시스템이확장
 
@@ -211,6 +238,7 @@ ROS2 실습– 노드와메시지통신(10장)
 
 ROS2 실습– 노드와메시지통신(10장)
 토픽(topic)
+
 - 아래그림의`Node A – Node B`, `Node A – Node C`처럼비동기식단방향메시지송수신방식
 - msg 메시지형태의메시지를발간하는Publisher
 - 메시지를구독하는Subscriber 간의통신
@@ -223,6 +251,7 @@ ROS2 실습– 노드와메시지통신(10장)
 
 ROS2 실습– 노드와메시지통신(10장)
 서비스(Service)
+
 - 아래그림의`Node B - Node C`처럼동기식양방향메시지송수신방식
 - 서비스의요청(Request)을하는쪽은Service client
 - 서비스의응답(Response)을하는쪽을Service server
@@ -231,6 +260,7 @@ ROS2 실습– 노드와메시지통신(10장)
 
 ROS2 실습– 노드와메시지통신(10장)
 액션(Action)
+
 - 토픽(topic)과서비스(service)의혼합
 - 액션목표및액션결과를전달하는방식은서비스와같고,
 - 액션피드백은토픽과같은메시지전송방식
@@ -242,8 +272,10 @@ ROS2 실습– 노드와메시지통신(10장)
 
 ROS2 실습– 노드와메시지통신(10장)
 파라미터(Parameter)
+
 - 각노드에파라미터관련Parameter server를실행시켜외부의Parameter client 간의통신으로파라미터를
 변경하는것으로서비스와동일
+
 - 노드내매개변수또는글로벌매개변수를서비스메시지통신방법을사용하여노드내부또는외부에서쉽게
 지정(Set) 하거나변경할수있고, 쉽게가져(Get)와서사용할수있게하는점에서목적이다름
 
@@ -294,6 +326,7 @@ $ ros2 service list
 
 
 ROS2 실습- ROS2 Topic(11장)
+
 - `Node A`처럼하나의이상의토픽을발행
 - `Publisher` 기능과동시에토픽(예: Topic D)을구독하는`Subscriber` 역할도동시에수행
 - 자신이발행한토픽을셀프구독할수있게구성할수도있음
@@ -410,6 +443,7 @@ ROS2 실습– ros2 bag and ros2 play
 
 
 ROS2 실습- Service
+
 - 서비스는다음그림과같이동일서비스에대해복수의클라이언트를가질수있도록설계되었다.
 - 단, 서비스응답은서비스요청이있었던서비스클라이언트에대해서만응답을하는형태
 - Node C의Service Client가Node B의Service Server에게서비스요청을하였다면Node B의
@@ -523,6 +557,7 @@ ROS2 실습– Service with RQT
 
 ROS2 실습- Action
 액션(Action)
+
 - 토픽(topic)과서비스(service)의혼합
 - 액션목표및액션결과를전달하는방식은서비스와같고,
 - 액션피드백은토픽과같은메시지전송방식
@@ -597,6 +632,7 @@ r =
 360◦ = 2   = 6.28
 1 rad ≒ 180◦/ 3.14 ≒ 57◦
 Ros2에서사용하는단위
+
 - Kg
 - Sec
 - Meter
@@ -638,14 +674,17 @@ ROS의노드간에데이터를주고받을때에는토픽, 서비스, 액션이�
 srv, action 이있다. 토픽, 서비스, 액션은각각msg, srv, action interface를사용하고있으며정수, 부동소수점, 불리언과같은단순자료형을
 기본으로하여메시지안에메시지를품고있는간단한데이터구조및메시지들이나열된배열과같은구조도사용할수있다.
 [단순자료형]
-• 예) 정수(integer), 부동소수점(floating point), 불(boolean)
-• https://github.com/ros2/common_interfaces/tree/humble/std_msgs
+
+- 예) 정수(integer), 부동소수점(floating point), 불(boolean)
+- https://github.com/ros2/common_interfaces/tree/humble/std_msgs
 [메시지안에메시지를품고있는간단한데이터구조]
-• 예) geometry_msgs/msgs/Twist의`Vector3 linear`
-• https://github.com/ros2/common_interfaces/blob/humble/geometry_msgs/msg/Twist.msg
+
+- 예) geometry_msgs/msgs/Twist의`Vector3 linear`
+- https://github.com/ros2/common_interfaces/blob/humble/geometry_msgs/msg/Twist.msg
 [메시지들이나열된배열과같은구조]
-• 예) sensor_msgs/msgs/LaserScan 의`float32[] ranges`
-• https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/LaserScan.msg
+
+- 예) sensor_msgs/msgs/LaserScan 의`float32[] ranges`
+- https://github.com/ros2/common_interfaces/blob/humble/sensor_msgs/msg/LaserScan.msg
 
 
 ![Image 159](../../assets/images/ros/basics/lesson-05/img_055_159.webp)
@@ -697,6 +736,7 @@ Message interface, msg
 
 ROS2 실습- Interface
 Interface
+
 - list → 현재개발환경의모든msg, srv, action 메시지보여줌
 - package → msg, srv, action 인터페이스를담고있는패키지목록
 - package → 옵션에package명을입력하면지정한패키지에포함된interface보여줌
@@ -1021,6 +1061,7 @@ ROS2 실습
 1) 전체패키지를빌드할때
 $ cd ~/robot_ws && colcon build --symlink-install
 $ cd ~/robot_ws && colcon build --symlink-install --packages-select [패키지이름]
+
 - vcstool (버전컨트롤시스템툴)
 $ wget https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos
 $ vcs import src < ros2.repos
@@ -1029,6 +1070,7 @@ $ rosdep update
 $ rosdep install --from-paths src -y --ignore-src
 $ bloom-release --ros-distro humble --track humble awesome_pkg
 2) 해당패키지만빌드할때
+
 - rosdep (의존성관리툴)
 - bloom (바이너리패키지관리툴)
 
@@ -1381,9 +1423,9 @@ ROS2 실습– Publisher & Subscriber(my_first_package)
 
 ROS2 실습
 ROS의중요한개발도구들
-•
+-
 ROS는GUI기반이아닌, 터미널에서command line 방식으로동작을시킬수있음
-•
+-
 여기에더해서ROS 사용의효율을높이기위해서다양한개발도구를제공함
 rViz
 gazebo
@@ -1401,13 +1443,13 @@ rqt
 
 ROS2 실습
 rViz (ROS Visualization Tool)
-•
+-
 rViz는ROS에서얻어지는데이터를시각화(visualization)하는도구임
-•
+-
 IMU 데이터의시각화
-•
+-
 URDF 파일을이용한로봇암동작의시각화
-•
+-
 라이다 센서데이터시각화를통한SLAM 적용
 https://velog.io/@y2k4388/rViz%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%84%BC%EC%84%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%8B%9C%EA%B0%81%ED%99%94
 
@@ -1420,25 +1462,25 @@ https://velog.io/@y2k4388/rViz%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%84%BC%EC
 
 ROS2 실습
 Robot URDF 파일을통한로봇암시각화
-•
+-
 rViz의기능중URDF 파일을읽어서로봇암의동작을시각화하는기능이있음
-•
-•
+-
+-
 URDF(Universal Robot description Format)이란?
-•
+-
 URDF는 xml기반의텍스트파일로, 로봇의형태와동작을 정의한파일임
-•
+-
 ROS 초보자가URDF 파일을작성하기는어렵지만,
 어떤로봇에URDF 파일이존재하면,
-•
+-
 이로봇을rViz를통해서가상으로동작시켜볼수있음
-•
+-
 URDF 파일로할수있는것
-•
+-
 로봇의구조를정의
-•
+-
 로봇동작의시각화
-•
+-
 로봇의충돌모델정의
 
 
@@ -1447,29 +1489,29 @@ URDF 파일로할수있는것
 
 ROS2 실습
 Robot URDF 파일의구성
-•
+-
 URDF 파일은다음과같은요소로구성되어있음
-•
+-
 Link, joint
-•
+-
 Link
-•
+-
 로봇을 구성하는구성요소중하나, 3가지속성이있음
-•
+-
 <inertial>  링크의관성정보. Link의관성중심, 질량, 관성계수등을기록함
-•
+-
 <visual> rViz 같은시각화도구에서로봇을시가화할때사용되는속성들을정의함
-•
+-
 <collision> 물리적인충돌속성정의, 충돌모델정의
-•
+-
 Joint
-•
+-
 Link 와link를연결하는로봇구성요소. URDF는6가지joint 타입이있음
-•
+-
 <origin> 부모 link에서자식링크에변환정보
-•
+-
 <parent> 부모 link 이름
-•
+-
 <child> 자식link 이름
 https://wiki.ros.org/urdf/Examples
 https://medium.com/newworld-kim/ros-urdf-b6979bfa31aa

@@ -11,6 +11,7 @@ V1.0
 프로젝트교안
 
 가제보(gazebo)가상환경구축
+
 - ROS 시뮤레이션툴인가제보를이용하여테스트환경구축하기
 - 터틀봇3를사용하여실제시뮬레이션구축및실제환경테스트
 - 가상의공장에서Pick and Place를구현하는시뮬레이션구축하기
@@ -29,16 +30,18 @@ Gazebo Classic과Ignition Gazebo (현재는Gazebo로통합)라는두가지주요
 모듈화된아키텍처.
 여러독립된모듈(Ignition Physics, Ignition Rendering, Ignition Transport 등)로구성, 특정기능만교체, 확장
 물리엔진
-•구버전(Gazebo Classic):
-•기본물리엔진은ODE (Open Dynamics Engine)를사용
-•다른엔진을지원하기위해플러그인을사용할수있었습니다. Bullet, Simbody, DART 등과도통합
-•신규버전(Ignition Gazebo):
-•다양한물리엔진과의더나은통합을제공하며, TPE (Trivial Physics Engine)와같은새로운엔진도입 성능과유연성 향상
+-구버전(Gazebo Classic):
+-기본물리엔진은ODE (Open Dynamics Engine)를사용
+-다른엔진을지원하기위해플러그인을사용할수있었습니다. Bullet, Simbody, DART 등과도통합
+-신규버전(Ignition Gazebo):
+-다양한물리엔진과의더나은통합을제공하며, TPE (Trivial Physics Engine)와같은새로운엔진도입 성능과유연성 향상
 가제보이해
 가제보이해
+
 - 설치하기싸이트
 - Classic버전설치
 - Gazebo : Tutorial : Ubuntu (gazebosim.org)
+
 1. 셋업
 2. 최소설치사양
 # Install Gazebo Classic 11
@@ -50,6 +53,7 @@ echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 # Install additional tools (optional but recommended)
 sudo apt install python3-colcon-common-extensions -y
+
 3. 설치하기
 가제보이해
 신버전가제보
@@ -70,16 +74,17 @@ URDF는RViz, Moveit! 그리고Gazebo에서모두사용
 
 주제2.2.3 시뮬레이터상Machine Tending동작실습
 가제보이해
+
 3. 가제보다양한기능
 가제보이해
 가제보프로젝트디렉토리구조
-•launch 폴더는시뮬레이션을시작하는데사용되는launch 파일 저장
-•worlds 폴더에는가제보환경을정의하는.world 파일 저장
-•models 폴더에는로봇이나객체와같은개별모델 파일 저장
-•meshes 폴더는3D 모델의시각적및물리적표현을위한파일 저장
-•config 폴더에는컨트롤러나기타설정파일 저장
-•scripts 폴더는로봇제어나시뮬레이션관련스크립트파일 저장
-•plugins 폴더에는가제보의기능을확장하는사용자정의플러그인
+-launch 폴더는시뮬레이션을시작하는데사용되는launch 파일 저장
+-worlds 폴더에는가제보환경을정의하는.world 파일 저장
+-models 폴더에는로봇이나객체와같은개별모델 파일 저장
+-meshes 폴더는3D 모델의시각적및물리적표현을위한파일 저장
+-config 폴더에는컨트롤러나기타설정파일 저장
+-scripts 폴더는로봇제어나시뮬레이션관련스크립트파일 저장
+-plugins 폴더에는가제보의기능을확장하는사용자정의플러그인
 가제보로봇모델을spawn하고ROS를통해제어하기위해필요한폴더 및파일구조
 가제보모델데이터베이스폴더구조에따른포맷의규칙을따라야한다.
 
@@ -96,6 +101,7 @@ gedit ~/.gazebo/models/my_robot/model.sdf
 
 가제보이해
 가제보툴이해
+
 1. 툴바(toolbars)
 Upper Toolbar
 Bottom Toolbar
@@ -108,8 +114,10 @@ Bottom Toolbar
 
 가제보이해
 가제보화면용어
+
 1. 씬(scene)
 2. 판넬(panel)
+
 ![Image 26](../../assets/images/ros/projects/gazebo/img_012_026.webp)
 
 
@@ -117,13 +125,16 @@ Bottom Toolbar
 
 가제보이해
 가상환경만들기
+
 1. 샤시(Chassis)
 2. 샤시크기조정
 3. 싸이즈줄이기(파란색으로납작하게)
+
 ![Image 31](../../assets/images/ros/projects/gazebo/img_013_031.webp)
 
 가제보이해
 가상환경만들기
+
 4. Body 사시만들기
 5. Front Wheels
 
@@ -135,6 +146,7 @@ Bottom Toolbar
 
 가제보이해
 가상환경만들기
+
 6. 싸이즈조절및복사
 
 ![Image 37](../../assets/images/ros/projects/gazebo/img_015_037.webp)
@@ -148,6 +160,7 @@ Bottom Toolbar
 
 가제보이해
 가상환경만들기
+
 7. 관절(Joint) 추가
 상단도구모음에서조인트아이콘을클릭하여조인트생성대화상자를표시
 
@@ -159,6 +172,7 @@ Bottom Toolbar
 
 가제보이해
 가상환경만들기
+
 6. 휠축맞추기
 조인트축섹션을변경하고축을Z(0, 0, 1)로변경합니다.
 
@@ -167,6 +181,7 @@ Bottom Toolbar
 
 가제보이해
 가상환경만들기
+
 7. 휠을샤시와어라인하기그리고왼쪽바퀴도만들기
 
 ![Image 46](../../assets/images/ros/projects/gazebo/img_018_046.webp)
@@ -183,6 +198,7 @@ Bottom Toolbar
 
 가제보이해
 가상환경만들기
+
 8. 케스트볼만들기
 기하학섹션으로스크롤하여반경을0.2m로변경합니다.
 
@@ -194,6 +210,7 @@ Bottom Toolbar
 
 가제보이해
 가상환경만들기
+
 9. 휠을샤시와어라인하기
 Y Align Center option to center the two links in the Y axis, and select the X Align Min option
 조인트유형섹션에서볼조인트옵션을선택하세요.
@@ -247,13 +264,16 @@ building editor 에서맵을다만들었다면왼쪽상단의File 탭에서Save 
 
 가제보이해
 자동차모델만들기
+
 10. 저장및리로드
 ROS2 환경에서가제보모델다음의경로에저장
 1.
 시스템전체에서접근가능한공용가제보모델저장소
          `~/.gazebo/models/`: 사용자의홈디렉토리내`.gazebo/models/` 폴더
+
 2. 특정ROS2 패키지내에속한모델들을저장하는공간
           `<ros2_workspace>/src/<package_name>/models/`: ROS2 워크스페이스의패키지내`models/` 폴더
+
 11. 저장된모델을로드
 1. ros2 run gazebo_ros spawn_entity.py -entity robot_name -file /path/to/your/robot.urdf -x 0 -y 0 -z 1
 
@@ -265,6 +285,7 @@ gazebo.spawn_sdf_model('my_model', model_xml, '', initial_pose, 'world')
 # 2.번경로의모델로드
 pkg_path = GazeboRosPaths.get_model_path('my_package', 'my_model')
 gazebo.spawn_urdf_model('my_model', pkg_path, '', initial_pose, 'world')
+
 11. 저장된모델을로드
 2. launch 파일, `gazebo.spawn_sdf_model()` 또는`gazebo.spawn_urdf_model()` 함수사용
 
@@ -275,6 +296,7 @@ gazebo.spawn_urdf_model('my_model', pkg_path, '', initial_pose, 'world')
 
 메니퓨레이션시뮬레이션
 로봇모델패키지만들기
+
 1. 워크스페이스폴더를만들고그안으로이동
 $ cd ~
 $ mkdir -p .gazebo/models/gongjang
@@ -290,6 +312,7 @@ $ cd .gazebo/models/gongjang/
    </author>
    <description>project ganzang</description>
 </model>
+
 2. 로봇모델의설정파일을만들고편집
 Model.config
 sudo apt-get install ros-humble-gazebo-ros
@@ -297,6 +320,7 @@ sudo apt-get install ros-humble-gazebo-ros
 
 메니퓨레이션시뮬레이션
 모델설계하기
+
 3. 로봇모델의실제내용이될파일을만들고설계
 <link name="link1">
 <pose>0 0.1 0.125 0 0 0</pose>
@@ -360,6 +384,7 @@ sudo apt-get install ros-humble-gazebo-ros
 
 메니퓨레이션시뮬레이션
 모델불러오기
+
 4. 가제보의왼쪽페널에서gongjang 모델을마우스로끌어온다.
 여러가지기능을메뉴를선택해서학습하시기바랍니다.
 
@@ -368,6 +393,7 @@ sudo apt-get install ros-humble-gazebo-ros
 
 메니퓨레이션시뮬레이션
 모델설계하기
+
 4. 컨트롤러사용
 <?xml version="1.0"?>
 <robot name="simple_example">
@@ -442,9 +468,9 @@ World
 
 .world 파일
 ..
-•Gazebo 시뮬레이션환경을정의하는파일입니다.
-•여러개의모델(로봇, 지형, 센서등)을포함할수있습니다.
-•.sdf 파일을불러오는역할을합니다.
+-Gazebo 시뮬레이션환경을정의하는파일입니다.
+-여러개의모델(로봇, 지형, 센서등)을포함할수있습니다.
+-.sdf 파일을불러오는역할을합니다.
 <?xml version="1.0" ?>
 <sdf version="1.6">
 <world name="my_simulation_world">
@@ -571,22 +597,22 @@ SDF 주요요소
 1) <world> - 월드정의
 월드는Gazebo에서시뮬레이션할전체환경을정의하는요소입니다.
 <model> - 로봇및오브젝트정의
-•로봇이나오브젝트를정의하는요소로, <link>, <joint> 등을포함할수있습니다.
-•static이true이면해당오브젝트는고정된상태가됩니다.
+-로봇이나오브젝트를정의하는요소로, <link>, <joint> 등을포함할수있습니다.
+-static이true이면해당오브젝트는고정된상태가됩니다.
 <link> - 모델의물리적요소
-•로봇의구성요소(바퀴, 몸체등) 또는오브젝트의물리적특성을정의합니다.
-•<collision>과<visual>을포함할수있습니다.
+-로봇의구성요소(바퀴, 몸체등) 또는오브젝트의물리적특성을정의합니다.
+-<collision>과<visual>을포함할수있습니다.
 
 가제보이해
 SDF
 SDF 주요요소
 <joint> - 링크간연결
-•링크들사이의구동방식(회전, 이동)을정의하는요소입니다.
-•type="revolute"는회전조인트, type="prismatic"는선형조인트입니다.
+-링크들사이의구동방식(회전, 이동)을정의하는요소입니다.
+-type="revolute"는회전조인트, type="prismatic"는선형조인트입니다.
 <sensor> - 센서모델정의
-•카메라, LIDAR, IMU 등의센서를정의할수있습니다.
+-카메라, LIDAR, IMU 등의센서를정의할수있습니다.
 <include> - 외부모델추가
-•Gazebo의기본모델을불러오거나외부SDF 파일을로드할때사용됩니다.
+-Gazebo의기본모델을불러오거나외부SDF 파일을로드할때사용됩니다.
 ros2 launch gazebo_ros gazebo.launch.py world:=/path/to/my_world.sdf
 
 SDF
@@ -710,6 +736,7 @@ effort로봇에적용할수있는최대힘(또는토크)을결정하는데, 이�
 펄스를쏘고반사되어돌아오는시간을측정하여반사체의위치좌표를측정하는레이다시스템
 2D LiDAR는관찰지점으로부터2차원상의평면정보를제공합니다.
 즉센서와평행한평면을기준으로물체와의거리가얼마나떨어져있는지확인
+
 ![Image 100](../../assets/images/ros/projects/gazebo/img_048_100.webp)
 
 
@@ -862,7 +889,7 @@ $ ros2 launch urdf_tutorial lidar.launch.py
 
 라이다시뮬레이션
 가제보이해
-•Gazebo에서‘Insert’ 탭을누르고‘Insert model …’을누른상태로5분정도기다리면설치가능한모델목록이나타납니다.
+-Gazebo에서‘Insert’ 탭을누르고‘Insert model …’을누른상태로5분정도기다리면설치가능한모델목록이나타납니다.
 시뮬레이션을위한월드만들기, 로봇제거후월드저장
 
 ![Image 107](../../assets/images/ros/projects/gazebo/img_053_107.webp)
@@ -870,8 +897,8 @@ $ ros2 launch urdf_tutorial lidar.launch.py
 
 라이다시뮬레이션
 가제보이해
-•목록에서‘with-bot’을선택후마우스메뉴버튼을누른후팝업메뉴에서‘Delete’를눌러서with-bot을제거
-•'src/urdf_tutorial/config' 폴더에‘with_robot.world’라는파일명으로저장합니다.
+-목록에서‘with-bot’을선택후마우스메뉴버튼을누른후팝업메뉴에서‘Delete’를눌러서with-bot을제거
+-'src/urdf_tutorial/config' 폴더에‘with_robot.world’라는파일명으로저장합니다.
 
 ![Image 109](../../assets/images/ros/projects/gazebo/img_054_109.webp)
 
@@ -888,9 +915,9 @@ $ ros2 launch urdf_tutorial lidar.launch.py world:=src/urdf_tutorial/config/with
 
 카메라시뮬레이션
 /scan 토픽확인
-•2D LiDAR의samples 수를4에서360으로늘려보고수신되는정보를기반으로키보드로주행을해보는과정
-•우선모든터미널에서‘CTRL+C’를눌러서실행중인모든프로그램을종료.
-•‘src/urdf_tutorial/urdf/lidar.xacro’ 파일에서‘laser_frame’의samples를360으로변경.
+-2D LiDAR의samples 수를4에서360으로늘려보고수신되는정보를기반으로키보드로주행을해보는과정
+-우선모든터미널에서‘CTRL+C’를눌러서실행중인모든프로그램을종료.
+-‘src/urdf_tutorial/urdf/lidar.xacro’ 파일에서‘laser_frame’의samples를360으로변경.
 $ cd ~/Workspace/ros_ws/ $ ros2 topic echo /scan
 
 ![Image 114](../../assets/images/ros/projects/gazebo/img_056_114.webp)
@@ -898,9 +925,9 @@ $ cd ~/Workspace/ros_ws/ $ ros2 topic echo /scan
 
 카메라시뮬레이션
 시뮬레이선수행하기
-•2D LiDAR의samples 수를4에서360으로늘려보고수신되는정보를기반으로키보드로주행을해보는과정
-•우선모든터미널에서‘CTRL+C’를눌러서실행중인모든프로그램을종료합니다.
-•‘src/urdf_tutorial/urdf/lidar.xacro’ 파일에서‘laser_frame’의samples를360으로변경합니다.
+-2D LiDAR의samples 수를4에서360으로늘려보고수신되는정보를기반으로키보드로주행을해보는과정
+-우선모든터미널에서‘CTRL+C’를눌러서실행중인모든프로그램을종료합니다.
+-‘src/urdf_tutorial/urdf/lidar.xacro’ 파일에서‘laser_frame’의samples를360으로변경합니다.
 $ colcon build --symlink-install $ ros2 launch urdf_tutorial
 lidar.launch.py world:=src/urdf_tutorial/config/with_robot.world
 $ ros2 run teleop_twist_keyboard
@@ -982,29 +1009,34 @@ moveit config 폴더에ros2_control 인터페이스추가
 
 가제보이해
 SRDF (Semantic Robot Description Format)
-•
+-
 URDF와같은로봇의의미론적정보(semantic information)를정의하는XML 파일포맷
-•
+-
 주로MoveIt!과같은로봇모션계획소프트웨어에서사용
-•
+-
 SRDF는로봇의움직임에대한의미론적정보
+
       - 어떤조인트를그룹으로묶을지, 플래닝그룹, 엔드이펙터정의등
-•  플래닝그룹 - 로봇의특정조인트들을그룹화하여모션플래닝을위해사용하는데, 이를SRDF에서정의.
-•  자유도제약및제한 - 특정조인트에대한운동범위제한및제약조건을정의.
-•  MoveIt!와통합 - 주로MoveIt!에서모션플래닝을위해사용.
+-  플래닝그룹 - 로봇의특정조인트들을그룹화하여모션플래닝을위해사용하는데, 이를SRDF에서정의.
+-  자유도제약및제한 - 특정조인트에대한운동범위제한및제약조건을정의.
+-  MoveIt!와통합 - 주로MoveIt!에서모션플래닝을위해사용.
 - SRDF
 - SRDF 특징
 
 가제보이해
 SDF (Simulation Description Format)
-•  복잡한시뮬레이션환경지원:
+
+-  복잡한시뮬레이션환경지원:
      로봇뿐만아니라전체시뮬레이션환경(장애물, 지형등) 정의
-•  다양한물리적특성:
+
+-  다양한물리적특성:
      URDF보다더복잡한물리엔진지원및모델정의가능
      (예: 다양한마찰력, 관성모멘트등을정교하게설정)
-•  Gazebo에서주로사용:
+
+-  Gazebo에서주로사용:
      Gazebo 시뮬레이터와통합
      고급물리시뮬레이션을위해설계
+
 - SDF
 <sdf version="1.6">
   <model name="example_robot">
@@ -1044,17 +1076,17 @@ GAZEBO
 Moveit 시스템구조
 MoveIt은모션플래닝을위해다양한알고리즘과플러그인기반구조를사용하며, 로봇의경로계획, 제어, 시각화
 등의작업을통합하여수행
-•로봇모델및환경(URDF, SRDF)
+-로봇모델및환경(URDF, SRDF)
 로봇의구조와환경을정의하는파일들을바탕으로MoveIt이로봇과환경을이해하고작업.
-•Planning Scene
+-Planning Scene
 로봇과환경의상태를유지하고, 충돌감지및환경변화를실시간반영.
-•Motion Planning Pipeline
+-Motion Planning Pipeline
 경로를계획하고최적화하며, 키네마틱솔버와충돌감지시스템을통해안전한경로를계산.
-•Controller Manager
+-Controller Manager
 경로를실제로봇에적용하여움직임을제어.
-•Rviz 및사용자상호작용
+-Rviz 및사용자상호작용
 사용자에게로봇의상태를시각적으로보여주고, 목표를설정하거나경로를모니터링
-•Perception과Grasping
+-Perception과Grasping
 환경인식을통해동적으로경로를수정하고, 물체조작.
 MoveIt은로봇의모션플래닝, 제어, 시뮬레이션, 충돌감지등을지원하는강력한로봇소프트웨어플랫폼으로,
 ROS(로봇운영체제) 기반에서동작
@@ -1064,65 +1096,75 @@ ROS(로봇운영체제) 기반에서동작
 
 GAZEBO
 Moveit 기능
+
 1. Robot Model (로봇모델)
-•MoveIt은로봇의모델을기반으로작업을수행.
-•URDF(Unified Robot Description Format) 또는SRDF(Semantic Robot Description Format) 정의.
-•URDF는로봇의물리적구조(링크, 조인트등)를정의, SRDF는로봇의키네마틱체인, 그룹화된링크,
+-MoveIt은로봇의모델을기반으로작업을수행.
+-URDF(Unified Robot Description Format) 또는SRDF(Semantic Robot Description Format) 정의.
+-URDF는로봇의물리적구조(링크, 조인트등)를정의, SRDF는로봇의키네마틱체인, 그룹화된링크,
 제약사항등을설명.
-•모션플래닝, 경로생성, 충돌감지등다양한작업에사용.
+-모션플래닝, 경로생성, 충돌감지등다양한작업에사용.
+
 2. Motion Planning (모션플래닝)
-•OMPL (Open Motion Planning Library)를사용하여다양한알고리즘기반으로경로를계획.
-•로봇의목표위치에도달하는최적경로를계산
-•이과정에서충돌을피하고, 로봇의운동학적제약을고려.
-•사용가능한플래닝알고리즘에는RRT, RRT*, PRM, CHOMP, STOMP, TrajOpt 등
+-OMPL (Open Motion Planning Library)를사용하여다양한알고리즘기반으로경로를계획.
+-로봇의목표위치에도달하는최적경로를계산
+-이과정에서충돌을피하고, 로봇의운동학적제약을고려.
+-사용가능한플래닝알고리즘에는RRT, RRT*, PRM, CHOMP, STOMP, TrajOpt 등
 
 GAZEBO
 Moveit 기능
+
 3. Kinematics Solver (키네마틱솔버)
-•MoveIt은정방향키네마틱스(Forward Kinematics)와역방향키네마틱스(Inverse Kinematics, IK) 솔버를
+-MoveIt은정방향키네마틱스(Forward Kinematics)와역방향키네마틱스(Inverse Kinematics, IK) 솔버를
 사용로봇의위치와자세계산.
-•정방향키네마틱스는로봇의조인트값을기반으로각링크의위치를계산, 역방향키네마틱스는목표
+-정방향키네마틱스는로봇의조인트값을기반으로각링크의위치를계산, 역방향키네마틱스는목표
 위치에도달하기위해각조인트의값계산.
-•MoveIt은IKFast, KDL 등다양한IK 솔버를지원.
+-MoveIt은IKFast, KDL 등다양한IK 솔버를지원.
+
 4. MoveIt Setup Assistant
-•MoveIt을설정하고URDF 파일을기반으로시스템구성을쉽게할수있도록돕는GUI 도구.
-•로봇모델을설정하고, 키네마틱체인및그룹설정, 플래닝그룹설정, 충돌감지설정.
-•시뮬레이션및실제로봇에서사용할수있도록MoveIt의주요구성요소들을자동으로생성.
+-MoveIt을설정하고URDF 파일을기반으로시스템구성을쉽게할수있도록돕는GUI 도구.
+-로봇모델을설정하고, 키네마틱체인및그룹설정, 플래닝그룹설정, 충돌감지설정.
+-시뮬레이션및실제로봇에서사용할수있도록MoveIt의주요구성요소들을자동으로생성.
 
 GAZEBO
 Moveit 기능
+
 5. Motion Planning Pipeline (모션플래닝파이프라인)
-•모션플래닝은파이프라인구조로처리.
-•로봇의현재상태와목표상태를입력받아, 플래닝요청시다양한플래닝알고리즘을통해경로계산.
-•이파이프라인에는경로필터링, 경로수정, 키네마틱계산, 충돌감지등의단계가포함.
-•최종적으로안전한경로를만들어로봇이실행할수있도록명령전달.
+-모션플래닝은파이프라인구조로처리.
+-로봇의현재상태와목표상태를입력받아, 플래닝요청시다양한플래닝알고리즘을통해경로계산.
+-이파이프라인에는경로필터링, 경로수정, 키네마틱계산, 충돌감지등의단계가포함.
+-최종적으로안전한경로를만들어로봇이실행할수있도록명령전달.
+
 6. Controller Manager (컨트롤러매니저)
-•MoveIt은플래닝된경로를로봇이실제로따를수있도록로봇컨트롤러와통신.
-•ROS 2의controller_manager를통해제어명령을로봇의하드웨어로전송, 로봇이경로따라
+-MoveIt은플래닝된경로를로봇이실제로따를수있도록로봇컨트롤러와통신.
+-ROS 2의controller_manager를통해제어명령을로봇의하드웨어로전송, 로봇이경로따라
 동작시킴.
-•로봇의조인트트레저(Joint Trajectory Controller)와같은컨트롤러를사용하여경로제어.
+-로봇의조인트트레저(Joint Trajectory Controller)와같은컨트롤러를사용하여경로제어.
 
 Moveit 기능
+
 7. Planning Scene (플래닝씬)
-•로봇과환경을정의하는데이터구조.
-•로봇모델, 환경의장애물, 그리고이들이상호작용하는방식등을정의.
-•로봇의현재상태(포즈, 링크의위치등)와환경의상태를포함하여실시간으로로봇의상태를추적하며,
+-로봇과환경을정의하는데이터구조.
+-로봇모델, 환경의장애물, 그리고이들이상호작용하는방식등을정의.
+-로봇의현재상태(포즈, 링크의위치등)와환경의상태를포함하여실시간으로로봇의상태를추적하며,
 충돌감지및모션플래닝에사용.
+
 8. Collision Detection (충돌감지)
-•로봇이경로를계획할때주변환경및로봇자신의다른링크와충돌하지않도록확인하는중요한기능
-•MoveIt은FCL(Flexible Collision Library)와Bullet 같은충돌감지라이브러리를사용.
-•경로계획중에실시간으로충돌여부를감지하고, 충돌을피하는경로생성.
+-로봇이경로를계획할때주변환경및로봇자신의다른링크와충돌하지않도록확인하는중요한기능
+-MoveIt은FCL(Flexible Collision Library)와Bullet 같은충돌감지라이브러리를사용.
+-경로계획중에실시간으로충돌여부를감지하고, 충돌을피하는경로생성.
 GAZEBO
 
 GAZEBO
 Moveit 기능
+
 9. Perception (인식)
-•카메라또는LIDAR 등의센서데이터를이용해주변환경을인식하고, 이를모션플래닝반영
-•Octomap과같은맵핑라이브러리를통해3D 환경에서장애물을감지하고, 로봇의경로계획에
+-카메라또는LIDAR 등의센서데이터를이용해주변환경을인식하고, 이를모션플래닝반영
+-Octomap과같은맵핑라이브러리를통해3D 환경에서장애물을감지하고, 로봇의경로계획에
 반영.
+
 10. Rviz와의통합
-•사용자는Rviz의인터페이스를통해경로계획과시각화를직관적으로수행.
-•move_group은Rviz와상호작용하여실시간경로계획및상태업데이트를처리.
+-사용자는Rviz의인터페이스를통해경로계획과시각화를직관적으로수행.
+-move_group은Rviz와상호작용하여실시간경로계획및상태업데이트를처리.
 
 TF 이해
 ROS에서기본적으로제공해주는메세지타입중, 공간과관련된메세지타입
@@ -1152,6 +1194,7 @@ msg.pose.orientation.w = quat[3]
 pub.publish(msg)
 r.sleep()
 GAZEBO
+
 ![Image 152](../../assets/images/ros/projects/gazebo/img_078_152.webp)
 
 

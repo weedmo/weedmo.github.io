@@ -6,6 +6,7 @@ ROS2 기초-4차시
 오전
 오후
 1차시
+
 - 로봇의역사
 - 컴퓨터구조(Booting, CPU 작동원리, POST)
 - 리눅스와운영체계
@@ -13,6 +14,7 @@ ROS2 기초-4차시
 - Application 작동원리(마이크로프로세서, 메모리, 저장장치)
 - 리눅스 CLI 실습
 2차시
+
 - 리눅스 CLI 실습
 - 네트워크와통신(IPV4, IPV6, 소켓, 노드, Hub, TCP, UDP)
 - API, Library, Framework, 프로세스와Thread
@@ -20,17 +22,20 @@ ROS2 기초-4차시
 - 소켓프로그래밍실습
 - OSI7 Layer, 프로토콜(RS-232C, RS-485, Ethernet, TCP/UDP, IP)
 3차시
+
 - 센서 기초, IoT와Embedded
 - 로봇기초, 좌표계
 - 로봇센서활용및로봇의 구성(기계기구, 전기전자, 소프트웨어)
 - ROS2 소개및활용
 - ROS2 설치(ros.org) 및demo_node
 4차시
+
 - ROS2 소개및활용
 - ROS2 실습(Talker, Listener)
 - ROS2 패키지설명
 - ROS2 실습(Turtlesim, teleop_key)
 5차시
+
 - ROS2 실습(Turtlesim, Teleop_key 여러개만들기)
 - Topic, Service, Action, Parameter, RQT, RQT_Graph 이론및실습
 - ROS2 실습(Turtlesim, Namespace 여러개만들기)
@@ -77,18 +82,23 @@ ROS2 turtlesim 복습
 ROS 소개및활용
 ●
 OS
+
 - Ubuntu 22.04 (Jammy Jellyfish)
 ●
 ROS
+
 - ROS 2 Humble
 ●
 에디터
+
 - Visual Studio Code, gedit
 ●
 설치매뉴얼
+
 - ROS 2 Installation (Humble)
 ●
 환경설정및간단튜토리얼
+
 - ROS 2 Configuring environment
 - ROS 2 Turtlesim Tutorial
 
@@ -98,30 +108,31 @@ ROS는메타운영체제로, 메타운영체제란애플리케이션과분산컴
 자원간의가상화레이어로분산컴퓨팅자원을활용하여, 스케줄링,로드,
 감시, 에러처리등을실행하는시스템이다.
 ROS 소개및활용
-• 2024.05.23 - ROS 2 Jazzy Jalisco (LTS, 5 years support)
-• 2023.05.23 - ROS 2 Iron Irwini
-• 2022.05.23 - ROS 2 Humble Hawksbill (LTS, 5 years support)
-• 2021.05.23 - ROS 2 Galactic Geochelone
-• 2020.06.05 - ROS 2 Foxy Fitzroy (LTS, 3 years support)
-• 2019.11.22 - ROS 2 Eloquent Elusor
-• 2019.05.31 - ROS 2 Dashing Diademata (First LTS, 2 years support)
-• 2018.12.14 - ROS 2 Crystal Clemmys
-• 2018.07.02 - ROS 2 Bouncy Bolson
-• 2017.12.08 - ROS 2 Ardent Apalone (1st version)
-• 2017.09.13 - ROS 2 Beta3 (code name R2B3)
-• 2017.07.05 - ROS 2 Beta2 (code name R2B2)
-• 2016.12.19 - ROS 2 Beta1 (code name Asphalt)
-• 2016.10.04 - ROS 2 Alpha8 (code name Hook.and.Loop)
-• 2016.07.14 - ROS 2 Alpha7 (code name Glue Gun)
-• 2016.06.02 - ROS 2 Alpha6 (code name Fastener)
-• 2016.04.06 - ROS 2 Alpha5 (code name Epoxy)
-• 2016.02.17 - ROS 2 Alpha4 (code name Duct tape)
-• 2015.12.18 - ROS 2 Alpha3 (code name Cement)
-• 2015.11.03 - ROS 2 Alpha2 (code name Baling wire)
-• 2015.08.31 - ROS 2 Alpha1 (code name Anchor)
-• ROS Noetic Ninjemys
-• Released May, 2020
-• LTS, supported until May, 2025
+
+- 2024.05.23 - ROS 2 Jazzy Jalisco (LTS, 5 years support)
+- 2023.05.23 - ROS 2 Iron Irwini
+- 2022.05.23 - ROS 2 Humble Hawksbill (LTS, 5 years support)
+- 2021.05.23 - ROS 2 Galactic Geochelone
+- 2020.06.05 - ROS 2 Foxy Fitzroy (LTS, 3 years support)
+- 2019.11.22 - ROS 2 Eloquent Elusor
+- 2019.05.31 - ROS 2 Dashing Diademata (First LTS, 2 years support)
+- 2018.12.14 - ROS 2 Crystal Clemmys
+- 2018.07.02 - ROS 2 Bouncy Bolson
+- 2017.12.08 - ROS 2 Ardent Apalone (1st version)
+- 2017.09.13 - ROS 2 Beta3 (code name R2B3)
+- 2017.07.05 - ROS 2 Beta2 (code name R2B2)
+- 2016.12.19 - ROS 2 Beta1 (code name Asphalt)
+- 2016.10.04 - ROS 2 Alpha8 (code name Hook.and.Loop)
+- 2016.07.14 - ROS 2 Alpha7 (code name Glue Gun)
+- 2016.06.02 - ROS 2 Alpha6 (code name Fastener)
+- 2016.04.06 - ROS 2 Alpha5 (code name Epoxy)
+- 2016.02.17 - ROS 2 Alpha4 (code name Duct tape)
+- 2015.12.18 - ROS 2 Alpha3 (code name Cement)
+- 2015.11.03 - ROS 2 Alpha2 (code name Baling wire)
+- 2015.08.31 - ROS 2 Alpha1 (code name Anchor)
+- ROS Noetic Ninjemys
+- Released May, 2020
+- LTS, supported until May, 2025
 ROS 2 Jazzy Jalisco
 [출처] https://github.com/ros-infrastructure/artwork/tree/master/distributions
 
@@ -137,6 +148,7 @@ ROS 2 Jazzy Jalisco
 
 
 ![Image 23](../../assets/images/ros/basics/lesson-04/img_011_023.webp)
+
 ![Image 26](../../assets/images/ros/basics/lesson-04/img_011_026.webp)
 
 ROS
@@ -168,21 +180,26 @@ ROS 구성요소
 구성요소
 설명
 마스터
+
 - 노드와노드사이연결및메시지통신의네임서버역할
 - Roscore로실행이되며, URI 주소는기본적으로는현재의로컬IP 사용
 노드
+
 - ROS에서실행되는최소단위의프로세스를말함
 - ROS에서는하나의목적에하나의노드작성을권장함
 - 노드가구동될때, 노드의역할(토리그서비스등), 메시지형태등이등록됨
 패키지
+
 - ROS를구성하는기본단위
 - ROS 응용프로그램은패키지단위로개발되며최소한하나의노드를가짐
 메시지
+
 - 노드와노드는서로메시지를통해서데이터를주고받음
 - 메시지는integer, float, Boolean 등의변수형태임
 - 메시지 안에메시지를품는데이터구조가가능
 - 단방향은토픽(topic), 양방향은서비스(service)
 토픽
+
 - 토픽은ROS의노드사이의데이터통신의한종류
 - 단방향통신으로, 데이터를메시지에담아서방송을함
 - 방송을하는퍼블리셔(publisher)와수신을하는서브스크라이버(subscriber)로 구성됨
@@ -239,6 +256,7 @@ ROS 2 코드는Apache 2.0 라이센스를기본라이센스로사용하여지적
 (8) 업계지원
 ROS 2 기술운영위원회(ROS 2 Technical Steering Committee)의멤버쉽에서알수있듯이ROS 2에대한업계지원은강력하다. 전세계의크고작은
 회사는제품을개발할뿐만아니라ROS 2에오픈소스기여를하기위해자원을투입하고있다.
+
 - ROS Package Documentation
 - Robotics Stack Exchange
 - ROS Discourse Forums
@@ -289,6 +307,7 @@ ROS 소개및활용
 ROS 1은2007년에개발이시작되어지금은대학, 연구기관, 산업계, 로봇자작의취미활동까지폭넓게이용되고있다. 원래ROS 1은
 Willow Garage사가개인서비스로봇인PR2개발에필요한미들웨어형태의로봇개발프레임워크를다양한개발툴과함께오픈소스로
 공개한것으로시작하였다. 따라서개발환경으로는PR2의초기컨셉을그대로이어받아다음과같은제한사항이있었다.
+
 - 단일로봇
 - 워크스테이션급컴퓨터
 - Linux 환경
@@ -308,6 +327,7 @@ ROS 소개및활용
 오늘날요구되는로봇개발환경과는큰차이가있다. 예를들어, 최근의ROS 1은종래가장많이이용되고있던학술분야뿐만아니라, 제조로봇, 농업로봇,
 드론, 소셜로봇과같은상용로봇등으로이용되고있다. 극단적인예로NASA가국제우주정거장에서사용한Robonaut에는ROS 1가채용되고있지만,
 거기에서는실시간제어가요구되었고이를위해서ROS 1을수정하여사용하였다. 이러한새로운로봇개발환경및요구되는기능을정리하면다음과같다.
+
 - 복수대의로봇
 - 임베디드시스템에서의ROS 사용
 - 실시간제어
@@ -323,6 +343,7 @@ ROS 1에서이러한새롭게요구되는기능을제공하려면대규모API의
 
 
 ROS 소개및활용
+
 1. Platforms
 ROS 2부터는3대운영체제인Linux, Windows, macOS를모두지원한다. 이는바이너리파일로설치가가능하다는의미로Windows
 사용자가많은한국의경우에는반가운소식으로받아들이는분들이많을것같다. ROS 2 Jazzy Jalisco 기준으로보았을때Linux는Ubuntu
@@ -333,6 +354,7 @@ ROS 2 사용에도움이될듯싶다. 그리고Linux, macOS는ROS 1 부터지원
 들어오고Windows용패키지및테스트, Visual Studio Code Extension for ROS 까지준비하는등굉장한노력을기울여Windows
 사용자들도ROS 2를쉽게사용할수있게되었다. Windows 사용자라면Win ROS Landing Page, WSL 2(Windows Subsystem For Linux 2)의
 Windows 관련문서를참고하기를추천한다.
+
 2. Real-time
 ROS 2는Real-time을지원한다. 단, 선별된하드웨어사용, 리얼타임운영체제사용, DDS의RTPS(Real-time Publish-Subscribe Protocol)와
 같은통신프로토콜을사용, 매우잘짜여진리얼타임코드사용을전제로실시간성을지원하고있다. 이부분은ROSCon2019의Pre-
@@ -342,6 +364,7 @@ conference Workshops으로진행되었던`Doing real-time with ROS 2: Capabiliti
 
 
 ROS 소개및활용
+
 3. Security
 ROS 1에서는항상보안이문제였다. 노드를관리하는ROS master의하나의IP와포트만노출되면모든시스템을죽일수있었으
 며, 보안입장에서는TCPROS는뻥뚫린큰구멍에가까웠다. 하지만ROS 1은이러한부족한부분을매우기보다는로봇개발에
@@ -359,6 +382,7 @@ Control Policies, Security Enclaves, Robotic Systems Threat Model)의`Security` 
 
 
 ROS 소개및활용
+
 4. Communication
 ROS 1에서는자체개발한TCPROS와같은통신라이브러리를사용하고있던반면, ROS 2은리얼타임퍼블리시와서브스크라이브
 프로토콜인RTPS(Real Time Publish Subscribe)를지원하는통신미들웨어DDS를사용하고있다. DDS는OMG(Object Management
@@ -369,6 +393,7 @@ Language)를사용하여메시지정의및직렬화를더쉽게, 더포괄적으
 of Service) 매개변수를설정할수있어서TCP 처럼데이터손실을방지함으로써신뢰도를높이거나, UDP 처럼통신속도를최우선하여
 사용할수도있다. 이러한다양한기능을갖춘DDS를이용하여ROS 1의퍼블리시, 서브스크라이브형메세지전달은물론, 실시간데이터
 전송, 불안정한네트워크에대한대응, 보안강화등이강화되었다. DDS의채용은ROS 1에서ROS 2로바뀌면서가장큰변화점이다.
+
 5. Middleware interface
 앞서설명한DDS는다양한기업에서통신미들웨어형태로제공하고있다. 그벤더로는10 곳이있는데이중ROS 2를지원하는업체는
 ADLink, Eclipse Foundation, Eprosima, Gurum Network, RTI로총5 곳이다. DDS 제품명으로는Eclipse Foundation의Cyclone DDS,
@@ -380,6 +405,7 @@ ROS 2에서는이러한벤더들의미들웨어를유저가원하는사용목적
 
 
 ROS 소개및활용
+
 6. Node manager (discovery)
 ROS 1에서의필수실행프로그램으로는roscore가있다. 이를실행시키면ROS Master, ROS Parameter Server, rosout logging node가실행되었다.
 특히ROS Master는ROS 시스템의노드들의이름지정및등록서비스를제공하였고, 각노드에서퍼블리시또는서브스크라이브하는메시지를찾아서
@@ -389,17 +415,20 @@ ROS 1에서의필수실행프로그램으로는roscore가있다. 이를실행시
 ROS 2에서는roscore가없어지고3가지프로그램이각각독립수행으로바뀌었다. 특히, ROS Master의경우완전히삭제되었는데이는DDS를
 사용함에따라노드를DDS의Participant개념으로취급하게되었으며, Dynamic Discovery기능을이용하여DDS 미들웨어를통해직접검색하여
 노드를연결할수있게되었다. 이제ROS 2에서는roscore는Bye~ Bye~ 다.
+
 7. Languages
 ROS 2의프로그램언어로는ROS 1과마찬가지로다양한프로그래밍언어를지원할예정이다. 아직까지는C++, Python이주력언어라고볼수있는데
 이주력언어도아래와같이큰변화가있었다. ROS 2 배포판마다조금씩다르기는하지만Jazzy를기준으로보았을때, C++은C++17, 파이썬은
 Python 3.8이기본요구사항으로되어있다. 이다. 같은언어를쓰더라도ROS 1을사용했을때에는뭔가올드한느낌이었고최신언어들이제공하는
 기능들을못쓰고그림에떡이였는데이제는최신의아름다운언어를쓰는기분이다. 이는사용해보면알게될것이다. 물론새로운걸배운다는것은
 어쩔수없는엔지니어의숙명이다.
+
 - ROS 1: C++03, Python 2.7
 - ROS 2: C++17, Python 3.8
 
 
 ROS 소개및활용
+
 8. Build system
 ROS 2에서는새로운빌드시스템인ament를사용한다. ament는ROS 1에서사용되는빌드시스템인catkin의업그레이드버전이다. ROS 1의
 catkin이CMake만을지원했던반면, ament는CMake를사용하지않는Python 패키지관리도가능하다. 즉, ROS 2에와서는Python 패키지는
@@ -407,8 +436,10 @@ catkin이CMake만을지원했던반면, ament는CMake를사용하지않는Python
 로직으로처리되었다. 하지만ROS 2에서Python 패키지는setup.py 파일의모든기능을순수Python 모듈과동등한수준으로개발할수있게
 되었다. 마지막으로TMI일수있으나catkin과ament는이음동의어로버드나무의화수를의미하며ROS 1의개발주체인Willow Garage 뒷
 마당에있던버드나무화수를보고지었다고한다. 즉, 뭔가심오한뜻이있는것은아니다.
+
 - ROS 1: rosbuild → catkin (CMake)
 - ROS 2: ament (CMake), Python setuptools (Full support)
+
 9. Build tools
 ROS 1의경우여러가지다른도구, 즉catkin_make, catkin_make_isolated 및catkin_tools가지원되었다. ROS 2에서는알파, 베타, 그리고
 Ardent 릴리스까지빌드도구로ament_tools이이용되었고지금에와서는colcon을추천하고있다.
@@ -418,6 +449,7 @@ colcon은ROS 2 패키지를작성, 테스트, 빌드등ROS 2 기반의프로그�
 
 
 ROS 소개및활용
+
 10. Build options
 ROS 2에서는빌드관련내용들이모두변경되면서빌드옵션에도새로운변화가생겼다. 그중사용하면서가장좋았던3가지를꼽자면
 아래와같다.
@@ -438,10 +470,12 @@ build --symlink-install` 와같은옵션을사용하여심벌릭링크설치의�
 
 
 ROS 소개및활용
+
 11. Version control system
 ROS는수많은소스코드공여자로부터만들어가는코드의집합이기때문에개인은물론소속도정말다양하고각코드들의리포지토리도제각각이다.
 예를들어어느패키지는GitHub를이용하고어떤것은Bitbucket를이용한다. 그리고사용하는버전관리시스템(Version Control System, VCS)도Git,
 Mercurial, Subversion, Bazaar 등다양하다.
+
 - ROS 1: rosws → wstool, rosinstall (*.rosinstall)
 - ROS 2: vcstool (*.repos)
 ROS 커뮤니티에서는이러한다양한리포지토리와혼재된버전관리시스템을사용하더라도ROS를사용함에있어서불편함이없도록통합적인툴이
@@ -457,6 +491,7 @@ vcs import src < ros2.repos
 
 
 ROS 소개및활용
+
 12. Client library
 ROS 기반의프로그래밍을작성한다는것은ROS Middleware Interface에서유저코드영역(user land)을다룬다는것으로그밑에는ROS 클라이언트라이브러리
 (ROS Client Library)이있고, 이클라이언트라이브러리는앞서설명한미들웨어(middleware interface)를사용하고있다는것을알고있어야한다. 여기서유저는
@@ -465,6 +500,7 @@ roscpp, rospy, roslisp 등각프로그래밍언어에대해클라이언트라이
 RCL(ROS Client Library)이라는이름으로제공한다. 그리고프로그래밍언어별로rclcpp, rclc, rclpy, rcljava, rclobjc, rclada, rclgo, rclnodejs 등으로제공된다.
 또한ROS 2는앞서설명한바와같이C이면C99, C++ 이라면C++ 14/17, Python라면Python 3 (3.5+) 등최신기술사양에대응하고있다. 각C++/Python ROS
 Client Library API는rclcpp, rclpy을미리봐둔다면도움일될것이다.
+
 13. Life cycle
 로봇개발에있어서로봇의현재상태를파악하고현재상태에서다른상태로변경되는상태천이제어는수십년간로봇공학에서도주요연구주제로다루었던중
 요한부분중에하나이다. 특히태스크수행측면에서현재의상태파악과천이는멀티태스크수행에서빠질수없는중요한부분일것이고복수의로봇복수의
@@ -477,6 +513,7 @@ ROS 2에서는이러한니즈를반영하여패키지의각노드들의현재상
 
 
 ROS 소개및활용
+
 14. Multiple nodes
 ROS 1의초기에는하나의프로세스에서여러노드를실행할수없었다. 하지만이러한요구는지속적으로제기되었고하나의프로세스에서여러노드를작
 성하기위해nodelet라는새로운기능이ROS 1에추가되었다. 이는하드웨어리소스가제한적이거나노드간에수많은메시지를보내야할때유용하게사
@@ -484,6 +521,7 @@ ROS 1의초기에는하나의프로세스에서여러노드를실행할수없었
 ROS 2에서nodelet이사용되지는않고RCL에포함되어있다. 이름은컴포넌트(components)라고부르며ROS 2에서는이컴포넌트를사용하여동일한실행
 파일에서복수의노드를수행할수있게되었다. 이를사용하게되면노드의실행파일수준은더세분화시킬수있으며프로세스내통신IPC(intra-
 process communication)기능을이용하여ROS 2의통신오버헤드를제거할수있어서더효율적인ROS 2 응용프로그램을작성가능하다.
+
 15. Threading model
 ROS 1에서개발자는단일스레드실행또는다중스레드실행중하나만선택할수있었다. ROS 2에서는더세분화된실행모델(executor)을C++과
 Python에서사용할수있으며사용자가정의한실행기도제공되는RCL API를이용하여쉽게구현할수있다. Single Threaded Executor, Multi Threaded
@@ -491,6 +529,7 @@ Executor는각클라이언트라이브러리마다구현방식이다르기에관
 
 
 ROS 소개및활용
+
 16. Messages (topic, service, action)
 ROS 2에서도기존ROS 1의메시지(Messages)과마찬가지로단일데이터구조를메시지라고정의하며정해진또는사용자가정의한메시지를사용할수있으며,
 각패키지이름과마찬가지로이름과각지정된형식으로메시지를고유하게식별할수있다. 사용처도기존과마찬가지로Topic, Service, Action 등에서사용하며
@@ -502,16 +541,19 @@ ROS 2에서도기존ROS 1의메시지(Messages)과마찬가지로단일데이터
 IDL types 자료를참고하면좋을듯싶으며전체적으로다듬어진정리표는Interfaces 글을참고하도록하자.
 그리고, ROS 2에서는DDS를사용하면서메시지를이용한Topic, Service, Action 등의컨셉은변하지않으나사용방법은상당히많이바뀌었다. 이부분에대한설
 명은이어지는강좌를통해예제와함께하나하나알아가보자.
+
 17. Command Line Interface
 대부분의CLI 타입의명령어사용법은기존ROS 1과매우비슷해서약간의이름변경과일부옵션사용법만익힌다면사용시큰차이는없다. 자주사용되는명령
 어를예를들어보자면아래와같은차이정도이다. ROS 1 명령어에비해명령어가약간길어진듯보이긴하지만자주쓰는명령어는"alias rt='ros2 topic list'"와
 같이설정하여사용하면되기에큰무리는없다. 더욱이ROS 2의CLI 형태의명령어는ROS 2 TSC 멤버이자Ubuntu 개발업체인Canonical이담당하고있어서더
 욱믿음이간다. 자세한설명은ROS 2 Command Line Interface 를참고하기바라며실습을해보고싶다면발표자료를참고하면좋다.
+
 - ROS 1: 'rostopic list'
 - ROS 2: 'ros2 topic list'
 
 
 ROS 소개및활용
+
 18. roslaunch
 ROS의실행시스템은대표적으로`run`과`launch`가있는데`run`은단일프로그램실행, `launch`는사용자지정프로그램실행을수행한다. 사용면에서
 는`run`에비해다양한설정을할수있는`launch` 사용이월등히사용빈도가높다. `launch`는사용자가실행하고자하는프로그램의각종설정을기술
@@ -521,6 +563,7 @@ launch의ROS 1과ROS 2의차이점을살펴보면다양한파일사용이다. RO
 해도다양한설정을추가하여프로그램을실행시킬수있어서매우편했는데, ROS 2에서는`XML`, `YAML` 형식이외에도`Python`이새롭게채용되어
 조건문및Python 모듈을추가로사용하여보다복잡한논리와기능을사용할수있게되었다. 어떤방식으로사용하는지에대한추가설명은튜토리얼
 을참고하도록하자.
+
 19. Graph API
 ROS는메타패키지, 패키지, 노드그리고노드간의데이터교환을위한토픽등으로구성되어있다. 이때의각노드와토픽, 메시지등이고유의이름을
 가지고있고, 매핑이이루어져각노드와노드간의토픽, 메시지의관계를그래프화시킬수있도록되어있다. 이러한그래프구조를시각화하는툴인
@@ -528,6 +571,7 @@ rqt_graph를제공하고있어서현재네트워크상의각구성요소의연�
 
 
 ROS 소개및활용
+
 20. Embedded Systems
 로봇개발에있어서실시간성을담보받으며모터및센싱을제어하는부분은매우중요하게다루어져왔다. 이강좌초반에서언급했듯이ROS 커뮤니티에서도
 이를위해ROS 2에서는선별된하드웨어사용, 리얼타임운영체제사용, DDS의RTPS(Real-time Publish-Subscribe Protocol)와같은통신프로토콜을사용, 매우
@@ -541,9 +585,11 @@ Environments (DDS-XRCE)를사용하는등임베디드보드에서직접ROS 프�
 는여러가지가있을수있는데현재ARM 사를포함한다양한MCU 제조업체에서이를지원하기위하여다양한방법론을내놓고있는상태이고, eProsima,
 BOSCH, ROBOTIS, FIWARE, Amazon, Renesas 등에서다음참고자료와같이다양한임베디드지원방법에대해개발, 공개하고있다.
 임베디드환경에서DDS 및ROS 메시지통신등에관심있는사람은아래참고자료를참고하도록하자.
+
 - ROS 1: rosserial, mROS
 - ROS 2: micro-ROS, XEL Network, ros2arduino, Renesas, DDS-XRCE(Micro-XRCE-DDS), AWS ARCLM
 [참고자료]
+
 - https://micro-ros.github.io/
 - http://xelnetwork.robotis.com/
 - https://github.com/ROBOTIS-GIT/ros2arduino
@@ -642,6 +688,7 @@ Scalable Architecture
 Interoperability
 9.
 Quality of Service (QoS)
+
 10. Security
 
 
@@ -649,6 +696,7 @@ Quality of Service (QoS)
 
 
 ROS 소개및활용
+
 1. 산업표준
 DDS는분산객체에대한기술표준을제정하기위해1989년에설립된비영리단체인OMG(Object Management Group, 객체관리그룹)가관
 리하고있는만큼산업표준으로자리잡고있다. 지금까지OMG가진행하여ISO 승인된표준으로는UML, SysML, CORBA 등이있다. 2001년
@@ -656,12 +704,14 @@ DDS는분산객체에대한기술표준을제정하기위해1989년에설립된�
 DDS를사용하며산업표준의기반이되고있다. ROS 1에서의TCPROS는독자적인미들웨어라는성격이짙었는데ROS 2에와서는DDS 사용
 으로더넓은범위로사용가능하게되었으며산업표준을지키고있는만큼로봇운영체제ROS가IoT, 자동차, 국방, 항공, 우주분야로넓혀갈
 수있는발판이마련되었다고생각한다.
+
 2. 운영체제독립
 DDS는Linux, Windows, macOS, Android, VxWorks 등다양한운영체제를지원하고있기에사용자가사용하던운영체제를변경할필요가
 없다. 멀티운영체제지원을컨셉으로하고있는ROS 2에도매우적합하다고볼수있다.
 
 
 ROS 소개및활용
+
 3. 언어독립
 DDS는미들웨어이기에그상위레벨이라고볼수있는사용자코드레벨에서는DDS 사용
 을위해기존에사용하던프로그래밍언어를바꿀필요가없다. ROS 2에서도이특징을충
@@ -669,6 +719,7 @@ DDS는미들웨어이기에그상위레벨이라고볼수있는사용자코드�
 로각RMW가제작되었으며, 그위에사용자코드를위해rclcpp, rclc, rclpy, rcljava,
 rclobjc, rclada, rclgo, rclnodejs 같이다양한언어를지원하는ROS 클라이언트라이브러
 리(ROS Client Library)를제작하여멀티프로그래밍언어를지원하고있다.
+
 4. UDP 기반의전송방식
 DDS 벤더별로DDS Interoperability Wire Protocol (DDSI-RTPS)의구현방식에따라상이할수있으나일반적으로UDP 기반의신뢰성
 있는멀티캐스트(reliable multicast)를구현하여시스템이최신네트워킹인프라의이점을효율적으로활용할수있도록돕고있다.  UDP
@@ -684,6 +735,7 @@ reliable을보장하는TCP에비해장단점이있는데이또한후에설명하
 
 
 ROS 소개및활용
+
 5. 데이터중심적기능
 다양한미들웨어가있겠지만그중DDS를사용하면서제일많이듣는말중에하나는`Data Centric`이라는것이다. 우리말로는데이
 터중심적이라는것인데실제로DDS를사용하다보면이말이이해가된다. DDS 사양에도DCPS(data-centric publish-subscribe)이
@@ -696,6 +748,7 @@ ROS 소개및활용
 
 
 ROS 소개및활용
+
 6. 동적검색
 DDS는동적검색(Dynamic Discovery)을제공한다. 즉, 응용프로그램은DDS의동적검색을통하여어떤토픽이지정도메인영역에있으며어
 떤노드가이를발신하고수신하는지알수있게된다. 이는ROS 프로그래밍할때데이터를주고받을노드들의IP 주소및포트를미리입력하거
@@ -707,6 +760,7 @@ ROS 1에서는ROS Master에서ROS 시스템의노드들의이름지정및등록�
 해네임서비스를마스터에서실행했었어야했고, 이ROS Master가연결이끊기거나죽는경우모든시스템이마비되는단점이있었다.
 ROS 2에서는ROS Master가없어지고DDS의동적검색기능을사용함에따라노드를DDS의Participant 개념으로취급하게되었으며, 동적
 검색기능을이용하여DDS 미들웨어를통해직접검색하여노드를연결할수있게되었다.
+
 7. 확장가능한아키텍처
 OMG의DDS 아키텍처는IoT 디바이스와같은소형디바이스부터인프라, 국방, 항공, 우주산업과같은초대형시스템으로까지확장할수있도
 록설계되었다. 그렇다고사용하기복잡한것도아니다. DDS의Participant 형태의노드는확장가능한형태로제공되어사용할수있으며단일
@@ -716,6 +770,7 @@ OMG의DDS 아키텍처는IoT 디바이스와같은소형디바이스부터인프
 
 
 ROS 소개및활용
+
 8. 상호운용성
 ROS 2에서통신미들웨어로사용하고있는DDS는상호운용성을지원하고있다. 즉, DDS의표준사양을지키고있는벤더제품을
 사용한다면A라는회사의제품을사용하였다가도B라는회사제품으로변경이가능하고, A 제품과B 제품을혼용하여서로다른
@@ -730,6 +785,7 @@ Connext DDS, Gurum DDS를사용하면된다.
 
 
 ROS 소개및활용
+
 10. 보안
 ROS 1의가장큰구멍이었던보안부분은ROS 2 개발에서DDS으로해결되었다. DDS의사양에는DDS-Security이라는DDS 보안사양을
 ROS에적용하여보안에대한이슈를통신단부터해결하였다. 또한ROS 커뮤니티에서는SROS 2(Secure Robot Operating System 2)라는
@@ -996,6 +1052,7 @@ Turtlesim 실행후node 확인
 
 
 ROS2 실습
+
 - turtlesim_node
 - turtle_teleop_key
 - 프로그램위치확인
@@ -1156,6 +1213,7 @@ Turtlesim 실행후node 확인
 
 
 ![Image 100](../../assets/images/ros/basics/lesson-04/img_082_100.webp)
+
 ROS2 실습
 ROKEY
 GO!
@@ -1166,6 +1224,7 @@ GO!
 
 ROS2 실습- turtlesim
 Turtlesim 실행후node 확인
+
 ![Image 107](../../assets/images/ros/basics/lesson-04/img_084_107.webp)
 
 
@@ -1187,6 +1246,7 @@ Turtlesim 실행후node 확인
 ROS2 실습
 Turtlesim 실행후node 확인
 Namespace 설정(p101)
+
 ![Image 116](../../assets/images/ros/basics/lesson-04/img_085_116.webp)
 
 
@@ -1204,6 +1264,7 @@ Namespace 설정(p101)
 ROS2 실습
 Turtlesim 실행후node 확인
 Namespace + Node 이름설정
+
 ![Image 125](../../assets/images/ros/basics/lesson-04/img_086_125.webp)
 
 
@@ -1211,9 +1272,11 @@ Namespace + Node 이름설정
 
 
 ![Image 127](../../assets/images/ros/basics/lesson-04/img_086_127.webp)
+
 ROS2 실습
 Turtlesim 실행후node 확인
 Namespace + Node 이름설정
+
 ![Image 130](../../assets/images/ros/basics/lesson-04/img_087_130.webp)
 
 
@@ -1221,11 +1284,14 @@ Namespace + Node 이름설정
 
 
 ![Image 132](../../assets/images/ros/basics/lesson-04/img_087_132.webp)
+
 ROS2 실습
+
 ![Image 135](../../assets/images/ros/basics/lesson-04/img_088_135.webp)
 
 
 ![Image 136](../../assets/images/ros/basics/lesson-04/img_088_136.webp)
+
 ![Image 139](../../assets/images/ros/basics/lesson-04/img_088_139.webp)
 
 
@@ -1233,16 +1299,21 @@ ROS2 실습
 
 
 ![Image 141](../../assets/images/ros/basics/lesson-04/img_088_141.webp)
+
 ROS2 실습
+
 ![Image 144](../../assets/images/ros/basics/lesson-04/img_089_144.webp)
 
 ![Image 146](../../assets/images/ros/basics/lesson-04/img_089_146.webp)
+
 ROS2 실습
 Namespace와Name 설정
+
 ![Image 149](../../assets/images/ros/basics/lesson-04/img_090_149.webp)
 
 
 ![Image 150](../../assets/images/ros/basics/lesson-04/img_090_150.webp)
+
 ![Image 153](../../assets/images/ros/basics/lesson-04/img_090_153.webp)
 
 
@@ -1250,10 +1321,12 @@ Namespace와Name 설정
 
 
 ![Image 155](../../assets/images/ros/basics/lesson-04/img_090_155.webp)
+
 ROS2 실습
 
 
 ![Image 158](../../assets/images/ros/basics/lesson-04/img_091_158.webp)
+
 ROS2 실습
 
 

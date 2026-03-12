@@ -2,13 +2,13 @@
 
 
 Thread와Sqlite3
-•
+-
 방화벽해지
         sudo ufw disable
-•
+-
 Wifi 설정
         Rokey / rokey12345
-•
+-
 같은ROS_DOMAIN_ID에영향을안받게하기
        export $ROS_LOCALHOST_ONLY=1
 김루진강사
@@ -77,6 +77,7 @@ Thread 인스턴스를생성할때target 매개변수에함수를지정하는방
 
 대기(Waiting) 단계
 종료(Terminated) 단계
+
 ![Image 22](../../assets/images/ros/projects/thread-database/img_010_022.webp)
 
 Publisher.py
@@ -145,29 +146,30 @@ UI파일을Python에Import하여사용하는방법
 https://wikidocs.net/35481
 
 ![Image 35](../../assets/images/ros/projects/thread-database/img_017_035.webp)
+
 ![Page 18](../../assets/images/ros/projects/thread-database/page_018.webp)
 
 
 체계적으로구조화된데이터의집합으로, 효율적인데이터관리와검색을위한시스템
 주요특징:
 1.데이터독립성
-•물리적독립성: 저장구조가변경되어도응용프로그램에영향없음
-•논리적독립성: 논리적구조변경이응용프로그램에영향없음
+-물리적독립성: 저장구조가변경되어도응용프로그램에영향없음
+-논리적독립성: 논리적구조변경이응용프로그램에영향없음
 2.데이터무결성
-•정확성과일관성보장
-•제약조건을통한데이터품질유지
-•중복최소화
+-정확성과일관성보장
+-제약조건을통한데이터품질유지
+-중복최소화
 3.동시성제어
-•여러사용자의동시접근관리
-•데이터일관성유지
-•트랜잭션처리
+-여러사용자의동시접근관리
+-데이터일관성유지
+-트랜잭션처리
 
-•테이블(릴레이션)
-•필드(속성, 컬럼)
-•레코드(튜플, 행)
-•키(기본키, 외래키)
-•인덱스
-•뷰
+-테이블(릴레이션)
+-필드(속성, 컬럼)
+-레코드(튜플, 행)
+-키(기본키, 외래키)
+-인덱스
+-뷰
 DDL(Data Definition Language)
 DML(Data Manipulation Language)
 

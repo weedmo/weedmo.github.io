@@ -57,6 +57,7 @@ wifi 동글 1
 터틀봇메내퓰레이터
 참고
 아두이노
+
 ![Image 14](../../assets/images/ros/projects/aruco-conveyor/img_007_014.webp)
 
 
@@ -82,6 +83,7 @@ wifi 동글 1
 에서 사용됩니다. 스테핑 모터는 각도별로 일정한 회전각만큼 이동할 수 있어 정밀한 제어가 가능합니다.
 
 ![Image 22](../../assets/images/ros/projects/aruco-conveyor/img_010_022.webp)
+
 터틀봇메내퓰레이터
 참고
 스테핑모터, 컨베이벨트
@@ -231,13 +233,13 @@ https://markhedleyjones.com/projects/calibration-checkerboard-collection
 터틀봇메내퓰레이터
 참고
 카메라켈리브레이션
-•10x7 체커보드 패턴(내부 코너는 9x6)에서 각 사각형이 20mm인 체커보드를 사용합니다.
-•지정된 폴더에서 체커보드 이미지를 로드합니다.
-•각 이미지에서 체커보드 코너를 감지합니다.
-•감지된 코너를 사용하여 카메라 캘리브레이션을 수행합니다.
-•카메라 행렬(intrinsic parameters)과 왜곡 계수를 계산합니다.
-•캘리브레이션 결과를 파일로 저장합니다.
-•선택적으로 테스트 이미지의 왜곡을 보정합니다.
+-10x7 체커보드 패턴(내부 코너는 9x6)에서 각 사각형이 20mm인 체커보드를 사용합니다.
+-지정된 폴더에서 체커보드 이미지를 로드합니다.
+-각 이미지에서 체커보드 코너를 감지합니다.
+-감지된 코너를 사용하여 카메라 캘리브레이션을 수행합니다.
+-카메라 행렬(intrinsic parameters)과 왜곡 계수를 계산합니다.
+-캘리브레이션 결과를 파일로 저장합니다.
+-선택적으로 테스트 이미지의 왜곡을 보정합니다.
 Camera_calibration_captures.py
 Camera_calibration.py
 Camera_test.py
@@ -308,11 +310,11 @@ Marker ID: 9, Position: [-0.3635388  -0.06435436  0.54939859], Rotation (Yaw, Pi
 참고
 아로크마커거리추정
 아로크마커 거리 추정 원리
-•실제 마커 크기: 마커의 실제 크기(가령, 정사각형의 한 변의 길이)가 알려져 있어야 합니다.
-•마커의 화면 상 크기:
-•카메라에서 본 마커의 크기는 실제 크기와 카메라의 초점 거리, 마커와 카메라 사이의 거리에 따라 다르게 나타납니다.
-•삼각법:
-•삼각형의 기하학적 원리를 사용하여, 마커의 화면 상 크기와 실제 크기, 그리고 카메라의 초점 거리로부터 거리를 계산합니다.
+-실제 마커 크기: 마커의 실제 크기(가령, 정사각형의 한 변의 길이)가 알려져 있어야 합니다.
+-마커의 화면 상 크기:
+-카메라에서 본 마커의 크기는 실제 크기와 카메라의 초점 거리, 마커와 카메라 사이의 거리에 따라 다르게 나타납니다.
+-삼각법:
+-삼각형의 기하학적 원리를 사용하여, 마커의 화면 상 크기와 실제 크기, 그리고 카메라의 초점 거리로부터 거리를 계산합니다.
 
 ![Image 59](../../assets/images/ros/projects/aruco-conveyor/img_028_059.webp)
 
@@ -334,13 +336,15 @@ from std_msgs.msg import Float32, Int32
 from aruco_msgs.msg import Marker, MarkerArray
 from cv_bridge import CvBridge
 주요 라이브러리
-• cv2, numpy: 이미지 처리와 수학 계산
-• rclpy: ROS 2 파이썬 클라이언트 라이브러리
-• sensor_msgs.msg.CompressedImage: 압축된 이미지 메시지
-• aruco_msgs.msg.Marker, MarkerArray: ArUco 마커 정보 메시지
-• cv_bridge: ROS 이미지
+
+- cv2, numpy: 이미지 처리와 수학 계산
+- rclpy: ROS 2 파이썬 클라이언트 라이브러리
+- sensor_msgs.msg.CompressedImage: 압축된 이미지 메시지
+- aruco_msgs.msg.Marker, MarkerArray: ArUco 마커 정보 메시지
+- cv_bridge: ROS 이미지
  OpenCV 이미지 변환
-• yaml: 카메라 캘리브레이션 파일 로딩
+
+- yaml: 카메라 캘리브레이션 파일 로딩
 aruco_marker_detector.py
 터틀봇메내퓰레이터
 참고
@@ -364,10 +368,11 @@ distance = np.linalg.norm(tvec)
 detect_data.append([marker_id, marker_pos, (yaw, pitch, roll), distance])
 return image, detect_data
 detect_markers()
-• 카메라 영상에서 ArUco 마커 검출
-• 마커 ID, 위치, 회전각, 거리 등을 추출
-• cv2.solvePnP()을 통해 자세 추정
-• rotationMatrixToEulerAngles()로 Euler 각도 추출
+
+- 카메라 영상에서 ArUco 마커 검출
+- 마커 ID, 위치, 회전각, 거리 등을 추출
+- cv2.solvePnP()을 통해 자세 추정
+- rotationMatrixToEulerAngles()로 Euler 각도 추출
 aruco_marker_detector.py
 
 터틀봇메내퓰레이터
@@ -386,7 +391,8 @@ rvecs.append(R)
 tvecs.append(t)
 return rvecs, tvecs, []
 my_estimatePoseSingleMarkers()
-• 마커의 각 코너 좌표와 실제 크기를 바탕으로 자세 추정
+
+- 마커의 각 코너 좌표와 실제 크기를 바탕으로 자세 추정
 aruco_marker_detector.py
 
 터틀봇메내퓰레이터
@@ -405,7 +411,8 @@ y = np.arctan2(-R[2,0], sy)
 z = 0
 return np.degrees(x), np.degrees(y), np.degrees(z)
 rotationMatrixToEulerAngles()
-• 회전 행렬을 Euler 각도(roll, pitch, yaw)로 변환
+
+- 회전 행렬을 Euler 각도(roll, pitch, yaw)로 변환
 aruco_marker_detector.py
 
 터틀봇메내퓰레이터
@@ -420,7 +427,8 @@ camera_matrix = np.array(data["camera_matrix"]["data"], dtype=np.float32).reshap
 dist_coeffs = np.array(data["distortion_coefficients"]["data"], dtype=np.float32)
 return camera_matrix, dist_coeffs
 load_camera_parameters()
-• ROS 패키지 내 YAML 파일에서 카메라 캘리브레이션 파라미터를 로드
+
+- ROS 패키지 내 YAML 파일에서 카메라 캘리브레이션 파라미터를 로드
 aruco_marker_detector.py
 
 터틀봇메내퓰레이터
@@ -463,9 +471,10 @@ cv2.imshow('Detected Markers', frame)
 cv2.waitKey(1)
 클래스 ArucoMarkerDetector(Node)
 주요 역할:
-• /image_raw/compressed 주제를 구독하여 이미지를 받아옴
-• 마커 검출 후 가장 가까운 마커 정보를 로그로 출력
-• 검출된 마커 정보를 MarkerArray로 detected_markers 주제에
+
+- /image_raw/compressed 주제를 구독하여 이미지를 받아옴
+- 마커 검출 후 가장 가까운 마커 정보를 로그로 출력
+- 검출된 마커 정보를 MarkerArray로 detected_markers 주제에
 퍼블리시
 aruco_marker_detector.py
 
@@ -521,9 +530,11 @@ SSH 로봇접속
 ssh 연결하기
 ssh -X rokeyOO@<rokeyIPaddres>
 PASSWORD:rokey1234
+
 1. vscode 확장(ctrl+shift+X)탭을 누른다
 2. 마켓에서 ssh를 치고,Remote-SSH를 설치
 VSCode 로봇접속
+
 3. 원격 탐색기
 
 ![Image 73](../../assets/images/ros/projects/aruco-conveyor/img_038_073.webp)
@@ -535,6 +546,7 @@ VSCode 로봇접속
 터틀봇메내퓰레이터
 참고
 VSCode 로봇접속
+
 4. 새 원격을 누른다
 5. ssh -X rokeyO@<rokeyIP> 입력후 enter
 6. ssh 창에 새로 고침 한 이후에
@@ -606,6 +618,7 @@ ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
 pc에서
 ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py
 Moveit 키보드 설정
+
 - turtlebot3_manipulation_xyz_limit.py
 ros2 topic list
 export
@@ -622,6 +635,7 @@ i joint3 +
 k joint3 -
 o joint4 +
 l joint4 -
+
 - 그리퍼 close
 = 그리퍼 open
 
@@ -691,10 +705,12 @@ turtlebot_cosmo_interface
 터틀봇메내퓰레이터
 참고
 Moveit 아키텍처
+
 1. turtlebot_cosmo_interface.zip
 ~/turtlebot3_ws/src/안에 해당 패키지 압축풀기 (pc)
 cd ~/turtlebot3_ws
 colcon build --packages-select turtlebot_cosmo_interface
+
 2. turtlebot_moveit.zip
 ~/turtlebot3_ws/src (pc)
 cd ~/turtlebot3_ws/
@@ -722,10 +738,12 @@ Moveit이용메니퓰레이터조작
 Robot:
 Ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
 PC:
+
 1. ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py
 2. ros2 run turtlebot_moveit
 turtlebot_arm_controller
 실행
+
 3. ros2 run turtlebot_moveit task.py
 cd turtlebot_moveit/scripts/
 python3 srv_call_test.py
@@ -759,6 +777,7 @@ task.py 예제 - 1
 터틀봇메내퓰레이터
 참고
 Moveit 아키텍처
+
 1. waypoint를 줄  position과 orientation을 줍니다
 1. cmd 4를 주고 해당 waypoint로 이동을 지시합니다
 1. cmd 9를 주고 좌표를 출력합니다
@@ -790,6 +809,7 @@ y
 ±0.01
 robot_
 y
+
 - 0.08
 ±0.01
 robot_x +0.15 ±0.01
@@ -857,6 +877,7 @@ python3 task_3.py
 참고
 기타개발지원도구
 YOLO Task 설명
+
 1. srdf에 저장된 camera_home 위치로 갑니다
 2. 그 위치에서 yolo로 찾은 좌표로 robot을 이동시킵니다
 3. gripper로 잡았으면 다시 수직으로 일어납니다
@@ -961,6 +982,7 @@ simple_manager_node.py 다운로드
 참고
 기타개발지원도구
 manager_node를 완성하기전에 해야할일
+
 1. task_7.py(빨간색 상자, 파란색 상자 잡기)가 정상적으로 작동하는 것을 완성
 2. task_9.py(보라색 상자)가 정상적으로 작동하는 것을 완성
 3. 해당 logic을 manager_node yolo_arm_control, purple_arm_control에 적용
@@ -990,6 +1012,7 @@ yolo task 거리: 22.4cm(box 윗 면에서 부터 camera 까지)
 기타개발지원도구
 만약 qt_gui에서 이미지를 안 보겠다면
 image 받는 부분을 주석처리
+
 ![Image 152](../../assets/images/ros/projects/aruco-conveyor/img_078_152.webp)
 
 
@@ -1007,6 +1030,7 @@ ex) ros2 topic echo /joint_states >> a.txt
 참고
 기타개발지원도구
 aruco_yolo에 자신의 pt파일을 적용시키고 싶으면
+
 1. aruco_yolo/models에 자신의 pt파일을 넣는다
 2. aruco_yolo의 setup.py로 간다
 
@@ -1015,6 +1039,7 @@ aruco_yolo에 자신의 pt파일을 적용시키고 싶으면
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
+
 3. setup.py에서 자신의 pt파일 명을 적는다.
 
 ![Image 158](../../assets/images/ros/projects/aruco-conveyor/img_081_158.webp)
@@ -1026,6 +1051,7 @@ aruco_yolo에 자신의 pt파일을 적용시키고 싶으면
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
+
 4. aruco_yolo패키지 폴더안에 yolo_detector.py에 들어가서 model_path를 수정한다
 5. turtlebot3_ws 에서 colcon build --packages-select aruco_yolo 로 빌드
 
@@ -1054,6 +1080,7 @@ aruco_yolo에 config 파일에 들어가서 수치 변경후 colcon build를
 터틀봇메내퓰레이터
 참고
 로봇에서실행되어야하는것들
+
 1. ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
 2. ros2 launch aruco_yolo aruco_yolo.launch
 1. ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py(pc)
@@ -1072,13 +1099,16 @@ pc에서실행되어야하는것들
 터틀봇메내퓰레이터
 참고
 로봇연결및로봇조작순서
+
 1. Turtlebot3_manipulation을 켤때
 1.Opencr을 먼저 켜세요
 2.Jetson orin switch를 켜세요
+
 2. jetson orin도 일종의 컴퓨터 입니다 Hdmi cable로 monitor와 연결하고 usb port에 usb hub와 연결한 다음 keyboard와 mouse를 연결하세요
 3. Jetson orin에 ubuntu 계정 login passward는 : rokey1234
 4. 오른쪽 상단 wifi setting에 들어갑니다. 거기서 ‘Rokey-Ap-2’ wifi에 세팅합니다
 passward: rokey12345
+
 5. ctrl+alt+t를 눌러 terminal을 열고 ifconfig를 칩니다
 ifconfig
 그다음 로봇의 ip를 확인합니다
@@ -1086,6 +1116,7 @@ ifconfig
 (XX는 할당된 IP마다 다릅니다)
 terminal 창에서 jetson orin의 컴퓨터명도 확인합니다
 예) roekyXX@생략 - XX는 로봇마다 다른 숫자입니다
+
 6. 5번에 찾은 컴퓨터명과 ip는 노트북에서 ssh 연결하기 위한 셋업니다
 단 ssh는 서로 같은 wifi 공간에서 사용해야하는 본인 pc도 ‘Rokey-Ap-2’ wifi에 세팅합니다
 그다음 노트북에 terminal을 연다음 다음과 같이 입력하세요
@@ -1096,20 +1127,26 @@ ping 172.30.1.XX (XX는 찾은 ip숫자)
 터틀봇메내퓰레이터
 참고
 로봇연결및로봇조작순서
+
 7. ssh로 처음 연결하면 key를 받겠냐는 메세지가 나옵니다 거기서 yes를 입력하세요
 그다음 접속하려는 계정의 passward를 물어봅니다 연결한 로봇의 passward와 동일합니다
 passward: rokey1234
+
 8. 로봇에서 실행하는 robot을 bringup 하는 명령어 입니다
 ros2 launch turtlebot3_manipulation_bringup hardware.launch.py
+
 9. 다른 터미널창을 열고 pc에서 로봇에 ssh 연결을 합니다
 ssh -X rokeyOO@172.30.1.XX
 password:rokey1234
+
 10. 로봇에서 camera를 활성화하고 yolo와 aruco를 동시에 실행하는 launch 입니다
 ros2 launch aruco_yolo aruco_yolo.launch.py
+
 11. ssh로 실행한 ros도 확실하게 꺼주셔야 합니다
 ssh로 연결된 로봇 터미널에서 활성된 ros 창에서
 ctrl+c
 누르고 꺼지는게 확인 될때 까지 기다리세요
+
 12. ssh연결을 그냥 끊고 싶으면
 exit
 을 ssh로 연결한 로봇 터미널에 치세요
@@ -1118,6 +1155,7 @@ sudo shutdown now
 을 ssh로 연결한 로봇 터미널에 치세요
 sudo로 실행한 명령어 이기에 로봇 password를 요구할겁니다
 password:rokey1234
+
 13. Turtlebot3_manipulation을 끌때
 1.sudo shutdown now로 ubuntu를 제대로 종료한다
 2.jetson orin switch를 종료시킨다
@@ -1134,28 +1172,37 @@ https://github.com/ROBOTIS-GIT/turtlebot3_manipulation
 강의 참고용 드라이브:https://tinylink.net/JfziW
 이 과정이 완료되었을때 turtlebot3_ws/src에 들어있어야 하는 패키지는 다음과 같습니다
 turtlebot3_manipulation turtlebot_cosmo_interface turtlebot_moveit
+
 1. moveit과 관련된 ros2 package를 설치합니다
 sudo apt install ros-humble-dynamixel-sdk ros-humble-ros2-control ros-humble-ros2-controllers ros-humble-gripper-controllers
 ros-humble-moveit* ros-humble-aruco-msgs
+
 2. 만약 pc에 turtlebot3_ws가 home 디렉토리에 없을경우 workspace 폴더를 만드는 절차입니다
 home 디렉토리에 있다면 무시하세요
 mkdir -p turtlebot3_ws/src
+
 3. turtlebot3_manipulation 패키지를 turtlebot3_ws안에 빌드하기 위해서 해당 workspace의 src 폴더로 이동합니다
 cd ~/turtlebot3_ws/src/
 
 터틀봇메내퓰레이터
 참고
 리눅스노트북설치가이드
+
 4. turtlebot3_manipulation 패키지를 다운받습니다
 git clone -b humble https://github.com/ROBOTIS-GIT/turtlebot3_manipulation.git
+
 5. turtlebot3_manipulation 패키지를 빌드합니다
 cd ~/turtlebot3_ws && colcon build --symlink-install
+
 6. 빌드된 패키지를 활성화 시킵니다
 source install/setup.bash
+
 7. 실제 패키지가 제대로 빌드되었는지 확인합니다
 ros2 pkg list | grep turtlebot3_manipulation
+
 8. 패키지가 빌드가 되었으면 moveit를 실행해봅시다
 ros2 launch turtlebot3_manipulation_moveit_config moveit_core.launch.py
+
 9. 두산폴더에서 turtlebot_cosmo_interface.zip을 먼저 다운로드 합니다
 링크:https://tinylink.net/JfziW
 10.다운 받은 turtlebot_cosmo_interface.zip을 압축해제하여 ~/turtlebot3_ws/src/안에 넣습니다
@@ -1166,10 +1213,13 @@ cd ~/turtlebot3_ws && colcon build --packages-select turtlebot_cosmo_interface
 터틀봇메내퓰레이터
 참고
 기타개발지원도구
+
 12. 빌드된 패키지를 활성화 시킵니다
 source install/setup.bash
+
 13. turtlebot_cosmo_interface가 제대로 빌드되었는지 확인합니다
 ros2 interface show turtlebot_cosmo_interface/srv/MoveitControl
+
 14. 두산폴더에서 turtlebot_moveit.zip을 먼저 다운로드 합니다
 링크:https://tinylink.net/JfziW
 15.다운 받은 turtlebot_moveit.zip을 압축해제하여 ~/turtlebot3_ws/src/안에 넣습니다
@@ -1179,8 +1229,10 @@ cd ~/turtlebot3_ws && colcon build --packages-select turtlebot_moveit
 현재 launch 폴더가 없는 상태인데 빌드하면서 오류가 나는것 같습니다
 turtlebot_moveit패키지의 CMakeLists.txt에서 맨아래에 가보시면 launch가 명시되었는데 삭제하시고 저장한 다음 빌드가 정상적으로 작동 될
 것입니다
+
 17. 빌드된 패키지를 활성화 시킵니다
 source install/setup.bash
+
 18. turtlebot_cosmo_interface가 제대로 빌드되었는지 확인합니다
 ros2 pkg list | grep turtlebot_moveit
 
@@ -1271,15 +1323,17 @@ ros2 pkg list | grep turtlebot3_manipulation
 참고
 task_7(red_blue).py
 ＜주요 기능 요약＞
+
 1. YOLO 결과 수신： /yolo/detected_info 토픽에서 YOLO가 인식한 객체 좌표를 수신하여 파싱＊
 2. 로봇 암 제어：YOLO 결과를 바탕으로 로봇 암이 해당 위치로 이동하여 집거나 내려놓는 작업 수행
 3. 키보드 인터페이스：키 입력을 통해 로봇 제어 및 보정(offset) 값 조정
 4. Joint 상태 확인 및 출력
 5. 보정값 파일 읽기/쓰기：offset_values.txt를 이용해 좌표 보정 값 유지
 ＜전체 구조 개요＞
-• solv2, solv_robot_arm2: 역기구학 (Inverse Kinematics) 계산 함수
-• YoloDetect: ROS 노드 클래스
-• main: 키보드 입력 기반의 상호작용 실행 루프
+
+- solv2, solv_robot_arm2: 역기구학 (Inverse Kinematics) 계산 함수
+- YoloDetect: ROS 노드 클래스
+- main: 키보드 입력 기반의 상호작용 실행 루프
 ＊‘파싱’이란, 이 메시지를 받아서 → 필요한 정보(예: 객체 이름, (x, y) 위치, 너비, 높이 등)를
 → 프로그래밍적으로 추출해서 사용할 수 있도록 변환하는 과정
 
@@ -1313,12 +1367,16 @@ sr2 = s1 + s2
 sr2_ = sr1 + sr2
 sr3 = math.pi - sr2_
 return Sxy, sr1, sr2, sr3, St, Rt
-•
+-
 역기구학 함수
+
 1. solv2(r1, r2, r3)
+
 - 삼각형의 세 변을 알고 있을 때, 각도를 구함
 (Cosine Law 활용)
+
 2. solv_robot_arm2(x, y, z, r1, r2, r3)
+
 - 로봇팔의 링크 길이와 목표 위치(x, y, z)를 입력 받아 각
 관절(joint)의 회전 각도를 계산
 
@@ -1326,24 +1384,31 @@ return Sxy, sr1, sr2, sr3, St, Rt
 참고
 task_7(red_blue).py
 Class YoloDetect(Node):
-•
+-
 self.subscription  # YOLO 인식 데이터 수신
-•
+-
 self.joint_pub     # 관절 제어 메시지 퍼블리셔
-•
+-
 self.cmd_vel_publisher  # 이동 속도 퍼블리셔
 ＜주요 속성＞
+
 1. listener_callback(self, msg)
-• YOLO 인식 결과(문자열 형태의 리스트)를 파싱하여
+
+- YOLO 인식 결과(문자열 형태의 리스트)를 파싱하여
 self.yolo_x, self.yolo_y로 저장
+
 2. arm_controll(self)
 3. append_pose_init(x, y, z)
-• PoseArray 메시지를 만들어서 MoveIt 서비스 요청 시 사용
+
+- PoseArray 메시지를 만들어서 MoveIt 서비스 요청 시 사용
+
 4. joint_states_callback
-• 현재 로봇 관절(joint)의 위치 상태 출력
+
+- 현재 로봇 관절(joint)의 위치 상태 출력
 ＜주요 동작＞
 YOLO
 객체 인식
+
 5. 다시 camera 위치로 이동
 4. Home 위치로 복귀
 1. 그리퍼 Open
@@ -1367,10 +1432,12 @@ camera_home 위치 이동
 현재 저장된 오프셋 값들을 콘솔 출력
 현재 오프셋 값을 offset_values.txt 파일에 저장
 main() - 키보드 입력 기반 제어 루프
-• getkey.getkey() 로 키보드 입력을 받아 아래 작업 수행
+
+- getkey.getkey() 로 키보드 입력을 받아 아래 작업 수행
 offset_values.txt 파일
-• YOLO가 인식한 좌표는 정확하지 않기 때문에, 위치 보정을 위한 offset
-• 프로그램 시작 시 읽고, 키보드 조정 후 저장 가능
+
+- YOLO가 인식한 좌표는 정확하지 않기 때문에, 위치 보정을 위한 offset
+- 프로그램 시작 시 읽고, 키보드 조정 후 저장 가능
 Right
 Low
 Right
@@ -1433,7 +1500,8 @@ box_back_put 이동
 참고
 task_7(red_blue).py
 서비스 클라이언트: TurtlebotArmClient
-• send_request 메서드를 통해 MoveIt으로 로봇 암 제어 명령을 보냄
+
+- send_request 메서드를 통해 MoveIt으로 로봇 암 제어 명령을 보냄
 타입
 의미
 send_request(0, "", pose_array)

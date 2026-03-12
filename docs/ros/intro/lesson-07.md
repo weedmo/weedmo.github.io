@@ -2,6 +2,7 @@
 
 
 ROS2 프로그래밍입문(7차시)
+
 7. ROS2 복습_1
 
 
@@ -10,6 +11,7 @@ ROS2 프로그래밍입문(7차시)
 2.  ROS2 인터페이스(Topic, Server, Action)
 ROS2 소개및기본사용법
 Topic
+
 ## 최적화팁
 ROS2 소개및기본사용법
 Service
@@ -22,20 +24,26 @@ Action
 
 ROS2 인터페이스(Topic, Service, Action)
 최적화
-• ROS2에서의액션은목표전달(send_goal), 목표취소(cancel_goal), 결과받기(get_result)를위한
+
+- ROS2에서의액션은목표전달(send_goal), 목표취소(cancel_goal), 결과받기(get_result)를위한
 토픽과서비스통신을혼합하여사용
-• 비동기방식에서원하는타이밍에적절한액션수행을위해목표상태(goal_state)에도입
+
+- 비동기방식에서원하는타이밍에적절한액션수행을위해목표상태(goal_state)에도입
 하여, 목표전달후상태머신을구동하여액션프로세스추적
+
 ## Message
 
 프로그래밍규칙
 Python Style
+
 ## 기본규칙
-• Python 3(Python 3.5 이상)
+- Python 3(Python 3.5 이상)
+
 ## 라인길이
-• 최대100 문자
+- 최대100 문자
+
 ## 이름규칙(Naming)
-• CamelCased, snake_case, ALL_CAPITALS 만사용
+- CamelCased, snake_case, ALL_CAPITALS 만사용
 CamelCased: 타입, 클래스
 snake_case: 파일, 패키지, 인터페이스, 모듈, 변수, 함수, 메소드
 ALL_CAPITALS: 상수
@@ -43,10 +51,10 @@ Python Style
 Wiki 참고: https://wiki.ros.org/PyStyleGuide
 
 ROS2 Setup Tips
-rosdep
+
 ## rosdep
-• 의존성관리툴인rosdep 명령어를사용하면손쉽게패키지의의존성문제를해결
-• rosdep은패키지환경설정파일인package.xml의<depend> 옵션과같은의존성정보를확인
+- 의존성관리툴인rosdep 명령어를사용하면손쉽게패키지의의존성문제를해결
+- rosdep은패키지환경설정파일인package.xml의<depend> 옵션과같은의존성정보를확인
 하여의존성패키지들을설치해주기때문에의존성패키지가많은패키지의경우, 위명령어를
 사용하면의존성패키지설치및관리에있어서매우편하게사용가능
 
@@ -55,8 +63,9 @@ rosdep
 
 ROS2 Setup Tips
 Namespace
+
 ## 사용방법
-• ns 명령사용
+- ns 명령사용
 1.
 ROS의변수중하나인ns(namespace)를입력
 2.
@@ -64,6 +73,7 @@ ROS의변수중하나인ns(namespace)를입력
 
 
 Python을이용한패키지생성실습
+
 ## Package 생성
 1. ros2_ws/src 디렉토리생성
 2. py_pubsub package를생성
@@ -72,78 +82,83 @@ Python을이용한패키지생성실습
 
 
 Python을이용한패키지생성
-package.xml
+
 ## package.xml
-• 패키지에대한메타정보를포함하는파일(패키지의신분증역할)
-• 이파일은패키지이름, 버전, 저작자, 라이센스등의정보를정의하며, 패키지의의존성
+- 패키지에대한메타정보를포함하는파일(패키지의신분증역할)
+- 이파일은패키지이름, 버전, 저작자, 라이센스등의정보를정의하며, 패키지의의존성
 패키지와메시지, 서비스, 액션등의정의된인터페이스정보도포함
-•
+-
 사용목적
-•
+-
 소스코드를실제실행가능한프로그램이나라이브러리로변환하기위해colcon
 build를수행하면package.xml을참조하여, 빌드할패키지들사이의의존성해석
 및적절한빌드순서결정
-•
+-
 또한, 패키지의존성설치시rosdep이이파일의정보를기반으로함
 
 
 Python을이용한패키지생성실습
-•
+-
 description, maintainer, license 채우기
-•
+-
 위코드바로아래의존성코드복사해서붙여넣기
-•
+-
 <exec_depend> 태그는해당ROS 패키지가실행되기위해필요한의존성을지정하는데사용
-•
+-
 rclpy: ROS2의python 클라이언트라이브러리
-•
+-
 해당패키지가실행될때rclpy 라이브러리에의존한다는것을나타냄(즉, python을사용한ROS2 노드를실행하는데필요한라이브러리)
-•
+-
 std_msgs: ROS에서기본적으로제공하는메시지타입들의모음ex) String, Int32, Float64 등
-•
+-
 해당패키지가실행될때std_msgs 메시지라이브러리에의존한다는것을나타냄
-•
+-
 이러한의존성은패키지를빌드하거나실행할때필요한외부패키지나라이브러리를ROS 빌드도구에게알려주는역할따라서ROS
 빌드도구는이정보를사용하여필요한의존성을먼저설치하거나빌드할수있음
+
 ## Package.xml  설정
 
 ![Image 21](../../assets/images/ros/intro/lesson-07/img_012_021.webp)
+
 Python을이용한패키지생성
 setup.py & setup.cfg
+
 ## setup.cfg
-•
+-
 패키지빌드/설치/배포에사용(버전/설명/패키지의존성관리등)
-•
+-
 setuptools를사용하여패키지를배포준비시필요한정보제공
-•
+-
 Python 패키지에대한선언적인구성정보를제공하며, setuptools의
 빌드및설치과정에서활용
-•
+-
 주로패키지버전, 설명등이여기에정의됨
+
 ## setup.py
-•
+-
 setuptools를사용하여패키지를배포할준비를할때, 필요한정보를
 담고있음
-•
+-
 Python 패키지에대한프로그래매틱한구성정보를제공하며,
 setuptools를통한빌드및설치과정에서사용됨
-•
+-
 Python 패키지의설치스크립트
-•
+-
 주로패키지버전, 설명, 의존성등을포함한설치스크립트역할
-•
+-
 setuptools 라이브러리를사용, 패키지를빌드하고설치하는데필요한
 설정포함
+
 ## ROS2에서의역할
-•
+-
 Python 기반의ROS2 패키지에대해colcon
 은setup.cfg(및setup.py)를사용하여패키
 지의설치를처리
-•
+-
 setup.cfg, setup.py는setuptools를통해패
 키지를빌드하고설치하는방법에대한구
 성정보를제공
-•
+-
 ament_python 패키지빌드타입을사용하
 는경우, 파일의설정이빌드과정에영향을
 줄수있음
@@ -151,43 +166,47 @@ ament_python 패키지빌드타입을사용하
 
 Python을이용한패키지생성
 CMakeLists.txt
+
 ## CMakeLists.txt와setup.py/setup.cfg, package.xml간의비교
-•
+-
 CMakeLists.txt
-•
+-
 C/C++ 프로젝트에서주로사용됨
-•
+-
 코드컴파일및링크설정
-•
+-
 ROS2 메시지및서비스생성같은더광범위한작업지원
-•
+-
 빌드시필요한지침을담고있으며, 주로코드컴파일과관련이깊음
-•
+-
 setup.py/setup.cfg
-•
+-
 Python 패키지의빌드및설치과정설정에사용됨
-•
+-
 주로Python 관련설정에집중
-•
+-
 Pacakge.xml
-•
+-
 패키지의메타데이터와의존성을관리하는데중점
-•
+-
 CMakeLists.txt와함께작동하여ROS2 패키지의빌드와배포를가능하게함
+
 ## 세파일의공통점
-•
+-
 CMakeLists.txt, setup.py/setup.cfg, package.xml
 모두패키지의빌드및설치과정에서의존성관리와설정정의에사용
 Python을이용한패키지생성실습
+
 ## 패키지소스분석
-• timer_callback 함수
+- timer_callback 함수
 1.
 이콜백함수는타이머에의해주기적으로호출
 2.
 'Hello World: [count]' 형식의메시지를생성하고해당메시지를발행
 3.
 또한해당메시지를로깅하여화면에출력
-• main 함수
+
+- main 함수
 1.
 ROS2를초기화
 2.
@@ -196,8 +215,9 @@ MinimalPublisher 클래스의인스턴스를생성하고, rclpy.spin()을사용�
 이함수는노드가종료될때까지메시지를계속발행하게함
 4.
 노드와ROS2를적절히종료
-• 메인실행
-•
+
+- 메인실행
+-
 스크립트가직접실행되면main() 함수를호출하여위의모든로직을시작
 
 
@@ -205,18 +225,20 @@ MinimalPublisher 클래스의인스턴스를생성하고, rclpy.spin()을사용�
 
 
 Python을이용한패키지생성실습
+
 ## 의존성추가
-•
+-
 ​setup.py 설정
 
 ![Image 26](../../assets/images/ros/intro/lesson-07/img_016_026.webp)
 
 
 Python을이용한패키지생성실습
+
 ## setup.py 설정
-•
+-
 ​setup.py 파일열고수정하기(package.xml 파일과동일하게작성)
-•
+-
 entry_points 필드부분에talker 추가하기(추가후저장하기)
 
 
@@ -227,125 +249,132 @@ entry_points 필드부분에talker 추가하기(추가후저장하기)
 
 
 Python을이용한패키지생성실습
+
 ## setup.py 설정
-•
+-
 entry_points
-•
+-
 entry_points는Python의setuptools에서사용되는설정의일부
-•
+-
 특히python 패키지를설치할때커맨드라인스크립트를자동으로생성하도록지시하는데사용
-•
+-
 console_scripts
-•
+-
 console_scripts는entry_points의하위항목으로, 커맨드라인에서실행할수있는스크립트를지정
-•
+-
 'talker = py_pubsub.publisher_member_function:main'
-•
+-
 이항목은'talker'라는커맨드라인명령어를생성하라는지시
-•
+-
 사용자가커맨드라인에서talker라고입력하면, py_pubsub.publisher_member_function 모듈의
 main 함수가실행
-•
+-
 결과적으로, 이설정을사용하여python 패키지를설치하면, 사용자는커맨드라인에서바로
 talker 명령어를사용하여해당기능을실행할수있게됨
-•
+-
 ROS2에서python 노드를쉽게실행할수있도록하는데특히유용함
-•
+-
 이러한방식을통해ROS2는Python 스크립트를바로실행할수있는실행가능한커맨드를제공
 
 
 Python을이용한패키지생성실습
+
 ## Subscriber code 분석
-•
+-
 Imports
-•
+-
 import rclpy ROS2의Python 클라이언트라이브러리를가져옴
-•
+-
 from rclpy.node import Node Node 클래스를가져와노드를생성, 관리하는데필요한기능을사용
-•
+-
 from std_msgs.msg import String ROS2의표준메시지패키지에서String 메시지유형을가져옴
-•
+-
 MinimalSubscriber 클래스
-•
+-
 이클래스는ROS2 노드로동작하며, 주요기능은메시지구독
-•
+-
 __init__ 메서드
+
 1. 노드의초기화를수행
 2. create_subscription: 주어진토픽에대한구독자를생성(여기서토픽이름은'topic'이고, 메시지유형은String)
 메시지가토픽에게시될때마다listener_callback 함수가호출됨
-•
+-
 listener_callback 메서드
+
 1. 토픽에게시된메시지를수신할때호출되는콜백함수
 2. 수신된메시지의내용을로그에출력
 
 
 Python을이용한패키지생성실습
+
 ## Subscriber code 분석
-•
+-
 main 함수
-•
+-
 ROS2를초기화
-•
+-
 MinimalSubscriber 클래스의인스턴스를생성
-•
+-
 rclpy.spin : 이벤트루프를시작하여콜백을계속호출하게됨
 (메시지가게시될때마다listener_callback 함수가호출됨)
-•
+-
 destroy_node : 노드를명시적으로파괴(선택적, 가비지수집기에의해자동으로처리될수있음)
-•
+-
 rclpy.shutdown : ROS2를종료하고모든리소스를해제
-•
+-
 메인실행
-•
+-
 스크립트가직접실행되면main 함수를호출(스크립트를모듈로임포트할때, main 함수가자동으로
 호출되지않음)
-•
+-
 전반적으로이코드는ROS2를사용하여'topic'이라는토픽에서String 메시지를구독하고, 해당
 메시지의내용을로그에출력하는간단한구독자노드를구현
 
 
 토픽, 서비스, 액션인터페이스
 인터페이스(Interface) 신규작성
+
 ## 인터페이스(Interface)
-•
+-
 ROS에서노드사이에데이터를전송시사용되는토픽(Topic), 서비스(Service), 액션(Action)
 에서사용되는데이터타입
-•
+-
 토픽은msg 파일, 서비스는srv 파일, 액션은action 파일에인터페이스가정의
-•
+-
 일반적으로std_msgs나geometry_msgs와같은미리선언된인터페이스를바로사용가능
 하나, 필요에따라커스텀인터페이스생성가능
-•
+-
 단일패키지를가진프로그램에서사용시, 해당패키지포함시키기도하지만, 일반적으로단
 일패키지를가지는프로그램을만드는경우는거의없음
-•
+-
 여러개의패키지를가지는경우, 별도의인터페이스패키지를생성하여사용하는것을추천
 (이경우여러패키지들이만들어진인터페이스패키지를공유하며사용가능)
 
 
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
-•
+-
 Service, action, msg를담는인터페이스폴더역시하나의패키지로생성
-•
+-
 개발언어가python이라도build-type을ament_cmake로설정이필요
-•
+-
 ament_cmake에는메시지를include하거나import할수있게하는기능이있지만,
 ament_python에는없음
 
 
 ![Image 29](../../assets/images/ros/intro/lesson-07/img_022_029.webp)
+
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
-•
+-
 아래3개의폴더및파일을생성
-•
+-
 파일명은반드시카멜케이스(CamelCase)만사용, 만약첫문자가소문자일경우빌드시오류발생
-•
+-
 msg/MyMsg.msg
-•
+-
 srv/MySrv.srv
-•
+-
 action/MyAction.action
 
 ![Image 33](../../assets/images/ros/intro/lesson-07/img_023_033.webp)
@@ -353,13 +382,13 @@ action/MyAction.action
 
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
-•
+-
 생성한세개의폴더및파일에아래와같이작성
-•
+-
 msg/MyMsg.msg
-•
+-
 srv/MySrv.srv
-•
+-
 action/MyAction.action
 
 
@@ -374,6 +403,7 @@ action/MyAction.action
 
 토픽, 서비스, 액션인터페이스
 패키지설계
+
 ## 인터페이스패키지수정
 CMakeList.txt
 ArithmeticChecker.action
@@ -408,6 +438,7 @@ ArithmeticOperator.srv
 
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
+
 ## Package.xml 파일수정
 
 ![Image 45](../../assets/images/ros/intro/lesson-07/img_027_045.webp)
@@ -415,6 +446,7 @@ ArithmeticOperator.srv
 
 토픽, 서비스, 액션인터페이스
 인터페이스패키지생성
+
 ## CMakeLists.txt 파일수정
 
 
@@ -424,10 +456,11 @@ ArithmeticOperator.srv
 
 
 Python을이용한패키지생성실습
+
 ## Visual Studio Code 를이용한패키지생성연습
-•
+-
 py_pubsub 패키지개선하기
-•
+-
 my_ros_msgs 패키지실습
 
 
