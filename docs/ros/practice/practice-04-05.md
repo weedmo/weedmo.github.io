@@ -6,13 +6,9 @@ ROKEY BOOT CAMP
 4 ~ 5 차시
 
 
-![Image 1](../../assets/images/ros/practice/practice-04-05/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/practice/practice-04-05/img_001_002.webp)
 
 
-![Image 3](../../assets/images/ros/practice/practice-04-05/img_001_003.webp)
 
 
 ![Image 4](../../assets/images/ros/practice/practice-04-05/img_001_004.webp)
@@ -33,25 +29,18 @@ Contents
 ![Image 5](../../assets/images/ros/practice/practice-04-05/img_002_005.webp)
 
 
-![Image 6](../../assets/images/ros/practice/practice-04-05/img_002_006.webp)
 
 
-![Image 7](../../assets/images/ros/practice/practice-04-05/img_002_007.webp)
 
 
-![Image 8](../../assets/images/ros/practice/practice-04-05/img_002_008.webp)
 
 
-![Image 9](../../assets/images/ros/practice/practice-04-05/img_002_009.webp)
 
 
-![Image 10](../../assets/images/ros/practice/practice-04-05/img_002_010.webp)
 
 
-![Image 11](../../assets/images/ros/practice/practice-04-05/img_002_011.webp)
 
 
-![Image 12](../../assets/images/ros/practice/practice-04-05/img_002_012.webp)
 
 
 Transformations(좌표변환)
@@ -160,10 +149,8 @@ Turtlesim 예제
 ![Image 20](../../assets/images/ros/practice/practice-04-05/img_006_020.webp)
 
 
-![Image 21](../../assets/images/ros/practice/practice-04-05/img_006_021.webp)
 
 
-![Image 22](../../assets/images/ros/practice/practice-04-05/img_006_022.webp)
 
 
 ✓Turtlesim 예제
@@ -180,7 +167,6 @@ Turtlesim 예제
 2. 터미널에서 다음 명령어 실행
 
 
-![Image 25](../../assets/images/ros/practice/practice-04-05/img_008_025.webp)
 
 
 ![Image 26](../../assets/images/ros/practice/practice-04-05/img_008_026.webp)
@@ -189,7 +175,6 @@ Turtlesim 예제
 ![Image 27](../../assets/images/ros/practice/practice-04-05/img_008_027.webp)
 
 
-![Image 28](../../assets/images/ros/practice/practice-04-05/img_008_028.webp)
 
 
 ![Image 29](../../assets/images/ros/practice/practice-04-05/img_008_029.webp)
@@ -206,7 +191,6 @@ Turtlesim 예제
 ![Image 31](../../assets/images/ros/practice/practice-04-05/img_009_031.webp)
 
 
-![Image 32](../../assets/images/ros/practice/practice-04-05/img_009_032.webp)
 
 
 ![Image 33](../../assets/images/ros/practice/practice-04-05/img_009_033.webp)
@@ -245,7 +229,6 @@ Turtlesim 예제
 ![Image 37](../../assets/images/ros/practice/practice-04-05/img_012_037.webp)
 
 
-![Image 38](../../assets/images/ros/practice/practice-04-05/img_012_038.webp)
 
 
 ![Image 39](../../assets/images/ros/practice/practice-04-05/img_012_039.webp)
@@ -263,7 +246,6 @@ tf2에 게시되는 속도에 대한 진단 정보를 보고함
 ![Image 40](../../assets/images/ros/practice/practice-04-05/img_013_040.webp)
 
 
-![Image 41](../../assets/images/ros/practice/practice-04-05/img_013_041.webp)
 
 
 ![Image 42](../../assets/images/ros/practice/practice-04-05/img_013_042.webp)
@@ -307,16 +289,12 @@ Turtle2 기준으로 turtle1이 어떤 방향으로 회전되어 있는지
 ![Image 48](../../assets/images/ros/practice/practice-04-05/img_015_048.webp)
 
 
-![Image 49](../../assets/images/ros/practice/practice-04-05/img_015_049.webp)
 
 
-![Image 50](../../assets/images/ros/practice/practice-04-05/img_015_050.webp)
 
 
-![Image 51](../../assets/images/ros/practice/practice-04-05/img_015_051.webp)
 
 
-![Image 52](../../assets/images/ros/practice/practice-04-05/img_015_052.webp)
 
 
 ✓Turtlesim 예제– rviz
@@ -353,7 +331,6 @@ Z축
 (Blue)
 
 
-![Image 55](../../assets/images/ros/practice/practice-04-05/img_017_055.webp)
 
 
 ![Image 56](../../assets/images/ros/practice/practice-04-05/img_017_056.webp)
@@ -426,10 +403,8 @@ rviz를 통해 확인 가능한 로봇의 시각적 모델 만들기
 ![Image 66](../../assets/images/ros/practice/practice-04-05/img_020_066.webp)
 
 
-![Image 67](../../assets/images/ros/practice/practice-04-05/img_020_067.webp)
 
 
-![Image 68](../../assets/images/ros/practice/practice-04-05/img_020_068.webp)
 
 
 ✓로봇의 시각적 모델 만들기
@@ -842,10 +817,8 @@ FreeCAD
 ![Image 136](../../assets/images/ros/practice/practice-04-05/img_045_136.webp)
 
 
-![Image 137](../../assets/images/ros/practice/practice-04-05/img_045_137.webp)
 
 
-![Image 138](../../assets/images/ros/practice/practice-04-05/img_045_138.webp)
 
 
 ✓움직일 수 있는 로봇 모델 만들기
@@ -917,7 +890,6 @@ continuous joint
 ![Image 150](../../assets/images/ros/practice/practice-04-05/img_051_150.webp)
 
 
-![Image 151](../../assets/images/ros/practice/practice-04-05/img_051_151.webp)
 
 
 ![Image 152](../../assets/images/ros/practice/practice-04-05/img_051_152.webp)
@@ -1045,10 +1017,8 @@ topic
 ![Image 163](../../assets/images/ros/practice/practice-04-05/img_056_163.webp)
 
 
-![Image 164](../../assets/images/ros/practice/practice-04-05/img_056_164.webp)
 
 
-![Image 165](../../assets/images/ros/practice/practice-04-05/img_056_165.webp)
 
 
 ✓충돌 및 관성 속성 추가
@@ -1113,10 +1083,8 @@ Using Xacro
 ![Image 172](../../assets/images/ros/practice/practice-04-05/img_060_172.webp)
 
 
-![Image 173](../../assets/images/ros/practice/practice-04-05/img_060_173.webp)
 
 
-![Image 174](../../assets/images/ros/practice/practice-04-05/img_060_174.webp)
 
 
 ✓Using Xacro
@@ -1294,10 +1262,8 @@ Rviz에서 로봇 모델을 시각화
 ![Image 191](../../assets/images/ros/practice/practice-04-05/img_068_191.webp)
 
 
-![Image 192](../../assets/images/ros/practice/practice-04-05/img_068_192.webp)
 
 
-![Image 193](../../assets/images/ros/practice/practice-04-05/img_068_193.webp)
 
 
 ✓Using URDF with robot_state_publisher
@@ -1646,7 +1612,6 @@ ROS2 시뮬레이션
 Gazebo
 
 
-![Image 258](../../assets/images/ros/practice/practice-04-05/img_090_258.webp)
 
 
 ![Image 259](../../assets/images/ros/practice/practice-04-05/img_090_259.webp)
@@ -1664,7 +1629,6 @@ ROS2 시뮬레이션
 Gazebo 객체추가
 
 
-![Image 261](../../assets/images/ros/practice/practice-04-05/img_091_261.webp)
 
 
 ![Image 262](../../assets/images/ros/practice/practice-04-05/img_091_262.webp)
@@ -1688,7 +1652,6 @@ Gazebo
 3. 렌더 창 위의 적절한 아이콘을 클릭하면 상자, 구, 원통을 월드에 추가
 
 
-![Image 267](../../assets/images/ros/practice/practice-04-05/img_092_267.webp)
 
 
 ![Image 268](../../assets/images/ros/practice/practice-04-05/img_092_268.webp)
@@ -1705,7 +1668,6 @@ Gazebo
 4. 모델 데이터베이스에서 모델 추가
 
 
-![Image 270](../../assets/images/ros/practice/practice-04-05/img_093_270.webp)
 
 
 ![Image 271](../../assets/images/ros/practice/practice-04-05/img_093_271.webp)
@@ -1717,7 +1679,6 @@ Gazebo
 ![Image 273](../../assets/images/ros/practice/practice-04-05/img_093_273.webp)
 
 
-![Image 274](../../assets/images/ros/practice/practice-04-05/img_093_274.webp)
 
 
 ![Image 275](../../assets/images/ros/practice/practice-04-05/img_093_275.webp)
@@ -1745,7 +1706,6 @@ Odom →base_link : 변환 : 로봇의 본체 중심 좌표
 URDF는 Gazebo에서 사용할때 변환이 필요하지만 SDF는 직접 사용 가능
 
 
-![Image 276](../../assets/images/ros/practice/practice-04-05/img_094_276.webp)
 
 
 ![Image 277](../../assets/images/ros/practice/practice-04-05/img_094_277.webp)
@@ -1825,7 +1785,6 @@ ROS2와 로봇 시뮬레이션
 ![Image 287](../../assets/images/ros/practice/practice-04-05/img_098_287.webp)
 
 
-![Image 288](../../assets/images/ros/practice/practice-04-05/img_098_288.webp)
 
 
 ![Image 289](../../assets/images/ros/practice/practice-04-05/img_098_289.webp)
@@ -1945,7 +1904,6 @@ Gazebo Simulation과 SLAM
 ![Image 300](../../assets/images/ros/practice/practice-04-05/img_102_300.webp)
 
 
-![Image 301](../../assets/images/ros/practice/practice-04-05/img_102_301.webp)
 
 
 ![Image 302](../../assets/images/ros/practice/practice-04-05/img_102_302.webp)
@@ -2206,7 +2164,6 @@ Step4. 지도 업데이트
 ![Image 328](../../assets/images/ros/practice/practice-04-05/img_109_328.webp)
 
 
-![Image 329](../../assets/images/ros/practice/practice-04-05/img_109_329.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
@@ -2235,7 +2192,6 @@ Topic으로 퍼블리시되며 SLAM Node가 구독함
 ![Image 332](../../assets/images/ros/practice/practice-04-05/img_110_332.webp)
 
 
-![Image 333](../../assets/images/ros/practice/practice-04-05/img_110_333.webp)
 
 
 ![Image 334](../../assets/images/ros/practice/practice-04-05/img_110_334.webp)
@@ -2268,7 +2224,6 @@ Step4. 지도 업데이트
 ![Image 335](../../assets/images/ros/practice/practice-04-05/img_111_335.webp)
 
 
-![Image 336](../../assets/images/ros/practice/practice-04-05/img_111_336.webp)
 
 
 ![Image 337](../../assets/images/ros/practice/practice-04-05/img_111_337.webp)
@@ -2311,7 +2266,6 @@ P1= Q×P2+ r →P2를P1으로변환(Q는 회전 행렬, r은 이동 행렬)
 ![Image 341](../../assets/images/ros/practice/practice-04-05/img_112_341.webp)
 
 
-![Image 342](../../assets/images/ros/practice/practice-04-05/img_112_342.webp)
 
 
 ![Image 343](../../assets/images/ros/practice/practice-04-05/img_112_343.webp)
@@ -2351,7 +2305,6 @@ Occupancy Grid Mapping
 ![Image 346](../../assets/images/ros/practice/practice-04-05/img_113_346.webp)
 
 
-![Image 347](../../assets/images/ros/practice/practice-04-05/img_113_347.webp)
 
 
 ![Image 348](../../assets/images/ros/practice/practice-04-05/img_113_348.webp)
@@ -2788,7 +2741,6 @@ OpenCV 및 PCL(Point Cloud Library) 기반으로 구현된 그래프 기반 SLAM
 ![Image 402](../../assets/images/ros/practice/practice-04-05/img_130_402.webp)
 
 
-![Image 403](../../assets/images/ros/practice/practice-04-05/img_130_403.webp)
 
 
 ![Image 404](../../assets/images/ros/practice/practice-04-05/img_130_404.webp)
@@ -2817,7 +2769,6 @@ RTAB iPhone 영상(iPhone으로 맵그리기)
 ![Image 408](../../assets/images/ros/practice/practice-04-05/img_131_408.webp)
 
 
-![Image 409](../../assets/images/ros/practice/practice-04-05/img_131_409.webp)
 
 
 ![Image 410](../../assets/images/ros/practice/practice-04-05/img_131_410.webp)
@@ -2853,7 +2804,6 @@ realsense_warehouse_ws$ 위치에서 아래 명령어 실행!!!
 ![Image 412](../../assets/images/ros/practice/practice-04-05/img_132_412.webp)
 
 
-![Image 413](../../assets/images/ros/practice/practice-04-05/img_132_413.webp)
 
 
 ![Image 414](../../assets/images/ros/practice/practice-04-05/img_132_414.webp)
@@ -2871,7 +2821,6 @@ realsense_warehouse_ws$ 위치에서 아래 명령어 실행!!!
 ![Image 418](../../assets/images/ros/practice/practice-04-05/img_132_418.webp)
 
 
-![Image 419](../../assets/images/ros/practice/practice-04-05/img_132_419.webp)
 
 
 ![Image 420](../../assets/images/ros/practice/practice-04-05/img_132_420.webp)
@@ -2888,7 +2837,6 @@ Gazebo Simulation과 SLAM
 ![Image 422](../../assets/images/ros/practice/practice-04-05/img_133_422.webp)
 
 
-![Image 423](../../assets/images/ros/practice/practice-04-05/img_133_423.webp)
 
 
 ![Image 424](../../assets/images/ros/practice/practice-04-05/img_133_424.webp)
@@ -2920,7 +2868,6 @@ Worlds : 맵을구성하는파일
 ![Image 427](../../assets/images/ros/practice/practice-04-05/img_134_427.webp)
 
 
-![Image 428](../../assets/images/ros/practice/practice-04-05/img_134_428.webp)
 
 
 ![Image 429](../../assets/images/ros/practice/practice-04-05/img_134_429.webp)
@@ -2935,7 +2882,6 @@ Gazebo World와 Turtlebot Waffle을 불러옴
 ![Image 430](../../assets/images/ros/practice/practice-04-05/img_135_430.webp)
 
 
-![Image 431](../../assets/images/ros/practice/practice-04-05/img_135_431.webp)
 
 
 ![Image 432](../../assets/images/ros/practice/practice-04-05/img_135_432.webp)
@@ -2959,7 +2905,6 @@ Gazebo world를구성할때필요한model들의경로를설정하는코드임
 ![Image 435](../../assets/images/ros/practice/practice-04-05/img_136_435.webp)
 
 
-![Image 436](../../assets/images/ros/practice/practice-04-05/img_136_436.webp)
 
 
 ![Image 437](../../assets/images/ros/practice/practice-04-05/img_136_437.webp)
@@ -2977,7 +2922,6 @@ Error Control
 ![Image 439](../../assets/images/ros/practice/practice-04-05/img_137_439.webp)
 
 
-![Image 440](../../assets/images/ros/practice/practice-04-05/img_137_440.webp)
 
 
 ![Image 441](../../assets/images/ros/practice/practice-04-05/img_137_441.webp)
@@ -2986,13 +2930,11 @@ Error Control
 ![Image 442](../../assets/images/ros/practice/practice-04-05/img_137_442.webp)
 
 
-![Image 443](../../assets/images/ros/practice/practice-04-05/img_137_443.webp)
 
 
 ![Image 444](../../assets/images/ros/practice/practice-04-05/img_137_444.webp)
 
 
-![Image 445](../../assets/images/ros/practice/practice-04-05/img_137_445.webp)
 
 
 ![Image 446](../../assets/images/ros/practice/practice-04-05/img_137_446.webp)
@@ -3007,7 +2949,6 @@ SLAM 라이브러리 중 하나
 ![Image 447](../../assets/images/ros/practice/practice-04-05/img_138_447.webp)
 
 
-![Image 448](../../assets/images/ros/practice/practice-04-05/img_138_448.webp)
 
 
 ![Image 449](../../assets/images/ros/practice/practice-04-05/img_138_449.webp)
@@ -3025,7 +2966,6 @@ Gazebo Simulation과 SLAM
 ![Image 451](../../assets/images/ros/practice/practice-04-05/img_139_451.webp)
 
 
-![Image 452](../../assets/images/ros/practice/practice-04-05/img_139_452.webp)
 
 
 ![Image 453](../../assets/images/ros/practice/practice-04-05/img_139_453.webp)
@@ -3044,7 +2984,6 @@ Gazebo Simulation과 SLAM
 ![Image 455](../../assets/images/ros/practice/practice-04-05/img_140_455.webp)
 
 
-![Image 456](../../assets/images/ros/practice/practice-04-05/img_140_456.webp)
 
 
 ![Image 457](../../assets/images/ros/practice/practice-04-05/img_140_457.webp)
@@ -3080,7 +3019,6 @@ GIMP(GNU Image Manipulation Program)
 ![Image 460](../../assets/images/ros/practice/practice-04-05/img_141_460.webp)
 
 
-![Image 461](../../assets/images/ros/practice/practice-04-05/img_141_461.webp)
 
 
 ![Image 462](../../assets/images/ros/practice/practice-04-05/img_141_462.webp)
@@ -3098,7 +3036,6 @@ Gazebo Simulation과 SLAM
 ![Image 464](../../assets/images/ros/practice/practice-04-05/img_142_464.webp)
 
 
-![Image 465](../../assets/images/ros/practice/practice-04-05/img_142_465.webp)
 
 
 ![Image 466](../../assets/images/ros/practice/practice-04-05/img_142_466.webp)
@@ -3123,7 +3060,6 @@ Result에표시된화면은Costmap으로
 ![Image 468](../../assets/images/ros/practice/practice-04-05/img_143_468.webp)
 
 
-![Image 469](../../assets/images/ros/practice/practice-04-05/img_143_469.webp)
 
 
 ![Image 470](../../assets/images/ros/practice/practice-04-05/img_143_470.webp)
@@ -3143,7 +3079,6 @@ Rviz에서 Nav2Goal 버튼을 선택한 뒤
 ![Image 472](../../assets/images/ros/practice/practice-04-05/img_144_472.webp)
 
 
-![Image 473](../../assets/images/ros/practice/practice-04-05/img_144_473.webp)
 
 
 ![Image 474](../../assets/images/ros/practice/practice-04-05/img_144_474.webp)
@@ -3160,10 +3095,8 @@ Visual Slam
 ![Image 476](../../assets/images/ros/practice/practice-04-05/img_145_476.webp)
 
 
-![Image 477](../../assets/images/ros/practice/practice-04-05/img_145_477.webp)
 
 
-![Image 478](../../assets/images/ros/practice/practice-04-05/img_145_478.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
@@ -3233,7 +3166,6 @@ SLAM : Visual
 ![Image 482](../../assets/images/ros/practice/practice-04-05/img_147_482.webp)
 
 
-![Image 483](../../assets/images/ros/practice/practice-04-05/img_147_483.webp)
 
 
 ![Image 484](../../assets/images/ros/practice/practice-04-05/img_147_484.webp)
@@ -3262,7 +3194,6 @@ Step5. 지도 업데이트
 ![Image 488](../../assets/images/ros/practice/practice-04-05/img_148_488.webp)
 
 
-![Image 489](../../assets/images/ros/practice/practice-04-05/img_148_489.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
@@ -3308,7 +3239,6 @@ Step5. 지도 업데이트
 ![Image 495](../../assets/images/ros/practice/practice-04-05/img_149_495.webp)
 
 
-![Image 496](../../assets/images/ros/practice/practice-04-05/img_149_496.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
@@ -3357,7 +3287,6 @@ Step5. 지도 업데이트
 ![Image 500](../../assets/images/ros/practice/practice-04-05/img_150_500.webp)
 
 
-![Image 501](../../assets/images/ros/practice/practice-04-05/img_150_501.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
@@ -3382,10 +3311,8 @@ Step5. 지도 업데이트
 ![Image 504](../../assets/images/ros/practice/practice-04-05/img_151_504.webp)
 
 
-![Image 505](../../assets/images/ros/practice/practice-04-05/img_151_505.webp)
 
 
-![Image 506](../../assets/images/ros/practice/practice-04-05/img_151_506.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
@@ -3426,7 +3353,6 @@ Step5. 지도 업데이트
 ![Image 511](../../assets/images/ros/practice/practice-04-05/img_152_511.webp)
 
 
-![Image 512](../../assets/images/ros/practice/practice-04-05/img_152_512.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
@@ -3456,7 +3382,6 @@ Step5. 지도 업데이트
 ![Image 516](../../assets/images/ros/practice/practice-04-05/img_153_516.webp)
 
 
-![Image 517](../../assets/images/ros/practice/practice-04-05/img_153_517.webp)
 
 
 ![Image 518](../../assets/images/ros/practice/practice-04-05/img_153_518.webp)
@@ -3499,16 +3424,12 @@ Visual SLAM에서도 많이 쓰임(카메라 Pose추정, 차원 축소, 노이�
 ![Image 520](../../assets/images/ros/practice/practice-04-05/img_154_520.webp)
 
 
-![Image 521](../../assets/images/ros/practice/practice-04-05/img_154_521.webp)
 
 
-![Image 522](../../assets/images/ros/practice/practice-04-05/img_154_522.webp)
 
 
-![Image 523](../../assets/images/ros/practice/practice-04-05/img_154_523.webp)
 
 
-![Image 524](../../assets/images/ros/practice/practice-04-05/img_154_524.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
@@ -3535,7 +3456,6 @@ Step5. 지도 업데이트
 ![Image 528](../../assets/images/ros/practice/practice-04-05/img_155_528.webp)
 
 
-![Image 529](../../assets/images/ros/practice/practice-04-05/img_155_529.webp)
 
 
 Gazebo Simulation과 SLAM : 기초 이론
@@ -3554,7 +3474,6 @@ SLAM : 정확도 향상
 ![Image 530](../../assets/images/ros/practice/practice-04-05/img_156_530.webp)
 
 
-![Image 531](../../assets/images/ros/practice/practice-04-05/img_156_531.webp)
 
 
 ![Image 532](../../assets/images/ros/practice/practice-04-05/img_156_532.webp)
@@ -3578,7 +3497,6 @@ git clone --branch humble-devel https://github.com/introlab/rtabmap_ros.git src/
 ![Image 535](../../assets/images/ros/practice/practice-04-05/img_157_535.webp)
 
 
-![Image 536](../../assets/images/ros/practice/practice-04-05/img_157_536.webp)
 
 
 ![Image 537](../../assets/images/ros/practice/practice-04-05/img_157_537.webp)
@@ -3608,7 +3526,6 @@ Gazebo Simulation과 SLAM
 ![Image 542](../../assets/images/ros/practice/practice-04-05/img_158_542.webp)
 
 
-![Image 543](../../assets/images/ros/practice/practice-04-05/img_158_543.webp)
 
 
 ![Image 544](../../assets/images/ros/practice/practice-04-05/img_158_544.webp)
@@ -3617,10 +3534,8 @@ Gazebo Simulation과 SLAM
 ![Image 545](../../assets/images/ros/practice/practice-04-05/img_158_545.webp)
 
 
-![Image 546](../../assets/images/ros/practice/practice-04-05/img_158_546.webp)
 
 
-![Image 547](../../assets/images/ros/practice/practice-04-05/img_158_547.webp)
 
 
 Gazebo Simulation과 SLAM
@@ -3637,13 +3552,10 @@ Gazebo관련 프로세스 종료 후 재시도
 ![Image 549](../../assets/images/ros/practice/practice-04-05/img_159_549.webp)
 
 
-![Image 550](../../assets/images/ros/practice/practice-04-05/img_159_550.webp)
 
 
-![Image 551](../../assets/images/ros/practice/practice-04-05/img_159_551.webp)
 
 
-![Image 552](../../assets/images/ros/practice/practice-04-05/img_159_552.webp)
 
 
 ![Image 553](../../assets/images/ros/practice/practice-04-05/img_159_553.webp)
@@ -3664,7 +3576,6 @@ Gazebo Simulation과 SLAM
 ![Image 556](../../assets/images/ros/practice/practice-04-05/img_160_556.webp)
 
 
-![Image 557](../../assets/images/ros/practice/practice-04-05/img_160_557.webp)
 
 
 ![Image 558](../../assets/images/ros/practice/practice-04-05/img_160_558.webp)
@@ -3683,7 +3594,6 @@ Plugins →visualization →ImageView선택 →camera/depth/image_raw 선택
 ![Image 560](../../assets/images/ros/practice/practice-04-05/img_161_560.webp)
 
 
-![Image 561](../../assets/images/ros/practice/practice-04-05/img_161_561.webp)
 
 
 ![Image 562](../../assets/images/ros/practice/practice-04-05/img_161_562.webp)
@@ -3710,7 +3620,6 @@ depth camera 결과
 ![Image 567](../../assets/images/ros/practice/practice-04-05/img_162_567.webp)
 
 
-![Image 568](../../assets/images/ros/practice/practice-04-05/img_162_568.webp)
 
 
 ![Image 569](../../assets/images/ros/practice/practice-04-05/img_162_569.webp)
@@ -3729,7 +3638,6 @@ rgb 카메라 결과
 ![Image 571](../../assets/images/ros/practice/practice-04-05/img_163_571.webp)
 
 
-![Image 572](../../assets/images/ros/practice/practice-04-05/img_163_572.webp)
 
 
 ![Image 573](../../assets/images/ros/practice/practice-04-05/img_163_573.webp)
@@ -3752,7 +3660,6 @@ Loop Closure를위해 터틀봇을 이동시키며
 ![Image 576](../../assets/images/ros/practice/practice-04-05/img_164_576.webp)
 
 
-![Image 577](../../assets/images/ros/practice/practice-04-05/img_164_577.webp)
 
 
 ![Image 578](../../assets/images/ros/practice/practice-04-05/img_164_578.webp)
@@ -3777,7 +3684,6 @@ View 옵션을 조정
 ![Image 582](../../assets/images/ros/practice/practice-04-05/img_165_582.webp)
 
 
-![Image 583](../../assets/images/ros/practice/practice-04-05/img_165_583.webp)
 
 
 ![Image 584](../../assets/images/ros/practice/practice-04-05/img_165_584.webp)
@@ -3811,34 +3717,25 @@ loop closure로 판단
 ![Image 587](../../assets/images/ros/practice/practice-04-05/img_166_587.webp)
 
 
-![Image 588](../../assets/images/ros/practice/practice-04-05/img_166_588.webp)
 
 
 ![Image 589](../../assets/images/ros/practice/practice-04-05/img_166_589.webp)
 
 
-![Image 590](../../assets/images/ros/practice/practice-04-05/img_166_590.webp)
 
 
-![Image 591](../../assets/images/ros/practice/practice-04-05/img_166_591.webp)
 
 
-![Image 592](../../assets/images/ros/practice/practice-04-05/img_166_592.webp)
 
 
-![Image 593](../../assets/images/ros/practice/practice-04-05/img_166_593.webp)
 
 
-![Image 594](../../assets/images/ros/practice/practice-04-05/img_166_594.webp)
 
 
-![Image 595](../../assets/images/ros/practice/practice-04-05/img_166_595.webp)
 
 
-![Image 596](../../assets/images/ros/practice/practice-04-05/img_166_596.webp)
 
 
-![Image 597](../../assets/images/ros/practice/practice-04-05/img_166_597.webp)
 
 
 ROKEY BOOT CAMP

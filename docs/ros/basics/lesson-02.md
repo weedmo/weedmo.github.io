@@ -6,19 +6,14 @@ ROS2 기초-2차시
 Apr, 2025
 
 
-![Image 1](../../assets/images/ros/basics/lesson-02/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/basics/lesson-02/img_001_002.webp)
 
 
-![Image 3](../../assets/images/ros/basics/lesson-02/img_001_003.webp)
 
 
 ![Image 4](../../assets/images/ros/basics/lesson-02/img_001_004.webp)
 
 
-![Image 5](../../assets/images/ros/basics/lesson-02/img_001_005.webp)
 
 
 2
@@ -214,7 +209,6 @@ ROKEY BOOT CAMP
 ![Image 6](../../assets/images/ros/basics/lesson-02/img_008_006.webp)
 
 
-![Image 7](../../assets/images/ros/basics/lesson-02/img_008_007.webp)
 
 
 ![Image 8](../../assets/images/ros/basics/lesson-02/img_008_008.webp)
@@ -238,7 +232,6 @@ ROKEY BOOT CAMP
 공유할수없다. 즉, 다른프로세스의변수나자료구조에접근할수없다.
 
 
-![Image 9](../../assets/images/ros/basics/lesson-02/img_009_009.webp)
 
 
 10
@@ -408,7 +401,6 @@ Framework의특징
 ![Image 22](../../assets/images/ros/basics/lesson-02/img_014_022.webp)
 
 
-![Image 23](../../assets/images/ros/basics/lesson-02/img_014_023.webp)
 
 
 15
@@ -427,7 +419,6 @@ API와Library 차이점
 ![Image 24](../../assets/images/ros/basics/lesson-02/img_015_024.webp)
 
 
-![Image 25](../../assets/images/ros/basics/lesson-02/img_015_025.webp)
 
 
 16
@@ -493,7 +484,6 @@ Build 란?
 ![Image 33](../../assets/images/ros/basics/lesson-02/img_018_033.webp)
 
 
-![Image 34](../../assets/images/ros/basics/lesson-02/img_018_034.webp)
 
 
 19
@@ -552,7 +542,6 @@ ROS의패키지빌드및의존성관리를해준다.
 ![Image 38](../../assets/images/ros/basics/lesson-02/img_021_038.webp)
 
 
-![Image 39](../../assets/images/ros/basics/lesson-02/img_021_039.webp)
 
 
 ![Image 40](../../assets/images/ros/basics/lesson-02/img_021_040.webp)
@@ -582,7 +571,6 @@ GET 요청을전송합니다. 연락처양식작성과같은일부정보를전�
 12. 웹브라우저는변환된웹페이지데이터를출력한다.
 
 
-![Image 41](../../assets/images/ros/basics/lesson-02/img_022_041.webp)
 
 
 ![Image 42](../../assets/images/ros/basics/lesson-02/img_022_042.webp)
@@ -601,7 +589,6 @@ ROS는각노드간에service, topic, action 같은통신인터페이스를제공
 ![Image 43](../../assets/images/ros/basics/lesson-02/img_023_043.webp)
 
 
-![Image 44](../../assets/images/ros/basics/lesson-02/img_023_044.webp)
 
 
 24
@@ -652,7 +639,6 @@ IP를사용하는네트워크내에서컴퓨터간에메세지들이교환될때
 ![Image 47](../../assets/images/ros/basics/lesson-02/img_025_047.webp)
 
 
-![Image 48](../../assets/images/ros/basics/lesson-02/img_025_048.webp)
 
 
 26
@@ -1284,4 +1270,3 @@ ROKEY BOOT CAMP
 ![Image 140](../../assets/images/ros/basics/lesson-02/img_061_140.webp)
 
 
-![Image 141](../../assets/images/ros/basics/lesson-02/img_061_141.webp)

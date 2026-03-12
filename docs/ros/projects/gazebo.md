@@ -11,9 +11,6 @@ V1.0
 프로젝트교안
 
 
-![Image 1](../../assets/images/ros/projects/gazebo/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/projects/gazebo/img_001_002.webp)
 
 
@@ -24,7 +21,6 @@ V1.0
 가제보
 
 
-![Image 3](../../assets/images/ros/projects/gazebo/img_002_003.webp)
 
 
 HUMAN AI ROBOTICS
@@ -33,7 +29,6 @@ HUMAN AI ROBOTICS
 가제보이해
 
 
-![Image 4](../../assets/images/ros/projects/gazebo/img_003_004.webp)
 
 
 HUMAN AI ROBOTICS
@@ -85,10 +80,8 @@ sudo apt install python3-colcon-common-extensions -y
 3. 설치하기
 
 
-![Image 7](../../assets/images/ros/projects/gazebo/img_005_007.webp)
 
 
-![Image 8](../../assets/images/ros/projects/gazebo/img_005_008.webp)
 
 
 HUMAN AI ROBOTICS
@@ -103,7 +96,6 @@ gz sim -v 4 /path/to/your/world/file.sdf
 특정월드로Gazebo 실행
 
 
-![Image 9](../../assets/images/ros/projects/gazebo/img_006_009.webp)
 
 
 ![Image 10](../../assets/images/ros/projects/gazebo/img_006_010.webp)
@@ -116,13 +108,11 @@ SDF(Simulation Description Format)
 URDF는RViz, Moveit! 그리고Gazebo에서모두사용
 
 
-![Image 11](../../assets/images/ros/projects/gazebo/img_007_011.webp)
 
 
 ![Image 12](../../assets/images/ros/projects/gazebo/img_007_012.webp)
 
 
-![Image 13](../../assets/images/ros/projects/gazebo/img_007_013.webp)
 
 
 HUMAN AI ROBOTICS
@@ -153,7 +143,6 @@ HUMAN AI ROBOTICS
 가제보모델데이터베이스폴더구조에따른포맷의규칙을따라야한다.
 
 
-![Image 16](../../assets/images/ros/projects/gazebo/img_009_016.webp)
 
 
 ![Image 17](../../assets/images/ros/projects/gazebo/img_009_017.webp)
@@ -169,10 +158,8 @@ gedit ~/.gazebo/models/my_robot/model.sdf
 가제보GUI 인터페이스의Insert Model을통해당신의모델을불러올수있다
 
 
-![Image 18](../../assets/images/ros/projects/gazebo/img_010_018.webp)
 
 
-![Image 19](../../assets/images/ros/projects/gazebo/img_010_019.webp)
 
 
 ![Image 20](../../assets/images/ros/projects/gazebo/img_010_020.webp)
@@ -187,7 +174,6 @@ Upper Toolbar
 Bottom Toolbar
 
 
-![Image 21](../../assets/images/ros/projects/gazebo/img_011_021.webp)
 
 
 ![Image 22](../../assets/images/ros/projects/gazebo/img_011_022.webp)
@@ -248,7 +234,6 @@ HUMAN AI ROBOTICS
 5. Front Wheels
 
 
-![Image 33](../../assets/images/ros/projects/gazebo/img_014_033.webp)
 
 
 ![Image 34](../../assets/images/ros/projects/gazebo/img_014_034.webp)
@@ -831,7 +816,6 @@ Gazebo는기본적으로/usr/share/gazebo-11/models/ 디렉터리에서모델을
 ros2 launch gazebo_ros gzserver.launch.py world:=/absolute/path/to/my_custom_world.world
 
 
-![Image 84](../../assets/images/ros/projects/gazebo/img_039_084.webp)
 
 
 HUMAN AI ROBOTICS
@@ -860,7 +844,6 @@ SDF 주요요소
 •<collision>과<visual>을포함할수있습니다.
 
 
-![Image 86](../../assets/images/ros/projects/gazebo/img_041_086.webp)
 
 
 HUMAN AI ROBOTICS
@@ -905,7 +888,6 @@ vi model.config
 model.config
 
 
-![Image 88](../../assets/images/ros/projects/gazebo/img_043_088.webp)
 
 
 HUMAN AI ROBOTICS

@@ -10,9 +10,6 @@ V1.0
 두산 프로젝트 교안
 
 
-![Image 1](../../assets/images/ros/projects/aruco-conveyor/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/projects/aruco-conveyor/img_001_002.webp)
 
 
@@ -24,7 +21,6 @@ V1.0
 구어체변경
 
 
-![Image 3](../../assets/images/ros/projects/aruco-conveyor/img_002_003.webp)
 
 
 HUMAN AI ROBOTICS
@@ -34,7 +30,6 @@ HUMAN AI ROBOTICS
 아두이노, 컨베이벨트
 
 
-![Image 4](../../assets/images/ros/projects/aruco-conveyor/img_003_004.webp)
 
 
 HUMAN AI ROBOTICS
@@ -69,13 +64,10 @@ HUMAN AI ROBOTICS
 아두이노
 
 
-![Image 6](../../assets/images/ros/projects/aruco-conveyor/img_005_006.webp)
 
 
-![Image 7](../../assets/images/ros/projects/aruco-conveyor/img_005_007.webp)
 
 
-![Image 8](../../assets/images/ros/projects/aruco-conveyor/img_005_008.webp)
 
 
 HUMAN AI ROBOTICS
@@ -85,7 +77,6 @@ HUMAN AI ROBOTICS
 아두이노
 
 
-![Image 9](../../assets/images/ros/projects/aruco-conveyor/img_006_009.webp)
 
 
 ![Image 10](../../assets/images/ros/projects/aruco-conveyor/img_006_010.webp)
@@ -104,7 +95,6 @@ HUMAN AI ROBOTICS
 ![Image 12](../../assets/images/ros/projects/aruco-conveyor/img_007_012.webp)
 
 
-![Image 13](../../assets/images/ros/projects/aruco-conveyor/img_007_013.webp)
 
 
 ![Image 14](../../assets/images/ros/projects/aruco-conveyor/img_007_014.webp)
@@ -120,10 +110,8 @@ HUMAN AI ROBOTICS
 ![Image 15](../../assets/images/ros/projects/aruco-conveyor/img_008_015.webp)
 
 
-![Image 16](../../assets/images/ros/projects/aruco-conveyor/img_008_016.webp)
 
 
-![Image 17](../../assets/images/ros/projects/aruco-conveyor/img_008_017.webp)
 
 
 HUMAN AI ROBOTICS
@@ -197,10 +185,8 @@ HUMAN AI ROBOTICS
 ![Image 29](../../assets/images/ros/projects/aruco-conveyor/img_012_029.webp)
 
 
-![Image 30](../../assets/images/ros/projects/aruco-conveyor/img_012_030.webp)
 
 
-![Image 31](../../assets/images/ros/projects/aruco-conveyor/img_012_031.webp)
 
 
 HUMAN AI ROBOTICS
@@ -249,7 +235,6 @@ HUMAN AI ROBOTICS
 초음파센서
 
 
-![Image 33](../../assets/images/ros/projects/aruco-conveyor/img_014_033.webp)
 
 
 ![Image 34](../../assets/images/ros/projects/aruco-conveyor/img_014_034.webp)
@@ -439,7 +424,6 @@ HUMAN AI ROBOTICS
 켈리브레이션
 
 
-![Image 53](../../assets/images/ros/projects/aruco-conveyor/img_024_053.webp)
 
 
 HUMAN AI ROBOTICS
@@ -547,7 +531,6 @@ aruco_marker_detector.py
 ![Image 60](../../assets/images/ros/projects/aruco-conveyor/img_029_060.webp)
 
 
-![Image 61](../../assets/images/ros/projects/aruco-conveyor/img_029_061.webp)
 
 
 HUMAN AI ROBOTICS
@@ -925,22 +908,16 @@ l joint4 -
 ![Image 85](../../assets/images/ros/projects/aruco-conveyor/img_043_085.webp)
 
 
-![Image 86](../../assets/images/ros/projects/aruco-conveyor/img_043_086.webp)
 
 
-![Image 87](../../assets/images/ros/projects/aruco-conveyor/img_043_087.webp)
 
 
-![Image 88](../../assets/images/ros/projects/aruco-conveyor/img_043_088.webp)
 
 
-![Image 89](../../assets/images/ros/projects/aruco-conveyor/img_043_089.webp)
 
 
-![Image 90](../../assets/images/ros/projects/aruco-conveyor/img_043_090.webp)
 
 
-![Image 91](../../assets/images/ros/projects/aruco-conveyor/img_043_091.webp)
 
 
 HUMAN AI ROBOTICS
@@ -954,7 +931,6 @@ rviz 화면에 보이는 manipulator와 lidar 위치가 실제와 다르기때�
 ![Image 92](../../assets/images/ros/projects/aruco-conveyor/img_044_092.webp)
 
 
-![Image 93](../../assets/images/ros/projects/aruco-conveyor/img_044_093.webp)
 
 
 HUMAN AI ROBOTICS

@@ -6,19 +6,14 @@ ROS2 기초-4차시
 Apr, 2025
 
 
-![Image 1](../../assets/images/ros/basics/lesson-04/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/basics/lesson-04/img_001_002.webp)
 
 
-![Image 3](../../assets/images/ros/basics/lesson-04/img_001_003.webp)
 
 
 ![Image 4](../../assets/images/ros/basics/lesson-04/img_001_004.webp)
 
 
-![Image 5](../../assets/images/ros/basics/lesson-04/img_001_005.webp)
 
 
 2
@@ -69,7 +64,6 @@ angular:{x: 0.0, y: 0.0, z: 0.0}}”
 Turtle 다시 생성해보기
 
 
-![Image 6](../../assets/images/ros/basics/lesson-04/img_003_006.webp)
 
 
 4
@@ -96,7 +90,6 @@ angular:{x: 0.0, y: 0.0, z: 1.8}}”
 ※ Tip : ctrl + 화살표눌러서cli 빠른이동
 
 
-![Image 8](../../assets/images/ros/basics/lesson-04/img_005_008.webp)
 
 
 6
@@ -110,7 +103,6 @@ angular:{x: 0.0, y: 0.0, z: 1.8}}”
 Rate 1(초당1회)
 
 
-![Image 9](../../assets/images/ros/basics/lesson-04/img_006_009.webp)
 
 
 7
@@ -123,10 +115,8 @@ angular:{x: 0.0, y: 0.0, z: 3.6}}”
 (회전)
 
 
-![Image 10](../../assets/images/ros/basics/lesson-04/img_007_010.webp)
 
 
-![Image 11](../../assets/images/ros/basics/lesson-04/img_007_011.webp)
 
 
 8
@@ -135,10 +125,8 @@ ROS2 turtlesim 복습
 8
 
 
-![Image 12](../../assets/images/ros/basics/lesson-04/img_008_012.webp)
 
 
-![Image 13](../../assets/images/ros/basics/lesson-04/img_008_013.webp)
 
 
 9
@@ -168,7 +156,6 @@ ROS 2 Configuring environment
 ROS 2 Turtlesim Tutorial
 
 
-![Image 14](../../assets/images/ros/basics/lesson-04/img_009_014.webp)
 
 
 10
@@ -180,10 +167,8 @@ ROS는메타운영체제로, 메타운영체제란애플리케이션과분산컴
 감시, 에러처리등을실행하는시스템이다.
 
 
-![Image 15](../../assets/images/ros/basics/lesson-04/img_010_015.webp)
 
 
-![Image 16](../../assets/images/ros/basics/lesson-04/img_010_016.webp)
 
 
 11
@@ -217,7 +202,6 @@ ROS 2 Jazzy Jalisco
 [출처] https://github.com/ros-infrastructure/artwork/tree/master/distributions
 
 
-![Image 17](../../assets/images/ros/basics/lesson-04/img_011_017.webp)
 
 
 ![Image 18](../../assets/images/ros/basics/lesson-04/img_011_018.webp)
@@ -229,7 +213,6 @@ ROS 2 Jazzy Jalisco
 ![Image 20](../../assets/images/ros/basics/lesson-04/img_011_020.webp)
 
 
-![Image 21](../../assets/images/ros/basics/lesson-04/img_011_021.webp)
 
 
 ![Image 22](../../assets/images/ros/basics/lesson-04/img_011_022.webp)
@@ -270,22 +253,16 @@ ROS의데이터통신은서로다른운영체제, 하드웨어시스템에서도
 ![Image 29](../../assets/images/ros/basics/lesson-04/img_012_029.webp)
 
 
-![Image 30](../../assets/images/ros/basics/lesson-04/img_012_030.webp)
 
 
-![Image 31](../../assets/images/ros/basics/lesson-04/img_012_031.webp)
 
 
-![Image 32](../../assets/images/ros/basics/lesson-04/img_012_032.webp)
 
 
-![Image 33](../../assets/images/ros/basics/lesson-04/img_012_033.webp)
 
 
-![Image 34](../../assets/images/ros/basics/lesson-04/img_012_034.webp)
 
 
-![Image 35](../../assets/images/ros/basics/lesson-04/img_012_035.webp)
 
 
 13
@@ -432,7 +409,6 @@ SDK(소프트웨어개발키트)이다.
 그리고, 모두오픈소스이다.
 
 
-![Image 38](../../assets/images/ros/basics/lesson-04/img_019_038.webp)
 
 
 20
@@ -1059,10 +1035,8 @@ R2X간
 상호운용성중심
 
 
-![Image 53](../../assets/images/ros/basics/lesson-04/img_050_053.webp)
 
 
-![Image 54](../../assets/images/ros/basics/lesson-04/img_050_054.webp)
 
 
 51
@@ -1794,4 +1768,3 @@ ROKEY BOOT CAMP
 ![Image 167](../../assets/images/ros/basics/lesson-04/img_094_167.webp)
 
 
-![Image 168](../../assets/images/ros/basics/lesson-04/img_094_168.webp)

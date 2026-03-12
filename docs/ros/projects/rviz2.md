@@ -10,9 +10,6 @@ V2.0
 두산 프로젝트 교안
 
 
-![Image 1](../../assets/images/ros/projects/rviz2/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/projects/rviz2/img_001_002.webp)
 
 
@@ -23,7 +20,6 @@ ROS2와RVIZ2 시뮬레이터를이용한로봇구동
 비전딥러닝을활용한터틀봇3 활용
 
 
-![Image 3](../../assets/images/ros/projects/rviz2/img_002_003.webp)
 
 
 ![Image 4](../../assets/images/ros/projects/rviz2/img_002_004.webp)
@@ -35,7 +31,6 @@ ROS2와RVIZ2 시뮬레이터를이용한로봇구동
 학습 주제
 
 
-![Image 5](../../assets/images/ros/projects/rviz2/img_003_005.webp)
 
 
 HUMAN AI ROBOTICS
@@ -58,7 +53,6 @@ ROS2 시각화도구RVIZ2
 ROS2 개발도구들
 
 
-![Image 7](../../assets/images/ros/projects/rviz2/img_005_007.webp)
 
 
 HUMAN AI ROBOTICS
@@ -78,7 +72,6 @@ RVIZ2
 •  로봇 시스템 이해에 도움
 
 
-![Image 8](../../assets/images/ros/projects/rviz2/img_006_008.webp)
 
 
 HUMAN AI ROBOTICS
@@ -105,16 +98,13 @@ RQT
 ![Image 9](../../assets/images/ros/projects/rviz2/img_007_009.webp)
 
 
-![Image 10](../../assets/images/ros/projects/rviz2/img_007_010.webp)
 
 
-![Image 11](../../assets/images/ros/projects/rviz2/img_007_011.webp)
 
 
 ![Image 12](../../assets/images/ros/projects/rviz2/img_007_012.webp)
 
 
-![Image 13](../../assets/images/ros/projects/rviz2/img_007_013.webp)
 
 
 HUMAN AI ROBOTICS
@@ -136,10 +126,8 @@ $ sudo apt install ros-humble-rqt-publisher
 ![Image 15](../../assets/images/ros/projects/rviz2/img_008_015.webp)
 
 
-![Image 16](../../assets/images/ros/projects/rviz2/img_008_016.webp)
 
 
-![Image 17](../../assets/images/ros/projects/rviz2/img_008_017.webp)
 
 
 ![Image 18](../../assets/images/ros/projects/rviz2/img_008_018.webp)
@@ -173,7 +161,6 @@ $ rqt
 ![Image 21](../../assets/images/ros/projects/rviz2/img_009_021.webp)
 
 
-![Image 22](../../assets/images/ros/projects/rviz2/img_009_022.webp)
 
 
 ![Image 23](../../assets/images/ros/projects/rviz2/img_009_023.webp)
@@ -200,7 +187,6 @@ $ sudo apt install ros-humble-rqt-image-view
 ![Image 25](../../assets/images/ros/projects/rviz2/img_010_025.webp)
 
 
-![Image 26](../../assets/images/ros/projects/rviz2/img_010_026.webp)
 
 
 HUMAN AI ROBOTICS
@@ -283,7 +269,6 @@ RVIZ2  기본 인터페이스
 ![Image 32](../../assets/images/ros/projects/rviz2/img_014_032.webp)
 
 
-![Image 33](../../assets/images/ros/projects/rviz2/img_014_033.webp)
 
 
 HUMAN AI ROBOTICS
@@ -328,7 +313,6 @@ Displays는 RViz2의 핵심 기능으로, 다양한 데이터를 시각화하기
 ![Image 35](../../assets/images/ros/projects/rviz2/img_016_035.webp)
 
 
-![Image 36](../../assets/images/ros/projects/rviz2/img_016_036.webp)
 
 
 HUMAN AI ROBOTICS
@@ -394,7 +378,6 @@ RVIZ2 주요도구모음(Toolbar)
 ![Image 38](../../assets/images/ros/projects/rviz2/img_018_038.webp)
 
 
-![Image 39](../../assets/images/ros/projects/rviz2/img_018_039.webp)
 
 
 HUMAN AI ROBOTICS
@@ -415,7 +398,6 @@ RVIZ2 시각화예시
 ![Image 40](../../assets/images/ros/projects/rviz2/img_019_040.webp)
 
 
-![Image 41](../../assets/images/ros/projects/rviz2/img_019_041.webp)
 
 
 HUMAN AI ROBOTICS
@@ -645,7 +627,6 @@ RViz 좌측 하단의 Add에서 LaserScan 추가
 ![Image 50](../../assets/images/ros/projects/rviz2/img_024_050.webp)
 
 
-![Image 51](../../assets/images/ros/projects/rviz2/img_024_051.webp)
 
 
 HUMAN AI ROBOTICS
@@ -1038,7 +1019,6 @@ HUMAN AI ROBOTICS
 ![Image 80](../../assets/images/ros/projects/rviz2/img_039_080.webp)
 
 
-![Image 81](../../assets/images/ros/projects/rviz2/img_039_081.webp)
 
 
 HUMAN AI ROBOTICS
@@ -1057,7 +1037,6 @@ link의 origin이 기준 좌표(Frame)가 되는데, 바로 앞에 연결되어�
 ![Image 82](../../assets/images/ros/projects/rviz2/img_040_082.webp)
 
 
-![Image 83](../../assets/images/ros/projects/rviz2/img_040_083.webp)
 
 
 ![Image 84](../../assets/images/ros/projects/rviz2/img_040_084.webp)
@@ -1081,7 +1060,6 @@ HUMAN AI ROBOTICS
 ![Image 85](../../assets/images/ros/projects/rviz2/img_041_085.webp)
 
 
-![Image 86](../../assets/images/ros/projects/rviz2/img_041_086.webp)
 
 
 ![Image 87](../../assets/images/ros/projects/rviz2/img_041_087.webp)
@@ -1122,7 +1100,6 @@ HUMAN AI ROBOTICS
 ![Image 88](../../assets/images/ros/projects/rviz2/img_042_088.webp)
 
 
-![Image 89](../../assets/images/ros/projects/rviz2/img_042_089.webp)
 
 
 HUMAN AI ROBOTICS
@@ -1144,16 +1121,12 @@ HUMAN AI ROBOTICS
  URDF 에서 지원하는 조인트 종류(type)
 
 
-![Image 90](../../assets/images/ros/projects/rviz2/img_043_090.webp)
 
 
-![Image 91](../../assets/images/ros/projects/rviz2/img_043_091.webp)
 
 
-![Image 92](../../assets/images/ros/projects/rviz2/img_043_092.webp)
 
 
-![Image 93](../../assets/images/ros/projects/rviz2/img_043_093.webp)
 
 
 HUMAN AI ROBOTICS
@@ -1178,7 +1151,6 @@ z 값만 설정
 ![Image 94](../../assets/images/ros/projects/rviz2/img_044_094.webp)
 
 
-![Image 95](../../assets/images/ros/projects/rviz2/img_044_095.webp)
 
 
 HUMAN AI ROBOTICS

@@ -5,9 +5,6 @@ ROS2 프로그래밍입문(7차시)
 7. ROS2 복습_1
 
 
-![Image 1](../../assets/images/ros/intro/lesson-07/img_001_001.webp)
-
-
 ▶ROS2 복습_1
 1.  ROS2 소개및기본사용법
 2.  ROS2 인터페이스(Topic, Server, Action)
@@ -23,10 +20,8 @@ Topic
 ▶최적화팁
 
 
-![Image 2](../../assets/images/ros/intro/lesson-07/img_003_002.webp)
 
 
-![Image 3](../../assets/images/ros/intro/lesson-07/img_003_003.webp)
 
 
 01
@@ -47,7 +42,6 @@ ROS2 소개및기본사용법
 Action
 
 
-![Image 6](../../assets/images/ros/intro/lesson-07/img_005_006.webp)
 
 
 02
@@ -61,7 +55,6 @@ ROS2 인터페이스(Topic, Service, Action)
 ▶Message
 
 
-![Image 7](../../assets/images/ros/intro/lesson-07/img_006_007.webp)
 
 
 03
@@ -95,7 +88,6 @@ rosdep
 사용하면의존성패키지설치및관리에있어서매우편하게사용가능
 
 
-![Image 9](../../assets/images/ros/intro/lesson-07/img_008_009.webp)
 
 
 ![Image 10](../../assets/images/ros/intro/lesson-07/img_008_010.webp)
@@ -113,22 +105,17 @@ ROS의변수중하나인ns(namespace)를입력
 복수의namespace 생성
 
 
-![Image 11](../../assets/images/ros/intro/lesson-07/img_009_011.webp)
 
 
 ![Image 12](../../assets/images/ros/intro/lesson-07/img_009_012.webp)
 
 
-![Image 13](../../assets/images/ros/intro/lesson-07/img_009_013.webp)
 
 
-![Image 14](../../assets/images/ros/intro/lesson-07/img_009_014.webp)
 
 
-![Image 15](../../assets/images/ros/intro/lesson-07/img_009_015.webp)
 
 
-![Image 16](../../assets/images/ros/intro/lesson-07/img_009_016.webp)
 
 
 Python을이용한패키지생성실습
@@ -141,13 +128,10 @@ Python을이용한패키지생성실습
 4. Tree를이용한내부구조확인
 
 
-![Image 17](../../assets/images/ros/intro/lesson-07/img_010_017.webp)
 
 
-![Image 18](../../assets/images/ros/intro/lesson-07/img_010_018.webp)
 
 
-![Image 19](../../assets/images/ros/intro/lesson-07/img_010_019.webp)
 
 
 06
@@ -191,16 +175,13 @@ std_msgs: ROS에서기본적으로제공하는메시지타입들의모음ex) Str
 ▶Package.xml  설정
 
 
-![Image 20](../../assets/images/ros/intro/lesson-07/img_012_020.webp)
 
 
 ![Image 21](../../assets/images/ros/intro/lesson-07/img_012_021.webp)
 
 
-![Image 22](../../assets/images/ros/intro/lesson-07/img_012_022.webp)
 
 
-![Image 23](../../assets/images/ros/intro/lesson-07/img_012_023.webp)
 
 
 08
@@ -315,7 +296,6 @@ Python을이용한패키지생성실습
 ​setup.py 설정
 
 
-![Image 25](../../assets/images/ros/intro/lesson-07/img_016_025.webp)
 
 
 ![Image 26](../../assets/images/ros/intro/lesson-07/img_016_026.webp)
@@ -458,10 +438,8 @@ ament_python에는없음
 ![Image 29](../../assets/images/ros/intro/lesson-07/img_022_029.webp)
 
 
-![Image 30](../../assets/images/ros/intro/lesson-07/img_022_030.webp)
 
 
-![Image 31](../../assets/images/ros/intro/lesson-07/img_022_031.webp)
 
 
 10
@@ -480,7 +458,6 @@ srv/MySrv.srv
 action/MyAction.action
 
 
-![Image 32](../../assets/images/ros/intro/lesson-07/img_023_032.webp)
 
 
 ![Image 33](../../assets/images/ros/intro/lesson-07/img_023_033.webp)
@@ -554,7 +531,6 @@ ArithmeticOperator.srv
 ▶Package.xml 파일수정
 
 
-![Image 44](../../assets/images/ros/intro/lesson-07/img_027_044.webp)
 
 
 ![Image 45](../../assets/images/ros/intro/lesson-07/img_027_045.webp)
@@ -570,7 +546,6 @@ ArithmeticOperator.srv
 ![Image 46](../../assets/images/ros/intro/lesson-07/img_028_046.webp)
 
 
-![Image 47](../../assets/images/ros/intro/lesson-07/img_028_047.webp)
 
 
 ![Image 48](../../assets/images/ros/intro/lesson-07/img_028_048.webp)

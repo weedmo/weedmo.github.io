@@ -5,9 +5,6 @@ ROS2 프로그래밍입문(6차시)
 6. ROS2 응용
 
 
-![Image 1](../../assets/images/ros/intro/lesson-06/img_001_001.webp)
-
-
 ▶ROS2 응용
 1.  ROS2 bag 이해및사용법
 2.  Jupyter를이용한프로그래밍
@@ -47,7 +44,6 @@ ROS2 bag 이해및사용법
 ![Image 2](../../assets/images/ros/intro/lesson-06/img_004_002.webp)
 
 
-![Image 3](../../assets/images/ros/intro/lesson-06/img_004_003.webp)
 
 
 ![Image 4](../../assets/images/ros/intro/lesson-06/img_004_004.webp)
@@ -95,7 +91,6 @@ BAG 파일만들기
 실습
 
 
-![Image 7](../../assets/images/ros/intro/lesson-06/img_008_007.webp)
 
 
 ![Image 8](../../assets/images/ros/intro/lesson-06/img_008_008.webp)
@@ -112,7 +107,6 @@ BAG 파일만들기
 실습
 
 
-![Image 9](../../assets/images/ros/intro/lesson-06/img_009_009.webp)
 
 
 ![Image 10](../../assets/images/ros/intro/lesson-06/img_009_010.webp)
@@ -127,7 +121,6 @@ BAG 파일만들기
 실습
 
 
-![Image 11](../../assets/images/ros/intro/lesson-06/img_010_011.webp)
 
 
 ![Image 12](../../assets/images/ros/intro/lesson-06/img_010_012.webp)
@@ -142,7 +135,6 @@ BAG 파일만들기
 실습
 
 
-![Image 13](../../assets/images/ros/intro/lesson-06/img_011_013.webp)
 
 
 ![Image 14](../../assets/images/ros/intro/lesson-06/img_011_014.webp)
@@ -155,7 +147,6 @@ BAG 파일만들기
 실습
 
 
-![Image 15](../../assets/images/ros/intro/lesson-06/img_012_015.webp)
 
 
 ![Image 16](../../assets/images/ros/intro/lesson-06/img_012_016.webp)
@@ -307,7 +298,6 @@ Bag 파일반복재생
 ![Image 29](../../assets/images/ros/intro/lesson-06/img_022_029.webp)
 
 
-![Image 30](../../assets/images/ros/intro/lesson-06/img_022_030.webp)
 
 
 BAG 파일실습
@@ -322,7 +312,6 @@ BAG 파일실습
 ![Image 31](../../assets/images/ros/intro/lesson-06/img_023_031.webp)
 
 
-![Image 32](../../assets/images/ros/intro/lesson-06/img_023_032.webp)
 
 
 BAG 파일실습
@@ -516,7 +505,6 @@ VS Code에서
 ‘Install' 버튼을눌러설치
 
 
-![Image 51](../../assets/images/ros/intro/lesson-06/img_037_051.webp)
 
 
 ![Image 52](../../assets/images/ros/intro/lesson-06/img_037_052.webp)
@@ -537,7 +525,6 @@ Vscode의좌상단에서newfile을클릭하여
 파일명은HelloWorld.ipynb로설정
 
 
-![Image 54](../../assets/images/ros/intro/lesson-06/img_038_054.webp)
 
 
 ![Image 55](../../assets/images/ros/intro/lesson-06/img_038_055.webp)
@@ -554,7 +541,6 @@ VSCode에서Jupyter 사용
 Select Kernel창에서“Python Environments”를선택
 
 
-![Image 56](../../assets/images/ros/intro/lesson-06/img_039_056.webp)
 
 
 ![Image 57](../../assets/images/ros/intro/lesson-06/img_039_057.webp)
@@ -569,7 +555,6 @@ VSCode에서Jupyter 사용
 나열된Python 버전중하나를선택(되도록Global Env를선택하는것을추천)
 
 
-![Image 58](../../assets/images/ros/intro/lesson-06/img_040_058.webp)
 
 
 ![Image 59](../../assets/images/ros/intro/lesson-06/img_040_059.webp)
@@ -584,10 +569,8 @@ VSCode에서Jupyter 사용
 이후python 코드가성공적으로실행되는것을확인가능
 
 
-![Image 60](../../assets/images/ros/intro/lesson-06/img_041_060.webp)
 
 
-![Image 61](../../assets/images/ros/intro/lesson-06/img_041_061.webp)
 
 
 40
@@ -644,7 +627,6 @@ Python Extension 설치(Python)
 Vscode의extention 탭에서코드명(ms-python.python)을검색후install을눌러설치
 
 
-![Image 62](../../assets/images/ros/intro/lesson-06/img_044_062.webp)
 
 
 ![Image 63](../../assets/images/ros/intro/lesson-06/img_044_063.webp)
@@ -661,7 +643,6 @@ Python Extension 설치(ROS)
 Vscode의extention 탭에서코드명(ms-iot.vscode-ros)을검색후install을눌러설치
 
 
-![Image 64](../../assets/images/ros/intro/lesson-06/img_045_064.webp)
 
 
 ![Image 65](../../assets/images/ros/intro/lesson-06/img_045_065.webp)
@@ -678,7 +659,6 @@ Python Extension 설치(URDF)
 Vscode의extention 탭에서코드명(smilerobotics.urdf)을검색후install을눌러설치
 
 
-![Image 66](../../assets/images/ros/intro/lesson-06/img_046_066.webp)
 
 
 ![Image 67](../../assets/images/ros/intro/lesson-06/img_046_067.webp)
@@ -695,7 +675,6 @@ Python Extension 설치(Colcon Tasks)
 Vscode의extention 탭에서코드명(deitry.colcon-helper)을검색후install을눌러설치
 
 
-![Image 68](../../assets/images/ros/intro/lesson-06/img_047_068.webp)
 
 
 ![Image 69](../../assets/images/ros/intro/lesson-06/img_047_069.webp)
@@ -712,10 +691,8 @@ Python Extension 설치(XML Tools)
 Vscode의extention 탭에서코드명(dotjoshjohnson.xml)을검색후install을눌러설치
 
 
-![Image 70](../../assets/images/ros/intro/lesson-06/img_048_070.webp)
 
 
-![Image 71](../../assets/images/ros/intro/lesson-06/img_048_071.webp)
 
 
 47
@@ -729,7 +706,6 @@ Python Extension 설치(YAML)
 Vscode의extention 탭에서코드명(redhat.vscode-yaml)을검색후install을눌러설치
 
 
-![Image 72](../../assets/images/ros/intro/lesson-06/img_049_072.webp)
 
 
 ![Image 73](../../assets/images/ros/intro/lesson-06/img_049_073.webp)
@@ -746,7 +722,6 @@ Python Extension 설치(Markdown)
 Vscode의extention 탭에서코드명(yzhang.markdown-all-in-one)을검색후install을눌러설치
 
 
-![Image 74](../../assets/images/ros/intro/lesson-06/img_050_074.webp)
 
 
 ![Image 75](../../assets/images/ros/intro/lesson-06/img_050_075.webp)
@@ -765,7 +740,6 @@ Vscode에서ctrl + shift + p를누른후‘open user settings’을선택
 엔터를눌러settings.json파일을열기
 
 
-![Image 76](../../assets/images/ros/intro/lesson-06/img_051_076.webp)
 
 
 ![Image 77](../../assets/images/ros/intro/lesson-06/img_051_077.webp)
@@ -786,7 +760,6 @@ settings.json 파일을아래와같이수정
 저장후vscode를재시작
 
 
-![Image 78](../../assets/images/ros/intro/lesson-06/img_052_078.webp)
 
 
 ![Image 79](../../assets/images/ros/intro/lesson-06/img_052_079.webp)
@@ -818,7 +791,6 @@ Python으로토픽구독하기
 준비
 
 
-![Image 83](../../assets/images/ros/intro/lesson-06/img_054_083.webp)
 
 
 ![Image 84](../../assets/images/ros/intro/lesson-06/img_054_084.webp)
@@ -864,7 +836,6 @@ Python으로토픽구독하기
 확인하고싶을때에는data.x, data.y, data.theta로조회가능
 
 
-![Image 89](../../assets/images/ros/intro/lesson-06/img_057_089.webp)
 
 
 ![Image 90](../../assets/images/ros/intro/lesson-06/img_057_090.webp)
@@ -884,28 +855,22 @@ Python으로토픽구독하기
 ▶test_node 구독
 
 
-![Image 91](../../assets/images/ros/intro/lesson-06/img_058_091.webp)
 
 
 ![Image 92](../../assets/images/ros/intro/lesson-06/img_058_092.webp)
 
 
-![Image 93](../../assets/images/ros/intro/lesson-06/img_058_093.webp)
 
 
 ![Image 94](../../assets/images/ros/intro/lesson-06/img_058_094.webp)
 
 
-![Image 95](../../assets/images/ros/intro/lesson-06/img_058_095.webp)
 
 
-![Image 96](../../assets/images/ros/intro/lesson-06/img_058_096.webp)
 
 
-![Image 97](../../assets/images/ros/intro/lesson-06/img_058_097.webp)
 
 
-![Image 98](../../assets/images/ros/intro/lesson-06/img_058_098.webp)
 
 
 57
@@ -919,7 +884,6 @@ Python으로토픽발행하기
 ![Image 99](../../assets/images/ros/intro/lesson-06/img_059_099.webp)
 
 
-![Image 100](../../assets/images/ros/intro/lesson-06/img_059_100.webp)
 
 
 ![Image 101](../../assets/images/ros/intro/lesson-06/img_059_101.webp)
@@ -933,7 +897,6 @@ Python으로토픽발행하기
 준비
 
 
-![Image 102](../../assets/images/ros/intro/lesson-06/img_060_102.webp)
 
 
 ![Image 103](../../assets/images/ros/intro/lesson-06/img_060_103.webp)
@@ -963,7 +926,6 @@ Python으로토픽발행하기
 토픽발행하기
 
 
-![Image 106](../../assets/images/ros/intro/lesson-06/img_062_106.webp)
 
 
 ![Image 107](../../assets/images/ros/intro/lesson-06/img_062_107.webp)
@@ -977,7 +939,6 @@ Python으로토픽발행하기
 토픽발행하기
 
 
-![Image 108](../../assets/images/ros/intro/lesson-06/img_063_108.webp)
 
 
 ![Image 109](../../assets/images/ros/intro/lesson-06/img_063_109.webp)
@@ -991,7 +952,6 @@ Python으로토픽발행하기
 토픽발행하기
 
 
-![Image 110](../../assets/images/ros/intro/lesson-06/img_064_110.webp)
 
 
 ![Image 111](../../assets/images/ros/intro/lesson-06/img_064_111.webp)
@@ -1006,7 +966,6 @@ Python으로토픽발행하기
 timer_callback 함수가5번이상호출되지않도록cnt를이용한조건문을넣어줌
 
 
-![Image 112](../../assets/images/ros/intro/lesson-06/img_065_112.webp)
 
 
 ![Image 113](../../assets/images/ros/intro/lesson-06/img_065_113.webp)
@@ -1025,16 +984,13 @@ create_timer를이용해2초마다timer_callback 함수실행
 을설정해주어야함
 
 
-![Image 114](../../assets/images/ros/intro/lesson-06/img_066_114.webp)
 
 
 ![Image 115](../../assets/images/ros/intro/lesson-06/img_066_115.webp)
 
 
-![Image 116](../../assets/images/ros/intro/lesson-06/img_066_116.webp)
 
 
-![Image 117](../../assets/images/ros/intro/lesson-06/img_066_117.webp)
 
 
 65
@@ -1046,7 +1002,6 @@ Python으로토픽발행하기
 Jupyter notebook의경우노트북을종료시키기직전에node를종료시켜야함
 
 
-![Image 118](../../assets/images/ros/intro/lesson-06/img_067_118.webp)
 
 
 ![Image 119](../../assets/images/ros/intro/lesson-06/img_067_119.webp)
@@ -1077,13 +1032,11 @@ Python으로서비스클라이언트다루기
 ‘/turtle1/teleport_absolute’ 서비스를사용하기위한모듈import
 
 
-![Image 122](../../assets/images/ros/intro/lesson-06/img_069_122.webp)
 
 
 ![Image 123](../../assets/images/ros/intro/lesson-06/img_069_123.webp)
 
 
-![Image 124](../../assets/images/ros/intro/lesson-06/img_069_124.webp)
 
 
 ![Image 125](../../assets/images/ros/intro/lesson-06/img_069_125.webp)
@@ -1099,13 +1052,11 @@ Python으로서비스클라이언트다루기
 TeleportAbsolute : Turtle을특정좌표(x, y)와방향(θ)으로즉시텔레포트시키는서비스타입
 
 
-![Image 126](../../assets/images/ros/intro/lesson-06/img_070_126.webp)
 
 
 ![Image 127](../../assets/images/ros/intro/lesson-06/img_070_127.webp)
 
 
-![Image 128](../../assets/images/ros/intro/lesson-06/img_070_128.webp)
 
 
 ![Image 129](../../assets/images/ros/intro/lesson-06/img_070_129.webp)
@@ -1119,7 +1070,6 @@ Python으로서비스클라이언트다루기
 ▶Request 객체의x 좌표를1.0, y 좌표를1.0, theta(회전각)를3.14로설정
 
 
-![Image 130](../../assets/images/ros/intro/lesson-06/img_071_130.webp)
 
 
 ![Image 131](../../assets/images/ros/intro/lesson-06/img_071_131.webp)
@@ -1133,7 +1083,6 @@ Python으로서비스클라이언트다루기
 ▶설정req의x 성분만3.0으로바꾼후call_async를통해서비스를호출
 
 
-![Image 132](../../assets/images/ros/intro/lesson-06/img_072_132.webp)
 
 
 ![Image 133](../../assets/images/ros/intro/lesson-06/img_072_133.webp)
@@ -1148,7 +1097,6 @@ Python으로서비스클라이언트다루기
 wait_for_service: 지정한서비스가사용가능할때까지대기하는함수
 
 
-![Image 134](../../assets/images/ros/intro/lesson-06/img_073_134.webp)
 
 
 ![Image 135](../../assets/images/ros/intro/lesson-06/img_073_135.webp)
@@ -1162,7 +1110,6 @@ Python으로서비스클라이언트다루기
 ▶노드종료시키기
 
 
-![Image 136](../../assets/images/ros/intro/lesson-06/img_074_136.webp)
 
 
 ![Image 137](../../assets/images/ros/intro/lesson-06/img_074_137.webp)

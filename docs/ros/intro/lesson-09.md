@@ -5,9 +5,6 @@ ROS2 프로그래밍입문(9차시)
 9. ROS2 복습_3
 
 
-![Image 1](../../assets/images/ros/intro/lesson-09/img_001_001.webp)
-
-
 ▶ROS2 복습_3
 1.  인터페이스프로그래밍(hangman)
 2.  rclpy 복습
@@ -36,25 +33,18 @@ game_progress
 request
 
 
-![Image 2](../../assets/images/ros/intro/lesson-09/img_003_002.webp)
 
 
-![Image 3](../../assets/images/ros/intro/lesson-09/img_003_003.webp)
 
 
-![Image 4](../../assets/images/ros/intro/lesson-09/img_003_004.webp)
 
 
-![Image 5](../../assets/images/ros/intro/lesson-09/img_003_005.webp)
 
 
-![Image 6](../../assets/images/ros/intro/lesson-09/img_003_006.webp)
 
 
-![Image 7](../../assets/images/ros/intro/lesson-09/img_003_007.webp)
 
 
-![Image 8](../../assets/images/ros/intro/lesson-09/img_003_008.webp)
 
 
 Hang-man - 실습
@@ -78,13 +68,11 @@ game_over : 목숨이다소진되었는지
 won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 
 
-![Image 9](../../assets/images/ros/intro/lesson-09/img_004_009.webp)
 
 
 ![Image 10](../../assets/images/ros/intro/lesson-09/img_004_010.webp)
 
 
-![Image 11](../../assets/images/ros/intro/lesson-09/img_004_011.webp)
 
 
 ![Image 12](../../assets/images/ros/intro/lesson-09/img_004_012.webp)
@@ -105,7 +93,6 @@ bool 타입자료형
 message : 맞았으면“Correct”를띄우고틀리면“WRONG”을띄움
 
 
-![Image 13](../../assets/images/ros/intro/lesson-09/img_005_013.webp)
 
 
 ![Image 14](../../assets/images/ros/intro/lesson-09/img_005_014.webp)
@@ -123,7 +110,6 @@ game_over : 목숨이다소진되었는지
 won : 게임에서이겼는지(목숨소진이전에정답을맞추었는지)
 
 
-![Image 15](../../assets/images/ros/intro/lesson-09/img_006_015.webp)
 
 
 ![Image 16](../../assets/images/ros/intro/lesson-09/img_006_016.webp)
@@ -186,7 +172,6 @@ hangman_game/hangman_game/user_
 input.py 전체코드
 
 
-![Image 21](../../assets/images/ros/intro/lesson-09/img_011_021.webp)
 
 
 Hang-man - 실습
@@ -198,10 +183,8 @@ hangman_game/hangman_game/
 progress_action_client.py 전체코드
 
 
-![Image 22](../../assets/images/ros/intro/lesson-09/img_012_022.webp)
 
 
-![Image 23](../../assets/images/ros/intro/lesson-09/img_012_023.webp)
 
 
 Hang-man - 실습
@@ -213,10 +196,8 @@ hangman_game/hangman_game/
 progress_action_client.py 전체코드
 
 
-![Image 24](../../assets/images/ros/intro/lesson-09/img_013_024.webp)
 
 
-![Image 25](../../assets/images/ros/intro/lesson-09/img_013_025.webp)
 
 
 Hang-man - 실습
@@ -228,10 +209,8 @@ hangman_game/hangman_game/
 progress_action_server.py 전체코드
 
 
-![Image 26](../../assets/images/ros/intro/lesson-09/img_014_026.webp)
 
 
-![Image 27](../../assets/images/ros/intro/lesson-09/img_014_027.webp)
 
 
 Hang-man - 실습
@@ -243,7 +222,6 @@ hangman_game/hangman_game/
 progress_action_server.py 전체코드
 
 
-![Image 28](../../assets/images/ros/intro/lesson-09/img_015_028.webp)
 
 
 ![Image 29](../../assets/images/ros/intro/lesson-09/img_015_029.webp)
@@ -258,7 +236,6 @@ hangman_game/hangman_game/
 progress_action_server.py 전체코드
 
 
-![Image 30](../../assets/images/ros/intro/lesson-09/img_016_030.webp)
 
 
 ![Image 31](../../assets/images/ros/intro/lesson-09/img_016_031.webp)
@@ -274,7 +251,6 @@ hangman_game/setup.py
 entry_points를다음과같이변경
 
 
-![Image 32](../../assets/images/ros/intro/lesson-09/img_017_032.webp)
 
 
 ![Image 33](../../assets/images/ros/intro/lesson-09/img_017_033.webp)
@@ -288,13 +264,11 @@ Hang-man - 실습
 hangman_interfaces/CMakeLists.txt
 
 
-![Image 34](../../assets/images/ros/intro/lesson-09/img_018_034.webp)
 
 
 ![Image 35](../../assets/images/ros/intro/lesson-09/img_018_035.webp)
 
 
-![Image 36](../../assets/images/ros/intro/lesson-09/img_018_036.webp)
 
 
 ![Image 37](../../assets/images/ros/intro/lesson-09/img_018_037.webp)
@@ -308,7 +282,6 @@ Hang-man - 실습
 hangman_interfaces/package.xml
 
 
-![Image 38](../../assets/images/ros/intro/lesson-09/img_019_038.webp)
 
 
 ![Image 39](../../assets/images/ros/intro/lesson-09/img_019_039.webp)
@@ -390,7 +363,6 @@ Multi Thread Executor
 동기화처리(locking) 필요
 
 
-![Image 44](../../assets/images/ros/intro/lesson-09/img_023_044.webp)
 
 
 ![Image 45](../../assets/images/ros/intro/lesson-09/img_023_045.webp)
@@ -418,13 +390,11 @@ SingleThreadedExecutor를사용하는간단한퍼블리셔노드
 이벤트는1초마다발생하여메시지를퍼블리싱
 
 
-![Image 46](../../assets/images/ros/intro/lesson-09/img_025_046.webp)
 
 
 ![Image 47](../../assets/images/ros/intro/lesson-09/img_025_047.webp)
 
 
-![Image 48](../../assets/images/ros/intro/lesson-09/img_025_048.webp)
 
 
 ![Image 49](../../assets/images/ros/intro/lesson-09/img_025_049.webp)

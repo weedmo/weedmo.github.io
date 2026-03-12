@@ -14,9 +14,6 @@ Wifi 설정
 김루진강사
 
 
-![Image 1](../../assets/images/ros/projects/thread-database/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/projects/thread-database/img_001_002.webp)
 
 
@@ -24,7 +21,6 @@ Wifi 설정
 특히ROS2와PyQt GUI를함께사용할때더욱중요합니다.
 
 
-![Image 3](../../assets/images/ros/projects/thread-database/img_002_003.webp)
 
 
 ![Image 4](../../assets/images/ros/projects/thread-database/img_002_004.webp)
@@ -41,7 +37,6 @@ DATA를저장하고처리하게된다.
 다.
 
 
-![Image 5](../../assets/images/ros/projects/thread-database/img_003_005.webp)
 
 
 프로세스와쓰레드
@@ -69,7 +64,6 @@ DATA를저장하고처리하게된다.
 별도쓰레드로분리하여동시처리가능
 
 
-![Image 7](../../assets/images/ros/projects/thread-database/img_005_007.webp)
 
 
 자원효율성
@@ -82,20 +76,16 @@ DATA를저장하고처리하게된다.
 안정적인프로그램실행
 
 
-![Image 8](../../assets/images/ros/projects/thread-database/img_006_008.webp)
 
 
-![Image 9](../../assets/images/ros/projects/thread-database/img_006_009.webp)
 
 
 threading 모듈의Thread 클래스를사용
 Thread 객체를생성할때target 매개변수에실행할함수를지정하고, 필요에따라args 매개변수를사용
 
 
-![Image 10](../../assets/images/ros/projects/thread-database/img_007_010.webp)
 
 
-![Image 11](../../assets/images/ros/projects/thread-database/img_007_011.webp)
 
 
 ![Image 12](../../assets/images/ros/projects/thread-database/img_007_012.webp)
@@ -105,7 +95,6 @@ Thread 객체를생성할때target 매개변수에실행할함수를지정하고
 Thread 인스턴스를생성할때target 매개변수에함수를지정하는방법을사용
 
 
-![Image 13](../../assets/images/ros/projects/thread-database/img_008_013.webp)
 
 
 ![Image 14](../../assets/images/ros/projects/thread-database/img_008_014.webp)
@@ -118,7 +107,6 @@ Thread 인스턴스를생성할때target 매개변수에함수를지정하는방
 시작(Started) 단계
 
 
-![Image 16](../../assets/images/ros/projects/thread-database/img_009_016.webp)
 
 
 ![Image 17](../../assets/images/ros/projects/thread-database/img_009_017.webp)
@@ -177,7 +165,6 @@ Signal
 Topic
 
 
-![Image 25](../../assets/images/ros/projects/thread-database/img_013_025.webp)
 
 
 ![Image 26](../../assets/images/ros/projects/thread-database/img_013_026.webp)
@@ -226,13 +213,11 @@ UI파일을Python에Import하여사용하는방법
 https://wikidocs.net/35481
 
 
-![Image 34](../../assets/images/ros/projects/thread-database/img_017_034.webp)
 
 
 ![Image 35](../../assets/images/ros/projects/thread-database/img_017_035.webp)
 
 
-![Image 36](../../assets/images/ros/projects/thread-database/img_017_036.webp)
 
 
 ![Image 37](../../assets/images/ros/projects/thread-database/img_017_037.webp)
@@ -256,7 +241,6 @@ https://wikidocs.net/35481
 •트랜잭션처리
 
 
-![Image 38](../../assets/images/ros/projects/thread-database/img_019_038.webp)
 
 
 •테이블(릴레이션) 
@@ -328,7 +312,6 @@ FOREIGN KEY (course_id) REFERENCES course(course_id)
 );
 
 
-![Image 44](../../assets/images/ros/projects/thread-database/img_023_044.webp)
 
 
 SQLite3는파일기반의경량관계형데이터베이스시스템
@@ -358,7 +341,6 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 
-![Image 46](../../assets/images/ros/projects/thread-database/img_025_046.webp)
 
 
 -- 메뉴정보(menu)
@@ -510,7 +492,6 @@ con.commit()
 con.close()
 
 
-![Image 57](../../assets/images/ros/projects/thread-database/img_035_057.webp)
 
 
 def search_course_by_name(course_name):

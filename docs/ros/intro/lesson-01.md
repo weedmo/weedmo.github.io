@@ -5,9 +5,6 @@ ROS2 프로그래밍입문
 2025 ROKEY BOOT CAMP
 
 
-![Image 1](../../assets/images/ros/intro/lesson-01/img_001_001.webp)
-
-
 전체목차(9차시)
 ▶프로그래밍기초
 ▶인터페이스패키지
@@ -23,7 +20,6 @@ ROS2 프로그래밍입문(1차시)
 1. ROS2 프로그래밍기초
 
 
-![Image 2](../../assets/images/ros/intro/lesson-01/img_003_002.webp)
 
 
 ▶ROS2 프로그래밍기초
@@ -43,7 +39,6 @@ ROS2 프로그래밍이란?
 로봇SW
 
 
-![Image 3](../../assets/images/ros/intro/lesson-01/img_005_003.webp)
 
 
 01
@@ -61,7 +56,6 @@ Message ㅡTopic
 정보를주고받아야하는부분에서주로사용
 
 
-![Image 4](../../assets/images/ros/intro/lesson-01/img_006_004.webp)
 
 
 ![Image 5](../../assets/images/ros/intro/lesson-01/img_006_005.webp)
@@ -85,7 +79,6 @@ Message ㅡService
 ![Image 6](../../assets/images/ros/intro/lesson-01/img_007_006.webp)
 
 
-![Image 7](../../assets/images/ros/intro/lesson-01/img_007_007.webp)
 
 
 01
@@ -104,7 +97,6 @@ Action Server 간의통신
 ![Image 8](../../assets/images/ros/intro/lesson-01/img_008_008.webp)
 
 
-![Image 9](../../assets/images/ros/intro/lesson-01/img_008_009.webp)
 
 
 01
@@ -129,7 +121,6 @@ ROS2 프로그래밍이란?
 ROS1과ROS2비교
 
 
-![Image 11](../../assets/images/ros/intro/lesson-01/img_010_011.webp)
 
 
 01
@@ -284,7 +275,6 @@ BSD
 GNU
 
 
-![Image 14](../../assets/images/ros/intro/lesson-01/img_018_014.webp)
 
 
 ![Image 15](../../assets/images/ros/intro/lesson-01/img_018_015.webp)
@@ -296,7 +286,6 @@ GNU
 ![Image 17](../../assets/images/ros/intro/lesson-01/img_018_017.webp)
 
 
-![Image 18](../../assets/images/ros/intro/lesson-01/img_018_018.webp)
 
 
 02
@@ -360,7 +349,6 @@ set < list <string> >처럼
 않음
 
 
-![Image 19](../../assets/images/ros/intro/lesson-01/img_021_019.webp)
 
 
 ![Image 20](../../assets/images/ros/intro/lesson-01/img_021_020.webp)
@@ -383,13 +371,11 @@ setup.bash를선언하여사용
 ![Image 21](../../assets/images/ros/intro/lesson-01/img_022_021.webp)
 
 
-![Image 22](../../assets/images/ros/intro/lesson-01/img_022_022.webp)
 
 
 ![Image 23](../../assets/images/ros/intro/lesson-01/img_022_023.webp)
 
 
-![Image 24](../../assets/images/ros/intro/lesson-01/img_022_024.webp)
 
 
 ![Image 25](../../assets/images/ros/intro/lesson-01/img_022_025.webp)
@@ -468,7 +454,6 @@ colcon_cd
 • ./bashrc에아래와같이추가
 
 
-![Image 26](../../assets/images/ros/intro/lesson-01/img_025_026.webp)
 
 
 ![Image 27](../../assets/images/ros/intro/lesson-01/img_025_027.webp)
@@ -485,7 +470,6 @@ rosdep
 사용하면의존성패키지설치및관리에있어서매우편하게사용가능
 
 
-![Image 28](../../assets/images/ros/intro/lesson-01/img_026_028.webp)
 
 
 ![Image 29](../../assets/images/ros/intro/lesson-01/img_026_029.webp)
@@ -594,13 +578,11 @@ ROS의변수중하나인ns(namespace)를입력
 복수의namespace 생성
 
 
-![Image 31](../../assets/images/ros/intro/lesson-01/img_032_031.webp)
 
 
 ![Image 32](../../assets/images/ros/intro/lesson-01/img_032_032.webp)
 
 
-![Image 33](../../assets/images/ros/intro/lesson-01/img_032_033.webp)
 
 
 ![Image 34](../../assets/images/ros/intro/lesson-01/img_032_034.webp)
@@ -620,13 +602,11 @@ Uninstall
 ▶ROS2 repository 삭제
 
 
-![Image 37](../../assets/images/ros/intro/lesson-01/img_033_037.webp)
 
 
 ![Image 38](../../assets/images/ros/intro/lesson-01/img_033_038.webp)
 
 
-![Image 39](../../assets/images/ros/intro/lesson-01/img_033_039.webp)
 
 
 ![Image 40](../../assets/images/ros/intro/lesson-01/img_033_040.webp)
@@ -641,7 +621,6 @@ Python을이용한패키지생성
 로묶인것
 
 
-![Image 41](../../assets/images/ros/intro/lesson-01/img_034_041.webp)
 
 
 ![Image 42](../../assets/images/ros/intro/lesson-01/img_034_042.webp)

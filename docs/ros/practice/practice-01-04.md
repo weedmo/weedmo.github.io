@@ -6,19 +6,14 @@ ROS-2 프로그래밍실습
 ROKEY BOOT CAMP
 
 
-![Image 1](../../assets/images/ros/practice/practice-01-04/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/practice/practice-01-04/img_001_002.webp)
 
 
-![Image 3](../../assets/images/ros/practice/practice-01-04/img_001_003.webp)
 
 
 ![Image 4](../../assets/images/ros/practice/practice-01-04/img_001_004.webp)
 
 
-![Image 5](../../assets/images/ros/practice/practice-01-04/img_001_005.webp)
 
 
 ROS2 프로그래밍실습목차
@@ -82,25 +77,18 @@ Open3D
 ROS2 정기평가
 
 
-![Image 6](../../assets/images/ros/practice/practice-01-04/img_002_006.webp)
 
 
-![Image 7](../../assets/images/ros/practice/practice-01-04/img_002_007.webp)
 
 
-![Image 8](../../assets/images/ros/practice/practice-01-04/img_002_008.webp)
 
 
-![Image 9](../../assets/images/ros/practice/practice-01-04/img_002_009.webp)
 
 
-![Image 10](../../assets/images/ros/practice/practice-01-04/img_002_010.webp)
 
 
-![Image 11](../../assets/images/ros/practice/practice-01-04/img_002_011.webp)
 
 
-![Image 12](../../assets/images/ros/practice/practice-01-04/img_002_012.webp)
 
 
 ![Image 13](../../assets/images/ros/practice/practice-01-04/img_002_013.webp)
@@ -121,7 +109,6 @@ ROS2 정기평가
 ![Image 18](../../assets/images/ros/practice/practice-01-04/img_002_018.webp)
 
 
-![Image 19](../../assets/images/ros/practice/practice-01-04/img_002_019.webp)
 
 
 ![Image 20](../../assets/images/ros/practice/practice-01-04/img_002_020.webp)
@@ -145,13 +132,11 @@ ROKEY BOOT CAMP
 ![Image 24](../../assets/images/ros/practice/practice-01-04/img_003_024.webp)
 
 
-![Image 25](../../assets/images/ros/practice/practice-01-04/img_003_025.webp)
 
 
 ![Image 26](../../assets/images/ros/practice/practice-01-04/img_003_026.webp)
 
 
-![Image 27](../../assets/images/ros/practice/practice-01-04/img_003_027.webp)
 
 
 5
@@ -169,22 +154,16 @@ Security
 ![Image 28](../../assets/images/ros/practice/practice-01-04/img_004_028.webp)
 
 
-![Image 29](../../assets/images/ros/practice/practice-01-04/img_004_029.webp)
 
 
-![Image 30](../../assets/images/ros/practice/practice-01-04/img_004_030.webp)
 
 
-![Image 31](../../assets/images/ros/practice/practice-01-04/img_004_031.webp)
 
 
-![Image 32](../../assets/images/ros/practice/practice-01-04/img_004_032.webp)
 
 
-![Image 33](../../assets/images/ros/practice/practice-01-04/img_004_033.webp)
 
 
-![Image 34](../../assets/images/ros/practice/practice-01-04/img_004_034.webp)
 
 
 6
@@ -388,7 +367,6 @@ ROS2 CLI정보명령어
 ▪ROS2 CLI 실습
 
 
-![Image 56](../../assets/images/ros/practice/practice-01-04/img_012_056.webp)
 
 
 ![Image 57](../../assets/images/ros/practice/practice-01-04/img_012_057.webp)
@@ -504,7 +482,6 @@ multicast 전송
 ![Image 70](../../assets/images/ros/practice/practice-01-04/img_015_070.webp)
 
 
-![Image 71](../../assets/images/ros/practice/practice-01-04/img_015_071.webp)
 
 
 ROS2 CLI
@@ -545,7 +522,6 @@ set
 ![Image 73](../../assets/images/ros/practice/practice-01-04/img_016_073.webp)
 
 
-![Image 74](../../assets/images/ros/practice/practice-01-04/img_016_074.webp)
 
 
 ROS2 CLI
@@ -586,7 +562,6 @@ list_keys
 ![Image 76](../../assets/images/ros/practice/practice-01-04/img_017_076.webp)
 
 
-![Image 77](../../assets/images/ros/practice/practice-01-04/img_017_077.webp)
 
 
 ROS2 CLI
@@ -605,7 +580,6 @@ ROS2 CLI 기능보조명령어
 ![Image 79](../../assets/images/ros/practice/practice-01-04/img_018_079.webp)
 
 
-![Image 80](../../assets/images/ros/practice/practice-01-04/img_018_080.webp)
 
 
 ![Image 81](../../assets/images/ros/practice/practice-01-04/img_018_081.webp)
@@ -627,7 +601,6 @@ ros2 run
 ![Image 83](../../assets/images/ros/practice/practice-01-04/img_019_083.webp)
 
 
-![Image 84](../../assets/images/ros/practice/practice-01-04/img_019_084.webp)
 
 
 ![Image 85](../../assets/images/ros/practice/practice-01-04/img_019_085.webp)
@@ -647,7 +620,6 @@ ros2 launch
 ![Image 86](../../assets/images/ros/practice/practice-01-04/img_020_086.webp)
 
 
-![Image 87](../../assets/images/ros/practice/practice-01-04/img_020_087.webp)
 
 
 ![Image 88](../../assets/images/ros/practice/practice-01-04/img_020_088.webp)
@@ -675,7 +647,6 @@ ros2 pkg
 ![Image 90](../../assets/images/ros/practice/practice-01-04/img_021_090.webp)
 
 
-![Image 91](../../assets/images/ros/practice/practice-01-04/img_021_091.webp)
 
 
 ![Image 92](../../assets/images/ros/practice/practice-01-04/img_021_092.webp)
@@ -770,13 +741,11 @@ ROS2 CLI실습
 ![Image 107](../../assets/images/ros/practice/practice-01-04/img_024_107.webp)
 
 
-![Image 108](../../assets/images/ros/practice/practice-01-04/img_024_108.webp)
 
 
 ![Image 109](../../assets/images/ros/practice/practice-01-04/img_024_109.webp)
 
 
-![Image 110](../../assets/images/ros/practice/practice-01-04/img_024_110.webp)
 
 
 ![Image 111](../../assets/images/ros/practice/practice-01-04/img_024_111.webp)
@@ -807,7 +776,6 @@ ros2 service
 ![Image 114](../../assets/images/ros/practice/practice-01-04/img_025_114.webp)
 
 
-![Image 115](../../assets/images/ros/practice/practice-01-04/img_025_115.webp)
 
 
 ![Image 116](../../assets/images/ros/practice/practice-01-04/img_025_116.webp)
@@ -840,7 +808,6 @@ turtlesim/action/RotateAbsolute 인터페이스형태를사용하는/turtle1/rot
 ros2 action
 
 
-![Image 121](../../assets/images/ros/practice/practice-01-04/img_026_121.webp)
 
 
 ![Image 122](../../assets/images/ros/practice/practice-01-04/img_026_122.webp)
@@ -1290,7 +1257,6 @@ source ~/.bashrc 해보기
 ![Image 197](../../assets/images/ros/practice/practice-01-04/img_040_197.webp)
 
 
-![Image 198](../../assets/images/ros/practice/practice-01-04/img_040_198.webp)
 
 
 ![Image 199](../../assets/images/ros/practice/practice-01-04/img_040_199.webp)
@@ -1313,19 +1279,16 @@ alias
 ![Image 201](../../assets/images/ros/practice/practice-01-04/img_041_201.webp)
 
 
-![Image 202](../../assets/images/ros/practice/practice-01-04/img_041_202.webp)
 
 
 ![Image 203](../../assets/images/ros/practice/practice-01-04/img_041_203.webp)
 
 
-![Image 204](../../assets/images/ros/practice/practice-01-04/img_041_204.webp)
 
 
 ![Image 205](../../assets/images/ros/practice/practice-01-04/img_041_205.webp)
 
 
-![Image 206](../../assets/images/ros/practice/practice-01-04/img_041_206.webp)
 
 
 ![Image 207](../../assets/images/ros/practice/practice-01-04/img_041_207.webp)
@@ -1455,13 +1418,10 @@ ros2 env라는기존에없던ROS2 CLI를만들기
 ![Image 228](../../assets/images/ros/practice/practice-01-04/img_048_228.webp)
 
 
-![Image 229](../../assets/images/ros/practice/practice-01-04/img_048_229.webp)
 
 
-![Image 230](../../assets/images/ros/practice/practice-01-04/img_048_230.webp)
 
 
-![Image 231](../../assets/images/ros/practice/practice-01-04/img_048_231.webp)
 
 
 ![Page 49](../../assets/images/ros/practice/practice-01-04/page_049.webp)
@@ -1477,7 +1437,6 @@ VS Code
 ![Image 232](../../assets/images/ros/practice/practice-01-04/img_050_232.webp)
 
 
-![Image 233](../../assets/images/ros/practice/practice-01-04/img_050_233.webp)
 
 
 ![Image 234](../../assets/images/ros/practice/practice-01-04/img_050_234.webp)
@@ -1505,7 +1464,6 @@ Build 하고실행해보기
 ![Image 240](../../assets/images/ros/practice/practice-01-04/img_051_240.webp)
 
 
-![Image 241](../../assets/images/ros/practice/practice-01-04/img_051_241.webp)
 
 
 ![Image 242](../../assets/images/ros/practice/practice-01-04/img_051_242.webp)
@@ -1525,7 +1483,6 @@ Build 하고실행해보기
 ![Image 245](../../assets/images/ros/practice/practice-01-04/img_052_245.webp)
 
 
-![Image 246](../../assets/images/ros/practice/practice-01-04/img_052_246.webp)
 
 
 ![Image 247](../../assets/images/ros/practice/practice-01-04/img_052_247.webp)
@@ -1546,7 +1503,6 @@ ros2env.verb는서브커맨드들이모여있는python Module 경로임
 ![Image 249](../../assets/images/ros/practice/practice-01-04/img_053_249.webp)
 
 
-![Image 250](../../assets/images/ros/practice/practice-01-04/img_053_250.webp)
 
 
 ![Image 251](../../assets/images/ros/practice/practice-01-04/img_053_251.webp)
@@ -1583,7 +1539,6 @@ required: 서브명령어가필수인지여부를결정. False로설정할경우
 ![Image 254](../../assets/images/ros/practice/practice-01-04/img_054_254.webp)
 
 
-![Image 255](../../assets/images/ros/practice/practice-01-04/img_054_255.webp)
 
 
 ![Image 256](../../assets/images/ros/practice/practice-01-04/img_054_256.webp)
@@ -1604,7 +1559,6 @@ required: 서브명령어가필수인지여부를결정. False로설정할경우
 ![Image 258](../../assets/images/ros/practice/practice-01-04/img_055_258.webp)
 
 
-![Image 259](../../assets/images/ros/practice/practice-01-04/img_055_259.webp)
 
 
 ![Image 260](../../assets/images/ros/practice/practice-01-04/img_055_260.webp)
@@ -1620,7 +1574,6 @@ required: 서브명령어가필수인지여부를결정. False로설정할경우
 ![Image 262](../../assets/images/ros/practice/practice-01-04/img_056_262.webp)
 
 
-![Image 263](../../assets/images/ros/practice/practice-01-04/img_056_263.webp)
 
 
 ![Image 264](../../assets/images/ros/practice/practice-01-04/img_056_264.webp)
@@ -1639,7 +1592,6 @@ required: 서브명령어가필수인지여부를결정. False로설정할경우
 ![Image 266](../../assets/images/ros/practice/practice-01-04/img_057_266.webp)
 
 
-![Image 267](../../assets/images/ros/practice/practice-01-04/img_057_267.webp)
 
 
 ![Image 268](../../assets/images/ros/practice/practice-01-04/img_057_268.webp)
@@ -1665,7 +1617,6 @@ VerbExtension: ROS2 CLI 명령어확장기능을제공하는기본클래스
 ![Image 271](../../assets/images/ros/practice/practice-01-04/img_058_271.webp)
 
 
-![Image 272](../../assets/images/ros/practice/practice-01-04/img_058_272.webp)
 
 
 ![Image 273](../../assets/images/ros/practice/practice-01-04/img_058_273.webp)
@@ -1683,7 +1634,6 @@ ros2env와관련된명령어로환경변수를리스트로출력할수있는기�
 ![Image 275](../../assets/images/ros/practice/practice-01-04/img_059_275.webp)
 
 
-![Image 276](../../assets/images/ros/practice/practice-01-04/img_059_276.webp)
 
 
 ![Image 277](../../assets/images/ros/practice/practice-01-04/img_059_277.webp)
@@ -1702,13 +1652,11 @@ True 값을가지며, 그렇지않을경우False 값을가짐
 대한도움말을볼때사용됨
 
 
-![Image 278](../../assets/images/ros/practice/practice-01-04/img_060_278.webp)
 
 
 ![Image 279](../../assets/images/ros/practice/practice-01-04/img_060_279.webp)
 
 
-![Image 280](../../assets/images/ros/practice/practice-01-04/img_060_280.webp)
 
 
 ![Image 281](../../assets/images/ros/practice/practice-01-04/img_060_281.webp)
@@ -1739,13 +1687,11 @@ args.dds_env가True일경우, get_dds_env_list() 함수를
 환경변수를가져옴
 
 
-![Image 282](../../assets/images/ros/practice/practice-01-04/img_061_282.webp)
 
 
 ![Image 283](../../assets/images/ros/practice/practice-01-04/img_061_283.webp)
 
 
-![Image 284](../../assets/images/ros/practice/practice-01-04/img_061_284.webp)
 
 
 ![Image 285](../../assets/images/ros/practice/practice-01-04/img_061_285.webp)
@@ -1761,7 +1707,6 @@ args.dds_env가True일경우, get_dds_env_list() 함수를
 ![Image 287](../../assets/images/ros/practice/practice-01-04/img_062_287.webp)
 
 
-![Image 288](../../assets/images/ros/practice/practice-01-04/img_062_288.webp)
 
 
 ![Image 289](../../assets/images/ros/practice/practice-01-04/img_062_289.webp)
@@ -1778,7 +1723,6 @@ __init__.py: ROS2와관련된환경변수를읽고설정
 ![Image 291](../../assets/images/ros/practice/practice-01-04/img_063_291.webp)
 
 
-![Image 292](../../assets/images/ros/practice/practice-01-04/img_063_292.webp)
 
 
 ![Image 293](../../assets/images/ros/practice/practice-01-04/img_063_293.webp)
@@ -1803,7 +1747,6 @@ os.getenv() 함수를사용하여각환경변수를읽어옴
 ![Image 296](../../assets/images/ros/practice/practice-01-04/img_064_296.webp)
 
 
-![Image 297](../../assets/images/ros/practice/practice-01-04/img_064_297.webp)
 
 
 ![Image 298](../../assets/images/ros/practice/practice-01-04/img_064_298.webp)
@@ -1827,7 +1770,6 @@ ROS2에서DDS를설정하기위한역할을함
 ![Image 300](../../assets/images/ros/practice/practice-01-04/img_065_300.webp)
 
 
-![Image 301](../../assets/images/ros/practice/practice-01-04/img_065_301.webp)
 
 
 ![Image 302](../../assets/images/ros/practice/practice-01-04/img_065_302.webp)
@@ -1848,7 +1790,6 @@ get_all_env_list 함수
 ![Image 304](../../assets/images/ros/practice/practice-01-04/img_066_304.webp)
 
 
-![Image 305](../../assets/images/ros/practice/practice-01-04/img_066_305.webp)
 
 
 ![Image 306](../../assets/images/ros/practice/practice-01-04/img_066_306.webp)
@@ -1870,7 +1811,6 @@ os.environ 딕셔너리에값을직접할당하여환경변수를설정하며, o
 ![Image 308](../../assets/images/ros/practice/practice-01-04/img_067_308.webp)
 
 
-![Image 309](../../assets/images/ros/practice/practice-01-04/img_067_309.webp)
 
 
 ![Image 310](../../assets/images/ros/practice/practice-01-04/img_067_310.webp)
@@ -1886,7 +1826,6 @@ os.environ 딕셔너리에값을직접할당하여환경변수를설정하며, o
 ![Image 312](../../assets/images/ros/practice/practice-01-04/img_068_312.webp)
 
 
-![Image 313](../../assets/images/ros/practice/practice-01-04/img_068_313.webp)
 
 
 ![Image 314](../../assets/images/ros/practice/practice-01-04/img_068_314.webp)
@@ -1903,7 +1842,6 @@ set.py: ros2env 패키지를사용하여ROS2 Humble에서환경변수를설정�
 ![Image 316](../../assets/images/ros/practice/practice-01-04/img_069_316.webp)
 
 
-![Image 317](../../assets/images/ros/practice/practice-01-04/img_069_317.webp)
 
 
 ![Image 318](../../assets/images/ros/practice/practice-01-04/img_069_318.webp)
@@ -1927,7 +1865,6 @@ VerbExtension: ROS2 CLI 확장명령어를구현하기위한기본클래스. 이
 ![Image 320](../../assets/images/ros/practice/practice-01-04/img_070_320.webp)
 
 
-![Image 321](../../assets/images/ros/practice/practice-01-04/img_070_321.webp)
 
 
 ![Image 322](../../assets/images/ros/practice/practice-01-04/img_070_322.webp)
@@ -1940,13 +1877,11 @@ SetVerb 클래스
 ROS 환경변수를설정하는데사용되는클래스로, VerbExtension을상속받아ROS2 명령어확장을구현함
 
 
-![Image 323](../../assets/images/ros/practice/practice-01-04/img_071_323.webp)
 
 
 ![Image 324](../../assets/images/ros/practice/practice-01-04/img_071_324.webp)
 
 
-![Image 325](../../assets/images/ros/practice/practice-01-04/img_071_325.webp)
 
 
 ![Image 326](../../assets/images/ros/practice/practice-01-04/img_071_326.webp)
@@ -1973,7 +1908,6 @@ help 매개변수는각인자의설명을제공. ros2 set --help 명령어로실
 ![Image 328](../../assets/images/ros/practice/practice-01-04/img_072_328.webp)
 
 
-![Image 329](../../assets/images/ros/practice/practice-01-04/img_072_329.webp)
 
 
 ![Image 330](../../assets/images/ros/practice/practice-01-04/img_072_330.webp)
@@ -1998,10 +1932,8 @@ get_all_env_list() 함수를호출하여모든환경변수의현재상태를가�
 ![Image 332](../../assets/images/ros/practice/practice-01-04/img_073_332.webp)
 
 
-![Image 333](../../assets/images/ros/practice/practice-01-04/img_073_333.webp)
 
 
-![Image 334](../../assets/images/ros/practice/practice-01-04/img_073_334.webp)
 
 
 ✓실행예제– verb/__init__.py
@@ -2014,10 +1946,8 @@ get_all_env_list() 함수를호출하여모든환경변수의현재상태를가�
 ![Image 336](../../assets/images/ros/practice/practice-01-04/img_074_336.webp)
 
 
-![Image 337](../../assets/images/ros/practice/practice-01-04/img_074_337.webp)
 
 
-![Image 338](../../assets/images/ros/practice/practice-01-04/img_074_338.webp)
 
 
 ✓실행예제– verb/__init__.py
@@ -2032,7 +1962,6 @@ __init__.py: ROS2 Humble에서env 명령어에대한확장포인트를정의하�
 ![Image 340](../../assets/images/ros/practice/practice-01-04/img_075_340.webp)
 
 
-![Image 341](../../assets/images/ros/practice/practice-01-04/img_075_341.webp)
 
 
 ![Image 342](../../assets/images/ros/practice/practice-01-04/img_075_342.webp)
@@ -2054,7 +1983,6 @@ satisfies_version: 플러그인시스템의버전과확장의버전이호환되�
 ![Image 344](../../assets/images/ros/practice/practice-01-04/img_076_344.webp)
 
 
-![Image 345](../../assets/images/ros/practice/practice-01-04/img_076_345.webp)
 
 
 ![Image 346](../../assets/images/ros/practice/practice-01-04/img_076_346.webp)
@@ -2077,13 +2005,11 @@ EXTENSION_POINT_VERSION : 이확장이구현하는확장포인트의버전
 ![Image 348](../../assets/images/ros/practice/practice-01-04/img_077_348.webp)
 
 
-![Image 349](../../assets/images/ros/practice/practice-01-04/img_077_349.webp)
 
 
 ![Image 350](../../assets/images/ros/practice/practice-01-04/img_077_350.webp)
 
 
-![Image 351](../../assets/images/ros/practice/practice-01-04/img_077_351.webp)
 
 
 ![Image 352](../../assets/images/ros/practice/practice-01-04/img_077_352.webp)
@@ -2107,7 +2033,6 @@ ROS2 명령어에필요한인자들을정의하기위한메서드. 기본클래�
 ![Image 354](../../assets/images/ros/practice/practice-01-04/img_078_354.webp)
 
 
-![Image 355](../../assets/images/ros/practice/practice-01-04/img_078_355.webp)
 
 
 ![Image 356](../../assets/images/ros/practice/practice-01-04/img_078_356.webp)
@@ -2132,7 +2057,6 @@ main 함수
 ![Image 359](../../assets/images/ros/practice/practice-01-04/img_079_359.webp)
 
 
-![Image 360](../../assets/images/ros/practice/practice-01-04/img_079_360.webp)
 
 
 ![Image 361](../../assets/images/ros/practice/practice-01-04/img_079_361.webp)
@@ -2152,10 +2076,8 @@ Override가필요한이유?
 ![Image 362](../../assets/images/ros/practice/practice-01-04/img_080_362.webp)
 
 
-![Image 363](../../assets/images/ros/practice/practice-01-04/img_080_363.webp)
 
 
-![Image 364](../../assets/images/ros/practice/practice-01-04/img_080_364.webp)
 
 
 ![Image 365](../../assets/images/ros/practice/practice-01-04/img_080_365.webp)
@@ -2177,7 +2099,6 @@ Override가필요한이유?
 ![Image 369](../../assets/images/ros/practice/practice-01-04/img_081_369.webp)
 
 
-![Image 370](../../assets/images/ros/practice/practice-01-04/img_081_370.webp)
 
 
 ![Image 371](../../assets/images/ros/practice/practice-01-04/img_081_371.webp)
@@ -2209,7 +2130,6 @@ Interface가필요한이유?
 ![Image 375](../../assets/images/ros/practice/practice-01-04/img_082_375.webp)
 
 
-![Image 376](../../assets/images/ros/practice/practice-01-04/img_082_376.webp)
 
 
 ![Image 377](../../assets/images/ros/practice/practice-01-04/img_082_377.webp)
@@ -2237,7 +2157,6 @@ Interface가필요한이유?
 ![Image 382](../../assets/images/ros/practice/practice-01-04/img_083_382.webp)
 
 
-![Image 383](../../assets/images/ros/practice/practice-01-04/img_083_383.webp)
 
 
 ![Image 384](../../assets/images/ros/practice/practice-01-04/img_083_384.webp)
@@ -2257,7 +2176,6 @@ Interface가필요한이유?
 ![Image 387](../../assets/images/ros/practice/practice-01-04/img_084_387.webp)
 
 
-![Image 388](../../assets/images/ros/practice/practice-01-04/img_084_388.webp)
 
 
 ![Image 389](../../assets/images/ros/practice/practice-01-04/img_084_389.webp)
@@ -2372,10 +2290,8 @@ https://github.com/ros2/demos/tree/humble/intra_process_demo/src
 https://github.com/ros2/demos/tree/humble/intra_process_demo/src
 
 
-![Image 404](../../assets/images/ros/practice/practice-01-04/img_091_404.webp)
 
 
-![Image 405](../../assets/images/ros/practice/practice-01-04/img_091_405.webp)
 
 
 ![Image 406](../../assets/images/ros/practice/practice-01-04/img_091_406.webp)
@@ -2466,7 +2382,6 @@ image_view_node는다른프로세스에서실행되며참조하는메모리주�
 ![Image 418](../../assets/images/ros/practice/practice-01-04/img_094_418.webp)
 
 
-![Image 419](../../assets/images/ros/practice/practice-01-04/img_094_419.webp)
 
 
 ![Image 420](../../assets/images/ros/practice/practice-01-04/img_094_420.webp)
@@ -2547,7 +2462,6 @@ KEEL_ALL
 ![Image 427](../../assets/images/ros/practice/practice-01-04/img_098_427.webp)
 
 
-![Image 428](../../assets/images/ros/practice/practice-01-04/img_098_428.webp)
 
 
 ![Image 429](../../assets/images/ros/practice/practice-01-04/img_098_429.webp)
@@ -2575,7 +2489,6 @@ RELIABLE
 ![Image 432](../../assets/images/ros/practice/practice-01-04/img_099_432.webp)
 
 
-![Image 433](../../assets/images/ros/practice/practice-01-04/img_099_433.webp)
 
 
 ![Image 434](../../assets/images/ros/practice/practice-01-04/img_099_434.webp)
@@ -2603,7 +2516,6 @@ Subscription이생성되기전데이터는무효
 ![Image 437](../../assets/images/ros/practice/practice-01-04/img_100_437.webp)
 
 
-![Image 438](../../assets/images/ros/practice/practice-01-04/img_100_438.webp)
 
 
 ![Image 439](../../assets/images/ros/practice/practice-01-04/img_100_439.webp)
@@ -2632,7 +2544,6 @@ Deadline을확인하는주기
 ![Image 443](../../assets/images/ros/practice/practice-01-04/img_101_443.webp)
 
 
-![Image 444](../../assets/images/ros/practice/practice-01-04/img_101_444.webp)
 
 
 Lifespan
@@ -2655,7 +2566,6 @@ Lifespan을확인하는주기
 ![Image 447](../../assets/images/ros/practice/practice-01-04/img_102_447.webp)
 
 
-![Image 448](../../assets/images/ros/practice/practice-01-04/img_102_448.webp)
 
 
 Liveliness
@@ -2950,13 +2860,10 @@ Topic, Service, Action의QoS 설정
 ![Image 487](../../assets/images/ros/practice/practice-01-04/img_111_487.webp)
 
 
-![Image 488](../../assets/images/ros/practice/practice-01-04/img_111_488.webp)
 
 
-![Image 489](../../assets/images/ros/practice/practice-01-04/img_111_489.webp)
 
 
-![Image 490](../../assets/images/ros/practice/practice-01-04/img_111_490.webp)
 
 
 Topic
@@ -3132,7 +3039,6 @@ QoS 실습
 ![Image 516](../../assets/images/ros/practice/practice-01-04/img_121_516.webp)
 
 
-![Image 517](../../assets/images/ros/practice/practice-01-04/img_121_517.webp)
 
 
 ![Image 518](../../assets/images/ros/practice/practice-01-04/img_121_518.webp)
@@ -3155,7 +3061,6 @@ Publisher에는QoS(Quality of Service) 프로파일의기본값으로rmw_qos_pro
 ![Image 521](../../assets/images/ros/practice/practice-01-04/img_122_521.webp)
 
 
-![Image 522](../../assets/images/ros/practice/practice-01-04/img_122_522.webp)
 
 
 ![Image 523](../../assets/images/ros/practice/practice-01-04/img_122_523.webp)
@@ -3180,7 +3085,6 @@ ros_tutorials
 ![Image 527](../../assets/images/ros/practice/practice-01-04/img_123_527.webp)
 
 
-![Image 528](../../assets/images/ros/practice/practice-01-04/img_123_528.webp)
 
 
 ✓py_pubsub/src/publisher_member_function.py 설정
@@ -3196,7 +3100,6 @@ ros_tutorials
 ![Image 530](../../assets/images/ros/practice/practice-01-04/img_124_530.webp)
 
 
-![Image 531](../../assets/images/ros/practice/practice-01-04/img_124_531.webp)
 
 
 ✓py_pubsub/src/publisher_member_function.py 
@@ -3221,7 +3124,6 @@ VOLATILE: Subscription이생성되기전데이터도보관
 ![Image 534](../../assets/images/ros/practice/practice-01-04/img_125_534.webp)
 
 
-![Image 535](../../assets/images/ros/practice/practice-01-04/img_125_535.webp)
 
 
 ✓py_pubsub/src/subscriber_member_function.py 설정
@@ -3248,7 +3150,6 @@ VOLATILE: Subscription이생성되기전데이터도보관
 ![Image 538](../../assets/images/ros/practice/practice-01-04/img_126_538.webp)
 
 
-![Image 539](../../assets/images/ros/practice/practice-01-04/img_126_539.webp)
 
 
 ✓빌드후py_pubsub 실행
@@ -3272,7 +3173,6 @@ VOLATILE: Subscription이생성되기전데이터도보관
 ![Image 544](../../assets/images/ros/practice/practice-01-04/img_127_544.webp)
 
 
-![Image 545](../../assets/images/ros/practice/practice-01-04/img_127_545.webp)
 
 
 ✓History 결과확인
@@ -3305,7 +3205,6 @@ O
 ![Image 549](../../assets/images/ros/practice/practice-01-04/img_128_549.webp)
 
 
-![Image 550](../../assets/images/ros/practice/practice-01-04/img_128_550.webp)
 
 
 Reliability
@@ -3359,7 +3258,6 @@ RELIABLE(모든메시지는반드시전달되어야하는경우)
 ![Image 554](../../assets/images/ros/practice/practice-01-04/img_130_554.webp)
 
 
-![Image 555](../../assets/images/ros/practice/practice-01-04/img_130_555.webp)
 
 
 ![Image 556](../../assets/images/ros/practice/practice-01-04/img_130_556.webp)
@@ -3382,7 +3280,6 @@ RELIABLE(모든메시지는반드시전달되어야하는경우)
 ![Image 560](../../assets/images/ros/practice/practice-01-04/img_131_560.webp)
 
 
-![Image 561](../../assets/images/ros/practice/practice-01-04/img_131_561.webp)
 
 
 ![Image 562](../../assets/images/ros/practice/practice-01-04/img_131_562.webp)
@@ -3407,7 +3304,6 @@ RELIABLE(모든메시지는반드시전달되어야하는경우)
 ![Image 565](../../assets/images/ros/practice/practice-01-04/img_132_565.webp)
 
 
-![Image 566](../../assets/images/ros/practice/practice-01-04/img_132_566.webp)
 
 
 ![Image 567](../../assets/images/ros/practice/practice-01-04/img_132_567.webp)
@@ -3426,7 +3322,6 @@ RELIABLE(모든메시지는반드시전달되어야하는경우)
 ![Image 569](../../assets/images/ros/practice/practice-01-04/img_133_569.webp)
 
 
-![Image 570](../../assets/images/ros/practice/practice-01-04/img_133_570.webp)
 
 
 ![Image 571](../../assets/images/ros/practice/practice-01-04/img_133_571.webp)
@@ -3491,7 +3386,6 @@ VOLATILE : Subscriber가생성되기전데이터는사용하지않음
 ![Image 576](../../assets/images/ros/practice/practice-01-04/img_135_576.webp)
 
 
-![Image 577](../../assets/images/ros/practice/practice-01-04/img_135_577.webp)
 
 
 ![Image 578](../../assets/images/ros/practice/practice-01-04/img_135_578.webp)
@@ -3509,7 +3403,6 @@ VOLATILE : Subscriber가생성되기전데이터는사용하지않음
 ![Image 580](../../assets/images/ros/practice/practice-01-04/img_136_580.webp)
 
 
-![Image 581](../../assets/images/ros/practice/practice-01-04/img_136_581.webp)
 
 
 ![Image 582](../../assets/images/ros/practice/practice-01-04/img_136_582.webp)
@@ -3543,7 +3436,6 @@ O
 ![Image 586](../../assets/images/ros/practice/practice-01-04/img_137_586.webp)
 
 
-![Image 587](../../assets/images/ros/practice/practice-01-04/img_137_587.webp)
 
 
 ![Image 588](../../assets/images/ros/practice/practice-01-04/img_137_588.webp)
@@ -3614,7 +3506,6 @@ Subscriber는센서가문제있다는것을알수있음→센서데이터감시
 ![Image 594](../../assets/images/ros/practice/practice-01-04/img_140_594.webp)
 
 
-![Image 595](../../assets/images/ros/practice/practice-01-04/img_140_595.webp)
 
 
 ![Image 596](../../assets/images/ros/practice/practice-01-04/img_140_596.webp)
@@ -3644,7 +3535,6 @@ Subscriber는센서가문제있다는것을알수있음→센서데이터감시
 ![Image 601](../../assets/images/ros/practice/practice-01-04/img_141_601.webp)
 
 
-![Image 602](../../assets/images/ros/practice/practice-01-04/img_141_602.webp)
 
 
 ![Image 603](../../assets/images/ros/practice/practice-01-04/img_141_603.webp)
@@ -3665,7 +3555,6 @@ Subscriber는센서가문제있다는것을알수있음→센서데이터감시
 ![Image 606](../../assets/images/ros/practice/practice-01-04/img_142_606.webp)
 
 
-![Image 607](../../assets/images/ros/practice/practice-01-04/img_142_607.webp)
 
 
 ![Image 608](../../assets/images/ros/practice/practice-01-04/img_142_608.webp)
@@ -3696,7 +3585,6 @@ pause-for : talker가몇초간멈출지
 ![Image 611](../../assets/images/ros/practice/practice-01-04/img_143_611.webp)
 
 
-![Image 612](../../assets/images/ros/practice/practice-01-04/img_143_612.webp)
 
 
 ![Image 613](../../assets/images/ros/practice/practice-01-04/img_143_613.webp)
@@ -3714,7 +3602,6 @@ pause-for : talker가몇초간멈출지
 ![Image 615](../../assets/images/ros/practice/practice-01-04/img_144_615.webp)
 
 
-![Image 616](../../assets/images/ros/practice/practice-01-04/img_144_616.webp)
 
 
 ![Image 617](../../assets/images/ros/practice/practice-01-04/img_144_617.webp)
@@ -3735,7 +3622,6 @@ pause-for : talker가몇초간멈출지
 ![Image 620](../../assets/images/ros/practice/practice-01-04/img_145_620.webp)
 
 
-![Image 621](../../assets/images/ros/practice/practice-01-04/img_145_621.webp)
 
 
 ![Image 622](../../assets/images/ros/practice/practice-01-04/img_145_622.webp)
@@ -3756,7 +3642,6 @@ Deadline QoS 설정을사용하면,
 ![Image 624](../../assets/images/ros/practice/practice-01-04/img_146_624.webp)
 
 
-![Image 625](../../assets/images/ros/practice/practice-01-04/img_146_625.webp)
 
 
 ![Image 626](../../assets/images/ros/practice/practice-01-04/img_146_626.webp)
@@ -3798,7 +3683,6 @@ QoS 실습
 ![Image 631](../../assets/images/ros/practice/practice-01-04/img_148_631.webp)
 
 
-![Image 632](../../assets/images/ros/practice/practice-01-04/img_148_632.webp)
 
 
 ![Image 633](../../assets/images/ros/practice/practice-01-04/img_148_633.webp)
@@ -3822,7 +3706,6 @@ reliability는RELIABLE(반드시전달), durability는TRANSIENT_LOCAL(New Subscr
 ![Image 635](../../assets/images/ros/practice/practice-01-04/img_149_635.webp)
 
 
-![Image 636](../../assets/images/ros/practice/practice-01-04/img_149_636.webp)
 
 
 ![Image 637](../../assets/images/ros/practice/practice-01-04/img_149_637.webp)
@@ -3855,7 +3738,6 @@ Lifespan을2000으로변경해서테스트해보기
 ![Image 640](../../assets/images/ros/practice/practice-01-04/img_150_640.webp)
 
 
-![Image 641](../../assets/images/ros/practice/practice-01-04/img_150_641.webp)
 
 
 ![Image 642](../../assets/images/ros/practice/practice-01-04/img_150_642.webp)
@@ -3872,7 +3754,6 @@ Lifespan을2000으로변경해서테스트해보기
 ![Image 644](../../assets/images/ros/practice/practice-01-04/img_151_644.webp)
 
 
-![Image 645](../../assets/images/ros/practice/practice-01-04/img_151_645.webp)
 
 
 ![Image 646](../../assets/images/ros/practice/practice-01-04/img_151_646.webp)
@@ -3887,7 +3768,6 @@ Lifespan을2000으로변경해서테스트해보기
 ![Image 648](../../assets/images/ros/practice/practice-01-04/img_152_648.webp)
 
 
-![Image 649](../../assets/images/ros/practice/practice-01-04/img_152_649.webp)
 
 
 ![Image 650](../../assets/images/ros/practice/practice-01-04/img_152_650.webp)
@@ -3962,7 +3842,6 @@ Liveliness는다음과같은상황에서중요하게사용됩니다.
 ![Image 654](../../assets/images/ros/practice/practice-01-04/img_154_654.webp)
 
 
-![Image 655](../../assets/images/ros/practice/practice-01-04/img_154_655.webp)
 
 
 ![Image 656](../../assets/images/ros/practice/practice-01-04/img_154_656.webp)
@@ -3993,7 +3872,6 @@ depth=10, Liveliness는명령어로
 ![Image 659](../../assets/images/ros/practice/practice-01-04/img_155_659.webp)
 
 
-![Image 660](../../assets/images/ros/practice/practice-01-04/img_155_660.webp)
 
 
 ![Image 661](../../assets/images/ros/practice/practice-01-04/img_155_661.webp)
@@ -4019,7 +3897,6 @@ Publisher가1000ms마다메시지를Publishing
 ![Image 664](../../assets/images/ros/practice/practice-01-04/img_156_664.webp)
 
 
-![Image 665](../../assets/images/ros/practice/practice-01-04/img_156_665.webp)
 
 
 ![Image 666](../../assets/images/ros/practice/practice-01-04/img_156_666.webp)
@@ -4041,7 +3918,6 @@ AUTOMATIC 때와비슷하나, 노드를죽이지않고퍼블리시만되지않�
 ![Image 669](../../assets/images/ros/practice/practice-01-04/img_157_669.webp)
 
 
-![Image 670](../../assets/images/ros/practice/practice-01-04/img_157_670.webp)
 
 
 ![Image 671](../../assets/images/ros/practice/practice-01-04/img_157_671.webp)
@@ -5625,10 +5501,8 @@ ROS2 CLI실습
 ![Image 918](../../assets/images/ros/practice/practice-01-04/img_228_918.webp)
 
 
-![Image 919](../../assets/images/ros/practice/practice-01-04/img_228_919.webp)
 
 
-![Image 920](../../assets/images/ros/practice/practice-01-04/img_228_920.webp)
 
 
 ![Image 921](../../assets/images/ros/practice/practice-01-04/img_228_921.webp)
@@ -5637,7 +5511,6 @@ ROS2 CLI실습
 ![Image 922](../../assets/images/ros/practice/practice-01-04/img_228_922.webp)
 
 
-![Image 923](../../assets/images/ros/practice/practice-01-04/img_228_923.webp)
 
 
 ![Image 924](../../assets/images/ros/practice/practice-01-04/img_228_924.webp)

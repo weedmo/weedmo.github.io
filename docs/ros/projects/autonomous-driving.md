@@ -10,9 +10,6 @@ V1.0
 두산 프로젝트 교안
 
 
-![Image 1](../../assets/images/ros/projects/autonomous-driving/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/projects/autonomous-driving/img_001_002.webp)
 
 
@@ -22,7 +19,6 @@ V1.0
 내용검증필요
 
 
-![Image 3](../../assets/images/ros/projects/autonomous-driving/img_002_003.webp)
 
 
 ![Image 4](../../assets/images/ros/projects/autonomous-driving/img_002_004.webp)
@@ -35,7 +31,6 @@ HUMAN AI ROBOTICS
 디지털트윈
 
 
-![Image 5](../../assets/images/ros/projects/autonomous-driving/img_003_005.webp)
 
 
 HUMAN AI ROBOTICS
@@ -80,7 +75,6 @@ Gazebo의 use_sim_time을 활성화하여 시뮬레이션 시간을 사용할 �
 ros2 param set /gazebo use_sim_time true
 
 
-![Image 7](../../assets/images/ros/projects/autonomous-driving/img_005_007.webp)
 
 
 HUMAN AI ROBOTICS
@@ -100,10 +94,8 @@ ros2 run rosbridge_server rosbridge_websocket
 이후 Python을 이용하여 MQTT로 데이터를 송수신할 수 있습니다.
 
 
-![Image 8](../../assets/images/ros/projects/autonomous-driving/img_006_008.webp)
 
 
-![Image 9](../../assets/images/ros/projects/autonomous-driving/img_006_009.webp)
 
 
 HUMAN AI ROBOTICS
@@ -122,7 +114,6 @@ ros2 bag record -o real_data /real_scan /real_odom
 이후 데이터를 비교하여 실제와 시뮬레이션의 차이를 확인할 수 있습니다.
 
 
-![Image 10](../../assets/images/ros/projects/autonomous-driving/img_007_010.webp)
 
 
 HUMAN AI ROBOTICS
@@ -370,10 +361,8 @@ HUMAN AI ROBOTICS
 래와 같이 나타나야 합니다.
 
 
-![Image 30](../../assets/images/ros/projects/autonomous-driving/img_022_030.webp)
 
 
-![Image 31](../../assets/images/ros/projects/autonomous-driving/img_022_031.webp)
 
 
 HUMAN AI ROBOTICS
@@ -383,7 +372,6 @@ HUMAN AI ROBOTICS
 차선(Lane) 감지
 
 
-![Image 32](../../assets/images/ros/projects/autonomous-driving/img_023_032.webp)
 
 
 HUMAN AI ROBOTICS
@@ -437,7 +425,6 @@ $ cd ~/turtlebot3_ws/src/turtlebot3_autorace/turtlebot3_autorace_detect/param/la
 ![Image 35](../../assets/images/ros/projects/autonomous-driving/img_026_035.webp)
 
 
-![Image 36](../../assets/images/ros/projects/autonomous-driving/img_026_036.webp)
 
 
 ![Image 37](../../assets/images/ros/projects/autonomous-driving/img_026_037.webp)
@@ -592,7 +579,6 @@ HUMAN AI ROBOTICS
 참고
 
 
-![Image 51](../../assets/images/ros/projects/autonomous-driving/img_037_051.webp)
 
 
 HUMAN AI ROBOTICS
@@ -611,7 +597,6 @@ HUMAN AI ROBOTICS
 참고
 
 
-![Image 53](../../assets/images/ros/projects/autonomous-driving/img_039_053.webp)
 
 
 HUMAN AI ROBOTICS

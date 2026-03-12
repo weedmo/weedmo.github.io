@@ -6,19 +6,14 @@ Apr, 2025
 ROS2 기초-1차시
 
 
-![Image 1](../../assets/images/ros/basics/lesson-01/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/basics/lesson-01/img_001_002.webp)
 
 
-![Image 3](../../assets/images/ros/basics/lesson-01/img_001_003.webp)
 
 
 ![Image 4](../../assets/images/ros/basics/lesson-01/img_001_004.webp)
 
 
-![Image 5](../../assets/images/ros/basics/lesson-01/img_001_005.webp)
 
 
 2
@@ -78,7 +73,6 @@ ROKEY BOOT CAMP
 [출처] 로봇의탄생과발전그리고미래|작성자한국과학기술연구원
 
 
-![Image 6](../../assets/images/ros/basics/lesson-01/img_003_006.webp)
 
 
 4
@@ -123,10 +117,8 @@ ROKEY BOOT CAMP
 1등을했다니대단하죠?
 
 
-![Image 8](../../assets/images/ros/basics/lesson-01/img_005_008.webp)
 
 
-![Image 9](../../assets/images/ros/basics/lesson-01/img_005_009.webp)
 
 
 ![Image 10](../../assets/images/ros/basics/lesson-01/img_005_010.webp)
@@ -200,7 +192,6 @@ ROKEY BOOT CAMP
 [출처] 로봇의탄생과발전그리고미래|작성자한국과학기술연구원
 
 
-![Image 17](../../assets/images/ros/basics/lesson-01/img_008_017.webp)
 
 
 ![Image 18](../../assets/images/ros/basics/lesson-01/img_008_018.webp)
@@ -220,7 +211,6 @@ ROKEY BOOT CAMP
 ![Image 21](../../assets/images/ros/basics/lesson-01/img_009_021.webp)
 
 
-![Image 22](../../assets/images/ros/basics/lesson-01/img_009_022.webp)
 
 
 ![Image 23](../../assets/images/ros/basics/lesson-01/img_009_023.webp)
@@ -302,16 +292,12 @@ BIOS 설정로드
 사용자인터페이스실행
 
 
-![Image 32](../../assets/images/ros/basics/lesson-01/img_012_032.webp)
 
 
-![Image 33](../../assets/images/ros/basics/lesson-01/img_012_033.webp)
 
 
-![Image 34](../../assets/images/ros/basics/lesson-01/img_012_034.webp)
 
 
-![Image 35](../../assets/images/ros/basics/lesson-01/img_012_035.webp)
 
 
 ![Image 36](../../assets/images/ros/basics/lesson-01/img_012_036.webp)
@@ -320,7 +306,6 @@ BIOS 설정로드
 ![Image 37](../../assets/images/ros/basics/lesson-01/img_012_037.webp)
 
 
-![Image 38](../../assets/images/ros/basics/lesson-01/img_012_038.webp)
 
 
 ![Image 39](../../assets/images/ros/basics/lesson-01/img_012_039.webp)
@@ -409,7 +394,6 @@ BIOS 설정로드
 ![Image 58](../../assets/images/ros/basics/lesson-01/img_013_058.webp)
 
 
-![Image 59](../../assets/images/ros/basics/lesson-01/img_013_059.webp)
 
 
 14
@@ -1476,7 +1460,6 @@ ROKEY BOOT CAMP
 ![Image 147](../../assets/images/ros/basics/lesson-01/img_060_147.webp)
 
 
-![Image 148](../../assets/images/ros/basics/lesson-01/img_060_148.webp)
 
 
 ![Image 149](../../assets/images/ros/basics/lesson-01/img_060_149.webp)
@@ -1497,7 +1480,6 @@ ROKEY BOOT CAMP
 ![Image 154](../../assets/images/ros/basics/lesson-01/img_060_154.webp)
 
 
-![Image 155](../../assets/images/ros/basics/lesson-01/img_060_155.webp)
 
 
 61
@@ -1907,4 +1889,3 @@ ROKEY BOOT CAMP
 ![Image 188](../../assets/images/ros/basics/lesson-01/img_078_188.webp)
 
 
-![Image 189](../../assets/images/ros/basics/lesson-01/img_078_189.webp)

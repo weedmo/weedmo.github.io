@@ -5,9 +5,6 @@ ROS2 프로그래밍입문(2차시)
 2. 인터페이스패키지
 
 
-![Image 1](../../assets/images/ros/intro/lesson-02/img_001_001.webp)
-
-
 ▶인터페이스패키지
 1.  Python을이용한패키지생성실습
 2.  인터페이스패키지
@@ -39,7 +36,6 @@ Python을이용한패키지생성실습
 ![Image 2](../../assets/images/ros/intro/lesson-02/img_004_002.webp)
 
 
-![Image 3](../../assets/images/ros/intro/lesson-02/img_004_003.webp)
 
 
 ![Image 4](../../assets/images/ros/intro/lesson-02/img_004_004.webp)
@@ -54,19 +50,14 @@ Python을이용한패키지생성실습
 3. 파일생성확인
 
 
-![Image 5](../../assets/images/ros/intro/lesson-02/img_005_005.webp)
 
 
-![Image 6](../../assets/images/ros/intro/lesson-02/img_005_006.webp)
 
 
-![Image 7](../../assets/images/ros/intro/lesson-02/img_005_007.webp)
 
 
-![Image 8](../../assets/images/ros/intro/lesson-02/img_005_008.webp)
 
 
-![Image 9](../../assets/images/ros/intro/lesson-02/img_005_009.webp)
 
 
 ![Image 10](../../assets/images/ros/intro/lesson-02/img_005_010.webp)
@@ -109,7 +100,6 @@ Node 클래스를상속받아ROS2 노드를정의
 ![Image 12](../../assets/images/ros/intro/lesson-02/img_007_012.webp)
 
 
-![Image 13](../../assets/images/ros/intro/lesson-02/img_007_013.webp)
 
 
 ![Image 14](../../assets/images/ros/intro/lesson-02/img_007_014.webp)
@@ -155,7 +145,6 @@ Package.xml 의존성(dependencies) 추가
 ros2_ws/src/py_pubsub 디렉토리로아래하이라이트된파일들에대하여작업필요
 
 
-![Image 16](../../assets/images/ros/intro/lesson-02/img_009_016.webp)
 
 
 ![Image 17](../../assets/images/ros/intro/lesson-02/img_009_017.webp)
@@ -169,10 +158,8 @@ Python을이용한패키지생성실습
 Package.xml  설정
 
 
-![Image 18](../../assets/images/ros/intro/lesson-02/img_010_018.webp)
 
 
-![Image 19](../../assets/images/ros/intro/lesson-02/img_010_019.webp)
 
 
 Python을이용한패키지생성실습
@@ -201,7 +188,6 @@ std_msgs: ROS에서기본적으로제공하는메시지타입들의모음ex) Str
 ![Image 20](../../assets/images/ros/intro/lesson-02/img_011_020.webp)
 
 
-![Image 21](../../assets/images/ros/intro/lesson-02/img_011_021.webp)
 
 
 ![Image 22](../../assets/images/ros/intro/lesson-02/img_011_022.webp)
@@ -269,10 +255,8 @@ Python을이용한패키지생성실습
 setup.py 설정
 
 
-![Image 24](../../assets/images/ros/intro/lesson-02/img_013_024.webp)
 
 
-![Image 25](../../assets/images/ros/intro/lesson-02/img_013_025.webp)
 
 
 Python을이용한패키지생성실습
@@ -285,10 +269,8 @@ Python을이용한패키지생성실습
 entry_points 필드부분에talker 추가하기(추가후저장하기)
 
 
-![Image 26](../../assets/images/ros/intro/lesson-02/img_014_026.webp)
 
 
-![Image 27](../../assets/images/ros/intro/lesson-02/img_014_027.webp)
 
 
 Python을이용한패키지생성실습
@@ -349,25 +331,21 @@ Python을이용한패키지생성실습
 4.
 
 
-![Image 30](../../assets/images/ros/intro/lesson-02/img_017_030.webp)
 
 
 ![Image 31](../../assets/images/ros/intro/lesson-02/img_017_031.webp)
 
 
-![Image 32](../../assets/images/ros/intro/lesson-02/img_017_032.webp)
 
 
 ![Image 33](../../assets/images/ros/intro/lesson-02/img_017_033.webp)
 
 
-![Image 34](../../assets/images/ros/intro/lesson-02/img_017_034.webp)
 
 
 ![Image 35](../../assets/images/ros/intro/lesson-02/img_017_035.webp)
 
 
-![Image 36](../../assets/images/ros/intro/lesson-02/img_017_036.webp)
 
 
 ![Image 37](../../assets/images/ros/intro/lesson-02/img_017_037.webp)
@@ -446,7 +424,6 @@ Setup.py 수정
 console_script에listener 내용추가
 
 
-![Image 39](../../assets/images/ros/intro/lesson-02/img_021_039.webp)
 
 
 ![Image 40](../../assets/images/ros/intro/lesson-02/img_021_040.webp)
@@ -460,7 +437,6 @@ Python을이용한패키지생성실습
 Setup.py 전체코드
 
 
-![Image 41](../../assets/images/ros/intro/lesson-02/img_022_041.webp)
 
 
 ![Image 42](../../assets/images/ros/intro/lesson-02/img_022_042.webp)
@@ -479,7 +455,6 @@ Python을이용한패키지생성실습
 ![Image 43](../../assets/images/ros/intro/lesson-02/img_023_043.webp)
 
 
-![Image 44](../../assets/images/ros/intro/lesson-02/img_023_044.webp)
 
 
 ![Image 45](../../assets/images/ros/intro/lesson-02/img_023_045.webp)
@@ -497,25 +472,21 @@ install/setup.bash를source 수행
 새로운터미널을열어서입력
 
 
-![Image 47](../../assets/images/ros/intro/lesson-02/img_024_047.webp)
 
 
 ![Image 48](../../assets/images/ros/intro/lesson-02/img_024_048.webp)
 
 
-![Image 49](../../assets/images/ros/intro/lesson-02/img_024_049.webp)
 
 
 ![Image 50](../../assets/images/ros/intro/lesson-02/img_024_050.webp)
 
 
-![Image 51](../../assets/images/ros/intro/lesson-02/img_024_051.webp)
 
 
 ![Image 52](../../assets/images/ros/intro/lesson-02/img_024_052.webp)
 
 
-![Image 53](../../assets/images/ros/intro/lesson-02/img_024_053.webp)
 
 
 ![Image 54](../../assets/images/ros/intro/lesson-02/img_024_054.webp)
@@ -558,10 +529,8 @@ ament_python에는없음
 ![Image 55](../../assets/images/ros/intro/lesson-02/img_026_055.webp)
 
 
-![Image 56](../../assets/images/ros/intro/lesson-02/img_026_056.webp)
 
 
-![Image 57](../../assets/images/ros/intro/lesson-02/img_026_057.webp)
 
 
 02
@@ -580,7 +549,6 @@ srv/MySrv.srv
 action/MyAction.action
 
 
-![Image 58](../../assets/images/ros/intro/lesson-02/img_027_058.webp)
 
 
 ![Image 59](../../assets/images/ros/intro/lesson-02/img_027_059.webp)
@@ -628,7 +596,6 @@ action/MyAction.action
 ▶Package.xml 파일수정
 
 
-![Image 65](../../assets/images/ros/intro/lesson-02/img_030_065.webp)
 
 
 ![Image 66](../../assets/images/ros/intro/lesson-02/img_030_066.webp)
@@ -644,7 +611,6 @@ action/MyAction.action
 ![Image 67](../../assets/images/ros/intro/lesson-02/img_031_067.webp)
 
 
-![Image 68](../../assets/images/ros/intro/lesson-02/img_031_068.webp)
 
 
 ![Image 69](../../assets/images/ros/intro/lesson-02/img_031_069.webp)
@@ -657,7 +623,6 @@ action/MyAction.action
 ▶빌드
 
 
-![Image 70](../../assets/images/ros/intro/lesson-02/img_032_070.webp)
 
 
 ![Image 71](../../assets/images/ros/intro/lesson-02/img_032_071.webp)
@@ -670,13 +635,11 @@ action/MyAction.action
 ▶빌드결과
 
 
-![Image 72](../../assets/images/ros/intro/lesson-02/img_033_072.webp)
 
 
 ![Image 73](../../assets/images/ros/intro/lesson-02/img_033_073.webp)
 
 
-![Image 74](../../assets/images/ros/intro/lesson-02/img_033_074.webp)
 
 
 ![Image 75](../../assets/images/ros/intro/lesson-02/img_033_075.webp)
@@ -698,7 +661,6 @@ action/MyAction.action
 ▶새로운패키지를새로생성하여, msg interface 테스트진행
 
 
-![Image 77](../../assets/images/ros/intro/lesson-02/img_035_077.webp)
 
 
 ![Image 78](../../assets/images/ros/intro/lesson-02/img_035_078.webp)
@@ -722,7 +684,6 @@ action/MyAction.action
 Package.xml에앞에생성한인터페이스패키지추가
 
 
-![Image 80](../../assets/images/ros/intro/lesson-02/img_037_080.webp)
 
 
 ![Image 81](../../assets/images/ros/intro/lesson-02/img_037_081.webp)
@@ -736,7 +697,6 @@ Package.xml에앞에생성한인터페이스패키지추가
 setup.py에콘솔스크립트추가
 
 
-![Image 82](../../assets/images/ros/intro/lesson-02/img_038_082.webp)
 
 
 ![Image 83](../../assets/images/ros/intro/lesson-02/img_038_083.webp)
@@ -750,19 +710,16 @@ setup.py에콘솔스크립트추가
 터미널- 2
 
 
-![Image 84](../../assets/images/ros/intro/lesson-02/img_039_084.webp)
 
 
 ![Image 85](../../assets/images/ros/intro/lesson-02/img_039_085.webp)
 
 
-![Image 86](../../assets/images/ros/intro/lesson-02/img_039_086.webp)
 
 
 ![Image 87](../../assets/images/ros/intro/lesson-02/img_039_087.webp)
 
 
-![Image 88](../../assets/images/ros/intro/lesson-02/img_039_088.webp)
 
 
 ![Image 89](../../assets/images/ros/intro/lesson-02/img_039_089.webp)
@@ -834,7 +791,6 @@ checker 노드에전송
 토픽, 서비스, 액션복습
 
 
-![Image 92](../../assets/images/ros/intro/lesson-02/img_043_092.webp)
 
 
 03
@@ -845,25 +801,21 @@ checker 노드에전송
 ▶폴더구성
 
 
-![Image 93](../../assets/images/ros/intro/lesson-02/img_044_093.webp)
 
 
 ![Image 94](../../assets/images/ros/intro/lesson-02/img_044_094.webp)
 
 
-![Image 95](../../assets/images/ros/intro/lesson-02/img_044_095.webp)
 
 
 ![Image 96](../../assets/images/ros/intro/lesson-02/img_044_096.webp)
 
 
-![Image 97](../../assets/images/ros/intro/lesson-02/img_044_097.webp)
 
 
 ![Image 98](../../assets/images/ros/intro/lesson-02/img_044_098.webp)
 
 
-![Image 99](../../assets/images/ros/intro/lesson-02/img_044_099.webp)
 
 
 03
@@ -930,7 +882,6 @@ Setup.py
 ![Image 109](../../assets/images/ros/intro/lesson-02/img_048_109.webp)
 
 
-![Image 110](../../assets/images/ros/intro/lesson-02/img_048_110.webp)
 
 
 03

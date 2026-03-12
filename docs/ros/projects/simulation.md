@@ -10,9 +10,6 @@ V2.0
 협동로봇 프로젝트 수행
 
 
-![Image 1](../../assets/images/ros/projects/simulation/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/projects/simulation/img_001_002.webp)
 
 
@@ -23,7 +20,6 @@ Rokey
 차동 이동 로봇URDF - 1
 
 
-![Image 3](../../assets/images/ros/projects/simulation/img_002_003.webp)
 
 
 Rokey
@@ -38,7 +34,6 @@ URDF (Unified Robot Description Format) 학습 목표
 •URDF 파일 검증 및 디버깅 방법
 
 
-![Image 4](../../assets/images/ros/projects/simulation/img_003_004.webp)
 
 
 Rokey
@@ -104,7 +99,6 @@ entry_points={
 *.urdf 도 추가하세요.
 
 
-![Image 6](../../assets/images/ros/projects/simulation/img_005_006.webp)
 
 
 Rokey
@@ -144,7 +138,6 @@ Rokey
 •ROS 호환 설계
 
 
-![Image 7](../../assets/images/ros/projects/simulation/img_006_007.webp)
 
 
 Rokey
@@ -186,7 +179,6 @@ parameters=[params])
 ![Image 9](../../assets/images/ros/projects/simulation/img_007_009.webp)
 
 
-![Image 10](../../assets/images/ros/projects/simulation/img_007_010.webp)
 
 
 Rokey
@@ -208,7 +200,6 @@ $ rviz2
 ![Image 11](../../assets/images/ros/projects/simulation/img_008_011.webp)
 
 
-![Image 12](../../assets/images/ros/projects/simulation/img_008_012.webp)
 
 
 Rokey
@@ -220,16 +211,12 @@ Display > Global Option > ‘Fixed Frame’을‘base_link’로변경
 로봇패키지만들기실습
 
 
-![Image 13](../../assets/images/ros/projects/simulation/img_009_013.webp)
 
 
-![Image 14](../../assets/images/ros/projects/simulation/img_009_014.webp)
 
 
-![Image 15](../../assets/images/ros/projects/simulation/img_009_015.webp)
 
 
-![Image 16](../../assets/images/ros/projects/simulation/img_009_016.webp)
 
 
 Rokey
@@ -242,13 +229,10 @@ TF의하위항목중‘Show Names’를선택
 로봇패키지만들기실습
 
 
-![Image 17](../../assets/images/ros/projects/simulation/img_010_017.webp)
 
 
-![Image 18](../../assets/images/ros/projects/simulation/img_010_018.webp)
 
 
-![Image 19](../../assets/images/ros/projects/simulation/img_010_019.webp)
 
 
 ![Image 20](../../assets/images/ros/projects/simulation/img_010_020.webp)
@@ -263,7 +247,6 @@ RobotModel의하위항목중‘Description Topic’을‘/robot_description’�
 로봇패키지만들기실습
 
 
-![Image 21](../../assets/images/ros/projects/simulation/img_011_021.webp)
 
 
 ![Image 22](../../assets/images/ros/projects/simulation/img_011_022.webp)
@@ -371,7 +354,6 @@ Mesh (메쉬)
 ![Image 32](../../assets/images/ros/projects/simulation/img_014_032.webp)
 
 
-![Image 33](../../assets/images/ros/projects/simulation/img_014_033.webp)
 
 
 ![Image 34](../../assets/images/ros/projects/simulation/img_014_034.webp)
@@ -400,7 +382,6 @@ Rokey
 TF2(Transfor Framework)2
 
 
-![Image 36](../../assets/images/ros/projects/simulation/img_016_036.webp)
 
 
 Rokey
@@ -446,7 +427,6 @@ SLAM을 구현하는데 TF2는 필수적
 추정이 불가능
 
 
-![Image 39](../../assets/images/ros/projects/simulation/img_018_039.webp)
 
 
 Rokey
@@ -564,7 +544,6 @@ Rokey
 ![Image 50](../../assets/images/ros/projects/simulation/img_024_050.webp)
 
 
-![Image 51](../../assets/images/ros/projects/simulation/img_024_051.webp)
 
 
 ![Image 52](../../assets/images/ros/projects/simulation/img_024_052.webp)
@@ -611,10 +590,8 @@ Rokey
 •구조적 연결, 센서 장착 등
 
 
-![Image 56](../../assets/images/ros/projects/simulation/img_026_056.webp)
 
 
-![Image 57](../../assets/images/ros/projects/simulation/img_026_057.webp)
 
 
 Rokey
@@ -628,7 +605,6 @@ rqt_graph
 left_wheel이 회전하는 것 확인
 
 
-![Image 58](../../assets/images/ros/projects/simulation/img_027_058.webp)
 
 
 ![Image 59](../../assets/images/ros/projects/simulation/img_027_059.webp)
@@ -1004,7 +980,6 @@ Rokey
 </visual>
 
 
-![Image 80](../../assets/images/ros/projects/simulation/img_037_080.webp)
 
 
 Rokey
@@ -1117,7 +1092,6 @@ PythonLaunchDescriptionSource(['/path/to/other/launch/file.launch.py'])
 )
 
 
-![Image 83](../../assets/images/ros/projects/simulation/img_040_083.webp)
 
 
 Rokey
@@ -1216,10 +1190,8 @@ https://with-rl.tistory.com/entry/URDF%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EA%
 %EB%A1%9C%EB%B4%87-%EB%A7%8C%EB%93%A4%EA%B8%B0-3
 
 
-![Image 88](../../assets/images/ros/projects/simulation/img_043_088.webp)
 
 
-![Image 89](../../assets/images/ros/projects/simulation/img_043_089.webp)
 
 
 Rokey

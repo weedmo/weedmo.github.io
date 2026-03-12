@@ -6,19 +6,14 @@ ROS2 기초-3차시
 Apr, 2025
 
 
-![Image 1](../../assets/images/ros/basics/lesson-03/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/basics/lesson-03/img_001_002.webp)
 
 
-![Image 3](../../assets/images/ros/basics/lesson-03/img_001_003.webp)
 
 
 ![Image 4](../../assets/images/ros/basics/lesson-03/img_001_004.webp)
 
 
-![Image 5](../../assets/images/ros/basics/lesson-03/img_001_005.webp)
 
 
 2
@@ -111,13 +106,11 @@ Processing
 ![Image 8](../../assets/images/ros/basics/lesson-03/img_004_008.webp)
 
 
-![Image 9](../../assets/images/ros/basics/lesson-03/img_004_009.webp)
 
 
 ![Image 10](../../assets/images/ros/basics/lesson-03/img_004_010.webp)
 
 
-![Image 11](../../assets/images/ros/basics/lesson-03/img_004_011.webp)
 
 
 ![Image 12](../../assets/images/ros/basics/lesson-03/img_004_012.webp)
@@ -217,7 +210,6 @@ ROKEY BOOT CAMP
 이때방법중하나가특정구간(시간)의평균값혹은급격한펄스변화를노이즈라판단하고제외하는방법이있다.
 
 
-![Image 28](../../assets/images/ros/basics/lesson-03/img_008_028.webp)
 
 
 ![Image 29](../../assets/images/ros/basics/lesson-03/img_008_029.webp)
@@ -333,13 +325,11 @@ ROKEY BOOT CAMP
 ![Image 49](../../assets/images/ros/basics/lesson-03/img_012_049.webp)
 
 
-![Image 50](../../assets/images/ros/basics/lesson-03/img_012_050.webp)
 
 
 ![Image 51](../../assets/images/ros/basics/lesson-03/img_012_051.webp)
 
 
-![Image 52](../../assets/images/ros/basics/lesson-03/img_012_052.webp)
 
 
 13
@@ -499,57 +489,28 @@ ROS는 컴퓨터(데스크탑 혹은노트북)와 SBC 혹은로봇에탑재된�
 ![Image 72](../../assets/images/ros/basics/lesson-03/img_019_072.webp)
 
 
-20
-ROKEY BOOT CAMP
-SBC vs 제어기
-터틀봇의경우에는SBC(라즈베리파이)와OpenCR이라는보드가탑재되어있다.
-특정작업이나장비를제어하는데사용되는장치
-보통임베디드시스템에서마이크로컨트롤러(MCU)를사용하며, 간단한작업을수행하도록설계됨.
-예: 산업용PLC(Programmable Logic Controller), 자동차ECU(Electronic Control Unit), IoT 디바이스의내장형제어시스템
-제어기는로봇의두뇌역할을하는장치로써다양한센서와엑추에이터를연결할수있다.
-로봇개발자는제어기에다양한프로그래밍방법을통해서원하는형태의로봇을제어할수있게된다.
-SBC
-제어기
-▪
-더복잡하고다양한작업(예: 동영상처리, 네트워크서버운영, 프로그래밍학습)을수행
-▪
-일반적인컴퓨터처럼다목적사용이가능
-▪
-운영체제와소프트웨어를실행할수있어복잡한데이터처리와멀티태스킹에적합
-▪
-특정한작업(예: 온도제어, 로봇팔움직임제어, 센서데이터수집및처리)을효율적으로수행
-▪
-실시간작업과빠른반응이중요한경우에적합
-▪
-에너지소모가적고, 비용이저렴하며, 단순한시스템에최적화
-▪
-보통Linux, Windows IoT, Android와같은범용운영체제를실행할수있음
-▪
-복잡한소프트웨어와GUI 기반의애플리케이션실행가능
-▪
-대부분운영체제가없거나, RTOS(Real-Time Operating System)와같은경량운영체제사용
-▪
-작업이운영체제에의존하지않고, 펌웨어수준에서직접작동
-▪
-CPU, GPU, RAM 등의사양이훨씬높음
-▪
-USB, HDMI, 이더넷포트등다양한연결옵션제공
-▪
-복잡한연산과데이터처리가가능하며, 고해상도디스플레이출력도지원
-▪
-CPU 성능과메모리가상대적으로낮음
-▪
-GPIO(General Purpose Input/Output)와같은간단한하드웨어인터페이스제공
-▪
-저전력및소형화에최적화
-▪
-비디오스트리밍, 머신러닝응용프로그램, 웹서버, 로봇공학에서활용.
-▪
-교육용, 프로토타이핑, 그리고개발자커뮤니티에서널리사용
-▪
-온도, 압력, 습도등센서데이터를기반으로간단한제어작업수행.
-▪
-산업용자동화, IoT 장치, 스마트가전등에서주로사용
+## SBC vs 제어기
+
+터틀봇의 경우에는 SBC(라즈베리파이)와 OpenCR이라는 보드가 탑재되어 있다.
+
+### 제어기란?
+
+특정 작업이나 장비를 제어하는 데 사용되는 장치로, 보통 임베디드 시스템에서 마이크로컨트롤러(MCU)를 사용하며 간단한 작업을 수행하도록 설계된다.
+
+- 예: 산업용 PLC(Programmable Logic Controller), 자동차 ECU(Electronic Control Unit), IoT 디바이스의 내장형 제어 시스템
+
+제어기는 로봇의 두뇌 역할을 하는 장치로써 다양한 센서와 액추에이터를 연결할 수 있다. 로봇 개발자는 제어기에 다양한 프로그래밍 방법을 통해서 원하는 형태의 로봇을 제어할 수 있게 된다.
+
+### SBC vs 제어기 비교
+
+| 구분 | SBC | 제어기 |
+|------|-----|--------|
+| **용도** | 더 복잡하고 다양한 작업 수행 (예: 동영상 처리, 네트워크 서버 운영, 프로그래밍 학습) | 특정한 작업을 효율적으로 수행 (예: 온도 제어, 로봇팔 움직임 제어, 센서 데이터 수집 및 처리) |
+| **범용성** | 일반적인 컴퓨터처럼 다목적 사용이 가능 | 실시간 작업과 빠른 반응이 중요한 경우에 적합 |
+| **효율성** | 운영체제와 소프트웨어를 실행할 수 있어 복잡한 데이터 처리와 멀티태스킹에 적합 | 에너지 소모가 적고, 비용이 저렴하며, 단순한 시스템에 최적화 |
+| **운영체제** | 보통 Linux, Windows IoT, Android와 같은 범용 운영체제를 실행할 수 있음. 복잡한 소프트웨어와 GUI 기반의 애플리케이션 실행 가능 | 대부분 운영체제가 없거나, RTOS(Real-Time Operating System)와 같은 경량 운영체제 사용. 작업이 운영체제에 의존하지 않고 펌웨어 수준에서 직접 작동 |
+| **하드웨어** | CPU, GPU, RAM 등의 사양이 훨씬 높음. USB, HDMI, 이더넷 포트 등 다양한 연결 옵션 제공. 복잡한 연산과 데이터 처리가 가능하며 고해상도 디스플레이 출력도 지원 | CPU 성능과 메모리가 상대적으로 낮음. GPIO(General Purpose Input/Output)와 같은 간단한 하드웨어 인터페이스 제공. 저전력 및 소형화에 최적화 |
+| **활용 분야** | 비디오 스트리밍, 머신러닝 응용 프로그램, 웹 서버, 로봇공학에서 활용. 교육용, 프로토타이핑, 개발자 커뮤니티에서 널리 사용 | 온도, 압력, 습도 등 센서 데이터를 기반으로 간단한 제어 작업 수행. 산업용 자동화, IoT 장치, 스마트 가전 등에서 주로 사용 |
 
 
 ![Image 73](../../assets/images/ros/basics/lesson-03/img_020_073.webp)
@@ -1279,4 +1240,3 @@ ROKEY BOOT CAMP
 ![Image 179](../../assets/images/ros/basics/lesson-03/img_070_179.webp)
 
 
-![Image 180](../../assets/images/ros/basics/lesson-03/img_070_180.webp)

@@ -5,9 +5,6 @@ ROS2 프로그래밍입문(8차시)
 8. ROS2 복습_2
 
 
-![Image 1](../../assets/images/ros/intro/lesson-08/img_001_001.webp)
-
-
 ▶ROS2 복습_2
 1.  인터페이스패키지생성및설계
 2.  인터페이스프로그래밍실습
@@ -23,7 +20,6 @@ Contents
 ▶패키지구성
 
 
-![Image 2](../../assets/images/ros/intro/lesson-08/img_003_002.webp)
 
 
 02
@@ -45,7 +41,6 @@ Node 클래스의create_publisher 함수를사용
 토픽퍼블리셔코드
 
 
-![Image 3](../../assets/images/ros/intro/lesson-08/img_004_003.webp)
 
 
 ![Image 4](../../assets/images/ros/intro/lesson-08/img_004_004.webp)
@@ -80,10 +75,8 @@ get_logger().info() 를사용하여디버깅목적으로변수a, b
 토픽퍼블리셔코드
 
 
-![Image 6](../../assets/images/ros/intro/lesson-08/img_005_006.webp)
 
 
-![Image 7](../../assets/images/ros/intro/lesson-08/img_005_007.webp)
 
 
 02
@@ -114,10 +107,8 @@ QoS에대한자세한내용은'DDS의QoS(Quality of
 Service)' 강좌참고
 
 
-![Image 8](../../assets/images/ros/intro/lesson-08/img_006_008.webp)
 
 
-![Image 9](../../assets/images/ros/intro/lesson-08/img_006_009.webp)
 
 
 02
@@ -150,10 +141,8 @@ ReentrantCallbackGroup: 제한없이콜백함수를병렬로
 토픽서브스크라이버코드
 
 
-![Image 10](../../assets/images/ros/intro/lesson-08/img_007_010.webp)
 
 
-![Image 11](../../assets/images/ros/intro/lesson-08/img_007_011.webp)
 
 
 02
@@ -172,10 +161,8 @@ ReentrantCallbackGroup: 제한없이콜백함수를병렬로
 get_arithmetic_argument
 
 
-![Image 12](../../assets/images/ros/intro/lesson-08/img_008_012.webp)
 
 
-![Image 13](../../assets/images/ros/intro/lesson-08/img_008_013.webp)
 
 
 02
@@ -198,7 +185,6 @@ checker 노드: ex_calculator 패키지의checker 폴더의main.py main문에실
 노드실행코드
 
 
-![Image 14](../../assets/images/ros/intro/lesson-08/img_009_014.webp)
 
 
 02
@@ -220,10 +206,8 @@ rclpy.shutdown 함수로노드를종료
 노드실행코드
 
 
-![Image 15](../../assets/images/ros/intro/lesson-08/img_010_015.webp)
 
 
-![Image 16](../../assets/images/ros/intro/lesson-08/img_010_016.webp)
 
 
 02
@@ -262,7 +246,6 @@ rclpy.shutdown으로노드를종료
 09
 
 
-![Image 17](../../assets/images/ros/intro/lesson-08/img_011_017.webp)
 
 
 ![Image 18](../../assets/images/ros/intro/lesson-08/img_011_018.webp)
@@ -277,7 +260,6 @@ rclpy.shutdown으로노드를종료
 ![Image 19](../../assets/images/ros/intro/lesson-08/img_012_019.webp)
 
 
-![Image 20](../../assets/images/ros/intro/lesson-08/img_012_020.webp)
 
 
 03
@@ -551,7 +533,6 @@ get_logger().info()을통해터미널창에출
 수를통해액션클라이언트로전송
 
 
-![Image 31](../../assets/images/ros/intro/lesson-08/img_022_031.webp)
 
 
 04
@@ -567,7 +548,6 @@ goal_handle.succeed()를실행시켜액션
 장하여액션결과값인result은리턴
 
 
-![Image 32](../../assets/images/ros/intro/lesson-08/img_023_032.webp)
 
 
 04
@@ -631,7 +611,6 @@ src/ex_calculator/ex_calculator/checker/checker.py
 ![Image 35](../../assets/images/ros/intro/lesson-08/img_026_035.webp)
 
 
-![Image 36](../../assets/images/ros/intro/lesson-08/img_026_036.webp)
 
 
 04
@@ -862,7 +841,6 @@ python 패키지설정파일'setup.py'에옵션을추가해야
 src/ex_calculator/launch/arithmetic.launch.py
 
 
-![Image 45](../../assets/images/ros/intro/lesson-08/img_035_045.webp)
 
 
 ![Image 46](../../assets/images/ros/intro/lesson-08/img_035_046.webp)
@@ -1009,16 +987,12 @@ add_argument() 메서드를호출하고인자의내용을채워
 ![Image 52](../../assets/images/ros/intro/lesson-08/img_039_052.webp)
 
 
-![Image 53](../../assets/images/ros/intro/lesson-08/img_039_053.webp)
 
 
-![Image 54](../../assets/images/ros/intro/lesson-08/img_039_054.webp)
 
 
-![Image 55](../../assets/images/ros/intro/lesson-08/img_039_055.webp)
 
 
-![Image 56](../../assets/images/ros/intro/lesson-08/img_039_056.webp)
 
 
 07
@@ -1046,10 +1020,8 @@ argument 노드와calculator 노드를실행
 38
 
 
-![Image 57](../../assets/images/ros/intro/lesson-08/img_040_057.webp)
 
 
-![Image 58](../../assets/images/ros/intro/lesson-08/img_040_058.webp)
 
 
 07
@@ -1076,13 +1048,10 @@ generate_launch_description 메소드를정의하여사용
 39
 
 
-![Image 59](../../assets/images/ros/intro/lesson-08/img_041_059.webp)
 
 
-![Image 60](../../assets/images/ros/intro/lesson-08/img_041_060.webp)
 
 
-![Image 61](../../assets/images/ros/intro/lesson-08/img_041_061.webp)
 
 
 ![Image 62](../../assets/images/ros/intro/lesson-08/img_041_062.webp)
@@ -1191,7 +1160,6 @@ get_package_share_directory 함수에불러올패키지명
 널리사용되는유용한기능이므로참고할것
 
 
-![Image 66](../../assets/images/ros/intro/lesson-08/img_045_066.webp)
 
 
 ![Image 67](../../assets/images/ros/intro/lesson-08/img_045_067.webp)
@@ -1219,7 +1187,6 @@ Python 패키지설정파일(setup.py)의data_files 옵션에launch 폴더를지
 45
 
 
-![Image 68](../../assets/images/ros/intro/lesson-08/img_047_068.webp)
 
 
 ![Image 69](../../assets/images/ros/intro/lesson-08/img_047_069.webp)

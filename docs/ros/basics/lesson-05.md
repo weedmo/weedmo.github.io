@@ -6,19 +6,14 @@ ROS2 기초-5차시
 Apr, 2025
 
 
-![Image 1](../../assets/images/ros/basics/lesson-05/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/basics/lesson-05/img_001_002.webp)
 
 
-![Image 3](../../assets/images/ros/basics/lesson-05/img_001_003.webp)
 
 
 ![Image 4](../../assets/images/ros/basics/lesson-05/img_001_004.webp)
 
 
-![Image 5](../../assets/images/ros/basics/lesson-05/img_001_005.webp)
 
 
 2
@@ -64,7 +59,6 @@ ROKEY BOOT CAMP
 ROS2 패키지설명
 
 
-![Image 6](../../assets/images/ros/basics/lesson-05/img_003_006.webp)
 
 
 4
@@ -80,7 +74,6 @@ ROKEY BOOT CAMP
 ROS2 패키지설명
 
 
-![Image 8](../../assets/images/ros/basics/lesson-05/img_005_008.webp)
 
 
 6
@@ -88,7 +81,6 @@ ROKEY BOOT CAMP
 ROS2 패키지설명
 
 
-![Image 9](../../assets/images/ros/basics/lesson-05/img_006_009.webp)
 
 
 7
@@ -129,10 +121,8 @@ Turtlesim 실행후node 확인
 ![Image 11](../../assets/images/ros/basics/lesson-05/img_008_011.webp)
 
 
-![Image 12](../../assets/images/ros/basics/lesson-05/img_008_012.webp)
 
 
-![Image 13](../../assets/images/ros/basics/lesson-05/img_008_013.webp)
 
 
 ![Image 14](../../assets/images/ros/basics/lesson-05/img_008_014.webp)
@@ -148,7 +138,6 @@ ROKEY
 GO!
 
 
-![Image 16](../../assets/images/ros/basics/lesson-05/img_009_016.webp)
 
 
 ![Image 17](../../assets/images/ros/basics/lesson-05/img_009_017.webp)
@@ -161,10 +150,8 @@ Turtlesim 실행후node 확인
 1
 
 
-![Image 18](../../assets/images/ros/basics/lesson-05/img_010_018.webp)
 
 
-![Image 19](../../assets/images/ros/basics/lesson-05/img_010_019.webp)
 
 
 ![Image 20](../../assets/images/ros/basics/lesson-05/img_010_020.webp)
@@ -185,7 +172,6 @@ Turtlesim 실행후node 확인
 ![Image 25](../../assets/images/ros/basics/lesson-05/img_010_025.webp)
 
 
-![Image 26](../../assets/images/ros/basics/lesson-05/img_010_026.webp)
 
 
 11
@@ -237,7 +223,6 @@ Namespace + Node 이름설정
 ![Image 37](../../assets/images/ros/basics/lesson-05/img_012_037.webp)
 
 
-![Image 38](../../assets/images/ros/basics/lesson-05/img_012_038.webp)
 
 
 ![Image 39](../../assets/images/ros/basics/lesson-05/img_012_039.webp)
@@ -254,7 +239,6 @@ Namespace + Node 이름설정
 2
 
 
-![Image 41](../../assets/images/ros/basics/lesson-05/img_013_041.webp)
 
 
 ![Image 42](../../assets/images/ros/basics/lesson-05/img_013_042.webp)
@@ -401,7 +385,6 @@ ROS2 실습
 ![Image 79](../../assets/images/ros/basics/lesson-05/img_018_079.webp)
 
 
-![Image 80](../../assets/images/ros/basics/lesson-05/img_018_080.webp)
 
 
 19
@@ -420,7 +403,6 @@ ROS2 실습
 ![Image 83](../../assets/images/ros/basics/lesson-05/img_019_083.webp)
 
 
-![Image 84](../../assets/images/ros/basics/lesson-05/img_019_084.webp)
 
 
 ![Image 85](../../assets/images/ros/basics/lesson-05/img_019_085.webp)
@@ -541,7 +523,6 @@ ROS2 실습– 노드와메시지통신(10장)
 서비스요청및응답(Request/Response) 또한위에서언급한msg 메시지의변형으로srv 메시지라고함.
 
 
-![Image 106](../../assets/images/ros/basics/lesson-05/img_024_106.webp)
 
 
 25
@@ -1008,7 +989,6 @@ r
 ![Image 150](../../assets/images/ros/basics/lesson-05/img_051_150.webp)
 
 
-![Image 151](../../assets/images/ros/basics/lesson-05/img_051_151.webp)
 
 
 52
@@ -1101,7 +1081,6 @@ linear.x, linear.y, linear.z, angular.x, angular.y, angular.z 라는이름의메
 것이다. 이를통해병진속도3개, 회전속도3개를표현할수있게된다.
 
 
-![Image 164](../../assets/images/ros/basics/lesson-05/img_056_164.webp)
 
 
 57
@@ -1286,7 +1265,6 @@ ROS2 실습– Parameter get & set
 Turtlesim parameter 변경후yaml 로딩해보기
 
 
-![Image 193](../../assets/images/ros/basics/lesson-05/img_068_193.webp)
 
 
 69
@@ -1426,7 +1404,6 @@ ROS2 실습
 ![Image 219](../../assets/images/ros/basics/lesson-05/img_078_219.webp)
 
 
-![Image 220](../../assets/images/ros/basics/lesson-05/img_078_220.webp)
 
 
 79
@@ -2196,4 +2173,3 @@ ROKEY BOOT CAMP
 ![Image 277](../../assets/images/ros/basics/lesson-05/img_113_277.webp)
 
 
-![Image 278](../../assets/images/ros/basics/lesson-05/img_113_278.webp)

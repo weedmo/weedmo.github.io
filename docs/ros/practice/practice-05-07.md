@@ -7,19 +7,14 @@ ROKEY BOOT CAMP
 5 ~ 7 차시
 
 
-![Image 1](../../assets/images/ros/practice/practice-05-07/img_001_001.webp)
-
-
 ![Image 2](../../assets/images/ros/practice/practice-05-07/img_001_002.webp)
 
 
-![Image 3](../../assets/images/ros/practice/practice-05-07/img_001_003.webp)
 
 
 ![Image 4](../../assets/images/ros/practice/practice-05-07/img_001_004.webp)
 
 
-![Image 5](../../assets/images/ros/practice/practice-05-07/img_001_005.webp)
 
 
 2
@@ -30,16 +25,12 @@ Open3D
 Contents
 
 
-![Image 6](../../assets/images/ros/practice/practice-05-07/img_002_006.webp)
 
 
-![Image 7](../../assets/images/ros/practice/practice-05-07/img_002_007.webp)
 
 
-![Image 8](../../assets/images/ros/practice/practice-05-07/img_002_008.webp)
 
 
-![Image 9](../../assets/images/ros/practice/practice-05-07/img_002_009.webp)
 
 
 두산 로봇팔과 시뮬레이션 실습
@@ -177,7 +168,6 @@ MoveJ에 비해 상대적으로 모션의 속도가 느림
 ![Image 25](../../assets/images/ros/practice/practice-05-07/img_006_025.webp)
 
 
-![Image 26](../../assets/images/ros/practice/practice-05-07/img_006_026.webp)
 
 
 ![Image 27](../../assets/images/ros/practice/practice-05-07/img_006_027.webp)
@@ -349,7 +339,6 @@ K는 스프링 상수의 역할)
 가반하중(Payload)
 
 
-![Image 52](../../assets/images/ros/practice/practice-05-07/img_012_052.webp)
 
 
 ![Image 53](../../assets/images/ros/practice/practice-05-07/img_012_053.webp)
@@ -358,10 +347,8 @@ K는 스프링 상수의 역할)
 ![Image 54](../../assets/images/ros/practice/practice-05-07/img_012_054.webp)
 
 
-![Image 55](../../assets/images/ros/practice/practice-05-07/img_012_055.webp)
 
 
-![Image 56](../../assets/images/ros/practice/practice-05-07/img_012_056.webp)
 
 
 ![Image 57](../../assets/images/ros/practice/practice-05-07/img_012_057.webp)
@@ -402,7 +389,6 @@ https://boundless-binder-063.notion.site/ROS-and-DR-1389786e552e800480e8d88cfb5f
 ※ 필요한파일 : cpp_qt_plugin.zip
 
 
-![Image 59](../../assets/images/ros/practice/practice-05-07/img_013_059.webp)
 
 
 ![Image 60](../../assets/images/ros/practice/practice-05-07/img_013_060.webp)
@@ -418,7 +404,6 @@ https://boundless-binder-063.notion.site/ROS-and-DR-1389786e552e800480e8d88cfb5f
 ▪빌드 및 패키지 실행
 
 
-![Image 62](../../assets/images/ros/practice/practice-05-07/img_014_062.webp)
 
 
 ![Image 63](../../assets/images/ros/practice/practice-05-07/img_014_063.webp)
@@ -439,7 +424,6 @@ Gazebo simulation 강제 종료 후
 다시 실행
 
 
-![Image 65](../../assets/images/ros/practice/practice-05-07/img_015_065.webp)
 
 
 ![Image 66](../../assets/images/ros/practice/practice-05-07/img_015_066.webp)
@@ -462,7 +446,6 @@ Gazebo simulation 강제 종료 후
 ※ cpp_qt_plugin.zip을 ros2_ws 디렉토리에 압축풀기
 
 
-![Image 70](../../assets/images/ros/practice/practice-05-07/img_016_070.webp)
 
 
 ![Image 71](../../assets/images/ros/practice/practice-05-07/img_016_071.webp)
@@ -474,7 +457,6 @@ Gazebo simulation 강제 종료 후
 ![Image 73](../../assets/images/ros/practice/practice-05-07/img_016_073.webp)
 
 
-![Image 74](../../assets/images/ros/practice/practice-05-07/img_016_074.webp)
 
 
 ![Image 75](../../assets/images/ros/practice/practice-05-07/img_016_075.webp)
@@ -490,7 +472,6 @@ Gazebo simulation 강제 종료 후
 ▪Rviz 및 GUI 컨트롤러 실행
 
 
-![Image 77](../../assets/images/ros/practice/practice-05-07/img_017_077.webp)
 
 
 ![Image 78](../../assets/images/ros/practice/practice-05-07/img_017_078.webp)
@@ -508,7 +489,6 @@ Gazebo simulation 강제 종료 후
 ※ 필히 example dance를 종료해야 GUI의 값 수정사항이 적용되어 Robot이 동작
 
 
-![Image 80](../../assets/images/ros/practice/practice-05-07/img_018_080.webp)
 
 
 ![Image 81](../../assets/images/ros/practice/practice-05-07/img_018_081.webp)
@@ -528,7 +508,6 @@ Gazebo simulation 강제 종료 후
 Ctrl+V를 하면 현재의 Joint값과 TCP의 좌표를 붙여 넣을 수 있음
 
 
-![Image 84](../../assets/images/ros/practice/practice-05-07/img_019_084.webp)
 
 
 ![Image 85](../../assets/images/ros/practice/practice-05-07/img_019_085.webp)
@@ -546,7 +525,6 @@ Ctrl+V를 하면 현재의 Joint값과 TCP의 좌표를 붙여 넣을 수 있음
 더 느리게 움직이는 것을 확인할 수 있음
 
 
-![Image 87](../../assets/images/ros/practice/practice-05-07/img_020_087.webp)
 
 
 ![Image 88](../../assets/images/ros/practice/practice-05-07/img_020_088.webp)
@@ -575,7 +553,6 @@ current_posx는 TCP의 카르테시안 좌표를 나타냄
 다음과 같이 축의 정보를 설정
 
 
-![Image 91](../../assets/images/ros/practice/practice-05-07/img_021_091.webp)
 
 
 ![Image 92](../../assets/images/ros/practice/practice-05-07/img_021_092.webp)
@@ -637,25 +614,21 @@ OpenCV와ROS2
 ![Image 103](../../assets/images/ros/practice/practice-05-07/img_024_103.webp)
 
 
-![Image 104](../../assets/images/ros/practice/practice-05-07/img_024_104.webp)
 
 
 ![Image 105](../../assets/images/ros/practice/practice-05-07/img_024_105.webp)
 
 
-![Image 106](../../assets/images/ros/practice/practice-05-07/img_024_106.webp)
 
 
 ![Image 107](../../assets/images/ros/practice/practice-05-07/img_024_107.webp)
 
 
-![Image 108](../../assets/images/ros/practice/practice-05-07/img_024_108.webp)
 
 
 ![Image 109](../../assets/images/ros/practice/practice-05-07/img_024_109.webp)
 
 
-![Image 110](../../assets/images/ros/practice/practice-05-07/img_024_110.webp)
 
 
 ![Image 111](../../assets/images/ros/practice/practice-05-07/img_024_111.webp)
@@ -675,7 +648,6 @@ OpenCV와ROS2
 ![Image 114](../../assets/images/ros/practice/practice-05-07/img_025_114.webp)
 
 
-![Image 115](../../assets/images/ros/practice/practice-05-07/img_025_115.webp)
 
 
 ![Image 116](../../assets/images/ros/practice/practice-05-07/img_025_116.webp)
@@ -692,13 +664,11 @@ OpenCV와ROS2
 ![Image 118](../../assets/images/ros/practice/practice-05-07/img_026_118.webp)
 
 
-![Image 119](../../assets/images/ros/practice/practice-05-07/img_026_119.webp)
 
 
 ![Image 120](../../assets/images/ros/practice/practice-05-07/img_026_120.webp)
 
 
-![Image 121](../../assets/images/ros/practice/practice-05-07/img_026_121.webp)
 
 
 ▪Step 7.  토픽 선택
@@ -710,13 +680,11 @@ OpenCV와ROS2
 ![Image 122](../../assets/images/ros/practice/practice-05-07/img_027_122.webp)
 
 
-![Image 123](../../assets/images/ros/practice/practice-05-07/img_027_123.webp)
 
 
 ![Image 124](../../assets/images/ros/practice/practice-05-07/img_027_124.webp)
 
 
-![Image 125](../../assets/images/ros/practice/practice-05-07/img_027_125.webp)
 
 
 ▪Step 8. 결과확인: 원본 이미지 vs 허프 변환 이미지
@@ -729,19 +697,16 @@ OpenCV와ROS2
 ![Image 126](../../assets/images/ros/practice/practice-05-07/img_028_126.webp)
 
 
-![Image 127](../../assets/images/ros/practice/practice-05-07/img_028_127.webp)
 
 
 ![Image 128](../../assets/images/ros/practice/practice-05-07/img_028_128.webp)
 
 
-![Image 129](../../assets/images/ros/practice/practice-05-07/img_028_129.webp)
 
 
 ![Image 130](../../assets/images/ros/practice/practice-05-07/img_028_130.webp)
 
 
-![Image 131](../../assets/images/ros/practice/practice-05-07/img_028_131.webp)
 
 
 ▪Step 9. 결과확인: 노드 그래프
@@ -753,7 +718,6 @@ OpenCV와ROS2
 ![Image 132](../../assets/images/ros/practice/practice-05-07/img_029_132.webp)
 
 
-![Image 133](../../assets/images/ros/practice/practice-05-07/img_029_133.webp)
 
 
 ![Image 134](../../assets/images/ros/practice/practice-05-07/img_029_134.webp)
@@ -770,7 +734,6 @@ OpenCV와ROS2
 ![Image 136](../../assets/images/ros/practice/practice-05-07/img_030_136.webp)
 
 
-![Image 137](../../assets/images/ros/practice/practice-05-07/img_030_137.webp)
 
 
 ![Image 138](../../assets/images/ros/practice/practice-05-07/img_030_138.webp)
@@ -792,7 +755,6 @@ OpenCV와ROS2
 ![Image 141](../../assets/images/ros/practice/practice-05-07/img_031_141.webp)
 
 
-![Image 142](../../assets/images/ros/practice/practice-05-07/img_031_142.webp)
 
 
 ![Image 143](../../assets/images/ros/practice/practice-05-07/img_031_143.webp)
@@ -845,13 +807,10 @@ OpenCV 좌표계
 ![Image 149](../../assets/images/ros/practice/practice-05-07/img_033_149.webp)
 
 
-![Image 150](../../assets/images/ros/practice/practice-05-07/img_033_150.webp)
 
 
-![Image 151](../../assets/images/ros/practice/practice-05-07/img_033_151.webp)
 
 
-![Image 152](../../assets/images/ros/practice/practice-05-07/img_033_152.webp)
 
 
 ![Image 153](../../assets/images/ros/practice/practice-05-07/img_033_153.webp)
@@ -890,7 +849,6 @@ Threshold 설정Tip
 ![Image 157](../../assets/images/ros/practice/practice-05-07/img_034_157.webp)
 
 
-![Image 158](../../assets/images/ros/practice/practice-05-07/img_034_158.webp)
 
 
 ![Image 159](../../assets/images/ros/practice/practice-05-07/img_034_159.webp)
@@ -937,7 +895,6 @@ Ref. HoughLines(image, rho, theta, threshold)
 ![Image 162](../../assets/images/ros/practice/practice-05-07/img_035_162.webp)
 
 
-![Image 163](../../assets/images/ros/practice/practice-05-07/img_035_163.webp)
 
 
 ![Image 164](../../assets/images/ros/practice/practice-05-07/img_035_164.webp)
@@ -958,7 +915,6 @@ Edge 검출(Canny, Sobel, Laplacian) →Line or Circle(Hough Transform)
 ![Image 166](../../assets/images/ros/practice/practice-05-07/img_036_166.webp)
 
 
-![Image 167](../../assets/images/ros/practice/practice-05-07/img_036_167.webp)
 
 
 ![Image 168](../../assets/images/ros/practice/practice-05-07/img_036_168.webp)
@@ -1023,7 +979,6 @@ $ ros2 interface show sensor_msgs/msg/Image
 ![Image 172](../../assets/images/ros/practice/practice-05-07/img_038_172.webp)
 
 
-![Image 173](../../assets/images/ros/practice/practice-05-07/img_038_173.webp)
 
 
 ![Image 174](../../assets/images/ros/practice/practice-05-07/img_038_174.webp)
@@ -1059,7 +1014,6 @@ OpenCV와ROS2
 ![Image 177](../../assets/images/ros/practice/practice-05-07/img_039_177.webp)
 
 
-![Image 178](../../assets/images/ros/practice/practice-05-07/img_039_178.webp)
 
 
 ![Image 179](../../assets/images/ros/practice/practice-05-07/img_039_179.webp)
@@ -1086,7 +1040,6 @@ cv2_to_imgmsg 변환 후 publishing
 ![Image 180](../../assets/images/ros/practice/practice-05-07/img_040_180.webp)
 
 
-![Image 181](../../assets/images/ros/practice/practice-05-07/img_040_181.webp)
 
 
 ![Image 182](../../assets/images/ros/practice/practice-05-07/img_040_182.webp)
@@ -1120,7 +1073,6 @@ OpenCV와ROS2
 ![Image 186](../../assets/images/ros/practice/practice-05-07/img_041_186.webp)
 
 
-![Image 187](../../assets/images/ros/practice/practice-05-07/img_041_187.webp)
 
 
 ![Image 188](../../assets/images/ros/practice/practice-05-07/img_041_188.webp)
@@ -1144,7 +1096,6 @@ method(line/circle)에 따라서 “Hough Transformation＂을 수행 한 다음
 ![Image 190](../../assets/images/ros/practice/practice-05-07/img_042_190.webp)
 
 
-![Image 191](../../assets/images/ros/practice/practice-05-07/img_042_191.webp)
 
 
 ![Image 192](../../assets/images/ros/practice/practice-05-07/img_042_192.webp)
@@ -1180,7 +1131,6 @@ detect_lines_image()
 ![Image 193](../../assets/images/ros/practice/practice-05-07/img_043_193.webp)
 
 
-![Image 194](../../assets/images/ros/practice/practice-05-07/img_043_194.webp)
 
 
 ![Image 195](../../assets/images/ros/practice/practice-05-07/img_043_195.webp)
@@ -1207,7 +1157,6 @@ cv2_to_imgmsg 변환 후 publishing
 ![Image 196](../../assets/images/ros/practice/practice-05-07/img_044_196.webp)
 
 
-![Image 197](../../assets/images/ros/practice/practice-05-07/img_044_197.webp)
 
 
 ![Image 198](../../assets/images/ros/practice/practice-05-07/img_044_198.webp)
@@ -1259,7 +1208,6 @@ Big-Endian(일부ARM) vs Little-Endian(x86계열)
 ![Image 202](../../assets/images/ros/practice/practice-05-07/img_045_202.webp)
 
 
-![Image 203](../../assets/images/ros/practice/practice-05-07/img_045_203.webp)
 
 
 ![Image 204](../../assets/images/ros/practice/practice-05-07/img_045_204.webp)
@@ -1310,7 +1258,6 @@ Lane Detection
 ![Image 215](../../assets/images/ros/practice/practice-05-07/img_047_215.webp)
 
 
-![Image 216](../../assets/images/ros/practice/practice-05-07/img_047_216.webp)
 
 
 ![Image 217](../../assets/images/ros/practice/practice-05-07/img_047_217.webp)
@@ -1412,7 +1359,6 @@ vscode 구조
 ![Image 230](../../assets/images/ros/practice/practice-05-07/img_052_230.webp)
 
 
-![Image 231](../../assets/images/ros/practice/practice-05-07/img_052_231.webp)
 
 
 ![Image 232](../../assets/images/ros/practice/practice-05-07/img_052_232.webp)
@@ -1450,7 +1396,6 @@ opencv
 ![Image 238](../../assets/images/ros/practice/practice-05-07/img_053_238.webp)
 
 
-![Image 239](../../assets/images/ros/practice/practice-05-07/img_053_239.webp)
 
 
 ![Image 240](../../assets/images/ros/practice/practice-05-07/img_053_240.webp)
@@ -1472,7 +1417,6 @@ ROS2와 차선인식
 ![Image 243](../../assets/images/ros/practice/practice-05-07/img_054_243.webp)
 
 
-![Image 244](../../assets/images/ros/practice/practice-05-07/img_054_244.webp)
 
 
 ![Image 245](../../assets/images/ros/practice/practice-05-07/img_054_245.webp)
@@ -1508,7 +1452,6 @@ ros2 run lane_detect publisher_node --ros-args -p video_path:=/video/track_video
 ![Image 250](../../assets/images/ros/practice/practice-05-07/img_055_250.webp)
 
 
-![Image 251](../../assets/images/ros/practice/practice-05-07/img_055_251.webp)
 
 
 실습하기
@@ -1521,7 +1464,6 @@ Step 5. 터미널 화면
 ![Image 252](../../assets/images/ros/practice/practice-05-07/img_056_252.webp)
 
 
-![Image 253](../../assets/images/ros/practice/practice-05-07/img_056_253.webp)
 
 
 ![Image 254](../../assets/images/ros/practice/practice-05-07/img_056_254.webp)
@@ -1549,7 +1491,6 @@ ROS2와 차선인식
 ![Image 259](../../assets/images/ros/practice/practice-05-07/img_057_259.webp)
 
 
-![Image 260](../../assets/images/ros/practice/practice-05-07/img_057_260.webp)
 
 
 실습하기
@@ -1567,7 +1508,6 @@ ROS2와 차선인식
 ![Image 262](../../assets/images/ros/practice/practice-05-07/img_058_262.webp)
 
 
-![Image 263](../../assets/images/ros/practice/practice-05-07/img_058_263.webp)
 
 
 ROS2와 차선인식
@@ -1584,7 +1524,6 @@ ROS2와 차선인식
 ![Image 264](../../assets/images/ros/practice/practice-05-07/img_059_264.webp)
 
 
-![Image 265](../../assets/images/ros/practice/practice-05-07/img_059_265.webp)
 
 
 ![Image 266](../../assets/images/ros/practice/practice-05-07/img_059_266.webp)
@@ -1617,7 +1556,6 @@ ROS2와 차선인식
 ![Image 275](../../assets/images/ros/practice/practice-05-07/img_059_275.webp)
 
 
-![Image 276](../../assets/images/ros/practice/practice-05-07/img_059_276.webp)
 
 
 ROS2와 차선인식
@@ -1634,13 +1572,11 @@ publisher에서 사용할 모듈 import
 ![Image 277](../../assets/images/ros/practice/practice-05-07/img_060_277.webp)
 
 
-![Image 278](../../assets/images/ros/practice/practice-05-07/img_060_278.webp)
 
 
 ![Image 279](../../assets/images/ros/practice/practice-05-07/img_060_279.webp)
 
 
-![Image 280](../../assets/images/ros/practice/practice-05-07/img_060_280.webp)
 
 
 ROS2와 차선인식
@@ -1653,7 +1589,6 @@ os 모듈의 os.path.dirname()과 os.path.realpath()를 사용해현재 video_pa
 ![Image 281](../../assets/images/ros/practice/practice-05-07/img_061_281.webp)
 
 
-![Image 282](../../assets/images/ros/practice/practice-05-07/img_061_282.webp)
 
 
 ![Image 283](../../assets/images/ros/practice/practice-05-07/img_061_283.webp)
@@ -1671,7 +1606,6 @@ fps를 기준으로 video를 publishing할 시간 간격을 지정video의 한 �
 ![Image 284](../../assets/images/ros/practice/practice-05-07/img_062_284.webp)
 
 
-![Image 285](../../assets/images/ros/practice/practice-05-07/img_062_285.webp)
 
 
 ![Image 286](../../assets/images/ros/practice/practice-05-07/img_062_286.webp)
@@ -1689,7 +1623,6 @@ main()에서 ros2를 초기화하고 30fps으로 video를 publishing함
 ![Image 287](../../assets/images/ros/practice/practice-05-07/img_063_287.webp)
 
 
-![Image 288](../../assets/images/ros/practice/practice-05-07/img_063_288.webp)
 
 
 ![Image 289](../../assets/images/ros/practice/practice-05-07/img_063_289.webp)
@@ -1712,7 +1645,6 @@ from lane_detect import camera_process
 ![Image 291](../../assets/images/ros/practice/practice-05-07/img_064_291.webp)
 
 
-![Image 292](../../assets/images/ros/practice/practice-05-07/img_064_292.webp)
 
 
 ![Image 293](../../assets/images/ros/practice/practice-05-07/img_064_293.webp)
@@ -1736,7 +1668,6 @@ camera_process객체와 slide_window 객체 선언
 ![Image 294](../../assets/images/ros/practice/practice-05-07/img_065_294.webp)
 
 
-![Image 295](../../assets/images/ros/practice/practice-05-07/img_065_295.webp)
 
 
 ![Image 296](../../assets/images/ros/practice/practice-05-07/img_065_296.webp)
@@ -1778,7 +1709,6 @@ text: 표시할 텍스트 내용
 ![Image 297](../../assets/images/ros/practice/practice-05-07/img_066_297.webp)
 
 
-![Image 298](../../assets/images/ros/practice/practice-05-07/img_066_298.webp)
 
 
 ![Image 299](../../assets/images/ros/practice/practice-05-07/img_066_299.webp)
@@ -1815,7 +1745,6 @@ frame.shape = (480, 640)
 ![Image 300](../../assets/images/ros/practice/practice-05-07/img_067_300.webp)
 
 
-![Image 301](../../assets/images/ros/practice/practice-05-07/img_067_301.webp)
 
 
 ![Image 302](../../assets/images/ros/practice/practice-05-07/img_067_302.webp)
@@ -1837,7 +1766,6 @@ main()에서 ros2를 초기화하고 실행
 ![Image 305](../../assets/images/ros/practice/practice-05-07/img_068_305.webp)
 
 
-![Image 306](../../assets/images/ros/practice/practice-05-07/img_068_306.webp)
 
 
 ![Image 307](../../assets/images/ros/practice/practice-05-07/img_068_307.webp)
@@ -1876,7 +1804,6 @@ ROS2와 차선인식
 ![Image 309](../../assets/images/ros/practice/practice-05-07/img_069_309.webp)
 
 
-![Image 310](../../assets/images/ros/practice/practice-05-07/img_069_310.webp)
 
 
 ![Image 311](../../assets/images/ros/practice/practice-05-07/img_069_311.webp)
@@ -1906,7 +1833,6 @@ ROS2와 차선인식
 ![Image 316](../../assets/images/ros/practice/practice-05-07/img_070_316.webp)
 
 
-![Image 317](../../assets/images/ros/practice/practice-05-07/img_070_317.webp)
 
 
 ![Image 318](../../assets/images/ros/practice/practice-05-07/img_070_318.webp)
@@ -1941,7 +1867,6 @@ ROS2와 차선인식
 ![Image 322](../../assets/images/ros/practice/practice-05-07/img_071_322.webp)
 
 
-![Image 323](../../assets/images/ros/practice/practice-05-07/img_071_323.webp)
 
 
 ROS2와 차선인식
@@ -1960,7 +1885,6 @@ ROS2와 차선인식
 ![Image 325](../../assets/images/ros/practice/practice-05-07/img_072_325.webp)
 
 
-![Image 326](../../assets/images/ros/practice/practice-05-07/img_072_326.webp)
 
 
 ![Image 327](../../assets/images/ros/practice/practice-05-07/img_072_327.webp)
@@ -1969,7 +1893,6 @@ ROS2와 차선인식
 ![Image 328](../../assets/images/ros/practice/practice-05-07/img_072_328.webp)
 
 
-![Image 329](../../assets/images/ros/practice/practice-05-07/img_072_329.webp)
 
 
 4. medianBlur 적용
@@ -2009,10 +1932,8 @@ Edge는 잘 보존하고 잡음만 깔끔하게 제거
 ![Image 332](../../assets/images/ros/practice/practice-05-07/img_073_332.webp)
 
 
-![Image 333](../../assets/images/ros/practice/practice-05-07/img_073_333.webp)
 
 
-![Image 334](../../assets/images/ros/practice/practice-05-07/img_073_334.webp)
 
 
 5. Warp변환(이미지투시변환)으로 차선을 평행하게 만들기
@@ -2031,10 +1952,8 @@ ROS2와 차선인식
 ![Image 336](../../assets/images/ros/practice/practice-05-07/img_074_336.webp)
 
 
-![Image 337](../../assets/images/ros/practice/practice-05-07/img_074_337.webp)
 
 
-![Image 338](../../assets/images/ros/practice/practice-05-07/img_074_338.webp)
 
 
 ![Image 339](../../assets/images/ros/practice/practice-05-07/img_074_339.webp)
@@ -2062,13 +1981,11 @@ OpenCV 함수로 변환 매트릭스를 계산
 ![Image 340](../../assets/images/ros/practice/practice-05-07/img_075_340.webp)
 
 
-![Image 341](../../assets/images/ros/practice/practice-05-07/img_075_341.webp)
 
 
 ![Image 342](../../assets/images/ros/practice/practice-05-07/img_075_342.webp)
 
 
-![Image 343](../../assets/images/ros/practice/practice-05-07/img_075_343.webp)
 
 
 5. Warp변환으로 차선을 평행하게 만들기
@@ -2089,13 +2006,11 @@ ROS2와 차선인식
 ![Image 344](../../assets/images/ros/practice/practice-05-07/img_076_344.webp)
 
 
-![Image 345](../../assets/images/ros/practice/practice-05-07/img_076_345.webp)
 
 
 ![Image 346](../../assets/images/ros/practice/practice-05-07/img_076_346.webp)
 
 
-![Image 347](../../assets/images/ros/practice/practice-05-07/img_076_347.webp)
 
 
 ![Image 348](../../assets/images/ros/practice/practice-05-07/img_076_348.webp)
@@ -2121,13 +2036,11 @@ ROS2와 차선인식
 가장Edge가 강한 필터 고르기
 
 
-![Image 349](../../assets/images/ros/practice/practice-05-07/img_077_349.webp)
 
 
 ![Image 350](../../assets/images/ros/practice/practice-05-07/img_077_350.webp)
 
 
-![Image 351](../../assets/images/ros/practice/practice-05-07/img_077_351.webp)
 
 
 ![Image 352](../../assets/images/ros/practice/practice-05-07/img_077_352.webp)
@@ -2151,7 +2064,6 @@ ROS2와 차선인식
 ![Image 354](../../assets/images/ros/practice/practice-05-07/img_078_354.webp)
 
 
-![Image 355](../../assets/images/ros/practice/practice-05-07/img_078_355.webp)
 
 
 ![Image 356](../../assets/images/ros/practice/practice-05-07/img_078_356.webp)
@@ -2192,7 +2104,6 @@ ROS2와 차선인식
 ![Image 359](../../assets/images/ros/practice/practice-05-07/img_079_359.webp)
 
 
-![Image 360](../../assets/images/ros/practice/practice-05-07/img_079_360.webp)
 
 
 ROS2와 차선인식
@@ -2214,10 +2125,8 @@ subscriber_node.py에서 slide_window알고리즘을호출할 때 이미지의 �
 ![Image 362](../../assets/images/ros/practice/practice-05-07/img_080_362.webp)
 
 
-![Image 363](../../assets/images/ros/practice/practice-05-07/img_080_363.webp)
 
 
-![Image 364](../../assets/images/ros/practice/practice-05-07/img_080_364.webp)
 
 
 ![Image 365](../../assets/images/ros/practice/practice-05-07/img_080_365.webp)
@@ -2262,7 +2171,6 @@ ROS2와 차선인식
 ![Image 369](../../assets/images/ros/practice/practice-05-07/img_081_369.webp)
 
 
-![Image 370](../../assets/images/ros/practice/practice-05-07/img_081_370.webp)
 
 
 2. 슬라이딩 윈도우 기본변수 세팅
@@ -2283,7 +2191,6 @@ ROS2와 차선인식
 ![Image 372](../../assets/images/ros/practice/practice-05-07/img_082_372.webp)
 
 
-![Image 373](../../assets/images/ros/practice/practice-05-07/img_082_373.webp)
 
 
 ▪
@@ -2311,7 +2218,6 @@ ROS2와 차선인식
 ![Image 376](../../assets/images/ros/practice/practice-05-07/img_083_376.webp)
 
 
-![Image 377](../../assets/images/ros/practice/practice-05-07/img_083_377.webp)
 
 
 ![Image 378](../../assets/images/ros/practice/practice-05-07/img_083_378.webp)
@@ -2330,7 +2236,6 @@ ROS2와 차선인식
 ![Image 380](../../assets/images/ros/practice/practice-05-07/img_084_380.webp)
 
 
-![Image 381](../../assets/images/ros/practice/practice-05-07/img_084_381.webp)
 
 
 4. 슬라이딩 윈도우에서 차선을 찾은 경우(Case 2: 한 쪽만)
@@ -2348,7 +2253,6 @@ ROS2와 차선인식
 ![Image 383](../../assets/images/ros/practice/practice-05-07/img_085_383.webp)
 
 
-![Image 384](../../assets/images/ros/practice/practice-05-07/img_085_384.webp)
 
 
 이론
@@ -2366,7 +2270,6 @@ ROS2와 차선인식
 ![Image 385](../../assets/images/ros/practice/practice-05-07/img_086_385.webp)
 
 
-![Image 386](../../assets/images/ros/practice/practice-05-07/img_086_386.webp)
 
 
 ![Image 387](../../assets/images/ros/practice/practice-05-07/img_086_387.webp)
@@ -2466,13 +2369,10 @@ Open3D 좌표계
 ![Image 402](../../assets/images/ros/practice/practice-05-07/img_091_402.webp)
 
 
-![Image 403](../../assets/images/ros/practice/practice-05-07/img_091_403.webp)
 
 
-![Image 404](../../assets/images/ros/practice/practice-05-07/img_091_404.webp)
 
 
-![Image 405](../../assets/images/ros/practice/practice-05-07/img_091_405.webp)
 
 
 ![Image 406](../../assets/images/ros/practice/practice-05-07/img_091_406.webp)
@@ -2563,7 +2463,6 @@ opencv
 ![Image 418](../../assets/images/ros/practice/practice-05-07/img_094_418.webp)
 
 
-![Image 419](../../assets/images/ros/practice/practice-05-07/img_094_419.webp)
 
 
 ![Image 420](../../assets/images/ros/practice/practice-05-07/img_094_420.webp)
@@ -2583,7 +2482,6 @@ Open3D와ROS2
 ![Image 423](../../assets/images/ros/practice/practice-05-07/img_095_423.webp)
 
 
-![Image 424](../../assets/images/ros/practice/practice-05-07/img_095_424.webp)
 
 
 ![Image 425](../../assets/images/ros/practice/practice-05-07/img_095_425.webp)
@@ -2605,7 +2503,6 @@ Open3D와ROS2
 ![Image 428](../../assets/images/ros/practice/practice-05-07/img_096_428.webp)
 
 
-![Image 429](../../assets/images/ros/practice/practice-05-07/img_096_429.webp)
 
 
 ![Image 430](../../assets/images/ros/practice/practice-05-07/img_096_430.webp)
@@ -2632,7 +2529,6 @@ opencv
 ![Image 434](../../assets/images/ros/practice/practice-05-07/img_097_434.webp)
 
 
-![Image 435](../../assets/images/ros/practice/practice-05-07/img_097_435.webp)
 
 
 ![Image 436](../../assets/images/ros/practice/practice-05-07/img_097_436.webp)
@@ -2646,7 +2542,6 @@ Open3D와ROS2
 ![Image 437](../../assets/images/ros/practice/practice-05-07/img_098_437.webp)
 
 
-![Image 438](../../assets/images/ros/practice/practice-05-07/img_098_438.webp)
 
 
 ![Image 439](../../assets/images/ros/practice/practice-05-07/img_098_439.webp)
@@ -2674,7 +2569,6 @@ Open3D와ROS2
 ![Image 444](../../assets/images/ros/practice/practice-05-07/img_099_444.webp)
 
 
-![Image 445](../../assets/images/ros/practice/practice-05-07/img_099_445.webp)
 
 
 ![Image 446](../../assets/images/ros/practice/practice-05-07/img_099_446.webp)
@@ -2698,7 +2592,6 @@ Add버튼 클릭
 ![Image 449](../../assets/images/ros/practice/practice-05-07/img_100_449.webp)
 
 
-![Image 450](../../assets/images/ros/practice/practice-05-07/img_100_450.webp)
 
 
 마우스
@@ -2723,7 +2616,6 @@ Open3D와ROS2
 ![Image 452](../../assets/images/ros/practice/practice-05-07/img_101_452.webp)
 
 
-![Image 453](../../assets/images/ros/practice/practice-05-07/img_101_453.webp)
 
 
 ▪voxel_size를 0.05로 설정하면듬성듬성 랜더링되는 3D모델을 볼 수 있다
@@ -2739,7 +2631,6 @@ Open3D와ROS2
 ![Image 455](../../assets/images/ros/practice/practice-05-07/img_102_455.webp)
 
 
-![Image 456](../../assets/images/ros/practice/practice-05-07/img_102_456.webp)
 
 
 ![Image 457](../../assets/images/ros/practice/practice-05-07/img_102_457.webp)
@@ -2760,7 +2651,6 @@ Open3D와ROS2
 ![Image 460](../../assets/images/ros/practice/practice-05-07/img_103_460.webp)
 
 
-![Image 461](../../assets/images/ros/practice/practice-05-07/img_103_461.webp)
 
 
 ▪pcd_publisher_node.py
@@ -2771,7 +2661,6 @@ Open3D와ROS2
 ✓코드와 설명
 
 
-![Image 462](../../assets/images/ros/practice/practice-05-07/img_104_462.webp)
 
 
 ![Image 463](../../assets/images/ros/practice/practice-05-07/img_104_463.webp)
@@ -2780,7 +2669,6 @@ Open3D와ROS2
 ![Image 464](../../assets/images/ros/practice/practice-05-07/img_104_464.webp)
 
 
-![Image 465](../../assets/images/ros/practice/practice-05-07/img_104_465.webp)
 
 
 ▪.ply파일
@@ -2792,7 +2680,6 @@ Open3D와ROS2
 ✓코드와 설명
 
 
-![Image 466](../../assets/images/ros/practice/practice-05-07/img_105_466.webp)
 
 
 ![Image 467](../../assets/images/ros/practice/practice-05-07/img_105_467.webp)
@@ -2801,16 +2688,13 @@ Open3D와ROS2
 ![Image 468](../../assets/images/ros/practice/practice-05-07/img_105_468.webp)
 
 
-![Image 469](../../assets/images/ros/practice/practice-05-07/img_105_469.webp)
 
 
 ![Image 470](../../assets/images/ros/practice/practice-05-07/img_105_470.webp)
 
 
-![Image 471](../../assets/images/ros/practice/practice-05-07/img_105_471.webp)
 
 
-![Image 472](../../assets/images/ros/practice/practice-05-07/img_105_472.webp)
 
 
 ![Image 473](../../assets/images/ros/practice/practice-05-07/img_105_473.webp)
@@ -2827,7 +2711,6 @@ Open3D와ROS2
 ![Image 475](../../assets/images/ros/practice/practice-05-07/img_106_475.webp)
 
 
-![Image 476](../../assets/images/ros/practice/practice-05-07/img_106_476.webp)
 
 
 ![Image 477](../../assets/images/ros/practice/practice-05-07/img_106_477.webp)
@@ -2858,13 +2741,11 @@ Open3D와ROS2
 ![Image 479](../../assets/images/ros/practice/practice-05-07/img_107_479.webp)
 
 
-![Image 480](../../assets/images/ros/practice/practice-05-07/img_107_480.webp)
 
 
 ![Image 481](../../assets/images/ros/practice/practice-05-07/img_107_481.webp)
 
 
-![Image 482](../../assets/images/ros/practice/practice-05-07/img_107_482.webp)
 
 
 ▪Voxel
@@ -2887,7 +2768,6 @@ Open3D와ROS2
 PointCloud2 interface
 
 
-![Image 483](../../assets/images/ros/practice/practice-05-07/img_108_483.webp)
 
 
 ![Image 484](../../assets/images/ros/practice/practice-05-07/img_108_484.webp)
@@ -2902,7 +2782,6 @@ Open3D와ROS2
 ![Image 487](../../assets/images/ros/practice/practice-05-07/img_108_487.webp)
 
 
-![Image 488](../../assets/images/ros/practice/practice-05-07/img_108_488.webp)
 
 
 ![Image 489](../../assets/images/ros/practice/practice-05-07/img_108_489.webp)
@@ -2935,13 +2814,11 @@ Open3D와ROS2
 ![Image 490](../../assets/images/ros/practice/practice-05-07/img_109_490.webp)
 
 
-![Image 491](../../assets/images/ros/practice/practice-05-07/img_109_491.webp)
 
 
 ![Image 492](../../assets/images/ros/practice/practice-05-07/img_109_492.webp)
 
 
-![Image 493](../../assets/images/ros/practice/practice-05-07/img_109_493.webp)
 
 
 ![Image 494](../../assets/images/ros/practice/practice-05-07/img_109_494.webp)
@@ -2966,19 +2843,15 @@ Open3D와ROS2
 ![Image 497](../../assets/images/ros/practice/practice-05-07/img_110_497.webp)
 
 
-![Image 498](../../assets/images/ros/practice/practice-05-07/img_110_498.webp)
 
 
 ![Image 499](../../assets/images/ros/practice/practice-05-07/img_110_499.webp)
 
 
-![Image 500](../../assets/images/ros/practice/practice-05-07/img_110_500.webp)
 
 
-![Image 501](../../assets/images/ros/practice/practice-05-07/img_110_501.webp)
 
 
-![Image 502](../../assets/images/ros/practice/practice-05-07/img_110_502.webp)
 
 
 ▪행렬의 회전
@@ -2995,7 +2868,6 @@ Open3D와ROS2
 X
 
 
-![Image 503](../../assets/images/ros/practice/practice-05-07/img_111_503.webp)
 
 
 ![Image 504](../../assets/images/ros/practice/practice-05-07/img_111_504.webp)
@@ -3004,16 +2876,12 @@ X
 ![Image 505](../../assets/images/ros/practice/practice-05-07/img_111_505.webp)
 
 
-![Image 506](../../assets/images/ros/practice/practice-05-07/img_111_506.webp)
 
 
-![Image 507](../../assets/images/ros/practice/practice-05-07/img_111_507.webp)
 
 
-![Image 508](../../assets/images/ros/practice/practice-05-07/img_111_508.webp)
 
 
-![Image 509](../../assets/images/ros/practice/practice-05-07/img_111_509.webp)
 
 
 3차원에서 회전 행렬
@@ -3029,7 +2897,6 @@ Open3D와ROS2
 ![Image 510](../../assets/images/ros/practice/practice-05-07/img_112_510.webp)
 
 
-![Image 511](../../assets/images/ros/practice/practice-05-07/img_112_511.webp)
 
 
 ![Image 512](../../assets/images/ros/practice/practice-05-07/img_112_512.webp)
@@ -3041,7 +2908,6 @@ Open3D와ROS2
 ![Image 514](../../assets/images/ros/practice/practice-05-07/img_112_514.webp)
 
 
-![Image 515](../../assets/images/ros/practice/practice-05-07/img_112_515.webp)
 
 
 ▪rotate_points_90()
@@ -3063,7 +2929,6 @@ Open3D와ROS2
 ![Image 517](../../assets/images/ros/practice/practice-05-07/img_113_517.webp)
 
 
-![Image 518](../../assets/images/ros/practice/practice-05-07/img_113_518.webp)
 
 
 Open3D와ROS2
@@ -3076,7 +2941,6 @@ Open3D와ROS2
 ![Image 519](../../assets/images/ros/practice/practice-05-07/img_114_519.webp)
 
 
-![Image 520](../../assets/images/ros/practice/practice-05-07/img_114_520.webp)
 
 
 ![Image 521](../../assets/images/ros/practice/practice-05-07/img_114_521.webp)
@@ -3103,10 +2967,8 @@ colors는 int타입으로 바꾼다
 ![Image 524](../../assets/images/ros/practice/practice-05-07/img_115_524.webp)
 
 
-![Image 525](../../assets/images/ros/practice/practice-05-07/img_115_525.webp)
 
 
-![Image 526](../../assets/images/ros/practice/practice-05-07/img_115_526.webp)
 
 
 Open3D와ROS2
@@ -3124,10 +2986,8 @@ Open3D와ROS2
 ![Image 529](../../assets/images/ros/practice/practice-05-07/img_116_529.webp)
 
 
-![Image 530](../../assets/images/ros/practice/practice-05-07/img_116_530.webp)
 
 
-![Image 531](../../assets/images/ros/practice/practice-05-07/img_116_531.webp)
 
 
 ▪main()
@@ -3145,7 +3005,6 @@ voxel_size에 대한 인자와
 ![Image 533](../../assets/images/ros/practice/practice-05-07/img_117_533.webp)
 
 
-![Image 534](../../assets/images/ros/practice/practice-05-07/img_117_534.webp)
 
 
 ▪pcd_subscriber_node.py
@@ -3162,7 +3021,6 @@ Open3D와ROS2
 ![Image 536](../../assets/images/ros/practice/practice-05-07/img_118_536.webp)
 
 
-![Image 537](../../assets/images/ros/practice/practice-05-07/img_118_537.webp)
 
 
 ▪pcd_subscriber_node.py
@@ -3187,7 +3045,6 @@ Open3D와ROS2
 ![Image 539](../../assets/images/ros/practice/practice-05-07/img_119_539.webp)
 
 
-![Image 540](../../assets/images/ros/practice/practice-05-07/img_119_540.webp)
 
 
 #기타 시각화 및 업데이트 코드 
@@ -3219,7 +3076,6 @@ o3d.utility.Vector3dVector(pcd_as_numpy_array)
 ![Image 542](../../assets/images/ros/practice/practice-05-07/img_120_542.webp)
 
 
-![Image 543](../../assets/images/ros/practice/practice-05-07/img_120_543.webp)
 
 
 3D 데이터에 들어가는 각 점들의 정보 (예: 위치, 색상 등)가 
@@ -3236,7 +3092,6 @@ Open3D와ROS2
 ![Image 545](../../assets/images/ros/practice/practice-05-07/img_121_545.webp)
 
 
-![Image 546](../../assets/images/ros/practice/practice-05-07/img_121_546.webp)
 
 
 ![Image 547](../../assets/images/ros/practice/practice-05-07/img_121_547.webp)
@@ -3265,7 +3120,6 @@ yield를 통해 함수 실행 중간에 unpack한 값을 return해줌
 ![Image 549](../../assets/images/ros/practice/practice-05-07/img_122_549.webp)
 
 
-![Image 550](../../assets/images/ros/practice/practice-05-07/img_122_550.webp)
 
 
 Open3D와ROS2
@@ -3291,7 +3145,6 @@ For문
 ![Image 552](../../assets/images/ros/practice/practice-05-07/img_123_552.webp)
 
 
-![Image 553](../../assets/images/ros/practice/practice-05-07/img_123_553.webp)
 
 
 ▪main()
@@ -3317,7 +3170,6 @@ PointCloud2 메시지 생성 및 Publishing
 ![Image 555](../../assets/images/ros/practice/practice-05-07/img_124_555.webp)
 
 
-![Image 556](../../assets/images/ros/practice/practice-05-07/img_124_556.webp)
 
 
 Open3D와ROS2
@@ -3332,7 +3184,6 @@ Open3D와ROS2
 ![Image 557](../../assets/images/ros/practice/practice-05-07/img_125_557.webp)
 
 
-![Image 558](../../assets/images/ros/practice/practice-05-07/img_125_558.webp)
 
 
 ![Image 559](../../assets/images/ros/practice/practice-05-07/img_125_559.webp)

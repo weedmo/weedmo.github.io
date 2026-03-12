@@ -1,4 +1,4 @@
-# Rokey Study Notes
+# weedmo notes
 
 ROS2 로보틱스와 AI/딥러닝 학습 자료를 정리한 사이트입니다.
 
