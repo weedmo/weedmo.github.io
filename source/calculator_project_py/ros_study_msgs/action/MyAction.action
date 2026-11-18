@@ -1,8 +1,0 @@
-# Goal
-float32 go
----
-# Request
-float32 res
----
-# Feedback
-string[] str

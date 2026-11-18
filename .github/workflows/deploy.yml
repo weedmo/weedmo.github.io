@@ -1,16 +1,65 @@
-name: Deploy MkDocs
+name: Deploy Resume
+
+# 이력서 소스는 weedmo/resume-generator-nextjs 에 있음.
+# 이 워크플로가 그 레포를 빌드해 gh-pages 브랜치(= weedmo.github.io)에 배포함.
 on:
   push:
     branches: [main]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [resume-updated]
+  schedule:
+    - cron: '0 18 * * *' # 매일 03:00 KST, 이력서 변경 반영
+
 permissions:
   contents: write
+
+concurrency:
+  group: deploy-resume
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Checkout resume source
+        uses: actions/checkout@v4
         with:
-          python-version: '3.12'
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+          repository: weedmo/resume-generator-nextjs
+          path: resume
+
+      - name: Setup Node (site build)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16
+
+      - name: Build Korean resume
+        working-directory: resume
+        run: |
+          npm install --legacy-peer-deps
+          cp payload/index_ko.ts payload/index.ts
+          npx next build
+          npx next export -o docs/ko
+          touch docs/ko/.nojekyll
+
+      - name: Setup Node (PDF)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate PDF
+        working-directory: resume
+        run: |
+          npm install puppeteer --no-save --legacy-peer-deps
+          node scripts/generate-pdf.js ko
+
+      - name: Deploy to gh-pages
+        run: |
+          cd resume/docs/ko
+          git init -q
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -q -b gh-pages
+          git add -A
+          git commit -q -m "deploy resume from weedmo/resume-generator-nextjs@${{ github.sha }}"
+          git push -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
